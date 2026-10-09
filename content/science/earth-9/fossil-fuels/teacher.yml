@@ -1,0 +1,33 @@
+summary: Students explain that burning fossil fuels moves carbon from the geosphere to the atmosphere and why this is a net addition to the air's carbon store (AC9S9U03, node 4).
+time: 22
+timing: "Engage and Explore 9 min · Explain 7 min · Evaluate 3 min · Typical adds 3 min, Wider about 1 min"
+goals:
+  - I can explain where the carbon in fossil fuels comes from.
+  - I can explain why burning them raises CO₂ in the air even though natural flows are bigger.
+  - I can describe where the extra carbon goes.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The common reasoning error is comparing human emissions (about 10 GtC a year) with gross natural flows (about 120) and concluding they can't matter; the board shows the natural flows balance, so the extra accumulates.
+
+  Board notes: the model starts balanced at 280 ppm (or at 420 ppm with `start: today`, burning at 10). Oceans and plants take up extra CO₂ in proportion to how far the air is above 280 ppm, so in the model about 60% of what is burned stays in the air over 50 years (about 45% in the real world). Numbers are rounded; the model leaves out land-use change and slow rock processes. The typical tier asks for a burning rate that holds today's CO₂ steady (about 4 GtC a year in the model: well under half of today's emissions, and the uptake would shrink over time in reality).
+running:
+  - "Engage: count how many chose 'nothing: 10 is tiny'."
+  - "Explore: ask where the burned carbon went (the stores show it)."
+  - "Explain: the 'why it adds up' question is the checkpoint."
+stuck:
+  - see: "A student says the burned carbon is destroyed."
+    ask: "What does burning make?"
+    fix: "CO₂: the carbon moves to the air."
+  - see: "A student thinks CO₂ rises by exactly the amount burned."
+    ask: "Did the oceans and living things change too?"
+    fix: "They took up part of it (about 40% in the model)."
+stretch: "Calculate how long it would take the oceans and plants to remove 10 GtC at the board's uptake rate."
+support: "Give the carbon cycle diagram with the burning arrow and fossil fuel box to add."
+leads: |
+  Next: Year 10, the greenhouse effect and climate change (AC9S10U04).
+exit:
+  q: "Why does burning fossil fuels raise CO₂ in the air?"
+  a: "It moves carbon stored in the geosphere over millions of years into the air in years. The natural flows were balanced, so the extra builds up; oceans and plants take up only part of it."
+explain: |
+  **Combustion** of fossil fuels moves carbon from the geosphere, where it was stored over millions of years, to the atmosphere in years. Oceans and plants take up part of it; the rest builds up, so CO₂ in the air rises.

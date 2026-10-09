@@ -1,0 +1,30 @@
+summary: Students name and describe Earth's four spheres, give examples of matter and processes in each, and recognise that spheres overlap and interact (AC9S9U03, node 1, a hinge node).
+time: 18
+timing: "Engage and Explore 7 min · Explain 6 min · Evaluate 3 min · Typical adds 1 min, Wider about 1 min"
+goals:
+  - I can name the four spheres and say what each contains.
+  - I can give an example of matter in each sphere.
+  - I can explain that the spheres interact, with examples where they meet.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge is the framework itself: students who can't place things in spheres can't place carbon flows between them. The board accepts two answers for the cloud (atmosphere or hydrosphere) and the soil (geosphere or biosphere) and explains why.
+
+  Board notes: a simple drawn landscape; students click a thing, then choose its sphere. The wider question on cool burning is general; use local First Nations sources for detail about practice on your Country.
+running:
+  - "Engage: count how many chose 'more than one'."
+  - "Explore: discuss the cloud and the soil."
+  - "Explain: the tree question is the checkpoint (processes cross spheres)."
+stuck:
+  - see: "A student puts the ocean in the biosphere because fish live there."
+    ask: "Is the water itself alive?"
+    fix: "The water is hydrosphere; the fish in it are biosphere."
+stretch: "Which sphere holds the most carbon? (Hint: the next lesson.)"
+support: "Give a four-column table with one example filled in for each sphere."
+leads: |
+  Next: photosynthesis and respiration moving carbon (node 3), then combustion (node 4).
+exit:
+  q: "Name the four spheres and give one example of something where two of them meet."
+  a: "Atmosphere, biosphere, hydrosphere, geosphere. For example, soil (geosphere and biosphere) or a cloud (atmosphere and hydrosphere)."
+explain: |
+  **Earth's spheres:** atmosphere (air), biosphere (living things), hydrosphere (water), geosphere (rock, soil, magma). They overlap and interact as one system.

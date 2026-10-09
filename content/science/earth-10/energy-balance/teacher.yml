@@ -1,0 +1,30 @@
+summary: Students explain energy balance as incoming absorbed solar energy equalling outgoing infrared over time, describe energy flows between the spheres, and identify the ocean as a heat store (AC9S10U04, node 2, a hinge node).
+time: 22
+timing: "Engage and Explore 8 min · Explain 8 min · Evaluate 3 min · Typical adds 1 min, Wider about 2 min"
+goals:
+  - I can explain what energy balance means.
+  - I can explain how a temperature change restores the balance.
+  - I can describe energy flows between spheres and the ocean's role as a store.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge is balance as a dynamic equality (big flows in and out), which the greenhouse lesson then disturbs.
+
+  Board notes: a one-layer energy-balance model. Average sunlight 340 W/m², 30% reflected; the surface gives off infrared (σT⁴); the air absorbs part of it and sends half back down. The starting temperature is the model's balance (about 15 °C). A change in sunlight or reflection creates an imbalance; the temperature then moves over a few decades (the model's heat store stands for the upper ocean) until out equals in. Real feedbacks (water vapour, ice, clouds) are left out.
+running:
+  - "Engage: count how many chose 'the energy is destroyed'."
+  - "Explore: ask what happened to 'energy out' as the temperature rose."
+  - "Explain: the 'why did it stop rising' question is the checkpoint."
+stuck:
+  - see: "A student thinks balance means no energy is moving."
+    ask: "What are the in and out numbers?"
+    fix: "About 240 W/m² each way: big flows, equal."
+stretch: "If sunlight rose 1%, roughly how much would the model's temperature change? Try it."
+support: "Give the diagram with arrows to label: in, reflected, absorbed, infrared out."
+leads: |
+  Next: the greenhouse effect (node 3). Later: human activity and the energy imbalance (nodes 4 to 6).
+exit:
+  q: "What is energy balance, and what happens if more energy comes in than goes out?"
+  a: "Energy in equals energy out over time. If more comes in, Earth warms until it gives off enough extra infrared to balance again."
+explain: |
+  **Energy balance:** absorbed sunlight = infrared given off to space. If in exceeds out, Earth warms until out catches up. Energy moves between spheres by radiation, conduction and convection; the oceans store and carry heat.

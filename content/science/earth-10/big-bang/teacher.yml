@@ -1,0 +1,30 @@
+summary: Students describe the big bang as the origin of space, time and matter about 13.8 billion years ago and outline the main stages as the universe expanded and cooled (AC9S10U03, node 2, a hinge node).
+time: 22
+timing: "Engage and Explore 7 min · Explain 9 min · Evaluate 3 min · Typical adds 1 min, Wider about 2 min"
+goals:
+  - I can describe what the big bang theory says.
+  - I can outline at least three stages from the big bang to galaxies.
+  - I can explain that the universe has been expanding and cooling.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge is a clear model to test evidence against (nodes 3 to 5). The common misconception is an explosion at a point in empty space.
+
+  Board notes: ten stages, evenly spaced on the timeline (the real times run from about 10⁻⁴³ s to 13.8 billion years). The patch of universe is a picture, not a simulation: its grid widens to show expansion, and its colour follows the temperature. Times and temperatures are rounded textbook values.
+running:
+  - "Engage: count how many chose the explosion."
+  - "Explore: ask what happened to the temperature at every step."
+  - "Explain: the atoms question is the checkpoint (cooling is the cause)."
+stuck:
+  - see: "A student asks what was before the big bang, or what it expanded into."
+    ask: "If space itself began then, is there an 'outside' or a 'before' in the model?"
+    fix: "Not in the model: it describes the universe from the first instant. Those are open questions."
+stretch: "Why does looking at very distant galaxies mean looking back in time?"
+support: "Give a timeline strip with the stage names to place."
+leads: |
+  Next: redshift and the expanding universe (node 3). Later: the cosmic microwave background and the proportions of hydrogen and helium as evidence (nodes 4 and 5).
+exit:
+  q: "Outline three stages of the universe after the big bang."
+  a: "For example: the first nuclei of hydrogen and helium (3 minutes), atoms forming and light set free (380 000 years), the first stars (about 200 million years), galaxies (about 1 billion years)."
+explain: |
+  **The big bang theory:** space, time, matter and energy began about 13.8 billion years ago in an extremely hot, dense state; the universe has expanded and cooled since, forming nuclei, atoms, stars and galaxies. Heavier elements were made in stars.

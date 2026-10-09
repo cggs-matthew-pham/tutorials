@@ -1,0 +1,33 @@
+summary: Students explain photosynthesis and respiration (including decomposition) as opposite flows of carbon between the atmosphere and biosphere, and explain balance between them (AC9S9U03, node 3, a hinge node).
+time: 22
+timing: "Engage and Explore 9 min · Explain 7 min · Evaluate 3 min · Typical adds 2 min, Wider about 1 min"
+goals:
+  - I can explain that photosynthesis moves carbon from the air into living things.
+  - I can explain that respiration and decomposition move it back.
+  - I can explain why the air's CO₂ stays steady when the flows balance.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge is representing each process as a directional flow between spheres. The misconception that plants are made from soil is raised in Engage.
+
+  Board notes: stores in billions of tonnes of carbon (GtC); the air starts at a balanced 280 ppm (before 1800). Photosynthesis takes about 120 GtC a year; respiration and decomposition return about the same; the oceans exchange about 80 each way. Switching a process off is a "what if": with respiration and decomposition off, plants draw the air's CO₂ down within years; with photosynthesis off, it climbs. The model's numbers are rounded and its rules simple (plants take up a little more CO₂ when there is more of it).
+running:
+  - "Engage: count how many chose the soil."
+  - "Explore: ask what happened in each run, and why."
+  - "Explain: the balance question is the checkpoint."
+stuck:
+  - see: "A student says only animals respire."
+    ask: "Do plant cells need energy at night?"
+    fix: "Yes: plants respire all the time, and so do decomposers."
+  - see: "A student says carbon is used up when plants grow."
+    ask: "Where did it go?"
+    fix: "Into the plant's body; it returns to the air when the plant respires, rots or burns."
+stretch: "If photosynthesis and respiration nearly balance, how did fossil fuels form?"
+support: "Give a two-box diagram (atmosphere, biosphere) with three blank arrows to label."
+leads: |
+  Next: burning fossil fuels (node 4). Later: the greenhouse effect (Year 10).
+exit:
+  q: "Describe how carbon moves between the air and living things."
+  a: "Photosynthesis takes CO₂ from the air into plants; respiration by plants, animals and decomposers returns it to the air as CO₂."
+explain: |
+  **Photosynthesis** moves carbon from the atmosphere into the biosphere; **respiration** and **decomposition** move it back. When these flows balance, the air's CO₂ stays steady.

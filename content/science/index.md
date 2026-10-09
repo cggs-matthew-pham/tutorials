@@ -28,8 +28,11 @@ pathways:
       - { path: science/physics-10, stage: extensions }
   - id: earth-space
     title: Earth and space
-    summary: The Earth, sun and moon, then rocks and moving plates.
+    summary: The Earth, sun and moon; rocks, Earth's layers and moving plates; the carbon cycle; the big bang and Earth's energy balance.
+    about: "**Year 7 Earth and space** follows AC9S7U03 (the Earth, sun and moon). **Year 8** follows AC9S8U04 (igneous rocks) and AC9S8U03 (Earth's layers and plates). **Year 9** follows AC9S9U03 (Earth's spheres and the carbon cycle). **Year 10** follows AC9S10U03 (the big bang and redshift) and AC9S10U04 (sunlight, energy balance and the greenhouse effect). One tutorial per hinge idea, plus a few others the same boards cover; nodes whose response is a class task are left to class work."
     courses:
       - { path: science/earth-7, stage: foundations }
       - { path: science/earth-8, stage: foundations }
+      - { path: science/earth-9, stage: extensions }
+      - { path: science/earth-10, stage: extensions }
 ---

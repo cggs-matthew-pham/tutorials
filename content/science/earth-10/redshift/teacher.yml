@@ -1,0 +1,30 @@
+summary: Students explain redshift as evidence that galaxies are moving away, describe Hubble's distance–speed pattern, and connect an expanding universe to the big bang model (AC9S10U03, node 3).
+time: 22
+timing: "Engage and Explore 8 min · Explain 8 min · Evaluate 3 min · Typical adds 2 min, Wider about 1 min"
+goals:
+  - I can explain what redshift tells us about a galaxy's motion.
+  - I can describe how speed depends on distance (Hubble's law).
+  - I can explain how an expanding universe supports the big bang theory.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The misconception to watch is galaxies flying away from a centre (and us being at it). Changing the home galaxy shows the same pattern from everywhere.
+
+  Board notes: a 2D field of galaxies; "Let space expand" stretches every distance by 1.6. Distances are in millions of light-years (one grid square is 100 million) and speeds use a Hubble constant of about 70 km/s per megaparsec (21.5 km/s for every million light-years). Spectra show four hydrogen lines, with the shift drawn 20 times bigger. Strictly, cosmological redshift is space stretching the light, not a Doppler effect from motion through space; the Doppler explanation is the curriculum's model.
+running:
+  - "Engage: count how many chose 'we are at the centre'."
+  - "Explore: collect a few class points on one graph."
+  - "Explain: the big bang link is the checkpoint."
+stuck:
+  - see: "A student says galaxies are moving away from us because we're special."
+    ask: "What happened when you lived in another galaxy?"
+    fix: "The same pattern: every galaxy sees the others moving away."
+stretch: "Use the graph's slope to estimate how long ago the galaxies were together (distance ÷ speed)."
+support: "Give a two-column table (distance, speed) to fill from the board."
+leads: |
+  Next: the cosmic microwave background and matter proportions (nodes 4 and 5), then Earth's energy balance (AC9S10U04).
+exit:
+  q: "What does redshift show, and how does it support the big bang?"
+  a: "Galaxies are moving away, farther ones faster: the universe is expanding. Run backwards, everything was once together in a hot, dense state."
+explain: |
+  **Redshift:** light from distant galaxies is stretched to longer wavelengths, so they are moving away. Farther galaxies move faster (Hubble's law): an expanding universe with no centre. Run backwards, it began together: the big bang.

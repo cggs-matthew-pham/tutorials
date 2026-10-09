@@ -223,3 +223,14 @@ button.clcard { cursor: pointer; }
 /* Formula */
 .fsvg { display: block; width: 100%; max-width: 420px; height: 170px; margin: 0 auto; }
 .fsvg .flab { font: 600 16px system-ui, sans-serif; fill: var(--ink); }
+
+
+/* Carbon cycle */
+.cgraph svg { display: block; width: 100%; max-width: 640px; height: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+.cgraph .ctick text { font: 11px system-ui, sans-serif; fill: var(--muted); }
+.cgraph .cgrid { stroke: var(--line); stroke-width: 1; }
+.cgraph .cline { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+.cgraph .hpt { fill: var(--accent); }
+.uspec svg { display: block; width: 100%; max-width: 560px; height: auto; margin-top: 6px; }
+.uspec text { font: 11px system-ui, sans-serif; fill: var(--muted); }
+.sphinfo { min-height: 4.6em; }

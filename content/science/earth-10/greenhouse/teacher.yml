@@ -1,0 +1,33 @@
+summary: Students explain how greenhouse gases absorb and re-emit outgoing infrared, distinguish the natural and enhanced greenhouse effect, and locate the mechanism in the energy-balance model (AC9S10U04, node 3, a hinge node).
+time: 24
+timing: "Engage and Explore 10 min · Explain 8 min · Evaluate 3 min · Typical adds 1 min, Wider about 2 min"
+goals:
+  - I can explain that greenhouse gases absorb and re-emit infrared from the surface.
+  - I can distinguish the natural and enhanced greenhouse effect.
+  - I can explain how more greenhouse gases upset the energy balance and warm the Earth.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconceptions: confusing the greenhouse effect with the ozone hole, and thinking greenhouse gases trap incoming sunlight. The board's sunlight arrow never changes when CO₂ changes; only the infrared arrows do.
+
+  Board notes: a one-layer model. The air absorbs a fraction of the surface's infrared that depends on CO₂ (calibrated so 280 ppm gives about 15 °C, no greenhouse gases about −18 °C, and doubling CO₂ about 3 °C of warming, the middle of the measured range of climate sensitivity, which in reality comes partly from feedbacks such as extra water vapour). "Remove all greenhouse gases" removes water vapour too. The temperature settles over a few decades in the model; the real deep ocean takes centuries.
+running:
+  - "Engage: count how many chose the ozone layer or trapping sunlight."
+  - "Explore: ask which arrows changed when CO₂ changed, and which didn't."
+  - "Explain: 'which flow' is the checkpoint."
+stuck:
+  - see: "A student says CO₂ heats the Earth because it's a hot gas."
+    ask: "Where does the extra energy come from?"
+    fix: "From the sun, as always: CO₂ slows its escape."
+  - see: "A student says the greenhouse effect is bad."
+    ask: "What was the temperature with no greenhouse gases?"
+    fix: "About −18 °C: the natural effect keeps Earth liveable; the problem is the enhanced effect."
+stretch: "Why does a cloudy night stay warmer than a clear night?"
+support: "Give the diagram with the infrared arrows unlabelled, to label absorbed, re-emitted down and escaping."
+leads: |
+  Next: human activity and the energy imbalance (node 4), indicators of climate change (node 5), evaluating responses (node 6). Year 9: the carbon cycle and combustion (AC9S9U03).
+exit:
+  q: "Explain how adding CO₂ warms the Earth."
+  a: "CO₂ absorbs infrared from the surface and sends some back down, so less energy escapes; energy in exceeds energy out, and Earth warms until it gives off enough to balance again."
+explain: |
+  **Greenhouse gases** absorb outgoing infrared and send some back down, slowing energy loss. The **natural** effect keeps Earth about 15 °C (not −18 °C); the **enhanced** effect from extra greenhouse gases upsets the balance, so Earth warms. Not the ozone hole.

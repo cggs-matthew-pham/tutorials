@@ -1,0 +1,34 @@
+summary: Students describe Earth's layers and their states, explain that temperature and pressure increase with depth, and identify the lithosphere as the rigid outer layer (AC9S8U03, node 1, a hinge node).
+time: 20
+timing: "Engage and Explore 8 min · Explain 7 min · Evaluate 3 min · Typical adds 1 min, Wider about 2 min"
+goals:
+  - I can name Earth's layers and say whether each is solid or liquid.
+  - I can explain that temperature and pressure increase with depth.
+  - I can explain that the lithosphere is the rigid outer shell (crust and top of the mantle).
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconception is a liquid mantle ("a sea of magma"). If the mantle were liquid, rigid plates wouldn't make sense. The board describes it as solid rock that flows very slowly.
+
+  Board notes: the default view enlarges the outer layers so they can be clicked; "Show it to scale" draws true thicknesses. Temperatures and pressures are rough textbook values joined smoothly (for example, about 1300 °C at the base of the lithosphere, about 5400 °C at the centre). Depths: continental crust about 35 km (oceanic about 7), lithosphere about 100 km, asthenosphere to about 350 km, core–mantle boundary 2890 km, inner core from 5150 km.
+running:
+  - "Engage: count how many chose the sea of magma."
+  - "Explore: ask what surprised them in the to-scale view."
+  - "Explain: the lithosphere question is the checkpoint."
+stuck:
+  - see: "A student says lava comes from a liquid mantle."
+    ask: "Where does the board say melting happens?"
+    fix: "Only in small pockets, where pressure drops or water is added: magma, not a whole liquid layer."
+  - see: "A student thinks the inner core must be liquid because it's hottest."
+    ask: "What else increases with depth?"
+    fix: "Pressure: enough to keep it solid."
+stretch: "Australia sits on very old, stable lithosphere. Why might that mean few volcanoes and big earthquakes here?"
+support: "Give a cross-section outline with the layer names and states in a box to place."
+leads: |
+  Next: what moves the plates (node 2).
+  In class: a hard-boiled egg with a cracked shell as a model of the lithosphere (and where it breaks down).
+exit:
+  q: "Name the only liquid layer and explain what the lithosphere is."
+  a: "The outer core. The lithosphere is the crust plus the rigid top of the mantle: the rigid outer shell broken into plates."
+explain: |
+  **Layers:** crust (thin, solid), mantle (solid, flows very slowly), outer core (liquid), inner core (solid). Temperature and pressure rise with depth. The **lithosphere** (crust + rigid upper mantle) is the rigid outer shell broken into plates; it rests on the soft asthenosphere.

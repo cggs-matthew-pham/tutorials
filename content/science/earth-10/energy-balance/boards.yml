@@ -1,0 +1,6 @@
+# Boards for "What keeps Earth's temperature steady?".
+
+# region: balance
+widget: climate
+mode: balance
+# endregion

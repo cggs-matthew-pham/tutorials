@@ -1,0 +1,6 @@
+# Boards for "Where does the sunlight go?".
+
+# region: surfaces
+widget: climate
+mode: albedo
+# endregion

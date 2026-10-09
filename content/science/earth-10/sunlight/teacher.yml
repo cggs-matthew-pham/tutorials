@@ -1,0 +1,30 @@
+summary: Students identify the sun as Earth's energy source and explain why different surfaces absorb or reflect different proportions of sunlight (albedo) (AC9S10U04, node 1, a hinge node).
+time: 18
+timing: "Engage and Explore 6 min · Explain 6 min · Evaluate 3 min · Typical adds 1 min, Wider about 1 min"
+goals:
+  - I can identify the sun as Earth's main energy source.
+  - I can distinguish absorbed from reflected sunlight with examples.
+  - I can explain why melting ice increases the energy absorbed.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge is the absorbed–reflected split: without it students can't explain why surface changes alter the energy balance (node 2), or why the greenhouse effect is about outgoing, not incoming, energy (node 3).
+
+  Board notes: surface albedos are typical values (ocean 6%, forest 15%, city 12%, grassland 25%, desert 35%, ice and snow 80%). The absorbed figure uses Earth's average incoming sunlight (340 W/m²) for the surfaces shown; the whole planet's 30% includes clouds, which the row doesn't.
+running:
+  - "Engage: count how many chose 'all of it warms the Earth'."
+  - "Explore: ask which button changed the reflected percentage most."
+  - "Explain: the melting ice question is the checkpoint."
+stuck:
+  - see: "A student says the ocean reflects a lot because it's shiny."
+    ask: "What percentage does the board give?"
+    fix: "About 6% on average: water reflects only at low sun angles."
+stretch: "Melting ice absorbs more, which warms, which melts more ice. What kind of feedback is that?"
+support: "Give a table of surfaces to rank by percentage reflected."
+leads: |
+  Next: energy balance between the spheres (node 2), then the greenhouse effect (node 3).
+exit:
+  q: "Why does replacing sea ice with open ocean warm the area?"
+  a: "Ice reflects most sunlight (about 80%); dark ocean absorbs most (reflects about 6%), so more energy is absorbed."
+explain: |
+  **Sunlight** is Earth's energy input. Some is **reflected** (the albedo, about 30% overall) and the rest **absorbed**. Bright surfaces reflect most; dark surfaces absorb most.

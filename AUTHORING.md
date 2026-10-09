@@ -585,6 +585,32 @@ Vary, Practise, Make).
     - `mode: tides`: the oceans' two bulges (moon, and smaller ones from the sun), a beach turning with the Earth
       (Play a day at the beach), Moon: next quarter or drag, and a month of tides with today marked. Values: `d` days
       since new moon, `r` range (m), `s` spring tides found (of 2), `q` neap tides found (of 2), `b` beach days.
+  - `widget: layers` (AC9S8U03 n1): a wedge of the Earth from surface to centre. Click a layer (crust, rigid upper
+    mantle, asthenosphere, mantle, outer core, inner core) to see its state and make-up; the Depth slider reads
+    temperature and pressure (rough textbook values); "Show it to scale" draws true thicknesses. `find:` limits the
+    layers that count. Values: `n` found, `k`, `d` depth, `t` °C, `p` thousand atmospheres, `m` deepest probe,
+    `s` 1 once the to-scale view was seen.
+  - `widget: carbon` (AC9S9U03): `mode: spheres`, a landscape of ten things to place in the four spheres (the cloud
+    and the soil accept two); values `n`, `k`, `w` wrong. `mode: cycle`, four stores (air, living things and soil,
+    oceans, fossil fuels) with flows in GtC a year; buttons switch photosynthesis, respiration and decay, and ocean
+    exchange; Run 10 or 50 years; a graph of CO₂ (ppm). `combustion: on` adds a Burning slider (0 to 20);
+    `start: today` starts at 420 ppm burning 10. Plants and oceans take up extra CO₂ in proportion to how far the air
+    is above 280 ppm (about 60% of burned carbon stays in the air over 50 years; the real figure is about 45%).
+    Values: `a` ppm, `y` years, `c` burning, `u`/`v` 1 once a run of 10 years or more lowered/raised CO₂ by 5 ppm or
+    more, `s` 1 once a run kept it steady (under 0.25 ppm a year), `f` processes off, `b` biosphere store, `o`, `r`.
+  - `widget: universe` (AC9S10U03): `mode: timeline`, ten stages from the big bang to today (Earlier / Later or
+    click the timeline) with temperature and a picture of a patch of space; values `n` visited, `k` 10, `s` now.
+    `mode: expand`, a field of galaxies: "Let space expand" stretches distances ×1.6; "Live in a different galaxy"
+    re-centres; click galaxies to measure distance, speed (H₀ about 70 km/s/Mpc) and a spectrum with the shift drawn
+    20 times bigger; points build a distance–speed graph. Values: `e` 1 once expanded, `h` homes tried, `m`
+    measured, `z` largest redshift ×1000, `q` 1 with 3 or more points.
+  - `widget: climate` (AC9S10U04): `mode: albedo`, a row of surfaces (`tiles: ocean, forest, ice, ...`, 4 to 10;
+    click to change; Melt the ice, Freeze the oceans, Clear the forests); values `a` % reflected, `e` absorbed W/m²,
+    `i` ice tiles, `k` kinds used, `g` range of % reflected seen. `mode: balance` (Sunlight and Reflected sliders)
+    and `mode: greenhouse` (CO₂ slider, Remove all greenhouse gases): a one-layer energy-balance model calibrated to
+    about 15 °C at 280 ppm, −18 °C with no greenhouse gases and +3 °C for double CO₂; Run 10 or 50 years with a
+    temperature graph. Values: `t` °C, `i` in, `o` out, `d` in − out, `y` years, `b` 1 once balance returned after
+    being upset, `c` changes, `g` ppm, `z` 1 once a run with no greenhouse gases went below −10 °C, `w` warmest.
   - Each task's `starter` loads its own board when the task is opened. Work is saved in the browser per step;
     `?fresh=1` on the board's address starts from the setup and saves nothing (slides on a shared projector).
   - The board's old address, `_playground-maths/`, forwards to it with the same parameters, so embeds keep working
