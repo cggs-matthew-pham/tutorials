@@ -53,7 +53,7 @@ export const MAKECODE_EXTENSIONS = {
 export const makecodeExtensions = (lesson) => (Array.isArray(lesson?.extensions) ? lesson.extensions : []).map((k) => MAKECODE_EXTENSIONS[k]).filter(Boolean);
 /** A lesson's extensions as MakeCode's package string ("name=version,name=version"), or '' for none. */
 export const makecodePackage = (lesson) => makecodeExtensions(lesson).map((e) => `${e.name}=${e.version}`).join(',');
-export const CHECK_TYPES = ['reflect', 'question', 'code', 'number', 'bug', 'match', 'trace', 'parsons', 'predict', 'answer', 'board', 'sort', 'flag'];
+export const CHECK_TYPES = ['reflect', 'question', 'code', 'number', 'bug', 'match', 'trace', 'parsons', 'predict', 'answer', 'board', 'sort', 'flag', 'working'];
 // What kind of fault an error item plants (bug, and error-based question or predict): see AUTHORING.md "Error tasks".
 export const FAULTS = ['syntax', 'runtime', 'logic', 'design'];
 
@@ -455,6 +455,15 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
         if (!Array.isArray(k.feedback) || !k.feedback.every((f) => Array.isArray(f) && f.length === 2 && str(String(f[0])) && str(f[1]))) err(where, 'check (answer) feedback must be a list of [wrong answer, what to say] pairs');
         else if (!formed) for (const [w] of k.feedback) { try { MATH.parse(String(w)); if (hasA && MATH.equivalent(String(w), String(k.answer))) err(where, `check (answer) feedback "${w}" is the right answer`); } catch (e) { err(where, `check (answer) feedback "${w}": ${e.message}`); } }
       }
+    }
+    else if (k.type === 'working') {
+      // Maths working, one step per line: each line equal to the one before (or, for equations, with the same
+      // solutions), the last in form:. Marked by Numbas (tools/maths-forms.mjs); validate runs example: through it.
+      if (!str(k.q)) err(where, 'check (working) needs q');
+      if (!str(String(k.start ?? ''))) err(where, 'check (working) needs start (the expression or equation to work from)');
+      if (!Array.isArray(k.example) || !k.example.length || !k.example.every((l) => str(String(l)))) err(where, 'check (working) needs example: a model solution, one line per step');
+      if (k.form !== undefined && !(['expanded', 'simplified', 'factorised'].includes(String(k.form)) || /^subject [a-zA-Z]$/.test(String(k.form)))) err(where, 'check (working) form must be expanded, simplified, factorised or subject x (a letter)');
+      if (k.wrong !== undefined && !(Array.isArray(k.wrong) && k.wrong.every((w) => Array.isArray(w) && w.every((l) => str(String(l)))))) err(where, 'check (working) wrong must be a list of planted wrong solutions, each a list of lines');
     }
     else if (k.type === 'board') {
       if (!str(k.text)) err(where, 'check (board) needs text, e.g. "Find the value of x that balances the scale."');

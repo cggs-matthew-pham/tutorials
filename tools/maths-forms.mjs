@@ -105,7 +105,60 @@ export function makeForms(Numbas) {
       return { ok: true, equivalent: true, unsure: true, why: 'That is equivalent. I could not check how it is written, so ask your teacher whether it is in the form they want.' };
     }
   }
-  return { check: check, form: function (answer, f) { try { return form(text(tree(answer)), f); } catch (e) { return 'unsure'; } }, MSG: MSG };
+  // Working: each line equal to the one before (expressions), or with the same solutions (equations: one line is a
+  // non-zero multiple of the other, as left − right), and the last line in the form. Lines are checked at sample values.
+  var PTS = [0.37, 1.21, -0.83, 2.17, -1.6, 0.59, 3.3];
+  function sides(s) { return clean(s).split('='); }
+  function diff(s) { var p = sides(s); return p.length === 2 ? tree('(' + text(tree(p[0])) + ')-(' + text(tree(p[1])) + ')') : tree(s); }
+  function values(t, names, shift) {
+    return PTS.map(function (x, i) { var v = {}; names.forEach(function (n, j) { v[n] = PTS[(i + j * 3 + shift) % PTS.length] + j * 0.11; }); var r = scope.evaluate(t, v); return r && typeof r.value === 'number' ? r.value : NaN; });
+  }
+  function stepSame(a, b) {
+    var pa = sides(a), pb = sides(b);
+    if (pa.length > 2 || pb.length > 2) return 'one';
+    if (pa.length !== pb.length) return pa.length === 2 ? 'equation' : 'expression';
+    var ta = diff(a), tb = diff(b);
+    if (pa.length === 1) return same(ta, tb) ? null : 'step';
+    var EQ = 'stepEq';
+    var names = Object.keys([ta, tb].reduce(function (o, t) { jme.findvars(t, [], scope).forEach(function (n) { o[n] = 1; }); return o; }, {}));
+    var va = values(ta, names, 0), vb = values(tb, names, 0), ratio = null;
+    for (var i = 0; i < va.length; i++) {
+      if (!isFinite(va[i]) || !isFinite(vb[i])) return EQ;
+      if (Math.abs(va[i]) < 1e-9) { if (Math.abs(vb[i]) > 1e-7) return EQ; continue; }
+      var r = vb[i] / va[i];
+      if (Math.abs(r) < 1e-12) return EQ;
+      if (ratio === null) ratio = r; else if (Math.abs(r - ratio) > 1e-7 * Math.max(1, Math.abs(ratio))) return EQ;
+    }
+    return null;
+  }
+  var LINE = {
+    step: function (n) { return 'Line ' + n + ' is not equal to the line before it. Check that step.'; },
+    stepEq: function (n) { return 'Line ' + n + ' does not follow from the line before it: check that you did the same to both sides.'; },
+    one: function (n) { return 'Line ' + n + ' has more than one = sign: write one step per line.'; },
+    equation: function (n) { return 'Line ' + n + ' should be an equation, like the lines before it.'; },
+    expression: function (n) { return 'Line ' + n + ' should be an expression, like the lines before it (no = sign).'; },
+  };
+  // working(lines, start, f) -> { ok, lines: [{ ok, why }], why }
+  function working(lines, start, f) {
+    lines = lines.map(function (l) { return String(l).trim(); }).filter(Boolean);
+    if (!lines.length) return { ok: false, lines: [], why: 'Write your working, one step per line.' };
+    var out = [], prev = start, bad = null;
+    for (var i = 0; i < lines.length; i++) {
+      var k;
+      try { k = stepSame(prev, lines[i]); } catch (err) { k = 'read'; }
+      if (k) { var why = k === 'read' ? 'I could not read line ' + (i + 1) + ': check the brackets and signs.' : LINE[k](i + 1); out.push({ ok: false, why: why }); bad = bad || why; break; }
+      out.push({ ok: true, why: '' }); prev = lines[i];
+    }
+    if (bad) return { ok: false, lines: out, why: bad };
+    var last = lines[lines.length - 1];
+    if (f) {
+      var sub = /^subject ([a-zA-Z])$/.exec(f);
+      if (sub) { var p = sides(last); if (clean(p[0]) !== sub[1] || has(text(tree(p[1] || '')), 'm_anywhere(' + sub[1] + ')')) return { ok: false, lines: out, why: 'Your last line should be ' + sub[1] + ' = …, with ' + sub[1] + ' only on the left.' }; }
+      else { var fk = null; try { fk = form(text(diff(last)), f); } catch (err) { fk = null; } if (fk) return { ok: false, lines: out, why: 'Every step is right. To finish: ' + MSG[fk].charAt(0).toLowerCase() + MSG[fk].slice(1) }; }
+    }
+    return { ok: true, lines: out, why: '' };
+  }
+  return { check: check, working: working, form: function (answer, f) { try { return form(text(tree(answer)), f); } catch (e) { return 'unsure'; } }, MSG: MSG };
 }
 
 const START = `Numbas.queueScript('base',[],function(){});Numbas.queueScript('wp-forms',['jme','jme-rules','jme-display','localisation'],function(){Numbas.locale.set_preferred_locale('en-GB');Numbas.locale.init();DONE(MAKE(Numbas));});`;

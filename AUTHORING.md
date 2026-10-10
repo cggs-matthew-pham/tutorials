@@ -456,6 +456,12 @@ Vary, Practise, Make).
   lessons that have one; `tools/maths-forms.mjs`); validate runs the same code in Node, so every `answer:` must be in
   its form and every `feedback:` answer must be marked wrong. `npm run check-forms` tests the forms
   (`data/forms-cases.json`: add a case whenever a real answer is marked wrongly).
+- **`working` check:** students write their working one step per line. Each line must equal the one before (for
+  equations: have the same solutions, so doing the same to both sides passes), starting from `start:`; the last line
+  must be in `form:` if one is given. The first line that does not follow is marked, with why. Fields: `q`, `start`
+  (`"3(2x + 4) - x"` or `"3x + 7 = 19"`), optional `form`, `example` (a model solution, one string per line; validate
+  checks it passes) and optional `wrong` (planted wrong solutions validate checks are rejected). Marked by Numbas, like
+  `form:` (`npm run check-forms` has working cases too).
 - **`board` check:** ticks when the board reports what the check asks for, and never on the starting position. It
   needs `try: { playground: board, starter: file#region }` on the step (`maths` is the old name and still works).
   - `when:` a condition on the board's named values (any board with sliders or points): `"m = -1 and c = 2"`,

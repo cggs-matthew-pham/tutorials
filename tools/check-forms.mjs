@@ -26,6 +26,14 @@ for (const c of cases) {
   }
 }
 console.log(`${n - fails}/${n} case-file answers marked as expected`);
+{
+  const f0 = fails; let w = 0;
+  for (const c of JSON.parse(readFileSync('data/forms-cases.json', 'utf8')).workings || []) for (const [lines, want] of c.tries) {
+    w++; const r = F.working(lines, c.start, c.form);
+    if (r.ok !== want) fail(`working from ${c.start}: ${JSON.stringify(lines)} gave ${r.ok ? 'ok' : r.why}`);
+  }
+  console.log(`${w - (fails - f0)}/${w} workings marked as expected`);
+}
 
 // 2. Generated cases (a fixed seed, so a failure can be reproduced)
 let seed = 7;

@@ -383,6 +383,7 @@ var saved=pload()[key];if(saved!==undefined&&saved!==null)freeze(saved);
 btn.addEventListener('click',function(){var r=box.querySelector('input[type=radio]:checked'),i=box.querySelector('input.pin'),v=r?r.value:(i?i.value.trim():'');
 if(!v)return bad('Make a prediction first. You cannot change it after you lock it in.');plock(v);freeze(v);pass();freeze(v);try{document.dispatchEvent(new CustomEvent('wp-predict',{detail:key}))}catch(e){}})}
 if(ty==='parsons'){parsons(box,win,bad)}
+if(ty==='working'&&btn){var ta=box.querySelector('textarea'),ol=box.querySelector('.wk-lines');btn.addEventListener('click',function(){var lines=ta.value.split('\\n');if(!lines.join('').trim())return bad('Write your working, one step per line.');if(!window.WPF_READY)return bad('The checker did not load. Reload the page and try again.');msg.className='msg';msg.textContent='Checking...';window.WPF_READY.then(function(F){var r=F.working(lines,box.dataset.start,box.dataset.form),shown=lines.map(function(l){return l.trim()}).filter(Boolean);ol.replaceChildren();r.lines.forEach(function(x,i){var li=document.createElement('li');li.className=x.ok?'ok':'no';li.textContent=(x.ok?'\\u2713 ':'\\u2717 ')+shown[i];ol.appendChild(li)});if(r.ok)win();else bad(r.why)})})}
 if(ty==='answer'&&btn){var inp=box.querySelector('input'),fb=JSON.parse(box.dataset.feedback||'[]');
 function tryIt(){var v=inp.value.trim();if(!v)return bad('Type your answer first.');
 try{if(box.dataset.equation){var vals=JSON.parse(box.dataset.equation),sd=WPM.sides(v);if(!sd)return bad('An equation needs one = sign, with something on each side.');
@@ -511,6 +512,9 @@ export function checkHtml(lesson, step, names = {}, snippet = null, task = null,
     const data = (k.equation ? `data-equation="${esc(JSON.stringify(k.equation))}"` : `data-answer="${esc(String(k.answer))}"`) + (k.form !== undefined ? ` data-form="${esc(String(k.form))}"` : '');
     return `<div class="check" ${base} ${data} data-feedback="${esc(JSON.stringify(k.feedback || []))}"><p class="check-q">${tx(k.q)}</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="${k.equation ? 'for example 2x = 10' : 'Your answer'}"></label><button type="button">Check answer</button>${msg}</div>`;
   }
+  if (k.type === 'working') {
+    return `<div class="check" ${base} data-start="${esc(String(k.start))}" data-form="${esc(String(k.form || ''))}"><p class="check-q">${tx(k.q)}</p><p class="wk-start">Start from ${tx('$' + String(k.start) + '$')}</p><textarea class="wk-in" rows="5" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Your working, one step per line" placeholder="One step per line"></textarea><ol class="wk-lines" aria-live="polite"></ol><button type="button">Check working</button>${msg}</div>`;
+  }
   if (k.type === 'board') {
     return `<div class="check" ${base} data-expect="${esc(JSON.stringify(k.expect || {}))}"${k.when !== undefined ? ` data-when="${esc(String(k.when))}"` : ''}><p class="check-q">${tx(k.text)}</p><p class="msg" aria-live="polite">Use the board. This ticks when you get there.</p></div>`;
   }
@@ -571,7 +575,7 @@ export function lessonPageHtml(lesson, deps) {
   // Maths lessons: $...$ is rendered at build time (deps.maths, from tools/maths.mjs). Without it (the create page) it stays text.
   const isMaths = lesson.language === 'maths' && !!maths;
   // Answer checks with form: are marked by Numbas, loaded only on lessons that have one (tools/maths-forms.mjs).
-  const hasForms = isMaths && lesson.steps.some((s) => [s.config.check, ...s.tasks.map((t) => t.config.check)].some((k) => k?.type === 'answer' && k.form !== undefined));
+  const hasForms = isMaths && lesson.steps.some((s) => [s.config.check, ...s.tasks.map((t) => t.config.check)].some((k) => (k?.type === 'answer' && k.form !== undefined) || k?.type === 'working'));
   const tx = isMaths ? (t) => maths.textWithMath(t, esc) : esc;
   // MakeCode lessons show display code as a picture of the blocks (see makecodeBlock).
   const mk = lesson.language === 'makecode';
@@ -740,7 +744,8 @@ bar.querySelector('.wnote').textContent=(q in R?'Your teacher set '+floor+'. You
 bar.addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;cur=b.dataset.w;apply()});apply()})();`;
 
 /** Extra styles for maths lessons: display maths, worked examples, typed answers. */
-export const MATHS_CSS = `.mathblock{overflow-x:auto;overflow-y:hidden;margin:.6em 0}.katex{font-size:1.12em}
+export const MATHS_CSS = `.wk-start{margin:.3em 0}.wk-in{display:block;width:100%;box-sizing:border-box;font:16px/1.5 ui-monospace,Menlo,Consolas,monospace;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);margin:.4em 0}.wk-lines{margin:.3em 0;padding-left:1.6em;font:15px/1.5 ui-monospace,Menlo,Consolas,monospace}.wk-lines .ok{color:var(--ok,#1a7f37)}.wk-lines .no{color:#b42318}
+.mathblock{overflow-x:auto;overflow-y:hidden;margin:.6em 0}.katex{font-size:1.12em}
 .worked{border:1px solid var(--line);border-left:4px solid var(--c,var(--accent));border-radius:10px;background:var(--card);padding:12px 16px;margin:14px 0}
 .worked-head{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin-bottom:6px}.worked-head span{color:var(--muted);font-size:14px}
 .worked ol{margin:0;padding-left:1.4em}.worked li{padding:6px 0;border-top:1px dashed var(--line)}.worked li:first-child{border-top:0}

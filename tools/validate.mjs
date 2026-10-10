@@ -123,18 +123,24 @@ else console.log('✓ error tasks: every planted error names its fault and an on
 // form, and every planted feedback answer is marked wrong. Run with the same Numbas build the pages load.
 {
   const formed = [];
-  for (const l of lessons) for (const s of l.steps) for (const [id, k] of [[s.id, s.config.check], ...s.tasks.map((t) => [t.id, t.config.check])]) if (k?.type === 'answer' && k.form !== undefined) formed.push([`${l.slug} › ${id}`, k]);
+  for (const l of lessons) for (const s of l.steps) for (const [id, k] of [[s.id, s.config.check], ...s.tasks.map((t) => [t.id, t.config.check])]) if ((k?.type === 'answer' && k.form !== undefined) || k?.type === 'working') formed.push([`${l.slug} › ${id}`, k]);
   if (formed.length) {
     const { loadForms } = await import('./maths-forms.mjs');
     const F = await loadForms();
     let n = 0;
     for (const [at, k] of formed) {
+      if (k.type === 'working') {
+        const r = F.working((k.example || []).map(String), String(k.start), k.form ? String(k.form) : '');
+        if (!r.ok) { n++; console.error(`✗ ${at}: example working is not accepted (${r.why})`); }
+        for (const w of k.wrong || []) if (F.working(w.map(String), String(k.start), k.form ? String(k.form) : '').ok) { n++; console.error(`✗ ${at}: wrong working ${JSON.stringify(w)} would be accepted`); }
+        continue;
+      }
       const r = F.check(String(k.answer), String(k.answer), String(k.form));
       if (!r.ok || r.unsure) { n++; console.error(`✗ ${at}: answer "${k.answer}" is not ${k.form} (${r.unsure ? 'the checker cannot judge it' : r.why})`); }
       for (const [w] of k.feedback || []) { const fr = F.check(String(w), String(k.answer), String(k.form)); if (fr.ok) { n++; console.error(`✗ ${at}: feedback "${w}" would be marked right`); } }
     }
     bad += n;
-    if (!n) console.log(`✓ form checks: ${formed.length} answers marked as their lessons expect (Numbas ${(await import('./maths-forms.mjs')).NUMBAS_VERSION()})`);
+    if (!n) console.log(`✓ form checks: ${formed.length} answers and workings marked as their lessons expect (Numbas ${(await import('./maths-forms.mjs')).NUMBAS_VERSION()})`);
   }
 }
 // Voiceover: in a voiced lesson every caption is spoken (or its say: line). Long lines make long clips.
