@@ -1,0 +1,42 @@
+summary: Students solve one-variable inequalities like equations, reversing the sign when multiplying or dividing by a negative, show solutions on a number line with open or closed circles, and check graphically and by substitution (AC9M8A02, node 3).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 13 min · Practise and Make 12 min"
+goals:
+  - I can solve an inequality, reversing the sign when I multiply or divide by a negative.
+  - I can show a solution on a number line with the right circle (open or closed) and direction.
+  - I can check a solution by substituting a value, or with a graph.
+before: |
+  Do the Investigate board yourself first. Students need Solving harder equations, and Lines and regions (Linear relations) for the graph.
+
+  The one idea: inequalities solve like equations, except that multiplying or dividing by a negative reverses the sign, because it flips the order on the number line (2 < 5 but −2 > −5). The common mistake is keeping the sign; it is planted in the Predict and in Mia's working, whose own check fails.
+
+  Students show answers on the number line board (move P, choose the circle and the direction), so the board marks the solution, not the way it is written.
+running:
+  - "Predict: take a show of hands, then have students test x = 0 in −2x > 6."
+  - "Run: ask where all the working points are, and what that says about the solution."
+  - "Investigate: model the worked example, then the number-line argument for reversing (2 < 5, −2 > −5)."
+  - "Modify: before 5 − x > 2, ask how to get x on its own when it has a minus sign."
+  - "Make: collect students' inequalities and check one value from each."
+stuck:
+  - see: "A student keeps the sign after dividing by a negative (Mia's mistake)."
+    ask: "Pick a value from your answer and check it in the first inequality."
+    fix: "If it fails, the sign should have reversed."
+  - see: "A student chooses the wrong circle."
+    ask: "Is the end number itself a solution?"
+    fix: "< and >: no, open circle. ≤ and ≥: yes, closed circle."
+  - see: "A student avoids the negative by moving x across."
+    ask: "Does that work too?"
+    fix: "Yes: −2x > 6 → 0 > 6 + 2x → −6 > 2x → −3 > x. Same answer, no reversing needed."
+stretch: "Solve −4 < 2x + 2 ≤ 10 (a double inequality: −3 < x ≤ 4) and show it on the line."
+support: "Check every answer by testing one value inside and one outside the solution."
+leads: |
+  This completes AC9M8A02: graphing lines and regions, solving equations, solving inequalities.
+
+  Where it leads: inequalities with two variables (regions) and linear programming in later years.
+exit:
+  q: "Solve 7 − 2x ≥ 1 and show it on a number line."
+  a: "−2x ≥ −6, x ≤ 3 (reversed): closed circle at 3, shaded left. Check x = 0: 7 ≥ 1."
+explain: |
+  Solve an **inequality** like an equation, doing the same to both sides. Adding, subtracting, and multiplying or dividing by a **positive** keep the sign. Multiplying or dividing by a **negative** reverses it: $-2x > 6$ gives $x < -3$ (because $2 < 5$ but $-2 > -5$).
+
+  On a number line: an **open** circle for $<$ and $>$ (the end is not included), **closed** for $\le$ and $\ge$, shaded towards the solutions. Check by trying a value: $x = -4$ gives $8 > 6$. ✓

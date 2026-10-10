@@ -1,0 +1,70 @@
+# Graph boards for "Lines and regions". shade: draws a region with its boundary (dashed for < and >, solid for ≤ and ≥).
+
+# region: run
+widget: graph
+x: -4, 5
+y: -5, 8
+shade: y < 2x + 1
+point P: 1, 4, drag
+# endregion
+
+# region: explain
+widget: graph
+x: -4, 5
+y: -5, 8
+shade: y < 2x + 1
+point O: 0, 0
+point A: 1, 4
+# endregion
+
+# region: two
+widget: graph
+x: -2, 7
+y: -4, 6
+shade: x >= 3
+shade: y < 2
+point P: 0, 4, drag
+# endregion
+
+# region: cross
+widget: graph
+x: -5, 5
+y: -5, 6
+plot: x = -2
+plot: y = 3
+point P: 2, -2, drag
+# endregion
+
+# region: which-pic
+widget: graph
+x: -4, 5
+y: -4, 7
+shade: y >= -x + 2
+# endregion
+
+# region: edge
+widget: graph
+x: -4, 6
+y: -4, 7
+shade: y <= -x + 4
+point P: 0, -2, drag
+# endregion
+
+# region: below-pic
+widget: graph
+x: -4, 5
+y: -4, 6
+shade: y < 3
+# endregion
+
+# region: make
+widget: graph
+x: -4, 5
+y: -5, 6
+slider m: -3, 3, 0
+slider c: -5, 5, -2
+shade: y <= mx + c
+point A: 0, 0
+point B: 2, 1
+point C: 0, 3
+# endregion

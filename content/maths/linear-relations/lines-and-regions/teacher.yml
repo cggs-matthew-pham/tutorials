@@ -1,0 +1,44 @@
+summary: Students graph vertical and horizontal lines and linear inequalities as regions, choosing a dashed or solid boundary and testing a point to decide which side to shade (AC9M8A02, node 1).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 13 min · Practise and Make 12 min"
+goals:
+  - I can graph lines such as x = 3 and y = −2.
+  - I can graph an inequality such as y < 2x + 1 as a region, with the right boundary (dashed or solid).
+  - I can test a point to decide whether it is in a region.
+before: |
+  Do the Run board and the Make task yourself first. Students need Lines and their rules (gradient and intercept).
+
+  The one idea: an inequality is every point that makes it true; the line is its boundary, dashed when the line's points are left out (< and >) and solid when they are in (≤ and ≥). The common mistake is the wrong boundary style; it is planted in Ana's working.
+running:
+  - "Predict: take a show of hands. Students who chose yes compared 4 with 1, not with 2 × 1 + 1."
+  - "Run: ask students to read out a point in the region and check it aloud."
+  - "Investigate: model the boundary-then-test routine with (0, 0); ask when (0, 0) would be a bad test point (when it is on the line)."
+  - "Modify: before the vertical line task, ask what every point on x = −2 has in common."
+  - "Make: collect students' m and c and test C in each."
+stuck:
+  - see: "A student draws the boundary solid for < (Ana's mistake)."
+    ask: "Does a point on the line make y < 2x + 1 true?"
+    fix: "No (it makes the two sides equal), so the line is not included: dashed."
+  - see: "A student shades the wrong side."
+    ask: "Which point did you test? Was the result true or false?"
+    fix: "True: shade the test point's side. False: the other side."
+  - see: "A student draws x = 3 horizontally."
+    ask: "Name three points with x = 3."
+    fix: "(3, 0), (3, 1), (3, −2): they line up vertically."
+stretch: "Shade the region where y ≥ x and y < 4 and x > 0 (a triangle). What are its corners?"
+support: "Use the Run board: drag P and read whether the coordinates make the inequality true."
+leads: |
+  Next: Solving with graphs, then (in Algebra) Inequalities, which solves one-variable inequalities and checks them graphically.
+
+  Where it leads: linear programming and simultaneous inequalities (Years 10 and up).
+exit:
+  q: "Graph y ≥ −2x + 3 (describe the boundary and the side). Is (1, 1) in it?"
+  a: "Solid line through (0, 3), down 2 for each step right; shade above. (1, 1): 1 ≥ 1, true: on the boundary, so in."
+explain: |
+  **One-letter lines**: $x = 3$ is vertical (every point has $x = 3$); $y = -2$ is horizontal.
+
+  An **inequality** such as $y < 2x + 1$ is a **region**: every point that makes it true. To graph it:
+
+  1. Draw the boundary line $y = 2x + 1$: **dashed** for $<$ and $>$ (its points are not included), **solid** for $\le$ and $\ge$.
+  2. Test a point not on the line, often $(0, 0)$: $0 < 1$ is true.
+  3. Shade the side of the test point if it was true, the other side if it was false.

@@ -91,5 +91,7 @@
   "fraction-add-same": {"home": "maths/number/equivalent-fractions", "text": "The same number is added to the top and the bottom to make an equal fraction (2/3 = 3/4); that changes the amount, so multiply or divide both by the same number."},
   "decimal-percent-place": {"home": "maths/number/fractions-decimals-percentages", "text": "The digits after the point are read as the percentage (0.5 = 5%); 0.5 is 50 hundredths, so 50%: multiply a decimal by 100."},
   "inverse-sign": {"home": "maths/algebra/solving-equations", "text": "A term is removed by doing what its sign shows instead of the inverse (taking 7 away to undo − 7); undo − 7 by adding 7 to both sides."},
+  "boundary-solid": {"home": "maths/linear-relations/lines-and-regions", "text": "The boundary of a strict inequality (< or >) is drawn solid; its points make the two sides equal, so they are not included: dashed. Solid is for ≤ and ≥."},
+  "inequality-reverse": {"home": "maths/algebra/inequalities", "text": "The inequality sign is kept when both sides are multiplied or divided by a negative (−2x > 6 gives x > −3); multiplying or dividing by a negative reverses the order, so x < −3."},
   "sign-rules-addition": {"home": "maths/number/multiplying-integers", "text": "The addition rule is used for multiplying (−4 × (−3) = −12, \"two negatives make a bigger negative\"); for multiplying and dividing, the same signs give a positive."}
 }

@@ -1,0 +1,8 @@
+# Ana's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ana
+Graph y > x + 1.
+Draw the line y = x + 1 as a solid line.
+Test (0, 0): is 0 > 0 + 1? No.
+Shade the side without (0, 0).
+# endregion

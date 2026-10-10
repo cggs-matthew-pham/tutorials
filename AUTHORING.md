@@ -499,6 +499,10 @@ Vary, Practise, Make).
     - `plot: y = mx + c` (up to 4): drawn, and listed under the graph with the slider values put in (`y = 2x + 1`);
       `plot: y = 2x + 1, dashed` draws a dashed line (a line to compare with);
       `plot: y = 5x + 20, from 0` (and/or `to 10`) draws only where a model makes sense; `cross:` looks only there;
+    - `plot: x = 3` draws a vertical line (no table row, not with `cross:`); `shade: y < 2x + 1` (also `<=`, `>`, `>=`,
+      `≤`, `≥`, sliders allowed) or `shade: x >= 3` shades a region with its boundary, dashed for < and > and solid for ≤
+      and ≥, listed under the graph. Checks on a dragged point in a region: `"y(P) < 2 * x(P) + 1"` (write the × before
+      `x(P)`).
     - `point A: 2, 5` (fixed; coordinates may use sliders, as in `point B: 0, c`) and `point P: 1, 3, drag`
       (students drag it; it lands on the nearest grid point, and checks see it only once it is let go); one capital letter each;
       dragged points also get a Move row (pick the point, then arrow buttons or arrow keys step it by the snap), so they work
@@ -540,6 +544,9 @@ Vary, Practise, Make).
       on R, written "5 − (−3) = 8". When subtracting, a faint dashed arrow shows which way adding b would go. `sum: a ? b`
       adds + and − buttons. `product: a × b`: a jumps of b from 0; a negative number of jumps goes the opposite way, with
       the jumps it reverses drawn faintly above ("−3 × (−2) = 6"); values `a`, `b` and `r`.
+    - `ray: P` (with `point P: 0, drag`): an inequality to build: P sets the end, and Open circle / Closed circle and
+      Shade left / Shade right buttons draw the ray; the panel writes `x ≤ 3`. Values `k` (1 closed) and `s` (1 right,
+      −1 left), with `x(P)`: `"x(P) = 5 and k = 0 and s = -1"` is x < 5. `ray: x >= -2` draws a fixed one (pictures).
     - Values for checks: points as `x(P)` (`"x(P) < -4"`, `"x(P) < x(Q) and x(P) + x(Q) < 0"`), the sliders, `r` the
       result and `o` the operation (1 add, −1 subtract): `"o = -1 and b < 0 and r = 10"`.
   - `widget: geometry` (first used by `maths/angles`): a triangle or polygon on a square dot grid. Students drag the

@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 9
 unit: using
 node: AC9M8A02 n2
 uses: [AC9M7A05 n3, AC9M7N07 n2, AC9M8N04 n1]   # each side drawn as a line from its rule

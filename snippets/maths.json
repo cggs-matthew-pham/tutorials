@@ -186,6 +186,20 @@
           "unit": "solving",
           "code": "3(8) + 7 = 31 = 5(8) - 9",
           "hint": "Put the answer into both sides of the first equation. Equal sides: right. Unequal: look for the first step that went wrong."
+        },
+        {
+          "label": "solving an inequality",
+          "unit": "solving",
+          "code": "-2x > 6 \\;\\Rightarrow\\; x < -3",
+          "hint": "Do the same to both sides, as for an equation. Multiplying or dividing by a negative **reverses** the sign ($2 < 5$ but $-2 > -5$). Check a value from your answer."
+        },
+        {
+          "label": "inequality on a number line",
+          "unit": "solving",
+          "code": "x < 5:\\ \\circ \\text{ at } 5,\\ \\text{shaded left}",
+          "hint": "Open circle for $<$ and $>$ (the end is not included), closed for $\\le$ and $\\ge$; shade towards the solutions.",
+          "board": "widget: numberline\nrange: -2, 10\nray: x < 5",
+          "shows": "x < 5: an open circle at 5, shaded left"
         }
       ]
     }

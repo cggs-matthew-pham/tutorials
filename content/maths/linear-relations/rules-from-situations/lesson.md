@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 unit: using
 node: AC9M8A03 n1
 uses: [AC9M7N07 n2]   # a falling battery has a negative rate

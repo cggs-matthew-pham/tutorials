@@ -1,0 +1,8 @@
+# Mia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mia
+Solve −2x > 6.
+Divide both sides by −2.
+x > −3.
+Check x = 0: −2 × 0 = 0, and 0 > 6 is false.
+# endregion

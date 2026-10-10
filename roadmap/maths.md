@@ -93,9 +93,13 @@ AC9M7N04 n1 and n2 in Number Foundations' Fractions unit: *Equivalent fractions*
 
 AC9M8A02 n2: new unit Equations and inequalities in Algebra Foundations, lesson 13 *Solving harder equations* (x on both sides, brackets, negatives, a fraction, no solution; working checks; the graph shows the solution where the two sides meet; misconception `inverse-sign`; two cards). It lists AC9M8A02 n1 in `assumes:` (graphing lines is Linear relations; the board draws them).
 
+## Done: lines, regions and inequalities (11 Oct 2026)
+
+AC9M8A02 n1: *Lines and regions* (Linear relations, Lines unit, order 8; Solving with graphs, Rules from situations and Comparing two plans move to 9 to 11; misconception `boundary-solid`). AC9M8A02 n3: *Inequalities* (Algebra, Equations and inequalities unit, lesson 14; reversing for a negative, number-line rays, graphical check; `inequality-reverse`). Board: graph `plot: x = a` and `shade:`; numberline `ray:`. Four cards.
+
 ## Still to do
 
-- **Publish and listen:** the sixteen new clips (Number Foundations 6, Angles 6, Expanding brackets, Factorising, Changing the subject, Solving harder equations) record with the real voice on the next manual publish.
-- **Try with classes:** all sixteen new lessons, the form checks and the working check, and whether students use the sliders or drag.
+- **Publish and listen:** the eighteen new clips (Number Foundations 6, Angles 6, Algebra 5, Linear relations 1) record with the real voice on the next manual publish.
+- **Try with classes:** all eighteen new lessons, the form checks and the working check, and whether students use the sliders or drag.
 - **Watch in class:** whether students write real working in the reasoning box or skip to the marked parts; whether the self-check ticks are honest.
 - **Form-check coverage:** simplest and decimal are built; ratio and inequalities are not; add them when a lesson needs one.

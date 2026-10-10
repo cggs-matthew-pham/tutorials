@@ -17,7 +17,10 @@
 //   product: a × b           a jumps of b from 0, landing on R; a negative number of jumps goes the opposite way
 //                            (the jumps it reverses are drawn faint above); "−3 × (−2) = 6"
 //   slider a: -10, 10, -3    min, max, start, step (default 1), as on the graph widget
+//   ray: P                   an inequality to build on dragged point P: Open/Closed and Left/Right buttons draw x > 3,
+//                            x ≤ 3, …; values k (1 closed), s (1 right, −1 left) with x(P). "ray: x >= -2" draws a fixed one
 // state: { scope: { vars: { each slider, r (the result), o (1 for +, −1 for −) }, points: { A: [x, 0], R: [r, 0] } } }
+// Checks (ray): "x(P) = 3 and k = 0 and s = 1" (x > 3).
 // Checks: "x(P) < -4", "x(P) < x(Q) and x(P) + x(Q) < 0", "a = 5 and b = -3 and o = -1", "r = 8".
 (function (B) {
   'use strict';
@@ -41,6 +44,7 @@
     return v;
   }
   function parse(s) {
+    var rawRay = s.ray;
     if (!s.range) throw new Error('range: give the two ends of the line, such as "range: -10, 10".');
     var r = s.range.split(',').map(function (t) { return num(t, 'range'); });
     if (r.length !== 2 || !(r[0] < r[1])) throw new Error('range: two numbers, the smaller first, such as "range: -10, 10".');
@@ -107,6 +111,16 @@
       if (s.sum) throw new Error('Use sum: or product:, not both.');
       s.prod = { a: pm[1], b: pm[2], most: Math.max(Math.abs(sa.min), Math.abs(sa.max)) };
     }
+    s.ray = null;
+    if (rawRay !== undefined) {
+      var rv = String(rawRay).trim(), rm = /^([a-z])\s*(<=|>=|≤|≥|<|>)\s*(.+)$/.exec(rv);
+      if (rm) { var op2 = rm[2].replace('≤', '<=').replace('≥', '>='); s.ray = { fixed: true, letter: rm[1], at: num(rm[3], 'ray'), closed: op2.length === 2, dir: op2.charAt(0) === '>' ? 1 : -1 }; }
+      else {
+        var rp = s.points.filter(function (q) { return q.name === rv && q.drag; })[0];
+        if (!rp) throw new Error('ray: name a dragged point (such as "ray: P", with "point P: 0, drag"), or write a fixed one such as "ray: x >= -2".');
+        s.ray = { fixed: false, point: rv, letter: 'x' };
+      }
+    }
   }
 
   function scope() {
@@ -115,6 +129,7 @@
     var v = Object.assign({}, vars);
     if (spec.sum) { v.o = op; v.r = result(); pts.R = [v.r, 0]; }
     if (spec.prod) { v.r = round(vars[spec.prod.a] * vars[spec.prod.b]); pts.R = [v.r, 0]; }
+    if (spec.ray) { v.k = rayClosed() ? 1 : 0; v.s = rayDir(); }
     return { vars: v, points: pts };
   }
   function result() { var s = spec.sum; return round(vars[s.a] + op * vars[s.b]); }
@@ -153,6 +168,12 @@
       objs[p.name] = P;
     });
 
+    if (spec.ray) {
+      var rc = B.css('--right') || '#7a4fb3', at = function () { return rayAt(); };
+      board.create('segment', [[at, 0.32], [function () { return rayDir() > 0 ? spec.hi + pad : spec.lo - pad; }, 0.32]], { strokeColor: rc, strokeWidth: 5, lastArrow: { type: 2, size: 5 }, fixed: true, highlight: false });
+      ui.rayDot = board.create('point', [at, 0.32], { name: '', size: 7, strokeColor: rc, strokeWidth: 3, fillColor: rc, fixed: true, showInfobox: false, highlight: false });
+      board.create('segment', [[at, 0], [at, 0.32]], { strokeColor: rc, strokeWidth: 1, dash: 2, fixed: true, highlight: false });
+    }
     if (spec.sum) {
       var s = spec.sum, h = 0.9, gh = 1.85;
       var a = function () { return vars[s.a]; }, end = function () { return result(); }, ghostEnd = function () { return round(vars[s.a] + vars[s.b]); };
@@ -184,6 +205,11 @@
     }
     board.update();
   }
+  var rayState = { closed: false, dir: 1 };
+  function rayClosed() { return spec.ray.fixed ? spec.ray.closed : rayState.closed; }
+  function rayDir() { return spec.ray.fixed ? spec.ray.dir : rayState.dir; }
+  function rayAt() { return spec.ray.fixed ? spec.ray.at : objs[spec.ray.point] ? round(objs[spec.ray.point].X()) : 0; }
+  function rayText() { var o = rayDir() > 0 ? (rayClosed() ? ' ≥ ' : ' > ') : (rayClosed() ? ' ≤ ' : ' < '); return spec.ray.letter + o + show(rayAt()); }
   function landing(x) { var v = round(Math.round(x / spec.snapStep) * spec.snapStep); return Math.max(spec.lo, Math.min(spec.hi, v)); }
 
   // Keyboard moves: a row to pick a point and step it with buttons or the arrow keys (dragging needs a pointer).
@@ -241,6 +267,19 @@
     moveRow(panel, spec.points.filter(function (p) { return p.drag; }).map(function (p) { return p.name; }), 1, function (n, dx) {
       var P = objs[n]; P.moveTo([landing(P.X() + dx * spec.snapStep), 0]); B.moved = true; report();
     });
+    if (spec.ray) {
+      ui.ray = document.createElement('p'); ui.ray.className = 'rulework'; ui.ray.id = 'nlineq'; ui.ray.setAttribute('aria-live', 'polite'); panel.insertBefore(ui.ray, panel.firstChild);
+      if (!spec.ray.fixed) {
+        var rrow = document.createElement('div'); rrow.className = 'gbar nlops'; rrow.setAttribute('role', 'group'); rrow.setAttribute('aria-label', 'The inequality');
+        ui.rayBtns = [];
+        [['Open circle', 'closed', false], ['Closed circle', 'closed', true], ['Shade left', 'dir', -1], ['Shade right', 'dir', 1]].forEach(function (o) {
+          var b = document.createElement('button'); b.type = 'button'; b.textContent = o[0];
+          b.addEventListener('click', function () { rayState[o[1]] = o[2]; B.moved = true; B.jsxBoard.update(); report(); });
+          b._is = function () { return rayState[o[1]] === o[2]; }; rrow.appendChild(b); ui.rayBtns.push(b);
+        });
+        panel.appendChild(rrow);
+      }
+    }
     if (spec.sliders.length || spec.points.some(function (p) { return p.drag; }) || (spec.sum && spec.sum.op === 0)) {
       var bar = document.createElement('div'); bar.className = 'gbar';
       var again = document.createElement('button'); again.type = 'button'; again.textContent = 'Start again';
@@ -274,13 +313,19 @@
       (ui.pjumps || []).forEach(function (o, i) { o.setAttribute({ visible: i < Math.abs(a) && b !== 0 }); });
       (ui.pghost || []).forEach(function (o, i) { o.setAttribute({ visible: a < 0 && i < Math.abs(a) && b !== 0 }); });
     }
+    if (spec.ray && ui.ray) {
+      ui.ray.textContent = rayText() + (rayClosed() ? ' (closed circle: ' + show(rayAt()) + ' is included)' : ' (open circle: ' + show(rayAt()) + ' is not included)');
+      parts.push(rayText());
+      if (ui.rayDot) ui.rayDot.setAttribute({ fillColor: rayClosed() ? (B.css('--right') || '#7a4fb3') : (B.css('--card') || '#ffffff') });
+      (ui.rayBtns || []).forEach(function (b) { b.setAttribute('aria-pressed', String(b._is())); });
+    }
     if (ui.cmp) { ui.cmp.textContent = compareText(sc); parts.push(ui.cmp.textContent); }
     var dragged = spec.points.filter(function (p) { return p.drag; }).map(function (p) { return p.name + ' is at ' + withUnit(sc.points[p.name][0]); });
     spec.points.forEach(function (p) { parts.push(p.name + ' = ' + show(sc.points[p.name][0])); });
     B.say(dragged.join('. ') + (dragged.length ? '.' : ''));
     if (quiet) return;
     var at = {}; spec.points.forEach(function (p) { if (p.drag) at[p.name] = sc.points[p.name][0]; });
-    B.save({ vars: vars, op: op, points: at });
+    B.save({ vars: vars, op: op, points: at, ray: spec.ray && !spec.ray.fixed ? rayState : null });
     B.post({ scope: sc }, parts.join('; '));
   }
 
@@ -294,6 +339,7 @@
       vars = {}; startAt = (sv && sv.points) || {};
       spec.sliders.forEach(function (sl) { vars[sl.name] = sv && sv.vars && sv.vars[sl.name] !== undefined ? sv.vars[sl.name] : sl.start; });
       op = spec.sum ? (spec.sum.op === 0 ? (sv && sv.op) || 1 : spec.sum.op) : 1;
+      rayState = sv && sv.ray ? { closed: !!sv.ray.closed, dir: sv.ray.dir === -1 ? -1 : 1 } : { closed: false, dir: 1 };
       paintPanel();
       build();
       report();

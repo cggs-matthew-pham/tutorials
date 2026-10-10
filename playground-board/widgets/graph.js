@@ -70,7 +70,7 @@
       // A one-letter name (d, T) is also the letter used in legends and tables; a word (Time) only labels the axis.
       s.names = { x: /^[A-Za-z](\s|$)/.test(an[0]) ? an[0][0] : 'x', y: /^[A-Za-z](\s|$)/.test(an[1]) ? an[1][0] : 'y' }; s.axisLabels = an;
     }
-    s.sliders = []; s.plots = []; s.points = []; s.lines = []; s.table = null; s.step = null; s.cross = null; s.series = []; s.cursor = null;
+    s.sliders = []; s.plots = []; s.points = []; s.lines = []; s.table = null; s.step = null; s.cross = null; s.series = []; s.cursor = null; s.shades = [];
     var known = {};
     s.items.forEach(function (it) {
       var where = 'Line ' + it.line + ' (' + it.kind + (it.name ? ' ' + it.name : '') + ')';
@@ -91,9 +91,17 @@
           else if ((mm = /^to\s+(.+)$/i.exec(t))) to = num(mm[1], where);
           else throw new Error(where + ': after the relation, use dashed, from N or to N (got "' + t + '").');
         });
-        var m = /^\s*y\s*=\s*(.+)$/.exec(rel);
-        if (!m) throw new Error(where + ': write the relation as "y = …", such as "plot: y = 2x + 1".');
-        s.plots.push({ name: it.name, text: rel.trim(), rhs: m[1], tree: WPM.compile(m[1]), dashed: dashed, from: from, to: to });
+        var m = /^\s*y\s*=\s*(.+)$/.exec(rel), mv = /^\s*x\s*=\s*(.+)$/.exec(rel);
+        if (!m && !mv) throw new Error(where + ': write the relation as "y = …" (or "x = 3" for a vertical line), such as "plot: y = 2x + 1".');
+        if (mv) { if (WPM.vars(mv[1]).indexOf('x') >= 0) throw new Error(where + ': a vertical line is "x = a number", such as "plot: x = 3".'); s.plots.push({ name: it.name, text: rel.trim(), rhs: mv[1], tree: WPM.compile(mv[1]), vertical: true, dashed: dashed, from: null, to: null }); }
+        else s.plots.push({ name: it.name, text: rel.trim(), rhs: m[1], tree: WPM.compile(m[1]), dashed: dashed, from: from, to: to });
+      } else if (it.kind === 'shade') {
+        // A region: "shade: y < 2x + 1" (also <=, >, >=, ≤, ≥) or "shade: x >= 3". Strict: dashed boundary; or equal: solid.
+        var sm = /^\s*([xy])\s*(<=|>=|≤|≥|<|>)\s*(.+)$/.exec(it.value);
+        if (!sm) throw new Error(where + ': write the region as "y < 2x + 1" or "x >= 3".');
+        var op = sm[2].replace('≤', '<=').replace('≥', '>=');
+        if (sm[1] === 'x' && WPM.vars(sm[3]).indexOf('x') >= 0) throw new Error(where + ': "x " + op + " a number", such as "shade: x >= 3".');
+        s.shades.push({ text: it.value.trim(), axis: sm[1], above: op.charAt(0) === '>', strict: op.length === 1, rhs: sm[3], tree: WPM.compile(sm[3]) });
       } else if (it.kind === 'point') {
         if (!/^[A-Z]$/.test(it.name || '')) throw new Error(where + ': a point needs a one-letter capital name, such as "point A: 2, 5".');
         var p = nums(it.value, 2, where), dm = /^drag(?:\s+([xy]))?$/i.exec(p[2] || ''), drag = !!dm;
@@ -151,12 +159,14 @@
     var check = function (text, allowed, where) {
       WPM.vars(text).forEach(function (v) { if (allowed.indexOf(v) < 0 && !known[v]) throw new Error(where + ': "' + v + '" is not a slider' + (allowed.length ? ' or x' : '') + '.'); });
     };
-    s.plots.forEach(function (p) { check(p.rhs, ['x'], 'plot ' + p.text); });
+    s.plots.forEach(function (p) { check(p.rhs, p.vertical ? [] : ['x'], 'plot ' + p.text); });
+    s.shades.forEach(function (sh) { check(sh.rhs, sh.axis === 'x' ? [] : ['x'], 'shade ' + sh.text); });
     s.points.forEach(function (p) {
       if (p.drag) { num(p.x, 'point ' + p.name); num(p.y, 'point ' + p.name); } else { check(p.x, [], 'point ' + p.name); check(p.y, [], 'point ' + p.name); }
     });
     if (s.table && !s.plots.length) throw new Error('A table needs a plot to take its values from.');
     if (s.step !== null && !s.plots.length) throw new Error('A step needs a plot to draw on.');
+    if (s.cross && s.cross.some(function (i) { return s.plots[i - 1] && s.plots[i - 1].vertical; })) throw new Error('cross: works with y = … plots only, not vertical lines.');
     if (s.cross && Math.max(s.cross[0], s.cross[1]) > s.plots.length) throw new Error('cross: names plot ' + Math.max(s.cross[0], s.cross[1]) + ', but there are ' + s.plots.length + ' plots.');
   }
 
@@ -189,9 +199,26 @@
     axis([0, 0], [1, 0], xr[1] - xr[0], 'x');
     axis([0, 0], [0, 1], yr[1] - yr[0], 'y');
     var scopeVars = function (x) { var v = Object.assign({}, vars); if (x !== undefined) v.x = x; return v; };
+    // Shaded regions, under the plots: a filled curve along the boundary, closed off at the edge of the view.
+    spec.shades.forEach(function (sh, i) {
+      var colour = B.css(COLOURS[(spec.plots.length + i) % COLOURS.length]) || '#7a4fb3', far = (yr[1] - yr[0]) * 50, wide = (xr[1] - xr[0]) * 50;
+      var val = function (x) { try { return sh.tree(scopeVars(x)); } catch (e) { return NaN; } };
+      var c = board.create('curve', [[], []], { fillColor: colour, fillOpacity: 0.16, strokeWidth: 0, highlight: false, fixed: true });
+      c.updateDataArray = function () {
+        if (sh.axis === 'x') { var a = val(); this.dataX = [a, sh.above ? a + wide : a - wide, sh.above ? a + wide : a - wide, a]; this.dataY = [yr[0] - far, yr[0] - far, yr[1] + far, yr[1] + far]; return; }
+        var n = 80, X = [], Y = [], lo = xr[0] - (xr[1] - xr[0]), hi = xr[1] + (xr[1] - xr[0]);
+        for (var k = 0; k <= n; k++) { var x = lo + (hi - lo) * k / n; X.push(x); Y.push(val(x)); }
+        var edge = sh.above ? yr[1] + far : yr[0] - far;
+        this.dataX = X.concat([hi, lo]); this.dataY = Y.concat([edge, edge]);
+      };
+      if (sh.axis === 'x') board.create('segment', [[function () { return val(); }, yr[0] - far], [function () { return val(); }, yr[1] + far]], { strokeColor: colour, strokeWidth: 2.5, dash: sh.strict ? 2 : 0, highlight: false, fixed: true, point1: { visible: false }, point2: { visible: false } });
+      else board.create('functiongraph', [val, xr[0] - (xr[1] - xr[0]), xr[1] + (xr[1] - xr[0])], { strokeColor: colour, strokeWidth: 2.5, dash: sh.strict ? 2 : 0, highlight: false, fixed: true });
+      sh.colour = colour;
+    });
     plots = spec.plots.map(function (p, i) {
       var colour = B.css(COLOURS[i]) || '#2f6fb3';
       p.colour = colour;
+      if (p.vertical) return board.create('segment', [[function () { try { return p.tree(scopeVars()); } catch (e) { return NaN; } }, yr[0] - 1e3], [function () { try { return p.tree(scopeVars()); } catch (e) { return NaN; } }, yr[1] + 1e3]], { strokeColor: colour, strokeWidth: p.dashed ? 2.5 : 3, dash: p.dashed ? 2 : 0, highlight: false, fixed: true, point1: { visible: false }, point2: { visible: false } });
       return board.create('functiongraph', [function (x) { try { return p.tree(scopeVars(x)); } catch (e) { return NaN; } }, p.from !== null ? Math.max(p.from, xr[0]) : xr[0], p.to !== null ? Math.min(p.to, xr[1]) : xr[1]], { strokeColor: colour, strokeWidth: p.dashed ? 2.5 : 3, dash: p.dashed ? 2 : 0, highlight: false, fixed: true });
     });
     objs = {}; dragged = {};
@@ -403,7 +430,7 @@
       spec.series.forEach(function (r) { var li = document.createElement('li'); li.style.setProperty('--c', r.colour || B.css(COLOURS[spec.series.indexOf(r) % 4])); li.textContent = r.name; sl.appendChild(li); });
       panel.appendChild(sl);
     }
-    if (spec.plots.length) { var lg = document.createElement('ul'); lg.id = 'legend'; panel.appendChild(lg); }
+    if (spec.plots.length || spec.shades.length) { var lg = document.createElement('ul'); lg.id = 'legend'; panel.appendChild(lg); }
     if (spec.table) { var tb = document.createElement('table'); tb.id = 'gtable'; panel.appendChild(tb); }
     moveRow(panel);
     if (spec.sliders.length || spec.points.some(function (p) { return p.drag; })) {
@@ -417,13 +444,18 @@
   function report(quiet) {
     sliders.forEach(function (s) { s.out.textContent = s.sl.name + ' = ' + show(vars[s.sl.name]); });
     var lg = B.el('legend');
-    if (lg && spec.plots.length) {
+    if (lg && (spec.plots.length || spec.shades.length)) {
       lg.replaceChildren();
       spec.plots.forEach(function (p) {
         var li = document.createElement('li'); li.style.setProperty('--c', p.colour); if (p.dashed) li.className = 'dashed';
-        li.textContent = named(spec.names.y + ' = ' + withValues(p.rhs));
+        li.textContent = named((p.vertical ? spec.names.x : spec.names.y) + ' = ' + withValues(p.rhs));
         if (WPM.vars(p.rhs).some(function (v) { return v in vars; })) {   // the general form, for a rule with sliders in it
           var gen = document.createElement('span'); gen.textContent = named(p.text); li.appendChild(gen); }
+        lg.appendChild(li);
+      });
+      spec.shades.forEach(function (sh) {
+        var li = document.createElement('li'); li.style.setProperty('--c', sh.colour); if (sh.strict) li.className = 'dashed';
+        li.textContent = named(sh.text.replace('<=', '≤').replace('>=', '≥')) + ': shaded (' + (sh.strict ? 'dashed boundary: points on the line are not included' : 'solid boundary: points on the line are included') + ')';
         lg.appendChild(li);
       });
     }
@@ -435,6 +467,7 @@
       };
       tb.replaceChildren(row(spec.names.x, spec.table.map(show), true));
       spec.plots.forEach(function (p, i) {
+        if (p.vertical) return;
         tb.appendChild(row(spec.plots.length > 1 ? spec.names.y + ' (' + (i + 1) + ')' : spec.names.y, spec.table.map(function (x) { try { return show(p.tree(Object.assign({}, vars, { x: x }))); } catch (e) { return '—'; } })));
       });
     }

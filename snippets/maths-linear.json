@@ -68,6 +68,20 @@
           "hint": "The same $m$ gives the same steepness, so the lines never meet. $y = 2x + 4$ is $y = 2x + 1$ moved up 3.",
           "board": "widget: graph\nx: -1, 5\ny: -1, 14\nplot: y = 2x + 1\nplot: y = 2x + 4",
           "shows": "y = 2x + 1 and y = 2x + 4: same m, so parallel"
+        },
+        {
+          "label": "vertical and horizontal lines",
+          "unit": "lines",
+          "code": "x = 3 \\quad y = -2",
+          "hint": "One letter: every point on $x = 3$ has $x = 3$ (a vertical line); every point on $y = -2$ has $y = -2$ (horizontal)."
+        },
+        {
+          "label": "inequality region",
+          "unit": "lines",
+          "code": "y < 2x + 1",
+          "hint": "Draw the boundary $y = 2x + 1$: dashed for $<$ and $>$, solid for $\\le$ and $\\ge$. Test a point such as $(0, 0)$: true, shade its side; false, the other side.",
+          "board": "widget: graph\nx: -4, 5\ny: -5, 8\nshade: y < 2x + 1\npoint O: 0, 0",
+          "shows": "y < 2x + 1: below the dashed line, including (0, 0)"
         }
       ]
     },

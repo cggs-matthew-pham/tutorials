@@ -1,0 +1,34 @@
+# Boards for "Inequalities". The graph compares the two sides; the number line shows a solution as a ray.
+
+# region: run
+widget: graph
+x: -6, 4
+y: -4, 12
+grid: 1, 2
+plot: y = -2x
+plot: y = 6, dashed
+point P: 2, -4, drag
+# endregion
+
+# region: explain
+widget: graph
+x: -6, 4
+y: -4, 12
+grid: 1, 2
+plot: y = -2x
+plot: y = 6, dashed
+cross: 1, 2
+# endregion
+
+# region: ray
+widget: numberline
+range: -10, 10
+point P: 0, drag
+ray: P
+# endregion
+
+# region: pic-less-5
+widget: numberline
+range: -2, 10
+ray: x < 5
+# endregion
