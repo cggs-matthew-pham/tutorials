@@ -1,0 +1,14 @@
+# Serial boards for "A radio bridge": the board talks to the bridge micro:bit on the cable.
+
+# region: graph
+widget: serial
+plot: temp
+window: 30
+# endregion
+
+# region: monitor
+widget: serial
+window: 30
+button Alarm: alarm
+button Clear: clear
+# endregion

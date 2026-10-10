@@ -1,0 +1,135 @@
+<!-- region: go -->
+<p id="message">Ready?</p>
+<button id="go">Start</button>
+<script>
+  document.querySelector('#go').addEventListener('click', function () {
+    document.querySelector('#message').textContent = 'Go!';
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: typo -->
+<p id="message">Ready?</p>
+<button id="go">Start</button>
+<script>
+  document.querySelector('#Go').addEventListener('click', function () {
+    document.querySelector('#message').textContent = 'Go!';
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: sol-message -->
+<p id="message">Ready?</p>
+<button id="go">Start</button>
+<script>
+  document.querySelector('#go').addEventListener('click', function () {
+    document.querySelector('#message').textContent = 'Off we go!';
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: sol-colour -->
+<p id="message">Ready?</p>
+<button id="go">Start</button>
+<script>
+  document.querySelector('#go').addEventListener('click', function () {
+    document.querySelector('#message').textContent = 'Off we go!';
+    document.querySelector('#message').style.color = 'green';
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: sol-reset -->
+<p id="message">Ready?</p>
+<button id="go">Start</button>
+<button id="reset">Reset</button>
+<script>
+  document.querySelector('#go').addEventListener('click', function () {
+    document.querySelector('#message').textContent = 'Off we go!';
+    document.querySelector('#message').style.color = 'green';
+  });
+  document.querySelector('#reset').addEventListener('click', function () {
+    document.querySelector('#message').textContent = 'Ready?';
+    document.querySelector('#message').style.color = 'black';
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<label for="name">Name</label>
+<input id="name" type="text">
+<button id="hello">Say hello</button>
+<p id="message"></p>
+<script>
+  // When Say hello is clicked: read the name, then show Hi, (the name)! in the message.
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<label for="name">Name</label>
+<input id="name" type="text">
+<button id="hello">Say hello</button>
+<p id="message"></p>
+<script>
+  document.querySelector('#hello').addEventListener('click', function () {
+    const name = document.querySelector('#name').value;
+    document.querySelector('#message').textContent = 'Hi, ' + name + '!';
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: club -->
+<style>
+  .signup {
+    width: 260px;
+    padding: 16px;
+    border: 2px solid teal;
+  }
+  label {
+    display: block;
+    margin-top: 8px;
+  }
+</style>
+<div class="signup">
+  <h2>Join the chess club</h2>
+  <label for="name">Name</label>
+  <input id="name" type="text">
+  <button id="join">Join</button>
+  <p id="thanks"></p>
+</div>
+<script>
+  // When Join is clicked, show: Thanks, (the name)! See you on Wednesday.
+</script>
+<!-- endregion -->
+
+<!-- region: sol-club -->
+<style>
+  .signup {
+    width: 260px;
+    padding: 16px;
+    border: 2px solid teal;
+  }
+  label {
+    display: block;
+    margin-top: 8px;
+  }
+</style>
+<div class="signup">
+  <h2>Join the chess club</h2>
+  <label for="name">Name</label>
+  <input id="name" type="text">
+  <button id="join">Join</button>
+  <p id="thanks"></p>
+</div>
+<script>
+  document.querySelector('#join').addEventListener('click', function () {
+    const name = document.querySelector('#name').value;
+    document.querySelector('#thanks').textContent = 'Thanks, ' + name + '! See you on Wednesday.';
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: explain-start -->
+<p id="message">Ready?</p>
+<button id="go">Start</button>
+<!-- endregion -->

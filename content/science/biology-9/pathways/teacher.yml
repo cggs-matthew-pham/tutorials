@@ -1,0 +1,35 @@
+summary: Students build stimulus–response pathways, name the CNS as the command centre with sensory and motor neurons, and explain why reflexes are fast (AC9S9U01, node 2, a hinge node).
+time: 20
+timing: "Engage and Explore 8 min · Explain 7 min · Evaluate 3 min · Typical adds 2 min, Wider about 2 min"
+goals:
+  - I can build a stimulus–response pathway, choosing the receptor, command centre and effector.
+  - I can name sensory and motor neurons and the CNS.
+  - I can explain why a reflex is faster than a decided response.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace the ruler-drop practical. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconception is that the brain decides every response. The drawing pin is a required pathway.
+
+  Board notes: the menus mix receptors, command centres and effectors from all four stimuli; a wrong choice names the first step that is wrong.
+running:
+  - "Engage: count how many chose 'the brain'."
+  - "Explore: watch for students choosing the brain for the pin; let the board's message do the work."
+  - "Explain: the reflex question is the checkpoint."
+stuck:
+  - see: "A student chooses the brain as the command centre for the drawing pin."
+    ask: "Do you feel the pain before or after your foot moves?"
+    fix: "After: the spinal cord moved the foot, then the brain found out."
+  - see: "A student says the salivary glands can't be an effector."
+    ask: "What does an effector do?"
+    fix: "It carries out the response; glands do that by releasing a substance."
+stretch: "Why might it be useful that the brain can override some reflexes (holding a hot plate you can't drop)?"
+support: "Give a reflex-arc diagram with blanks: receptor, sensory neuron, spinal cord, motor neuron, effector."
+leads: |
+  Next: nerves versus hormones (node 4), then feedback (node 5).
+
+  In class: ruler-drop reaction times with and without distraction; knee-jerk reflex.
+exit:
+  q: "Name the command centre in a reflex and say why reflexes are fast."
+  a: "The spinal cord; the impulse doesn't have to travel to the brain and wait for a decision."
+explain: |
+  **The CNS** (brain and spinal cord) is the command centre. Sensory neurons carry impulses in from receptors; motor neurons carry them out to effectors (muscles or glands). A **reflex** goes through the spinal cord, so it is automatic and fast.

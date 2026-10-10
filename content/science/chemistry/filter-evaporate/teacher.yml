@@ -1,0 +1,42 @@
+summary: Students describe filtration and evaporation accurately, name the residue and filtrate, and choose the right technique with a property reason (AC9S7U06, node 3).
+time: 25
+timing: "Engage and Explore 8 min · Explain 5 min · Practise 5 min · Evaluate 3 min · Typical adds 5 min, Wider about 12 min"
+goals:
+  - I can describe how filtration and evaporation are done, in the right order.
+  - I can name the residue and the filtrate.
+  - I can choose filtration, evaporation or both for a mixture, and say why.
+before: |
+  A concept tutorial for introducing or revising the techniques; it prepares students for the practical, it does not replace it. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The node's response mode is consolidation, so the step ordering and the Practise quiz (six correct) are part of the minimum path.
+
+  First Nations content is written at a general level: connect it to the Country your school is on and use local community knowledge and protocols where possible. The filter paper data in the last Wider step is sample data, not measured: collecting real data is a good extension.
+
+  Practical safety: heat the evaporating dish gently and stop before it is completely dry, as salt can spit.
+running:
+  - "Engage: count how many predicted sand and salt. That is the misconception the filter board answers."
+  - "Explain: ordering the steps is the procedural core; read the orders aloud together."
+  - "Practise: the quiz includes 'neither' items; those test whether students ask 'did it dissolve?' or just pick a technique."
+stuck:
+  - see: "A student says the salt stays in the filter paper."
+    ask: "How big are dissolved salt particles compared with the holes?"
+    fix: "Dissolved particles are single and tiny: they pass through with the water."
+  - see: "A student mixes up residue and filtrate."
+    ask: "Which one stays behind? Which one passes through?"
+    fix: "Residue remains (in the paper). Filtrate flows through."
+  - see: "A student filters a dry sand and salt mixture."
+    ask: "Can a filter separate two dry solids?"
+    fix: "Add water first so the salt dissolves; then filtering can split them."
+stretch: "Why is it hard to get pure water back by evaporation? What would you need to add to collect it?"
+support: "Give the two words with a picture cue: residue (stays in the paper), filtrate (flows through)."
+leads: |
+  Next: node 4, distillation (which collects the water) and chromatography.
+
+  In class: filter and evaporate a sand and salt mixture; compare students' procedures with the one in the Typical step.
+exit:
+  q: "In filtering sandy salt water, what is the residue and what is the filtrate?"
+  a: "The residue is the sand left in the paper; the filtrate is the salt water that passes through."
+explain: |
+  - **Filtration** separates a solid that hasn't dissolved from a liquid. The **residue** stays in the paper; the **filtrate** passes through.
+  - **Evaporation** gets a dissolved solid back: the liquid boils off and the solid is left as crystals.
+  - Sandy salt water needs both: filter out the sand, then evaporate the filtrate to get the salt.

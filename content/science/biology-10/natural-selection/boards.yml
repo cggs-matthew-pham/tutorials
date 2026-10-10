@@ -1,0 +1,16 @@
+# Science boards for "Why did the beetles change?".
+
+# region: hunt
+widget: selection
+ground: light
+hunter: student
+need: 3
+# endregion
+
+# region: fire
+widget: selection
+ground: light
+hunter: birds
+change: on
+need: 6
+# endregion

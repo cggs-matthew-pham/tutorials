@@ -1,0 +1,48 @@
+summary: Students add power-ups to Space dodger, a shield kept in a true/false variable that runs out on a timer, a blaster with limited ammo, and a power-up of their own design.
+time: 60
+timing: "Predict, Run, Investigate 12 min · Milestone 1 12 min · Milestone 2 15 min · Milestone 3 15 min · Sprint boost 5 min"
+goals:
+  - I can use a true/false variable to remember whether a power-up is on.
+  - I can make a power-up run out with a number that counts down in a timer.
+  - I can say which jobs Arcade's engine does and which rules my blocks decide.
+before: |
+  The only new idea is a variable that holds **true** or **false** (in Logic). `shield` is true while the shield is on; the Player–Enemy overlap asks **if shield** to decide between 5 points and losing a life. A power-up is always three parts: a **variable** that remembers it, an **event** that changes it (catching a star), and a **rule** that uses it (the if in the overlap). Milestone 1 makes it run out: `shieldTime` starts at 5 and the 1-second timer counts it down; at 0 the shield goes off. Milestone 2 adds a number variable, `ammo`, that limits the A button. The Investigate match introduces a thread for lesson 13: **the engine** (velocity, overlaps noticed, game over at zero lives, auto destroy) does the same jobs in every game, while **game rules** are the blocks you write.
+running:
+  - "Predict and Run: the shield never ends. Ask: is this fair? What would make it fair?"
+  - "Investigate, game rule or engine: there is no trick; the aim is to name the split. Ask students for one more example of each."
+  - "Sam's shield revisits the If lesson: on start runs once, so an if there is asked once. Ask where a check that keeps happening must go."
+  - "Milestone 1: an if inside an if. Read it aloud: 'every second, if the shield is on, count down; if it reached zero, switch it off'."
+  - "Milestone 2: the prize is random, so students may need a few stars to test the blaster. They can set prize to 1 while testing."
+  - "Milestone 3: goals only. Ask each student to say their power-up as three parts: variable, event, rule."
+  - "Sprint boost: the same pattern with a button instead of a star."
+stuck:
+  - see: "The shield switches off straight away, or never switches on."
+    ask: "Where is shield set to false, and when does that block run?"
+    fix: "Only inside the if shieldTime = 0, inside the if shield, inside the timer."
+  - see: "The shield never runs out."
+    ask: "Is the countdown inside a timer, or in on start?"
+    fix: "Move it into on game update every 1000 ms; on start runs only once."
+  - see: "A fires forever, or never."
+    ask: "What is ammo at the start, and where does it change?"
+    fix: "ammo starts at 0, a prize-1 star sets it to 5, and each shot changes it by -1, all inside if ammo > 0."
+  - see: "Shots pass through rocks."
+    ask: "Which kinds does your overlap event name?"
+    fix: "A shot is a Projectile, so the event must be Projectile overlaps Enemy."
+stretch: "Show the ammo on screen: a sprite's say block (Sprites, say) can show 'ammo 3' above the ship after each shot."
+support: "A student who finishes Milestone 1 has the key idea. For Milestone 3, offer the extra life (change life by 1) as a first power-up, then ask for one more of their own."
+leads: "Next: Will it work in Arcade?, judging which games Arcade does well by the building blocks they need. Class ideas: a power-up design jam where pairs swap power-ups and rate them for fairness; draw a power-up card (name, variable, event, rule, how long)."
+exit:
+  q: "Name the three parts of a power-up in your game, using the shield as the example."
+  a: "A variable that remembers it (shield), an event that changes it (catching a star sets it to true), and a rule that uses it (if shield, a rock costs no life)."
+explain: |
+  A power-up has three parts:
+
+  1. a **variable** that remembers it: `shield` is **true** while it is on,
+  2. an **event** that changes it: catching a star sets it to true,
+  3. a **rule** that uses it: *if shield*, a rock costs no life.
+
+  A timer counts `shieldTime` down every second; at 0 the shield is set back to **false**.
+solutions:
+  step-4: powerups.ts#sol-m1
+  step-5: powerups.ts#sol-m2
+  step-6: powerups.ts#sol-m3

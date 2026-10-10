@@ -1,0 +1,41 @@
+summary: Students treat an equation as a balance, find the value that balances it, and check a value by substitution (AC9M7A03, node 1).
+time: 45
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 12 min · Make 8 min"
+goals:
+  - I can check whether a value is a solution by putting it in place of the letter and working out both sides.
+  - I can tell an expression from an equation.
+  - I can explain that a solution makes both sides of an equation equal.
+before: |
+  Do the Run and Modify boards yourself first. The surprise is the last Modify task: $2x = 7$ never balances with a whole number, and that is the point. Be ready to ask "what would $x$ have to be?" and accept 3.5 without teaching a method yet: solving step by step is the next two lessons.
+running:
+  - "Predict: students lock in a value before touching the board. Ask two students with different predictions to explain them."
+  - "Run: the board shows each side worked out for the current x. Point at the line under each pan: that is substitution, done for them."
+  - "Investigate: walk through the worked example together, one step at a time. Before each click, ask what comes next."
+  - "Say 2x aloud as 'two times x', never 'two x', for the whole lesson. It prevents the 24-for-8 slip in the second task."
+  - "Modify: the last task has no whole-number answer. Let students try every value before discussing."
+  - "Make: share a few student equations and have the class check them by substitution."
+stuck:
+  - see: "A student says x = 4 gives 2x = 24."
+    ask: "What does 2x mean? Say it as a times sentence."
+    fix: "2x means 2 × x. Write the multiplication sign in, or use brackets: 2(4) = 8."
+  - see: "The student moves the slider at random and stops when it balances, without noticing why."
+    ask: "Before you move it, which way will it tip? Why?"
+    fix: "Ask them to read both values under the pans aloud before each move."
+  - see: "A student writes an expression, such as 2x + 3, for the Make task."
+    ask: "What is your expression equal to? Where is the = sign?"
+    fix: "An equation needs two sides. Work out 2x + 3 when x = 6, then write = and that number."
+stretch: "Write an equation with x on both sides whose solution is 6, then one whose solution is not a whole number."
+support: "Use the board for the Investigate questions too: set up 3x − 2 and 13 by hand on paper as bags and blocks, then count."
+leads: |
+  Next: solving by backtracking, then the balance method (do the same to both sides). Both lean on the habit built here: check every answer by substitution.
+
+  Where it leads in class: missing totals in recipes or budgets ("4 tickets and a $5 booking fee cost $41"), and formulas in science where one value is unknown.
+exit:
+  q: "Is x = 7 a solution of 3x − 5 = 16? Show how you know."
+  a: "Yes. 3 × 7 − 5 = 21 − 5 = 16, which equals the right side."
+explain: |
+  An **equation** says two things are equal: $2x + 3 = 11$ says "two lots of something, plus 3, is 11".
+
+  The **solution** is the value that makes it true. To check a value, put it in place of the letter (this is called **substitution**) and work out each side. If both sides are the same, it is a solution.
+
+  Remember: $2x$ means $2 \times x$. If $x = 4$, then $2x$ is 8, not 24.

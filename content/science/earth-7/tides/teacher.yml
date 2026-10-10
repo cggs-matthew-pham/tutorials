@@ -1,0 +1,35 @@
+summary: Students explain tides as caused by the moon's gravity, account for two high tides a day, and link spring and neap tides to the moon's position and phase (AC9S7U03, node 5).
+time: 20
+timing: "Engage and Explore 7 min · Explain 7 min · Evaluate 3 min · Typical adds 1 min, Wider about 2 min"
+goals:
+  - I can explain that the moon's gravity causes the tides.
+  - I can explain why most coasts have two high tides a day.
+  - I can link spring and neap tides to the moon's phases.
+before: |
+  A concept tutorial for introducing or revising the idea; pair it with a real tide table for a coast near you (Bureau of Meteorology tide predictions). Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  This node integrates the moon's phases (node 2), the line-ups from eclipses (node 3) and gravity (AC9S7U04). Students who can do each part separately often can't put them together; the board joins the bulges, the moon's position and a month of tides in one view.
+
+  Board notes: the bulges are hugely exaggerated, and the far-side bulge is shown without explaining it fully (at Year 7, "the moon pulls the near ocean more than the Earth, and the Earth more than the far ocean" is enough). The chart is for an idealised coast with a 3.2 m spring range and 1.2 m neap range; real coasts vary a lot, and some have one tide a day. Play a day at the beach ignores the moon's movement during the day (which makes real tides about 50 minutes later each day).
+running:
+  - "Engage: count how many chose one high tide a day."
+  - "Explore: ask how many high tides the beach passed through."
+  - "Explain: the spring/neap sort is the checkpoint."
+stuck:
+  - see: "A student says there should be one high tide, when the moon is overhead."
+    ask: "How many bulges does the board show?"
+    fix: "Two: one towards the moon and one on the far side, so two high tides as the Earth turns."
+  - see: "A student thinks spring tides are a season."
+    ask: "How often does the chart show the biggest tides?"
+    fix: "About every two weeks: at new and full moon."
+stretch: "Why are the tides at full moon about as big as those at new moon, even though the sun is on opposite sides?"
+support: "Give a four-picture strip (new, first quarter, full, last quarter) to label spring or neap."
+leads: |
+  This completes AC9S7U03. Later: gravity and orbits (AC9S7U04), and First Nations knowledge of the moon and tides from local sources.
+
+  In class: real tide tables; compare tide heights with moon phases over a month.
+exit:
+  q: "When do spring tides happen, and why are they bigger?"
+  a: "At new and full moon, when the sun and moon are in line, so their pulls on the oceans add together."
+explain: |
+  **Tides:** the moon's gravity pulls the oceans into two bulges; the Earth spins through both, so most coasts get two high tides a day. **Spring tides** (biggest) at new and full moon (sun and moon in line); **neap tides** (smallest) at the quarters.

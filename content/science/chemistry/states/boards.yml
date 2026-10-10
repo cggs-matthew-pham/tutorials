@@ -1,0 +1,21 @@
+# Science boards for "Why does a gas fill its container?".
+
+# region: jar
+widget: jar
+# endregion
+
+# region: six
+widget: windows
+set: six
+caption: Each window shows the same tiny volume of a substance.
+# endregion
+
+# region: heat
+widget: heat
+# endregion
+
+# region: ice
+widget: windows
+set: ice
+caption: The same volume of ice and of liquid water.
+# endregion

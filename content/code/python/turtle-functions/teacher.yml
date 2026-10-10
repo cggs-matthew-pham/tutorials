@@ -1,0 +1,43 @@
+summary: Students give a group of steps a name with def, then use that name again and again, and see why one change inside a function updates every use.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 10 min"
+goals:
+  - I can write a function with def and call it by name.
+  - I can explain why changing a function once changes every place it is used.
+  - I can write a second function by following a pattern.
+before: |
+  Read the unit primer "Functions in 5 minutes" first. Then run the def version and write the triangle function yourself. The surprise for students: `def square():` on its own draws nothing. It only describes the steps; `square()` runs them.
+running:
+  - "Predict and Run: the copy-and-paste program works, but making the squares smaller means changing three numbers. Let students feel that."
+  - "Investigate: introduce def as 'teach Python a new word'. def square(): teaches it; square() uses it. Ask: what does the program draw if we delete the three square() lines?"
+  - "The match task separates describing (def) from doing (calling). Spend time here: it is the idea everything else builds on."
+  - "Modify: students write triangle by copying the pattern of square. Check they call it as well as define it."
+  - "Make: any shape is fine. The check is a def and three calls."
+stuck:
+  - see: Nothing is drawn, and there is no error.
+    ask: Where in your code do you call the function, with brackets?
+    fix: A def only describes. Add a line square() (not indented) below the def.
+  - see: "An IndentationError, or only part of the shape is in the function."
+    ask: Which lines are pushed in under the def line?
+    fix: Every line that belongs to the function must be indented under def.
+  - see: Two functions with the same name; only the second one ever runs.
+    ask: How many functions are called square?
+    fix: Give each function its own name. A second def with the same name replaces the first.
+stretch: Write a function star() (five lines, turning 144 degrees each time) and use it to draw a row of stars.
+support: Give the def square() code and ask students only to add a triangle() below it by copying and changing two numbers.
+leads: "Next lesson gives functions inputs (parameters), so one function can draw many sizes. Every app is built from named functions. Class ideas: each student writes one shape function and the class combines them into a picture; time how long it takes to change three copies versus one function."
+exit:
+  q: "A program has def square(): with a loop inside, and nothing else. What does it draw, and why?"
+  a: "Nothing. The def only describes the steps; the function has to be called with square() to run them."
+explain: |
+  A **function** is a named set of steps. `def square():` teaches Python a new word, square, and the indented lines say what it means.
+
+  Writing the def does not draw anything. The steps run when you **call** the function by its name with brackets: `square()`. Call it three times and you get three squares.
+
+  The big win: if you want smaller squares, you change the number inside the def once, and every call changes with it. No hunting for copies.
+solutions:
+  step-4#t1: functions.py#sol-resize
+  step-4#t2: functions.py#sol-triangle
+  step-4#t3: functions.py#sol-both
+  step-5: functions.py#sol-make
+  step-6: functions.py#sol-door

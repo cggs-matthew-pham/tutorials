@@ -1,0 +1,9 @@
+# Lines for the "put the steps in order" task. Plain text: students order them, nothing runs.
+
+# region: order
+4x + 3 = 23
+4x + 3 − 3 = 23 − 3
+4x = 20
+x = 5
+Check: 4 × 5 + 3 = 23
+# endregion

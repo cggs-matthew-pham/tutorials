@@ -1,0 +1,40 @@
+summary: Students see movements as data (x, y and z over time), train an activity model in micro:bit CreateAI, and improve it until it works for someone who didn't train it.
+time: 50
+timing: "Predict and Run 8 min · Walk and run 5 min (typical) · Train 15 min · Investigate 7 min · Improve 10 min · Make 5 min"
+goals:
+  - "I can describe a movement as data: x, y and z acceleration over time."
+  - I can train and test a movement model in CreateAI.
+  - I can improve a model by adding samples from other people and ways of moving.
+before: |
+  **The idea:** a movement is a short recording of the accelerometer's **x, y and z** readings. CreateAI's model learns the patterns in the samples it is given (a sample is about a second), so the lessons from the recycling sorter carry over: the model knows only its examples, and variety (other people, other ways of holding it) is the fix. The new part is **where the model runs**: on the micro:bit itself, with no camera, computer or connection.
+
+  **CreateAI** ([createai.microbit.org](https://createai.microbit.org/)) is free and needs no account. In **Chrome or Edge** it connects by **Bluetooth** with one micro:bit, or by **radio** through a second micro:bit on a USB data cable if the computer has no Web Bluetooth. iPads and Android tablets use the CreateAI app. Any micro:bit can collect data and train; running the model on the micro:bit (next lesson) needs a **V2**. School device policies can block Web Bluetooth or WebUSB: test one device before class.
+
+  **Without micro:bits:** the logger runs in the simulator (tilt it and use Show data), but training needs real micro:bits; run the CreateAI steps as a demonstration.
+running:
+  - "Predict: most get walking and running. Ask: what is different about them?"
+  - "Walk and run: put two students' graphs side by side."
+  - "Train: three samples each is the minimum; more, varied samples are better."
+  - "Improve: the partner test is the recycling sorter's messy bench again."
+stuck:
+  - see: "CreateAI can't find the micro:bit."
+    ask: "Is it Chrome or Edge? Is the battery pack on? Does the computer have Bluetooth?"
+    fix: "Follow CreateAI's connection steps; use the radio route with a second micro:bit if Bluetooth is blocked."
+  - see: "Everything is recognised as one action."
+    ask: "How many samples does each action have, and how different are they?"
+    fix: "Add samples so each action has a similar number, with clear movements."
+  - see: "Standing still is called walking."
+    ask: "What did your still samples look like?"
+    fix: "Record still with small fidgets and shifts."
+stretch: "Add a fifth action (such as star jumps) and find which existing action it gets confused with."
+support: "Train in pairs: one moves, one records."
+leads: "Next: code with the model, using the Machine Learning blocks. Real world: fitness trackers, fall detection for older people, gesture controls in game controllers."
+exit:
+  q: "Why does the model mix up walking and running more than still and jumping?"
+  a: "Walking and running make similar patterns (a repeated swing) that differ only in speed and size; still and jumping look completely different."
+explain: |
+  A **movement** is a short recording of **x, y and z** acceleration.
+
+  - CreateAI learns the patterns in your **samples** (about a second each).
+  - It knows only its examples: test with other people and add what they do differently.
+  - The model then runs **on the micro:bit** (a V2), with no computer.

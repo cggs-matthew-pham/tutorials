@@ -1,0 +1,48 @@
+summary: Students make a model-driven robot safe when the model is unsure (the board sends Unsure) and when it goes quiet (a watchdog stops the robot after a few seconds of silence).
+time: 45
+timing: "Predict and Run 8 min · With your model 10 min (typical) · Investigate 8 min · Modify 8 min · Make 10 min"
+goals:
+  - I can make a robot stop when the model is unsure.
+  - I can make a robot stop when it hears nothing for a while (a watchdog).
+  - I can explain why the board repeats its label every second.
+before: |
+  **The idea:** a robot driven by a model needs a **safe action** for two different problems:
+
+  - **The model can't decide** (no label above 80%): the board sends **Unsure**, and the robot's else (or an Unsure branch) stops it.
+  - **Nothing arrives** (laptop asleep, cable out, out of radio range): a **watchdog** remembers when the last message came (`lastHeard = running time`) and stops the robot when too long has passed.
+
+  For the watchdog to work, a robot that is working fine must keep hearing from the board, so the board **repeats the current label every second** (a heartbeat). Without the repeat, holding Forward steadily would trip the watchdog.
+
+  **Without robots:** in the simulator, A+B sends Forward once and B sends Unsure; the model step is typical.
+running:
+  - "Predict: most say it never stops (that was last lesson). Ask: what does lastHeard remember?"
+  - "Run: count the seconds aloud together."
+  - "With your model: unplugging the bridge is the most convincing moment; do it at the front."
+  - "Investigate: the why repeat question is the hard one; draw a timeline of messages."
+stuck:
+  - see: "The robot stops every two seconds even while the gesture is held."
+    ask: "Is the board repeating the label (repeat: 1)? Is the robot's radio group right?"
+    fix: "Use this lesson's board; check the group."
+  - see: "The robot never stops after silence."
+    ask: "Is lastHeard set in on radio received string? Is the check in forever?"
+    fix: "Set lastHeard on every message and compare in forever."
+  - see: "The robot beeps over and over."
+    ask: "Does it beep only when the mode first becomes Lost?"
+    fix: "Beep only if the mode wasn't Lost already."
+stretch: "Slow down instead of stopping when Unsure arrives once, and stop only after three Unsures in a row."
+support: "Give the watchdog's if complete; students add only the actions inside it."
+leads: "Next: some mistakes cost more than others. Real world: dead man's switches on trains, heartbeat checks in drones and delivery robots."
+exit:
+  q: "Why does a robot need both an Unsure action and a watchdog?"
+  a: "Unsure handles a model that can't decide; the watchdog handles getting no messages at all. Both make the robot stop."
+explain: |
+  A robot driven by a model needs a **safe action** (stop) for:
+
+  - **Unsure**: the model can't decide, so the board sends Unsure.
+  - **Silence**: a **watchdog** remembers when the last label arrived and stops the robot if too long passes.
+
+  The board repeats its label every second, so a working robot never trips the watchdog.
+solutions:
+  step-5#t1: robot.ts#sol-quick
+  step-5#t2: robot.ts#sol-unsure
+  step-6: robot.ts#sol-make

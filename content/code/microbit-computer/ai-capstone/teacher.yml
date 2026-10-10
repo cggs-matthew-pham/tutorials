@@ -1,0 +1,46 @@
+summary: Students build an AI sorter for a problem they choose, in four milestones (test set, model, build, system), and report its scores by group and its limits.
+time: 120
+timing: "About two to three lessons: Plan 15 min · Test set 20 min · Train and improve 35 min · Build 25 min · System 10 min (typical) · Report 15 min"
+goals:
+  - I can build a fair test set before training, with groups for the conditions where the model will be used.
+  - I can improve a model by changing its data for its weakest group.
+  - I can make a build act safely on a model's labels and report what it still gets wrong.
+before: |
+  **The capstone** brings the course together on a problem each student (or pair) chooses. The order matters: **test set first**, from photos the model never trains on, in groups that match where it will be used (place, light, distance). The board keeps the test photos **in the student's browser only** (testset: own); they are shrunk to small squares and never uploaded. Remind students not to photograph people.
+
+  **Milestones:** (1) at least 24 test photos in at least 3 groups; (2) 80% overall with no group under 60% (the board's acc_min); (3) a micro:bit program with a branch per label, a safe else and a reply; (4) the whole system on the webcam (typical: needs a micro:bit). The report is the assessment piece: scores by group before and after, the data changes made, and the limits.
+
+  **Choosing problems:** steer away from people (faces, emotions, who someone is) and anything where a wrong answer could hurt someone. Good problems have objects students can bring in. Two to four classes plus Neither is plenty.
+
+  **Without micro:bits:** milestones 1, 2 and 3 work without hardware (3 is checked in the editor); milestone 4 is typical.
+running:
+  - "Plan: check class names are exact and that every class has a Neither alternative."
+  - "Test set: check groups are real conditions (window, desk, dim), not just more of the same."
+  - "Improve: ask each student which group is weakest and what its failures share."
+  - "Build: the safe else is the AI robots idea in a new setting."
+  - "Report: ask 'who or what might it fail for?' of every report."
+stuck:
+  - see: "The test score is 100% straight away."
+    ask: "Are any test photos also training photos? Are your groups different enough?"
+    fix: "Retake test photos apart from training ones, in harder conditions."
+  - see: "One group stays low however much is added."
+    ask: "Do the new training photos look like that group's test photos?"
+    fix: "Take training photos in that group's conditions."
+  - see: "The board loses the test photos."
+    ask: "Are you in the same browser and not in a private window?"
+    fix: "Use the same browser profile; private windows forget them."
+stretch: "Add a second model in CreateAI (a movement) that starts or stops the sorter, so the two models work together."
+support: "Offer a ready-made problem (the recycling sorter with your school's bins) and a planning template with the four plan questions."
+leads: "Where this leads: AI robots (a robot driven by a model, with safety rules), and the Python pathway's Machine learning with Gradio. Real world: model cards and test reports for AI systems."
+exit:
+  q: "Why build the test set before training?"
+  a: "So it holds photos the model never trained on, from the conditions where it will be used: a fair test of whether it works there."
+explain: |
+  Build your AI sorter in four milestones:
+
+  1. **Test set first**: photos the model never trains on, in groups for where it will be used.
+  2. **Train and improve**: fix the **weakest group** by changing the data.
+  3. **Build**: act on each label, do something **safe** for anything else, and reply.
+  4. **Report**: scores by group, what you changed, and what it still gets wrong.
+solutions:
+  step-4: build.ts#sol-build

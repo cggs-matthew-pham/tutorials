@@ -1,0 +1,43 @@
+summary: Students program a micro:bit to act on words the computer sends over USB, reply to each one, and handle words it doesn't know.
+time: 45
+timing: "Predict and Run 6 min · Send commands 8 min (typical) · Investigate 8 min · Modify 10 min · Make 10 min · Test the lamp 3 min (typical)"
+goals:
+  - I can make a micro:bit act on a line of text sent from the computer.
+  - I can explain why the words must match exactly.
+  - I can reply to each command, including words my program doesn't know.
+before: |
+  **The idea:** the computer sends a line of text; **on serial data received** runs once the whole line has arrived (it ends with a new line), and **read line** gives its text. The micro:bit's own program decides what each word means, so both sides must agree on every word, capital letters included. A reply (**ok**, or **?** for an unknown word) tells the computer what happened.
+
+  **Hardware:** the simulator cannot receive lines from the computer, so the board steps need a micro:bit, a data USB cable and **Chrome or Edge**. They are marked typical: without micro:bits, students do Predict, Investigate, Modify and Make in the editor (code checks still tick) and talk through what would happen.
+
+  Only one page can use the cable at a time: if MakeCode is connected to the micro:bit, disconnect it there first.
+running:
+  - "Predict: many say a happy face. Ask: is Happy the same text as happy?"
+  - "Send commands: let students find that typed Happy does nothing before you explain."
+  - "Investigate: Ben's comma is the delimiter idea; the board always ends lines with a new line."
+  - "Modify: the ? reply is the important one: it makes unknown words visible."
+stuck:
+  - see: "Nothing happens when a button is pressed."
+    ask: "Is the board connected (the button says micro:bit connected)? Is MakeCode connected to the micro:bit in another tab?"
+    fix: "Disconnect MakeCode, then Connect a micro:bit on the board."
+  - see: "Some words work and others don't."
+    ask: "Does the word you sent match the word in the if exactly?"
+    fix: "Match spelling and capitals, or add a branch."
+  - see: "The micro:bit never reacts to anything."
+    ask: "Which delimiter does on serial data received wait for?"
+    fix: "Use new line."
+stretch: "Add a command that takes a number, such as bright 50: check the line starts with bright, and use the rest as the brightness."
+support: "Give the reply branch for happy; students copy the pattern for sad and add the else."
+leads: "Next: a radio bridge, so commands reach a micro:bit across the room. Real world: 3D printers and CNC machines take G-code, one command per line."
+exit:
+  q: "The computer sends Stop but the micro:bit's program checks for stop. What happens, and how would you fix it?"
+  a: "Nothing matches, so nothing happens (or the else runs). Make both sides use exactly the same word."
+explain: |
+  The computer sends a **line of text**. **on serial data received** runs when the whole line has arrived; **read line** gives the text.
+
+  - Your program decides what each word means, so the words must **match exactly**.
+  - Reply with **serial write line** so the computer knows what happened, and use **else** for words you don't know.
+solutions:
+  step-5#t1: commands.ts#sol-heart
+  step-5#t2: commands.ts#sol-reply
+  step-6: commands.ts#sol-make

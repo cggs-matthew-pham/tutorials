@@ -1,0 +1,39 @@
+# Boards for "What if the dingo disappeared?".
+
+# region: dingo
+widget: foodweb
+mode: remove
+remove: D
+organism G: Grass
+organism I: Insects
+organism R: Kangaroo
+organism A: Rabbit
+organism N: Bandicoot
+organism X: Fox
+organism D: Dingo
+eats I: G
+eats R: G
+eats A: G
+eats N: I
+eats X: A, N
+eats D: R, X, A
+# endregion
+
+# region: choose
+widget: foodweb
+mode: remove
+organism G: Grass
+organism T: Gum tree
+organism H: Grasshopper
+organism K: Koala
+organism L: Lizard
+organism B: Kookaburra
+organism S: Snake
+organism E: Wedge-tailed eagle
+eats H: G
+eats K: T
+eats L: H
+eats B: L, H
+eats S: L
+eats E: S, B, K
+# endregion

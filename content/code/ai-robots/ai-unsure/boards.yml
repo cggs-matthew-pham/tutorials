@@ -1,0 +1,11 @@
+# Classifier board for "When the model is unsure": sends Unsure, and repeats the current label every second.
+
+# region: unsure
+widget: classifier
+classes: Forward, Left, Right, Stop
+webcam: on
+serial: on
+threshold: 0.8
+unsure: on
+repeat: 1
+# endregion

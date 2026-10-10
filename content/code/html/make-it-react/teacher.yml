@@ -1,0 +1,51 @@
+summary: An optional lesson. Students use a short JavaScript recipe (find an element by id, wait for a click, change the page) to make a button change words and colours, and a form greet people by name.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 10 min · Sign-up 5 min"
+goals:
+  - I can use the recipe to make a button change the words on a page.
+  - I can explain the three parts of the recipe (find, wait, change).
+  - I can use an id selector with # to find an element.
+  - I can read what someone typed and show it on the page.
+before: |
+  This lesson is **optional** and treats JavaScript as a **recipe**: students copy the pattern, change the parts and see the effect, without needing to understand every symbol. That is deliberate (the same way `from turtle import *` is a recipe in the Python course). The DOM course explains it properly: what `document` is, why `function () { ... }` is passed to `addEventListener`, and how to write it from scratch.
+
+  The recipe has three parts: **find** an element (`document.querySelector('#go')`, where `#` means id, as `.` means class in CSS), **wait** for a click (`.addEventListener('click', ...)`), **change** something (`.textContent = '...'` for words, `.style.color = '...'` for colour). Do the Make task yourself first.
+running:
+  - "Predict: most students say the words change; a few expect nothing because there is no form. Click to see."
+  - "Investigate: name the three parts on the board (find, wait, change). The selectors are the CSS ones they know, plus # for id."
+  - "The button that does nothing: `#Go` versus `id=\"go\"`. Like CSS, a mismatched selector fails silently. (The browser's developer console shows an error, if you want to show it.)"
+  - "Modify: each task changes one part of the recipe. The reset button is a second copy of the whole recipe."
+  - "Make: `.value` reads a box and `+` joins words. Students who finish can greet differently by time of day, or count clicks."
+  - "Sign-up: the Forms lesson's form, now reacting. Point out what is still missing: sending the name somewhere needs a server."
+stuck:
+  - see: Clicking the button does nothing.
+    ask: Does the id in querySelector (after the #) match the element's id exactly?
+    fix: Make them identical, capitals included, and check the quotes and brackets are all closed.
+  - see: The message shows Hi, ! with no name.
+    ask: Did you read the box with .value inside the click function, after something was typed?
+    fix: Put the const name = ... line inside the function, so it reads the box when the button is clicked.
+  - see: The script code shows on the page as text.
+    ask: Is the JavaScript between <script> and </script>?
+    fix: Wrap the recipe in a script block after the HTML.
+stretch: "Count clicks: let count = 0; outside the function, then count = count + 1; and show the count inside it. Or change the page's background: document.body.style.backgroundColor = 'gold';"
+support: "Do the first Modify task together, then let students copy and change the recipe for the reset button with the hint open."
+leads: "The DOM course teaches JavaScript properly: variables, decisions, functions and events, with the same querySelector and addEventListener. Students from the Python course will recognise events (onscreenclick there, addEventListener here). Forms that send data somewhere need a server; Gradio (in the Python pathway) is one way to put a program behind a form."
+exit:
+  q: "Name the three parts of the recipe, and what each one does."
+  a: "Find an element (document.querySelector('#id')), wait for a click (addEventListener('click', ...)), and change something (textContent or style)."
+explain: |
+  The video shows the same steps:
+
+  1. JavaScript goes in a `<script>` block, after the HTML.
+  2. `document.querySelector('#go')` **finds** the button with `id="go"`. `#` means id, as `.` means class.
+  3. `.addEventListener('click', function () { ... })` **waits** for a click, then runs the steps inside.
+  4. `document.querySelector('#message').textContent = 'Go!';` **changes** the message's words.
+  5. Click Start: the page changes.
+
+  Find, wait, change: that is the whole recipe. The DOM course explains every part.
+solutions:
+  step-4#t1: page.html#sol-message
+  step-4#t2: page.html#sol-colour
+  step-4#t3: page.html#sol-reset
+  step-5: page.html#sol-make
+  step-6: page.html#sol-club

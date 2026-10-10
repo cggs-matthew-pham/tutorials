@@ -1,0 +1,35 @@
+summary: Students complete Punnett squares for monohybrid crosses, use genotype and phenotype vocabulary, and interpret ratios as probabilities (AC9S10U01, node 4, a hinge node).
+time: 25
+timing: "Engage and Explore 8 min · Explain 7 min · Practise 4 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can complete a Punnett square for one gene.
+  - I can use the words genotype, phenotype, dominant, recessive, homozygous and heterozygous.
+  - I can explain a ratio as a probability, not a fixed count.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconceptions are that a 3 : 1 ratio is a guaranteed count, and that offspring must show a parent's phenotype. Pea flower colour is used because it really is controlled by one gene with complete dominance; human eye colour is not, so it is avoided.
+
+  Board notes: students click to cycle each gamete and cell; "Breed 100 offspring" draws random gametes, so the percentage varies around the prediction. The typical tier's board lets students choose the parents.
+running:
+  - "Engage: count how many chose 'all purple' or 'a blend'."
+  - "Explore: collect the class's breeding percentages on the board: they cluster near 75% but vary."
+  - "Explain: the 'exactly 3 and 1?' question is the checkpoint."
+stuck:
+  - see: "A student puts PP in every cell."
+    ask: "Which allele does this gamete carry? And this one?"
+    fix: "Each cell combines one gamete from the top and one from the side."
+  - see: "A student says the next child of carriers can't have cystic fibrosis because one already does."
+    ask: "Does the egg or sperm know about the last child?"
+    fix: "No: each child is a new 1 in 4 chance."
+stretch: "Why did Mendel need to grow thousands of plants to see a clear 3 : 1?"
+support: "Give a blank Punnett square with the gamete headers already filled."
+leads: |
+  Next unit: variation and natural selection (10U02).
+
+  In class: coin-toss crosses (each parent a coin, heads = P); pedigree analysis.
+exit:
+  q: "Complete Bb × Bb. What fraction of offspring are expected to show the recessive trait?"
+  a: "BB, Bb, Bb, bb: 1 in 4 (25%)."
+explain: |
+  **Punnett square:** each parent's possible gametes along the edges, every combination in the grid. It gives probabilities: Pp × Pp gives 1 PP : 2 Pp : 1 pp, so 3 dominant : 1 recessive phenotype. **Genotype** is the alleles; **phenotype** is the characteristic seen.

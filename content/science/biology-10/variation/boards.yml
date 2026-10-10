@@ -1,0 +1,8 @@
+# Science boards for "How different are individuals?".
+
+# region: measure
+widget: selection
+goal: measure
+need: 20
+n: 40
+# endregion

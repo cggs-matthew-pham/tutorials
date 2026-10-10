@@ -1,0 +1,43 @@
+summary: Students use particle theory to explain physical properties (compressibility, density, viscosity), naming the arrangement, motion or attraction behind each (AC9S7U05, node 3, a hinge node for all of AC9S7U06).
+time: 25
+timing: "Engage and Explore 10 min · Explain 8 min · Evaluate 3 min · Typical adds 5 min, Wider about 15 min"
+goals:
+  - I can explain why gases can be squashed and liquids and solids can't.
+  - I can explain why a gas is less dense than a liquid using particle spacing.
+  - I can name the particle feature (arrangement, motion or attraction) behind a property.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  This is the hinge into pure substances and mixtures: every separation technique in AC9S7U06 is chosen by explaining property differences at the particle level. Students who can only label diagrams stall there.
+running:
+  - "Engage: ask a student who chose water or wax to say why. Listen for 'the particles squash'."
+  - "Explore: the window count is the density idea. Point out that air's count is so low it is often 0 or 1."
+  - "Explain: insist on a particle feature in every sentence of the written explanation."
+  - "Follow up with real sealed syringes of air and water if you have them."
+stuck:
+  - see: "A student says the air particles get squashed."
+    ask: "Did any particle change size on the board?"
+    fix: "Particles never change size. The spaces between them get smaller."
+  - see: "A student says air is less dense because its particles are lighter."
+    ask: "Count the particles in the window for air and for water."
+    fix: "Spacing is the main reason: far fewer particles in each cm³. (A water particle is actually lighter than an average air particle.)"
+  - see: "A student explains with state labels: 'because it's a gas'."
+    ask: "What are a gas's particles doing that makes that happen?"
+    fix: "Name the feature: arrangement, motion or attraction."
+stretch: "Why does a bike pump get warm when you pump it hard? Use particle motion."
+support: "Give the sentence frame: 'X can/can't be squashed because its particles are … so there is … space between them.'"
+leads: |
+  Next: AC9S7U06 node 1, pure substances and mixtures at the particle level.
+
+  In class: sealed syringes of air and water; a density column of honey, water and oil.
+exit:
+  q: "Why can you squash air but not water?"
+  a: "Air particles are far apart with empty space between them, so they can be pushed closer. Water particles are already close together."
+explain: |
+  Every property comes from a particle feature:
+
+  - **Squashing:** gas particles are far apart, so they can be pushed closer. Solid and liquid particles are already close.
+  - **Density:** far fewer gas particles fit in each cm³, so a gas has much less mass per cm³.
+  - **Flowing:** liquids whose particles attract strongly (like honey) flow slowly.
+
+  Particles never shrink or squash. Only the spaces between them change.

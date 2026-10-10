@@ -1,0 +1,44 @@
+summary: Students build a working button from scratch (a rectangle, a label and a check that a click landed inside), and find out what every app's buttons are really doing.
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min · Panel and toolkit 5 min"
+goals:
+  - I can check whether a click landed inside a rectangle.
+  - I can make a click change a variable and redraw the screen.
+  - I can explain what a button does behind the scenes.
+before: |
+  Turtle has no buttons, which is the point: students build one. The key idea is the **hit test**: a click at (x, y) is inside the button when x is between the left and right edges **and** y is between the bottom and top edges. Four comparisons joined with `and`. Run the counter and click inside and outside the button.
+running:
+  - "Predict: draw the button on the board with its corners labelled, (bx, by) at the bottom left. Ask whether a click at the centre is inside."
+  - "Investigate: students fill in the trace table by checking all four comparisons for each click. The bug (or instead of and) makes every click count."
+  - "The 'iceberg' idea: the visible button is the small part. The rest is drawing it, checking the click, handling the event and updating what is shown."
+  - "Modify: because the click check uses the same variables as the drawing, moving the button moves the check too."
+  - "Make: two buttons means two separate if statements, one per button."
+  - "Toolkit: the ui module holds draw_button and inside, the same code as students wrote. Compare the line counts."
+stuck:
+  - see: Clicks far from the button still count.
+    ask: Are the four comparisons joined with and, or with or?
+    fix: Use and. A click is inside only when all four comparisons are true.
+  - see: Clicks inside the button are missed near the top or right.
+    ask: What are the right and top edges, using bx, bw, by and bh?
+    fix: The right edge is bx + bw and the top edge is by + bh.
+  - see: The number on screen does not change, or numbers pile up on top of each other.
+    ask: Does the click redraw the screen, and does the redraw clear the old drawing first?
+    fix: Call draw_scene() after changing the count, and start draw_scene with clear().
+stretch: Add a third button that resets the count to 0, and draw the count in red when it goes below zero.
+support: Give students a printed grid with the button drawn and five click points marked, to decide inside or outside before coding.
+leads: "Next unit is the final challenge, a game that uses everything including these buttons. Gradio's Button and every phone app do this same work for you. Class ideas: a class control panel with different buttons; design a calculator keypad."
+exit:
+  q: "A button has bx = 0, by = 0, bw = 100, bh = 40. Is a click at (50, 50) inside? Why?"
+  a: "No. x = 50 is between 0 and 100, but y = 50 is above the top edge (0 + 40 = 40)."
+explain: |
+  A button on a screen is really three things: a **rectangle** drawn on the screen, a **label**, and a **check** that asks "did the click land inside the rectangle?"
+
+  The check uses four comparisons. A click at (x, y) is inside when x is past the left edge **and** before the right edge, **and** y is above the bottom **and** below the top. All four must be true, so they are joined with `and`.
+
+  When the check passes, the program changes something (adds to a count) and redraws the screen to show it. Every app's buttons do this behind the scenes.
+solutions:
+  step-4#t1: buttons.py#sol-move
+  step-4#t2: buttons.py#sol-five
+  step-5: buttons.py#sol-make
+  step-6: buttons.py#sol-panel
+  step-7: buttons.py#sol-toolkit

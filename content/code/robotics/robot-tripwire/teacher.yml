@@ -1,0 +1,44 @@
+summary: An optional challenge for students who finish early. Two robots work as a team; one stands still as a tripwire and, armed with a true/false variable, cues the patrolling robot once per pass; the patrol robot does a trick through its mode, then carries on.
+time: 50
+timing: "Predict, Run, Investigate 12 min · Milestone 1 12 min · Milestone 2 13 min · Milestone 3 13 min"
+goals:
+  - I can turn a sensor into a one-shot trigger with a true/false variable.
+  - I can make one robot cue another by radio.
+  - I can design two devices that work together as a system.
+before: |
+  Optional: the high ceiling of the course, not needed for Challenge complete. It is based on a common sensor pattern: one device notices, another acts. The tripwire is a robot that has been switched (A+B) to watch instead of drive; its distance sensor sees the other robot (the simulator treats robots as obstacles). Students drag the tripwire robot beside the line, facing it.
+
+  Two ideas from earlier come back: **fire once** (armed, like alerted in lesson 9) and **handlers set the mode, forever does the job** (lessons 6 and 11). The trick is a wiggle so the robot finishes facing along the line and can find it again; a full spin may leave it off the line.
+
+  Real ultrasonic sensors give false readings near zero, so a real tripwire often checks a range (for example 5 to 20 cm).
+running:
+  - "Predict and Run: placing the tripwire is fiddly. Show it once on the projector."
+  - "Investigate: Ivy's tripwire is lesson 9's repeat-alert slip; the second question is the mode rule from Patrol and alert."
+  - "Milestone 1: arm with A, fire once, disarm."
+  - "Milestone 2: the trick lives in forever, chosen by mode."
+  - "Milestone 3: re-arming after a pause makes it work lap after lap."
+stuck:
+  - see: "The tripwire never fires."
+    ask: "Is it armed? Is it facing the line, close enough?"
+    fix: "Press A on the tripwire; drag it nearer and point it at the line."
+  - see: "The trick is cut short or never shows."
+    ask: "Where are the trick's moves: in the handler or in forever?"
+    fix: "Handler: set mode to trick. forever: if mode = trick, do it, then set mode to patrol."
+  - see: "After the trick the robot stops for good."
+    ask: "Which way is it facing after the trick?"
+    fix: "Make the trick end facing the same way (a wiggle), or drag it back onto the line."
+stretch: "Two tripwires at different places on the track, each sending a different word, and a different trick for each."
+support: "Give Milestone 1 as a worked example to read; students build Milestones 2 and 3."
+leads: "Real-world links: conveyor-belt sensors, shop door chimes, lap timers at races, automatic doors."
+exit:
+  q: "Why does the tripwire need the armed variable?"
+  a: "The robot is in front of the sensor for many times round forever. Without armed the cue would be sent again and again; armed lets it fire once per pass."
+explain: |
+  A **tripwire** notices; another robot **acts**.
+
+  - **Arm** it, **fire once**, **disarm**: a true/false variable.
+  - The robot that hears the cue sets its **mode**; **forever** does the trick, then goes back to patrolling.
+solutions:
+  step-4: tripwire.ts#sol-m1
+  step-5: tripwire.ts#sol-m2
+  step-6: tripwire.ts#sol-m3

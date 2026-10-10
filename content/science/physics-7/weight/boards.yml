@@ -1,0 +1,19 @@
+# Boards for "Would you weigh less on the Moon?".
+
+# region: places
+widget: forces
+object: Astronaut
+mass: 10, 120, 60
+place: Earth, Moon, Mars
+force W: down, weight, Weight
+force N: up, support, Support
+# endregion
+
+# region: jupiter
+widget: forces
+object: Rover
+mass: 100, 1000, 900
+place: Earth, Moon, Mars, Jupiter
+force W: down, weight, Weight
+force N: up, support, Support
+# endregion

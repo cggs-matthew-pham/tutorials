@@ -1,0 +1,13 @@
+# Boards for "Is everything alive made of cells?".
+
+# region: single
+widget: cell
+show: bacterium, yeast
+find: membrane, cytoplasm
+# endregion
+
+# region: multi
+widget: cell
+show: animal, plant
+find: membrane, cytoplasm
+# endregion

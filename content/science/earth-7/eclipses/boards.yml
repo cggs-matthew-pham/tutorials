@@ -1,0 +1,12 @@
+# Boards for "Why isn't there an eclipse every month?".
+
+# region: year
+widget: sky
+mode: eclipse
+# endregion
+
+# region: flat
+widget: sky
+mode: eclipse
+tilt: choose
+# endregion

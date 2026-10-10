@@ -1,0 +1,52 @@
+summary: Students write CSS rules in a style block, learn that a selector picks only the elements that match (by tag, or by class with a dot), and find that a selector that matches nothing is silently ignored.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 10 min"
+goals:
+  - I can write a CSS rule with a selector, a property and a value.
+  - I can explain which elements a selector styles, and which it leaves alone.
+  - I can give an element a class and style only that element.
+  - I can find why a rule does nothing by checking its selector.
+before: |
+  Read the unit primer "CSS in 5 minutes" first, then do the Make task yourself.
+
+  New words: a **rule** is a selector followed by declarations in braces, `p { color: teal; }`. The **selector** (`p`) picks the elements; each **declaration** is a property, a colon, a value and a semicolon. A **class** marks elements in the HTML, `class="note"`, and a dot picks them in the CSS, `.note`.
+running:
+  - "Predict: many students expect the whole page to turn teal. Only the two paragraphs do: the heading and list items are not `<p>`."
+  - "Run: changing the selector from `p` to `li` moves the colour. That is the whole idea of a selector."
+  - "Investigate: the match task names the parts of a rule. Then the class: the dot is only in the CSS, never in `class=\"...\"`."
+  - "The rule that does nothing: `.Notice` versus `class=\"notice\"`. Capitals count, and the browser gives no error. Ask: does the selector match the HTML exactly?"
+  - "Mix and match: two rules on one paragraph both apply when they change different things. (If two rules set the same property, the more specific one, or the later one, wins; this course does not need that yet.)"
+  - "Modify: four small rules. The last uses `h1, p` to style two kinds of element at once."
+stuck:
+  - see: A rule changes nothing, and there is no error.
+    ask: Does the selector match the HTML exactly, including capitals and the dot for a class?
+    fix: "Fix the selector: .note for class=\"note\", p for <p>."
+  - see: Only the first declaration in a rule works.
+    ask: Does every declaration end with a semicolon?
+    fix: "Add the missing ; after the value, as in color: teal;"
+  - see: The CSS shows on the page as text.
+    ask: Is the CSS inside <style> and </style>?
+    fix: Put every rule between <style> and </style> at the top of the page.
+stretch: "Give two different elements the same class (a list item and a paragraph) and style them together. Then give one element two classes, class=\"note big\", and write a rule for each."
+support: "Give students the Modify starter and do the second task together on the board: the selector, the braces, then one declaration."
+leads: "Next lesson is Boxes: every element is a box with padding, a border and margin, and CSS sets each one. Selectors come back later in JavaScript: `document.querySelector('.note')` uses exactly the same selectors. Class idea: restyle the same page three ways (calm, loud, sporty) without changing the HTML."
+exit:
+  q: "A student writes .Warning { color: red; } but the paragraph with class=\"warning\" stays black. Why, and how do they fix it?"
+  a: "The selector does not match: class names are case-sensitive, so .Warning does not pick class=\"warning\". Change the selector to .warning (or the class to Warning)."
+explain: |
+  The video and the picture show the same steps:
+
+  1. CSS rules go in a `<style>` block at the top of the page.
+  2. A rule starts with a **selector**: `p` picks every paragraph, and nothing else.
+  3. Inside the braces: a property, a colon, a value, a semicolon, as in `color: teal;`.
+  4. Both paragraphs turn teal. The heading is not a `p`, so it stays as it was.
+  5. A dot means a **class**: `.note` picks only the elements marked `class="note"`.
+
+  If a rule does nothing, check that its selector matches the HTML exactly, capitals included: there is no error message.
+solutions:
+  step-4#t1: page.html#sol-colour
+  step-4#t2: page.html#sol-size
+  step-4#t3: page.html#sol-class
+  step-4#t4: page.html#sol-group
+  step-5: page.html#sol-make
+  step-6: page.html#sol-notice

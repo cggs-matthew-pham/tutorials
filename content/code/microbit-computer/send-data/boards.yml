@@ -1,0 +1,6 @@
+# Serial board for "Send data to the computer": graphs what a real micro:bit sends.
+
+# region: graph
+widget: serial
+window: 20
+# endregion

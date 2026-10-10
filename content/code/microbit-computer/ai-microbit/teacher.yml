@@ -1,0 +1,48 @@
+summary: Students send their model's labels from the board to a micro:bit over USB, program the micro:bit to act on each label and reply, then pass labels on by radio to a sorting flap.
+time: 50
+timing: "Predict and Run 8 min · Send labels 8 min · Investigate 8 min · Modify 10 min · Over radio 6 min (typical) · Make 10 min"
+goals:
+  - I can program a micro:bit to act on lines of text it receives over USB.
+  - I can explain why the sender and receiver must agree on every word.
+  - I can handle a label my program doesn't expect.
+before: |
+  **The idea:** the model sends only a word. The receiving program gives it meaning, so both sides must agree on the exact words (capital letters included), and the program needs a sensible action for anything else.
+
+  **How it works:** the board (in Chrome or Edge) connects to the micro:bit with **Web Serial** at 115200 baud, MakeCode's default. When students click a test photo, the board sends its predicted label as a line of text; with the webcam, it sends a label once it has held above 80% confidence for a moment and differs from the last one sent. Lines the micro:bit sends back (**serial write value** gives `bin:1`) appear on the board.
+
+  **Hardware:** a micro:bit and USB cable per pair; for Make, a second micro:bit and a small servo on P0. The MakeCode simulator cannot receive serial, so the board steps need real micro:bits. The hardware steps are marked typical, so students without hardware can still complete the lesson.
+
+  **Before class:** check that Chrome or Edge on student devices lists the micro:bit after **Connect a micro:bit**. Assign each pair a radio group.
+running:
+  - "Predict: many say Nothing. Ask: which lines reach else?"
+  - "Send labels: students click photos first (reliable), then try the webcam."
+  - "Investigate: Ben's sorter is the exact-text bug. Ask students to read both sides aloud."
+  - "Modify: the reply is how a real sorter reports what it did."
+  - "Make: test the flap angles without the model first by sending from the board's photos."
+stuck:
+  - see: "Connect a micro:bit lists nothing."
+    ask: "Is the micro:bit plugged in with a data cable, and are you in Chrome or Edge?"
+    fix: "Try another cable (some only charge) and use Chrome or Edge."
+  - see: "The board says the micro:bit is busy."
+    ask: "Is MakeCode connected to it in another tab?"
+    fix: "Disconnect it in MakeCode or close that tab, then connect again."
+  - see: "Labels are sent but nothing happens."
+    ask: "Does your program check for exactly the words your model sends?"
+    fix: "Match the class names exactly, capital letters included."
+stretch: "Count how many items go in each bin and show the totals when button A is pressed."
+support: "Give the reply branch complete; students add the Neither branch only."
+leads: "Next: AI on the micro:bit, a model trained on movements that runs on the micro:bit itself. Later, AI robots: a robot driven by a model, where a wrong or unsure label becomes a wrong move."
+exit:
+  q: "The model sends \"Glass\", a class the micro:bit's program doesn't check for. What should the program do?"
+  a: "Something safe: an else branch that leaves the flap in the middle (or stops), so an unexpected label never causes a wrong action."
+explain: |
+  The board sends your model's **label as a line of text** over USB. The micro:bit's program decides what each label does.
+
+  - Both sides must agree on **every word**, capital letters included.
+  - An **else** branch handles labels the program doesn't expect.
+  - A **bridge** micro:bit passes the labels on by **radio**.
+solutions:
+  step-5#t1: sorter.ts#sol-neither
+  step-5#t2: sorter.ts#sol-reply
+  step-6: sorter.ts#sol-bridge
+  step-7: sorter.ts#sol-make

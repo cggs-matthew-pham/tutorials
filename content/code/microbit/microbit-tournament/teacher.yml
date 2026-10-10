@@ -1,0 +1,42 @@
+summary: An optional, harder extension of the Radio duel. Students keep a two-place scoreboard list, move a round into a function so rounds carry on, and end the tournament at three wins.
+time: 60
+timing: "Predict, Run, Investigate 10 min · Milestone 1 10 min · Milestone 2 15 min · Milestone 3 20 min · Class tournament 5 min"
+goals:
+  - I can keep a scoreboard in a list and update the right place.
+  - I can move a sequence into a function and call it from two places.
+  - I can end a game with a target, a message and a reset.
+before: |
+  This lesson is **optional**: it is for students who finished the Radio duel and want a harder challenge. It needs nothing new. The scoreboard is a list of two numbers: **place 0 is this micro:bit's player**, place 1 is the other player. Because both micro:bits run the same program, each one sees the match from its own side (2 - 1 on one is 1 - 2 on the other). Adding a point uses *set value at 0 of scores to (get value at 0 of scores + 1)*. Milestone 2 moves the round into a function **startRound**, so the winner's micro:bit can start the next round by itself. Milestone 3 adds message **3** (champion) and a reset.
+running:
+  - "Predict: 2 - 1. Ask which place is 'you'."
+  - "Investigate: the 'two sides' question is the key idea: same program, different point of view."
+  - "Milestone 1: two set value blocks, one in A (win) and one when 2 arrives (loss)."
+  - "Milestone 2: moving blocks into a function, then calling it twice, is the same move as Milestone 1 of the duel."
+  - "Milestone 3: goals only. Ask pairs to agree what message 3 means before building."
+  - "Class tournament: real micro:bits make this a great end-of-unit event."
+stuck:
+  - see: "Both scoreboards count the same player's wins."
+    ask: "Which place does a loss add to?"
+    fix: "A win adds at place 0; a loss (2 arrives) adds at place 1."
+  - see: "Rounds stop after the first one."
+    ask: "Where is startRound called after a win?"
+    fix: "Call startRound at the end of the winning branch in A."
+  - see: "The scores do not reset after a champion."
+    ask: "Do both sides reset?"
+    fix: "Set scores to [0, 0] on the champion's side and when 3 arrives."
+stretch: "Keep a list of round times as well, and show the fastest reaction of the tournament on the champion's micro:bit."
+support: "Students who find this heavy can stop after Milestone 1: a working scoreboard is a good result."
+leads: "This ends micro:bit Foundations. Robotics challenges comes next: each idea in the simulator, then on a real MOVE Motor. Class ideas: a class knockout bracket on the board; a rematch where students change one rule and explain why it is fairer."
+exit:
+  q: "You win a round. Why does your scoreboard add at place 0 while your partner's adds at place 1?"
+  a: "Both run the same program, and each keeps its own player at place 0. Your win is a loss on your partner's side."
+explain: |
+  **scores** is a list of two numbers: place **0** is you, place **1** is the other player.
+
+  A win adds at place 0; a loss adds at place 1. Your partner's micro:bit does the same from its side, so 2 - 1 for you is 1 - 2 for them.
+
+  **startRound** is a function, so the winner's micro:bit can start the next round by itself.
+solutions:
+  step-4: tournament.ts#sol-m1
+  step-5: tournament.ts#sol-m2
+  step-6: tournament.ts#sol-m3

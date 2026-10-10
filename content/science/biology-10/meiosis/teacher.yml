@@ -1,0 +1,35 @@
+summary: Students model meiosis, explain how it halves the chromosome number and produces genetically different gametes, and contrast it with mitosis (AC9S10U01, node 3, a hinge node).
+time: 20
+timing: "Engage and Explore 7 min · Explain 8 min · Evaluate 3 min · Typical adds 2 min, Wider about 2 min"
+goals:
+  - I can explain that each gamete gets one chromosome from each pair.
+  - I can calculate the number of possible gametes for a small number of pairs.
+  - I can distinguish meiosis from mitosis.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace modelling meiosis with pipe cleaners or socks. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconception is that gametes are identical copies. The Explore board shows variety from one cell.
+
+  Board notes: 3 pairs instead of 23; meiosis is shown as its outcome (pairs separating at random), without the stages or copying, and without crossing over. Pairs are labelled A, B and C (red, from the mother) and a, b and c (blue, from the father); the letters under each gamete name its combination.
+running:
+  - "Engage: count how many chose 'all identical'."
+  - "Explore: ask how many different combinations are possible and how they know they've found them all."
+  - "Explain: the 2 × 2 × 2 question is the checkpoint."
+stuck:
+  - see: "A student thinks a gamete can get two chromosomes from one pair."
+    ask: "Look at your gametes: was there ever a pair together?"
+    fix: "Never: the pairs separate, one of each goes to each gamete."
+  - see: "A student adds instead of multiplying combinations."
+    ask: "With one pair, how many gametes? Two pairs?"
+    fix: "2, then 4, then 8: each pair doubles it."
+stretch: "Why is it useful that meiosis happens only in the ovaries and testes, not everywhere in the body?"
+support: "Give a two-pair diagram to fill in the four possible gametes."
+leads: |
+  Next: Punnett squares (node 4), which track one gene through meiosis and fertilisation.
+
+  In class: sock or pipe-cleaner meiosis, including crossing over.
+exit:
+  q: "Why does meiosis make every gamete different?"
+  a: "Each gamete gets one chromosome from each pair, and which one is random, so the combination differs."
+explain: |
+  **Meiosis** makes gametes with half the chromosomes: one from each pair, chosen at random, so almost every gamete is a different combination (over 8 million possible in humans). **Mitosis** makes identical cells for growth and repair.

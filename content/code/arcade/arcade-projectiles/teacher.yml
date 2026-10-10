@@ -1,0 +1,48 @@
+summary: Students fire projectiles with A, find that a projectile is its own kind, and use a list of every enemy with a for element loop to build a smart bomb.
+time: 50
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Make 10 min · Fireworks 5 min"
+goals:
+  - I can fire a projectile from a sprite with the A button.
+  - I can explain why a hit needs a Projectile–Enemy overlap, not Player–Enemy.
+  - I can use array of sprites of kind and a for element loop to do something to every sprite of a kind.
+before: |
+  A **projectile** is a sprite fired from another sprite, with a speed across (vx) and down (vy); vy -100 goes straight up. It is a sprite of its **own kind**, **Projectile**, not part of the ship. So a hit needs an overlap event between **Projectile** and **Enemy**. Students often pick Player, because "the player shoots": that is the planted misconception (Ben's shots pass straight through).
+
+  In an overlap event, **sprite** is the sprite of the first kind (the shot) and **otherSprite** the second (the alien).
+
+  A **list** (an **array** in MakeCode) is many values in order under one name. **array of sprites of kind Enemy** is a list of every enemy in the game right now. A **for element** loop (MakeCode calls it "for element value of list") runs its blocks once for each item, with **value** standing for that item each time. That is how one button press can reach sprites that have no names.
+
+  The keyboard: A is space (or Z), B is enter (or X). Try the smart bomb yourself first.
+running:
+  - "Predict: most get this right. Ask: which kind is the shot? (Projectile.)"
+  - "Run: shots go straight up wherever the ship is: the projectile starts at the ship's position."
+  - "Investigate: the match reads the whole game. Freeze: press B with a few aliens and count; the loop runs once per alien. Ben's shots: read the kinds aloud."
+  - "Modify: the first task is the hit event from the Predict; the second is a separate Player–Enemy event. Two pairs of kinds, two events."
+  - "Make: the loop goes inside on B pressed, and destroy and change score go inside the loop, so they happen once per alien."
+  - "Fireworks: B already uses a list of Projectiles. Changing the background goes inside on B pressed, not inside the loop (or it changes once per rocket, which is also fine)."
+stuck:
+  - see: "Shots pass straight through the aliens."
+    ask: "Which two kinds does your overlap event name?"
+    fix: "The shot is a Projectile. Change the first kind to Projectile."
+  - see: "The smart bomb only scores 1, however many aliens there were."
+    ask: "Is change score inside the loop, or after it?"
+    fix: "Inside the loop it runs once per alien. Drag it inside, under destroy value."
+  - see: "The ship disappears when it shoots."
+    ask: "In the overlap event, which sprite is destroyed?"
+    fix: "The event is probably Player–Enemy and destroys sprite (the ship). Use Projectile–Enemy."
+stretch: "Give the smart bomb a limit: a bombs variable that starts at 3, goes down by 1 each press, and the bomb only works if bombs > 0."
+support: "Give students the on B pressed block with an empty for element loop already in it, and ask them only to choose the list and fill the loop."
+leads: "Next lesson: functions, which name a job such as 'make an enemy' so it can be used in many places. Class ideas: a two-way shooter (shots left and right with a second button); a 'tidy up' button that removes every Food sprite; a game where B makes every enemy chase the player with follow."
+exit:
+  q: "There are 5 enemies on the screen. A for element loop over array of sprites of kind Enemy contains change score by 1. How much does the score go up?"
+  a: "By 5. The list has 5 enemies, and the loop runs its blocks once for each one."
+explain: |
+  1. A **projectile** is fired from a sprite, and it is its **own kind**: **Projectile**. So a hit is a **Projectile–Enemy** overlap.
+  2. **array of sprites of kind Enemy** is a **list** of every enemy in the game right now.
+  3. A **for element** loop runs its blocks **once for each** item in the list, with **value** as that item.
+
+  So one press of B can destroy every enemy, even though none of them has a name.
+solutions:
+  step-4#t1: projectiles.ts#sol-hit
+  step-4#t2: projectiles.ts#sol-crash
+  step-5: projectiles.ts#sol-make

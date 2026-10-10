@@ -1,0 +1,51 @@
+name: Voiceover preview
+
+# Records voiced clips with the real Kokoro voice without deploying, so they can be heard before merging.
+# Runs on pushes to voiceover branches, or by hand for any lesson. Results go to the voice-preview branch.
+on:
+  push:
+    branches: ['voiceover', 'voiceover-*']
+    paths: ['tools/render.mjs', 'tools/voice.mjs', 'tools/voice-lexicon.json', 'content/**/lesson.md', '.github/workflows/voice-preview.yml']
+  workflow_dispatch:
+    inputs:
+      lesson:
+        description: Lesson slug (blank = every lesson with voice:)
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install tools, browser, ffmpeg and Kokoro
+        run: |
+          npm ci --omit=optional
+          npx playwright-core install --with-deps chromium
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+          npm install --no-save --no-audit --no-fund kokoro-js@1.2.1
+      - name: Record voiced clips
+        run: |
+          node tools/build-playground.mjs
+          # Pictures some clips show (MakeCode explain stage): reuse the live site's, draw any new ones.
+          node tools/render-pictures.mjs --seed https://tutorials.learningwaypoints.com || echo "some pictures could not be drawn"
+          lessons="${{ inputs.lesson }}"
+          [ -n "$lessons" ] || lessons=$(grep -rl '^voice:' content --include=lesson.md | sed 's|^content/||; s|/lesson.md$||')
+          for l in $lessons; do node tools/render.mjs --lesson "$l" --force; done
+      - name: Save clips to the voice-preview branch
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p ../preview
+          (cd dist && find . -path '*/clips/*' \( -name '*.mp4' -o -name '*.vtt' \) -print0 | xargs -0 -I{} cp --parents {} ../../preview/)
+          cd ../preview
+          git init -q && git checkout -q -b voice-preview
+          git config user.name "voice-preview"; git config user.email "voice-preview@users.noreply.github.com"
+          git add -A && git commit -q -m "voice preview from ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" voice-preview

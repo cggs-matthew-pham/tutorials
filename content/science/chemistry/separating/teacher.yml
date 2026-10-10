@@ -1,0 +1,45 @@
+summary: Students explain that separation techniques use differences in physical properties, and match property differences to techniques (AC9S7U06, node 2, a hinge node).
+time: 25
+timing: "Engage and Explore 10 min · Explain 8 min · Evaluate 3 min · Typical adds 4 min, Wider about 12 min"
+goals:
+  - I can say that separation techniques use differences in physical properties.
+  - I can match at least three property differences to a separation technique.
+  - I can explain why a chosen technique works for a given mixture.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  Hinge: students who can't map property differences to techniques apply techniques by rote. On the bench, filtering before using the magnet traps iron and sand together; that is deliberate, and students can fix it with the magnet.
+
+  The creek task is about effectiveness: boiling makes water safer from germs but does not remove chemical pollution.
+running:
+  - "Engage: ask what 'heavier' would predict for an aluminium can full of sand. Weight is the common default explanation."
+  - "Explore: let students make the wrong order first. Ask what is in the filter paper and why."
+  - "Explain: insist the written explanation names a property for every step."
+stuck:
+  - see: "A student says the filter catches sand because it is heavier."
+    ask: "What does the filter paper actually test, weight or size?"
+    fix: "Size: sand grains don't fit through the holes; dissolved salt particles do."
+  - see: "A student says the salt disappeared when it dissolved."
+    ask: "What was left after evaporating?"
+    fix: "The salt was there all along, spread out as single particles."
+  - see: "A student lists techniques without properties."
+    ask: "What is different about the two parts that this technique uses?"
+    fix: "Every technique pairs with one property: size, density, boiling point or magnetism."
+stretch: "Design a way to separate a mixture of salt, sand, iron filings and wood shavings. What is the best order, and why?"
+support: "Give a two-column table, property and technique, to fill in as they use the bench."
+leads: |
+  Next: filtration and evaporation in detail (node 3), then distillation and chromatography (node 4).
+
+  In class: a separation practical with sand, salt and iron filings, planned using this property table.
+exit:
+  q: "Why does a magnet separate iron filings from sand?"
+  a: "Iron is magnetic and sand isn't: the magnet uses that difference in property."
+explain: |
+  Every separation technique uses a **difference in a property** between the parts of a mixture:
+
+  - **Magnetism:** a magnet pulls out iron.
+  - **Particle size:** a sieve or filter paper holds back big pieces; dissolved particles pass through.
+  - **Boiling point:** evaporation boils off the water and leaves dissolved solids.
+  - **Density:** let it settle, then pour off the top.
+
+  Order matters when one technique would trap several parts together.

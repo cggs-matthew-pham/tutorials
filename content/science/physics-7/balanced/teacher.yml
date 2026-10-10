@@ -1,0 +1,41 @@
+summary: Students identify balanced and unbalanced forces and predict the motion, recognising that balanced forces mean no change in motion, not no forces (AC9S7U04, node 2, a hinge node).
+time: 25
+timing: "Engage and Explore 8 min · Explain 8 min · Evaluate 3 min · Typical adds 4 min, Wider about 5 min"
+goals:
+  - I can tell balanced from unbalanced forces in a diagram.
+  - I can explain that balanced forces mean no change in motion, not no forces.
+  - I can predict the motion from a force diagram.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace trolleys and force meters. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconception is "balanced means no forces" (and its partner, "moving needs a forward force"). The Explore board has motion with balanced forces, which is exactly the case students don't expect.
+
+  Board notes: the box moves left and right only. Friction is fixed at its limit while sliding and matches the push when stationary. The board starts the box at 3 m/s so students can find the steady-speed push (6 N).
+running:
+  - "Engage: tally the predictions. Most will choose 'forward force is bigger'."
+  - "Explore: if students struggle, ask them to compare the push and friction numbers when the graph is flat."
+  - "Explain: the first question is the checkpoint; the two sorts apply it."
+  - "In your own words: the 'balanced isn't no forces' paragraph is the evidence."
+stuck:
+  - see: "A student says the forces are balanced so the box should stop."
+    ask: "What did the graph do when push equalled friction?"
+    fix: "It stayed flat: steady speed. Balanced forces keep the motion the same."
+  - see: "A student says there are no forces on the cruising car."
+    ask: "What is the engine doing? What is the air doing?"
+    fix: "Both are pushing: forward and backward. They cancel."
+  - see: "A student thinks the skydiver stops when forces balance."
+    ask: "What did the box do when its forces balanced?"
+    fix: "It kept moving at the same speed. So does she."
+stretch: "A spacecraft far from any planet switches off its engine. What happens to its motion, and why?"
+support: "Give the sentence frame: 'The forces are … so the net force is … so the motion …'."
+leads: |
+  Next: unbalanced forces and changes in motion (node 3), then gravity (node 4). In Year 10 this becomes Newton's first law.
+
+  In class: a trolley pulled by a force meter at constant speed (the meter reading equals friction); a tug of war at a standstill.
+exit:
+  q: "A cyclist rides at a steady 20 km/h on a flat road. Are the forces on her balanced? Explain."
+  a: "Yes: she isn't speeding up or slowing down, so her forward force equals the backward forces (air resistance and friction)."
+explain: |
+  **Balanced** forces are equal and opposite: the net force is zero. They are still acting; they cancel. The motion doesn't change: still stays still, moving keeps a steady speed.
+
+  **Unbalanced** forces change the motion, in the direction of the net force.

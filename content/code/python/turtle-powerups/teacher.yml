@@ -1,0 +1,43 @@
+summary: The second half of the final challenge. Students add lives, a status bar, a gold turtle worth 5 and an upgrade bought with points, then invent a power-up of their own.
+time: 60
+timing: "Predict, Run and Investigate 15 min · Status bar 10 min · Gold turtle 10 min · Upgrade 10 min · Your own power-up 15 min"
+goals:
+  - I can tell which parts of a program are the user interface and which are the rules.
+  - I can write a function with four parameters and use it several times.
+  - I can add a rule that costs something, and explain why the cost is fair.
+before: |
+  This lesson mixes both directions students could take next. The **user interface** is what the player sees and uses (the status bar, the buttons); the **rules** decide what each event means (losing a life, gold is worth 5, an upgrade costs 5). The Investigate task sorts parts into the two kinds. Try the upgrade task yourself: it uses a variable `delay` instead of the fixed 1000 milliseconds.
+running:
+  - "Predict: each miss takes a life; at 0 lives the game stops. Point to the line that ends the game."
+  - "Investigate: discuss the match before checking it. 'Both' (a button that costs points) is the interesting one."
+  - "Status bar: one function, label(x, y, name, value), called three times. Ask what the alternative would be (copying six lines three times)."
+  - "Gold turtle: every third spot is gold, using % from the Decisions lesson. The gold circle is drawn under the turtle."
+  - "Upgrade: the button only works if score >= 5. Ask what happens without that check (scores go negative)."
+  - "Your own power-up: students write one sentence at the top explaining why its cost is fair. Share a few."
+stuck:
+  - see: The upgrade can be bought with 0 points and the score goes negative.
+    ask: What should be true before the player can buy it?
+    fix: Add score >= 5 to the if that checks the button.
+  - see: The gold circle stays on screen after the turtle moves on.
+    ask: When is the gold circle drawn, and what clears it?
+    fix: Draw it only when showing and gold are both True, and redraw (draw_scene) after a catch or a hide.
+  - see: The upgrade button seems to do nothing.
+    ask: Does hop() use delay, or still the number 1000?
+    fix: Use ontimer(hop, delay) and ontimer(hide, delay - 300).
+stretch: Add a power-up that makes the catch box bigger for 10 seconds, then switches back by itself (a timer).
+support: Do the status bar together, then let students choose either the gold turtle or the upgrade rather than both.
+leads: "Completing this and Catch the turtle marks the course Challenge complete. Optional next: Control panel (user interface, towards Gradio and web pages) or Game levels (games, towards MakeCode Arcade and microStudio)."
+exit:
+  q: "Name one part of your game that is user interface and one that is a game rule."
+  a: "For example: the status bar is user interface (it shows the state); losing a life on a miss is a game rule."
+explain: |
+  Games and apps are built from the same two kinds of parts. The **user interface** is what you see and use: the status bar, the buttons. The **rules** decide what each event means: a miss loses a life, a gold turtle is worth 5, an upgrade costs 5 points.
+
+  `label(x, y, name, value)` is one function that draws one part of the status bar. Calling it three times draws Score, Lives and Time, with no copied code.
+
+  A good power-up has a fair cost: strong enough to want, expensive enough to think about.
+solutions:
+  step-4#t1: powerups.py#sol-status
+  step-4#t2: powerups.py#sol-gold
+  step-4#t3: powerups.py#solution
+  step-5: powerups.py#sol-own

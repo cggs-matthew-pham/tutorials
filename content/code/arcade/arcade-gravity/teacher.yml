@@ -1,0 +1,49 @@
+summary: Students give a sprite gravity (acceleration down), build a floor with an if in on game update, and make a jump that only works from the ground, then build a runner game.
+time: 50
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 10 min · Make 12 min · Trampoline 5 min"
+goals:
+  - I can give a sprite gravity with ay and explain why it falls faster and faster.
+  - I can make a jump with a negative vy, and build a floor with an if in on game update.
+  - I can explain why a jump needs a check that the player is on the ground.
+before: |
+  **Velocity** (vx, vy) is how far the engine moves a sprite every frame. **Acceleration** (ay) is how much the engine changes the velocity: with ay 300, vy grows by 300 every second, a little each frame. So a sprite with ay falls **faster and faster**, like a dropped ball. A **jump** is a speed upwards: **vy = -150** (negative, because y counts down the screen). Gravity slows the jump, stops it at the top, and brings the sprite back down.
+
+  Nothing in an empty Arcade game is solid, so a falling sprite drops off the screen. This lesson builds a **floor** by hand: in **on game update** (every frame), *if player bottom > 100*, set the bottom back to 100 and vy to 0. **bottom** is the y of the sprite's lowest edge. In real Arcade games, **tilemaps** (worlds drawn from squares in the tile editor) do this for you: wall tiles stop sprites, and the camera can scroll. That is a later step; building the floor first shows what a wall does.
+
+  The trap: a jump with no ground check lets the player jump again in mid-air, and keep climbing. Try the Make task yourself: it reuses the jumper's blocks plus a timer and an overlap from lesson 4.
+running:
+  - "Predict: many students expect the ball to stop at the bottom. Nothing tells it where the ground is."
+  - "Run: ask whether it falls at a steady speed. It speeds up: that is acceleration."
+  - "Investigate: the trace shows vy growing; the number task shows a jump slowing to a stop. Draw the jump as an arch on the board."
+  - "Leo's jump is the lesson's misconception. Ask: where is the player when A is pressed the second time?"
+  - "Read the floor if aloud, and point out the Python version: the same if, inside a function the game calls every frame."
+  - "Engine note: a tilemap wall is this if, done by the engine. Mention that platformers are one of the game types Arcade is built for."
+  - "Make: the player does not move left and right; the rocks come to the player. Rocks need a y near 98 so they sit on the floor."
+  - "Trampoline: setting vy to a negative number at the floor makes a bounce instead of a stop."
+stuck:
+  - see: "The player falls through the bottom of the screen."
+    ask: "What happens when the player's bottom goes past 100?"
+    fix: "Add the floor if in on game update: set bottom to 100 and vy to 0."
+  - see: "The player can fly by pressing A again and again."
+    ask: "Where must the player be for a jump to make sense?"
+    fix: "Put an if around set vy in the A event: only when bottom ≥ 100."
+  - see: "The jump does nothing, or the player sinks."
+    ask: "Is vy set to a negative or a positive number?"
+    fix: "A jump is up, and up is negative: vy = -150."
+  - see: "The rocks float in mid-air, or pass under the player."
+    ask: "What y do the rocks start at?"
+    fix: "Near the floor: about 98, so they sit on y 100."
+stretch: "Make the rocks speed up: keep a speed variable that grows by 5 each time a rock is made. Or add a coin in the air that is only reachable with a jump."
+support: "Give students the jumper (floor and jump done) as their Make starter, so they add only the rocks and the lives."
+leads: "Next lesson: levels, so the runner can get harder. Real Arcade platformers use tilemaps (walls drawn in the tile editor) and a camera that follows the player; point keen students to the tilemap tutorials on the Arcade home page. Class ideas: test gravity values for different planets; time a jump in the simulator."
+exit:
+  q: "Why does a jump need an if that checks the player is on the ground?"
+  a: "A jump only sets vy upwards. Without the check, every press of A jumps again, even in mid-air, so the player can fly."
+explain: |
+  1. **ay** is gravity: every frame the engine adds a little to **vy**, so a sprite falls faster and faster.
+  2. A **jump** is a speed upwards: **vy = -150**. Gravity slows it, stops it and brings it back down.
+  3. There is no floor, so an **if** in **on game update** makes one: if bottom > 100, set bottom to 100 and vy to 0.
+  4. Only jump **from the ground**: put the jump inside *if bottom ≥ 100*.
+solutions:
+  step-4#t1: gravity.ts#sol-ground
+  step-5: gravity.ts#sol-make

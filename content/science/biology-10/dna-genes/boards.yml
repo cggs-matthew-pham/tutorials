@@ -1,0 +1,6 @@
+# Boards for "Where are the instructions?".
+
+# region: zoom
+widget: cell
+show: zoom
+# endregion

@@ -1,0 +1,10 @@
+# Classifier board with serial for "A model drives a micro:bit". Click a test photo to send its predicted label.
+
+# region: send
+widget: classifier
+testset: recycling
+groups: plain, neither
+webcam: on
+serial: on
+threshold: 0.8
+# endregion

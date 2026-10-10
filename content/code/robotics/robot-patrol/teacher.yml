@@ -1,0 +1,46 @@
+summary: The assistance challenge. Students build a patrol system in three milestones (the base starts and stops the robot by radio, the robot reports blockages once, then an alert log and status lights), combining line following, distance, modes, roles and two-way radio.
+time: 60
+timing: "Predict, Run, Investigate 12 min · Milestone 1 15 min · Milestone 2 18 min · Milestone 3 12 min · Real robot 3 min (optional)"
+goals:
+  - I can control a robot's mode from a base station by radio.
+  - I can make a robot report a problem once, and report when it is fixed.
+  - I can give a system a log and a visible status.
+before: |
+  This is the assistance strand's challenge, using lessons 3 and 5 (distance and line), 6 (mode), 7 (radio commands) and 9 (roles and alert once). The key design rule: **radio handlers only change the mode**; **forever** drives the motors. A move made in a handler would be undone straight away by forever (or, like Jack's patrol, would only run once).
+
+  Both micro:bits run the same program; A+B makes one the base. The base's A sends "go", B sends "stop". The robot sends "blocked" (once, using alerted) and "clear". The milestones fade the help: Milestone 1 gives three numbered steps, Milestone 2 an outline, Milestone 3 goals only. Each starter is the previous milestone's solution. Showcase and Patrol and alert together mark the course **Challenge complete**.
+
+  The robots start near the line in the simulator; if one does not pick it up, drag it on. The logo needs a micro:bit V2 (shake works on V1).
+running:
+  - "Predict and Run: a recap of lessons 3 and 5. Make sure everyone can block and unblock the robot."
+  - "Investigate: the sort shows the system's two halves. Jack's patrol is the run-once slip in a new place: a handler runs once per message."
+  - "Milestone 1: three steps on the board: send a word, set the mode, act on the mode."
+  - "Milestone 2: the alerted pattern from lesson 9, now with 'clear' too. Test by blocking and unblocking the patrolling robot."
+  - "Milestone 3: a log and status lights. Let groups choose a setting (hospital, farm, warehouse) and rename messages."
+  - "Real robot (optional): one bare micro:bit as the base per team, each team its own radio group."
+stuck:
+  - see: "The robot never moves after 'go'."
+    ask: "What is the robot's role? Does forever check the mode?"
+    fix: "Only the robot's micro:bit sets mode; forever follows the line when mode = patrol. Press A on the base, not the robot."
+  - see: "The base beeps again and again."
+    ask: "Is 'blocked' sent only if not alerted?"
+    fix: "Send it inside if not alerted, then set alerted to true."
+  - see: "The base and robot both react to the same message."
+    ask: "Does on radio received check the role?"
+    fix: "Robot jobs inside if role = robot; base jobs inside else if role = base."
+stretch: "Add a 'home' command: the base's logo sends 'home' and the robot turns round (a 'turn' mode that spins for 1.2 seconds, then goes back to patrol)."
+support: "Pair students for Milestone 2: one builds the robot side, one the base side, then they agree the words."
+leads: "Real-world links: hospital delivery robots, farm fence checkers, warehouse robots, pipeline inspection. Discussion: what should the robot do when it cannot reach the base?"
+exit:
+  q: "Why does the robot's radio handler set the mode instead of driving the motors?"
+  a: "A handler runs once per message, and forever keeps driving the motors. Setting the mode lets forever do the job again and again until the mode changes."
+explain: |
+  A **patrol system** has two sides that talk both ways.
+
+  - The **base** sends commands ("go", "stop").
+  - The **robot** sets its **mode** from the command; **forever** does the job.
+  - The robot reports problems **once** ("blocked", then "clear").
+solutions:
+  step-4: patrol.ts#sol-m1
+  step-5: patrol.ts#sol-m2
+  step-6: patrol.ts#sol-m3

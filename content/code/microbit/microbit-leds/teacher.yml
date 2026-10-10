@@ -1,0 +1,42 @@
+summary: Students see that blocks run in order, once, then use a forever loop to turn pictures into an animation.
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 10 min · Make 10 min · Shop sign 5 min"
+goals:
+  - I can predict what blocks will do, in order.
+  - I can use forever to repeat blocks.
+  - I can build an animation from pictures and pauses.
+before: |
+  No micro:bits needed: the **simulator** (the micro:bit picture beside the blocks) runs every program. A program has two places to put blocks. **on start** runs its blocks once, when the micro:bit switches on. **forever** runs its blocks again and again. Most surprises in this lesson come from which of the two a block is in. Try the Make task yourself first: three pictures in forever, one drawn with **show leds** (click the squares to light them).
+running:
+  - "Predict: most students choose 'flashing over and over'. Ask them to say what happens after the last block runs."
+  - "Run: the small heart stays. Say it plainly: blocks run top to bottom, once, and the last picture stays on."
+  - "Investigate: Ada's program has the hearts in on start and an empty forever. Students spot it, then fix it in the editor. The checks tick by themselves."
+  - "Modify: show leds is the first time students draw. Then pause: 1000 ms is one second."
+  - "Make: small changes between frames look like movement. Let students show each other."
+  - "Shop sign: a finished program to change. show string scrolls text, which students will enjoy."
+stuck:
+  - see: "The heart does not beat after the fix."
+    ask: "Which block are your hearts inside?"
+    fix: "Drag them inside forever, not under it. The block should hug them."
+  - see: "The animation flickers too fast to see."
+    ask: "How long does each picture stay?"
+    fix: "Add a pause between pictures, such as 500."
+  - see: "A show leds block shows nothing."
+    ask: "Which squares did you light?"
+    fix: "Click squares in the grid to turn them on."
+stretch: Make an animation with five or more frames that tells a tiny story, such as a seed growing into a flower.
+support: Give students two show leds blocks already in forever, and ask them only to draw the pictures and add a pause.
+leads: "Next lesson adds buttons, so the micro:bit waits for a press before it shows something. Class ideas: each table designs one frame and the class joins them into one animation; a classroom sign that scrolls the day's message. With real micro:bits, press Download and drag the file onto the micro:bit to run it for real."
+exit:
+  q: "Your animation has three pictures inside forever. What happens if you move them into on start?"
+  a: "They play once, and the last picture stays on."
+explain: |
+  The micro:bit runs blocks **in order**, from top to bottom.
+
+  Blocks in **on start** run **once**, so the last picture stays on. Blocks inside **forever** run **again and again**. That is a **loop**, and it turns a few pictures into an animation.
+
+  **pause** keeps a picture on for longer. 1000 ms is one second.
+solutions:
+  step-4#t1: leds.ts#sol-picture
+  step-4#t2: leds.ts#sol-pause
+  step-5: leds.ts#sol-make

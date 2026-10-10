@@ -1,0 +1,44 @@
+summary: Students read the light, temperature and tilt sensors as numbers, and see that a sensor must be read again (in forever or an event) to follow the world.
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Make 10 min · Light meter 5 min"
+goals:
+  - I can show the number a sensor gives.
+  - I can say what the light, temperature and tilt numbers mean.
+  - I can choose when a sensor is read, with forever or a button.
+before: |
+  A **sensor** measures something and hands the program a **number**: light level (0 dark to 255 bright), temperature (degrees Celsius) and acceleration (tilt: below 0 one way, above 0 the other). The numbers change by themselves, so think of a sensor as a variable the world keeps updating. The program only sees a new value when it **reads** the sensor again, so the block must be in **forever** or an event. In the simulator, controls appear once a program uses a sensor: a sun slider for light, a thermometer slider for temperature, and tilting by moving the mouse over the micro:bit.
+running:
+  - "Predict: ask whether the number will follow the light. The key is that forever reads it again each time."
+  - "Run: drag the light slider from dark to bright. The number lags a little because it scrolls."
+  - "Investigate: Sam's thermometer is lesson 1's on start mistake again, in a new place. Ask the class which lesson it reminds them of."
+  - "Modify: Read on request shows that an event decides when a sensor is read."
+  - "Make: temperature, C, pause: three blocks in forever."
+  - "Light meter: plot bar graph needs the biggest value. For temperature, 40 works well in the simulator."
+stuck:
+  - see: "The number never changes."
+    ask: "Is the sensor block in on start or in forever?"
+    fix: "Move it into forever (or a button event) so it is read again."
+  - see: "The simulator has no slider."
+    ask: "Has the program got a sensor block in it, and is it running?"
+    fix: "The slider appears only after a sensor block is used. Restart the simulator if needed."
+  - see: "The temperature seems too high on a real micro:bit."
+    ask: "Where is the sensor?"
+    fix: "It is in the processor, which warms up as it works. It reads a little above the room."
+stretch: "Show tilt as a number with acceleration x, then make A show tilt left and right and B show tilt forward and back (acceleration y)."
+support: "Give students the thermometer's forever block with show number already in it, and ask them to add the C and the pause."
+leads: "Next unit: the micro:bit decides what to do using these numbers (if it is dark, light up). Class ideas: measure the brightest and darkest spots in the room with real micro:bits; record the temperature by a window every lesson for a week."
+exit:
+  q: "Why does reading the temperature in on start not work for a thermometer?"
+  a: "on start reads it once, at the start. A thermometer must read it again and again, in forever."
+explain: |
+  A **sensor** measures something and gives the program a **number**.
+
+  - **light level**: 0 (dark) to 255 (bright)
+  - **temperature**: degrees Celsius
+  - **acceleration x**: tilt left (below 0) or right (above 0)
+
+  The world keeps changing the number, so read it again in **forever** (or when a button is pressed) to see the new value.
+solutions:
+  step-4#t1: sensors.ts#sol-temperature
+  step-4#t2: sensors.ts#sol-buttons
+  step-5: sensors.ts#sol-make

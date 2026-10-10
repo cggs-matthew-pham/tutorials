@@ -1,0 +1,22 @@
+# Boards for "Can you predict the offspring?".
+
+# region: peas
+widget: cross
+mode: punnett
+gene: P | purple flowers | p | white flowers
+parents: Pp x Pp
+# endregion
+
+# region: test
+widget: cross
+mode: punnett
+gene: B | black fur | b | white fur
+parents: Bb x bb
+# endregion
+
+# region: choose
+widget: cross
+mode: punnett
+gene: B | black fur | b | white fur
+parents: choose
+# endregion

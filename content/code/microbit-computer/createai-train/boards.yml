@@ -1,0 +1,7 @@
+# Serial board for "Train movements": x, y and z from a real micro:bit, 5 seconds at a time.
+
+# region: motion
+widget: serial
+plot: x, y, z
+window: 5
+# endregion

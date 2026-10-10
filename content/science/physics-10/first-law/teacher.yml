@@ -1,0 +1,41 @@
+summary: Students state Newton's first law and explain why a moving object with no net force continues at constant velocity, confronting the Aristotelian idea that motion needs a continuous force (AC9S10U05, node 2, a hinge node).
+time: 25
+timing: "Engage and Explore 8 min · Explain 9 min · Evaluate 3 min · Typical adds 4 min, Wider about 3 min"
+goals:
+  - I can state Newton's first law.
+  - I can explain why a moving object with no net force keeps a constant velocity.
+  - I can identify friction as the hidden force that slows everyday objects.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace air tracks or a puck on a smooth floor. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The Aristotelian view survives exposure to the correct definition unless it is confronted. The Explore board is that confrontation: commit to a prediction, then watch the puck coast.
+
+  Board notes: motion is left and right only; friction is a fixed 2 N while sliding.
+running:
+  - "Engage: ask students who chose 'slows down' to say where the force of the hit is stored. Keep their answers for Evaluate."
+  - "Explore: the check needs push 0 and friction off while moving. If a student turns friction off first, the puck speeds up: ask why."
+  - "Explain: the 'why does a ball stop' question is where the hidden force gets named."
+  - "In your own words: the reply to 'the force is still in it' is the evidence."
+stuck:
+  - see: "A student says the puck slows because the force runs out."
+    ask: "On the board, with push 0 and friction off, did the graph slope down?"
+    fix: "No, it stayed flat. Nothing was stored; with no net force, nothing changes."
+  - see: "A student says inertia is a force."
+    ask: "What pushes the puck along when it coasts?"
+    fix: "Nothing. Inertia is the tendency not to change motion, not a push."
+  - see: "A student confuses constant velocity with zero force."
+    ask: "Could there be forces on a car moving at a constant 60 km/h?"
+    fix: "Yes, balanced ones. The net force is zero."
+stretch: "Voyager 1 is coasting out of the solar system with its engines off. Will it ever stop? What could change its motion?"
+support: "Give the frame: 'There is / isn't a net force, so the motion stays the same / changes, because …'."
+leads: |
+  Next: acceleration as a defined quantity (node 3), then F = ma (node 4).
+
+  In class: a puck or dry-ice block on a smooth bench; a coin on a card flicked off a cup (inertia).
+exit:
+  q: "A spacecraft coasts through empty space with its engines off. Describe its motion and explain."
+  a: "It keeps moving at a constant velocity: there is no net force (no friction or air resistance), so by the first law its motion doesn't change."
+explain: |
+  **Newton's first law:** an object stays at rest or keeps moving at a constant velocity unless a **net force** acts on it.
+
+  Moving things don't need a push to keep going; they need a force to change their motion. Friction and air resistance are why everyday things slow down.

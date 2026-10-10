@@ -1,0 +1,35 @@
+summary: Students model natural selection as predators, explain it in steps, and reject the idea that individuals change because they need to (AC9S10U02, node 2, a hinge node).
+time: 22
+timing: "Engage and Explore 9 min · Explain 7 min · Evaluate 3 min · Typical adds 4 min, Wider about 1 min"
+goals:
+  - I can explain natural selection in steps.
+  - I can explain that populations change, not individuals.
+  - I can explain why "fittest" depends on the environment.
+before: |
+  A concept tutorial for introducing or revising the idea; it pairs well with the classic peppered moth story and a paper-dots predation game. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconception is need-driven change ("the beetles turned dark to hide"). The Engage question puts it directly, and the board never changes a beetle's colour.
+
+  Board notes: half the beetles are eaten each generation; survivors breed back to the full number, and each offspring gets the average of two parents' colours plus a small random change (a stand-in for many genes and mutation). The automatic birds favour beetles that contrast with the ground but also eat some at random. Results vary from run to run; with student hunting, a student who clicks randomly sees little change, which is a good discussion point.
+running:
+  - "Engage: count how many chose 'each beetle changes colour'."
+  - "Explore: collect the class's starting and final averages; most should have moved towards the ground colour."
+  - "Explain: 'did any beetle change?' is the checkpoint."
+stuck:
+  - see: "A student's average barely moved."
+    ask: "Which beetles did you eat first?"
+    fix: "If you click at random, there is no selection. Hunt like a bird: the easiest to see first."
+  - see: "A student says the beetles 'adapted to survive'."
+    ask: "Did any one beetle change?"
+    fix: "No: say 'the population became better adapted because more of the well-camouflaged beetles survived and bred'."
+stretch: "Why does natural selection take many generations, not one?"
+support: "Give the five steps on cards to order before writing."
+leads: |
+  Later: evidence for evolution (fossils, comparative anatomy, DNA) and speciation, if your program covers them.
+
+  In class: the paper-dots predation game on newspaper and plain paper; antibiotic resistance as a case study.
+exit:
+  q: "Explain why the beetle population got paler on pale ground."
+  a: "Beetles varied in colour; birds ate the darker, more visible ones; paler beetles survived and bred, passing on their colour; over generations, the average colour got paler."
+explain: |
+  **Natural selection:** individuals vary; those best suited to the environment are more likely to survive and reproduce, passing on their alleles; over generations the population changes. Individuals don't change: the population does. "Fittest" depends on the environment.

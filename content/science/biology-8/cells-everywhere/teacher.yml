@@ -1,0 +1,35 @@
+summary: Students state cell theory, explicitly including plants, fungi and single-celled organisms, and distinguish single-celled from multicellular organisms (AC9S8U01, node 2, a hinge node).
+time: 20
+timing: "Engage and Explore 7 min · Explain 7 min · Evaluate 3 min · Typical adds 2 min, Wider about 2 min"
+goals:
+  - I can state cell theory.
+  - I can explain that plants, fungi and bacteria are made of cells too.
+  - I can give examples of single-celled and multicellular organisms.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace microscope work (onion skin, cheek cells, yoghurt bacteria). Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconception is that only animals have cells. The Explore step shows a bacterium and yeast before any animal cell.
+
+  Board notes: diagrams are simplified models, not to scale; students click parts to name them, and a tick marks each found.
+running:
+  - "Engage: count how many chose 'only animals' or 'animals and plants'."
+  - "Explore: ask what every diagram had (membrane, cytoplasm)."
+  - "Explain: the first question is the checkpoint; the sort includes the mushroom on purpose."
+stuck:
+  - see: "A student says a tree isn't made of cells."
+    ask: "What did you find in the plant cell on the board?"
+    fix: "A membrane, cytoplasm and more: a leaf is made of millions of cells like it."
+  - see: "A student says bacteria aren't alive."
+    ask: "Do bacteria feed, grow and reproduce?"
+    fix: "Yes: each one is a whole living cell."
+stretch: "Why can't a single cell grow as big as a cat? Think about getting food in through the membrane."
+support: "Give a three-column card (bacterium, plant cell, animal cell) to tick the parts found in each."
+leads: |
+  Next: the parts every cell shares (node 3), then plant cells' extra parts (node 4).
+
+  In class: onion epidermis with iodine and cheek cells with methylene blue under a microscope.
+exit:
+  q: "Name a single-celled organism and a multicellular one that isn't an animal."
+  a: "For example: a bacterium (single-celled) and a gum tree or mushroom (multicellular)."
+explain: |
+  **Cell theory:** all living things are made of one or more cells, and the cell is the smallest unit of life. Plants, fungi and bacteria are cells too. Single-celled organisms are one cell; multicellular organisms are many.

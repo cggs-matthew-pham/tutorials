@@ -1,0 +1,43 @@
+summary: Students give a function inputs (parameters), so one function can draw many sizes and shapes, then build a pattern by calling one function from another.
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 10 min · My tools 5 min"
+goals:
+  - I can write a function with parameters and call it with different values.
+  - I can explain the difference between a parameter (the name in the def) and an argument (the value in the call).
+  - I can call one function from inside another.
+before: |
+  Run the three nested squares and try adding a colour parameter to `polygon`. Two words to have straight: a **parameter** is the name in the def (`size`), an **argument** is the value you pass when calling (`50`). The argument fills the parameter, in order.
+running:
+  - "Predict: ask why the three squares share a corner. They all start where the turtle is, facing the same way; only size changes."
+  - "Run: students try their own sizes. Ask what would happen with square(-50)."
+  - "Investigate: arguments go to parameters in order. polygon(6, 80) fills sides with 6 and size with 80. Swapping them gives an 80-sided shape."
+  - "Modify: adding a colour parameter means changing the def and every call. That is the 'contract' between a function and its callers."
+  - "Make: pattern calls polygon in a loop and turns a little each time. Set speed(0) so it draws quickly."
+  - "My tools: students save a function to My tools in the Reference panel. It is a copy they can paste into later programs."
+stuck:
+  - see: "A TypeError: polygon() missing 1 required positional argument."
+    ask: How many parameters does the def have, and how many values does this call pass?
+    fix: Every call must pass one value for each parameter, in the same order.
+  - see: The shape has far too many sides or does not close.
+    ask: Which value went into sides, and which into size?
+    fix: Arguments match parameters by position. polygon(6, 80), not polygon(80, 6).
+  - see: The pattern draws one shape on top of itself.
+    ask: Does the turtle turn between the copies?
+    fix: Add right(360 / copies) inside the loop, after drawing each polygon.
+stretch: Add a third parameter to pattern for the size, and draw a gallery of three different patterns side by side.
+support: Give students a table of calls (square(50), square(100)) and ask them to sketch what each draws before running.
+leads: "Next lesson functions give answers back with return. Parameters are how every app passes information around. Class ideas: a pattern gallery where each student chooses sides and copies; compare function designs and talk about what makes one easy to reuse."
+exit:
+  q: "def polygon(sides, size): ... What does polygon(5, 40) draw?"
+  a: "A pentagon (5 sides) with each side 40 steps long, turning 72 degrees at each corner."
+explain: |
+  A **parameter** lets a function take an input. In `def square(size):`, `size` is a placeholder. When you call `square(50)`, the 50 goes into `size` and the function draws with it.
+
+  A function can have several parameters: `polygon(sides, size)`. The values you pass, called **arguments**, fill the parameters in order: `polygon(6, 80)` means 6 sides, 80 long.
+
+  Functions can use other functions. `pattern` calls `polygon` again and again, turning a little each time, to make something bigger from a small piece.
+solutions:
+  step-4#t1: params.py#sol-fourth
+  step-4#t2: params.py#sol-colour
+  step-5: params.py#sol-pattern
+  step-7: params.py#sol-rooms

@@ -1,0 +1,24 @@
+# Boards for "Does a moving thing need a push?".
+
+# region: puck
+widget: forces
+object: Puck
+mass: 1
+force P: right, 4, Push, adjust 0-10
+friction: 2, toggle
+motion: on
+track: 40
+time: 10
+# endregion
+
+# region: friction
+widget: forces
+object: Puck
+mass: 1
+force P: right, 0, Push, adjust 0-10
+friction: 2
+motion: on
+speed: 6
+track: 40
+time: 10
+# endregion

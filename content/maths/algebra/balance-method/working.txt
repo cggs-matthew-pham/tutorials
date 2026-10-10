@@ -1,0 +1,8 @@
+# Leo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leo
+2x + 3 = 11
+2x = 11
+x = 5.5
+Check: 2 × 5.5 + 3 = 14, not 11
+# endregion

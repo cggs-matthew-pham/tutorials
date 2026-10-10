@@ -1,0 +1,54 @@
+summary: Students train a Paper/Plastic image model in Teachable Machine, test it on photos it has never seen, and fix it by changing the training data.
+time: 50
+timing: "Predict 3 min · Train and test 12 min · Read the results 10 min · Fix the data 15 min · Diagnose 4 min · Make and Evaluate 6 min"
+goals:
+  - I can train an image model and test it on photos it has never seen.
+  - I can work out accuracy, overall and for each group of test photos.
+  - I can find what a model's mistakes share and fix it by changing its training data.
+before: |
+  **The idea:** a model learns only from the examples it is given. It works on new inputs that look like its training photos and fails on ones that don't. The fix is always in the data, not the settings.
+
+  **How it works:** students train in **Teachable Machine** (Google's free site, no account needed to train), export with **Upload my model**, and paste the link into the board. The board tests the model on 40 fixed photos it has never seen, in five groups: plain background, messy bench, low light, crumpled or at odd angles, and things that are neither paper nor plastic. Checks tick on the board's scores, not on the training.
+
+  **Before class:** on a student laptop on the school network, open Teachable Machine, train a tiny model, export it with Upload, and paste the link into the board. Bring a box of clean paper and plastic (and a few cans, jars or fruit) so every desk has variety.
+
+  **Privacy:** training happens in the browser and photos are not uploaded. **Upload my model** puts the trained model (not the photos) online, and anyone with the link can use it. Train on objects, not faces.
+
+  **No webcam?** The lesson links two folders of photos to upload instead: **plain** (30 per class on a white board: trains the biased model) and **varied** (messy benches, low light, odd angles and a Neither class: trains a good one). The photos come from TrashNet (MIT licence); the messy benches and low light are made from them.
+
+  The test photos are similar in style to the downloadable ones, so a model trained only on the varied folder can do well without the webcam. That is fine: the point is what changes the scores.
+running:
+  - "Predict: take a show of hands. Most expect 'about the same'."
+  - "Train and test: give students 8 minutes to train. Plain is usually high and messy low. Ask: what is different about the messy photos?"
+  - "Read the results: model the table live with one student's results, one line at a time. Then students do the low-light version themselves."
+  - "Fix the data: one change at a time. Students who add more photos of the same desk see no change: that is Sam's mistake, so point back to it."
+  - "Neither: ask what label a can gets, and how confident the model is."
+  - "Evaluate: collect a few answers about what a recycling centre should test."
+stuck:
+  - see: "The board says it could not load the model."
+    ask: "Did you click Upload my model, and copy the whole link (ending in a slash)?"
+    fix: "Export again with Upload my model and paste the new link."
+  - see: "The board says the model has no class called Paper or Plastic."
+    ask: "What did you name your classes in Teachable Machine?"
+    fix: "Rename the classes to Paper and Plastic, retrain, export and paste the new link."
+  - see: "A student keeps adding photos but the messy score doesn't change."
+    ask: "Are the new photos different from the old ones?"
+    fix: "Take photos on new backgrounds: a book, a jumper, a cluttered pencil case."
+  - see: "A student changes Teachable Machine's training settings (epochs, learning rate) to fix it."
+    ask: "Did the model see any messy backgrounds?"
+    fix: "Change the photos, not the settings."
+stretch: "Add a fourth class (Cardboard or Glass). Which pairs of classes does the model mix up most, and why?"
+support: "Use the downloaded photos instead of the webcam: plain first (the biased model), then varied."
+leads: |
+  Next: send the model's labels to a micro:bit that sorts with a servo flap.
+
+  Real world: automated recycling sorters, and any camera system tested on people or places it wasn't trained on (who might it fail for?).
+exit:
+  q: "A model scores 95% on its own desk and 50% in the canteen. What do you do?"
+  a: "Find what the canteen photos have that the training photos don't (background, light), and add training photos like that."
+explain: |
+  A **model learns only from the examples you give it**. It works on new photos that look like its training photos and fails on ones that don't.
+
+  - **Accuracy** = correct ÷ total, on photos the model has never seen.
+  - Look at each **group** to see where it fails, and what the failures share.
+  - To fix it, **change the data**: more variety, balanced classes, a class for "none of these".

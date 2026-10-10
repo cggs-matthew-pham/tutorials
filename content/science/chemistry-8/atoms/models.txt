@@ -1,0 +1,6 @@
+# region: history
+Democritus: matter is made of tiny pieces that cannot be cut, "atomos"
+Aristotle: no atoms; everything is earth, water, air and fire, mixed
+Boyle: an element is a substance that cannot be broken down into simpler ones
+Dalton: each element has its own type of atom, and atoms join in fixed ratios
+# endregion

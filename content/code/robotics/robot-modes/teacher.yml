@@ -1,0 +1,46 @@
+summary: Students use a mode variable to give one robot several jobs (go, follow, stop); buttons change the mode and forever does the job, then they add explore and guard modes.
+time: 50
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 15 min · Make 12 min · Real robot 5 min (optional)"
+goals:
+  - I can use a variable to remember which job (mode) the robot is doing.
+  - I can change the mode with buttons, and make forever do the job for the current mode.
+  - I can add a new mode to a program.
+before: |
+  This is the **state** pattern (in the curriculum, a variable that keeps track of what the program is doing). A variable called **mode** holds a word: "go", "follow" or "stop". The **buttons only change the mode**; **forever** checks the mode every time round and does that job. So a button press has a lasting effect, even though the button event itself is over in an instant.
+
+  The mode values are words (strings) so programs read clearly: `if mode = "follow"`. In blocks, compare words with the **=** block from **Logic** and the text block from **Text**. **followLine** is lesson 5's program moved into a function, which keeps forever short.
+
+  Ruby's robot is the reset-in-loop slip from micro:bit Foundations (Counting): a starting value set inside forever wipes every change. The logo (micro:bit V2 only) appears in the simulator; on a V1 micro:bit, use shake instead. MOVE Motor classes can use the same pattern with Kitronik blocks.
+running:
+  - "Predict: the key question is why the robot keeps following after the button is let go."
+  - "Run: drag the robot onto the line before pressing B."
+  - "Investigate: act it out. One student holds a card with the mode word; another (forever) keeps reading it and acting. A third presses buttons by changing the card."
+  - "Modify: a new mode needs three things: a name, something that sets it, and a branch in forever. Write the three on the board."
+  - "Make: guard mode reuses lesson 3's distance question. robot play tone is in Robot."
+  - "Real robot (optional): discuss why real devices often cycle modes with one button (lesson 7 and beyond)."
+stuck:
+  - see: "Pressing a button does nothing."
+    ask: "Is set mode inside forever as well as in the button?"
+    fix: "Set the starting mode once, in on start. Only buttons change it after that."
+  - see: "The new mode never runs."
+    ask: "Is the word in the button exactly the same as the word in forever?"
+    fix: "Spell it the same way in both places (explore, not Explore)."
+  - see: "Guard mode beeps all the time."
+    ask: "Is anything within 20 cm? Is the tone inside the if?"
+    fix: "Move the box away; keep the tone inside the if."
+stretch: "Make one button cycle through the modes: A sets mode to the next one in a list (go, follow, explore, stop). Or count how many times guard mode was triggered."
+support: "Give the guard branch's else if with its question; students add the stop, the distance if and the lights."
+leads: "Next unit: Talk. The buttons move to a second micro:bit, which becomes a remote control. Real-world links: lawn-mower and vacuum modes, a lift's modes (going up, going down, doors open), traffic lights."
+exit:
+  q: "Why does the robot keep following the line after you let go of B?"
+  a: "B set the mode variable to follow. The variable keeps that value, and forever checks it every time round, so it keeps calling followLine."
+explain: |
+  A **mode** variable remembers which job the robot is doing.
+
+  - **Buttons** only change the mode.
+  - **forever** checks the mode every time round and does that job.
+  - A new job needs: a mode name, something that sets it, and a branch in forever.
+solutions:
+  step-4#t1: modes.ts#sol-show
+  step-4#t2: modes.ts#sol-explore
+  step-5: modes.ts#sol-make

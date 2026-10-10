@@ -1,0 +1,15 @@
+# Classifier boards for "Train a recycling sorter". Test photos: playground-board/media/classifier/recycling/
+# (made from TrashNet by tools/classifier/make-recycling-set.py).
+
+# region: try
+widget: classifier
+testset: recycling
+groups: plain, messy
+webcam: on
+# endregion
+
+# region: all
+widget: classifier
+testset: recycling
+webcam: on
+# endregion

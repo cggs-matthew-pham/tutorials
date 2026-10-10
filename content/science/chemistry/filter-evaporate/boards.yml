@@ -1,0 +1,25 @@
+# Science boards for "Filtration and evaporation".
+
+# region: filter
+widget: filter
+# endregion
+
+# region: evaporate
+widget: evaporate
+# endregion
+
+# region: quiz
+widget: quiz
+need: 6
+options: Filtration=filter; Evaporation=evap; Filter, then evaporate=both; Neither=neither
+item: Sand and water. Get the sand. | filter | Sand doesn't dissolve, so filter it out.
+item: Salt water. Get the salt. | evap | Salt is dissolved, so it passes through a filter. Evaporate the water away.
+item: Sand, salt and water. Get the salt. | both | Filter out the sand first, then evaporate the filtrate.
+item: Chalk dust in water. Get the chalk. | filter | Chalk doesn't dissolve.
+item: Copper sulfate solution (blue). Get the copper sulfate. | evap | It is dissolved, so evaporate to leave crystals.
+item: Iron filings and sand, both dry. Separate them. | neither | There is no liquid. Use a magnet.
+item: Tea leaves in tea. Get the drink without the leaves. | filter | The leaves don't dissolve. A strainer is a filter.
+item: Sugar dissolved in water. Get the sugar. | evap | Sugar is dissolved. Heat gently, as sugar burns easily.
+item: Muddy salt water. Get the salt. | both | Filter out the mud, then evaporate.
+item: Oil floating on water. Separate them. | neither | Both are liquids. Let them settle and pour off the top layer.
+# endregion

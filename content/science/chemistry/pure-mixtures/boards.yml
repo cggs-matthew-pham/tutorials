@@ -1,0 +1,16 @@
+# Science boards for "Pure substance or mixture?".
+
+# region: zoom
+widget: zoom
+samples: distilled, salt, sand, air, copper
+# endregion
+
+# region: abc
+widget: windows
+set: abc
+caption: Three particle diagrams. Each colour or size is a different kind of particle.
+# endregion
+
+# region: dissolve
+widget: dissolve
+# endregion

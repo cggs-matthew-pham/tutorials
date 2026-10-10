@@ -1,0 +1,35 @@
+summary: Students operate a body-temperature negative feedback loop, explain why it is negative, and apply the pattern to blood sugar (AC9S9U01, node 5, a hinge node).
+time: 22
+timing: "Engage and Explore 9 min · Explain 7 min · Evaluate 3 min · Typical adds 2 min, Wider about 4 min"
+goals:
+  - I can explain homeostasis as keeping conditions near a set point.
+  - I can describe how negative feedback corrects body temperature in both directions.
+  - I can apply the same loop to blood sugar.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconceptions are that body temperature is simply constant, and that "negative" means harmful.
+
+  Board notes: a toy model. Body temperature drifts towards the air temperature and the body's own heat; the effectors respond to how far it is from 37 °C, with a short lag, so it wobbles and settles. A recovery counts once the body comes back within 0.3 °C after being more than 0.6 °C away. The numbers are not a real body's: real core temperature moves much less. The wider tier's break buttons switch off the receptors, the control centre or the effectors.
+running:
+  - "Engage: count how many chose 'exactly 37'."
+  - "Explore: ask students to describe what the effectors do as the temperature comes back."
+  - "Explain: 'why negative' is the checkpoint."
+stuck:
+  - see: "A student can't get a recovery."
+    ask: "Have you left the slider somewhere and waited?"
+    fix: "Push it far, then leave it: the body recovers even while the air stays hot or cold."
+  - see: "A student says negative feedback only cools you down."
+    ask: "What happened when you made the air very cold?"
+    fix: "It warmed back up: negative means it opposes the change, either way."
+stretch: "Why would positive feedback (a rise causing more rise) be dangerous for body temperature?"
+support: "Give a loop diagram with blanks for the stimulus, receptor, control centre, effector and response."
+leads: |
+  Next unit: reproduction (AC9S9U02). Later: blood sugar and diabetes as a context in Health.
+
+  In class: measure skin temperature before and after exercise; a thermostat as a model (and where it breaks: the body has many effectors working together).
+exit:
+  q: "Describe what happens when your body temperature rises above 37 °C."
+  a: "Temperature receptors detect it; the hypothalamus sends impulses to the sweat glands and skin blood vessels; sweating and widened vessels cool the body; once it is back near 37 °C, they switch off."
+explain: |
+  **Homeostasis:** keeping internal conditions near a set point. **Negative feedback:** a change is detected and the response reverses it, then switches off once conditions return to the set point. Body temperature: sweating and flushed skin when too hot, shivering and pale skin when too cold.

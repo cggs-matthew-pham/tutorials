@@ -1,0 +1,12 @@
+# Classifier board for "Signs: some mistakes cost more": Go needs 95% confidence, the others 70%.
+
+# region: signs
+widget: classifier
+classes: Go, Left, Right, Stop
+webcam: on
+serial: on
+threshold: 0.7
+threshold Go: 0.95
+unsure: on
+repeat: 1
+# endregion

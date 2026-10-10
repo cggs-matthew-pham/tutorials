@@ -1,0 +1,15 @@
+# Classifier boards for the capstone: the students' own test photos (testset: own), shared across these steps.
+
+# region: photos
+widget: classifier
+testset: own
+# endregion
+
+# region: system
+widget: classifier
+testset: own
+webcam: on
+serial: on
+unsure: on
+threshold: 0.8
+# endregion

@@ -1,0 +1,42 @@
+summary: Students keep many values in one list, loop over it to draw one square per colour, and learn that the places in a list are counted from 0.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 10 min · Bar chart 5 min"
+goals:
+  - I can store several values in a list and loop over them.
+  - I can find an item by its place, counting from 0.
+  - I can change a program's result by changing its list, not its loop.
+before: |
+  Run the colour squares, then try the bar chart in Make. The idea to have ready: the first item in a list is in place **0**, so a list of 5 items has places 0 to 4. Asking for place 5 stops the program with an IndexError.
+running:
+  - "Predict: ask how many squares will be drawn. The answer is the number of colours, because the loop takes them one at a time."
+  - "Read for c in colours aloud as 'for each colour c in the list colours'. Each time round, c holds the next colour."
+  - "Investigate: students say which item is in each place before running. Many expect red to be place 1; that surprise is the point."
+  - "Modify: adding colours makes more squares without touching the loop. Ask why that is useful (the data changes, the instructions do not)."
+  - "Make: the bar chart is the same loop with heights instead of colours. A bar is a rectangle whose tall side is the number."
+stuck:
+  - see: "An IndexError: list index out of range."
+    ask: How many items are in the list, and what is the last place number?
+    fix: The last place is one less than the length. Loop over the list itself (for c in colours) to avoid counting.
+  - see: "A NameError, or the colour name is printed instead of used."
+    ask: Does every colour have quotes round it, with commas between them?
+    fix: "Text in a list needs quotes: [\"red\", \"blue\"]."
+  - see: The bars all start in the same place and overlap.
+    ask: What does the turtle do after finishing one bar?
+    fix: Lift the pen and move forward past the bar before drawing the next one.
+stretch: Draw the bar chart with each bar a different colour, using a second list of colours alongside the heights.
+support: Give students the list on paper with the places written under each item, and ask them to point to colours[2] before running the Investigate code.
+leads: "Next lesson names a group of steps (a function); later, lists hold the path in the final challenge and the buttons of a control panel. Playlists, class rolls and leaderboards are lists. Class ideas: a colour palette the class votes on; a bar chart of the class's own numbers."
+exit:
+  q: "colours = [\"red\", \"blue\", \"green\", \"gold\"]. What is colours[1], and what is the place of \"gold\"?"
+  a: "colours[1] is \"blue\" (counting starts at 0). \"gold\" is in place 3."
+explain: |
+  A **list** keeps many values in order under one name: `colours = ["red", "blue", "green"]`.
+
+  `for c in colours:` takes the items one at a time. Each time round the loop, `c` holds the next item, so the loop runs once for every item.
+
+  Each item has a **place**, counted from 0. `colours[0]` is the first item, `colours[2]` the third. A list of 3 items has places 0, 1 and 2, and asking for place 3 is an error.
+solutions:
+  step-4#t1: lists.py#sol-add
+  step-4#t2: lists.py#sol-first
+  step-5: lists.py#sol-chart
+  step-6: lists.py#sol-scores

@@ -1,0 +1,42 @@
+summary: Students define a compound (different atom types chemically joined in a fixed ratio, a new substance with new properties), tell it apart from a mixture, and read formulas (AC9S8U06, node 3, a hinge node).
+time: 25
+timing: "Engage and Explore 7 min · Explain 10 min · Evaluate 3 min · Typical adds 5 min, Wider about 5 min"
+goals:
+  - I can define a compound as two or more types of atom chemically joined in a fixed ratio.
+  - I can read a formula to find the atom types and how many of each.
+  - I can explain that a compound has different properties from the elements it is made from.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace models or demonstrations. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge risk is students treating a compound as a mixture of its elements ("water is hydrogen and oxygen mixed"). The two Explore boards hold the atom types constant so that only joining differs.
+
+  Accuracy note: sodium chloride is not made of NaCl molecules; it is a lattice of ions (Year 10). The lesson uses its formula only as a ratio and never draws it as a particle.
+running:
+  - "Engage: if you can, show a short video of sodium in water, then a salt shaker."
+  - "Explore: ask 'what is the same on both boards?' (atom types) and 'what is different?' (joined or not)."
+  - "Explain: the first question is the checkpoint. The sort mixes formulas and descriptions on purpose."
+  - "In your own words: the salt paragraph is the best evidence for the node."
+stuck:
+  - see: "A student says water is a mixture of hydrogen and oxygen."
+    ask: "Would water let things burn, like hydrogen and oxygen do?"
+    fix: "No: it puts fires out. The atoms are joined into a new substance with new properties."
+  - see: "A student reads H₂O as two waters."
+    ask: "Which atom does the small 2 sit next to?"
+    fix: "The small number belongs to the atom before it: two hydrogens, one oxygen."
+  - see: "A student says O₂ is a compound."
+    ask: "How many types of atom are joined?"
+    fix: "One type: oxygen. A compound needs different types."
+stretch: "Hydrogen peroxide, H₂O₂, is made of the same atom types as water but is a bleach. What does that say about the ratio of atoms?"
+support: "Give a formula card: element symbols with colours, and an example (H₂O → H H O) to copy while reading formulas."
+leads: |
+  Next: chemical change (AC9S8U07), where compounds are made and broken: a new substance is the test.
+
+  In class: build H₂O, CO₂, NH₃ and CH₄ with a model kit, then pull apart a water model to show that the elements' properties do not survive inside the compound.
+exit:
+  q: "Is carbon dioxide (CO₂) an element, a compound or a mixture? Why?"
+  a: "A compound: carbon and oxygen atoms are chemically joined in a fixed ratio, 1 carbon to 2 oxygen."
+explain: |
+  A **compound** is two or more types of atom **chemically joined** in a **fixed ratio**. It is a new substance with new properties.
+
+  - A **mixture** has substances together but not joined; each keeps its properties.
+  - A **formula** lists the atoms in one particle: H₂O has 2 hydrogen and 1 oxygen.

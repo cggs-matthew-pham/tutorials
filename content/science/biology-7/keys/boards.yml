@@ -1,0 +1,38 @@
+# Boards for "Who is it? Using a key".
+
+# region: animals
+widget: key
+step A: Does it have a backbone? | B | F
+step B: Does it have feathers? | Kookaburra | C
+step C: Does it have fur? | D | E
+step D: Does it lay eggs? | Platypus | Red kangaroo
+step E: Does it have dry, scaly skin? | Saltwater crocodile | Green tree frog
+step F: Does it have six legs? | Bull ant | G
+step G: Does it have eight legs? | Huntsman spider | Garden snail
+specimen: Red kangaroo | A backbone, fur, and its young grow in a pouch.
+specimen: Bull ant | No backbone; a hard outer skeleton and six legs.
+specimen: Saltwater crocodile | A backbone, dry scaly skin and four legs; lays eggs.
+specimen: Platypus | A backbone, fur and a flat bill; lays eggs.
+specimen: Garden snail | No backbone, a soft body and a shell; no legs.
+specimen: Kookaburra | A backbone, feathers and a strong beak; lays eggs.
+specimen: Green tree frog | A backbone, smooth moist skin and four legs; lays eggs in water.
+specimen: Huntsman spider | No backbone; eight legs and two body parts.
+need: 5
+# endregion
+
+# region: second
+widget: key
+step A: Does it have legs? | B | Garden snail
+step B: Does it have more than four legs? | C | D
+step C: Does it have six legs? | Bull ant | Huntsman spider
+step D: Is its body covered in feathers? | Kookaburra | E
+step E: Does it have fur? | F | G
+step F: Do its young grow in a pouch? | Red kangaroo | Platypus
+step G: Is its skin smooth and moist? | Green tree frog | Saltwater crocodile
+specimen: Red kangaroo | A backbone, fur, and its young grow in a pouch.
+specimen: Bull ant | No backbone; a hard outer skeleton and six legs.
+specimen: Saltwater crocodile | A backbone, dry scaly skin and four legs; lays eggs.
+specimen: Platypus | A backbone, fur and a flat bill; lays eggs.
+specimen: Garden snail | No backbone, a soft body and a shell; no legs.
+need: 3
+# endregion

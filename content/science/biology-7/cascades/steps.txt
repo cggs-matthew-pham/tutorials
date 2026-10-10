@@ -1,0 +1,7 @@
+# region: cascade
+Dingoes are removed
+Foxes are no longer hunted by dingoes, so fox numbers rise
+More foxes hunt more bandicoots
+Bandicoot numbers fall
+With fewer bandicoots eating them, insects have one less predator
+# endregion

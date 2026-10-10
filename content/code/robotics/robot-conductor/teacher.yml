@@ -1,0 +1,46 @@
+summary: Students make a conductor micro:bit that plays a tune phrase by phrase and sends a radio cue as each phrase starts; robots dance the move for each cue, so the dance keeps in time with the music.
+time: 50
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Make 15 min · Real robot 5 min (optional)"
+goals:
+  - I can send a radio cue at the moment a phrase of music starts.
+  - I can make a robot do a different move for each cue it receives.
+  - I can explain why playing music until done keeps the cues in time.
+before: |
+  This is the performance strand: lesson 2's dance moves (functions) plus lesson 7's radio. Each **phrase** is a function that **sends its cue, then plays its notes until done**. Because the music waits, the next phrase (and its cue) only starts when the last one ends, so cues arrive in time with the tune. Dancers decide what each cue means in **on radio received**.
+
+  Lily's show is the key slip: **in background** starts the music and moves on at once, so all the cues are sent together. In the simulator, two micro:bits and two robots appear (radio); pressing A on one makes the **other** robot dance, because a micro:bit never hears its own messages. Students need sound on (or headphones, which are not always available: the moves still show the timing).
+
+  Notes are written as letters with **-** for a rest, at 120 beats per minute. With real hardware, one bare micro:bit can conduct a whole class of robots in one group. Untested on real hardware: whether the robot start block errors on a micro:bit that is not in a robot (if so, the conductor's copy leaves it out). MOVE Motor classes can dance with Kitronik blocks in the same functions.
+running:
+  - "Predict: the key is that cue 2 waits for phrase A's music to end."
+  - "Run: sound on if possible. Watch the second robot, and notice the first one stays still."
+  - "Investigate: Lily's show is the background-music slip. Ask: what does 'until done' make the program wait for?"
+  - "Modify: phraseC is a copy of phraseB with new notes and cue 3; the dancer needs a branch for 3."
+  - "Make: let students choose any tune; keep phrases short (about 8 notes) so the moves fit."
+  - "Real robot (optional): one conductor, many dancers, one radio group: a class performance."
+stuck:
+  - see: "The robot does every move at once."
+    ask: "Is the music playing until done or in the background?"
+    fix: "Use play … until done, so the next cue waits for the phrase to finish."
+  - see: "Nothing dances."
+    ask: "Which micro:bit did you press A on, and which robot are you watching?"
+    fix: "Watch the other robot; check both use the same radio group."
+  - see: "A move runs on the wrong phrase."
+    ask: "Does each phrase send its own number, and does the dancer check that number?"
+    fix: "Match the cue in each phrase to the branch in on radio received."
+stretch: "Give each robot its own part: robots with a role variable (lead or backup) do different moves for the same cue."
+support: "Give phraseC complete; students add the dancer's branch and the new move."
+leads: "Next: the robot talks back, sending an alert to a base station. Real-world links: drone light shows, stage lighting cues, a conductor and an orchestra, synchronised swimming."
+exit:
+  q: "Why does each phrase play its music until done before the next phrase starts?"
+  a: "So the next cue is only sent when the music reaches the next phrase. The robots then move in time with the tune."
+explain: |
+  The **conductor** sends a **cue** as each phrase starts. **Dancers** do the move for each cue.
+
+  - Each phrase: send its cue, then play its notes **until done**.
+  - "In background" does not wait, so every cue is sent at once.
+  - A micro:bit never hears its own cues; every other robot in the group does.
+solutions:
+  step-4#t1: conductor.ts#sol-phrase
+  step-4#t2: conductor.ts#sol-lights
+  step-5: conductor.ts#sol-make

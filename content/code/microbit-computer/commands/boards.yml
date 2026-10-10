@@ -1,0 +1,16 @@
+# Serial boards for "Commands from the computer": buttons send words to a real micro:bit.
+
+# region: buttons
+widget: serial
+button Happy: happy
+button Sad: sad
+text: on
+# endregion
+
+# region: lamp
+widget: serial
+button On: on
+button Off: off
+button Count: count
+text: on
+# endregion

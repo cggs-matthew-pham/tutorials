@@ -1,0 +1,32 @@
+# Function machines for "Solving by backtracking". Each region is one machine: x goes through the ops, in order,
+# and comes out as the output. Students undo the ops from the output back to x.
+
+# region: run
+widget: machine
+ops: × 2, + 3
+output: 11
+# endregion
+
+# region: one-step
+widget: machine
+ops: + 9
+output: 15
+# endregion
+
+# region: subtract
+widget: machine
+ops: × 2, − 5
+output: 9
+# endregion
+
+# region: divide
+widget: machine
+ops: ÷ 3, + 2
+output: 6
+# endregion
+
+# region: brackets
+widget: machine
+ops: + 4, × 3
+output: 27
+# endregion

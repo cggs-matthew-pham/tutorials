@@ -1,0 +1,50 @@
+summary: Students name a job (making an enemy) as a function with a speed parameter, call it from several places, and see in Python that every event block is a function the game calls.
+time: 50
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 10 min · Make 12 min · Aquarium 5 min"
+goals:
+  - I can make a function and call it from more than one place.
+  - I can give a function a parameter and call it with different values.
+  - I can explain that an event block is a function the game calls for me.
+before: |
+  A **function** is a named job: some blocks with a name, made once in **Functions** (under Advanced in the toolbox). Making it does **not** run it. It runs when a **call** block calls it, once per call. A **parameter** is an input to the function, such as `speed` in *spawnEnemy(speed)*: the call hands in a number (*spawnEnemy(50)*), and inside the function `speed` is that number. So one function can make a slow bug and a fast bug.
+
+  This lesson starts the **Python peek**: the **Python** button at the top of the editor shows the same program as text. The big reveal is that every event block (*on game update every*, *on overlap*, *on A pressed*) becomes a `def` in Python, handed to the game, which calls it when the event happens. Students only read the Python; nobody needs to write it. MakeCode adds a `global bug` line inside the function: it means "use the bug variable from outside, not a new one". Students can ignore it.
+
+  The bug variable is declared at the top as `let bug: Sprite = null` (blocks make this line by themselves). Try the Make task yourself: it is about ten blocks.
+running:
+  - "Predict: some students expect the function to make one bug, or three identical ones. Point at the three calls and the three numbers."
+  - "Run: ask which bug is the 100 one. The parameter is the only difference between the calls."
+  - "Investigate: Ava's mistake (making but never calling) is this lesson's misconception. Ask: who does the job if nobody asks for it?"
+  - "Then switch the editor to Python together and read it line by line before the match. Say it plainly: an event block is a function. You make it; the game calls it."
+  - "Modify: the first task changes a call, the second changes the function. Ask: which change affects every bug, wherever it comes from?"
+  - "Make: makeCoin is called four times in the code (three in on start, one in the overlap). The overlap call is what keeps the game going."
+  - "Aquarium: the second parameter is the stretch inside the task. Show where Add a parameter is on the function block."
+stuck:
+  - see: "No enemies (or coins) ever appear."
+    ask: "Which block calls your function?"
+    fix: "Add a call block (from Functions) where the job should happen: in on start, the timer or the overlap."
+  - see: "The call block is missing from the toolbox."
+    ask: "Have you made the function yet?"
+    fix: "Make the function first; its call block then appears in the Functions drawer."
+  - see: "Every bug flies at the same speed, whatever number the call has."
+    ask: "Inside the function, what is vx set to?"
+    fix: "Drag the speed variable out of the function's header into set vx, instead of a fixed number."
+  - see: "Only one coin is ever on the screen, or coins pile up."
+    ask: "How many times is makeCoin called in on start, and where else?"
+    fix: "Three calls in on start, and one in the overlap after the coin is destroyed."
+stretch: "Give spawnEnemy a second parameter, the y position, and make a wave function that calls it five times in a column."
+support: "Give students the makeCoin function already made, and ask them only to add the four calls."
+leads: "Next unit: gravity and levels. Lesson 10 uses a startLevel function, so the whole level set-up is one call. From here, lessons can include a short Python peek. Class ideas: list every job in a favourite game that a function could name (spawn a ghost, reset the ball)."
+exit:
+  q: "You make a function spawnEnemy(speed) but never call it. What happens when the game runs?"
+  a: "No enemies appear: a function's blocks only run when something calls it."
+explain: |
+  A **function** is a named job. Making it does **not** run it: a **call** block runs it, once per call.
+
+  A **parameter** is an input, such as `speed` in *spawnEnemy(speed)*. Call *spawnEnemy(50)* and `speed` is 50 inside, so each call can make a different bug.
+
+  Press **Python** in the editor: every event block is a function too. The game calls it for you each time the event happens.
+solutions:
+  step-4#t1: functions.ts#sol-random
+  step-4#t2: functions.ts#sol-score
+  step-5: functions.ts#sol-make

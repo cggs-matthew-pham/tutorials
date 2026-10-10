@@ -1,0 +1,9 @@
+# Science boards for "Distillation and chromatography".
+
+# region: distil
+widget: distil
+# endregion
+
+# region: chroma
+widget: chroma
+# endregion

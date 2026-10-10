@@ -1,0 +1,42 @@
+summary: Students build a reaction game in three milestones, using events, variables, a random wait, a true/false variable, decisions and a best score.
+time: 60
+timing: "Predict, Run, Investigate 12 min · Milestone 1 10 min · Milestone 2 15 min · Milestone 3 15 min · Why random 5 min"
+goals:
+  - I can time something with running time and a variable.
+  - I can use a true/false variable to remember what is happening.
+  - I can combine events, variables and decisions into a game.
+before: |
+  This lesson uses everything from the course, with only two new blocks: **running time** (milliseconds since the micro:bit switched on) and **true/false** values for a variable (in Logic). Timing is a subtraction: store running time when the heart appears (`start`), then at the press show *running time − start*. The milestones fade the help: Milestone 1 gives nearly all the code, Milestone 2 gives an outline, Milestone 3 gives only goals. Play it yourself first; good times are 200 to 400 ms, and the simulator adds a little delay. The core is Milestones 1 and 2; Milestone 3 and the Why random step finish the lesson for most students.
+running:
+  - "Predict and Run: the random wait is what makes it a reaction game. Let students try to guess and fail."
+  - "Investigate: the trace is a subtraction. The 'too early' question sets up Milestone 2: let students find the cheat."
+  - "Milestone 1: two blocks. If times look huge, start was never set."
+  - "Milestone 2: waiting is true only while the heart shows. Read the A event aloud: 'if we are waiting for a press, time it; else, too early'."
+  - "Milestone 3: starting best at 99999 means any first time beats it, so no 'or' is needed."
+  - "Why random: a fixed wait can be counted, so it stops measuring reactions."
+stuck:
+  - see: "The time shown is huge, like 15000."
+    ask: "When is start set?"
+    fix: "Set start to running time straight after the heart is shown."
+  - see: "Every press shows a cross."
+    ask: "Where is waiting set to true?"
+    fix: "Set waiting to true after the heart appears (after start is set)."
+  - see: "The best time never changes, or is always the latest time."
+    ask: "What is best at the start, and which way round is your comparison?"
+    fix: "Start best at 99999, and use if reaction < best."
+stretch: "Show a rating after each time: under 250 a happy face, under 400 a meh face, otherwise a sad face (if, else if, else)."
+support: "Pair students for Milestone 3: one reads the goals aloud while the other builds."
+leads: "Next: Radio duel, the same game for two players over radio. Class ideas: a class reaction leaderboard on the board; does reaction time change after exercise? (a quick science investigation with real micro:bits)."
+exit:
+  q: "Why is waiting needed? What would happen without it?"
+  a: "Without it, pressing A before the heart still shows a number, so players could cheat by pressing early."
+explain: |
+  **running time** is how many milliseconds since the micro:bit switched on. Store it when the heart appears (`start`), then at the press, *running time − start* is your reaction time.
+
+  `waiting` is a **true/false** variable: true only while the heart is showing, so an early press can be caught.
+
+  `best` keeps your fastest time: *if reaction < best, set best to reaction*.
+solutions:
+  step-4: reaction.ts#sol-m1
+  step-5: reaction.ts#sol-m2
+  step-6: reaction.ts#sol-m3

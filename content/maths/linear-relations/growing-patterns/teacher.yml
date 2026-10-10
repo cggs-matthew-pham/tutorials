@@ -1,0 +1,45 @@
+summary: Students find the rule for a visually growing pattern from what each figure adds, use it for a figure they have not drawn, and work backwards from a count (AC9M7A05, node 1).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can find what each figure of a growing pattern adds, and write a rule like s = 3n + 1.
+  - I can use a rule to work out a figure I have not drawn.
+  - I can work backwards from a count to the figure number.
+before: |
+  Do the Run and Modify boards yourself first. The board draws what each figure adds in orange: that is the whole idea of the lesson.
+
+  The rule's two numbers have meanings students can see: the number in front of n is how many each figure adds, and the number added on is what every figure has before that (the first stick, the centre dot, the starting group). The rest of the course builds on this: in y = mx + c, m is the amount added each step and c is the starting amount.
+
+  The common mistake is scaling: Figure 10 = 10 × Figure 1. It fails because the parts are shared. Ben's working plants it after the method.
+running:
+  - "Predict: take a show of hands. 40 (10 × 4) is the common wrong answer. Do not correct it: the board settles it."
+  - "Run: before moving to Figure 10, ask: what does each figure add, and why only 3? Point at the shared side."
+  - "Investigate: model the worked example live. Build the table, circle the +3s, then say 'n lots of 3, plus the 1 on the left'."
+  - "Modify: before the backwards task, ask: is 46 the figure number or the number of sticks?"
+  - "Practise: ask students to check each rule on Figure 1 and Figure 2 before answering."
+  - "Make: collect different designs that give 52. Is there more than one?"
+stuck:
+  - see: "A student multiplies Figure 1 (Ben's mistake)."
+    ask: "Build Figure 2 from Figure 1. How many sticks did you add?"
+    fix: "The new square shares a side, so it adds 3, not 4. Count the orange sticks on the board."
+  - see: "A student writes s = 3n and is one short."
+    ask: "Check Figure 1 with your rule. What is missing?"
+    fix: "Every figure has something before the repeating part (the first stick). Add it on."
+  - see: "A student puts the count in as n when working backwards."
+    ask: "Which number in the question is the figure, and which is the count?"
+    fix: "Write the rule with the count in: 3n + 1 = 46, then undo + 1 and × 3."
+stretch: "A pattern of tables in a row: one table seats 4, each extra table seats 2 more people. Write the rule, then find how many tables seat 40."
+support: "Give squared paper or matchsticks to build Figures 1 to 4. Fill a table before writing any rule."
+leads: |
+  Next: tables from rules (any rule, not only patterns), then plotting the table as points, which lie on a straight line. The two numbers of a pattern rule become m and c later in the course.
+
+  Where it leads in class: any repeated build (fencing, tiling, seating), and spreadsheet formulas that fill down.
+exit:
+  q: "A pattern has 6, 11, 16 tiles in Figures 1 to 3. Write the rule and find Figure 20."
+  a: "s = 5n + 1; Figure 20 has 101 tiles."
+explain: |
+  A **growing pattern** adds the same amount each time. Look at what each new figure **adds**: for a row of squares made of sticks, each new square adds 3 sticks (it shares a side).
+
+  So figure $n$ has $n$ lots of 3, plus what every figure has before that: 1 stick on the left. The **rule** is $s = 3n + 1$.
+
+  The rule gives any figure without drawing it: Figure 10 has $3 \times 10 + 1 = 31$ sticks. To go backwards, solve: $3n + 1 = 46$ gives $n = 15$.

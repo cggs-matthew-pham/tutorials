@@ -1,0 +1,8 @@
+# Zoe's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: zoe
+A taxi costs 5 dollars to get in, plus 3 dollars per km.
+m is the first number in the question, so m = 5.
+c is the other number, so c = 3.
+The rule is T = 5d + 3.
+# endregion

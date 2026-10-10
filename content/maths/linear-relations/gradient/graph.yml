@@ -1,0 +1,79 @@
+# Graph boards for "What m does to a line". The rule is always y = mx + 1: c stays at 1 so that only m changes.
+
+# region: run
+widget: graph
+x: -1, 5
+y: -4, 16
+slider m: 0, 4, 1
+plot: y = mx + 1
+table: 0, 1, 2, 3
+step: 1
+# endregion
+
+# region: through-9
+widget: graph
+x: -1, 5
+y: -4, 14
+slider m: -4, 4, 1
+plot: y = mx + 1
+point T: 2, 9
+step: 0
+# endregion
+
+# region: flat
+widget: graph
+x: -1, 5
+y: -4, 14
+slider m: -4, 4, 2
+plot: y = mx + 1
+point T: 3, 1
+step: 0
+# endregion
+
+# region: down
+widget: graph
+x: -1, 5
+y: -8, 8
+slider m: -4, 4, 1
+plot: y = mx + 1
+point T: 2, -3
+step: 0
+# endregion
+
+# region: half
+widget: graph
+x: -1, 5
+y: -4, 8
+slider m: -2, 2, 1, 0.5
+plot: y = mx + 1
+point T: 4, 3
+step: 0
+# endregion
+
+# region: make
+widget: graph
+x: -1, 6
+y: -6, 12
+slider m: -3, 3, 1
+plot: y = mx + 1
+point P: 4, -4, drag
+# endregion
+
+# region: explain
+widget: graph
+x: -1, 4
+y: -6, 12
+slider m: -3, 3, 1
+plot: y = mx + 1
+step: 1
+# endregion
+
+# region: explain-pic
+widget: graph
+x: -1, 4
+y: -2, 14
+plot: y = 3x + 1
+point A: 1, 4
+point B: 2, 7
+step: 1
+# endregion

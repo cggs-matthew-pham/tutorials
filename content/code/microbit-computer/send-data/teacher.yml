@@ -1,0 +1,44 @@
+summary: Students make a micro:bit send sensor readings to the computer over USB as named lines of text, and watch them graphed.
+time: 45
+timing: "Predict and Run 8 min · On a real micro:bit 8 min (typical) · Investigate 8 min · Modify 10 min · Make 10 min"
+goals:
+  - I can send a sensor reading to the computer again and again.
+  - I can explain what travels down the cable (a named line of text).
+  - I can send two values and choose how often they are sent.
+before: |
+  **The idea:** a micro:bit plugged into a computer can send text down the USB cable, one line at a time (this is called **serial**). **serial write value** sends a line such as `light:128`: a name, a colon and a number. Whatever is on the other end (MakeCode's Show data, the board in this lesson, a spreadsheet) turns those lines into a table or a graph.
+
+  **Without micro:bits:** the MakeCode simulator shows the values under **Show data**, so every required step works in the browser. The board step ("On a real micro:bit") is optional and needs a micro:bit, a data USB cable and **Chrome or Edge**.
+
+  **With micro:bits:** students download the program, leave the micro:bit plugged in, and click **Connect a micro:bit** on the board. Only one page can use the cable at a time, so if MakeCode is connected to the micro:bit, disconnect it there first.
+running:
+  - "Predict: most say a graph. Ask: who draws the graph, the micro:bit or the computer?"
+  - "Run: Show data appears under the simulator once values arrive."
+  - "On a real micro:bit: covering it and shining a torch makes a clear graph."
+  - "Investigate: Ben's logger is the on start versus forever slip from Foundations."
+stuck:
+  - see: "Show data never appears."
+    ask: "Is the program running? Is serial write value inside forever?"
+    fix: "Restart the simulator; put the send inside forever."
+  - see: "Connect a micro:bit lists nothing."
+    ask: "Are you in Chrome or Edge, with a data cable?"
+    fix: "Use Chrome or Edge; try another cable (some only charge)."
+  - see: "Only one reading arrives."
+    ask: "Which block is the send in?"
+    fix: "Move it into forever with a pause."
+stretch: "Send the sound level too, and find out which is noisier: the classroom or the corridor."
+support: "Give the Make program with x done; students add y and the button."
+leads: "Next: the computer sends commands to the micro:bit. Real world: data loggers in science labs, weather stations and fitness trackers."
+exit:
+  q: "What does the computer receive when the micro:bit runs serial write value light, light level?"
+  a: "A line of text: the name light, a colon and the reading, such as light:128."
+explain: |
+  **Serial** sends text down the USB cable, one line at a time.
+
+  - **serial write value** sends a named reading, such as `light:128`.
+  - Put it in **forever** with a **pause** to send a reading again and again.
+  - The computer turns the lines into a table or a graph.
+solutions:
+  step-5#t1: send.ts#sol-temp
+  step-5#t2: send.ts#sol-fast
+  step-6: send.ts#sol-make

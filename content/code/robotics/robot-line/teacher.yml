@@ -1,0 +1,48 @@
+summary: Students follow a line with one sensor (swinging along its edge), then two sensors (drive straight, steer towards the side that still sees the line), and combine line following with the distance sensor to make a delivery robot that stops when blocked.
+time: 50
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Make 15 min · Real robot 5 min (optional)"
+goals:
+  - I can read a line sensor as true or false.
+  - I can steer towards the side whose sensor still sees the line.
+  - I can combine two sensors, asking the most important question first.
+before: |
+  The robot has two **line sensors** under its front. Each is **true** when it is over the dark line. With one sensor the robot can only swing back and forth along the line's edge. With two, it knows **which way it drifted**: if only the left sensor still sees the line, the line is to the left, so it steers **left** (right wheel faster: robot motor tank 10 40). Steering the wrong way is the common slip (Kai's robot).
+
+  The simulator's sensors are on/off only. Real sensors measure how much light comes back, which allows smooth steering; that is a good teacher-led extension on real robots. The simulator also adds a small "line assist": after the robot loses the line it slows down for a moment, which helps it find the line again.
+
+  The Make combines lessons 3 and 5: the distance question must come **first**, or the robot would follow the line straight into the box. If the robot does not start on the line, students drag it onto the line, facing along it. MOVE Motor classes can use Kitronik's line-sensor blocks on the real robot; they give a number, so steering on the difference between left and right is a natural extension.
+running:
+  - "Predict: the one-sensor swing surprises students. Ask why it follows the edge, not the middle."
+  - "Run: look for the swinging. If the robot is not on the line, drag it on."
+  - "Investigate: act it out. One student is the robot, two others are the sensors calling 'line!'. Kai's robot is the wrong-way slip."
+  - "Modify: faster straights may make it overshoot the bends: that is the trade-off real robots tune."
+  - "Make: ask which question goes first and why. Then drag a box onto the line to test."
+  - "Real robot (optional): black electrical tape on light paper works best."
+stuck:
+  - see: "The robot leaves the line at the first bend."
+    ask: "When only the left sensor sees the line, which way is the line?"
+    fix: "Steer towards it: left sees the line, steer left (10 40)."
+  - see: "The robot stops straight away."
+    ask: "Is it on the line? Which case is it in?"
+    fix: "Drag it onto the line, facing along it."
+  - see: "It drives into the box on the line."
+    ask: "Which question does your if ask first?"
+    fix: "Put the distance question first: the first true question wins."
+stretch: "Count laps: when both sensors lose the line for a moment at a gap, or each time a button is pressed, add 1 and show it. Or: drive the loop the other way."
+support: "Give the two-sensor program with the turns removed from the middle branches; students choose the steering for each."
+leads: "Next unit: Modes. One robot, many jobs: a variable chooses between stop, drive and follow. Real-world links: warehouse robots, hospital delivery robots, robot lawn mowers that follow a boundary wire."
+exit:
+  q: "Only the right sensor sees the line. Which way should the robot steer, and why?"
+  a: "Right: the line is on the right, so steering right brings the robot back over it."
+explain: |
+  Two **line sensors** tell the robot which side the line is on.
+
+  - Both see it: drive straight.
+  - Only one sees it: steer **towards** that side.
+  - Neither: the line is lost; stop.
+
+  When two sensors matter, ask the most important question **first** (something in the way? then stop).
+solutions:
+  step-4#t1: line.ts#sol-fast
+  step-4#t2: line.ts#sol-lost
+  step-5: line.ts#sol-make

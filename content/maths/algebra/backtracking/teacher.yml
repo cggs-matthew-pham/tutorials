@@ -1,0 +1,43 @@
+summary: Students solve one- and two-step equations by backtracking, undoing each step of a function machine in reverse order and checking forwards (AC9M7A03, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 12 min · Practise 8 min · Make 5 min"
+goals:
+  - I can solve a two-step equation by backtracking.
+  - I can name the step that undoes another (the inverse operation).
+  - I can undo steps in the right order, last step first, and check my answer forwards.
+before: |
+  This is a **hinge** lesson: the next lesson's balance method needs the same idea of order. Students who undo steps in the wrong order here will set up every later equation wrongly, so watch for it.
+
+  Try the last Modify machine yourself ($3(x + 4) = 27$). It adds first and multiplies last, so the first undo is $\div\,3$. That surprises students who always "take away the number first".
+running:
+  - "Predict: take a few answers and ask how each student got there. Someone will describe undoing; name it 'backtracking'."
+  - "Run: the machine only accepts the step that undoes the last arrow. Wrong steps get a nudge, not the answer."
+  - "Investigate: before the worked example, ask the class for the opposite of each step (the matching task). Then reveal the example one line at a time."
+  - "Mia's mistake is the most common error. Ask: what did the machine do last? That is the first thing to undo."
+  - "Modify: the brackets task is the point. Ask students to say the machine's order aloud before undoing anything."
+  - "Practise: insist on the forwards check every time. It catches the order mistake on its own."
+stuck:
+  - see: "A student divides first in 2x + 3 = 11 and gets 2.5."
+    ask: "What did the machine do last? What undoes that?"
+    fix: "Undo the + 3 first (11 − 3 = 8), then the × 2 (8 ÷ 2 = 4). Check forwards."
+  - see: "A student undoes − 5 by taking away 5 again."
+    ask: "If I take 5 away and want it back, what do I do?"
+    fix: "The opposite of taking away is adding: 9 + 5 = 14."
+  - see: "A student stops after one step on a two-step equation."
+    ask: "Is that the number that went in, or a number partway through the machine?"
+    fix: "Draw the machine with a box between the steps; keep undoing until you reach x."
+stretch: "Make a three-step machine, such as × 2, + 5, × 3, and write its equation with brackets. Swap with a partner and backtrack each other's."
+support: "Write the machine as arrows on paper (x → × 2 → + 3 → 11), then draw the backwards arrows underneath with the opposite steps before calculating."
+leads: |
+  Next: the balance method, which does the same undoing to both sides of an equation, and still works when $x$ is on both sides (where backtracking cannot).
+
+  Where it leads in class: "think of a number" puzzles, and working back from a total, such as the price before a fee was added.
+exit:
+  q: "Solve 5x + 6 = 41 by backtracking. Show each step and check your answer."
+  a: "41 − 6 = 35, then 35 ÷ 5 = 7. Check: 5 × 7 + 6 = 41."
+explain: |
+  **Backtracking** means running an equation backwards. In $2x + 3 = 11$, $x$ is multiplied by 2, then 3 is added, and the answer is 11.
+
+  To find $x$, undo each step with its **opposite**, starting with the **last** one: take away 3 ($11 - 3 = 8$), then divide by 2 ($8 \div 2 = 4$).
+
+  Then check by running forwards: $2 \times 4 + 3 = 11$. If it matches, you have the solution.

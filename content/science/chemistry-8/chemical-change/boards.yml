@@ -1,0 +1,27 @@
+# Science boards for "Is it a new substance?".
+
+# region: react
+widget: reaction
+show: H2 x10, Cl2 x10
+react: H2 + Cl2 -> 2 HCl
+ea: 2
+target: HCl 10
+caption: "Hydrogen and chlorine. A yellow ring marks each reaction."
+# endregion
+
+# region: melt
+widget: heat
+# endregion
+
+# region: dissolve
+widget: dissolve
+# endregion
+
+# region: burn
+widget: reaction
+show: CH4 x6, O2 x12
+react: CH4 + 2 O2 -> CO2 + 2 H2O
+ea: 1.5
+release: 1
+caption: Methane (natural gas) burning in oxygen.
+# endregion

@@ -1,0 +1,50 @@
+summary: An optional lesson. Students use CSS Grid to lay out a page in columns (a menu and the main content) and a gallery in rows and columns, and choose between Grid and Flexbox.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 10 min · Gallery 5 min"
+goals:
+  - I can lay out a page in columns with display grid and grid-template-columns.
+  - "I can explain what 1fr means: one share of the space left over."
+  - I can make a gallery whose rows line up, with repeat and gap.
+  - I can choose between Grid and Flexbox for a layout.
+before: |
+  This lesson is **optional**. It builds on Flexbox (lesson 7): Grid also goes on the **parent**, but it lines items up in columns **and** rows. Only three ideas are new: `display: grid;`, `grid-template-columns` (a list of widths, such as `150px 1fr`) and `repeat(3, 1fr)` for equal columns. `gap` is the same as in Flexbox.
+
+  `fr` means one share of the space that is left after fixed widths. `1fr 2fr` gives the second column twice the first. Items fill the columns in order and start a new row when a row is full. Do the Make task yourself first.
+running:
+  - "Predict: many students expect main to stay under the menu. Run, then try 250px, 1fr 1fr and 1fr 2fr."
+  - "Investigate: count rows on the board for 7 pictures in 3 columns (3 + 3 + 1)."
+  - "Columns that will not form: the same mistake as Flexbox on the items. Grid goes on the box that holds them."
+  - "Grid or Flexbox: one direction (a menu) is Flexbox; columns and rows that line up (a page, a gallery) is Grid. Many pages use both."
+  - "Modify: the page first, then the cards inside main: a grid inside a grid."
+  - "Gallery: compare with a Flexbox gallery that wraps; with Grid every row lines up, even the last one."
+stuck:
+  - see: The menu and the main content still stack.
+    ask: Which rule has display grid? Is it on the box that holds them?
+    fix: Put display grid and grid-template-columns in the .page rule, not on nav or main.
+  - see: Everything is in one column even with display grid.
+    ask: Did you list the columns with grid-template-columns?
+    fix: Add grid-template-columns, for example 160px 1fr or repeat(3, 1fr).
+  - see: The columns are the wrong widths.
+    ask: How many widths are listed, and which ones are fixed?
+    fix: List one width per column; use fr for columns that share the space left over.
+stretch: "Make one card span two columns with grid-column: span 2; or change the gallery to repeat(auto-fill, minmax(120px, 1fr)) so the number of columns follows the width."
+support: "Do the first Modify task together. Keep the hint open for the cards: it is the same as the page rule with repeat(3, 1fr)."
+leads: "Back in the club page, students can use Grid for the cards or the whole page. The DOM course and later web projects use both Grid (for page layout) and Flexbox (inside each part)."
+exit:
+  q: "Write the rule for a gallery box with four equal columns and a gap, and say why it goes on the gallery, not on each picture."
+  a: ".gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; } It goes on the box that holds the pictures, because Grid arranges that box's children."
+explain: |
+  The video shows the same steps:
+
+  1. A menu and the main content sit one under the other inside a `<div class="page">`.
+  2. `display: grid;` goes on `.page`, the box that holds them, as with Flexbox.
+  3. `grid-template-columns: 150px 1fr;` lists the columns: 150 pixels, then `1fr`, the rest of the width.
+  4. `gap: 16px;` puts space between the columns.
+
+  Grid lines things up in columns and rows. Flexbox is for one row, such as a menu.
+solutions:
+  step-4#t1: page.html#sol-columns
+  step-4#t2: page.html#sol-gap
+  step-4#t3: page.html#sol-cards
+  step-5: page.html#sol-make
+  step-6: page.html#sol-photos

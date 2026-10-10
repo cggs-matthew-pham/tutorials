@@ -1,0 +1,45 @@
+summary: Students plot ordered pairs from a rule's table, across then up, see that rules adding the same amount each step give straight lines, and describe the line (AC9M7A05, node 3).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 15 min · Practise and Make 10 min"
+goals:
+  - I can plot ordered pairs from a table, across first and then up.
+  - I can describe a straight-line graph by which way it goes and how much for each step.
+  - I can tell from a table whether its points will lie on a straight line.
+before: |
+  Do the Run and Modify boards yourself first. Points start in a row at the bottom of the board and snap to the grid; students drag each to its pair.
+
+  Students should be able to plot points in all four quadrants (Year 6). The new move is reading a table as points and seeing the line: a rule that adds the same amount for each step right always gives a straight line. The last Modify task (y = x × x) is a non-example: the steps change, so the points curve.
+
+  Describing the line ("up 2 for each step right, crossing the y-axis at 1") is exactly what m and c will name in the next unit.
+running:
+  - "Predict: take a show of hands. Ask a student who chose 'a curve' what made them think so."
+  - "Run: as students place each point, ask them to say it: 'across 1, up 3'."
+  - "Investigate: model the worked example live on a grid: plot each point saying 'across, then up', then join with a ruler."
+  - "Modify: before the negative inputs, ask: which way is across for a negative x?"
+  - "Modify: after the curve, ask: what was different about the steps in the table?"
+  - "Make: compare two students' lines: both go up 3 for each step right. Where do they start?"
+stuck:
+  - see: "A student plots (y, x) by going up first (Sam's mistake)."
+    ask: "Which number is x? Which way does the x-axis go?"
+    fix: "Say 'along the corridor, then up the stairs': across first, then up."
+  - see: "A student loses count with negative coordinates."
+    ask: "Is x positive or negative? Which way do you go?"
+    fix: "Negative x goes left of the y-axis; negative y goes below the x-axis. Count the squares from (0, 0)."
+  - see: "A student thinks every set of points makes a straight line."
+    ask: "How much does y go up between each pair of points?"
+    fix: "Write the steps under the table. Same step every time: straight. Steps that change: a curve."
+stretch: "Plot y = 2x + 1 and y = x + 3 on the same grid. Where do they meet? What does that point mean for both rules?"
+support: "Give the table with the pairs already written, and a printed grid. Plot two points together before students plot the rest."
+leads: |
+  Next: graphs of real data, where the points come from measurements, not a rule. Later in the course, the line's steepness and starting point get names: m and c in y = mx + c.
+
+  Where it leads in class: science graphs from experiments, and line graphs in any subject.
+exit:
+  q: "Plot the pairs of y = 3x − 1 for x = 0 to 3. Describe the graph."
+  a: "(0, −1), (1, 2), (2, 5), (3, 8): a straight line going up 3 for each step right, crossing the y-axis at −1."
+explain: |
+  To **plot** the point $(x, y)$, start at $(0, 0)$, go **across** $x$ and then **up** $y$. A negative number goes left or down.
+
+  Plot each ordered pair from a rule's table. For $y = 2x + 1$ the pairs $(0, 1)$, $(1, 3)$, $(2, 5)$, $(3, 7)$ lie on a **straight line**, because each step of 1 across adds the same amount (2) to $y$.
+
+  Describe the line by which way it goes and how much for each step: "up 2 for each step right, crossing the $y$-axis at 1". If the steps in the table change, the points curve instead.

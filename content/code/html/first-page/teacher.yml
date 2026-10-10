@@ -1,0 +1,51 @@
+summary: Students label text with tags (headings, paragraphs, strong and em), learn that tags nest like boxes inside boxes, and find out that the browser shows its best guess instead of an error when the code is wrong.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 10 min · Newsletter 5 min"
+goals:
+  - I can use <h1>, <h2>, <p>, <strong> and <em> to say what each piece of text is.
+  - I can explain why line breaks in my code do not show on the page.
+  - I can close tags in the right order when one tag is inside another.
+  - I can explain why I check the page after every change.
+before: |
+  Read the unit primer "HTML structure in 5 minutes" first, then do the Make task yourself in the playground (about 5 minutes).
+
+  The surprise for students: pressing Enter in the code does not make a new line on the page. Only a new `<p>` does. A **tag** is a label in angle brackets, like `<p>`. Most tags come in pairs: an opening tag `<p>` and a closing tag `</p>` with a slash, wrapped around the text they label.
+running:
+  - "Predict and Run: most students say 4 lines. The page shows 2, because the browser joins the lines of one paragraph. Let them press Enter in the code and see that nothing changes, then add a `<p>`."
+  - "Investigate: the match task is about meaning. `<strong>` means important, not just bold; the browser chooses how it looks. Then nesting: draw boxes inside boxes on the board, and close the inner one first."
+  - "The broken-nesting task looks fine on screen, which is the point. Ask: if the page looks right, how would we ever know? (Careful reading, and later a checker.)"
+  - "The missing-tag question is the big idea of the lesson: the browser never gives an error message, so students must look at the page after every change."
+  - "Modify and Make: one change at a time, check the page each time. The Make check ticks when the page uses `<h1>`, `<h2>`, `<p>` and `<strong>`."
+  - "Newsletter: tell students the first lines (`<!DOCTYPE html>`, `<html>`, `<head>`, `<body>`) are a standard wrapper they copy for now. Only `<body>` shows on the page."
+stuck:
+  - see: Everything after one word is bold (or italic).
+    ask: Where does the <strong> (or <em>) end?
+    fix: Add the missing closing tag, </strong> or </em>, straight after the words it should cover.
+  - see: Text the student typed on a new line runs on from the line before.
+    ask: Which tag starts a new paragraph?
+    fix: Wrap each paragraph in its own <p> and </p>. Pressing Enter in the code does not change the page.
+  - see: "A tag shows on the page as text, such as <h2 or h2>."
+    ask: Does every tag have both of its angle brackets?
+    fix: Every tag needs < and >, and a closing tag needs the slash, as in </h2>.
+stretch: "Add a third section with an <h2> heading, and use both <strong> and <em> in one sentence, nested correctly: <strong><em>very</em></strong>."
+support: "Give students the Modify starter and ask them only to change the words between the tags, then add one <h2>. Point to the Reference drawer for each tag."
+leads: "Next lesson adds lists and links, and with them attributes (extra information inside a tag, such as a link's address). Headings matter beyond looks: screen readers use them to jump around a page, so a page with real `<h1>` and `<h2>` tags is easier for everyone to use. Class idea: show a news website and ask students to spot the headings and paragraphs."
+exit:
+  q: "A student presses Enter in the middle of a paragraph in their code, but the page does not change. Why, and how do they start a new line?"
+  a: "The browser ignores line breaks in the code. To start a new paragraph, end the first with </p> and start the next with <p>."
+explain: |
+  The video and the picture show the same steps:
+
+  1. A **tag** is a label. `<h1>` labels the main heading.
+  2. `<p>` opens a paragraph and `</p>` closes it.
+  3. `<strong>` marks an important word, inside the paragraph. The inner tag closes first: `</strong>`, then `</p>`.
+  4. The tags say what the text *is*; the browser picks the look.
+  5. Forget a closing tag and there is no error message: the bold just carries on. Check the page after every change.
+
+  In the picture, Boxes is on: each box is a tag, and the `strong` box sits inside the `p` box.
+solutions:
+  step-4#t1: page.html#sol-change
+  step-4#t2: page.html#sol-sections
+  step-4#t3: page.html#sol-em
+  step-5: page.html#sol-make
+  step-6: page.html#sol-newsletter

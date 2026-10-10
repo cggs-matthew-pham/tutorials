@@ -1,0 +1,35 @@
+summary: Students sequence the eight moon phases and explain them by the moon's position relative to the Earth and sun, rejecting the Earth's-shadow explanation (AC9S7U03, node 2, a hinge node).
+time: 22
+timing: "Engage and Explore 7 min · Explain 7 min · Practise 4 min · Evaluate 3 min · Typical adds 1 min, Wider about 2 min"
+goals:
+  - I can put the eight phases of the moon in order.
+  - I can explain the phases by the moon's position, not Earth's shadow.
+  - I can predict the phase seen from Earth for a given position.
+before: |
+  A concept tutorial for introducing or revising the idea; it pairs well with the lamp-and-ball model (a student holds a ball at arm's length and turns round a lamp) and a moon diary. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconception is that Earth's shadow causes the phases. The shadow button shows the shadow is far from the moon at quarters and crescents; at full moon, the board's note explains that the tilted orbit usually takes the moon above or below it (the next lesson).
+
+  Board notes: not to scale; seen from above the North Pole, with the moon going anticlockwise. "What you see from Earth" is drawn for the Southern Hemisphere (waxing lit on the left) unless `view: north`. The quiz places the moon at one of the eight positions and hides the view until the student answers.
+running:
+  - "Engage: count how many chose Earth's shadow."
+  - "Explore: ask students to put the shadow on at first quarter."
+  - "Explain: the shadow question is the checkpoint; the parsons task checks the sequence."
+stuck:
+  - see: "A student says the dark part of a crescent is Earth's shadow."
+    ask: "Where does the shadow point? Where is the moon at a crescent?"
+    fix: "The shadow points away from the sun; a crescent moon is nearly between us and the sun, so we see mostly its dark side."
+  - see: "A student mixes up waxing and waning."
+    ask: "Is the lit part growing (waxing) or shrinking (waning) after new moon?"
+    fix: "Growing until full, then shrinking."
+stretch: "Why can you sometimes see a full moon rising just as the sun sets?"
+support: "Give a circle diagram with the eight positions and blank moon faces to shade."
+leads: |
+  Next: eclipses (node 3), which need the shadow and the tilted orbit, then tides (node 5).
+
+  In class: the lamp-and-ball model; a month-long moon diary.
+exit:
+  q: "Why do we see a half-lit moon at first quarter?"
+  a: "The moon is a quarter of the way round its orbit, at right angles to the sun; we see half of its sunlit half. It isn't Earth's shadow."
+explain: |
+  **Phases:** the sun always lights half the moon; as the moon orbits the Earth (29.5 days), we see more or less of that lit half. New → waxing crescent → first quarter → waxing gibbous → full → waning gibbous → last quarter → waning crescent. Not Earth's shadow.

@@ -1,0 +1,52 @@
+summary: Students build forms from labels, input boxes, a drop-down and a button, link each label to its box, and discover that a form on its own sends nowhere.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 10 min"
+goals:
+  - I can build a form with labels, input boxes, a drop-down and a button.
+  - I can link a label to its box with matching for and id.
+  - I can explain why a form on its own sends nowhere.
+  - I can style a form as a card.
+before: |
+  Read the unit primer "Layout and components in 5 minutes" (the forms paragraph), then do the Make task yourself.
+
+  The surprise for students: pressing **Send** does nothing. The playground shows a note saying so. A form is only the front: code behind it (JavaScript in the page, or a program on a server) has to collect what was typed and do something with it. That gap is the doorway to the optional Make it react lesson and the DOM course. A **label** is linked to its box when the label's `for` matches the box's `id`: clicking the label then puts the cursor in the box, and screen readers read the label aloud for that box.
+running:
+  - "Predict: most students expect the form to send something somewhere. Nothing happens. Ask: what would have to exist for the name to reach the club?"
+  - "Run: click the label to see the cursor jump. That is the visible sign of a linked label."
+  - "Investigate: the match task names each part. Then test every label by clicking it; the broken one has `id=\"mail\"` where the label says `email`."
+  - "A form as a card: `display: block;` on labels is new. Labels are inline like `<strong>`, so they sit in a line; block puts each on its own line."
+  - "Modify: one field at a time, clicking each new label to test it."
+  - "Fix the sign-up form: three real faults. The button outside the form is a structure mistake: it has no form to send."
+stuck:
+  - see: Clicking a label does nothing.
+    ask: Does the label's for match the box's id exactly?
+    fix: "Make them identical, for example for=\"email\" and id=\"email\"."
+  - see: All the fields sit in one long line.
+    ask: Are labels and inputs block or inline?
+    fix: "Add label { display: block; } (and a margin-top for space)."
+  - see: The drop-down is empty or shows tags as text.
+    ask: Is every option between <option> and </option>, inside the select?
+    fix: Put each choice in its own <option> inside <select> and </select>.
+stretch: "Add a type=\"number\" box for age and a textarea for a message. Try type=\"date\" and type=\"color\" and see the boxes the browser builds."
+support: "Give students the Modify starter and do the first task together: copy the name pair, then change four things (words, for, id, type)."
+leads: "Next is the final challenge: a club page built from every component in the course, including a sign-up form. The optional Make it react lesson adds a few lines of JavaScript so the form does something (shows a greeting on the page); the DOM course explains how. Later, Gradio builds forms for machine learning: a form plus a function. Accessibility: linked labels are required by web accessibility guidelines."
+exit:
+  q: "A sign-up form has a label Email and a box, but clicking Email does nothing. Give the likely cause and the fix."
+  a: "The label's for does not match the box's id (or is missing). Make them the same, for example for=\"email\" and id=\"email\"."
+explain: |
+  The video and the picture show the same steps:
+
+  1. `<form>` holds the fields and the button.
+  2. A `<label>` says what to type. `for="name"` links it to the box with `id="name"`, so clicking the label puts the cursor in the box.
+  3. `<input>` is the box to type in. It has no closing tag; `type` sets the kind of box (`text`, `email`, `number`).
+  4. A `<button>` sends the form...
+  5. ...but nothing is connected to it yet. Code behind a form does the work.
+
+  A `<select>` with `<option>` items makes a drop-down list.
+solutions:
+  step-4#t1: page.html#sol-email
+  step-4#t2: page.html#sol-house
+  step-4#t3: page.html#sol-card
+  step-4#t4: page.html#sol-labels
+  step-5: page.html#sol-make
+  step-6: page.html#sol-fix

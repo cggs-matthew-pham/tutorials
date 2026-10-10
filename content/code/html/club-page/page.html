@@ -1,0 +1,454 @@
+<!-- region: finished -->
+<style>
+  header {
+    background-color: lightblue;
+    padding: 12px;
+  }
+  .menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+  }
+  .hero {
+    padding: 32px;
+    background-color: lightyellow;
+    text-align: center;
+  }
+  .cards {
+    display: flex;
+    gap: 16px;
+  }
+  .card {
+    width: 160px;
+    padding: 12px;
+    border: 2px solid teal;
+  }
+  th, td {
+    padding: 6px 12px;
+    border: 1px solid gray;
+  }
+  .signup {
+    width: 260px;
+    padding: 16px;
+    border: 2px solid teal;
+  }
+  label {
+    display: block;
+    margin-top: 8px;
+  }
+  footer {
+    padding: 12px;
+    background-color: lightblue;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <ul class="menu">
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <h2>Think ahead</h2>
+    <p>Chess every Wednesday at lunch in the library. All levels welcome.</p>
+    <a href="#join">Join us</a>
+  </section>
+  <section class="cards" id="groups">
+    <div class="card">
+      <img src="star.svg" alt="A star" width="50">
+      <h2>Beginners</h2>
+      <p>Learn the moves.</p>
+    </div>
+    <div class="card">
+      <img src="medal.svg" alt="A medal" width="50">
+      <h2>Players</h2>
+      <p>Weekly games.</p>
+    </div>
+    <div class="card">
+      <img src="trophy.svg" alt="A trophy" width="50">
+      <h2>Champions</h2>
+      <p>School tournaments.</p>
+    </div>
+  </section>
+  <section id="results">
+    <h2>Results this term</h2>
+    <table>
+      <tr>
+        <th>Player</th>
+        <th>Wins</th>
+      </tr>
+      <tr>
+        <td>Ada</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>Sam</td>
+        <td>4</td>
+      </tr>
+    </table>
+  </section>
+  <section id="join">
+    <h2>Join the club</h2>
+    <form class="signup">
+      <label for="name">Name</label>
+      <input id="name" type="text">
+      <label for="group">Group</label>
+      <select id="group">
+        <option>Beginners</option>
+        <option>Players</option>
+        <option>Champions</option>
+      </select>
+      <button>Join</button>
+    </form>
+  </section>
+</main>
+<footer>
+  <p>Contact: chess@example.com</p>
+</footer>
+<!-- endregion -->
+
+<!-- region: start -->
+<style>
+</style>
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <ul class="menu">
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <!-- Milestone 2: a hero section, then three cards in a row (id="groups"). -->
+  <!-- Milestone 3: a results table (id="results"), a sign-up form (id="join"), and a footer after main. -->
+</main>
+<!-- endregion -->
+
+<!-- region: sol-m1 -->
+<style>
+  header {
+    background-color: lightblue;
+    padding: 12px;
+  }
+  .menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <ul class="menu">
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <!-- Milestone 2: a hero section, then three cards in a row (id="groups"). -->
+  <!-- Milestone 3: a results table (id="results"), a sign-up form (id="join"), and a footer after main. -->
+</main>
+<!-- endregion -->
+
+<!-- region: sol-m2 -->
+<style>
+  header {
+    background-color: lightblue;
+    padding: 12px;
+  }
+  .menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+  }
+  .hero {
+    padding: 32px;
+    background-color: lightyellow;
+    text-align: center;
+  }
+  .cards {
+    display: flex;
+    gap: 16px;
+  }
+  .card {
+    width: 160px;
+    padding: 12px;
+    border: 2px solid teal;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <ul class="menu">
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <h2>Think ahead</h2>
+    <p>Chess every Wednesday at lunch in the library. All levels welcome.</p>
+    <a href="#join">Join us</a>
+  </section>
+  <section class="cards" id="groups">
+    <div class="card">
+      <img src="star.svg" alt="A star" width="50">
+      <h2>Beginners</h2>
+      <p>Learn the moves.</p>
+    </div>
+    <div class="card">
+      <img src="medal.svg" alt="A medal" width="50">
+      <h2>Players</h2>
+      <p>Weekly games.</p>
+    </div>
+    <div class="card">
+      <img src="trophy.svg" alt="A trophy" width="50">
+      <h2>Champions</h2>
+      <p>School tournaments.</p>
+    </div>
+  </section>
+  <!-- Milestone 3: a results table (id="results"), a sign-up form (id="join"), and a footer after main. -->
+</main>
+<!-- endregion -->
+
+<!-- region: sol-m3 -->
+<style>
+  header {
+    background-color: lightblue;
+    padding: 12px;
+  }
+  .menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+  }
+  .hero {
+    padding: 32px;
+    background-color: lightyellow;
+    text-align: center;
+  }
+  .cards {
+    display: flex;
+    gap: 16px;
+  }
+  .card {
+    width: 160px;
+    padding: 12px;
+    border: 2px solid teal;
+  }
+  th, td {
+    padding: 6px 12px;
+    border: 1px solid gray;
+  }
+  .signup {
+    width: 260px;
+    padding: 16px;
+    border: 2px solid teal;
+  }
+  label {
+    display: block;
+    margin-top: 8px;
+  }
+  footer {
+    padding: 12px;
+    background-color: lightblue;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <ul class="menu">
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <h2>Think ahead</h2>
+    <p>Chess every Wednesday at lunch in the library. All levels welcome.</p>
+    <a href="#join">Join us</a>
+  </section>
+  <section class="cards" id="groups">
+    <div class="card">
+      <img src="star.svg" alt="A star" width="50">
+      <h2>Beginners</h2>
+      <p>Learn the moves.</p>
+    </div>
+    <div class="card">
+      <img src="medal.svg" alt="A medal" width="50">
+      <h2>Players</h2>
+      <p>Weekly games.</p>
+    </div>
+    <div class="card">
+      <img src="trophy.svg" alt="A trophy" width="50">
+      <h2>Champions</h2>
+      <p>School tournaments.</p>
+    </div>
+  </section>
+  <section id="results">
+    <h2>Results this term</h2>
+    <table>
+      <tr>
+        <th>Player</th>
+        <th>Wins</th>
+      </tr>
+      <tr>
+        <td>Ada</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>Sam</td>
+        <td>4</td>
+      </tr>
+    </table>
+  </section>
+  <section id="join">
+    <h2>Join the club</h2>
+    <form class="signup">
+      <label for="name">Name</label>
+      <input id="name" type="text">
+      <label for="group">Group</label>
+      <select id="group">
+        <option>Beginners</option>
+        <option>Players</option>
+        <option>Champions</option>
+      </select>
+      <button>Join</button>
+    </form>
+  </section>
+</main>
+<footer>
+  <p>Contact: chess@example.com</p>
+</footer>
+<!-- endregion -->
+
+<!-- region: sol-yours -->
+<style>
+  header {
+    background-color: lightblue;
+    padding: 12px;
+  }
+  .menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+  }
+  .hero {
+    padding: 32px;
+    background-color: lavender;
+    text-align: center;
+  }
+  .cards {
+    display: flex;
+    gap: 16px;
+  }
+  .card {
+    width: 160px;
+    padding: 12px;
+    border: 2px solid teal;
+  }
+  th, td {
+    padding: 6px 12px;
+    border: 1px solid gray;
+  }
+  .signup {
+    width: 260px;
+    padding: 16px;
+    border: 2px solid teal;
+  }
+  label {
+    display: block;
+    margin-top: 8px;
+  }
+  footer {
+    padding: 12px;
+    background-color: lightblue;
+  }
+</style>
+<header>
+  <img src="music.svg" alt="Music notes" width="60">
+  <h1>Choir club</h1>
+  <nav>
+    <ul class="menu">
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <h2>Sing with us</h2>
+    <p>Every Thursday at lunch in the music room. No experience needed.</p>
+    <a href="#join">Join us</a>
+  </section>
+  <section class="cards" id="groups">
+    <div class="card">
+      <img src="star.svg" alt="A star" width="50">
+      <h2>Beginners</h2>
+      <p>Learn the moves.</p>
+    </div>
+    <div class="card">
+      <img src="medal.svg" alt="A medal" width="50">
+      <h2>Players</h2>
+      <p>Weekly games.</p>
+    </div>
+    <div class="card">
+      <img src="trophy.svg" alt="A trophy" width="50">
+      <h2>Champions</h2>
+      <p>School tournaments.</p>
+    </div>
+  </section>
+  <section id="results">
+    <h2>Results this term</h2>
+    <table>
+      <tr>
+        <th>Player</th>
+        <th>Wins</th>
+      </tr>
+      <tr>
+        <td>Ada</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>Sam</td>
+        <td>4</td>
+      </tr>
+    </table>
+  </section>
+  <section id="join">
+    <h2>Join the club</h2>
+    <form class="signup">
+      <label for="name">Name</label>
+      <input id="name" type="text">
+      <label for="group">Group</label>
+      <select id="group">
+        <option>Beginners</option>
+        <option>Players</option>
+        <option>Champions</option>
+      </select>
+      <button>Join</button>
+    </form>
+  </section>
+</main>
+<footer>
+  <p>Contact: choir@example.com</p>
+</footer>
+<!-- endregion -->

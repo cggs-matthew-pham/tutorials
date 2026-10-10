@@ -1,0 +1,11 @@
+# Boards for "Who decides?".
+
+# region: build
+widget: coordination
+mode: build
+need: 3
+stimulus: Stepping on a drawing pin | external | Pain receptors in the foot | Spinal cord | Leg muscles | You lift your foot
+stimulus: A ball thrown towards you | external | Light receptors in the eyes | Brain | Arm and hand muscles | You catch the ball
+stimulus: The smell of hot chips | external | Smell receptors in the nose | Brain | Salivary glands | Your mouth waters
+stimulus: Body getting too cold | internal | Temperature receptors in the skin and brain | Hypothalamus (brain) | Skeletal muscles | You shiver
+# endregion

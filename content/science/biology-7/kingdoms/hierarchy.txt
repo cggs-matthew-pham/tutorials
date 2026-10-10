@@ -1,0 +1,9 @@
+# region: order
+Kingdom: Animals
+Phylum: Chordates (animals with a backbone)
+Class: Mammals
+Order: Marsupials (Diprotodontia)
+Family: Kangaroos and wallabies (Macropodidae)
+Genus: Osphranter
+Species: Osphranter rufus (red kangaroo)
+# endregion

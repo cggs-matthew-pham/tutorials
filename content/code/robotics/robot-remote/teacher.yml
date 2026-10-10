@@ -1,0 +1,46 @@
+summary: Students turn a micro:bit into a radio remote control; each button sends a number and the robot turns each number into a move.
+time: 45
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Make 12 min · Real robot 3 min (optional)"
+goals:
+  - I can send a number by radio when a button is pressed.
+  - I can make a robot choose a move for each number it receives.
+  - I can explain why the remote and robot need the same radio group and the same code.
+before: |
+  Students used radio in micro:bit Foundations (Send and receive, Messages with meaning). Here the **remote** sends a number for each command and the **robot** decides what each number means, in **on radio received**. The two sides must agree on the **group** and on the **code** (1 = forward, 2 = turn, 0 = stop). A micro:bit never hears its own messages.
+
+  When a program uses radio, the simulator runs it on **two micro:bits, each with a robot**, in one arena. Each is the remote for the other robot. This is a little odd at first; say it up front. With real hardware, the same program can go on both micro:bits.
+
+  Untested on real hardware: whether the robot start block shows an error on a micro:bit that is not in a robot. If it does, give the remote a copy without that block. Real classrooms need a **different radio group for every pair**. MOVE Motor classes can use this lesson unchanged on the remote side, and Kitronik blocks on the robot side.
+running:
+  - "Predict: many say the first robot. Ask: does a micro:bit hear its own radio? (Foundations: no.)"
+  - "Run: watch the other robot. Then swap: the second micro:bit drives the first robot."
+  - "Investigate: write the code table on the board (1 forward, 2 turn, 0 stop). Ben's robot is the group mismatch from Foundations."
+  - "Modify: show number on the robot side is how real operators check what was heard."
+  - "Make: four commands, small steps. Challenge pairs to steer round a box and back."
+  - "Real robot (optional): assign each pair a radio group before anyone downloads."
+stuck:
+  - see: "Pressing a button moves nothing."
+    ask: "Are you watching the other robot? Is radio set group the same in both?"
+    fix: "Watch the second robot; check both use the same group."
+  - see: "The robot drives off and never stops."
+    ask: "Which command did you send last? Does forward have a time?"
+    fix: "Send the stop command, or give forward a time and a stop."
+  - see: "Two commands do the same thing."
+    ask: "Does each button send a different number?"
+    fix: "Give each button its own number, and give the robot one branch per number."
+stretch: "Steer by tilting: in forever on the remote, send 1 when tilted left (acceleration x < −300), 2 when tilted right, and 0 when level."
+support: "Give the robot side complete; students build the remote buttons to match the code table."
+leads: "Next: one micro:bit cues several robots to dance in time to music. Real-world links: rescue and bomb-disposal robots, drones, robots on Mars (where each message takes minutes to arrive, so the robot must also decide things for itself)."
+exit:
+  q: "The remote sends 2. Where is it decided what 2 means?"
+  a: "On the robot, in on radio received. The remote only sends the number; the robot's code turns it into a move."
+explain: |
+  A **remote** sends a number for each button; the **robot** turns each number into a move.
+
+  - Both must use the same **radio group**.
+  - Both must agree on the **code**: what each number means.
+  - A micro:bit never hears its own messages.
+solutions:
+  step-4#t1: remote.ts#sol-show
+  step-4#t2: remote.ts#sol-back
+  step-5: remote.ts#sol-make

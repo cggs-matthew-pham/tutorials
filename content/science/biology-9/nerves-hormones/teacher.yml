@@ -1,0 +1,33 @@
+summary: Students compare the nervous and endocrine systems by message, route, speed, duration and target (AC9S9U01, node 4, a hinge node).
+time: 20
+timing: "Engage and Explore 6 min · Explain 9 min · Evaluate 3 min · Typical adds 2 min, Wider about 2 min"
+goals:
+  - I can explain that hormones travel in the blood, not along nerves.
+  - I can compare nervous and hormonal responses by speed and duration.
+  - I can explain why only target cells respond to a hormone.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconception is that hormones travel along nerves. The Engage question puts it directly.
+
+  Board notes: the race is schematic, compressing about 10 minutes into 5 seconds; the curves show shape (sharp spike against slow rise and long tail), not real values.
+running:
+  - "Engage: count how many chose 'along a nerve'."
+  - "Explore: ask what the long tail of the hormone curve feels like after a fright."
+  - "Explain: the target-cell question is the checkpoint."
+stuck:
+  - see: "A student thinks adrenaline goes only to the heart."
+    ask: "What carries it?"
+    fix: "The blood, which goes everywhere; only cells with receptors respond."
+  - see: "A student says hormones are 'better' because they last longer."
+    ask: "Would a hormone help you pull away from a hot pan?"
+    fix: "No: each system suits a different job."
+stretch: "Why would a fault in a hormone receptor have the same effect as having no hormone?"
+support: "Give the comparison table with rows already labelled."
+leads: |
+  Next: negative feedback (node 5), using both systems to control body temperature.
+exit:
+  q: "Give two differences between a nervous and a hormonal response."
+  a: "Nerves: electrical, fast, short-lived, one place. Hormones: chemical in the blood, slower, longer-lasting, target cells everywhere."
+explain: |
+  **Nerves:** fast electrical impulses to one place, short-lived. **Hormones:** chemicals released by glands into the blood, slower and longer-lasting; every cell gets them but only target cells (with matching receptors) respond.

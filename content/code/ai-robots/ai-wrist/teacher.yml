@@ -1,0 +1,44 @@
+summary: Students drive the robot from a wrist micro:bit running a CreateAI movement model, so the model runs on the remote and the robot's program is unchanged.
+time: 45
+timing: "Predict and Run 8 min · On your wrist 12 min (typical) · Investigate 8 min · Modify 8 min · Make 10 min"
+goals:
+  - I can turn a micro:bit model's actions into radio commands.
+  - I can explain why the robot's program doesn't change when the model does.
+  - I can make the remote send a safe command when the model is unsure.
+before: |
+  **The idea:** the robot only ever receives words (Forward, Left, Right, Stop). Any model that sends those words can drive it. Here the model runs **on a wrist micro:bit** (trained in CreateAI, needing a **V2**): on ML … start sends a word by radio. No computer, camera or bridge is needed once both micro:bits are programmed.
+
+  **In the simulator:** the lesson's editor has the robot blocks and the Machine Learning blocks with practice actions; one program holds both parts and the ML panel picks the action (walking for forward, waving for left, clapping for right, still for stop). Open it full screen so the panel and the robots show. This has not yet been tried in the live editor: check before class.
+
+  **With hardware:** students reuse their CreateAI skills from micro:bit and the computer: train four tilt actions with the micro:bit on the wrist (a strap or band and a battery pack), Edit in MakeCode, add radio send string and set group, and download to the V2. Every pair needs its own radio group.
+running:
+  - "Predict: some say the robot needs the ML blocks. Ask: what does the robot receive?"
+  - "Run: choose actions in the ML panel and watch the other robot."
+  - "Investigate: unknown sending nothing is the safety gap; holding a tilt sends once, which sets up the watchdog lesson."
+  - "Make: Spin needs a branch on both sides: the remote's word and the robot's move."
+stuck:
+  - see: "The robot doesn't respond to the wrist."
+    ask: "Same radio group on both? Do the words match exactly?"
+    fix: "Match the group and the words (capitals included)."
+  - see: "No ML panel in the simulator."
+    ask: "Is the editor full screen and the simulator running?"
+    fix: "Open full screen and restart the simulator."
+  - see: "The real wrist model mixes up left and right."
+    ask: "How different are the left and right samples? Did you train both hands?"
+    fix: "Add samples of each tilt, held the same way you'll use it."
+stretch: "Use certainty (%) for forward to set the speed: a small tilt drives slowly, a big tilt drives fast."
+support: "Give the robot part complete (it is unchanged); students write only the wrist part."
+leads: "Next: what the robot should do when the model is unsure or goes quiet. Real world: wearable controllers for drones and assistive devices."
+exit:
+  q: "Why didn't the robot's program change when the webcam model was replaced by a wrist model?"
+  a: "The robot only receives words. As long as the new model sends the same words, the robot doesn't care where they came from."
+explain: |
+  A model can run **on the remote**: a wrist micro:bit recognises your movement and sends a word by radio.
+
+  - The **robot's program doesn't change**: it only sees words.
+  - Send **Stop** for **unknown**, so an unsure model never leaves the robot driving.
+  - on ML start sends **once** per action, so the robot keeps its last mode.
+solutions:
+  step-5#t1: wrist.ts#sol-unknown
+  step-5#t2: wrist.ts#sol-arrows
+  step-6: wrist.ts#sol-make

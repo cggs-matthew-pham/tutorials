@@ -1,0 +1,40 @@
+summary: Students describe the principles of distillation and chromatography, identify a mixture for each, and explain when distillation is chosen over evaporation (AC9S7U06, node 4).
+time: 25
+timing: "Engage and Explore 10 min · Explain 8 min · Evaluate 3 min · Typical adds 4 min, Wider about 15 min"
+goals:
+  - I can describe the principle of distillation and of chromatography.
+  - I can name a mixture each technique suits.
+  - I can explain when distillation is used instead of evaporation.
+before: |
+  A concept tutorial for introducing or revising the techniques. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The node's response mode is structured reasoning: students confuse distillation with evaporation because both heat a liquid. The Explain sort scaffolds the comparison row by row.
+
+  First Nations content: the node file lists steam distilling among First Nations techniques. This tutorial does not claim that. It presents documented traditional tea tree use (crushing and soaking leaves) and makes clear that steam distillation is the modern extraction method. Check with local community knowledge and protocols, and adapt to the Country your school is on.
+running:
+  - "Engage: most students predict salty water. Watch the board together to see only water particles cross."
+  - "Explore: chromatography is quick to run for real with felt-tip pens, filter paper and water; do it if you can."
+  - "Explain: read the sort aloud as a comparison table: same property, different outcome, different equipment."
+stuck:
+  - see: "A student says distillation and evaporation are the same."
+    ask: "What happens to the steam in each?"
+    fix: "Evaporation lets it escape; distillation cools it and collects it as liquid."
+  - see: "A student says the heavier dyes stay lower."
+    ask: "Which direction does the water carry the dyes?"
+    fix: "Up, against gravity. Each dye is carried a different distance because it dissolves and sticks differently."
+  - see: "A student thinks black ink is a single substance."
+    ask: "How many spots came from one black dot?"
+    fix: "Several dyes: black ink is a mixture."
+stretch: "Why does salt not travel through the condenser with the water? Use particle motion and boiling points."
+support: "Give the comparison as a table with two columns, evaporation and distillation, to fill in before the sort."
+leads: |
+  Next in class: AC9S7U06 node 5, choosing and justifying a technique for a new mixture, works best as a class task.
+
+  Practical: paper chromatography of felt-tip pens or food colourings; a demonstration distillation of coloured water.
+exit:
+  q: "Why would a ship use distillation, not evaporation, to get drinking water from seawater?"
+  a: "Distillation collects the water vapour as liquid; evaporation lets it escape and keeps only the salt."
+explain: |
+  - **Distillation:** boil the liquid, cool the vapour in a condenser, collect the liquid somewhere else. The dissolved solid stays behind.
+  - **Evaporation** uses the same property (boiling point) but lets the vapour escape: you only keep the solid.
+  - **Chromatography:** a solvent soaks up paper and carries each dissolved substance a different distance, so a mixture like ink splits into separate spots.

@@ -1,0 +1,41 @@
+summary: Students explain conduction (energy passed by particle collisions, particles staying in place) and convection (the heated fluid itself moving, driven by density differences), and apply them to conductors and insulators (AC9S9U04, node 1).
+time: 25
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 4 min"
+goals:
+  - I can explain conduction as energy passed between particles by collisions.
+  - I can explain convection as the movement of heated fluid, driven by density differences.
+  - I can explain why a named material is a good conductor or a good insulator.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace practical work. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The key contrast: in conduction, energy moves and particles don't; in convection, the particles carry the energy. Keep asking "what did one particle do?".
+
+  Model note: in the simulation hot particles are pushed up directly; real hot fluid rises because its particles spread out (less dense). The wider step mentions possum-skin cloaks of south-eastern Australia; for richer context, use local resources and community guidance about First Nations clothing and bedding in your region.
+running:
+  - "Engage: ask who chose 'hot particles travel up the handle'. The bar answers it."
+  - "Explore: on the bar, point to one particle for a few seconds. On the beaker, follow the ring the whole way round."
+  - "Explain: the first two questions are the core; the sort applies them; 'why not in a solid' links back to Year 7 particle theory."
+  - "In your own words: the comparison paragraph is the evidence for the node."
+stuck:
+  - see: "A student says heat rises."
+    ask: "On the board, what moved up?"
+    fix: "Hot water, because it is less dense. Heat itself spreads in every direction (the bar conducted sideways)."
+  - see: "A student says particles move along the bar."
+    ask: "Watch one particle in the middle for ten seconds. Where does it go?"
+    fix: "Nowhere: it vibrates in place. Only the energy travels."
+  - see: "A student says a metal bench is colder than a wooden one."
+    ask: "If both have been in the same room all day, what temperature are they?"
+    fix: "The same. Metal feels colder because it conducts energy away from your hand faster."
+stretch: "Why is a heater usually placed low in a room and an air-conditioner high up?"
+support: "Give a two-column table (conduction, convection) with rows: what moves, which states, an example."
+leads: |
+  Next: the wave model of energy transfer: sound (node 2), then light and radiation (node 4).
+
+  In class: wax-stuck pins along metal and wooden rods heated at one end; a convection tube or a beaker with potassium permanganate crystals heated at one side.
+exit:
+  q: "Why can convection happen in water but not in a metal spoon?"
+  a: "Convection needs the material to flow so heated parts can rise. Water's particles can move; a spoon's are held in place, so it can only conduct."
+explain: |
+  **Conduction:** particles vibrate harder and pass energy to their neighbours by collisions. The particles stay in place. Mostly in solids.
+
+  **Convection:** heated fluid becomes less dense and rises; cooler fluid sinks. The particles carry the energy. Only in liquids and gases.

@@ -1,0 +1,48 @@
+summary: Students solve linear equations by drawing each side as a line and reading the x where the lines meet, then check by substitution (AC9M8A02).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 15 min · Practise and Make 10 min"
+goals:
+  - I can solve an equation by drawing each side as a line and finding where they meet.
+  - I can explain why the solution is the x of the meeting point, not the y.
+  - I can check a graph's answer by substitution, and recognise parallel lines as no solution.
+before: |
+  Do the Run and Modify boards yourself first. This lesson joins the two units: the Equations unit's equations (solved with the balance and backtracking) and this unit's lines.
+
+  The key idea is which number to read. At the meeting point both sides have the same value (the y), and the solution is the x that gives it. Expect students to read the y: it is the most common mistake, and the Predict and Kai's working are built around it.
+
+  The Make board uses two sliders and shows the meeting point in green. Any line through (3, 7) other than y = 2x + 1 works.
+running:
+  - "Predict: take a show of hands. 'x = 11' is the common wrong answer (reading the y). Do not correct it: the Run board settles it."
+  - "Run: when P is on both lines, ask: what is the same about the two lines at this point? (The y.) So which number is the solution? (The x.)"
+  - "Investigate: model the worked example live. Sketch the two lines, mark where they meet, then say 'the solution is the x, because that is the input that makes both sides equal'. Finish with the substitution check."
+  - "Modify: the last task has parallel lines. Ask: what did the last lesson say about lines with the same m? Then: what does that mean for the equation?"
+  - "Practise: for each answer, ask a student to say which number is the y and why it is not the answer."
+  - "Make: collect two different lines that work and compare them: both pass through (3, 7)."
+stuck:
+  - see: "A student gives the y of the meeting point as the solution."
+    ask: "Put your answer into the equation. Is it true?"
+    fix: "At the meeting point, read the x off the bottom axis. The y is the value of both sides there, not the answer."
+  - see: "A student cannot find where the lines meet on the negative task."
+    ask: "Which way do the lines get closer together?"
+    fix: "Follow both lines to the left of the y-axis. The solution can be negative."
+  - see: "A student says parallel lines meet somewhere far away."
+    ask: "How far apart are they at x = 0? At x = 10?"
+    fix: "Work out both rules at a few values of x: the gap is always 3. They never meet, so there is no solution."
+  - see: "A student moves the Make sliders at random."
+    ask: "Where must your line go through?"
+    fix: "Work out y = 2x + 1 at x = 3 (it is 7). Choose m, then find c so that 3m + c = 7."
+stretch: "Solve 3x − 2 = x + 5 with a graph: the answer is not a whole number. How accurate can a graph be? (x = 3.5)"
+support: "Give squared paper and have students draw both lines from tables of values (x = 0 to 4) before using the board."
+leads: |
+  Next: modelling with two lines. Two phone plans or two ways to pay become two rules; where their lines cross is where they cost the same.
+
+  Where it leads in class: break-even points in business, when two runners meet, and solving equations that have no neat algebra method.
+exit:
+  q: "The lines y = 2x − 3 and y = 5 meet at (4, 5). Solve 2x − 3 = 5 and check your answer."
+  a: "x = 4. Check: 2 × 4 − 3 = 5."
+explain: |
+  An equation says two things are equal. Draw each side as a line: for $2x + 3 = 11$, draw $y = 2x + 3$ and $y = 11$.
+
+  Where the lines **meet**, both sides have the same value. The **solution** is the $x$ of that point: here the lines meet at $(4, 11)$, so $x = 4$. The 11 is the value of both sides, not the answer.
+
+  Check by substitution: $2 \times 4 + 3 = 11$. If the lines are parallel, they never meet, and the equation has no solution.

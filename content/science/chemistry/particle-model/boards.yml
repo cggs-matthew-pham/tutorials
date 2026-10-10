@@ -1,0 +1,15 @@
+# Science boards for "What is everything made of?". Each region is one board setup.
+
+# region: zoom
+widget: zoom
+samples: ice, water, steam
+# endregion
+
+# region: identify
+widget: identify
+need: 6
+# endregion
+
+# region: build
+widget: build
+# endregion

@@ -1,0 +1,45 @@
+summary: Students build a radio bridge, so a micro:bit across the room sends readings to the computer and receives commands from it.
+time: 50
+timing: "Predict and Run 8 min · Across the room 8 min (typical) · Investigate 8 min · Modify 12 min · Make 12 min · Test 3 min (typical)"
+goals:
+  - I can pass radio messages on to the computer, and lines from the computer on by radio.
+  - I can explain why both micro:bits need the same radio group.
+  - I can explain why a micro:bit never hears its own radio messages.
+before: |
+  **The idea:** a **bridge** relays. On the micro:bit plugged into the computer, **on radio received value → serial write value** passes radio readings to the computer, and **on serial data received → radio send string** passes lines from the computer on by radio. The micro:bit across the room only uses radio.
+
+  **One program on both micro:bits:** each part only does something on the micro:bit where it matters (the bridge also sends its own temperature by radio, but no other micro:bit passes it on, and a micro:bit never hears its own messages). This keeps the lesson to one program; in the simulator, a radio program runs on two micro:bits.
+
+  **Hardware:** two micro:bits per pair (one with a battery pack), a data cable and Chrome or Edge. The board steps are typical, so classes without hardware use the simulator's Show data. **Give every pair its own radio group** before anyone downloads, or bridges pick up other pairs' readings.
+running:
+  - "Predict: some say a bare number. Ask: which block sends the name?"
+  - "Across the room: warming the far micro:bit in your hands shows the graph rising."
+  - "Investigate: the match is the whole idea; Ben's group is the Foundations slip again."
+  - "Modify: point out that sending light needed no change to the bridge."
+stuck:
+  - see: "Nothing arrives on the board."
+    ask: "Are both micro:bits in the same radio group? Is the far one switched on?"
+    fix: "Use the same group; check the battery pack."
+  - see: "Readings from another pair appear."
+    ask: "Which radio group are you using?"
+    fix: "Choose your own group number and download to both again."
+  - see: "Commands from the board do nothing on the far micro:bit."
+    ask: "Does the bridge pass lines from the computer on by radio?"
+    fix: "Add on serial data received → radio send string (read line)."
+stretch: "Use three micro:bits: two sensors in different rooms, each sending its own name (temp1, temp2), and graph both."
+support: "Give the bridge part complete; students write only the far micro:bit's part."
+leads: "Next: train a model and let its labels travel the same path. Real world: smart-home hubs, farm sensor networks, wildlife monitoring."
+exit:
+  q: "What does a bridge micro:bit do?"
+  a: "It passes radio messages on to the computer over the cable, and lines from the computer on by radio."
+explain: |
+  A **bridge** micro:bit is plugged into the computer and relays:
+
+  - radio in → serial out (**on radio received value → serial write value**)
+  - serial in → radio out (**on serial data received → radio send string**)
+
+  Both micro:bits need the same **radio group**, and a micro:bit never hears its own radio messages.
+solutions:
+  step-5#t1: bridge.ts#sol-light
+  step-5#t2: bridge.ts#sol-beep
+  step-6: bridge.ts#sol-make

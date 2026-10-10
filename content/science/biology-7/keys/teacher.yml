@@ -1,0 +1,39 @@
+summary: Students use a dichotomous key to identify organisms, name the feature at each decision, and explain how a wrong choice leads to a wrong name (AC9S7U01, node 3, a hinge node).
+time: 25
+timing: "Engage and Explore 9 min · Explain 8 min · Evaluate 3 min · Typical adds 4 min, Wider about 2 min"
+goals:
+  - I can use a dichotomous key to identify at least five organisms.
+  - I can name the observable feature used at each step.
+  - I can explain why a wrong choice leads to a wrong name.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace keys with real specimens or a field guide outside. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge risk is procedural key-following: students reach a name without being able to say what each step checked, and then build broken keys in node 4. Keep asking "what feature did that step check?".
+
+  Board notes: specimens are anonymous descriptions; names appear only when the key is followed correctly. A wrong turn names the first step where the student's path left the right one.
+running:
+  - "Engage: if anyone chose 'guess the name, then check', point out that the board hides names on purpose."
+  - "Explore: insist on reading the description before each answer; ask a student to narrate one path aloud."
+  - "Explain: the crocodile question is the wrong-turn reasoning; the good-question item previews node 4."
+  - "In your own words: the platypus path is the evidence."
+stuck:
+  - see: "A student keeps reaching the wrong name."
+    ask: "Read the step the board points to. What does the description say about that feature?"
+    fix: "Answer from the description, not from what you expect the animal to be."
+  - see: "A student says the key is wrong."
+    ask: "Where did your path leave the right one? (The board tells you.)"
+    fix: "Check that step's answer against the description."
+  - see: "A student can't say what a step checked."
+    ask: "What were you looking at when you answered?"
+    fix: "Name the feature: backbone, feathers, number of legs."
+stretch: "Add a cassowary to the first key: where would it go, and does the key still work?"
+support: "Print the whole key (open 'The whole key' on the board) and let students tick each step as they go."
+leads: |
+  Next: constructing keys (node 4), the same logic in reverse: choosing features that split a group cleanly in two.
+
+  In class: a key to the leaves on the school grounds, or to a tray of mixed hardware (screws, nails, bolts) as a warm-up.
+exit:
+  q: "Why must each question in a dichotomous key be about an observable feature with a clear yes or no?"
+  a: "So that anyone checking the specimen gets the same answer and reaches the same name."
+explain: |
+  A **dichotomous key** identifies an organism with two-way choices about **observable features**. Answer each one about the specimen in front of you; one wrong choice leads to the wrong name.

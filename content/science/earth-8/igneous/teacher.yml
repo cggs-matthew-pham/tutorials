@@ -1,0 +1,43 @@
+summary: Students explain igneous rock formation from magma or lava and connect crystal size to cooling rate, then use crystal size to infer where a rock formed (AC9S8U04, node 2, a hinge node).
+time: 25
+timing: "Engage and Explore 8 min · Explain 8 min · Evaluate 3 min · Typical adds 4 min, Wider about 5 min"
+goals:
+  - I can tell intrusive (slow cooling underground) from extrusive (fast cooling at the surface) igneous rock.
+  - I can explain why slower cooling gives larger crystals.
+  - I can infer where an igneous rock formed from its crystal size.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace handling rock samples or a crystallisation practical. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge is the mechanism, not the rule: slow cooling means few crystals start and they grow. Students who only memorise "granite big, basalt small" can't read an unfamiliar rock.
+
+  Model notes: each colour is one crystal. The model shows only cooling speed; granite and basalt also differ in composition (felsic and mafic), which is why gabbro (slow-cooled basalt-type magma) is in the sort. Typical results: very slow, about 5 crystals of 60 particles; fast, about 23 of 14; instant, mostly glass.
+running:
+  - "Engage: if you have them, pass round granite and basalt samples before predicting."
+  - "Explore: insist on two very different speeds. Ask: did slow cooling take longer to start crystals, or start fewer?"
+  - "Explain: the two mechanism questions carry the checkpoint; the sort is the application."
+  - "In your own words: the granite and basalt paragraph is the evidence for the node."
+stuck:
+  - see: "A student says slow cooling gives big crystals because they had longer to grow, and stops there."
+    ask: "How many crystals started each time?"
+    fix: "Few start in slow cooling, so the particles are shared between few crystals. That is why each one is large."
+  - see: "A student says the particles got bigger."
+    ask: "Are the dots bigger in the slow-cooled rock?"
+    fix: "No: same particles, more of them in each crystal."
+  - see: "A student thinks obsidian has tiny crystals."
+    ask: "Look at the glass on the board: is there a pattern?"
+    fix: "No pattern means no crystals at all: the particles froze in place."
+stretch: "Columnar basalt (like the Organ Pipes in Victoria) has small crystals but forms giant columns. Is crystal size the same thing as the size of the rock's shapes?"
+support: "Give a two-row table to fill while running the board: cooling speed, number of crystals, average size, what rock it is like."
+leads: |
+  Next: metamorphic rocks (node 3), changed by heat and pressure without melting; then the full rock cycle.
+
+  In class: salol (phenyl salicylate) or a saturated alum solution cooled on a warm and a cold slide under a hand lens; or salt solution evaporated fast and slow.
+exit:
+  q: "A rock has crystals too small to see. Did it form underground or at the surface? Why?"
+  a: "At the surface: it cooled quickly, so many crystals started and none had time to grow large."
+explain: |
+  **Igneous** rock forms when magma or lava cools. **Crystal size records the cooling rate:**
+
+  - Slow cooling underground (intrusive): few crystals start and grow large. Granite.
+  - Fast cooling at the surface (extrusive): many crystals start and stay small. Basalt.
+  - Instant cooling: no pattern at all, glass. Obsidian.

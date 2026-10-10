@@ -1,0 +1,97 @@
+# Graph boards for "Rules from real situations". Each board shows some real values as points; students set m
+# (the rate) and c (the starting amount) so the line goes through them all.
+
+# region: run
+widget: graph
+axes: d (km), T ($)
+x: -0.5, 6
+y: -1, 18
+slider m: 0, 4, 1
+slider c: 0, 8, 0
+plot: y = mx + c
+point P: 1, 6
+point Q: 3, 10
+point R: 5, 14
+# endregion
+
+# region: no-fee
+widget: graph
+axes: h (hours), T ($)
+x: -0.5, 6
+y: -2, 36
+grid: off
+slider m: 0, 10, 2
+slider c: 0, 10, 4
+plot: y = mx + c
+point P: 1, 6
+point Q: 4, 24
+# endregion
+
+# region: down
+widget: graph
+axes: h (hours), B (%)
+x: -0.5, 10
+y: -5, 110
+grid: off
+slider m: -20, 20, 5, 5
+slider c: 0, 120, 60, 10
+plot: y = mx + c
+point P: 2, 80
+point Q: 5, 50
+# endregion
+
+# region: half
+widget: graph
+axes: n (pages), T ($)
+x: -0.5, 8
+y: -1, 8
+slider m: 0, 2, 1, 0.5
+slider c: 0, 5, 0
+plot: y = mx + c
+point P: 2, 3
+point Q: 6, 5
+# endregion
+
+# region: points-only
+widget: graph
+axes: d (km), T ($)
+x: -0.5, 6
+y: -1, 22
+slider m: 0, 5, 1
+slider c: 0, 8, 0
+plot: y = mx + c
+point P: 2, 11
+point Q: 4, 17
+# endregion
+
+# region: make
+widget: graph
+axes: n (units), T ($)
+x: -0.5, 6
+y: -1, 30
+slider m: 0, 5, 1
+slider c: 0, 8, 0
+plot: y = mx + c
+point P: 1, 25, drag
+# endregion
+
+# region: explain
+widget: graph
+axes: d (km), T ($)
+x: -0.5, 5
+y: -1, 16
+slider m: 0, 4, 0
+slider c: 0, 8, 0
+plot: y = mx + c
+step: 1
+# endregion
+
+# region: explain-pic
+widget: graph
+axes: d (km), T ($)
+x: -0.5, 5
+y: -1, 16
+plot: y = 2x + 4
+point A: 0, 4
+step: 1
+# endregion

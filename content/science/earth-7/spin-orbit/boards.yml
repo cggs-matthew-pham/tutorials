@@ -1,0 +1,12 @@
+# Boards for "Spinning and orbiting".
+
+# region: earth
+widget: sky
+mode: earth
+# endregion
+
+# region: places
+widget: sky
+mode: earth
+place: Darwin
+# endregion

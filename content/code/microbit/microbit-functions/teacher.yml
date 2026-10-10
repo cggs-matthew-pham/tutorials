@@ -1,0 +1,43 @@
+summary: Students name a job as a function and call it from several places, add a parameter, and see in Python that every event block is a function the micro:bit calls.
+time: 50
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Make 10 min · Alarm 5 min"
+goals:
+  - I can make a function and call it from more than one place.
+  - I can give a function a parameter and call it with different values.
+  - I can explain that an event block is a function the micro:bit calls for me.
+before: |
+  A **function** is a named job: some blocks with a name, made once in **Advanced › Functions**. Making it does **not** run it. It runs when a **call** block calls it, once per call. A **parameter** is an input to the function, such as `points` in *showScore(points)*, so one function can do a slightly different job each time. This lesson starts the **Python peek**: the **Python** button at the top of the editor shows the same program as text. The big reveal is that every event block (*on button A pressed*) becomes a function in Python, handed to the micro:bit to call when the event happens. Students only read the Python; nobody needs to write it.
+running:
+  - "Predict: some students expect one flash per press. Point at the two call blocks."
+  - "Run: count together. Each call runs the whole function once."
+  - "Investigate: Noah's mistake (making but never calling) is this lesson's misconception. Then switch the editor to Python together and read it line by line before the match."
+  - "Say it plainly: an event block is a function. You make it; the micro:bit calls it on each press."
+  - "Modify: three flashes means three calls, not copied blocks. The parameter task is new: show where Add a parameter is."
+  - "Make: two dance moves as functions, then a routine. Let students perform their dance for the class."
+  - "Alarm: the beep is inside the function, so changing it changes every call."
+stuck:
+  - see: "Nothing happens when the button is pressed."
+    ask: "Which block calls your function?"
+    fix: "Add a call block (from Functions) inside the button event."
+  - see: "The call block is missing from the toolbox."
+    ask: "Have you made the function yet?"
+    fix: "Make the function first; its call block then appears under Functions."
+  - see: "The parameter number has no effect."
+    ask: "Inside the function, which number do you show?"
+    fix: "Drag the points variable out of the function's header into show number."
+stretch: "Make a function flash(times) with a parameter, using a repeat block from Loops so it flashes that many times."
+support: "Give students the two dance functions already made with one picture each, and ask them to add a second picture and the calls."
+leads: "Next unit: radio. on radio received is one more event block, so one more function the micro:bit calls. From here, most lessons include a short Python peek. Class ideas: a class dance where each group writes one move as a function."
+exit:
+  q: "You make a function, but never call it. What happens when the program runs?"
+  a: "Nothing from that function: its blocks only run when something calls it."
+explain: |
+  A **function** is a named job. Making it does **not** run it: a **call** block runs it, once per call.
+
+  A **parameter** is an input, such as `points` in *showScore(points)*. Call *showScore(5)* and `points` is 5 inside.
+
+  Press **Python** in the editor: every event block is a function too. The micro:bit calls it for you each time the event happens.
+solutions:
+  step-4#t1: functions.ts#sol-three
+  step-4#t2: functions.ts#sol-param
+  step-5: functions.ts#sol-make

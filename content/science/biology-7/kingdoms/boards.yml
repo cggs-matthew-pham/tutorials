@@ -1,0 +1,17 @@
+# Boards for "Plant, animal or something else?".
+
+# region: kingdoms
+widget: key
+step A: Can you see a single one without a microscope? | B | D
+step B: Does it make its own food using sunlight? | Plant | C
+step C: Does it absorb its food from dead or decaying material? | Fungus | Animal
+step D: Does its cell have a nucleus? | Protist | Bacteria
+specimen: Plant | Large, with green leaves; makes its own food using sunlight; stays in one place. | Gum tree
+specimen: Fungus | Grows on rotting logs; not green; absorbs food from the dead wood; has a cap and gills. | Mushroom
+specimen: Animal | Moves slowly over rocks; eats mussels; cannot make its own food. | Sea star
+specimen: Protist | Only visible with a microscope; one cell with a nucleus; flows around its food. | Amoeba
+specimen: Bacteria | Only visible with a microscope; one tiny cell with no nucleus; turns milk into yoghurt. | Yoghurt bacteria
+specimen: Fungus | Fuzzy white and black patches on old bread; absorbs food from the bread. | Bread mould
+specimen: Plant | Small, soft and green; makes its own food from sunlight; grows on damp rocks. | Moss
+need: 5
+# endregion

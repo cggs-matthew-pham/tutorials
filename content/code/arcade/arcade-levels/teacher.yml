@@ -1,0 +1,49 @@
+summary: Students keep the level in a variable and per-level settings in lists, start each level with a startLevel function, see why a level-up in on game update fires every frame, and build a three-level dodger with a win.
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min · Fishing 5 min"
+goals:
+  - I can use a variable to remember the level, and a list to hold what changes per level.
+  - I can write a startLevel function that clears the old level and sets up the new one.
+  - I can explain why a level-up in on game update happens every frame, and put it where the score changes instead.
+before: |
+  A game with levels is three ideas students already have. A **variable** `level` remembers where the player is (it starts at **0**). A **list** such as `speeds` (40, 70, 100) holds what changes per level; `speeds[level]` looks up the value at that **place**, counted from 0, so level 0 uses 40. A **function** `startLevel` sets up a level: **destroy all sprites of kind Enemy** (clears the old ones), a **splash** (a message that waits for A) and a new enemy at `speeds[level]`. The splash shows `level + 1` with **join** (Text), because players count from 1.
+
+  The level-up lives in the coin overlap, where the score changes: *if score ≥ goal*, change level by 1 and change goal by 5, then win after level 3 (**game over** with win) or start the next level. **goal** is a target that moves up.
+
+  The trap: put *if score ≥ 5* in **on game update** and it fires **every frame** while the score stays 5 or more, so the level races up (and the splash comes back every time A is pressed). Try the Make task yourself: it is the biggest program so far (about 25 blocks), so allow time.
+running:
+  - "Predict: most students expect a splash and a faster enemy. Some expect a second enemy: point at destroy all sprites of kind."
+  - "Run: winning takes 15 coins. Ask who reached level 3."
+  - "Investigate: the trace practises lists counted from 0. The match names the job of each block."
+  - "Zoe's level-up is the lesson's misconception, the other side of lesson 5: an if in on game update is asked every frame, so anything in it happens every frame while it stays true."
+  - "Modify: a second list (colours) works exactly like speeds. The bonus life shows that startLevel runs once per level."
+  - "Make: encourage students to plan on paper first: which lists, what goes in startLevel, where the level-up goes. Rock speeds are negative because rocks fly left."
+  - "Fishing: a fourth level needs a fourth item in both lists and the win moved to level 4."
+stuck:
+  - see: "The level races up as soon as the score reaches the target."
+    ask: "Where is the level-up if, and how often does that block run?"
+    fix: "Move it into the event where the score changes (the overlap or the timer), or make the target goal go up each time."
+  - see: "Old enemies stay on the screen at the next level."
+    ask: "What does startLevel do first?"
+    fix: "Add destroy all sprites of kind Enemy at the top of startLevel."
+  - see: "The splash says Level 0, or the speed is wrong by one level."
+    ask: "Where does the list start counting?"
+    fix: "Places start at 0. The level starts at 0, and the splash shows level + 1."
+  - see: "The game crashes or the enemy stops after the last level."
+    ask: "What is speeds[3] when the list has 3 items?"
+    fix: "There is no place 3. Check level = 3 and end the game (win) before calling startLevel."
+stretch: "Add a fourth list, the number of enemies per level, and use a repeat loop in startLevel to make that many."
+support: "Give students the Make game with the lists and startLevel already made, so they add only the level-up and the win."
+leads: "Next unit: the final challenge, Space dodger, where students build a complete game in milestones. Class ideas: design a level table on paper (speed, colour, enemies, goal) before coding it; swap games and play each other's level 3."
+exit:
+  q: "speeds is 40, 70, 100 and level is 1. What speed does the enemy get, and why?"
+  a: "70: level 1 is the second place in the list, because places are counted from 0."
+explain: |
+  1. A variable **level** remembers where the player is, starting at **0**.
+  2. A **list** holds what changes per level: **speeds[level]** is the speed for this level (places counted from 0).
+  3. **startLevel** clears the old enemies, splashes the level and sets up the new one.
+  4. Level up **where the score changes**. An if in on game update fires every frame while it stays true.
+solutions:
+  step-4#t1: levels.ts#sol-colours
+  step-4#t2: levels.ts#sol-bonus
+  step-5: levels.ts#sol-make

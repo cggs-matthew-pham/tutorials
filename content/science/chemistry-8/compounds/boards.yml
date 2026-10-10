@@ -1,0 +1,29 @@
+# Science boards for "Why isn't salt poisonous?".
+
+# region: mixture
+widget: atoms
+show: H2 x8, O2 x4
+caption: A mixture of hydrogen and oxygen.
+# endregion
+
+# region: compound
+widget: atoms
+show: H2O x10
+caption: Water.
+# endregion
+
+# region: many
+widget: atoms
+show: H2O x3, CO2 x3, NH3 x3, CH4 x3, O2 x2
+caption: Five gases. Find the compounds.
+# endregion
+
+# region: make
+widget: reaction
+show: H2 x12, O2 x6
+react: 2 H2 + O2 -> 2 H2O
+ea: 1.5
+release: 1
+goal: react
+caption: "Hydrogen and oxygen. Watch for the yellow rings: each one is a reaction."
+# endregion

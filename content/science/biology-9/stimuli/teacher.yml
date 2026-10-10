@@ -1,0 +1,35 @@
+summary: Students identify stimuli as internal or external changes and trace them through the stimulus–response pathway (AC9S9U01, node 1, a hinge node).
+time: 20
+timing: "Engage and Explore 7 min · Explain 8 min · Evaluate 3 min · Typical adds 2 min, Wider about 2 min"
+goals:
+  - I can explain that a stimulus is a change inside or outside the body.
+  - I can name the parts of the stimulus–response pathway and what each does.
+  - I can trace an internal and an external stimulus through the pathway.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace a reaction-time practical (the ruler drop) or the knee-jerk reflex. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconception is that stimuli are only external. Three of the five board stimuli are internal on purpose.
+
+  Board notes: each pathway is simplified to one receptor, one command centre and one effector; the blood sugar and water pathways mix glands and hormones into the boxes, which the next lessons separate.
+running:
+  - "Engage: count how many chose 'only things outside you'."
+  - "Explore: ask which stimuli they would never notice happening."
+  - "Explain: the sort is the checkpoint; 'cold wind' prompts the external change / internal effect distinction."
+stuck:
+  - see: "A student says blood sugar isn't a stimulus because you can't feel it."
+    ask: "Did the body detect it and respond?"
+    fix: "Yes: cells in the pancreas detect it. A stimulus is anything the body detects, felt or not."
+  - see: "A student calls the skin the effector."
+    ask: "Does the skin detect the heat or move the hand?"
+    fix: "It detects it: receptors. Muscles and glands are effectors."
+stretch: "In the water pathway, the response makes the stimulus go away. Find another pathway on the board where that happens."
+support: "Give a five-box strip to fill in for each stimulus clicked."
+leads: |
+  Next: building pathways yourself and why the command centre matters (node 2), then nerves versus hormones (node 4) and feedback (node 5).
+
+  In class: ruler-drop reaction times; knee-jerk reflex; pupil response with a torch.
+exit:
+  q: "Give one internal stimulus and name its receptor and effector."
+  a: "For example: body temperature rising; temperature receptors in the brain; sweat glands."
+explain: |
+  **Stimulus:** any change the body detects, inside or outside it. **Pathway:** stimulus → receptor (detects) → command centre (decides) → effector (muscle or gland) → response.

@@ -1,0 +1,13 @@
+# Boards for "What does every cell have?".
+
+# region: shared
+widget: cell
+show: animal, plant
+find: nucleus, membrane, cytoplasm
+# endregion
+
+# region: plantextra
+widget: cell
+show: animal, plant
+find: wall, chloroplasts, vacuole, mitochondria
+# endregion

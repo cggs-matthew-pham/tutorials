@@ -1,0 +1,10 @@
+# Science boards for "What moves the plates?".
+
+# region: mantle
+widget: convection
+preset: mantle
+# endregion
+
+# region: beaker
+widget: convection
+# endregion

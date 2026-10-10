@@ -1,0 +1,12 @@
+# Classifier board for the delivery robot: signs drive it; the robot's distance and reports come back through the bridge.
+
+# region: deliver
+widget: classifier
+classes: Go, Left, Right, Stop
+webcam: on
+serial: on
+threshold: 0.7
+threshold Go: 0.95
+unsure: on
+repeat: 1
+# endregion

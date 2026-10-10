@@ -1,0 +1,41 @@
+summary: The final challenge. Students build a game in three milestones, each with less help, using everything from the course; the turtle hops along a path and players catch it before it hides.
+time: 60
+timing: "Predict, Run and Investigate 15 min · Milestone 1 10 min · Milestone 2 15 min · Milestone 3 15 min · Path or random 5 min"
+goals:
+  - I can combine variables, decisions, lists, functions and events in one program.
+  - I can use True and False to remember what is happening right now.
+  - I can build a working game step by step, testing as I go.
+before: |
+  Play the finished game (the Milestone 3 solution below) for a minute, then read the three milestone starters. Milestone 1 gives most of the code, milestone 2 an outline, milestone 3 only the goals: that fading support is deliberate. The two new words are `True` and `False`: a variable like `showing` remembers whether the turtle is on screen right now. Finishing this lesson and Power-ups marks the course "Challenge complete".
+running:
+  - "Predict and Investigate: the path is two lists (xs and ys) and place says where we are. % wraps place back to 0 at the end of a lap."
+  - "Milestone 1: the catch is the hit test from Build a button, with the box centred on the turtle (tx - 20, ty - 20)."
+  - "Milestone 2: showing is True while the turtle is visible. Clicks only count when showing is True, and a turtle that hides uncaught is a miss."
+  - "Milestone 3: students work from the five goals in the comment. Encourage one goal at a time, running after each."
+  - "Path or random: let students play both. A path can be predicted; random spots can only be reacted to."
+stuck:
+  - see: "The score never changes, or an error says a name has no value."
+    ask: Which variables does this function change? Are they all in its global line?
+    fix: Every variable a function changes must be listed after global at the top of that function.
+  - see: Clicking right on the turtle does not score.
+    ask: Where does the box around the turtle start?
+    fix: The box starts at (tx - 20, ty - 20) and is 40 by 40, so it is centred on the turtle.
+  - see: After pressing Start twice quickly, the turtle hops twice as fast.
+    ask: How many hop loops might be running?
+    fix: Each Start begins a new hop loop. Only start one when playing is False (the solution checks this).
+stretch: Make the path draw a picture (each spot a corner of a shape) and reveal it with the pen down at game over.
+support: Pair students for Milestone 3, one reading the goals and the other typing, swapping after each goal.
+leads: "Power-ups (next) adds lives, a status bar, a gold turtle and an upgrade. Then two optional lessons: Control panel (towards Gradio and web pages) and Game levels (towards MakeCode Arcade and microStudio). Creative option: students design their own path, such as their initials."
+exit:
+  q: "In the game, why does clicked check showing before it checks inside(...)?"
+  a: "So a click only scores while the turtle is visible. After it hides, clicking its old spot should not count."
+explain: |
+  A game is a few **rules**, some **data** and a **loop**. Here the data is the score, the turtle's spot and whether it is showing. The loop is the timer that makes the turtle hop every second. The rules are what each click and each hide means.
+
+  `showing` is either `True` or `False`. It remembers something that changes: is the turtle on screen right now? Each event checks it before deciding what to do.
+
+  The path is two lists of numbers. Because the turtle follows a pattern, you can predict where it will go next, and that is how good players win.
+solutions:
+  step-4: catch.py#sol-catch
+  step-5: catch.py#sol-blink
+  step-6: catch.py#solution

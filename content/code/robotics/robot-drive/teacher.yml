@@ -1,0 +1,46 @@
+summary: Students set each wheel's speed with robot motor tank, drive and turn for a time, and find that a timed move does not stop the motors by itself; they finish by driving a square.
+time: 45
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 10 min · Make 12 min · Real robot 5 min (optional)"
+goals:
+  - I can set the left and right wheel speeds to drive, turn and curve.
+  - I can make a move last for a time, and stop the robot at the end.
+  - I can repeat a drive and a turn to make a shape.
+before: |
+  The robot has two wheels, each with its own motor. **robot motor tank** sets the **left** and **right** speeds from −100 to 100: equal speeds drive straight, opposite speeds spin on the spot, and unequal speeds curve. The optional **for … ms** box is a **time**: the robot keeps that speed for that long, then the program moves on. The surprise in this lesson is that a time **does not stop the motors**: they keep doing what they were last told until another motor block changes them. So every program that should end needs **robot motor stop**.
+
+  Every program starts with a block that picks the robot (**Elecfreaks Cutebot** here). Schools with another supported robot change only that block. Kitronik MOVE Motor is not yet supported by the robot extension: MOVE Motor classes can use the Kitronik blocks on the real robot (`move Forward at speed`, `spin Left at speed`, `stop`, each with a pause), with the same ideas.
+
+  The simulator robot also smooths its speed, so starts and stops are gentle. Turns by time are not exact angles: students tune the turn time until a square looks square, which is what they will do on a real robot too.
+running:
+  - "Predict: most expect it to stop. Ask: which block told it to stop?"
+  - "Run: if it disappears off the edge, drag it back and restart the simulator."
+  - "Investigate: let students test the match pairs in the simulator. Ava's robot is the lesson's key idea: a time is not a stop."
+  - "Modify: −50 −50 drives backwards. The curve goes right because the right wheel is slower."
+  - "Make: repeat is in Loops. The turn time for a right angle depends on speed; about 400 ms at 50 is a starting point, then tune."
+  - "Real robot (optional): expect drift. robot set motor drift corrects a robot that pulls to one side."
+stuck:
+  - see: "The robot keeps spinning after the program."
+    ask: "What is the last block? Does it stop the motors?"
+    fix: "Add robot motor stop at the end."
+  - see: "The robot does not move at all."
+    ask: "Is the first block robot … start? Are the speeds above 0?"
+    fix: "Keep the start block at the top, and use speeds like 50."
+  - see: "The square's corners are too sharp or too wide."
+    ask: "Which number decides how far it turns?"
+    fix: "Change the turn's time, a little at a time."
+stretch: "Drive a triangle (three sides, a bigger turn) and a figure of eight (two curves, one each way)."
+support: "Give the square's repeat block with one drive inside; students add the turn and the stop."
+leads: "Next: give each move a name with functions, and build a dance routine. Class ideas: tape a square on the floor and see whose real robot finishes closest to its start."
+exit:
+  q: "Why does a robot keep moving after its last 'for 500 ms' block?"
+  a: "The time only says when to move on to the next block. The motors keep their last speed until a block such as robot motor stop changes them."
+explain: |
+  **robot motor tank** sets the **left** and **right** wheel speeds (−100 to 100).
+
+  - Same speeds: straight. Opposite speeds: spin. Different speeds: curve.
+  - **for … ms** keeps that speed for a time, then moves on to the next block. It does **not** stop the robot.
+  - End with **robot motor stop**.
+solutions:
+  step-4#t1: drive.ts#sol-back
+  step-4#t2: drive.ts#sol-curve
+  step-5: drive.ts#sol-make

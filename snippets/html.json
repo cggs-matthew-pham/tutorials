@@ -1,0 +1,362 @@
+{
+ "title": "HTML and CSS reference",
+ "summary": "Tags and CSS you can click to insert, with what each one does.",
+ "language": "html",
+ "groups": [
+  {
+   "name": "Page structure",
+   "items": [
+    {
+     "label": "<h1> heading",
+     "code": "<h1>‹Heading›</h1>\n",
+     "hint": "The biggest heading. Use it once for the page title.",
+     "example": "<h1>Robotics Club</h1>\n",
+     "shows": "The biggest heading"
+    },
+    {
+     "label": "<h2> subheading",
+     "code": "<h2>‹Subheading›</h2>\n",
+     "hint": "A smaller heading for a section.",
+     "example": "<h1>Robotics Club</h1>\n<h2>This term</h2>\n",
+     "shows": "A smaller heading under the title"
+    },
+    {
+     "label": "<p> paragraph",
+     "code": "<p>‹Some text›</p>\n",
+     "hint": "A paragraph of text.",
+     "example": "<p>We meet on Tuesdays.</p>\n<p>Everyone is welcome.</p>\n",
+     "shows": "Two paragraphs, with a gap between"
+    },
+    {
+     "label": "<div> box",
+     "code": "<div>\n  ‹Content›\n</div>\n",
+     "hint": "A container that groups things together, so you can style them as one."
+    },
+    {
+     "label": "<ul> list",
+     "code": "<ul>\n  <li>‹First›</li>\n  <li>‹Second›</li>\n</ul>\n",
+     "hint": "A bulleted list. Each item is an <li>.",
+     "example": "<ul>\n  <li>Apples</li>\n  <li>Pears</li>\n  <li>Plums</li>\n</ul>\n",
+     "shows": "A bullet for each <li>"
+    },
+    {
+     "label": "<ol> numbered list",
+     "code": "<ol>\n  <li>‹First›</li>\n  <li>‹Second›</li>\n</ol>\n",
+     "hint": "A numbered list.",
+     "example": "<ol>\n  <li>Plug in</li>\n  <li>Switch on</li>\n  <li>Press start</li>\n</ol>\n",
+     "shows": "The browser numbers the items"
+    },
+    {
+     "label": "comment",
+     "code": "<!-- ‹A note to yourself› -->\n",
+     "hint": "A note that the browser ignores.",
+     "example": "<p>You can see this.</p>\n<!-- You cannot see this. -->\n",
+     "shows": "The comment does not show"
+    }
+   ]
+  },
+  {
+   "name": "Content",
+   "items": [
+    {
+     "label": "<a> link",
+     "code": "<a href=\"‹https://example.com›\">‹Link text›</a>",
+     "hint": "A link. The address goes in href; the words between the tags are what people click.",
+     "example": "<p>Read the <a href=\"https://example.com\">club rules</a>.</p>\n",
+     "shows": "The link text is blue and underlined"
+    },
+    {
+     "label": "<img> image",
+     "code": "<img src=\"‹trophy.svg›\" alt=\"‹A gold trophy›\">\n",
+     "hint": "A picture. src is the picture file; alt describes it for people who cannot see it. There is no closing tag.",
+     "example": "<img src=\"medal.svg\" alt=\"A silver medal\" width=\"100\">\n<p>Second place</p>\n",
+     "shows": "The picture, 100 pixels wide"
+    },
+    {
+     "label": "<strong> bold",
+     "code": "<strong>‹important›</strong>",
+     "hint": "Make text stand out as important (usually bold).",
+     "example": "<p>Bring a <strong>hat</strong> tomorrow.</p>\n",
+     "shows": "Only the word inside is bold"
+    },
+    {
+     "label": "<em> emphasis",
+     "code": "<em>‹emphasis›</em>",
+     "hint": "Emphasise text (usually italic).",
+     "example": "<p>Do <em>not</em> run inside.</p>\n",
+     "shows": "Only the word inside is italic"
+    },
+    {
+     "label": "<button>",
+     "code": "<button>‹Click me›</button>\n",
+     "hint": "A button.",
+     "example": "<button>Start</button>\n",
+     "shows": "A button (clicking does nothing yet)"
+    },
+    {
+     "label": "<br> line break",
+     "code": "<br>\n",
+     "hint": "Start a new line.",
+     "example": "<p>Line one<br>Line two</p>\n",
+     "shows": "A new line inside one paragraph"
+    },
+    {
+     "label": "<hr> line",
+     "code": "<hr>\n",
+     "hint": "Draw a line across the page.",
+     "example": "<p>Above</p>\n<hr>\n<p>Below</p>\n",
+     "shows": "A line across the page"
+    }
+   ]
+  },
+  {
+   "name": "Table",
+   "items": [
+    {
+     "label": "<table>",
+     "code": "<table>\n  <tr>\n    <th>‹Name›</th>\n    <th>‹Score›</th>\n  </tr>\n  <tr>\n    <td>‹Sam›</td>\n    <td>‹10›</td>\n  </tr>\n</table>\n",
+     "hint": "A table: <tr> is a row, <th> a heading cell, <td> a normal cell.",
+     "example": "<table>\n  <tr>\n    <th>Team</th>\n    <th>Points</th>\n  </tr>\n  <tr>\n    <td>Owls</td>\n    <td>12</td>\n  </tr>\n  <tr>\n    <td>Hawks</td>\n    <td>9</td>\n  </tr>\n</table>\n",
+     "shows": "Headings in bold, one row per <tr>"
+    }
+   ]
+  },
+  {
+   "name": "Page sections",
+   "items": [
+    {
+     "label": "<header>",
+     "code": "<header>\n  ‹<h1>Site name</h1>›\n</header>\n",
+     "hint": "The top part of a page: usually the title and the menu. Looks like a div; the name tells browsers and screen readers what it is.",
+     "example": "<header>\n  <h1>Chess club</h1>\n</header>\n<p>Page content</p>\n",
+     "shows": "It looks like any block: the name is the difference"
+    },
+    {
+     "label": "<nav>",
+     "code": "<nav>\n  ‹<a href=\"#\">Home</a>›\n</nav>\n",
+     "hint": "The main menu of links.",
+     "example": "<nav>\n  <a href=\"#\">Home</a>\n  <a href=\"#\">Games</a>\n</nav>\n",
+     "shows": "A group of menu links"
+    },
+    {
+     "label": "<main>",
+     "code": "<main>\n  ‹The page's main content›\n</main>\n",
+     "hint": "The main content of the page. One per page.",
+     "example": "<main>\n  <h2>This week</h2>\n  <p>Practice on Wednesday.</p>\n</main>\n",
+     "shows": "The main content"
+    },
+    {
+     "label": "<section>",
+     "code": "<section>\n  ‹<h2>Part</h2>›\n</section>\n",
+     "hint": "One part of the page, usually with its own heading.",
+     "example": "<section>\n  <h2>Results</h2>\n  <p>We won 3 games.</p>\n</section>\n",
+     "shows": "One part of a page with its heading"
+    },
+    {
+     "label": "<footer>",
+     "code": "<footer>\n  ‹Contact and small print›\n</footer>\n",
+     "hint": "The bottom part of a page: contact details, small print.",
+     "example": "<p>Page content</p>\n<footer>\n  <p>Contact: chess@example.com</p>\n</footer>\n",
+     "shows": "The bottom of the page"
+    }
+   ]
+  },
+  {
+   "name": "Forms",
+   "items": [
+    {
+     "label": "<form>",
+     "code": "<form>\n  ‹fields›\n  <button>‹Send›</button>\n</form>\n",
+     "hint": "Holds the fields and the button that sends them. On its own, a form sends nowhere: code behind it does the work.",
+     "example": "<form>\n  <label for=\"town\">Town</label>\n  <input id=\"town\" type=\"text\">\n  <button>Go</button>\n</form>\n",
+     "shows": "A field and a button"
+    },
+    {
+     "label": "label and input",
+     "code": "<label for=\"‹name›\">‹Name›</label>\n<input id=\"‹name›\" type=\"‹text›\">\n",
+     "hint": "An input is a box to type in. Its label says what to type; for and id must match, so clicking the label puts the cursor in the box.",
+     "matches": "^\\s*<label\\b",
+     "example": "<label for=\"age\">Age</label>\n<input id=\"age\" type=\"number\">\n",
+     "shows": "A labelled box for a number"
+    },
+    {
+     "label": "<select> drop-down",
+     "code": "<select id=\"‹house›\">\n  <option>‹Owls›</option>\n  <option>‹Hawks›</option>\n</select>\n",
+     "hint": "A drop-down list: one option to choose.",
+     "example": "<label for=\"size\">Size</label>\n<select id=\"size\">\n  <option>Small</option>\n  <option>Large</option>\n</select>\n",
+     "shows": "A drop-down showing its first option"
+    }
+   ]
+  },
+  {
+   "name": "CSS",
+   "items": [
+    {
+     "label": "<style> block",
+     "code": "<style>\n  ‹h1› {\n    color: red;\n  }\n</style>\n",
+     "hint": "Where CSS lives. Each rule is: selector { property: value; }",
+     "example": "<style>\n  h2 {\n    color: purple;\n  }\n</style>\n<h2>Purple heading</h2>\n<p>Normal text</p>\n",
+     "shows": "The rule styles every <h2>"
+    },
+    {
+     "label": "rule",
+     "code": "‹p› {\n  ‹color›: ‹blue›;\n}\n",
+     "hint": "Style every element matching the selector.",
+     "example": "<style>\n  li {\n    color: teal;\n  }\n</style>\n<ul>\n  <li>One</li>\n  <li>Two</li>\n</ul>\n",
+     "shows": "Every <li> is teal"
+    },
+    {
+     "label": "class selector",
+     "code": ".‹note› {\n  ‹color›: ‹red›;\n}\n",
+     "hint": "Style only the elements you mark with class=\"note\" in the HTML. The dot is only in the CSS.",
+     "matches": "^\\s*\\.[A-Za-z][\\w-]*\\s*[{,]",
+     "example": "<style>\n  .tip {\n    font-style: italic;\n  }\n</style>\n<p>A normal paragraph.</p>\n<p class=\"tip\">A paragraph with class=\"tip\".</p>\n",
+     "shows": "Only the paragraph with the class changes"
+    },
+    {
+     "label": "several selectors",
+     "code": "‹h1›, ‹h2› {\n  ‹color›: ‹navy›;\n}\n",
+     "hint": "One rule for several kinds of element: list the selectors with commas.",
+     "matches": "^\\s*[A-Za-z.][\\w.-]*\\s*,\\s*[A-Za-z.]",
+     "example": "<style>\n  h1, li {\n    color: purple;\n  }\n</style>\n<h1>Title</h1>\n<ul>\n  <li>An item</li>\n</ul>\n<p>A paragraph</p>\n",
+     "shows": "The heading and the list item change; the paragraph does not"
+    },
+    {
+     "label": "color",
+     "code": "color: ‹red›;\n",
+     "hint": "The text colour.",
+     "example": "<style>\n  em {\n    color: crimson;\n  }\n</style>\n<p>A <em>red</em> word</p>\n",
+     "shows": "Text colour"
+    },
+    {
+     "label": "background-color",
+     "code": "background-color: ‹lightyellow›;\n",
+     "hint": "The background colour.",
+     "example": "<style>\n  h2 {\n    background-color: lightyellow;\n  }\n</style>\n<h2>Notice</h2>\n",
+     "shows": "The colour behind the text"
+    },
+    {
+     "label": "font-size",
+     "code": "font-size: ‹20px›;\n",
+     "hint": "How big the text is.",
+     "example": "<style>\n  h2 {\n    font-size: 40px;\n  }\n</style>\n<h2>Big</h2>\n<p>Normal</p>\n",
+     "shows": "A bigger heading"
+    },
+    {
+     "label": "font-family",
+     "code": "font-family: ‹sans-serif›;\n",
+     "hint": "Which font to use.",
+     "example": "<style>\n  p {\n    font-family: monospace;\n  }\n</style>\n<p>Code font</p>\n",
+     "shows": "A different font"
+    },
+    {
+     "label": "text-align",
+     "code": "text-align: ‹center›;\n",
+     "hint": "Align text: left, center or right.",
+     "example": "<style>\n  h2 {\n    text-align: center;\n  }\n</style>\n<h2>Centred</h2>\n<p>Left</p>\n",
+     "shows": "The heading moves to the middle"
+    },
+    {
+     "label": "display: flex",
+     "code": "display: flex;\n",
+     "hint": "Put it on the box that holds the items (the parent): its children line up in a row.",
+     "example": "<style>\n  .row {\n    display: flex;\n  }\n</style>\n<div class=\"row\">\n  <p>One</p>\n  <p>Two</p>\n  <p>Three</p>\n</div>\n",
+     "shows": "The three paragraphs sit side by side"
+    },
+    {
+     "label": "gap",
+     "code": "gap: ‹16px›;\n",
+     "hint": "Space between the items in a flex row (on the parent, with display: flex).",
+     "example": "<style>\n  .row {\n    display: flex;\n    gap: 40px;\n  }\n</style>\n<div class=\"row\">\n  <p>One</p>\n  <p>Two</p>\n  <p>Three</p>\n</div>\n",
+     "shows": "40 pixels between the items"
+    },
+    {
+     "label": "flex-wrap",
+     "code": "flex-wrap: wrap;\n",
+     "hint": "Let items move to the next line when the row is full.",
+     "example": "<style>\n  .row {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 8px;\n    width: 180px;\n  }\n</style>\n<div class=\"row\">\n  <img src=\"star.svg\" alt=\"Star\" width=\"50\">\n  <img src=\"star.svg\" alt=\"Star\" width=\"50\">\n  <img src=\"star.svg\" alt=\"Star\" width=\"50\">\n  <img src=\"star.svg\" alt=\"Star\" width=\"50\">\n</div>\n",
+     "shows": "The fourth star wraps to the next line"
+    },
+    {
+     "label": "justify-content",
+     "code": "justify-content: ‹center›;\n",
+     "hint": "Where the items sit along the row: flex-start, center, flex-end or space-between.",
+     "example": "<style>\n  .row {\n    display: flex;\n    justify-content: space-between;\n    width: 220px;\n    border: 1px solid gray;\n  }\n</style>\n<div class=\"row\">\n  <p>Left</p>\n  <p>Right</p>\n</div>\n",
+     "shows": "space-between pushes the items to the ends"
+    },
+    {
+     "label": "list-style",
+     "code": "list-style: none;\n",
+     "hint": "Remove the bullets or numbers from a list: menus are lists without bullets.",
+     "example": "<style>\n  ol {\n    list-style: none;\n  }\n</style>\n<ol>\n  <li>First</li>\n  <li>Second</li>\n</ol>\n",
+     "shows": "A list with no numbers"
+    },
+    {
+     "label": "display: grid",
+     "code": "display: grid;\n",
+     "hint": "Put it on the box that holds the items: its children are placed in rows and columns (with grid-template-columns).",
+     "example": "<style>\n  .grid {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 8px;\n  }\n  p {\n    background-color: lavender;\n  }\n</style>\n<div class=\"grid\">\n  <p>A</p>\n  <p>B</p>\n  <p>C</p>\n  <p>D</p>\n</div>\n",
+     "shows": "Four boxes in two columns"
+    },
+    {
+     "label": "grid-template-columns",
+     "code": "grid-template-columns: ‹200px 1fr›;\n",
+     "hint": "The width of each column, in order. 1fr means one share of the space left; repeat(3, 1fr) makes three equal columns.",
+     "example": "<style>\n  .grid {\n    display: grid;\n    grid-template-columns: 80px 1fr;\n    gap: 8px;\n  }\n  .cell {\n    background-color: lightblue;\n  }\n</style>\n<div class=\"grid\">\n  <div class=\"cell\">80px</div>\n  <div class=\"cell\">The rest</div>\n</div>\n",
+     "shows": "A fixed column, then one that takes the rest"
+    },
+    {
+     "label": "width",
+     "code": "width: ‹200px›;\n",
+     "hint": "How wide the content is. Padding and border are added on top of it.",
+     "example": "<style>\n  div {\n    width: 120px;\n    background-color: lightblue;\n  }\n</style>\n<div>A box 120 pixels wide</div>\n",
+     "shows": "The box is 120 pixels wide"
+    },
+    {
+     "label": "padding",
+     "code": "padding: ‹10px›;\n",
+     "hint": "Space inside an element, between its edge and its content.",
+     "example": "<style>\n  p {\n    background-color: lightblue;\n    padding: 20px;\n  }\n</style>\n<p>Room inside</p>\n",
+     "shows": "Space between the edge and the text"
+    },
+    {
+     "label": "margin",
+     "code": "margin: ‹10px›;\n",
+     "hint": "Space outside an element, between it and its neighbours.",
+     "example": "<style>\n  p {\n    border: 1px solid gray;\n    margin: 20px;\n  }\n</style>\n<p>One</p>\n<p>Two</p>\n",
+     "shows": "Space around each box"
+    },
+    {
+     "label": "border",
+     "code": "border: ‹2px solid black›;\n",
+     "hint": "A line around an element: thickness, style, colour.",
+     "example": "<style>\n  p {\n    border: 2px solid black;\n  }\n</style>\n<p>Boxed</p>\n",
+     "shows": "A line around the paragraph"
+    }
+   ]
+  },
+  {
+   "name": "JavaScript (recipes)",
+   "items": [
+    {
+     "label": "on click",
+     "code": "document.querySelector('‹#go›').addEventListener('click', function () {\n  ‹what to do›\n});\n",
+     "hint": "When the element with id=\"go\" is clicked, run the lines inside. # means id, as . means class.",
+     "matches": "addEventListener\\s*\\("
+    },
+    {
+     "label": "change the text",
+     "code": "document.querySelector('‹#message›').textContent = '‹Go!›';\n",
+     "hint": "Replace the words inside the element with id=\"message\".",
+     "matches": "\\.textContent\\s*="
+    },
+    {
+     "label": "read a box",
+     "code": "const ‹name› = document.querySelector('‹#name›').value;\n",
+     "hint": "Read what someone typed into the box with id=\"name\".",
+     "matches": "\\.value\\b"
+    }
+   ]
+  }
+ ]
+}

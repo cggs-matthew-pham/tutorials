@@ -1,0 +1,33 @@
+summary: Students explain that gametes have half the chromosome number and relate the features of sperm and egg cells to their jobs (AC9S9U02, node 1, a hinge node).
+time: 20
+timing: "Engage and Explore 6 min · Explain 9 min · Evaluate 3 min · Typical adds 3 min, Wider about 1 min"
+goals:
+  - I can explain why gametes have half the usual number of chromosomes.
+  - I can link three features of sperm and egg cells to their jobs.
+  - I can describe how a plant's male nucleus reaches the egg.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconception is that gametes have the full set of chromosomes. The Engage question asks it directly.
+
+  Board notes: diagrams are not to scale (a human egg is about 0.1 mm across, roughly 20 times the width of a sperm's head). The pollen grain carries the male nucleus; strictly, the male gametes form inside it.
+running:
+  - "Engage: count how many chose 46."
+  - "Explore: ask which feature they think is most important for getting in."
+  - "Explain: the 'why half' question is the checkpoint."
+stuck:
+  - see: "A student says the baby gets half the genes."
+    ask: "How many chromosomes does the fertilised egg have?"
+    fix: "46: a full set, half from each parent."
+  - see: "A student thinks pollen is the plant's sperm and swims."
+    ask: "What carries pollen?"
+    fix: "Wind or animals; then a pollen tube grows to the ovule."
+stretch: "Why do sperm need so many mitochondria, but egg cells don't need a tail?"
+support: "Give a labelled sperm and egg with the jobs listed in a box to match."
+leads: |
+  Next: sexual and asexual reproduction and variation (node 3). Year 10: meiosis, the cell division that halves the number.
+exit:
+  q: "Why do sperm and egg cells have 23 chromosomes, not 46?"
+  a: "So that when they fuse at fertilisation, the new cell has 46, the full number, again."
+explain: |
+  **Gametes** (sperm and egg) have half the usual number of chromosomes (23 in humans), so fertilisation restores the full number (46). Sperm swim (tail, mitochondria) and digest their way in (acrosome); the egg is large with a food store and lets only one sperm in.

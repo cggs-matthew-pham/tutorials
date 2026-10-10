@@ -1,0 +1,22 @@
+# region: filtration
+Fold the filter paper into a cone
+Put the cone in a funnel over a beaker
+Pour the mixture in slowly
+Let the liquid (the filtrate) drip into the beaker
+Leave the solid (the residue) in the paper
+# endregion
+
+# region: evaporation
+Pour the filtrate into an evaporating dish
+Heat it gently
+Stop heating when most of the water has gone
+Let the rest evaporate to leave crystals
+# endregion
+
+# region: design
+Add water to the mixture and stir until the salt dissolves
+Filter the mixture
+Rinse the sand in the paper with a little clean water, then leave it to dry
+Gently evaporate the filtrate, rinse water included
+Collect the salt crystals
+# endregion

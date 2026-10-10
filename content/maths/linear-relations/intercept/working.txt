@@ -1,0 +1,8 @@
+# Ana's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ana
+Are y = 2x + 5 and y = 5x + 2 parallel?
+Both rules use a 2 and a 5.
+So they have the same numbers.
+So the lines are parallel.
+# endregion

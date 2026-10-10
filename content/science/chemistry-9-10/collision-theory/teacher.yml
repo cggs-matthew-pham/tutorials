@@ -1,0 +1,43 @@
+summary: Students explain reaction rate with collision theory (collisions with at least the activation energy) and use it to explain temperature, concentration, surface area and catalysts (AC9S10U07, node 5, a hinge node).
+time: 30
+timing: "Engage and Explore 10 min · Explain 8 min · Evaluate 3 min · Typical adds 8 min, Wider about 5 min"
+goals:
+  - I can explain that particles react only when they collide with at least the activation energy.
+  - I can explain why more frequent or more energetic collisions make a reaction faster.
+  - I can name and explain at least two ways to increase the rate.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace a rate practical. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge risk is rate factors learned as separate rules. Every factor answers one question: does it change how often particles collide, how hard, or the energy needed?
+
+  Model notes: with 15 of each reactant, run times vary from run to run (often by a factor of two), as in real small-scale experiments. Use the class's runs together, or run twice at each temperature. Typical results at 300 K: 10–30 s; at 500 K: 3–5 s. The catalyst halves the activation energy for every collision.
+running:
+  - "Engage: record the class's predictions on the board to come back to."
+  - "Explore: ask students to read out the percentage of collisions that react at each temperature. That number is the key to the Explain step."
+  - "Explain: the third question separates frequency from energy; take it slowly."
+  - "Typical: pool the class's two times on the board: the spread is part of the lesson."
+stuck:
+  - see: "A student says heat makes the particles want to react."
+    ask: "What changed in the panel: the number of collisions, or the share that react?"
+    fix: "Both, but mostly the share: faster particles hit harder, so more collisions have the activation energy."
+  - see: "A student says every collision causes a reaction."
+    ask: "Compare the collisions and reactions numbers in the panel."
+    fix: "Only a few per cent react. The rest don't have enough energy."
+  - see: "A student says a catalyst adds energy."
+    ask: "Did the temperature change when you turned the catalyst on?"
+    fix: "No. The catalyst lowers the energy needed instead."
+stretch: "Food in a freezer lasts months. Use collision theory to explain why, and why it still goes off eventually."
+support: "Give a two-column frame for each factor: 'More collisions?' and 'More energetic collisions?'."
+leads: |
+  Next: rate factors investigated in practicals (node 6).
+
+  In class: sodium thiosulfate and acid at different temperatures (the disappearing cross), or antacid tablets in water at different temperatures and as powder.
+exit:
+  q: "Why does crushing a tablet make it dissolve and react faster in water?"
+  a: "Crushing increases the surface area, so more particles are exposed and collisions happen more often."
+explain: |
+  Particles react only when they **collide** with at least the **activation energy**.
+
+  - **Temperature:** particles collide more often and harder (the biggest effect).
+  - **Concentration** and **surface area:** more collisions each second.
+  - **Catalyst:** lowers the activation energy; not used up.

@@ -1,0 +1,45 @@
+summary: Students make overlap events that run when two sprites touch, and see that the kinds named in the event decide which event runs.
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Make 10 min · Fruit stall 5 min"
+goals:
+  - I can make something happen when two sprites touch.
+  - I can choose a sprite's kind, and say which overlap event a touch will run.
+  - I can keep score and move a sprite to a random place.
+before: |
+  An **overlap** is two sprites touching. **on sprite of kind Player overlaps otherSprite of kind Food** (Sprites › Overlaps) is an **event**: it runs when a sprite of the **first kind** touches a sprite of the **second kind**, and never for any other pair. Inside it, **sprite** is the first one (the player) and **otherSprite** the second (the coin that was touched). Every sprite has a **kind**: Player, Food, Enemy or Projectile. The create block starts with **of kind Player**, so a forgotten kind is the most common bug: a coin made as a Player is never collected. **change score by** (Info) shows a score at the top of the screen. **pick random** (Math) gives a new random whole number each time it runs. Try the Make task yourself: two sprites, two overlap events.
+running:
+  - "Predict: most students expect the coin to vanish. The real point is why: ask which two kinds the event names."
+  - "Run: once the coin is gone, nothing is left to do. That sets up the Modify task."
+  - "Investigate: the match shows that a pair no event names (Food and Enemy) does nothing. Ava's star is the default kind left as Player."
+  - "Modify: moving the coin to a random spot (instead of destroying it) turns one touch into a game. Point out pick random runs again each time."
+  - "Make: check every create block's kind before testing. Two overlap events, one per kind."
+  - "Fruit stall: a missed banana falls off the screen and never returns; that is fixed with an if in the Decide unit."
+stuck:
+  - see: "Touching the coin does nothing."
+    ask: "What kind is the coin, and what kinds does the overlap event name?"
+    fix: "Make the coin of kind Food (the dropdown in its create block), to match Player–Food in the event."
+  - see: "The wrong sprite disappears (the player instead of the coin)."
+    ask: "Which sprite does destroy name: sprite or otherSprite?"
+    fix: "otherSprite is the one of the second kind (Food). Drag otherSprite into destroy."
+  - see: "The score jumps up by many points in one touch."
+    ask: "What happens to the coin after the touch?"
+    fix: "If it stays where it is, the event runs again every frame. Destroy it or move it away (lesson 4 looks at this)."
+  - see: "The coin jumps off the screen."
+    ask: "What range did you give pick random?"
+    fix: "Use x from 10 to 150 and y from 10 to 110."
+stretch: "Add a second kind of good food worth 3 points, and make the bad item jump to a random place instead of being destroyed."
+support: "Give students the Food and Enemy sprites already made with the right kinds, and ask them to build only the two overlap events."
+leads: "Next lesson adds lives, timers and a game that ends. Class ideas: a recycling sorter (paper is Food, plastic is Enemy); a healthy-eating collector; design a game where the kinds are swapped: what changes?"
+exit:
+  q: "A coin is made of kind Player. The game has a Player–Food overlap event. Will touching the coin score? Why?"
+  a: "No. The event only runs when a Player touches a Food sprite. The coin is a Player, so no event runs. Change its kind to Food."
+explain: |
+  When two sprites touch, they **overlap**. An **on overlap** event names **two kinds**:
+
+  1. It runs when a sprite of the **first kind** touches a sprite of the **second kind**, and for no other pair.
+  2. Inside it, **sprite** is the first one and **otherSprite** the second.
+  3. So the **kind** you choose when you create a sprite decides which overlap event its touches run.
+solutions:
+  step-4#t1: overlaps.ts#sol-random
+  step-4#t2: overlaps.ts#sol-worth
+  step-5: overlaps.ts#sol-make

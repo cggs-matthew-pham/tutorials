@@ -1,0 +1,35 @@
+summary: Students relate DNA, chromosomes, genes and alleles by size and meaning, and explain chromosome pairs (AC9S10U01, node 1, a hinge node).
+time: 20
+timing: "Engage and Explore 6 min · Explain 9 min · Evaluate 3 min · Typical adds 2 min, Wider about 1 min"
+goals:
+  - I can put the cell, nucleus, chromosome, DNA and gene in order of size.
+  - I can define gene and allele.
+  - I can explain why chromosomes come in pairs.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace a DNA extraction practical (strawberries or kiwifruit). Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconceptions are confusing gene, chromosome and DNA, and thinking there is a separate gene for each version of a characteristic.
+
+  Board notes: the zoom is not to scale; the nucleus shows only some chromosomes; the base sequence shown is illustrative, not a real gene.
+running:
+  - "Engage: see how many put gene and DNA in the wrong order."
+  - "Explore: ask what the red and blue chromosomes mean at the nucleus level."
+  - "Explain: the earlobe question is the checkpoint (gene versus allele)."
+stuck:
+  - see: "A student says a chromosome and DNA are different things."
+    ask: "What did you see when you zoomed into the chromosome?"
+    fix: "A chromosome is DNA, tightly coiled."
+  - see: "A student says there's a gene for blue eyes and a gene for brown."
+    ask: "Is it the same section of DNA, in a different version?"
+    fix: "Yes: one gene, different alleles."
+stretch: "The four bases pair up A with T and C with G. Why might that help a cell copy its DNA?"
+support: "Give a nested-boxes diagram with the five words to place."
+leads: |
+  Next: meiosis (node 3) and Punnett squares (node 4).
+
+  In class: DNA extraction from strawberries.
+exit:
+  q: "What's the difference between a gene and an allele?"
+  a: "A gene is a section of DNA coding for a protein; an allele is one version of that gene."
+explain: |
+  **DNA** carries the instructions; a **chromosome** is one long coiled DNA molecule; a **gene** is a section of DNA coding for a protein; **alleles** are versions of a gene. Chromosomes come in pairs, one from each parent.

@@ -1,0 +1,38 @@
+# Balance boards for "Equations as a balance". Each region is one board: the left and right sides of an
+# equation, and the range of whole numbers students can try for x.
+
+# region: run
+widget: balance
+left: 2x + 3
+right: 11
+min: 0
+max: 10
+start: 1
+# endregion
+
+# region: four-x
+widget: balance
+left: 4x
+right: 20
+min: 0
+max: 10
+start: 1
+# endregion
+
+# region: both-sides
+widget: balance
+left: x + 7
+right: 3x + 1
+min: 0
+max: 10
+start: 0
+# endregion
+
+# region: no-whole
+widget: balance
+left: 2x
+right: 7
+min: 0
+max: 10
+start: 1
+# endregion

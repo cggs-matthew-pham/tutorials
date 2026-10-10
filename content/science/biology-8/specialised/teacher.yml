@@ -1,0 +1,35 @@
+summary: Students explain that cells with the same DNA specialise, and describe how structural features of specialised cells serve their functions (AC9S8U02, node 1, a hinge node).
+time: 25
+timing: "Engage and Explore 9 min · Explain 8 min · Evaluate 3 min · Typical adds 2 min, Wider about 2 min"
+goals:
+  - I can describe two features of a specialised cell and explain how each helps.
+  - I can explain that cells with the same DNA can specialise for different jobs.
+  - I can link a cell's contents (such as mitochondria) to its job.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace prepared slides of blood, nerve and muscle tissue. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge is the structure-function link. Students who list features without the "so that" cannot reason about tissues and organs.
+
+  Board notes: diagrams are simplified and not to scale (a nerve cell's axon can be a metre long).
+running:
+  - "Engage: the 'different DNA' choice is the misconception to resolve."
+  - "Explore: after each cell, ask for one feature and its 'so that'."
+  - "Explain: the match covers four cells; the root hair question returns to the DNA idea."
+stuck:
+  - see: "A student says red blood cells lost their nucleus by accident."
+    ask: "What gets more room without it?"
+    fix: "Haemoglobin, so it carries more oxygen. It's a feature, not damage."
+  - see: "A student lists features without functions."
+    ask: "So that what?"
+    fix: "Each feature: '…, so that the cell can …'."
+stretch: "Stem cells can become many types of cell. Why might that be useful in medicine?"
+support: "A frame: 'The ___ cell has ___ so that it can ___.'"
+leads: |
+  Next: tissues (node 2), then organs built from tissues (node 3).
+
+  In class: prepared slides of blood smear, muscle and nerve tissue; a cheek-cell versus onion-cell comparison.
+exit:
+  q: "Give one feature of a nerve cell and explain how it helps."
+  a: "A long axon, so it can carry signals a long way through the body."
+explain: |
+  Cells with the same DNA **specialise**: each develops a shape and parts that suit its job. Red blood cells have no nucleus (more haemoglobin); nerve cells have long axons; muscle cells have many mitochondria; root hair cells have a long extension.

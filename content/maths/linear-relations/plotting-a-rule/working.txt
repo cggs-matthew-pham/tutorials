@@ -1,0 +1,9 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Plot the point (2, 5).
+Start at (0, 0).
+Go up 2.
+Go across 5.
+Mark the point there.
+# endregion

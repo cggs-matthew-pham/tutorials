@@ -1,0 +1,42 @@
+summary: Students keep several values in a list, pick items by place (counted from 0) and at random, and use the list's length so it can grow.
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Make 10 min · Team picker 5 min"
+goals:
+  - I can make a list and get an item by its place.
+  - I can explain why the last place is the length minus 1.
+  - I can pick a random item from a list of any length.
+before: |
+  A **list** (MakeCode calls it an **array**, in **Advanced › Arrays**) holds many values in order under one name. Each item has a **place** (an **index**), counted from **0**: in Yes, No, Maybe, Yes is at place 0. So a list of 3 has places 0, 1 and 2, and the last place is always the length minus 1. To pick at random, choose a place with **pick random 0 to (length of list − 1)**. Using the length means the list can grow without changing the random part.
+running:
+  - "Predict: most students say Yes. Ask: which place does the micro:bit start counting from?"
+  - "Run: No. Say it plainly: lists count from 0, like a ruler starts at 0."
+  - "Investigate: the 8-ball picks a random place. Kai's mistake (counting from 1) is the misconception this lesson targets."
+  - "Modify: after adding answers, ask why the random part still works (it uses the length)."
+  - "Make: rock, paper, scissors is the same pattern with new items."
+  - "Team picker: B shows the first name, which is at place 0."
+stuck:
+  - see: "The list block has only one or two places."
+    ask: "Where is the + on the list block?"
+    fix: "Click + on the list block to add places."
+  - see: "One item never comes up."
+    ask: "Which places can pick random choose from?"
+    fix: "Pick from 0 to length − 1, not from 1."
+  - see: "The word does not show, or a number shows instead."
+    ask: "Is it show string or show number?"
+    fix: "Words need show string, from Basic."
+stretch: "Make a list of pictures for a dice: shake picks a random face from 1 to 6 (use show number with a random place, or a list of drawings with show leds)."
+support: "Give students the 8-ball with the list already made, and ask them only to add answers and test."
+leads: "Next lesson: functions, which name a job so it can be used again. Class ideas: a class question picker; a random task chooser for group work."
+exit:
+  q: "A list has 4 items. Which places can you use, and which is the last?"
+  a: "Places 0, 1, 2 and 3. The last is 3, the length minus 1."
+explain: |
+  A **list** holds many values, in order, under one name.
+
+  Each item has a **place**, counted from **0**: in *Yes, No, Maybe*, Yes is at 0 and Maybe is at 2. So the last place is the **length − 1**.
+
+  To pick at random: **pick random 0 to length − 1**, then **get value at** that place.
+solutions:
+  step-4#t1: lists.ts#sol-more
+  step-4#t2: lists.ts#sol-length
+  step-5: lists.ts#sol-make

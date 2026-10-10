@@ -1,0 +1,41 @@
+summary: Students distinguish mass (kg) from weight (N), explain gravitational force as depending on mass, and calculate weight = mass × g in different places (AC9S7U04, node 4, a hinge node).
+time: 25
+timing: "Engage and Explore 6 min · Explain 10 min · Evaluate 3 min · Typical adds 4 min, Wider about 3 min"
+goals:
+  - I can explain the difference between mass and weight, with units.
+  - I can calculate weight from mass and g.
+  - I can explain why weight is different on the Moon and other planets.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace weighing masses with a newton meter. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge risk is mass/weight confusion, which breaks F = ma in Year 10. Insist on units every time: kg for mass, N for weight.
+
+  Board notes: g values are rounded (Earth 9.8, Moon 1.6, Mars 3.7, Jupiter 24.8 N/kg). Jupiter has no solid surface; the rover question says "if it could land".
+running:
+  - "Engage: ask anyone who chose 0 kg why; 'no gravity on the Moon' is common (there is gravity, just less)."
+  - "Explore: have students say aloud 'mass stays, weight changes' while switching places."
+  - "Explain: the number checks need units in discussion even though the box takes a number."
+  - "In your own words: the 'I weigh 50 kg' paragraph is the evidence."
+stuck:
+  - see: "A student says mass changes on the Moon."
+    ask: "Did any matter leave the astronaut on the trip?"
+    fix: "No. Same matter, same mass. Only the pull of gravity (weight) changes."
+  - see: "A student gives weight in kilograms."
+    ask: "Is weight a force? What unit do forces have?"
+    fix: "Newtons. Kilograms are for mass."
+  - see: "A student says there's no gravity in space or on the Moon."
+    ask: "Why does the astronaut land again after jumping?"
+    fix: "The Moon's gravity pulls her back, just more weakly (1.6 N/kg)."
+stretch: "Bathroom scales show kilograms. What are they really measuring, and why would they be wrong on the Moon?"
+support: "Give a two-column card: Mass (kg, matter, same everywhere) and Weight (N, force, depends on g)."
+leads: |
+  Next: relating force, mass and motion (node 5). In Year 10, F = ma uses mass, not weight.
+
+  In class: newton meters and 100 g masses (about 1 N each); the Apollo 15 hammer and feather video.
+exit:
+  q: "A 2 kg rock on Earth (g = 9.8 N/kg). What are its mass and its weight on the Moon (g = 1.6 N/kg)?"
+  a: "Mass 2 kg (unchanged); weight 2 × 1.6 = 3.2 N."
+explain: |
+  **Mass** (kg) is how much matter an object has; it is the same everywhere. **Weight** (N) is the force of gravity on it: **weight = mass × g**.
+
+  g is 9.8 N/kg on Earth, 1.6 on the Moon, 3.7 on Mars, 24.8 on Jupiter.

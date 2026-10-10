@@ -1,0 +1,13 @@
+# Boards for "What makes a sex cell special?".
+
+# region: gametes
+widget: cell
+show: sperm, egg
+find: nucleus, acrosome, midpiece, tail, jelly, yolk
+# endregion
+
+# region: pollen
+widget: cell
+show: pollen, egg
+find: nucleus, pwall
+# endregion

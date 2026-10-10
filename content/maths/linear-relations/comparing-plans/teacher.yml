@@ -1,0 +1,45 @@
+summary: Students put two linear rules on one graph, find where they are equal, decide which is cheaper on each side in the situation's words, and say where a model makes sense (AC9M8A03, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can find where two plans cost the same from their graphs, and say what that means.
+  - I can decide which plan is cheaper for a given amount, and explain why in words.
+  - I can say which values make sense for a model, and spot an answer that does not.
+before: |
+  Do the Run and Modify boards yourself first. This lesson uses the last two: solving with graphs (where lines meet) and writing rules from situations.
+
+  The new move is interpretation. The crossing answers "when are they the same?"; the lower line answers "which is cheaper?"; and every model has values where it makes sense (no negative data, whole tickets, a battery that stops at 0%). Answers should be sentences in the situation's words, not just numbers.
+
+  The lines start at 0 on purpose: the graph itself shows where the model applies.
+running:
+  - "Predict: take a show of hands. 'Plan A, lower fee' is the common wrong answer. Ask a student who chose it to work out 6 GB on both plans."
+  - "Run: once P is on the crossing, point left and right of it: which line is lower on each side?"
+  - "Investigate: model the worked example live and finish with the sentence in words. Insist on the sentence: 'Up to 4 GB, Plan A is cheaper...'."
+  - "Modify: before the electricians, ask: what did the c lesson say about lines with the same m?"
+  - "Practise: for each answer, ask one student to say it as a sentence about the situation."
+  - "Make: compare two students' rival plans. Both pass through (6, 50); which would you advertise to whom?"
+stuck:
+  - see: "A student says the plan with the lower fee is always cheaper (Leo's mistake)."
+    ask: "Work out both plans for 10 GB. Which is cheaper now?"
+    fix: "The fee is only where the line starts. The rate decides who wins for large amounts: the lines cross, and the cheaper plan changes there."
+  - see: "A student gives the crossing as a number with no meaning."
+    ask: "What are the 4 and the 40 in this situation?"
+    fix: "Say it with units: '4 GB costs 40 dollars on either plan'."
+  - see: "A student accepts a negative or impossible answer."
+    ask: "Could this happen in real life?"
+    fix: "List the values that make sense (0 or more GB, whole tickets, 0 to 100%) before answering."
+stretch: "A third plan costs 25 dollars plus 3 per GB. Where does it cross Plan A and Plan B? Which plan is cheapest for 2, 5 and 10 GB?"
+support: "Give a table with g = 0 to 8 for both plans to fill in first; the crossing is where the two columns match."
+leads: |
+  This finishes the Linear relations course so far. Later courses use the same ideas: simultaneous equations (two lines, one crossing, solved with algebra), inequalities (which side of a line), and non-linear models when a straight line stops fitting.
+
+  Where it leads in class: any "which deal is better" question, break-even in business, and checking whether a model's answer makes sense in science.
+exit:
+  q: "Plan X costs 15 dollars plus 6 per GB; Plan Y costs 33 dollars flat. Which is cheaper for 2 GB and for 5 GB? Where do they cost the same?"
+  a: "2 GB: X (27 dollars vs 33). 5 GB: Y (45 vs 33). They cost the same at 3 GB (33 dollars)."
+explain: |
+  To compare two plans, draw both rules on one graph. Where the lines **cross**, the plans cost the same.
+
+  On each side of the crossing, the **lower line** is the cheaper plan. A plan with a lower fee is cheaper for small amounts, but a plan with a lower rate wins for large amounts.
+
+  Always answer in words ("Up to 4 GB, Plan A is cheaper"), and check the answer makes sense: you cannot use negative data or buy half a ticket, so a model only fits some values.

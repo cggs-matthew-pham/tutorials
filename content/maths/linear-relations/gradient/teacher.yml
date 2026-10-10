@@ -1,0 +1,48 @@
+summary: Students vary m in y = mx + 1 on a graph board and find that m is how far the line goes up for each step right (AC9M8A04, node 1).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can describe what happens to the line y = mx + c when m gets bigger, is 0, or is negative.
+  - I can read m from a rule as how far the line goes up for each step right.
+  - I can find m for a line through (0, 1) and another point.
+before: |
+  Do the Run and Modify boards yourself first. Students should already be able to plot a line from a rule or a table, and work with negative numbers.
+
+  Only m changes in this lesson: c stays at 1, so every line passes through (0, 1). What c does, and parallel lines, is the next lesson. If students ask about c, say "hold that thought": separating the two is the point.
+
+  The lesson says "up for each step right" rather than "rise over run" or "gradient". The primer has the formal words if you want to introduce them at the end.
+running:
+  - "Predict: take a show of hands for each option. The common wrong answer is 'moves up by 2': students expect a bigger number to lift the line. Do not correct it yet."
+  - "Run: ask students to watch the point where the line crosses the y-axis as they move m. It never moves. Then point at the orange step and the table: both show the same number as m."
+  - "Investigate: model the worked example live. Write y = 3x + 1, then work out y at x = 0, 1 and 2 at writing pace, saying 'one step right, how far up?' each time. Reveal the prepared lines afterwards to compare."
+  - "Modify: each task changes one thing. Before the flat and down tasks, ask: what m do you think it will be? Then let them check."
+  - "Practise: the 'which way' question plants a minus sign in c. Ask a student who chose y = 3x − 2 to work out y at x = 0 and x = 1."
+  - "Make: collect a few students' m and P. Check one as a class: start at (0, 1), count 1 right, m up."
+stuck:
+  - see: "A student says a bigger m moves the line up."
+    ask: "Where does the line cross the y-axis when m is 1? When m is 3?"
+    fix: "Work out y at x = 0 for both rules: 1 × 0 + 1 and 3 × 0 + 1 are both 1. The crossing point stays; only the steepness changes."
+  - see: "A student reads c as the steepness (Lee's mistake)."
+    ask: "Which number changes how much y goes up each time x goes up by 1?"
+    fix: "Make a two-row table for x = 0 and x = 1 and find the difference in y. It is the number in front of x."
+  - see: "A student cannot find m for the down task."
+    ask: "Is T above or below where the line starts? Which way must the line go?"
+    fix: "Count from (0, 1) to T: how far down, over how many steps right? Down means a negative m."
+  - see: "A student moves the slider until it works without noticing why."
+    ask: "Before you move it, what value of m do you think you need, and why?"
+    fix: "Have them say the count aloud first ('2 steps right, up 8, so 4 each step'), then set the slider."
+stretch: "Find m for a line through (0, 1) and (6, 4). Then: which is steeper, y = −3x + 1 or y = 2x + 1? (Steepness is the size of m; the sign gives the direction.)"
+support: "Use the Run board for the Investigate questions: set m to the number in the rule and read the table. Give squared paper to count steps by hand."
+leads: |
+  Next: what c does (the line moves up and down without turning) and parallel lines (same m). Then solving equations with graphs, where 2x + 3 = 11 becomes the point where y = 2x + 3 meets y = 11, and modelling with two lines.
+
+  Where it leads in class: any rate. Dollars per hour, kilometres per hour, litres per minute: the steepness of the graph is the rate, and m in the rule is the same number.
+exit:
+  q: "Without plotting, describe the line y = −2x + 1: where does it cross the y-axis, which way does it go, and how steep is it?"
+  a: "It crosses the y-axis at 1 and goes down 2 for each step to the right (m = −2)."
+explain: |
+  In a rule like $y = 3x + 1$, the number in front of $x$ is called $m$. It tells you how far the line goes **up for each step of 1 to the right**.
+
+  Work it out one step at a time: when $x = 0$, $y = 1$; when $x = 1$, $y = 4$; when $x = 2$, $y = 7$. Each step right, $y$ goes up by 3. That is $m$.
+
+  A bigger $m$ makes the line steeper. $m = 0$ makes it flat. A negative $m$ makes it go down. Changing $m$ does not move where the line crosses the $y$-axis: that is the number on its own, $c$.

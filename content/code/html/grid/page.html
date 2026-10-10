@@ -1,0 +1,340 @@
+<!-- region: layout -->
+<style>
+  .page {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+  }
+  nav {
+    background-color: lightblue;
+  }
+  main {
+    background-color: lightyellow;
+  }
+</style>
+<div class="page">
+  <nav>Menu</nav>
+  <main>The main content of the page.</main>
+</div>
+<!-- endregion -->
+
+<!-- region: gridbad -->
+<style>
+  nav, main {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+  }
+  nav {
+    background-color: lightblue;
+  }
+  main {
+    background-color: lightyellow;
+  }
+</style>
+<div class="page">
+  <nav>Menu</nav>
+  <main>The main content of the page.</main>
+</div>
+<!-- endregion -->
+
+<!-- region: gallery -->
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 240px;
+  }
+</style>
+<div class="gallery">
+  <img src="trophy.svg" alt="Trophy" width="60">
+  <img src="medal.svg" alt="Medal" width="60">
+  <img src="book.svg" alt="Book" width="60">
+  <img src="ball.svg" alt="Ball" width="60">
+  <img src="star.svg" alt="Star" width="60">
+  <img src="music.svg" alt="Music" width="60">
+  <img src="trophy.svg" alt="Trophy" width="60">
+</div>
+<!-- endregion -->
+
+<!-- region: modify -->
+<style>
+  nav {
+    background-color: lightblue;
+    padding: 8px;
+  }
+  .card {
+    padding: 12px;
+    border: 2px solid teal;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+</header>
+<div class="page">
+  <nav>
+    <p><a href="https://example.com/home">Home</a></p>
+    <p><a href="https://example.com/join">Join</a></p>
+  </nav>
+  <main>
+    <h2>Groups</h2>
+    <div class="cards">
+    <div class="card">Beginners</div>
+    <div class="card">Players</div>
+    <div class="card">Champions</div>
+    <div class="card">Coaches</div>
+    <div class="card">Parents</div>
+    <div class="card">Visitors</div>
+    </div>
+  </main>
+</div>
+<!-- endregion -->
+
+<!-- region: sol-columns -->
+<style>
+  nav {
+    background-color: lightblue;
+    padding: 8px;
+  }
+  .card {
+    padding: 12px;
+    border: 2px solid teal;
+  }
+  .page {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+</header>
+<div class="page">
+  <nav>
+    <p><a href="https://example.com/home">Home</a></p>
+    <p><a href="https://example.com/join">Join</a></p>
+  </nav>
+  <main>
+    <h2>Groups</h2>
+    <div class="cards">
+    <div class="card">Beginners</div>
+    <div class="card">Players</div>
+    <div class="card">Champions</div>
+    <div class="card">Coaches</div>
+    <div class="card">Parents</div>
+    <div class="card">Visitors</div>
+    </div>
+  </main>
+</div>
+<!-- endregion -->
+
+<!-- region: sol-gap -->
+<style>
+  nav {
+    background-color: lightblue;
+    padding: 8px;
+  }
+  .card {
+    padding: 12px;
+    border: 2px solid teal;
+  }
+  .page {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 16px;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+</header>
+<div class="page">
+  <nav>
+    <p><a href="https://example.com/home">Home</a></p>
+    <p><a href="https://example.com/join">Join</a></p>
+  </nav>
+  <main>
+    <h2>Groups</h2>
+    <div class="cards">
+    <div class="card">Beginners</div>
+    <div class="card">Players</div>
+    <div class="card">Champions</div>
+    <div class="card">Coaches</div>
+    <div class="card">Parents</div>
+    <div class="card">Visitors</div>
+    </div>
+  </main>
+</div>
+<!-- endregion -->
+
+<!-- region: sol-cards -->
+<style>
+  nav {
+    background-color: lightblue;
+    padding: 8px;
+  }
+  .card {
+    padding: 12px;
+    border: 2px solid teal;
+  }
+  .page {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 16px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+</header>
+<div class="page">
+  <nav>
+    <p><a href="https://example.com/home">Home</a></p>
+    <p><a href="https://example.com/join">Join</a></p>
+  </nav>
+  <main>
+    <h2>Groups</h2>
+    <div class="cards">
+    <div class="card">Beginners</div>
+    <div class="card">Players</div>
+    <div class="card">Champions</div>
+    <div class="card">Coaches</div>
+    <div class="card">Parents</div>
+    <div class="card">Visitors</div>
+    </div>
+  </main>
+</div>
+<!-- endregion -->
+
+<!-- region: make -->
+<!-- Your page layout: a .page box holding a menu and the main content, laid out with display: grid. -->
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<style>
+  .page {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 20px;
+  }
+  main {
+    background-color: lavender;
+    padding: 12px;
+  }
+  .side {
+    background-color: lightyellow;
+    padding: 12px;
+  }
+</style>
+<div class="page">
+  <main>
+    <h1>Music night</h1>
+    <p>Friday at 7 pm in the hall. Bands, choirs and solo acts.</p>
+  </main>
+  <div class="side">
+    <h2>Tickets</h2>
+    <p>Free, from the office.</p>
+  </div>
+</div>
+<!-- endregion -->
+
+<!-- region: photos -->
+<style>
+  .photo {
+    padding: 8px;
+    border: 1px solid gray;
+    text-align: center;
+  }
+</style>
+<h1>Our year in pictures</h1>
+<div class="photos">
+  <div class="photo"><img src="ball.svg" alt="Soccer final" width="70"><p>Soccer final</p></div>
+  <div class="photo"><img src="music.svg" alt="Music night" width="70"><p>Music night</p></div>
+  <div class="photo"><img src="book.svg" alt="Book week" width="70"><p>Book week</p></div>
+  <div class="photo"><img src="star.svg" alt="Awards" width="70"><p>Awards</p></div>
+  <div class="photo"><img src="trophy.svg" alt="Trophy day" width="70"><p>Trophy day</p></div>
+  <div class="photo"><img src="medal.svg" alt="Sports day" width="70"><p>Sports day</p></div>
+</div>
+<!-- endregion -->
+
+<!-- region: sol-photos -->
+<style>
+  .photo {
+    padding: 8px;
+    border: 1px solid gray;
+    text-align: center;
+  }
+  .photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 420px;
+  }
+</style>
+<h1>Our year in pictures</h1>
+<div class="photos">
+  <div class="photo"><img src="ball.svg" alt="Soccer final" width="70"><p>Soccer final</p></div>
+  <div class="photo"><img src="music.svg" alt="Music night" width="70"><p>Music night</p></div>
+  <div class="photo"><img src="book.svg" alt="Book week" width="70"><p>Book week</p></div>
+  <div class="photo"><img src="star.svg" alt="Awards" width="70"><p>Awards</p></div>
+  <div class="photo"><img src="trophy.svg" alt="Trophy day" width="70"><p>Trophy day</p></div>
+  <div class="photo"><img src="medal.svg" alt="Sports day" width="70"><p>Sports day</p></div>
+</div>
+<!-- endregion -->
+
+<!-- region: explain-start -->
+<style>
+  .page {
+  }
+  nav {
+    background-color: lightblue;
+    padding: 12px;
+  }
+  main {
+    background-color: lightyellow;
+    padding: 12px;
+  }
+</style>
+<div class="page">
+  <nav>
+    <p>Menu</p>
+    <p>Home</p>
+    <p>Results</p>
+  </nav>
+  <main>
+    <h2>Welcome</h2>
+    <p>The main content of the page.</p>
+  </main>
+</div>
+<!-- endregion -->
+
+<!-- region: explain -->
+<style>
+  .page {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+  }
+  nav {
+    background-color: lightblue;
+    padding: 12px;
+  }
+  main {
+    background-color: lightyellow;
+    padding: 12px;
+  }
+</style>
+<div class="page">
+  <nav>
+    <p>Menu</p>
+    <p>Home</p>
+    <p>Results</p>
+  </nav>
+  <main>
+    <h2>Welcome</h2>
+    <p>The main content of the page.</p>
+  </main>
+</div>
+<!-- endregion -->

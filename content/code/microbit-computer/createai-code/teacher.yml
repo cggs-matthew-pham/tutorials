@@ -1,0 +1,44 @@
+summary: Students code with CreateAI's Machine Learning blocks (in the simulator with practice actions, then on their own model) to build an activity tracker.
+time: 45
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 12 min · Make 12 min · Own model 5 min"
+goals:
+  - I can run code when a model's estimated action starts or stops.
+  - I can explain why on ML start runs once per stretch of an action.
+  - I can handle unknown, when no action is certain enough.
+before: |
+  **The idea:** the model estimates an action several times a second. **on ML … start** runs when the estimate **changes** to that action (once per stretch, not once per jump); **on ML … stop** runs when it changes away, with how long it lasted; **unknown** is the estimate when no action reaches its **recognition point** (CreateAI's word for the confidence threshold). **is ML … detected** and **certainty** are there for programs that check in forever.
+
+  **Practice actions:** a trained model only exists inside the project CreateAI makes, so this lesson's editor loads the Machine Learning blocks with six practice actions (from this site's own small extension) and the simulator's ML panel lets students choose the action. Real models use the same blocks with the actions students trained. Running the model on a micro:bit needs a **V2**.
+
+  This lesson has not yet been tried in the live MakeCode editor: check the ML panel appears beside the simulator before class.
+running:
+  - "Predict: many say 3. Ask: how many times did the estimate change?"
+  - "Run: choose actions in the ML panel; count aloud."
+  - "Investigate: the counting-jumps question is the subtle one; link unknown to Unsure in AI robots."
+  - "Make: the tracker reuses serial write value from the first unit."
+stuck:
+  - see: "There is no ML panel."
+    ask: "Is the editor full screen? Is the simulator running?"
+    fix: "Open the editor full screen and restart the simulator."
+  - see: "The count goes up only once."
+    ask: "Did the action change between jumps?"
+    fix: "Choose another action (still) in between."
+  - see: "Running time stays 0."
+    ask: "Did running stop? The stop event runs when the estimate changes away."
+    fix: "Choose running, then still, then press A."
+stretch: "Use certainty (%) ML jumping in forever to show a bar of how sure the model is."
+support: "Give the jump count; students add the other actions."
+leads: "Next: the capstone, your own AI sorter. Real world: fitness trackers, fall detection, sports coaching sensors."
+exit:
+  q: "Why does on ML jumping start run once during three jumps in a row?"
+  a: "It runs when the estimated action changes to jumping; three jumps in a row are one stretch of jumping."
+explain: |
+  The **Machine Learning** blocks run code when the model's **estimated action** changes.
+
+  - **on ML … start**: once, when an action begins.
+  - **on ML … stop**: when it ends, with how long it lasted.
+  - **unknown**: no action is certain enough.
+solutions:
+  step-4#t1: ml.ts#sol-running
+  step-4#t2: ml.ts#sol-unknown
+  step-5: ml.ts#sol-make

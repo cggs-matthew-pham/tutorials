@@ -1,0 +1,41 @@
+summary: Students extend the particle model so that particles are atoms with a type, and explain that atom type decides the element (AC9S8U06, node 1, a hinge node).
+time: 20
+timing: "Engage and Explore 6 min · Explain 8 min · Evaluate 3 min · Typical adds 5 min, Wider about 4 min"
+goals:
+  - I can explain that the particles in the particle model are atoms.
+  - I can explain that different elements are made of different types of atom.
+  - I can explain that atom type decides what element a substance is.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace models, kits or class discussion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  Frame it as an upgrade, not a replacement: "you know particles exist; now we add that particles have a type". The hinge risk is students carrying identical particles into compounds (node 3) and chemical change.
+running:
+  - "Engage: count how many chose identical particles. That is the Year 7 picture the board upgrades."
+  - "Explore: students should find all five kinds in air (nitrogen, oxygen, argon, carbon dioxide, water). Ask which colours appear in more than one kind of particle."
+  - "Explain: the two questions carry the checkpoint. The sort catches 'atoms have colours' and 'oxygen in water is different'."
+  - "In your own words: collect the sentence; it is the node's checkpoint in the student's words."
+stuck:
+  - see: "A student says the atoms are red and white."
+    ask: "Is water red and white? Is air?"
+    fix: "The colours are a code, like a map key. Real atoms have no colour."
+  - see: "A student says O₂ is a compound because it has two atoms."
+    ask: "How many types of atom are in it?"
+    fix: "One type, so it is an element. A compound needs different types joined."
+  - see: "A student thinks the particles of air float in air."
+    ask: "What is between the particles on the board?"
+    fix: "Nothing at all. The particles are the air."
+stretch: "Carbon dioxide and carbon monoxide are both made of carbon and oxygen atoms, yet one is in your breath and the other is deadly. What could be different about them?"
+support: "Before Explore, give a key card: one coloured dot for each element on the board, with its name, to tick as students find it."
+leads: |
+  Next: node 3, compounds (different atom types chemically joined), with the formula notation that goes with them.
+
+  In class: ball-and-stick or modelling-clay atoms in different colours; build O₂, N₂, H₂O and CO₂ and sort them into elements and compounds.
+exit:
+  q: "What makes gold a different element from silver?"
+  a: "Gold is made of a different type of atom from silver. Atom type decides the element."
+explain: |
+  The particles in the particle model are **atoms**, or atoms joined together. Atoms come in about 118 **types**, one for each **element**.
+
+  - All atoms of one element are the same type.
+  - Atom type decides what element a substance is.
+  - An element can be single atoms (helium) or atoms of one type joined (oxygen, O₂).

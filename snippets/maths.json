@@ -1,0 +1,79 @@
+{
+  "title": "Maths reference: Algebra",
+  "summary": "The words and methods from Algebra Foundations, each with an example and, where it helps, a picture of the board.",
+  "language": "maths",
+  "course": "maths/algebra",
+  "_about": "Maths cards. code is TeX (shown typeset); hint may use $...$; unit is the course unit that introduces the card (its cheat sheet lists it); board is a maths-board setup drawn as the card's picture by tools/render-pictures.mjs; shows captions the picture.",
+  "groups": [
+    {
+      "name": "Words",
+      "items": [
+        {
+          "label": "expression",
+          "unit": "equations",
+          "code": "2x + 3",
+          "hint": "A calculation with a letter in it. It has a value once you know the letter, but it does not say that anything is equal."
+        },
+        {
+          "label": "equation",
+          "unit": "equations",
+          "code": "2x + 3 = 11",
+          "hint": "Two expressions with = between them: a statement that they are equal, like a balanced scale.",
+          "board": "widget: balance\nleft: 2x + 3\nright: 11\nmin: 0\nmax: 10\nstart: 4",
+          "shows": "Balanced when x = 4"
+        },
+        {
+          "label": "solution",
+          "unit": "equations",
+          "code": "x = 4",
+          "hint": "The value of the letter that makes the equation true."
+        },
+        {
+          "label": "2x means 2 times x",
+          "unit": "equations",
+          "code": "2x = 2 \\times x",
+          "hint": "With $x = 4$, $2x$ is 8, not 24."
+        },
+        {
+          "label": "inverse operations",
+          "unit": "equations",
+          "code": "+ \\leftrightarrow -\\qquad \\times \\leftrightarrow \\div",
+          "hint": "Each step has an opposite that undoes it: adding and subtracting, multiplying and dividing."
+        }
+      ]
+    },
+    {
+      "name": "Methods",
+      "items": [
+        {
+          "label": "check by substitution",
+          "unit": "equations",
+          "code": "2(4) + 3 = 11 \\checkmark",
+          "hint": "Put the value in place of the letter and work out both sides. If they match, it is a solution. Check every answer in the first equation."
+        },
+        {
+          "label": "backtracking",
+          "unit": "equations",
+          "code": "\\begin{aligned} 3x + 7 &= 19 \\\\ 19 - 7 &= 12 \\\\ 12 \\div 3 &= 4 \\end{aligned}",
+          "hint": "Undo the steps done to $x$ with their opposites, last step first.",
+          "board": "widget: machine\nops: × 3, + 7\noutput: 19",
+          "shows": "Multiply by 3, then add 7. Undo + 7 first."
+        },
+        {
+          "label": "balance method",
+          "unit": "equations",
+          "code": "\\begin{aligned} 3x + 5 &= 20 \\\\ 3x &= 15 \\\\ x &= 5 \\end{aligned}",
+          "hint": "Do the same to both sides (take away, or share into equal groups) until $x$ is on its own.",
+          "board": "widget: balance\nleft: 3x + 5\nright: 20\nmin: 0\nmax: 10\nstart: 5",
+          "shows": "Take 5 from both sides, then share both into 3 groups."
+        },
+        {
+          "label": "x on both sides",
+          "unit": "equations",
+          "code": "\\begin{aligned} 5x &= 2x + 12 \\\\ 3x &= 12 \\\\ x &= 4 \\end{aligned}",
+          "hint": "Take the same number of $x$ from both sides first, so the bags are on one side only."
+        }
+      ]
+    }
+  ]
+}

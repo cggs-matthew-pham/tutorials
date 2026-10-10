@@ -1,0 +1,15 @@
+# Science boards for "How does heat get through?".
+
+# region: bar
+widget: convection
+mode: solid
+# endregion
+
+# region: beaker
+widget: convection
+# endregion
+
+# region: noheat
+widget: convection
+caption: "Turn the heat off once the current is going. What happens?"
+# endregion

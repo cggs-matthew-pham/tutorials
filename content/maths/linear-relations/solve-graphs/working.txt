@@ -1,0 +1,8 @@
+# Kai's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kai
+Solve x + 5 = 2x + 1 with a graph.
+Draw y = x + 5 and y = 2x + 1.
+The lines meet at (4, 9).
+So the solution is x = 9.
+# endregion

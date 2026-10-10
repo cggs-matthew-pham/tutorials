@@ -1,0 +1,249 @@
+{
+ "title": "micro:bit blocks reference",
+ "summary": "The blocks from micro:bit Foundations, each with what it does. Find them in the MakeCode toolbox; the picture shows the block, the code is the same block as MakeCode JavaScript.",
+ "language": "makecode",
+ "groups": [
+  {
+   "name": "Show and react",
+   "items": [
+    {
+     "label": "show icon",
+     "code": "basic.showIcon(IconNames.‹Heart›)",
+     "hint": "Shows a ready-made picture. Basic › show icon; click the picture to choose another."
+    },
+    {
+     "label": "show leds",
+     "code": "basic.showLeds(`\n    . # . # .\n    # # # # #\n    # # # # #\n    . # # # .\n    . . # . .\n    `)",
+     "hint": "Draw your own picture: click squares to light them (# is on). Basic › show leds."
+    },
+    {
+     "label": "show string",
+     "code": "basic.showString(\"‹Hello›\")",
+     "hint": "Scrolls a word or message across the screen. Basic › show string."
+    },
+    {
+     "label": "show number",
+     "code": "basic.showNumber(‹0›)",
+     "hint": "Shows a number; numbers above 9 scroll. Basic › show number."
+    },
+    {
+     "label": "show arrow",
+     "code": "basic.showArrow(ArrowNames.‹West›)",
+     "hint": "Shows an arrow pointing a direction. Basic › more › show arrow."
+    },
+    {
+     "label": "clear screen",
+     "code": "basic.clearScreen()",
+     "hint": "Turns every LED off. Basic › more › clear screen."
+    },
+    {
+     "label": "pause",
+     "code": "basic.pause(‹500›)",
+     "hint": "Waits before the next block. 1000 ms is one second. Basic › pause."
+    },
+    {
+     "label": "forever",
+     "code": "basic.forever(function () {\n    ‹blocks›\n})",
+     "hint": "Runs the blocks inside again and again. Blocks in on start run only once."
+    },
+    {
+     "label": "on button pressed",
+     "code": "input.onButtonPressed(Button.‹A›, function () {\n    ‹blocks›\n})",
+     "hint": "Runs the blocks inside every time the button is pressed. Choose A, B or A+B. Input."
+    },
+    {
+     "label": "on shake",
+     "code": "input.onGesture(Gesture.‹Shake›, function () {\n    ‹blocks›\n})",
+     "hint": "Runs the blocks inside every time the micro:bit is shaken (or tilted, if you choose another gesture). Input."
+    }
+   ]
+  },
+  {
+   "name": "Remember and sense",
+   "items": [
+    {
+     "label": "set variable",
+     "code": "let ‹count› = ‹0›",
+     "hint": "Puts a value in a variable, throwing the old value away. Make the variable in Variables first.",
+     "matches": "^\\s*let\\s+\\w+\\s*=\\s*[-\\d]"
+    },
+    {
+     "label": "change variable",
+     "code": "‹count› += ‹1›",
+     "hint": "Adds to a variable's value. Change by -1 counts down. Variables.",
+     "matches": "\\w\\s*\\+=\\s*"
+    },
+    {
+     "label": "light level",
+     "code": "input.lightLevel()",
+     "hint": "How bright it is: 0 (dark) to 255 (bright). Input."
+    },
+    {
+     "label": "temperature",
+     "code": "input.temperature()",
+     "hint": "How warm it is, in degrees Celsius. Input."
+    },
+    {
+     "label": "acceleration",
+     "code": "input.acceleration(Dimension.‹X›)",
+     "hint": "Tilt: x is left (below 0) and right (above 0), y is forward and back. Input › more."
+    },
+    {
+     "label": "plot bar graph",
+     "code": "led.plotBarGraph(‹value›, ‹255›)",
+     "hint": "Lights more LEDs for a bigger value. The second number is the biggest value. Led.",
+     "matches": "led\\.plotBarGraph\\("
+    }
+   ]
+  },
+  {
+   "name": "Decide",
+   "items": [
+    {
+     "label": "if",
+     "code": "if (‹condition›) {\n    ‹blocks›\n}",
+     "hint": "Runs the blocks inside only when the condition is true; does nothing when it is false. Logic.",
+     "matches": "(?<!else )\\bif\\s*\\("
+    },
+    {
+     "label": "if else",
+     "code": "if (‹condition›) {\n    ‹blocks›\n} else {\n    ‹blocks›\n}",
+     "hint": "Exactly one part runs: the first when the condition is true, else the second. Click + on an if block.",
+     "matches": "\\}\\s*else\\s*\\{"
+    },
+    {
+     "label": "else if",
+     "code": "} else if (‹condition›) {",
+     "hint": "Another question, asked only if the ones above were false. The first true one wins.",
+     "matches": "else\\s+if\\s*\\("
+    }
+   ]
+  },
+  {
+   "name": "Collections and tools",
+   "items": [
+    {
+     "label": "list",
+     "code": "let ‹answers› = [‹\"Yes\", \"No\"›]",
+     "hint": "Many values in order under one name. Places start at 0. Advanced › Arrays.",
+     "matches": "=\\s*\\[[^\\]]"
+    },
+    {
+     "label": "get value at",
+     "code": "‹answers›[‹0›]",
+     "hint": "The item at a place in the list, counted from 0. Arrays.",
+     "matches": "\\w\\[[^\\]]+\\]"
+    },
+    {
+     "label": "length of list",
+     "code": "‹answers›.length",
+     "hint": "How many items are in the list. The last place is the length − 1. Arrays.",
+     "matches": "\\w\\.length\\b"
+    },
+    {
+     "label": "pick random",
+     "code": "randint(‹0›, ‹10›)",
+     "hint": "A random whole number from the first to the second, both included. Math."
+    },
+    {
+     "label": "function",
+     "code": "function ‹name› () {\n    ‹blocks›\n}",
+     "hint": "A named job. Making it does not run it: a call block runs it. Advanced › Functions.",
+     "matches": "function\\s+\\w+\\s*\\(\\s*\\)"
+    },
+    {
+     "label": "function with a parameter",
+     "code": "function ‹showScore› (‹points›: number) {\n    ‹blocks›\n}",
+     "hint": "A function with an input. Call it with a value: showScore(5). Functions › Add a parameter.",
+     "matches": "function\\s+\\w+\\s*\\(\\s*\\w+\\s*:"
+    }
+   ]
+  },
+  {
+   "name": "Talk",
+   "items": [
+    {
+     "label": "radio set group",
+     "code": "radio.setGroup(‹1›)",
+     "hint": "Picks a channel (0 to 255). Only micro:bits in the same group hear each other. Radio."
+    },
+    {
+     "label": "radio send number",
+     "code": "radio.sendNumber(‹0›)",
+     "hint": "Sends a number to every other micro:bit in the group. Radio."
+    },
+    {
+     "label": "on radio received",
+     "code": "radio.onReceivedNumber(function (receivedNumber) {\n    ‹blocks›\n})",
+     "hint": "Runs each time a number arrives; receivedNumber holds it. Radio."
+    },
+    {
+     "label": "radio send string",
+     "code": "radio.sendString(\"‹hi›\")",
+     "hint": "Sends a word to every other micro:bit in the group. Radio."
+    },
+    {
+     "label": "on radio received string",
+     "code": "radio.onReceivedString(function (receivedString) {\n    ‹blocks›\n})",
+     "hint": "Runs each time a word arrives; receivedString holds it. Radio."
+    }
+   ]
+  },
+  {
+   "name": "Challenge",
+   "items": [
+    {
+     "label": "running time",
+     "code": "input.runningTime()",
+     "hint": "Milliseconds since the micro:bit switched on. Take one from a later one to time something. Input › more."
+    },
+    {
+     "label": "true or false",
+     "code": "‹waiting› = ‹true›",
+     "hint": "A variable can hold true or false, to remember what is happening now. Logic.",
+     "matches": "\\w\\s*=\\s*(true|false)\\b"
+    }
+   ]
+  },
+  {
+   "name": "Talk to the computer",
+   "items": [
+    {
+     "label": "serial write value",
+     "code": "serial.writeValue(\"‹light›\", ‹input.lightLevel()›)",
+     "hint": "Sends a line such as light:128 down the USB cable. The board graphs it; MakeCode's simulator shows it under Show data. Serial."
+    },
+    {
+     "label": "serial write line",
+     "code": "serial.writeLine(\"‹ok›\")",
+     "hint": "Sends a line of text down the USB cable. Serial."
+    },
+    {
+     "label": "on serial data received",
+     "code": "serial.onDataReceived(serial.delimiters(Delimiters.NewLine), function () {\n    ‹blocks›\n})",
+     "hint": "Runs each time a whole line arrives over USB (it ends with a new line). Serial."
+    },
+    {
+     "label": "serial read line",
+     "code": "serial.readLine()",
+     "hint": "The line that arrived, as text, without its new line. Use it inside on serial data received. Serial."
+    },
+    {
+     "label": "radio send value",
+     "code": "radio.sendValue(\"‹bin›\", ‹1›)",
+     "hint": "Sends a name and a number by radio, such as bin and 1. Radio."
+    },
+    {
+     "label": "on radio received value",
+     "code": "radio.onReceivedValue(function (name, value) {\n    ‹blocks›\n})",
+     "hint": "Runs each time a name and number arrive by radio. Radio."
+    },
+    {
+     "label": "servo write pin",
+     "code": "pins.servoWritePin(AnalogPin.‹P0›, ‹90›)",
+     "hint": "Turns a servo on that pin to an angle from 0 to 180 (90 is the middle). Pins."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+# Boards for "How hard do you need to push?".
+
+# region: fma
+widget: forces
+object: Trolley
+mass: 1, 10, 4
+force P: right, 4, Push, adjust 0-40
+motion: on
+track: 80
+time: 6
+# endregion

@@ -1,0 +1,6 @@
+# Boards for "Why are there two high tides a day?".
+
+# region: tides
+widget: sky
+mode: tides
+# endregion

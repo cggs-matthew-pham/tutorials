@@ -1,0 +1,47 @@
+summary: Students turn a situation that is a starting amount plus a rate into a rule y = mx + c, read m and c back into words, and fit lines through real values (AC9M8A03, node 1).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can write a rule like T = 2d + 4 from a situation described in words.
+  - I can explain what m and c mean in a situation (the rate and the starting amount).
+  - I can use a rule to work out a value, and check it in words.
+before: |
+  Do the Run and Modify boards yourself first. Students should already know what m and c do to a line (the first two lessons of this course).
+
+  The new move is translation: the starting amount (paid once, the value when nothing has happened) is c; the rate ("per", "each", "every") is m. The order of the numbers in the words does not matter, and Zoe's working shows the mistake of assuming it does.
+
+  The boards use the situation's own letters (T for total, d for distance), labelled on the axes. The graphs still behave exactly like y = mx + c.
+
+  The next lesson uses these rules: two plans, where their lines cross, and when a rule stops being a good model.
+running:
+  - "Predict: take a show of hands. 'T = 4d + 2' is the common wrong answer: the numbers taken in the order they appear."
+  - "Run: before students touch the sliders, ask: what would a 0 km trip cost? (4.) Where is that on the graph?"
+  - "Investigate: model the worked example live. Underline 'a month' (once) and 'for each GB' (the rate) in the words, then write c and m."
+  - "Modify: before the battery task, ask: which way will this line go?"
+  - "Practise: for the plumber question, ask students to say what 80 means in words too."
+  - "Make: pair students to swap situations and write each other's rules."
+stuck:
+  - see: "A student uses the numbers in the order they appear (Zoe's mistake)."
+    ask: "Which amount is paid only once? Which is paid again for every km?"
+    fix: "Underline 'per', 'each' or 'every': that number is m. The one-off amount is c."
+  - see: "A student adds the fee into the rate (T = 6d)."
+    ask: "What would a 0 km trip cost with your rule? With the real taxi?"
+    fix: "Work out 0 km and 1 km in words: 4 dollars and 6 dollars. The fee is paid once; only the 2 repeats."
+  - see: "A student cannot find c from two points (the last Modify task)."
+    ask: "How much does the fare go up each km? What would 0 km cost?"
+    fix: "Work back from the first point one step at a time: 11 at 2 km, 8 at 1 km, 5 at 0 km."
+stretch: "A candle is 20 cm tall and burns 1.5 cm an hour. Write its rule, and work out when it burns out. (h = 20 − 1.5t; after about 13.3 hours.)"
+support: "Give a two-column table (0, 1, 2, 3 units) to fill in from the words before writing the rule: the 0 row gives c and the difference gives m."
+leads: |
+  Next: comparing two plans. Two rules on one graph; where the lines cross is where they cost the same, and the model only makes sense for some values (no negative km).
+
+  Where it leads in class: science graphs (a starting temperature and a heating rate), budgets and savings plans, and any "fee plus rate" price.
+exit:
+  q: "A swimming pool charges a 50 dollar membership plus 4 dollars a visit. Write the rule for the total T for v visits, and say what each number means."
+  a: "T = 4v + 50. 4 is the cost per visit (m); 50 is the membership, paid once (c)."
+explain: |
+  Many real amounts are a **starting amount plus a rate**. A taxi costs 4 dollars to get in, then 2 dollars for each km: $T = 2d + 4$.
+
+  The starting amount is $c$: it is the value when nothing has happened yet (0 km), where the line crosses the axis. The rate is $m$: the words "per", "each" or "every" tell you it is the amount for each one more, how far the line goes up for each step.
+
+  The order of the numbers in the words does not matter. Ask: which is paid once (c), and which is paid again and again (m)?

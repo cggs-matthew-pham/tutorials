@@ -1,0 +1,41 @@
+summary: Students construct a food web with arrows in the direction of energy flow and identify producers, consumers and decomposers, including microorganisms (AC9S7U02, node 1, a hinge node).
+time: 25
+timing: "Engage and Explore 9 min · Explain 8 min · Evaluate 3 min · Typical adds 2 min, Wider about 6 min"
+goals:
+  - I can construct a food web from a list of organisms.
+  - I can draw arrows in the direction of energy flow.
+  - I can identify producers, consumers and decomposers, including microorganisms.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace building a web from a real local ecosystem. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge risk is arrow direction and missing decomposers. Every later node reads energy along the arrows.
+
+  Board notes: the board lays organisms out by feeding level automatically and draws decomposers with dashed borders. Wrong-way arrows turn red with a reminder; students click the same pair again to remove one. The decomposer links stand for dead matter and wastes.
+running:
+  - "Engage: take a quick count of 'grasshopper to grass'. That is the 'eats' reading the board corrects."
+  - "Explore: the bush web has 8 links, including two to the decomposers. Ask what fungi feed on if students stop at 6."
+  - "Explain: the kookaburra question introduces feeding at more than one level."
+  - "In your own words: the labelled web is the evidence."
+stuck:
+  - see: "Arrows point from eater to food."
+    ask: "Where does the energy in the grasshopper come from?"
+    fix: "From the grass: so the arrow goes grass → grasshopper."
+  - see: "No links to decomposers."
+    ask: "What happens to a dead dingo?"
+    fix: "Fungi and bacteria break it down: an arrow from the dingo to the decomposers."
+  - see: "A student calls the kangaroo a producer."
+    ask: "Does a kangaroo make its own food from sunlight?"
+    fix: "No: it eats grass. A primary consumer."
+stretch: "Rabbits were introduced to Australia. Add them to the bush web: what would they eat, and what would eat them?"
+support: "Give the organism list with each one's diet written beside it before the board."
+leads: |
+  Next: matter and energy flow (node 2): following the energy along the arrows and seeing how much is lost.
+
+  In class: a string web, each student an organism holding string to what they eat; cut one string and see who feels it.
+exit:
+  q: "In a food web, why does the arrow point from the gum leaves to the koala?"
+  a: "Arrows show the direction energy flows: from the food (gum leaves) into the eater (koala)."
+explain: |
+  A **food web** joins all the food chains in an ecosystem. **Arrows point the way energy flows**, from the food to the eater.
+
+  **Producers** make their own food; **consumers** eat other organisms; **decomposers** (fungi and bacteria) break down dead matter and wastes.

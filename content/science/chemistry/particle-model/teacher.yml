@@ -1,0 +1,45 @@
+summary: Students build the particle model's four key ideas (particles, space, motion, attraction) and match particle diagrams to solids, liquids and gases (AC9S7U05, node 1, a hinge node).
+time: 25
+timing: "Engage and Explore 7 min · Explain 6 min · Practise 5 min · Evaluate 3 min · Typical and Wider add about 10 min"
+goals:
+  - I can state the four key ideas of particle theory.
+  - I can match a particle diagram to a solid, a liquid or a gas.
+  - I can describe how arrangement and motion differ between the three states.
+before: |
+  This is a concept tutorial for introducing the model or revising it, not a replacement for the practical. Run it before hands-on work with states (melting ice, a sealed syringe of air). Set the width in the link you share: `?width=minimum`, `?width=typical` (the default) or `?width=wider`. Students can widen but not narrow.
+
+  The node's response mode is consolidation, so the Practise step (six correct identifications, with feedback naming the particle feature each time) is part of the minimum path.
+running:
+  - "Engage: students lock in a prediction before the zoom lens opens. Ask who chose 'particles floating in water' and why; it is the most common answer."
+  - "Explore: insist they watch the ice for a few seconds. 'Frozen still' is the misconception the second Explain question targets."
+  - "Explain: the four key ideas are the hinge. Have students say them aloud in order: particles, space, motion, attraction."
+  - "Practise: six correct, not six in a row. Listen for students naming a feature, not just a state."
+  - "Evaluate: the 'At first I thought… Now I think…' sentence is worth collecting as an exit card."
+stuck:
+  - see: "A student says there is air between the particles."
+    ask: "What is air made of?"
+    fix: "Air is particles too. Between any particles there is nothing at all: empty space."
+  - see: "A student labels a liquid diagram as a solid because the particles touch."
+    ask: "Is there a pattern? Do the particles stay in place?"
+    fix: "Solids and liquids are both close together. The difference is the fixed pattern and the motion."
+  - see: "A student says particles get bigger when heated."
+    ask: "In the zoom lens, did any particle change size between ice and steam?"
+    fix: "Particles never change size; the spaces between them do."
+stretch: "Why can't particles that are far apart stay still? Use the Build a state board to argue it."
+support: "Give students the four key ideas on a card for the Practise step, and ask them to point to the feature they used each time."
+leads: |
+  Next: node 2 uses the diagrams to reason (why gases fill containers, why solids keep their shape). Node 3 explains properties such as compressibility and density.
+
+  In class: follow with real samples (an ice cube, water, a sealed syringe of air) and ask students to draw the particle view of each.
+exit:
+  q: "Name the four key ideas of particle theory."
+  a: "All matter is made of particles; there is empty space between them; they are always moving; they attract each other."
+explain: |
+  Everything is made of **particles** far too small to see.
+
+  1. All matter is made of particles.
+  2. There is **empty space** between them: nothing at all, not even air.
+  3. They are always **moving**. In a solid they vibrate in place.
+  4. They **attract** each other: strongly in a solid, weakly in a gas.
+
+  Solids, liquids and gases are the same kind of particles arranged and moving differently.

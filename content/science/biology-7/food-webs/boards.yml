@@ -1,0 +1,35 @@
+# Boards for "Who eats whom?".
+
+# region: bush
+widget: foodweb
+organism G: Grass
+organism H: Grasshopper
+organism R: Kangaroo
+organism L: Lizard
+organism B: Kookaburra
+organism D: Dingo
+organism F: Fungi and bacteria, decomposer
+eats H: G
+eats R: G
+eats L: H
+eats B: L, H
+eats D: R
+eats F: G, D
+# endregion
+
+# region: sea
+widget: foodweb
+organism P: Phytoplankton
+organism K: Krill
+organism F: Small fish
+organism S: Squid
+organism E: Penguin
+organism L: Leopard seal
+organism B: Bacteria, decomposer
+eats K: P
+eats F: K
+eats S: F, K
+eats E: F, K, S
+eats L: E, F
+eats B: P, L
+# endregion

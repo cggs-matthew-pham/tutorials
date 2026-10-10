@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MakeCode blocks renderer</title>
+<style>body{margin:0;background:#fff}#out{display:block}</style>
+</head>
+<body>
+<img id="out" alt="">
+<script>
+// Build-time helper for tools/render-pictures.mjs: hosts MakeCode's blocks renderer (a hidden iframe) and
+// draws a program as blocks into #out, so the build can screenshot it. Not used by students.
+//   ?target=microbit|arcade   ?render=<origin> (tests only: a mock renderer)
+var q = new URLSearchParams(location.search);
+var ORIGIN = q.get('render') || (q.get('target') === 'arcade' ? 'https://arcade.makecode.com' : 'https://makecode.microbit.org');
+var f = document.createElement('iframe');
+f.style.cssText = 'position:absolute;width:1px;height:1px;left:-9999px;border:0';
+f.src = ORIGIN + '/--docs?render=1';
+document.body.appendChild(f);
+var ready, waiting = {}, n = 0;
+window.wpReady = new Promise(function (r) { ready = r; });
+window.addEventListener('message', function (e) {
+  if (e.source !== f.contentWindow) return;
+  var d = e.data || {};
+  if (d.source !== 'makecode') return;
+  if (d.type === 'renderready') ready(true);
+  if (d.type === 'renderblocks' && waiting[d.id]) { waiting[d.id](d); delete waiting[d.id]; }
+});
+// Draws code as blocks into #out (pkg: extensions as MakeCode's package string, "name=version,..."); resolves { w, h } (CSS pixels), or null when MakeCode cannot draw it.
+window.wpRender = function (code, pkg) {
+  return window.wpReady.then(function () {
+    return new Promise(function (res) {
+      var id = 'r' + (++n);
+      waiting[id] = function (d) {
+        if (!d.uri) return res(null);
+        var img = document.getElementById('out');
+        img.onload = function () { res({ w: img.width, h: img.height }); };
+        img.onerror = function () { res(null); };
+        if (d.width) img.style.width = Math.round(d.width) + 'px';
+        img.src = d.uri;
+      };
+      f.contentWindow.postMessage({ type: 'renderblocks', id: id, code: code, options: pkg ? { package: pkg } : {} }, ORIGIN);
+      setTimeout(function () { if (waiting[id]) { delete waiting[id]; res(null); } }, 20000);
+    });
+  });
+};
+</script>
+</body>
+</html>

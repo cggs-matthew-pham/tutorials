@@ -1,0 +1,20 @@
+# Boards for "Where does the energy go?".
+
+# region: trace
+widget: foodweb
+mode: trace
+energy: 10000
+organism G: Grass
+organism H: Grasshopper
+organism R: Kangaroo
+organism L: Lizard
+organism B: Kookaburra
+organism D: Dingo
+organism E: Wedge-tailed eagle
+eats H: G
+eats R: G
+eats L: H
+eats B: L, H
+eats D: R
+eats E: L, B
+# endregion

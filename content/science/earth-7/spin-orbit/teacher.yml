@@ -1,0 +1,35 @@
+summary: Students distinguish the Earth's rotation from its revolution, link each to day and night and the year, and describe the tilted axis that keeps its direction (AC9S7U03, node 1, a hinge node).
+time: 20
+timing: "Engage and Explore 7 min · Explain 8 min · Evaluate 3 min · Typical adds 1 min, Wider about 3 min"
+goals:
+  - I can explain the difference between rotation and revolution.
+  - I can link rotation to day and night, and revolution to the year.
+  - I can describe the Earth's tilted axis and how it points.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace a physical model (a torch and a globe, or students walking round a lamp while turning). Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge confusion is between rotation and revolution. The board plays them separately: one day, then one year.
+
+  Board notes: sizes and distances are not to scale (the board says so). The top view shows the axis as a white line marked N, pointing the same way all year; the side view keeps the sun on the left and shows how far the axis leans towards or away from it. Day lengths are calculated for the real latitude and date (ignoring the bending of light by the air).
+running:
+  - "Engage: count how many chose 'the Earth goes round the sun once a day'."
+  - "Explore: ask what the N line does over the year."
+  - "Explain: the sort is the checkpoint."
+stuck:
+  - see: "A student says the Earth goes round the sun every day."
+    ask: "How long did Play a year take, compared with Play a day?"
+    fix: "One trip round the sun takes 365 days; one spin takes one day."
+  - see: "A student thinks the axis tips towards the sun in summer."
+    ask: "Which way did the N line point in June and in December?"
+    fix: "The same way: the Earth moved to the other side of the sun."
+stretch: "If the Earth spun the other way, where would the sun rise?"
+support: "Give a card with two columns, Rotation and Revolution, with time, cause and effect rows."
+leads: |
+  Next: seasons (node 4), then the moon (nodes 2, 3 and 5).
+
+  In class: a lamp and a globe or a ball on a skewer; students walk the orbit while turning.
+exit:
+  q: "What is the difference between rotation and revolution?"
+  a: "Rotation is the Earth spinning on its axis (once a day, causing day and night); revolution is the Earth travelling round the sun (once a year)."
+explain: |
+  **Rotation:** the Earth spins on its axis once a day, causing day and night. **Revolution:** it goes round the sun once a year. The axis is tilted 23.4° and always points the same way in space.

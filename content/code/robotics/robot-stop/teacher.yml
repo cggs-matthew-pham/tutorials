@@ -1,0 +1,49 @@
+summary: Students read the robot's distance sensor inside forever and stop before an obstacle, then build a parking robot that slows down as things get closer.
+time: 45
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 8 min · Make 12 min · Real robot 7 min (optional)"
+goals:
+  - I can read the robot's distance sensor as a number in centimetres.
+  - I can make the robot stop when something is closer than a distance I choose.
+  - I can explain why the sensor must be read again and again.
+before: |
+  The robot's **distance sensor** (ultrasonic) times an echo and reports how far away the nearest object is, in centimetres, up to **40**. With nothing in range it reports 40. In blocks this is **robot obstacle distance (cm)**, in the **Robot** drawer. The idea is the same as the micro:bit sensors lessons: a sensor is a number the world keeps changing, so the program must read it again in **forever** to follow it. Here the stakes are visible: read it once and the robot crashes.
+
+  Every program starts with a block that picks the robot (**Elecfreaks Cutebot** here). Schools with another supported robot (DFRobot Maqueen, Yahboom Tiny:bit and others in the robot extension) change only that block; everything else is the same. **robot motor tank** sets the left and right wheel speeds (−100 to 100).
+
+  The simulator has one arena: a looping line and some boxes. Students drag the boxes and the robot with the mouse. The robot does not stop instantly: it slows over a short distance, like a car, which is why the stop distance is 15 cm, not 1.
+running:
+  - "Predict: most say it stops before the box. A few pick 'crashes because it checks once': ask them to hold that thought for Mia's robot."
+  - "Run: students must drag a box into the robot's path first. If the robot drives off, drag it back and face it at a box."
+  - "Investigate: Mia's robot is the run-once mistake from micro:bit Foundations, in a place where it matters. Ask: when did Mia's program check the distance?"
+  - "Modify: 25 cm leaves a bigger gap. Ask why a real car's parking sensor starts beeping much farther away."
+  - "Make: three answers from one number, so if / else if / else, checked in order. The order matters: 'less than 30' first would catch 5 cm too, and the robot would never stop."
+  - "Real robot (optional): this is where tuning happens. Expect different stop distances on carpet and desks."
+stuck:
+  - see: "The robot drives straight off without stopping."
+    ask: "Is there a box in front of it? Can you see the blue beam touch the box?"
+    fix: "Drag a box into its path, or turn the robot to face one."
+  - see: "The robot never moves."
+    ask: "Is robot motor tank there, and are both numbers above 0?"
+    fix: "Add robot motor tank 50 50 (in on start for the Predict program, or inside the else for the parking robot)."
+  - see: "The parking robot never stops."
+    ask: "Which question does your if ask first?"
+    fix: "Ask about the closest distance (less than 10) first: the first true question wins."
+  - see: "The real robot stops in a different place from the simulator."
+    ask: "What is different about the real floor and batteries?"
+    fix: "Normal: real robots coast and their sensors are noisy. Change the numbers until it works on your floor."
+stretch: "Make a 'nervous' robot: when something comes closer than 10 cm, it reverses (robot motor tank −30 −30) for half a second, then stops."
+support: "Give the parking robot's if / else if / else blocks with the numbers filled in, and ask students to drag in the right motor block for each part."
+leads: "Next: instead of stopping, turn away and keep exploring, like a robot vacuum. Real-world links for discussion: parking sensors, automatic doors, warehouse robots that slow down near people."
+exit:
+  q: "Why does Mia's robot crash when the if is not inside forever?"
+  a: "It checks the distance once, at the start, when the box is still far away. It never checks again, so it never stops."
+explain: |
+  The **distance sensor** gives how far away the nearest object is, in **centimetres** (up to 40).
+
+  - Read it inside **forever**, so the robot keeps checking as it moves.
+  - **if distance < 15 → stop** leaves room, because the robot rolls a little after it is told to stop.
+  - **if / else if / else** gives different answers for different distances. Ask about the closest first.
+solutions:
+  step-4#t1: stop.ts#sol-distance
+  step-4#t2: stop.ts#sol-sign
+  step-5: stop.ts#sol-make

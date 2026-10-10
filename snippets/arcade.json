@@ -1,0 +1,294 @@
+{
+ "title": "Arcade blocks reference",
+ "summary": "The blocks from Arcade Foundations, each with what it does. Find them in the MakeCode toolbox; the picture shows the block, the code is the same block as MakeCode JavaScript.",
+ "language": "makecode",
+ "target": "arcade",
+ "groups": [
+  {
+   "name": "Sprites and movement",
+   "items": [
+    {
+     "label": "create sprite",
+     "code": "let ‹mySprite› = sprites.create(img`\n    . . . . . . . .\n    . . 5 5 5 5 . .\n    . 5 5 5 5 5 5 .\n    . 5 f 5 5 f 5 .\n    . 5 5 5 5 5 5 .\n    . 5 f f f f 5 .\n    . . 5 5 5 5 . .\n    . . . . . . . .\n    `, SpriteKind.‹Player›)",
+     "hint": "Makes a sprite: a picture the game can move and test. Sprites; click the picture to draw your own. The kind says what it is.",
+     "matches": "sprites\\.create\\("
+    },
+    {
+     "label": "set background color",
+     "code": "scene.setBackgroundColor(‹9›)",
+     "hint": "Fills the screen with one colour. Scene."
+    },
+    {
+     "label": "set position",
+     "code": "‹mySprite›.setPosition(‹80›, ‹60›)",
+     "hint": "Puts a sprite at x (across, 0 to 160) and y (down, 0 to 120). The middle is 80, 60. Sprites.",
+     "matches": "\\.setPosition\\("
+    },
+    {
+     "label": "set x",
+     "code": "‹mySprite›.x = ‹80›",
+     "hint": "Sets one part of the position. y counts down from the top. Sprites; choose x or y in the dropdown.",
+     "matches": "(?<![\\w.])\\w+\\.[xy]\\s*[-+]?="
+    },
+    {
+     "label": "move with buttons",
+     "code": "controller.moveSprite(‹mySprite›)",
+     "hint": "The arrow keys (or WASD) move the sprite. Add two numbers for the speed across and down. Controller.",
+     "matches": "controller\\.moveSprite\\("
+    },
+    {
+     "label": "stay in screen",
+     "code": "‹mySprite›.setStayInScreen(true)",
+     "hint": "Stops a sprite going off the edge. Sprites › set stay in screen."
+    },
+    {
+     "label": "set velocity",
+     "code": "‹mySprite›.setVelocity(‹50›, ‹0›)",
+     "hint": "How far the sprite moves every frame, across and down. It keeps moving until something changes it. Sprites.",
+     "matches": "\\.setVelocity\\("
+    },
+    {
+     "label": "set vx",
+     "code": "‹mySprite›.vx = ‹50›",
+     "hint": "Speed across: positive moves right, negative moves left. vy is speed down. Sprites; choose vx in the dropdown.",
+     "matches": "\\.v[xy]\\s*[-+]?="
+    },
+    {
+     "label": "bounce on wall",
+     "code": "‹mySprite›.setBounceOnWall(true)",
+     "hint": "The sprite bounces back at the edge of the screen. Sprites › set bounce on wall."
+    },
+    {
+     "label": "on A pressed",
+     "code": "controller.A.onEvent(ControllerButtonEvent.Pressed, function () {\n    ‹blocks›\n})",
+     "hint": "Runs its blocks every time A is pressed (space or Z on the keyboard). Controller.",
+     "matches": "controller\\.\\w+\\.onEvent\\("
+    }
+   ]
+  },
+  {
+   "name": "Collide and score",
+   "items": [
+    {
+     "label": "on overlap",
+     "code": "sprites.onOverlap(SpriteKind.‹Player›, SpriteKind.‹Food›, function (sprite, otherSprite) {\n    ‹blocks›\n})",
+     "hint": "Runs when a sprite of the first kind touches a sprite of the second kind. sprite is the first, otherSprite the second. Sprites › Overlaps.",
+     "matches": "sprites\\.onOverlap\\("
+    },
+    {
+     "label": "destroy",
+     "code": "‹otherSprite›.destroy()",
+     "hint": "Removes a sprite from the game. Sprites.",
+     "matches": "\\bdestroy\\("
+    },
+    {
+     "label": "pick random",
+     "code": "randint(‹0›, ‹160›)",
+     "hint": "A whole number chosen at random, from the first number to the second. Math.",
+     "matches": "randint\\("
+    },
+    {
+     "label": "set score",
+     "code": "info.setScore(‹0›)",
+     "hint": "Shows a score at the top of the screen. Info."
+    },
+    {
+     "label": "change score",
+     "code": "info.changeScoreBy(‹1›)",
+     "hint": "Adds to the score. Use a negative number to take away. Info."
+    },
+    {
+     "label": "set life",
+     "code": "info.setLife(‹3›)",
+     "hint": "Shows hearts for lives. At zero lives the game ends by itself. Info."
+    },
+    {
+     "label": "change life",
+     "code": "info.changeLifeBy(‹-1›)",
+     "hint": "Adds or takes away lives. Info."
+    },
+    {
+     "label": "on game update every",
+     "code": "game.onUpdateInterval(‹1000›, function () {\n    ‹blocks›\n})",
+     "hint": "A timer: runs its blocks every so many milliseconds (1000 ms is one second). Game.",
+     "matches": "game\\.onUpdateInterval\\("
+    },
+    {
+     "label": "start countdown",
+     "code": "info.startCountdown(‹30›)",
+     "hint": "A timer in seconds at the top of the screen; the game ends when it reaches 0. Info."
+    },
+    {
+     "label": "game over",
+     "code": "game.gameOver(‹false›)",
+     "hint": "Ends the game: true is a win, false is a loss. Game.",
+     "matches": "game\\.gameOver\\("
+    }
+   ]
+  },
+  {
+   "name": "Decide",
+   "items": [
+    {
+     "label": "on game update",
+     "code": "game.onUpdate(function () {\n    ‹blocks›\n})",
+     "hint": "Runs its blocks every frame, about 30 times a second. Put an if here to keep checking something. Game.",
+     "matches": "game\\.onUpdate\\("
+    },
+    {
+     "label": "if",
+     "code": "if (‹condition›) {\n    ‹blocks›\n}",
+     "hint": "Runs the blocks inside only when the condition is true. Logic.",
+     "matches": "(?<!else )\\bif\\s*\\("
+    },
+    {
+     "label": "if else",
+     "code": "if (‹condition›) {\n    ‹blocks›\n} else {\n    ‹blocks›\n}",
+     "hint": "Exactly one part runs: the first when the condition is true, else the second. Click + on an if block.",
+     "matches": "\\}\\s*else\\s*\\{"
+    },
+    {
+     "label": "else if",
+     "code": "} else if (‹condition›) {",
+     "hint": "Another question, asked only if the ones above were false. The first true one wins.",
+     "matches": "else\\s+if\\s*\\("
+    },
+    {
+     "label": "compare",
+     "code": "‹mySprite›.x > ‹150›",
+     "hint": "Compares two numbers: true or false. Logic; drag a sprite x block into it from Sprites.",
+     "matches": "\\.[xy]\\s*[<>]=?\\s*"
+    },
+    {
+     "label": "follow",
+     "code": "‹enemy›.follow(‹mySprite›, ‹40›)",
+     "hint": "The engine steers one sprite towards another at a speed. Sprites.",
+     "matches": "\\.follow\\("
+    }
+   ]
+  },
+  {
+   "name": "Collections and tools",
+   "items": [
+    {
+     "label": "projectile from sprite",
+     "code": "let ‹projectile› = sprites.createProjectileFromSprite(img`\n    . 2 .\n    2 4 2\n    . 2 .\n    `, ‹mySprite›, ‹0›, ‹-100›)",
+     "hint": "Fires a sprite of kind Projectile from another sprite, with a speed across and down. It is destroyed when it leaves the screen. Sprites.",
+     "matches": "createProjectileFromSprite\\("
+    },
+    {
+     "label": "array of sprites of kind",
+     "code": "sprites.allOfKind(SpriteKind.‹Enemy›)",
+     "hint": "A list of every sprite of a kind in the game right now. Sprites.",
+     "matches": "sprites\\.allOfKind\\("
+    },
+    {
+     "label": "for element of list",
+     "code": "for (let ‹value› of ‹list›) {\n    ‹blocks›\n}",
+     "hint": "Runs its blocks once for each item in the list, with value as that item. Loops.",
+     "matches": "for\\s*\\(\\s*let\\s+\\w+\\s+of\\s"
+    },
+    {
+     "label": "list",
+     "code": "let ‹speeds› = [‹40, 60, 90›]",
+     "hint": "Many values in order under one name. Places start at 0. Arrays.",
+     "matches": "=\\s*\\[[^\\]]"
+    },
+    {
+     "label": "get value at",
+     "code": "‹speeds›[‹0›]",
+     "hint": "The item at a place in the list, counted from 0. Arrays.",
+     "matches": "\\w\\[[^\\]]+\\]"
+    },
+    {
+     "label": "function",
+     "code": "function ‹spawnEnemy› () {\n    ‹blocks›\n}",
+     "hint": "Names a group of blocks. They run only when you call the function. Functions › Make a Function.",
+     "matches": "^\\s*function\\s+\\w+\\s*\\(\\s*\\)"
+    },
+    {
+     "label": "function with a parameter",
+     "code": "function ‹spawnEnemy› (‹speed›: number) {\n    ‹blocks›\n}",
+     "hint": "A parameter is a value the caller hands in, so one function can do the job differently each time. Click + on the function block.",
+     "matches": "function\\s+\\w+\\s*\\(\\s*\\w+\\s*:"
+    }
+   ]
+  },
+  {
+   "name": "Gravity and levels",
+   "items": [
+    {
+     "label": "set variable",
+     "code": "let ‹level› = ‹1›",
+     "hint": "Puts a value in a variable, throwing the old value away. Make the variable in Variables first.",
+     "matches": "^\\s*let\\s+\\w+\\s*=\\s*[-\\d]"
+    },
+    {
+     "label": "change variable",
+     "code": "‹level› += ‹1›",
+     "hint": "Adds to a variable. Change by -1 counts down. Variables.",
+     "matches": "\\w\\s*\\+=\\s*"
+    },
+    {
+     "label": "set ay",
+     "code": "‹mySprite›.ay = ‹300›",
+     "hint": "Acceleration down: the sprite falls faster and faster, like gravity. Sprites; choose ay in the dropdown.",
+     "matches": "\\.ay\\s*="
+    },
+    {
+     "label": "jump",
+     "code": "‹mySprite›.vy = ‹-150›",
+     "hint": "A jump is a speed upwards (negative vy); gravity slows it and brings the sprite back down.",
+     "matches": "\\.vy\\s*=\\s*-"
+    },
+    {
+     "label": "sprite bottom",
+     "code": "‹mySprite›.bottom",
+     "hint": "The y of the bottom edge of a sprite. Sprites; choose bottom in the x dropdown.",
+     "matches": "\\.bottom\\b"
+    },
+    {
+     "label": "splash",
+     "code": "game.splash(\"‹Level 1›\")",
+     "hint": "Shows a message and waits for A. Game.",
+     "matches": "game\\.splash\\("
+    },
+    {
+     "label": "destroy all of kind",
+     "code": "sprites.destroyAllSpritesOfKind(SpriteKind.‹Enemy›)",
+     "hint": "Removes every sprite of a kind at once. Sprites.",
+     "matches": "destroyAllSpritesOfKind\\("
+    }
+   ]
+  },
+  {
+   "name": "Challenge",
+   "items": [
+    {
+     "label": "auto destroy",
+     "code": "‹rock›.setFlag(SpriteFlag.AutoDestroy, true)",
+     "hint": "The sprite is removed once it leaves the screen, so old ones do not pile up. Sprites › set flag.",
+     "matches": "AutoDestroy"
+    },
+    {
+     "label": "true or false",
+     "code": "let ‹shield› = ‹false›",
+     "hint": "A variable can hold true or false, to remember what is happening now. Logic.",
+     "matches": "=\\s*(true|false)\\b"
+    },
+    {
+     "label": "on life zero",
+     "code": "info.onLifeZero(function () {\n    ‹blocks›\n})",
+     "hint": "Runs when the lives reach 0, instead of the usual game over. Info.",
+     "matches": "info\\.onLifeZero\\("
+    },
+    {
+     "label": "high score",
+     "code": "info.highScore()",
+     "hint": "The best score so far in this browser. The game over screen shows it by itself. Info.",
+     "matches": "info\\.highScore\\("
+    }
+   ]
+  }
+ ]
+}

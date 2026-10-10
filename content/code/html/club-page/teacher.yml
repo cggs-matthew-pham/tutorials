@@ -1,0 +1,51 @@
+summary: Students build a whole club page (header and menu, hero, cards, results table, sign-up form, footer) from every component in the course, in three milestones with fading support, then make it their own.
+time: 100
+timing: "Plan 10 min · Milestone 1 15 min · Milestone 2 25 min · Milestone 3 30 min · Make it yours 20 min (two lessons)"
+goals:
+  - I can plan a page as a list of components.
+  - I can build a header with a Flexbox menu, a hero, and a row of cards.
+  - I can add a table, a form with linked labels and a footer to a page.
+  - I can make a page my own and check every part works.
+before: |
+  Read the challenge primer "Running the final challenge", then build milestone 1 and plan milestones 2 and 3 on paper.
+
+  There is **nothing new** in this lesson. Every milestone recalls earlier lessons: Flexbox (lesson 7), sections and components (8), tables (4), forms (9), boxes (6), selectors (5). Support fades on purpose: milestone 1 says almost exactly what to write, milestone 2 gives an outline as comments, milestone 3 gives only the goals. Finishing this lesson marks **Challenge complete** on the course page.
+running:
+  - "Plan the page: match each part to how it is built. Write the six parts on the board as a checklist."
+  - "Milestone 1: everyone should finish this in the first lesson. Check with Boxes that the menu is inside the header."
+  - "Milestone 2: the outline is in the comments. Students who are stuck can use **Reset to this task's start** to load a working milestone 1."
+  - "Milestone 3: goals only. Ask students to plan the table's rows and the form's fields before typing. Click every label, and every menu link (they jump to the sections with matching ids)."
+  - "Make it yours: any club or event. Encourage pictures with good alt text and readable colours."
+  - "Early finishers: the two optional lessons, Make it react (JavaScript) and Page layout with Grid."
+stuck:
+  - see: The menu or the cards stack instead of sitting in a row.
+    ask: Which box holds them, and does it have display flex?
+    fix: Put display flex on the parent (.menu or .cards), not on each item.
+  - see: Clicking a label does nothing, or a menu link does not jump.
+    ask: Does the label's for match the box's id? Does the link's href (after the #) match the section's id?
+    fix: Make each pair match exactly, capitals included.
+  - see: Part of the page suddenly looks wrong after an edit.
+    ask: Which closing tag did you add or move last?
+    fix: Check that every tag closes, in the right order; switch on Boxes to see where the boxes end.
+stretch: "Add a gallery of pictures that wraps, a second table, or a footer with a Flexbox row of links. Then take an optional lesson: Make it react, or Page layout with Grid."
+support: "Let students use Reset to this task's start at each milestone, so everyone reaches milestone 3. Pair students for milestone 3: one plans the table, one the form."
+leads: "Make it react adds JavaScript so the form does something; it leads to the DOM course. Page layout with Grid arranges whole pages. The finished page is a portfolio piece: students can describe each part and the lesson it came from. Assessment idea: ask students to annotate a printout of their page with the tag or rule behind each part."
+exit:
+  q: "Name three parts of your page and the tag or CSS rule that makes each one."
+  a: "For example: the menu row is a nav list with display flex on .menu; the cards are divs with padding and a border inside .cards with display flex; the sign-up is a form with labels linked by for and id."
+explain: |
+  The picture shows the finished page. Build it in this order, one milestone at a time:
+
+  1. **Header and menu:** a `<header>` with a `<nav>` list, made into a row with `display: flex;` (Flexbox).
+  2. **Hero:** a `<section>` with padding, a background colour and centred text (Page sections).
+  3. **Cards:** boxes with padding and a border, in a Flexbox row (Boxes, Flexbox).
+  4. **Results:** a `<table>` of rows and cells (Tables).
+  5. **Sign-up:** a `<form>` with labels linked to their boxes (Forms).
+  6. **Footer:** a `<footer>` with contact details.
+
+  Check the page after every change. Boxes shows how the parts nest; Box model shows the spacing.
+solutions:
+  step-2#t1: page.html#sol-m1
+  step-2#t2: page.html#sol-m2
+  step-2#t3: page.html#sol-m3
+  step-3: page.html#sol-yours

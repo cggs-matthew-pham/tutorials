@@ -1,0 +1,93 @@
+# Graph boards for "Comparing two plans". Each plan is a line from 0 (you cannot use negative data or weeks).
+# P is dragged to where the plans cost the same.
+
+# region: run
+widget: graph
+axes: g (GB), T ($)
+x: -0.5, 8
+y: -2, 64
+grid: off
+snap: 1, 2
+plot: y = 5x + 20, from 0
+plot: y = 40, from 0
+point P: 7, 6, drag
+# endregion
+
+# region: pic
+widget: graph
+axes: g (GB), T ($)
+x: -0.5, 8
+y: -2, 64
+grid: off
+plot: y = 5x + 20, from 0
+plot: y = 40, from 0
+cross: 1, 2
+# endregion
+
+# region: gyms
+widget: graph
+axes: w (weeks), T ($)
+x: -0.5, 14
+y: -5, 220
+grid: off
+snap: 1, 10
+plot: y = 10x + 50, from 0
+plot: y = 15x, from 0
+point P: 2, 180, drag
+# endregion
+
+# region: savers
+widget: graph
+axes: w (weeks), S ($)
+x: -0.5, 14
+y: -5, 120
+grid: off
+snap: 1, 5
+plot: y = 5x + 30, from 0
+plot: y = 8x, from 0
+point P: 12, 10, drag
+# endregion
+
+# region: parallel
+widget: graph
+axes: h (hours), T ($)
+x: -0.5, 6
+y: -5, 120
+grid: off
+plot: y = 15x + 30, from 0
+plot: y = 15x + 50, from 0
+# endregion
+
+# region: battery
+widget: graph
+axes: h (hours), B (%)
+x: -0.5, 14
+y: -30, 110
+grid: off
+plot: y = -10x + 100
+# endregion
+
+# region: make
+widget: graph
+axes: g (GB), T ($)
+x: -0.5, 10
+y: -2, 80
+grid: off
+slider m: 0, 8, 6
+slider c: 0, 60, 0, 2
+plot: y = 5x + 20, from 0
+plot: y = mx + c, from 0
+cross: 1, 2
+# endregion
+
+# region: explain
+widget: graph
+axes: g (GB), T ($)
+x: -0.5, 8
+y: -2, 64
+grid: off
+slider k: 20, 50, 30, 10
+plot: y = 5x + 20, from 0
+plot: y = k, from 0
+cross: 1, 2
+# endregion

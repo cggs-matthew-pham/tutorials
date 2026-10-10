@@ -1,0 +1,48 @@
+summary: The performance challenge. Students build a robot show in three milestones (a moves library, three cued phrases, then a finale and a safety stop), combining functions, radio cues, music and decisions.
+time: 60
+timing: "Predict, Run, Investigate 12 min · Milestone 1 12 min · Milestone 2 15 min · Milestone 3 18 min · Real robot 3 min (optional)"
+goals:
+  - I can build a library of moves as functions.
+  - I can cue each move from a phrase of music over radio.
+  - I can add a finale and a safety stop to a show.
+before: |
+  This is the performance strand's challenge, using lesson 2 (moves as functions), lesson 7 (radio numbers become moves) and lesson 8 (phrases send cues, then play until done). A show has three layers that change independently: **moves** (functions with lights), **cues** (phrase functions on the conductor) and the **dancer's choice** of move for each cue (on radio received).
+
+  The milestones fade the help: Milestone 1 names the moves and gives their steps, Milestone 2 gives an outline, Milestone 3 gives goals only. Each starter is the previous milestone's solution, so a student who is stuck can still move on. Showcase and Patrol and alert together mark the course **Challenge complete**.
+
+  In the simulator, two micro:bits and two robots appear; the conductor's own robot does not dance. A dancer finishes its current move before it obeys the stop cue (radio events wait their turn), so short moves make the stop feel quicker. The logo needs a micro:bit V2 (it shows in the simulator); with V1 micro:bits, use shake for the stop.
+running:
+  - "Predict and Run: point out that each move sets its own lights first."
+  - "Investigate: the three layers are the lesson's big idea. Write Move / Cue / Choice as three columns on the board."
+  - "Milestone 1: two functions, each ending with a stop. Testing a new move by calling it from a branch is a real debugging habit."
+  - "Milestone 2: phraseB and phraseC are copies of phraseA with new notes and cues."
+  - "Milestone 3: let students design the finale. The check needs cue 4, a logo stop (cue 0) and at least five colour changes across the show."
+  - "Real robot (optional): a whole-class performance with one conductor."
+stuck:
+  - see: "A move never happens."
+    ask: "Is the function called from a branch, and does that branch check the right cue?"
+    fix: "Match the cue number in the phrase to the branch, and call the move there."
+  - see: "Moves happen all at once."
+    ask: "Do the phrases play until done?"
+    fix: "Use play … until done in every phrase."
+  - see: "The stop does nothing."
+    ask: "Which number does the logo send, and is there a branch (or else) for it?"
+    fix: "Send 0 from the logo; add an else at the end of on radio received that stops and turns the lights off."
+stretch: "Two parts: give dancers a role variable (lead or chorus) so the same cue makes different robots do different moves."
+support: "Pair students: one writes the moves library, the other the phrases, then they agree the cue numbers."
+leads: "Real-world links: theme-park animatronics, drone light shows, stage lighting desks with cue lists. For a class performance, assign each group a section of a longer tune."
+exit:
+  q: "In your show, what is a cue, and where does the robot decide what a cue means?"
+  a: "A cue is the number a phrase sends by radio as it starts. The dancer decides what it means in on radio received, by choosing a move for each number."
+explain: |
+  A show has three layers:
+
+  - **Moves**: functions, each with its own lights, ending with a stop.
+  - **Cues**: each phrase sends its number, then plays until done.
+  - **Choice**: the dancer picks a move for each cue.
+
+  A safety stop is one more cue that every dancer obeys.
+solutions:
+  step-4: show.ts#sol-m1
+  step-5: show.ts#sol-m2
+  step-6: show.ts#sol-m3

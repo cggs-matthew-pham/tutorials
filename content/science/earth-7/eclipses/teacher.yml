@@ -1,0 +1,35 @@
+summary: Students state the conditions for solar and lunar eclipses, distinguish the umbra and penumbra, and explain why eclipses do not occur every month (AC9S7U03, node 3).
+time: 22
+timing: "Engage and Explore 8 min · Explain 8 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can state the conditions for a solar and a lunar eclipse.
+  - I can describe the umbra and penumbra.
+  - I can explain why eclipses don't happen every month.
+before: |
+  A concept tutorial for introducing or revising the idea; it pairs well with a lamp, a ball and a hoop tilted to show the moon's orbit. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The node isn't a hinge, but it depends on the moon-phase model (node 2): a student who thinks phases are Earth's shadow will confuse a lunar eclipse with a phase. The 3D step (the tilted orbit) is the hard part; the board shows it in a side view with the tilt and the shadows exaggerated.
+
+  Board notes: each step is half a month (29.5-day month). The line where the moon's orbit crosses the plane of Earth's orbit turns relative to the sun once every 346.6 days, so eclipse seasons come a little under six months apart; the board starts so that the first eclipses come in about month 4. Eclipse types use real angle limits (for example, a lunar eclipse is total when the moon is within about 0.4° of the plane). Solar eclipses are seen only from a narrow path or region of Earth. The 2028 total solar eclipse crosses Sydney on 22 July 2028.
+running:
+  - "Engage: count how many chose 'every month'."
+  - "Explore: ask where the orange crossing line points when an eclipse happens."
+  - "Explain: the tilt question is the checkpoint."
+stuck:
+  - see: "A student says a lunar eclipse is the same as a new moon."
+    ask: "Where is the moon in a lunar eclipse: between us and the sun, or behind the Earth?"
+    fix: "Behind the Earth, at full moon: Earth's shadow falls on it."
+  - see: "A student thinks the moon's shadow covers the whole Earth in a solar eclipse."
+    ask: "How big is the umbra where it reaches the Earth?"
+    fix: "Small: the total eclipse is seen only from a narrow path."
+stretch: "Why do lunar eclipses happen at the same 'season' as solar eclipses, about two weeks before or after?"
+support: "Give side-view outlines of the sun, Earth and moon in a line, to shade the shadows."
+leads: |
+  Next: tides (node 5).
+
+  In class: a lamp, a ball and a tilted hoop; look up the next eclipses visible from your town.
+exit:
+  q: "Why doesn't every full moon give a lunar eclipse?"
+  a: "The moon's orbit is tilted about 5° to Earth's, so at most full moons the moon passes above or below Earth's shadow."
+explain: |
+  **Solar eclipse:** new moon, the moon's shadow on Earth. **Lunar eclipse:** full moon, the moon in Earth's shadow. **Umbra:** full shadow; **penumbra:** partial. Eclipses are rare because the moon's orbit is tilted about 5°.

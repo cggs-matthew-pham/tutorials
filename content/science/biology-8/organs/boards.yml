@@ -1,0 +1,11 @@
+# Boards for "What is an organ made of?".
+
+# region: leaf
+widget: cell
+show: leaf
+# endregion
+
+# region: heart
+widget: cell
+show: heart
+# endregion

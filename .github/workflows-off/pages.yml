@@ -1,0 +1,90 @@
+name: Build lessons and deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    # Repo docs are not part of the site: a commit that only changes them does not deploy.
+    paths-ignore: ['*.md', '.github/workflows/probe.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # A full redraw and re-record is about 20 minutes; past this something is stuck (such as a simulator that never starts).
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install site tools
+        run: npm ci --omit=optional   # skip the sandbox-only bundled Chromium
+
+      - name: Validate lessons
+        run: npm run validate
+
+      # Clips and pictures whose hash matches the published one are downloaded from the live site
+      # (same inputs, same output). Only the rest need a browser, ffmpeg and the lesson apps.
+      - name: Fetch unchanged clips and pictures
+        id: reuse
+        run: |
+          node tools/build-playground.mjs
+          node tools/render-pictures.mjs --seed https://tutorials.learningwaypoints.com --check
+          node tools/render.mjs --seed https://tutorials.learningwaypoints.com --check
+
+      - name: Install browser and ffmpeg
+        if: steps.reuse.outputs.stale != '0' || steps.reuse.outputs.pictures_stale != '0'
+        run: |
+          npx playwright-core install --with-deps chromium
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install lesson dependencies
+        if: steps.reuse.outputs.stale != '0'
+        run: |
+          for f in $(find content -name requirements.txt); do
+            [ -f "$f" ] && pip install -r "$f"
+          done
+          for f in $(find content -name package.json -not -path '*/node_modules/*'); do
+            (cd "$(dirname "$f")" && npm ci)
+          done
+          # Voiceover (lessons with voice:): Kokoro runs in Node; not a site dependency, so install it only here.
+          if grep -rlq '^voice:' content --include=lesson.md; then npm install --no-save --no-audit --no-fund kokoro-js@1.2.1; fi
+
+      - name: Render new clips and pictures
+        run: npm run render
+
+      - name: Build site
+        run: npm run build
+
+      - run: touch dist/.nojekyll
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

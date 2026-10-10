@@ -1,0 +1,43 @@
+summary: Students write programs that wait for clicks, keys and timers, and run a function (a callback) each time something happens.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 10 min · Counter 5 min"
+goals:
+  - I can make a function run when the picture is clicked or a key is pressed.
+  - I can explain why the program keeps running and waiting after the last line.
+  - I can hand a function over by its name, without brackets.
+before: |
+  Until now programs ran top to bottom and stopped. An event-driven program sets up what should happen, then **waits** (`mainloop()`). A **callback** is a function you hand over by name, which the computer runs for you later, every time the event happens. Try the stamp program: click the picture, then press Stop. Keys only work after the picture has been clicked once.
+running:
+  - "Predict: the program reaches its last line, then waits. Ask what happens on a click, and why the program does not just end."
+  - "Say it plainly: onscreenclick(stamp) means 'when someone clicks, run stamp'. Nothing runs until the event happens."
+  - "Investigate: the bug task is the most common mistake. stamp() with brackets runs the function now, once, instead of handing it over."
+  - "Modify: change what the function does, not the event line. That separation is the point."
+  - "Make: three small functions, three onkey lines, then listen() and mainloop(). Remind students to click the picture before pressing keys."
+  - "Counter: global score lets the function change the score made outside it. Read the Behind the code note together."
+stuck:
+  - see: "An error on the onscreenclick line: stamp() missing 2 required positional arguments."
+    ask: Does the line hand over the function's name, or call it?
+    fix: Remove the brackets, onscreenclick(stamp). The computer adds the click position when it calls it.
+  - see: Nothing happens when keys are pressed.
+    ask: Have you clicked the picture since pressing Run? Is listen() there?
+    fix: Click the picture first, and make sure listen() and mainloop() are the last lines.
+  - see: "An UnboundLocalError (or 'referenced before assignment') when the score changes."
+    ask: Which variables does this function change that were made outside it?
+    fix: Add global score as the first line inside the function.
+stretch: Add a timer that moves the turtle forward every half second, so it drives by itself while the keys steer it.
+support: Give students the three key functions already written and ask them only to connect each one with an onkey line.
+leads: "Next lesson builds a button from scratch: a drawn rectangle plus a click check. Every app waits for events: taps, keys and timers. Class ideas: a stamp painting the class designs together; steering a turtle through a maze drawn on paper; a timer-based animation."
+exit:
+  q: "What is the difference between onscreenclick(stamp) and onscreenclick(stamp())?"
+  a: "onscreenclick(stamp) hands the function over to run on each click. stamp() with brackets runs it straight away, once, which is wrong here."
+explain: |
+  Most apps spend their time **waiting** for something to happen: a tap, a key, a timer. When it happens, they run a function.
+
+  `onscreenclick(stamp)` says "when the picture is clicked, run stamp". You hand over the function's **name**, with no brackets. The computer runs it later, for every click, and tells it where you clicked (`x` and `y`). A function handed over like this is called a **callback**.
+
+  `mainloop()` keeps the program waiting for events. It runs until you press Stop.
+solutions:
+  step-4#t1: events.py#sol-restyle
+  step-4#t2: events.py#sol-square
+  step-5: events.py#sol-steer
+  step-6: events.py#sol-counter

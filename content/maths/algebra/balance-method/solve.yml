@@ -1,0 +1,30 @@
+# Balance boards in solve mode for "The balance method". Students take the same away from both sides, or share
+# both sides into equal groups, until x is alone. The scale stays level the whole time.
+
+# region: run
+widget: balance
+mode: solve
+left: 2x + 3
+right: 11
+# endregion
+
+# region: four-x
+widget: balance
+mode: solve
+left: 4x + 7
+right: 31
+# endregion
+
+# region: both-sides
+widget: balance
+mode: solve
+left: x + 7
+right: 3x + 1
+# endregion
+
+# region: five-x
+widget: balance
+mode: solve
+left: 5x
+right: 2x + 12
+# endregion

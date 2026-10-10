@@ -1,0 +1,40 @@
+{
+  "tags": {
+    "a": "A",
+    "ul": "U L",
+    "ol": "O L",
+    "li": "L I",
+    "p": "P",
+    "h1": "H 1",
+    "h2": "H 2",
+    "h3": "H 3",
+    "img": "image",
+    "br": "line break",
+    "hr": "H R",
+    "td": "T D",
+    "th": "T H",
+    "tr": "T R",
+    "div": "div",
+    "nav": "nav",
+    "html": "H T M L",
+    "css": "C S S"
+  },
+  "words": {
+    "href": "H ref",
+    "src": "source",
+    "alt": "alt",
+    "CSS": "C S S",
+    "HTML": "H T M L",
+    "pencolor": "pen color",
+    "pensize": "pen size",
+    "def": "def",
+    "px": "pixels",
+    "rgb": "R G B",
+    "micro:bit": "micro bit",
+    "ul": "U L",
+    "li": "L I",
+    "fr": "fraction",
+    "id": "I D",
+    "DOM": "dom"
+  }
+}

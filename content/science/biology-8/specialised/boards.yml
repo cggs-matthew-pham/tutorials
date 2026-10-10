@@ -1,0 +1,11 @@
+# Boards for "Why are cells different shapes?".
+
+# region: blood
+widget: cell
+show: redblood, nerve
+# endregion
+
+# region: muscle
+widget: cell
+show: muscle, roothair
+# endregion

@@ -1,0 +1,40 @@
+summary: Students distinguish pure substances from mixtures at the particle level and classify familiar materials with a particle reason (AC9S7U06, node 1, a hinge node).
+time: 25
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 5 min, Wider about 15 min"
+goals:
+  - I can tell a pure substance from a mixture using a particle diagram.
+  - I can classify familiar materials and give a particle reason.
+  - I can explain why a solution like salt water is a mixture even though it looks the same all through.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  Hinge: technique selection in nodes 3 to 5 needs students to know what kind of mixture they have. The success criterion to watch is "does not confuse homogeneous mixtures with pure substances".
+running:
+  - "Engage: ask who chose the juice. The shopping meaning of 'pure' is the main competitor."
+  - "Explore: ask students to count kinds of particles aloud for each sample."
+  - "Explain: salt water is the key case. If they get it, they have the definition."
+stuck:
+  - see: "A student says salt water is pure because it is clear."
+    ask: "How many kinds of particles did you count in the salt water sample?"
+    fix: "Two kinds means a mixture, however even it looks."
+  - see: "A student says the salt has disappeared."
+    ask: "If you boiled the water away, what would be left?"
+    fix: "The salt. Its particles are spread out between the water particles, not gone."
+  - see: "A student says juice is pure because the label says so."
+    ask: "Is the label using the science meaning or the shopping meaning?"
+    fix: "Science: one kind of particle. Shopping: nothing added."
+stretch: "Is distilled water a pure substance even though it is made of hydrogen and oxygen? (Yes: one kind of particle. Compounds come in Year 8.)"
+support: "Give a two-question test to use every time: How many kinds of particles? Are they evenly spread?"
+leads: |
+  Next: node 2, how differences in properties let us separate mixtures.
+
+  In class: dissolve salt in water, then evaporate a sample on a watch glass to show the salt was there all along.
+exit:
+  q: "Is salt water a pure substance or a mixture? Explain using particles."
+  a: "A mixture: it contains two kinds of particles, water and salt, even though they are evenly spread."
+explain: |
+  - A **pure substance** has only one kind of particle (distilled water, copper, sugar).
+  - A **mixture** has two or more kinds (salt water, air, milk).
+  - A **homogeneous** mixture is evenly mixed, like salt water. A **heterogeneous** mixture is uneven, like sandy water.
+
+  You can't tell by looking: salt water looks like one substance but is a mixture.

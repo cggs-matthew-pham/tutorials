@@ -1,0 +1,23 @@
+# Science boards for "Why can you squash air but not water?".
+
+# region: syringe
+widget: syringe
+# endregion
+
+# region: floatsink
+widget: windows
+set: floatsink
+caption: Each window is 1 cm³.
+# endregion
+
+# region: diffusion
+widget: diffusion
+# endregion
+
+# region: mystery
+widget: box
+n: 44
+jit: 0.12
+colour: p3
+caption: Substance X: particles close together, no pattern, sliding slowly past each other because they attract strongly.
+# endregion

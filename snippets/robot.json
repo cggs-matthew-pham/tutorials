@@ -1,0 +1,89 @@
+{
+ "title": "Robot blocks reference",
+ "summary": "The blocks Robotics challenges adds to micro:bit Foundations: the robot's motors, sensors, lights and sound, plus music and the logo. Robot blocks are in the Robot drawer once the robot extension is added. For buttons, variables, decisions, functions and radio, see the micro:bit blocks reference.",
+ "language": "makecode",
+ "groups": [
+  {
+   "name": "Drive",
+   "items": [
+    {
+     "label": "robot start",
+     "code": "robot.‹elecfreaksCuteBot›.start()",
+     "hint": "Picks which robot you have. Put it first, in on start, before any other robot block. Robot › robot … start."
+    },
+    {
+     "label": "robot motor tank",
+     "code": "robot.motorTank(‹50›, ‹50›)",
+     "matches": "robot\\.motorTank\\(\\s*[^,()]+,\\s*[^,()]+\\)",
+     "hint": "Sets the left and right wheel speeds, from −100 to 100. Same speeds go straight, opposite speeds spin, different speeds curve. The robot keeps going until another motor block."
+    },
+    {
+     "label": "robot motor tank for a time",
+     "code": "robot.motorTank(‹50›, ‹-50›, ‹500›)",
+     "matches": "robot\\.motorTank\\(\\s*[^,()]+,\\s*[^,()]+,\\s*[^,()]+\\)",
+     "hint": "The same, then waits that many milliseconds before the next block. Click + on the block to add the time. It does not stop the motors: follow it with robot motor stop."
+    },
+    {
+     "label": "robot motor stop",
+     "code": "robot.motorStop()",
+     "hint": "Stops both wheels. End every move and every program that should finish with it."
+    },
+    {
+     "label": "robot set motor drift",
+     "code": "robot.setMotorDrift(‹10›)",
+     "hint": "Corrects a real robot that pulls to one side when driving straight. Try small numbers, plus or minus."
+    }
+   ]
+  },
+  {
+   "name": "Sense",
+   "items": [
+    {
+     "label": "robot obstacle distance",
+     "code": "robot.obstacleDistance()",
+     "hint": "How far away the nearest thing in front is, in centimetres (up to 40; 40 means nothing in range). Read it again in forever to follow it."
+    },
+    {
+     "label": "robot detect line",
+     "code": "robot.detectLine(RobotLineDetector.‹Left›)",
+     "hint": "True when that line sensor (left or right) is over the dark line. Steer towards the side that still sees it."
+    }
+   ]
+  },
+  {
+   "name": "Lights and sound",
+   "items": [
+    {
+     "label": "robot set color",
+     "code": "robot.setColor(‹0xff0000›)",
+     "hint": "Sets the robot's lights to a colour. Click the colour to choose another; black turns them off."
+    },
+    {
+     "label": "robot play tone",
+     "code": "robot.playTone(‹262›, ‹500›)",
+     "hint": "Plays a note on the robot's buzzer: a frequency (262 is middle C) for a time in milliseconds."
+    },
+    {
+     "label": "play melody",
+     "code": "music.play(music.stringPlayable(\"‹C D E F G A B C5›\", ‹120›), music.PlaybackMode.‹UntilDone›)",
+     "hint": "Plays notes on the micro:bit: a letter for each note, - for a rest, at a speed in beats per minute. Until done waits for the tune to end; in background moves on at once. Music › play melody."
+    },
+    {
+     "label": "play tone",
+     "code": "music.play(music.tonePlayable(‹262›, music.beat(BeatFraction.‹Whole›)), music.PlaybackMode.‹InBackground›)",
+     "hint": "Plays one note on the micro:bit for a number of beats. In background, so the program carries on. Music › play tone."
+    }
+   ]
+  },
+  {
+   "name": "More events",
+   "items": [
+    {
+     "label": "on logo pressed",
+     "code": "input.onLogoEvent(TouchButtonEvent.Pressed, function () {\n    ‹›\n})",
+     "hint": "Runs its blocks when you touch the gold logo on the front of the micro:bit (V2 only; on a V1, use on shake). Input › on logo pressed."
+    }
+   ]
+  }
+ ]
+}

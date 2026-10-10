@@ -1,0 +1,45 @@
+summary: Students meet the turtle, read and run a tiny program, then find out why programmers use loops instead of copying the same lines.
+time: 50
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 15 min"
+goals:
+  - I can say what forward, right and left do to the turtle.
+  - I can use a loop to repeat lines instead of copying them.
+  - I can work out the turn for a shape with any number of sides.
+before: |
+  Open the lesson, run the first program and draw the triangle from the Modify step yourself. It takes about five minutes and you will meet the same surprise students do: the turn is 120 degrees, not 60.
+running:
+  - "Predict: show the first program and ask what shape it draws and where the turtle finishes. Take two or three answers before anyone runs it."
+  - "Run: students run it and compare with their prediction. Ask: where did the turtle end up, and which way is it facing?"
+  - "Investigate: the key idea is that a loop does the same work as copied lines, but stays the same size. Ask a student to say why the loop version is easier to change."
+  - "Modify: let students get the triangle wrong first. If they try 60 degrees, ask them to walk the shape themselves: how far do you turn at each corner?"
+  - "Make: the house is built in three small steps. Students who finish early can add a door or a window."
+stuck:
+  - see: The triangle has a gap, or the shape looks like a star.
+    ask: How many times does the loop repeat, and how far does the turtle turn each time?
+    fix: A shape with 3 sides repeats 3 times and turns 120 degrees. All the turns add up to 360.
+  - see: Only the first line repeats, or the program stops with an indentation error.
+    ask: Which lines are pushed in under the for line?
+    fix: The lines that repeat must be indented (four spaces) under the for line.
+  - see: A student types forward(100) and right(90) many times and sees no reason to change.
+    ask: How long would that be for a 50-sided shape?
+    fix: Ask them to draw a 50-sided shape both ways. The loop stays 3 lines; the copied version needs 100.
+stretch: Draw a shape with 50 sides and turn 360 / 50 degrees. What does it start to look like, and why?
+support: Give the loop version and ask the student to change only one number at a time, running after each change.
+leads: "Loops come back in every lesson, and in tessellations, logo design and generative art. Next lesson stores numbers in variables, so the turn can be worked out instead of guessed. Class ideas: design a floor tile and repeat it; recreate a simple logo from code."
+exit:
+  q: "A turtle draws a shape with 5 equal sides using a loop. How many times does the loop repeat, and how far does the turtle turn each time?"
+  a: "5 times, turning 72 degrees each time (360 divided by 5)."
+explain: |
+  A program is a list of instructions the computer follows in order, from the top down. `forward(100)` moves the turtle 100 steps and draws a line. `right(90)` turns it on the spot, a quarter of a full turn.
+
+  A **loop** repeats the lines indented under it. `for i in range(4):` means "do the indented lines 4 times". Instead of writing the same two lines four times, you write them once and say how often.
+
+  To close any shape, the turtle turns all the way round once in total: 360 degrees. Split that between the corners: 360 ÷ 4 = 90 for a square, 360 ÷ 3 = 120 for a triangle.
+solutions:
+  step-4#t1: square.py#sol-triangle
+  step-4#t2: square.py#sol-double
+  step-4#t3: square.py#sol-pen
+  step-5#t1: square.py#sol-walls
+  step-5#t2: square.py#sol-roof
+  step-5#t3: square.py#sol-colour
+  step-7: square.py#sol-tiles

@@ -1,0 +1,42 @@
+name: Probe a site
+
+# Manual: can a headless browser load and use this site? Used to judge whether tutorials for it can be recorded.
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: Page to open
+        default: https://editor.construct.net/
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --omit=optional && npx playwright-core install --with-deps chromium
+      - run: node tools/probe.mjs "${{ inputs.url }}" probe-out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: probe
+          path: probe-out
+
+      # Publish the report and screenshot to a throwaway branch so they can be read without downloading artifacts.
+      - name: Save results to probe-results branch
+        if: always()
+        run: |
+          rm -f probe-out/*.webm
+          git config user.name "probe"; git config user.email "probe@users.noreply.github.com"
+          git checkout --orphan probe-results
+          git rm -rf -q . || true
+          mv probe-out/* . 2>/dev/null || true
+          git add report.json screenshot.png 2>/dev/null || true
+          git commit -q -m "probe: ${{ inputs.url }}" || true
+          git push -f origin probe-results

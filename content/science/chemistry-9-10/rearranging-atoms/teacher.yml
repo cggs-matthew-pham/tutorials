@@ -1,0 +1,41 @@
+summary: Students model a reaction as atoms rearranging, count atoms on both sides, and connect the unchanged atoms to conservation of mass (AC9S9U07, node 2, a hinge node).
+time: 25
+timing: "Engage and Explore 6 min · Explain 8 min · Practise 5 min · Evaluate 3 min · Typical adds 4 min, Wider about 4 min"
+goals:
+  - I can use a model to show a reaction with the same atoms before and after.
+  - I can count the atoms on each side of an equation and check they match.
+  - I can explain that atoms are rearranged, not made or destroyed, so mass is conserved.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace a closed-system mass experiment. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge risk is balancing as a procedure without meaning. Keep returning to the atom tally on the board: balancing describes what the atoms actually do.
+
+  Model note: in the simulation, CH₄ + 2O₂ happens as one event, taking the second oxygen from nearby. Real combustion goes through several quick steps; the atoms and energy are the same.
+running:
+  - "Engage: ask who chose 'turn into heat and light'. The tally answers them."
+  - "Explore: pause the board at any moment and count one atom type on screen against the panel."
+  - "Explain: the two number checks are the counting skill; the last question links it to mass."
+  - "Practise: the H₂O₂ question is the commonest balancing error; discuss it aloud."
+stuck:
+  - see: "A student says the methane was used up, so its atoms are gone."
+    ask: "Find a carbon atom on the board now. Where is it?"
+    fix: "In carbon dioxide. The particle changed; the atom didn't."
+  - see: "A student balances by changing subscripts."
+    ask: "Is H₂O₂ still water?"
+    fix: "No: it is hydrogen peroxide. Change the number of particles (in front), not the formula."
+  - see: "A student says gases weigh nothing."
+    ask: "What happens to the mass of a balloon when you blow it up?"
+    fix: "It increases a little: gas particles are atoms, and atoms have mass."
+stretch: "Balance N₂ + H₂ → NH₃, then check it on paper by drawing the particles."
+support: "Give an atom-count table (atom type, left side, right side) to fill in for each equation."
+leads: |
+  Next: balanced symbolic equations (node 4) and conservation of mass with evidence (node 5).
+
+  In class: steel wool burned on a balance (mass goes up), and vinegar with baking soda in a sealed bottle with a balloon, weighed before and after.
+exit:
+  q: "When charcoal burns in a sealed jar, does the total mass change? Why?"
+  a: "No: the carbon and oxygen atoms are rearranged into carbon dioxide, which stays in the jar. Same atoms, same mass."
+explain: |
+  In a chemical reaction the atoms are **rearranged** into new particles; none are made or destroyed. The same atoms means the same mass: **conservation of mass**.
+
+  A balanced equation shows the same number of each type of atom on both sides. Balance by changing the numbers in front, never the formulas.

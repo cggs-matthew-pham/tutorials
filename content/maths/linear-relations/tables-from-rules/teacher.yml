@@ -1,0 +1,45 @@
+summary: Students generate tables of ordered pairs from a rule, keeping input and output separate and in order, including negative inputs and working back from an output (AC9M7A05, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 15 min · Practise and Make 10 min"
+goals:
+  - I can make a table of values from a rule by putting in inputs and working out outputs.
+  - I can write ordered pairs with the input first, (x, y).
+  - I can find the input that gives a chosen output.
+before: |
+  Do the Run and Modify boards yourself first. The rule machine shows the substitution for every input (2(4) + 3 = 11): point at it, because it is the habit from the Equations unit.
+
+  The progression data names a specific mistake for this step: putting the same value in for both x and y (the pair (4, 4)). The Predict plants it, with the swapped pair (11, 4).
+
+  The next lesson plots these pairs as points: errors here carry straight into the graph, so take time over order.
+running:
+  - "Predict: take a show of hands. (4, 4) and (11, 4) are the common wrong answers. Ask what each number means."
+  - "Run: as students add pairs, ask: which row are your inputs? Which are outputs? Who chose the inputs?"
+  - "Investigate: model the worked example live. Write the substitution for each input, then the pair, saying 'input first'."
+  - "Modify: before the negative inputs, ask: where do the brackets go? 2(−3) + 3."
+  - "Practise: for the 'which table' question, ask students to check one column of each table with the rule."
+  - "Make: compare methods for finding the rule: the jump in y (2) and then the leftover (3)."
+stuck:
+  - see: "A student writes the same number for x and y."
+    ask: "What does the rule do to the input?"
+    fix: "Write the substitution with the input in brackets, work it out, and only then write the pair."
+  - see: "A student writes pairs the wrong way round (Jo's mistake)."
+    ask: "Which number did you choose, and which did the rule give you?"
+    fix: "The one you chose is the input and goes first. Label the table rows 'in' and 'out'."
+  - see: "A student puts an output in as an input when working backwards."
+    ask: "Is 15 the number going in or coming out?"
+    fix: "Write the rule equal to the output: 2x + 3 = 15. Then undo the steps, as in the Equations unit."
+stretch: "For y = 10 − 2x, which input gives the output 0? A negative output? What does that say about the line?"
+support: "Give a two-row table with 'in' and 'out' already labelled, and the substitution started: 2( ) + 3."
+leads: |
+  Next: plotting the pairs as points. The pairs from a rule like y = 2x + 3 lie on a straight line, and the rule's numbers show in how steep it is and where it starts.
+
+  Where it leads in class: filling a spreadsheet column with a formula, and conversion tables (centimetres to inches, dollars to another currency).
+exit:
+  q: "Make a table for y = 4x − 3 with the inputs 0, 1, 2, 3. Write the pairs."
+  a: "Outputs −3, 1, 5, 9. Pairs (0, −3), (1, 1), (2, 5), (3, 9)."
+explain: |
+  A **rule** like $y = 2x + 3$ turns an **input** $x$ into an **output** $y$. To make a **table of values**, choose some inputs, put each one in place of $x$, and work out its output.
+
+  Each input and its output make an **ordered pair** $(x, y)$: input first, output second. For $x = 4$: $y = 2(4) + 3 = 11$, so the pair is $(4, 11)$, not $(11, 4)$ and not $(4, 4)$.
+
+  To go backwards (which input gives an output of 15?), set the rule equal to it and solve: $2x + 3 = 15$, so $x = 6$.

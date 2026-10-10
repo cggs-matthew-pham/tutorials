@@ -1,0 +1,43 @@
+summary: Students describe arrangement, motion and attraction for each state and use them to explain why solids keep their shape and gases fill containers (AC9S7U05, node 2, a hinge node).
+time: 25
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 6 min, Wider about 12 min"
+goals:
+  - I can describe the arrangement, motion and attraction of particles in a solid, a liquid and a gas.
+  - I can explain why a solid keeps its shape and a gas fills its container.
+  - I can use a particle diagram as evidence in an explanation.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace practical work. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge risk for this node is decorative diagrams: students who label but do not reason with diagrams cannot explain properties in node 3. Push every answer back to a diagram: "show me where that is in the particles".
+running:
+  - "Engage: count how many predicted 'the top'. That is the 'gases are light' misconception the jar targets."
+  - "Explore: make sure students remove the jar for all three states, not just the gas."
+  - "Explain: the 12-item sort is the minimum description. Then the two questions turn description into explanation."
+  - "In your own words: collect the juice and sugar cube paragraph; it is the best evidence of the node's checkpoint."
+stuck:
+  - see: "A student says the gas floats up because it is light."
+    ask: "Which way did the gas particles move on the board?"
+    fix: "They moved in every direction, including down. Fast motion and weak attraction spread a gas out."
+  - see: "A student says solid particles don't move."
+    ask: "Look at the solid in the jar for a few seconds. What do the particles do?"
+    fix: "They vibrate in fixed positions. Attraction holds them in place; it does not stop them moving."
+  - see: "A student answers 'because it is a liquid' when asked why juice spreads."
+    ask: "What are the liquid's particles doing that makes it spread?"
+    fix: "Use the three words: arrangement (close, no pattern), motion (sliding), attraction (weaker)."
+stretch: "Air is a gas, yet a room of air doesn't collapse to the floor. Why don't air particles all settle at the bottom like the liquid did?"
+support: "Give a three-column table (arrangement, motion, attraction) to fill in while watching the board, before the sort."
+leads: |
+  Next: node 3 explains properties such as compressibility, density and viscosity with the same three features.
+
+  In class: a sealed syringe of air, and a perfume or deodorant spray released at the front of the room, timed to when students at the back smell it.
+exit:
+  q: "Why does a gas fill its whole container?"
+  a: "Its particles move fast in all directions and barely attract each other, so they spread until they fill the space."
+explain: |
+  Each state is described by three features of its particles:
+
+  - **Arrangement:** solid, close in a fixed pattern; liquid, close with no pattern; gas, far apart.
+  - **Motion:** solid, vibrate in place; liquid, slide past each other; gas, move fast in all directions.
+  - **Attraction:** strong in a solid, weaker in a liquid, very weak in a gas.
+
+  That is why a solid keeps its shape, a liquid flows, and a gas fills its container.

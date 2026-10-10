@@ -1,0 +1,20 @@
+# Boards for "Why is summer hot?".
+
+# region: canberra
+widget: sky
+mode: earth
+place: Canberra
+# endregion
+
+# region: hemispheres
+widget: sky
+mode: earth
+place: London
+# endregion
+
+# region: tilt
+widget: sky
+mode: earth
+place: Canberra
+tilt: choose
+# endregion

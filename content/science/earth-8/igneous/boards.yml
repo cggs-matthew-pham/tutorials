@@ -1,0 +1,11 @@
+# Science boards for "Why do some rocks have big crystals?".
+
+# region: cool
+widget: cooling
+# endregion
+
+# region: extremes
+widget: cooling
+rates: 1, 5
+caption: "Very slow, or instant: compare the two extremes."
+# endregion

@@ -1,0 +1,86 @@
+# Graph boards for "Solving equations with graphs". Each side of an equation is drawn as a line; P is dragged to
+# where they meet, and its x is the solution.
+
+# region: run
+widget: graph
+x: -1, 6
+y: -2, 14
+plot: y = 2x + 3
+plot: y = 11
+point P: 1, 1, drag
+# endregion
+
+# region: pic-solve
+widget: graph
+x: -1, 6
+y: -2, 14
+plot: y = 2x + 3
+plot: y = 11
+cross: 1, 2
+# endregion
+
+# region: subtract
+widget: graph
+x: -1, 6
+y: -6, 14
+plot: y = 3x - 4
+plot: y = 8
+point P: 1, 1, drag
+# endregion
+
+# region: negative
+widget: graph
+x: -4, 4
+y: -6, 10
+plot: y = 2x + 3
+plot: y = 1
+point P: 2, -4, drag
+# endregion
+
+# region: both
+widget: graph
+x: -1, 5
+y: -2, 14
+plot: y = x + 5
+plot: y = 3x + 1
+point P: 4, 1, drag
+# endregion
+
+# region: half
+widget: graph
+x: -1, 5
+y: -2, 10
+snap: 0.5
+plot: y = 2x + 1
+plot: y = 6
+point P: 1, 1, drag
+# endregion
+
+# region: never
+widget: graph
+x: -1, 5
+y: -2, 14
+plot: y = 2x + 1
+plot: y = 2x + 4
+# endregion
+
+# region: make
+widget: graph
+x: -1, 6
+y: -6, 14
+slider m: -3, 3, 0
+slider c: -6, 12, 2
+plot: y = 2x + 1
+plot: y = mx + c
+cross: 1, 2
+# endregion
+
+# region: explain
+widget: graph
+x: -2, 6
+y: -2, 14
+slider k: -1, 13, 11, 2
+plot: y = 2x + 3
+plot: y = k, dashed
+cross: 1, 2
+# endregion

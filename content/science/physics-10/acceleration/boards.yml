@@ -1,0 +1,23 @@
+# Boards for "What is acceleration, exactly?".
+
+# region: speedup
+widget: forces
+object: Trolley
+mass: 2
+force P: right, 6, Push, adjust 0-12
+motion: on
+track: 120
+time: 6
+# endregion
+
+# region: slowdown
+widget: forces
+object: Trolley
+mass: 2
+force P: right, 0, Push
+friction: 4
+motion: on
+speed: 8
+track: 40
+time: 6
+# endregion

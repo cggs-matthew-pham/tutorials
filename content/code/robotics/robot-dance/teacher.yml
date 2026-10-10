@@ -1,0 +1,44 @@
+summary: Students name robot moves as functions (wiggle, spin) and build a dance routine by calling them in order, revisiting functions from micro:bit Foundations in a new setting.
+time: 45
+timing: "Predict and Run 7 min · Investigate 8 min · Modify 12 min · Make 15 min · Real robot 3 min (optional)"
+goals:
+  - I can make a function for a robot move and call it.
+  - I can build a routine from calls in order.
+  - I can explain why making a function alone does not move the robot.
+before: |
+  A **function** is a named group of blocks that runs when it is **called**. Students met functions in micro:bit Foundations (flashHeart); here each function is a **move**: a few motor blocks that end with **robot motor stop**. A routine is then a list of calls, which is easy to read and easy to change. The classic slip returns: making a function does nothing until something calls it (Leo's robot).
+
+  Functions are in **Advanced › Functions** (Make a Function…, then a call block appears). Each move should end with robot motor stop, or the next move starts from a moving robot. MOVE Motor classes can build the same moves from the Kitronik blocks with pauses.
+running:
+  - "Predict: most say twice. A few say nothing (they confuse making with calling): good to hear before Leo's robot."
+  - "Run: press A on the simulator's micro:bit, not the keyboard."
+  - "Investigate: Leo's robot is the define-not-call slip from Foundations. Ask: where is spin called?"
+  - "Modify: the call blocks appear in Functions after the function is made."
+  - "Make: encourage names that describe the move. The check needs three functions (wiggle plus two), A+B, and one move called twice."
+  - "Real robot (optional): fix a move once and every call in the routine changes."
+stuck:
+  - see: "Pressing the button does nothing."
+    ask: "Is there a call block inside the button event?"
+    fix: "Drag call <your move> into on button … pressed."
+  - see: "The robot spins forever after the dance."
+    ask: "Does every move end with robot motor stop?"
+    fix: "Add robot motor stop at the end of each function."
+  - see: "Moves blur into each other."
+    ask: "What happens between moves?"
+    fix: "Add a short pause (basic pause 200 ms) at the end of a move for a beat between moves."
+stretch: "Add robot set color to each move so the lights change with the dance, or play a tone at the start of each move."
+support: "Give students the shuffle function made; they make one more move and the A+B routine."
+leads: "Next unit: Sense. Later, lesson 8 uses radio so one micro:bit can cue several robots to dance together. Class idea: a short robot dance-off, with each group's routine read aloud as a list of move names first."
+exit:
+  q: "Why is a dance easier to change when each move is a function?"
+  a: "You change a move in one place, and every call to it in the routine changes too. The routine itself reads as a list of names."
+explain: |
+  A **function** is a named move. **Make** it once; **call** it to run it.
+
+  - Each move ends with **robot motor stop**.
+  - A routine is calls in order: wiggle, spin, wiggle.
+  - Making a function does nothing until something calls it.
+solutions:
+  step-4#t1: dance.ts#sol-spin
+  step-4#t2: dance.ts#sol-routine
+  step-5: dance.ts#sol-make

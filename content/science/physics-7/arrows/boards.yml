@@ -1,0 +1,38 @@
+# Boards for "How big, which way?".
+
+# region: trolley
+widget: forces
+object: Trolley
+mass: 5
+g: 10
+force W: down, weight, Weight
+force N: up, support, Support
+force P: right, 10, Push, adjust 0-60 by 5
+friction: 10
+# endregion
+
+# region: book
+widget: forces
+object: Book
+mass: 2
+g: 10
+force W: down, weight, Weight
+force N: up, 0, Table pushing up, adjust 0-40
+# endregion
+
+# region: tug
+widget: forces
+object: Rope
+mass: 1
+force L: left, 300, Team A, adjust 0-500 by 50
+force R: right, 100, Team B, adjust 0-500 by 50
+# endregion
+
+# region: skydiver
+widget: forces
+object: Skydiver
+mass: 80
+g: 10
+force W: down, weight, Weight
+force A: up, 200, Air resistance, adjust 0-1200 by 50
+# endregion

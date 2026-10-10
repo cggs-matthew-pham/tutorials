@@ -1,0 +1,35 @@
+summary: Students explain seasons by the Earth's axial tilt, link tilt to the height of the noon sun and day length, and use opposite hemispheres and the distance data to reject the distance explanation (AC9S7U03, node 4, a hinge node).
+time: 22
+timing: "Engage and Explore 7 min · Explain 9 min · Evaluate 3 min · Typical adds 3 min, Wider about 4 min"
+goals:
+  - I can explain that seasons are caused by the tilt, not distance from the sun.
+  - I can link the tilt to the height of the noon sun and the length of the day.
+  - I can explain why the two hemispheres have opposite seasons.
+before: |
+  A concept tutorial for introducing or revising the idea; pair it with a torch shone straight and at a slant onto grid paper. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconception is that summer happens because the Earth is closer to the sun. The board shows the real distance for each date: closest (147 million km) in early January, farthest (152) in early July.
+
+  Board notes: day lengths and noon sun heights are calculated for each city's latitude and date (ignoring the bending of light by the air, which adds a few minutes). The wider tier's tilt slider is a "what if": the real tilt is 23.4°. The Kakadu six seasons are described by Parks Australia with Bininj/Mungguy people; check local sources if you want students to explore a calendar from your own area.
+running:
+  - "Engage: count how many chose 'closer to the sun'."
+  - "Explore: ask what the distance was in December and in June."
+  - "Explain: 'If distance caused seasons...' is the checkpoint."
+stuck:
+  - see: "A student says the Earth is closer to the sun in summer."
+    ask: "What does the board say the distance is on 22 December and 22 June?"
+    fix: "Closer in December by about 5 million km, out of 150: and London is in winter then."
+  - see: "A student says summer is hotter only because days are longer."
+    ask: "What about the height of the noon sun?"
+    fix: "Both: a higher sun concentrates the light, and longer days give more hours of it."
+stretch: "Why are the days around the equinoxes (about 20 March and 22 September) close to 12 hours everywhere?"
+support: "Give a table: date, daylight, noon sun height, distance, season, to fill for December and June."
+leads: |
+  Next: the moon (nodes 2, 3 and 5).
+
+  In class: the torch-and-grid-paper practical; a sunrise and sunset table for your town from the Bureau of Meteorology or Geoscience Australia.
+exit:
+  q: "Explain why Canberra is hotter in December than in June."
+  a: "In December the Southern Hemisphere leans towards the sun (the tilt), so the noon sun is higher, concentrating the light, and days are longer. It isn't distance: the Earth is actually slightly closer to the sun in January."
+explain: |
+  **Seasons** are caused by the Earth's tilt. Leaning towards the sun gives a higher noon sun (concentrated light) and longer days: summer. The hemispheres have opposite seasons. The Earth is closest to the sun in January, so distance isn't the cause.

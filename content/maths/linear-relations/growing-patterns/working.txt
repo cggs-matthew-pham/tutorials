@@ -1,0 +1,7 @@
+# Ben's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ben
+Figure 1 has 4 sticks.
+Figure 10 has 10 squares, so it is 10 lots of Figure 1.
+So Figure 10 has 4 × 10 = 40 sticks.
+# endregion

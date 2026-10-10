@@ -1,0 +1,41 @@
+summary: Students define acceleration as the rate of change of velocity, calculate it from data and graphs in m/s², and treat it as a vector in the direction of the net force (AC9S10U05, node 3, a hinge node).
+time: 25
+timing: "Engage and Explore 7 min · Explain 9 min · Evaluate 3 min · Typical adds 5 min, Wider about 2 min"
+goals:
+  - I can define acceleration as the rate of change of velocity, in m/s².
+  - I can calculate acceleration from velocity and time data, and read it from a speed–time graph.
+  - I can explain that acceleration has a direction, the same as the net force; slowing down is acceleration too.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace motion sensors or ticker timers. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge is the shift from the everyday word to a defined quantity. Keep separating "fast" from "changing speed".
+
+  Board notes: the board's acceleration reading appears under the board, so the number checks use different numbers from the board where possible. The slowing-down board uses friction 4 N on 2 kg: a = −2 m/s².
+running:
+  - "Engage: ask why the cruising car isn't accelerating. Most will say it is."
+  - "Explore: pause at 1, 2 and 3 seconds and read the speed: +3 m/s each time."
+  - "Explain: insist on units for every answer aloud."
+  - "In your own words: the cruising-car explanation is the evidence."
+stuck:
+  - see: "A student says a fast car has big acceleration."
+    ask: "Is its speed changing?"
+    fix: "No, so its acceleration is zero. Acceleration is the change, not the speed."
+  - see: "A student gives acceleration in m/s."
+    ask: "How much speed is added, and in how long?"
+    fix: "m/s added per second: m/s²."
+  - see: "A student says slowing down isn't acceleration."
+    ask: "Is the velocity changing?"
+    fix: "Yes, so it's accelerating, backwards (negative)."
+stretch: "A ball thrown straight up slows down, stops for an instant, then falls. What is its acceleration at the very top?"
+support: "Give the formula card: a = (final speed − starting speed) ÷ time, with one worked example."
+leads: |
+  Next: F = ma (node 4), which links the acceleration to the net force and the mass.
+
+  In class: a motion sensor and a trolley on a ramp, or a ticker timer.
+exit:
+  q: "A sprinter goes from 0 to 9 m/s in 3 s. What is her acceleration?"
+  a: "a = (9 − 0) ÷ 3 = 3 m/s², forwards."
+explain: |
+  **Acceleration** is the rate of change of velocity: a = Δv ÷ Δt, in m/s². It points the same way as the net force; slowing down is acceleration backwards.
+
+  On a speed–time graph, acceleration is the gradient. A steady speed means zero acceleration, however fast.

@@ -1,0 +1,45 @@
+summary: Students solve linear equations by doing the same to both sides (the balance method), including x on both sides, and verify every answer in the first equation (AC9M7A03, node 3).
+time: 50
+timing: "Predict and Run 10 min · Investigate 12 min · Modify 12 min · Practise 10 min · Make 6 min"
+goals:
+  - I can solve an equation by doing the same thing to both sides, and show each step.
+  - I can solve an equation with x on both sides.
+  - I can check my answer by putting it back into the first equation, every time.
+before: |
+  This is a **hinge** lesson: later modelling work (ratios, rates, money problems) depends on fluent solving *and* the checking habit. A student who skips the check will not notice a wrong answer.
+
+  Do the "x on both sides" scale yourself. The key move is taking a **bag of x** from both sides, which students rarely think of until they see the scale.
+running:
+  - "Predict: each wrong option is a real slip (the right side left alone, the bags dropped, the 3 taken from the wrong side). Ask students who chose differently to explain."
+  - "Run: the scale never tips, because every button does the same to both sides. The list underneath is the written method: point at it."
+  - "Investigate: reveal the worked example one line at a time. Stress the last line: check in the first equation, not the line above."
+  - "Leo's mistake (one side only) is the misconception this lesson exists to fix. Ask: what happened to the right side?"
+  - "Modify: for x + 7 = 3x + 1, let students struggle briefly, then ask what else they could take away from both sides."
+  - "Practise: students should write each step as a line of algebra, then check in the first equation. Equations with subtraction (adding to both sides) come in a later lesson."
+stuck:
+  - see: "A student changes one side only (2x + 3 = 11 becomes 2x = 11)."
+    ask: "What did you do to the left side? Did the right side get the same?"
+    fix: "Write the step on both sides: 2x + 3 − 3 = 11 − 3."
+  - see: "A student checks in the last line (x = 4 → 4 = 4) and calls it verified."
+    ask: "Which equation were we asked to solve?"
+    fix: "Check in the first equation: 2 × 4 + 3 = 11."
+  - see: "With x on both sides, the student is stuck."
+    ask: "You took blocks from both sides. What else is on both sides?"
+    fix: "Take the smaller number of x from both sides first: x + 7 = 3x + 1 becomes 7 = 2x + 1."
+stretch: "'I think of a number, double it and add 5 to get 19.' Write the equation, solve it with the balance method, and check. Then invent one where the answer must be a whole number of people, and explain why."
+support: "Use the board for the Practise questions first, then write each button press as a line of algebra."
+leads: |
+  Next: equations from word problems, then graphing linear relations in Year 8, where the solution is where two lines meet.
+
+  Where it leads in class: rearranging formulas in science (speed = distance ÷ time), and money problems with a fixed fee plus a rate.
+exit:
+  q: "Solve 4x + 3 = 2x + 11. Show each step and check your answer in the first equation."
+  a: "Take 2x from both sides: 2x + 3 = 11. Take 3: 2x = 8. Divide by 2: x = 4. Check: 4 × 4 + 3 = 19 and 2 × 4 + 11 = 19."
+explain: |
+  An equation is like a balanced scale. If you do the **same thing to both sides**, it stays balanced, so the equation stays true.
+
+  To solve $2x + 3 = 11$: take 3 from both sides ($2x = 8$), then divide both sides by 2 ($x = 4$).
+
+  When $x$ is on both sides, take the same number of $x$ from both sides first.
+
+  Always **check in the first equation**: $2 \times 4 + 3 = 11$ ✓.

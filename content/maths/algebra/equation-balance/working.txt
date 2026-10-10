@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Is x = 4 a solution of 2x + 3 = 11?
+2x + 3 = 24 + 3
+       = 27
+27 is not 11, so x = 4 is not a solution.
+# endregion

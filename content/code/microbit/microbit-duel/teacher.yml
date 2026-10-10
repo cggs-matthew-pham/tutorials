@@ -1,0 +1,42 @@
+summary: Students turn the reaction game into a two-player race over radio, using a shared message code, a function to remove copied blocks, a true/false variable and a score.
+time: 60
+timing: "Predict, Run, Investigate 12 min · Milestone 1 10 min · Milestone 2 15 min · Milestone 3 15 min · Fair play 5 min"
+goals:
+  - I can keep two micro:bits in step with an agreed code of messages.
+  - I can replace copied blocks with a function.
+  - I can make only the first press count, using a true/false variable.
+before: |
+  Both micro:bits run the **same** program. The players agree a **code**: 0 = get ready, 1 = go, 2 = I pressed first (and 3 = I won the match, in Milestone 3). Whoever presses B sends 0, waits, sends 1 and shows its own heart; the other shows its heart when 1 arrives. `racing` is true only while a round is on, so only the first press counts, and a late press after receiving 2 does nothing. Milestone 1 is a **refactor**: the starter shows the heart and sets racing in two places (a design fault: copies must be kept the same by hand), and students fold them into one function. In the simulator, two micro:bits appear; one student can play both sides to test.
+running:
+  - "Predict: the heart shows on both. Ask how the second micro:bit knows when (message 1)."
+  - "Investigate: the match names the code. The two-copies question is why Milestone 1 exists."
+  - "Milestone 1: defs 1 and calls 2 is the check. Ask: if you change the heart now, how many places change?"
+  - "Milestone 2: read the A event aloud: 'if we are racing, stop, tell the other player, celebrate'."
+  - "Milestone 3: a score variable and message 3. Give pairs real micro:bits for this if you have them: it is far more fun."
+  - "Fair play: in a room of micro:bits, each pair needs its own group."
+stuck:
+  - see: "The heart only shows on one micro:bit."
+    ask: "Is message 1 sent, and does the receiver check for 1?"
+    fix: "Send 1 before calling go, and in on radio received call go when receivedNumber = 1."
+  - see: "Both players see a happy face."
+    ask: "Do you check racing before counting a press?"
+    fix: "In A, only act if racing; set racing to false straight away."
+  - see: "The check for Milestone 1 does not tick."
+    ask: "How many call go blocks are there?"
+    fix: "Call go in both places: after sending 1, and when 1 arrives."
+stretch: "Add an early-press penalty: pressing A before the heart sends 4, and the other player wins the round."
+support: "Run Milestone 3 in pairs: one student builds the winner side (counting and sending 3), the other the loser side (receiving 3)."
+leads: "Two optional lessons go further: Fake-outs and levels (one player, harder rules) and Tournament (a scoreboard list and a round function). Class ideas: a class knockout tournament; a quiz buzzer for real class quizzes."
+exit:
+  q: "Why does the second player's micro:bit show the heart at almost the same time as the first?"
+  a: "The first sends message 1 just before showing its heart, and the second shows its heart as soon as 1 arrives."
+explain: |
+  Both micro:bits run the same program and agree a **code**: **0** get ready, **1** go, **2** I pressed first.
+
+  `racing` is true only while a round is on, so only the **first** press counts.
+
+  The function **go** keeps one copy of "show the heart, start racing", so both players always see the same signal.
+solutions:
+  step-4: duel.ts#sol-m1
+  step-5: duel.ts#sol-m2
+  step-6: duel.ts#sol-m3

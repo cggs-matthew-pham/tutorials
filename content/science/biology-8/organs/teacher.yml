@@ -1,0 +1,35 @@
+summary: Students describe an organ as several tissue types working together and explain each tissue's contribution (AC9S8U02, node 3, a hinge node).
+time: 25
+timing: "Engage and Explore 7 min · Explain 9 min · Evaluate 3 min · Typical adds 4 min, Wider about 2 min"
+goals:
+  - I can name two tissues in an organ and explain how each helps.
+  - I can explain why organs need more than one tissue.
+  - I can put cells, tissues, organs, systems and organisms in order.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace a leaf section under the microscope or a heart dissection. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge risk is organs as one tissue ("the heart is a muscle"). The leaf shows five tissues before the heart appears.
+
+  Board notes: the leaf is one simplified slice; the heart diagram is a strip of the wall, not the whole heart.
+running:
+  - "Engage: 'one kind of green cell' is the misconception to resolve."
+  - "Explore: ask which tissue does photosynthesis and which brings water."
+  - "Explain: the 'why several' question is the checkpoint."
+stuck:
+  - see: "A student says the heart is just muscle."
+    ask: "What stops the blood flowing backwards?"
+    fix: "Valves, made of connective tissue: a different tissue."
+  - see: "A student mixes up tissue and organ."
+    ask: "Is it one kind of cell, or several kinds working together?"
+    fix: "One kind: tissue. Several tissues: organ."
+stretch: "The skin is your largest organ. Name three tissues it might contain."
+support: "Give the levels ladder (cell → organism) as a card."
+leads: |
+  Next: organ systems (node 4).
+
+  In class: leaf sections under the microscope; a sheep heart dissection.
+exit:
+  q: "Name two tissues in a leaf and say what each does."
+  a: "For example: palisade mesophyll (photosynthesis) and xylem (brings water)."
+explain: |
+  An **organ** is several tissues working together. A leaf has epidermis, mesophyll, xylem and phloem; the heart has cardiac muscle, lining, connective and nervous tissue. Cells → tissues → organs → systems → organism.

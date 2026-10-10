@@ -1,0 +1,39 @@
+summary: Students state the new substance test for chemical change, explain it as atoms rearranging into new particles, and use it in place of the reversibility rule (AC9S8U07, node 2, a hinge node).
+time: 25
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 4 min, Wider about 5 min"
+goals:
+  - I can state that a chemical change makes a new substance.
+  - I can classify changes as physical or chemical with the new substance test.
+  - I can explain why "can it be reversed?" is not a reliable test, with a counterexample.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace practical work. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge risk is the reversibility rule from AC9S6U04. Present the new substance test as a replacement, not an addition, and name the counterexamples (dissolving; recharging a battery).
+running:
+  - "Engage: take a show of hands for 'yes, it always works'. Come back to them at Evaluate."
+  - "Explore: on the reaction board, point to the atom tally: same atoms before and now."
+  - "Explain: the sort's 'why' notes appear once each item is right; ask students to say the test aloud for two of them."
+  - "In your own words: the dissolving counterexample is the evidence that the old rule has gone."
+stuck:
+  - see: "A student says boiling is chemical because of the bubbles."
+    ask: "What are the bubbles made of?"
+    fix: "Steam: water as a gas. Same substance, so physical. Bubbles are a clue, not proof."
+  - see: "A student says dissolving is chemical because the salt disappears."
+    ask: "How could you get the salt back?"
+    fix: "Evaporate the water. The salt particles were there all along, spread out."
+  - see: "A student says burning destroys the fuel."
+    ask: "Where did the carbon atoms go on the board?"
+    fix: "Into carbon dioxide. Atoms are rearranged, never destroyed."
+stretch: "Is cooking pasta a chemical change? What would you look for to decide?"
+support: "Give the test as a sentence frame: 'Is there a new substance? I think … because …'."
+leads: |
+  Next in the unit: indicators of chemical change (node 3) and energy in reactions (nodes 4 and 5).
+
+  In class: steel wool in vinegar (rust over a few days), and dissolving then evaporating salt water, side by side.
+exit:
+  q: "Is rusting physical or chemical? How do you know?"
+  a: "Chemical: rust (iron oxide) is a new substance with different properties from iron."
+explain: |
+  A **chemical change** makes a new substance: the atoms separate and join into new particles. A **physical change** keeps the same particles; only their arrangement or spacing changes.
+
+  The test is "is there a new substance?". "Can it be reversed?" is only a clue: dissolving salt can be reversed and is physical.

@@ -1,0 +1,39 @@
+summary: Students trace energy through at least three trophic levels, explain that energy is lost at each level (about 90%), and distinguish one-way energy flow from matter cycling (AC9S7U02, node 2, a hinge node).
+time: 25
+timing: "Engage and Explore 8 min · Explain 9 min · Evaluate 3 min · Typical adds 2 min, Wider about 2 min"
+goals:
+  - I can trace the direction of energy through at least three levels of a food web.
+  - I can explain that energy is lost at each level.
+  - I can explain the difference between energy flow and matter cycling.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace an energy pyramid built from real data. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge risk is conflating energy flow with matter cycling: students then predict energy "coming back" in node 4.
+
+  Board notes: the board shows energy by feeding level with the 10% rule (10 000, 1 000, 100, 10 kJ). The 10% rule is an average; real transfers range from about 5% to 20%. Animals that feed at more than one level (the kookaburra) are shown at their highest level.
+running:
+  - "Engage: most predict half or more. Write the chain on the board with each prediction."
+  - "Explore: ask students to trace two different chains and compare the energy at the top."
+  - "Explain: the sort names where the 90% goes; the third question separates energy from matter."
+  - "In your own words: the 'energy flows, matter cycles' paragraph is the evidence."
+stuck:
+  - see: "A student says decomposers recycle energy."
+    ask: "What do decomposers give back to the soil: atoms or sunlight?"
+    fix: "Atoms (nutrients). The energy leaves as heat."
+  - see: "A student thinks the eaten animal passes on all its energy."
+    ask: "What did the lizard use energy for while it was alive?"
+    fix: "Moving, breathing, keeping warm: that energy is gone before anything eats it."
+  - see: "A student reverses the arrows when tracing."
+    ask: "Which has more energy, the grass or the lizard?"
+    fix: "The grass. Energy goes up the chain, getting smaller."
+stretch: "If humans ate grain directly instead of feeding it to cattle and eating the beef, how much more energy would reach us? Use the 10% rule."
+support: "Give a four-row energy pyramid template to fill in while tracing."
+leads: |
+  Next: abiotic factors (node 3), then biotic factors and cascades (node 4), where energy flow explains why removing a species changes the others.
+
+  In class: build an energy pyramid with blocks (10 for grass, 1 for grasshoppers…); measure the heat from a compost heap.
+exit:
+  q: "Why does a food chain rarely have more than four or five levels?"
+  a: "Only about 10% of the energy passes to each level, so after four or five steps there is too little left to support another population."
+explain: |
+  **Energy** enters as sunlight and **flows one way** through a food web. About 10% passes to each level; the rest is used for living or lost as heat. **Matter cycles**: decomposers return atoms for producers to use again.

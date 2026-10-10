@@ -1,0 +1,325 @@
+<!-- region: swap -->
+<!-- file: before.html -->
+<div>
+  <h1>Chess club</h1>
+</div>
+<p>We meet on Wednesdays.</p>
+<div>
+  <p>Contact: chess@example.com</p>
+</div>
+<!-- file: after.html -->
+<header>
+  <h1>Chess club</h1>
+</header>
+<p>We meet on Wednesdays.</p>
+<footer>
+  <p>Contact: chess@example.com</p>
+</footer>
+<!-- endregion -->
+
+<!-- region: after -->
+<header>
+  <h1>Chess club</h1>
+</header>
+<p>We meet on Wednesdays.</p>
+<footer>
+  <p>Contact: chess@example.com</p>
+</footer>
+<!-- endregion -->
+
+<!-- region: page -->
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <a href="https://example.com/home">Home</a>
+    <a href="https://example.com/join">Join</a>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>This week</h2>
+    <p>Practice on Wednesday.</p>
+  </section>
+</main>
+<footer>
+  <p>Contact: chess@example.com</p>
+</footer>
+<!-- endregion -->
+
+<!-- region: combos -->
+<style>
+  .hero {
+    padding: 24px;
+    background-color: lightblue;
+    text-align: center;
+  }
+  .cards {
+    display: flex;
+    gap: 12px;
+  }
+  .card {
+    padding: 12px;
+    border: 2px solid teal;
+  }
+</style>
+<main>
+  <section class="hero">
+    <h1>Chess club</h1>
+    <p>Think ahead. Every Wednesday.</p>
+    <a href="https://example.com/join">Join us</a>
+  </section>
+  <section class="cards">
+    <div class="card">
+      <h2>Beginners</h2>
+      <p>Learn the moves.</p>
+    </div>
+    <div class="card">
+      <h2>Players</h2>
+      <p>Weekly games.</p>
+    </div>
+  </section>
+</main>
+<!-- endregion -->
+
+<!-- region: badcards -->
+<style>
+  .card {
+    display: flex;
+    padding: 12px;
+    border: 2px solid teal;
+  }
+</style>
+<section class="cards">
+  <div class="card">Beginners</div>
+  <div class="card">Players</div>
+</section>
+<!-- endregion -->
+
+<!-- region: modify -->
+<style>
+  .card {
+    padding: 12px;
+    border: 2px solid teal;
+  }
+</style>
+<div>
+  <h1>Chess club</h1>
+</div>
+<div>
+  <h2>Groups</h2>
+  <div class="cards">
+    <div class="card">Beginners</div>
+    <div class="card">Players</div>
+    <div class="card">Champions</div>
+  </div>
+</div>
+<div>
+  <p>Contact: chess@example.com</p>
+</div>
+<!-- endregion -->
+
+<!-- region: sol-header -->
+<style>
+  .card {
+    padding: 12px;
+    border: 2px solid teal;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+</header>
+<div>
+  <h2>Groups</h2>
+  <div class="cards">
+    <div class="card">Beginners</div>
+    <div class="card">Players</div>
+    <div class="card">Champions</div>
+  </div>
+</div>
+<div>
+  <p>Contact: chess@example.com</p>
+</div>
+<!-- endregion -->
+
+<!-- region: sol-nav -->
+<style>
+  .card {
+    padding: 12px;
+    border: 2px solid teal;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <a href="https://example.com/home">Home</a>
+    <a href="https://example.com/join">Join</a>
+  </nav>
+</header>
+<div>
+  <h2>Groups</h2>
+  <div class="cards">
+    <div class="card">Beginners</div>
+    <div class="card">Players</div>
+    <div class="card">Champions</div>
+  </div>
+</div>
+<div>
+  <p>Contact: chess@example.com</p>
+</div>
+<!-- endregion -->
+
+<!-- region: sol-main -->
+<style>
+  .card {
+    padding: 12px;
+    border: 2px solid teal;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <a href="https://example.com/home">Home</a>
+    <a href="https://example.com/join">Join</a>
+  </nav>
+</header>
+<main>
+  <h2>Groups</h2>
+  <div class="cards">
+    <div class="card">Beginners</div>
+    <div class="card">Players</div>
+    <div class="card">Champions</div>
+  </div>
+</main>
+<footer>
+  <p>Contact: chess@example.com</p>
+</footer>
+<!-- endregion -->
+
+<!-- region: sol-cards -->
+<style>
+  .card {
+    padding: 12px;
+    border: 2px solid teal;
+  }
+  .cards {
+    display: flex;
+    gap: 12px;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <a href="https://example.com/home">Home</a>
+    <a href="https://example.com/join">Join</a>
+  </nav>
+</header>
+<main>
+  <h2>Groups</h2>
+  <div class="cards">
+    <div class="card">Beginners</div>
+    <div class="card">Players</div>
+    <div class="card">Champions</div>
+  </div>
+</main>
+<footer>
+  <p>Contact: chess@example.com</p>
+</footer>
+<!-- endregion -->
+
+<!-- region: make -->
+<!-- Your hero section goes here: a <section class="hero"> with a heading, a line of text and a link. -->
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<style>
+  .hero {
+    padding: 32px;
+    background-color: gold;
+    text-align: center;
+  }
+</style>
+<section class="hero">
+  <h1>Music night</h1>
+  <p>Friday at 7 pm in the hall. Everyone welcome.</p>
+  <a href="https://example.com/tickets">Get free tickets</a>
+</section>
+<!-- endregion -->
+
+<!-- region: club -->
+<style>
+  .card {
+    padding: 12px;
+    border: 2px solid navy;
+  }
+</style>
+<div>
+  <h1>Robotics Club</h1>
+  <a href="https://example.com/home">Home</a>
+  <a href="https://example.com/join">Join</a>
+</div>
+<div>
+  <div>
+    <h2>Build robots every Tuesday</h2>
+    <p>No experience needed.</p>
+  </div>
+  <div class="cards">
+    <div class="card">Line followers</div>
+    <div class="card">Robot races</div>
+    <div class="card">Show day</div>
+  </div>
+</div>
+<div>
+  <p>Contact: robots@example.com</p>
+</div>
+<!-- endregion -->
+
+<!-- region: sol-club -->
+<style>
+  .card {
+    padding: 12px;
+    border: 2px solid navy;
+  }
+  .cards {
+    display: flex;
+    gap: 12px;
+  }
+  .hero {
+    padding: 24px;
+    background-color: lightyellow;
+    text-align: center;
+  }
+</style>
+<header>
+  <h1>Robotics Club</h1>
+  <nav>
+    <a href="https://example.com/home">Home</a>
+    <a href="https://example.com/join">Join</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <h2>Build robots every Tuesday</h2>
+    <p>No experience needed.</p>
+  </section>
+  <section class="cards">
+    <div class="card">Line followers</div>
+    <div class="card">Robot races</div>
+    <div class="card">Show day</div>
+  </section>
+</main>
+<footer>
+  <p>Contact: robots@example.com</p>
+</footer>
+<!-- endregion -->
+
+<!-- region: explain -->
+<header>
+  <h1>Chess club</h1>
+</header>
+<main>
+  <p>We meet on Wednesdays.</p>
+</main>
+<footer>
+  <p>Contact us</p>
+</footer>
+<!-- endregion -->

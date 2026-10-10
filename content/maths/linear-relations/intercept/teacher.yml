@@ -1,0 +1,48 @@
+summary: Students vary c in y = 2x + c on a graph board, find that c moves the line up or down and is where it crosses the y-axis, and that lines with the same m are parallel (AC9M8A04, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can describe what happens to the line y = mx + c when c changes.
+  - I can read where a line crosses the y-axis from its rule.
+  - I can tell from their rules whether two lines are parallel.
+before: |
+  Do the Run and Modify boards yourself first. This lesson follows "What m does to a line": students should already read m as "up for each step right".
+
+  Here m stays at 2 and only c changes, so every line is parallel to the dashed y = 2x + 1. The last Modify task is the first time both sliders appear: it is the stretch point of the lesson.
+
+  The lesson says "where the line crosses the y-axis". The primer has the formal word, y-intercept, if you want to introduce it at the end.
+running:
+  - "Predict: take a show of hands. The common wrong answer is 'it gets steeper': students expect any bigger number to steepen the line. Do not correct it yet."
+  - "Run: ask students to compare the step on the solid line with the dashed line as they move c. It stays 'up 2'. Then read across a column of the table: each y is the same amount more."
+  - "Investigate: model the worked example live. Put x = 0 into y = 2x + 4 and say 'on the y-axis, x is 0, so 2x is 0 and y is just c'. Then compare both rules at x = 1."
+  - "Modify: before 'Not on the axis', ask: why can't we just read c off the graph here? (T is not on the y-axis.)"
+  - "Practise: the parallel question plants the same numbers in different places. Ask a student who chose it to work out the steepness of each line."
+  - "Make: collect two students' answers and check them as a class: work out 2x at P and subtract from y."
+stuck:
+  - see: "A student says a bigger c makes the line steeper."
+    ask: "How far up is the step on each line?"
+    fix: "Point at the two steps: both are 'up 2'. Only the starting height on the y-axis changed."
+  - see: "A student reads m as where the line crosses the y-axis."
+    ask: "What is y when x is 0? Put 0 in the rule."
+    fix: "Work it through: 3 × 0 − 5 = −5. The x term disappears at x = 0, so only c is left."
+  - see: "A student says lines with the same numbers are parallel (Ana's mistake)."
+    ask: "Which number sets the steepness?"
+    fix: "Compare m only: same m means same steepness, so parallel. Different m means the lines cross somewhere."
+  - see: "A student cannot find c when T is not on the y-axis."
+    ask: "What is 2x at T? How much more is y?"
+    fix: "Write y = 2x + c with T's numbers in: 6 = 2 × 1 + c, so c = 4. (This is the first equation-solving step of the next lesson.)"
+stretch: "Write the rule of the line parallel to y = 2x + 1 through (5, 0). Then: can two different lines with the same m ever cross? Why not?"
+support: "Keep the Run board open for the Investigate questions: set c to the number in the rule and read where the line crosses the y-axis. Use squared paper to draw the two parallel lines."
+leads: |
+  Next: solving equations with graphs. 2x + 3 = 11 becomes the point where y = 2x + 3 meets y = 11, which joins this unit to the Equations unit. Then modelling: two plans with different m and c, and where their lines cross.
+
+  Where it leads in class: a fixed starting amount plus a rate (a call-out fee and an hourly charge, a deposit and weekly savings). c is the starting amount; m is the rate.
+exit:
+  q: "Are y = 3x + 2 and y = 3x − 5 parallel? Where does each cross the y-axis?"
+  a: "Yes, both have m = 3. The first crosses at 2, the second at −5."
+explain: |
+  In $y = mx + c$, $c$ is the number on its own. It is where the line crosses the $y$-axis: when $x = 0$, $mx$ is 0, so $y = c$.
+
+  Changing $c$ moves the whole line up or down. It does not change the steepness, because $m$ stays the same: $y = 2x + 4$ is $y = 2x + 1$ moved up 3.
+
+  Lines with the same $m$ are **parallel**: equally steep, so they never meet.

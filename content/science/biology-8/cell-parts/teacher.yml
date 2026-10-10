@@ -1,0 +1,35 @@
+summary: Students identify the nucleus, cell membrane and cytoplasm in plant and animal cells and describe each one's function (AC9S8U01, node 3, a hinge node).
+time: 20
+timing: "Engage and Explore 6 min · Explain 8 min · Evaluate 3 min · Typical adds 4 min, Wider about 2 min"
+goals:
+  - I can state the function of the nucleus, cell membrane and cytoplasm.
+  - I can link a feature of each to its function.
+  - I can explain that plant and animal cells both have these three parts.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace microscope work. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge risk is functions learned as labels. Keep asking "what would go wrong without it?".
+
+  Board notes: the membrane and wall are thin rings; students click on the line. The plant cell's membrane sits just inside the wall.
+running:
+  - "Engage: tally the answers; 'membrane' is a common wrong one."
+  - "Explore: ask what the two cells have in common before reading anything."
+  - "Explain: the match is the minimum; the membrane question gives 'selectively permeable' meaning."
+stuck:
+  - see: "A student confuses the cell wall with the membrane."
+    ask: "Which one did you find in both cells?"
+    fix: "The membrane (both); the wall is an extra layer outside it in plants only."
+  - see: "A student says the nucleus 'thinks'."
+    ask: "What does the nucleus hold?"
+    fix: "Instructions (DNA). It doesn't decide; it stores the recipe."
+stretch: "Red blood cells have no nucleus. What can't they do, and why might that be acceptable for them?"
+support: "Give a labelled cell diagram with three blank job boxes to fill while clicking."
+leads: |
+  Next: what plant cells have extra and why (node 4), then specialised cells in Year 8's second unit.
+
+  In class: an egg as a giant cell model (membrane under the shell, yolk as a food store, not a nucleus); a jelly-and-fruit cell model.
+exit:
+  q: "What does the cell membrane do?"
+  a: "It controls what enters and leaves the cell."
+explain: |
+  Plant and animal cells share the **nucleus** (holds the DNA, controls the cell), the **cell membrane** (controls what enters and leaves) and the **cytoplasm** (where reactions happen).

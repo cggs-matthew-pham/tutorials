@@ -1,0 +1,12 @@
+# Boards for "What counts as a stimulus?".
+
+# region: pathways
+widget: coordination
+mode: pathway
+need: 4
+stimulus: Touching a hot pan | external | Heat and pain receptors in the skin | Spinal cord | Arm muscles | You pull your hand away
+stimulus: Bright light in your eyes | external | Light receptors in the retina | Brain | Iris muscles | Your pupils get smaller
+stimulus: Blood sugar rises after lunch | internal | Cells in the pancreas | Pancreas | Pancreas releases insulin; liver and muscle cells take up sugar | Blood sugar falls back to normal
+stimulus: Body getting too hot | internal | Temperature receptors in the brain and skin | Hypothalamus (brain) | Sweat glands and skin blood vessels | You sweat and your skin flushes
+stimulus: Too little water in the blood | internal | Receptors in the brain | Hypothalamus (brain) | Pituitary gland releases ADH; kidneys keep water | You make less, darker urine and feel thirsty
+# endregion

@@ -1,0 +1,42 @@
+summary: Students give numbers names (variables) and let the program calculate the turn, so one change at the top updates the whole shape.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 10 min · Room plan 5 min"
+goals:
+  - I can store a value in a variable and use its name instead of the number.
+  - I can work out a value with a calculation, such as angle = 360 / sides.
+  - I can change a whole drawing by changing one variable.
+before: |
+  Run the first program, then make the spiral from the Make step. The key line is `size = size + 5`, which looks wrong to anyone used to maths: in Python it means "work out size + 5, then store it back in size". Be ready to say that out loud.
+running:
+  - "Predict: ask how many sides the shape will have and why the turtle turns 72 degrees. The answer is in the line angle = 360 / sides."
+  - "Read = aloud as 'store'. sides = 5 means 'store 5 in sides', not 'sides equals 5'. This one habit prevents most confusion later."
+  - "Investigate: print(angle) shows what is stored. Students change sides and watch angle change. Ask: why do we never need to type 72?"
+  - "Modify: students should only ever change the top numbers. If someone edits inside the loop, ask them to find the one variable that does the job."
+  - "Make: the spiral needs a variable that changes inside the loop. Let students struggle for a few minutes before showing the hint."
+stuck:
+  - see: The shape does not close, or the turtle spins in place.
+    ask: What is stored in angle when sides is 5? Print it.
+    fix: angle must be 360 / sides (divide, not multiply).
+  - see: "The spiral is a square: every line is the same length."
+    ask: Does anything change size while the loop runs?
+    fix: "Add size = size + 5 as the last line inside the loop (indented)."
+  - see: A NameError says a name is not defined.
+    ask: Is the name spelt exactly the same everywhere, including capitals?
+    fix: Variable names must match exactly. Size and size are different names.
+stretch: Make a shape generator. Change sides to 3, 4, 5 and up to 20, and record which values still look like the shape and which look like a circle.
+support: Give students a table with two columns (sides, angle) and ask them to fill in angle for 3, 4, 5 and 6 before running anything.
+leads: "Next lesson the program makes decisions about values. Scores, counters, game settings and the scale on maps and plans all use variables. Class ideas: a spiral gallery; scale drawings of the classroom."
+exit:
+  q: "What does size = size + 5 do if size is 20?"
+  a: "It works out 20 + 5 = 25 and stores 25 back in size."
+explain: |
+  A **variable** is a name for a value. `sides = 5` means "store 5 in a box called sides". After that, every time the program sees `sides`, it uses 5.
+
+  Variables can hold the result of a calculation: `angle = 360 / sides` works out the turn for you. Change `sides` and the turn updates by itself.
+
+  `size = size + 5` looks odd, but read it right to left: work out `size + 5`, then store the answer back in `size`. That is how a value grows each time round a loop.
+solutions:
+  step-4#t1: variables.py#sol-sides
+  step-4#t2: variables.py#sol-colour
+  step-5: variables.py#sol-spiral
+  step-6: variables.py#sol-plan

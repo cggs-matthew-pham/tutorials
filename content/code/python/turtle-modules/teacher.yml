@@ -1,0 +1,42 @@
+summary: Students import functions from a module (a separate file of related functions), see why copied code costs more to fix, then build a module of their own.
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 15 min"
+goals:
+  - I can import functions from a module and use them.
+  - I can explain why one shared module is easier to fix than copies of the same code.
+  - I can move related functions into a module of my own.
+before: |
+  A **module** is a Python file of functions that other programs can use. `from shapes import square` means "find the file shapes.py and bring in its square function". In the playground, **+ module** makes a new file tab. Before class, do the Modify step yourself: move the three house functions into a module and import `house`.
+running:
+  - "Predict: the program draws a square and a triangle but never defines them. Ask where they might come from."
+  - "Investigate (one bug, two copies): both programs have the same wrong turn. Fixing it means editing twice, and missing one leaves a bug. That cost is the reason modules exist."
+  - "Point out that My tools works the same way as copying: each paste is a separate copy."
+  - "Investigate (where does it come from?): open the shapes module from the Reference panel. Ask: what happens if main.py defines its own square after importing one?"
+  - "Modify: students move three functions into a module, import house, and fix the turn once."
+  - "Make: a theme helps (trees, stars, buildings). Keep the drawing calls in main.py; the module only holds functions."
+stuck:
+  - see: "A ModuleNotFoundError or ImportError."
+    ask: Is the module's file name exactly the name after from, without .py?
+    fix: The tab name and the import must match exactly, in lowercase.
+  - see: The drawing happens twice, or as soon as the module is imported.
+    ask: Are there calls (not just defs) inside the module?
+    fix: Keep only def blocks in the module. Calls go in main.py.
+  - see: An imported function behaves differently from what the module says.
+    ask: Is there a def with the same name in main.py?
+    fix: A def in main.py with the same name replaces the imported one. Rename or delete one of them.
+stretch: Write a module with a docstring for each function (a first line in triple quotes). The docstring becomes the hint on the function's card in the Reference panel.
+support: Do the Modify step together on the projector, then let students make a two-function module before attempting three.
+leads: "Next unit makes programs react to clicks and keys. Every real Python program imports modules others wrote (random, math, and libraries like Gradio). Class ideas: each student builds a module for a theme and a classmate imports it; a class town built from everyone's modules."
+exit:
+  q: "Two programs each have their own copy of a draw_tree function with a bug. Why would putting draw_tree in a module be better?"
+  a: "Both programs would import the one function, so fixing it once in the module fixes it for both."
+explain: |
+  A **module** is a file of related functions that any program can use. `from shapes import square` brings the `square` function from the file `shapes.py` into your program.
+
+  Why bother? If you copy a function into two programs and later find a bug, you must fix both copies, and it is easy to miss one. With a module there is one copy, so you fix it once.
+
+  A module should only hold the functions (the `def` blocks). The program that imports it does the calling.
+solutions:
+  step-5: modules.py#sol-move
+  step-6: modules.py#sol-make
+  step-7: modules.py#sol-street

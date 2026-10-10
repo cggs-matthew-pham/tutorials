@@ -1,0 +1,15 @@
+# Science boards for "What are particles made of?".
+
+# region: air
+widget: atoms
+show: N2 x8, O2 x3, Ar x1, CO2 x1, H2O x2
+caption: A tiny sample of air, enlarged millions of times.
+# endregion
+
+# region: noble
+widget: atoms
+show: He x5, Ne x5, O2 x4, N2 x4
+need: all
+caption: Four gases. Which are elements?
+# endregion
+

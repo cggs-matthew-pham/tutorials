@@ -1,0 +1,46 @@
+summary: Students build a sign-driven delivery robot in three milestones; its distance sensor overrules the model, it reports back through the bridge, and it counts deliveries.
+time: 60
+timing: "Predict, Run and Investigate 12 min · Milestone 1 10 min · Milestone 2 15 min · Full system 8 min (typical) · Milestone 3 12 min"
+goals:
+  - I can make a robot's own sensor overrule a model's label.
+  - I can send a robot's readings back to the computer through a bridge.
+  - I can explain why a safety check goes first in an if, else if chain.
+before: |
+  **The challenge:** everything from AI robots plus Robotics challenges. The robot starts as the careful sign robot (Go twice, Unsure and silence stop it). The milestones add no new blocks:
+
+  1. **The sensor wins:** `if obstacle distance < 15 → stop` goes **first** in forever. The model only knows what the camera sees on the sign; the sensor knows what is in front of the robot. Jo's robot (the check last) is the mistake to watch for.
+  2. **Report back:** a second forever sends `dist` twice a second; `blocked 1` and `blocked 0` go once each, using a variable (the same "send once" idea as Patrol and alert). The bridge turns them into lines such as `dist:23`, which the board shows as values.
+  3. **Deliveries:** a Stop that arrives while going is a delivery; count it, send it back, show it.
+
+  **Without robots:** every milestone works in the simulator (buttons stand in for the model; drag a box to block). The full-system step is typical.
+running:
+  - "Predict: most expect it to stop. Ask: which line looks at the box?"
+  - "Investigate: Jo's robot is the order mistake; trace the if, else if aloud with mode = Go."
+  - "Milestone 2: check blocked is sent once, not every loop; the board's message list shows it."
+  - "Milestone 3: let teams choose their delivery story and signs."
+stuck:
+  - see: "The robot still pushes boxes."
+    ask: "Where is the distance check in the if, else if chain?"
+    fix: "Make it the first if; turn the Go branch into else if."
+  - see: "blocked arrives over and over."
+    ask: "What stops it being sent again next time round forever?"
+    fix: "Send only if blocked is false, then set blocked to true."
+  - see: "No values arrive on the board."
+    ask: "Is the bridge connected, in the same radio group, running the bridge program?"
+    fix: "Connect the bridge and match the groups."
+stretch: "Make the robot slow down (motor tank 20) between 15 and 30 cm, and stop under 15."
+support: "Give milestone 1's if complete; students write the reports in milestone 2."
+leads: "Where this leads: real robots fuse a camera model with many sensors (distance, bump, line), and safety checks always win. The Python pathway's Machine learning with Gradio trains models in code."
+exit:
+  q: "Why does the distance check go before the Go branch?"
+  a: "An if, else if chain runs only the first match; the safety check must win whatever the model says, so it goes first."
+explain: |
+  The robot trusts the **model** for the sign and its own **sensor** for safety.
+
+  - The distance check goes **first** in forever, so it overrules every label.
+  - The robot sends its readings back by radio; the bridge passes them to the computer.
+  - Send an alert **once** (a variable remembers it was sent).
+solutions:
+  step-4: robot.ts#sol-m1
+  step-5: robot.ts#sol-m2
+  step-7: robot.ts#sol-m3

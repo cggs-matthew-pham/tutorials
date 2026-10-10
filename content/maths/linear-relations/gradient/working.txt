@@ -1,0 +1,8 @@
+# Lee's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: lee
+Which line is steeper: y = 2x + 4 or y = 3x + 1?
+y = 2x + 4: when x = 0, y = 4
+y = 3x + 1: when x = 0, y = 1
+4 is bigger than 1, so y = 2x + 4 is steeper.
+# endregion

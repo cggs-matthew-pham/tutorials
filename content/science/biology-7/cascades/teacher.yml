@@ -1,0 +1,39 @@
+summary: Students define biotic factors and predict how removing one species cascades through a food web, tracing effects beyond the species directly linked (AC9S7U02, node 4, a hinge node).
+time: 25
+timing: "Engage and Explore 9 min · Explain 9 min · Evaluate 3 min · Typical adds 2 min, Wider about 4 min"
+goals:
+  - I can define a biotic factor and give three examples.
+  - I can predict the effect of removing one species from a food web, with reasons.
+  - I can trace at least one effect beyond the species directly linked to the change.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace a real case study with population data. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge risk is stopping at the first link ("dingoes gone, so kangaroos go up"). The board asks for a prediction for every population before it shows the reasons.
+
+  Model notes: the board's cascade follows each feeding link outward, nearest effects first, and says "could go either way" when effects at the same distance disagree. Real outcomes depend on how much each species relies on each food, competition and time. The dingo, fox and bandicoot story is a real pattern (mesopredator release) studied in Australia; the details vary between regions.
+running:
+  - "Engage: most choose 'increase' or 'no change' for bandicoots. Keep the vote for Evaluate."
+  - "Explore: students must predict every population before Check unlocks. Ask a student to explain one ✗."
+  - "Explain: the parsons puts the cascade in order; the 'either way' question shows the limits of prediction."
+  - "In your own words: the link-by-link explanation is the evidence."
+stuck:
+  - see: "A student predicts no change for anything not eaten by the dingo."
+    ask: "What eats bandicoots? What happened to that animal?"
+    fix: "Foxes eat them, and foxes went up. Follow the link."
+  - see: "A student thinks removing a predator helps everything."
+    ask: "What happens to the grass when kangaroos and rabbits increase?"
+    fix: "It's eaten more: fewer. Effects alternate up and down the web."
+  - see: "A student is frustrated by 'could go either way'."
+    ask: "What would you need to measure to decide?"
+    fix: "Which effect is stronger: that's what field studies find out."
+stretch: "Cane toads poison the quolls and goannas that eat them. Draw a small web and predict the cascade."
+support: "Give a cascade frame: 'X went … so Y (which eats / is eaten by X) went … because …'."
+leads: |
+  Next: models, limitations and predictions (node 5). The board's model is one example: what does it leave out?
+
+  In class: a dingo fence case study (populations on each side of the fence), or local invasive species data.
+exit:
+  q: "Foxes are controlled with baits in a reserve. Predict one effect two links away, and explain."
+  a: "For example: fewer foxes → more bandicoots → fewer insects (more bandicoots eating them)."
+explain: |
+  A **biotic factor** is a living part of an ecosystem. When one population changes, the effect passes along the food web, one link at a time: a **cascade**. Two opposite effects can make the result uncertain.

@@ -1,0 +1,8 @@
+# Leo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leo
+Plan A: 20 dollars a month plus 5 dollars per GB.
+Plan B: 40 dollars a month, any amount of data.
+Plan A has the lower monthly fee.
+So Plan A is always the cheaper plan.
+# endregion

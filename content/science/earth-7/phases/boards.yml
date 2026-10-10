@@ -1,0 +1,20 @@
+# Boards for "Why does the moon change shape?".
+
+# region: orbit
+widget: sky
+mode: moon
+shadow: on
+# endregion
+
+# region: quiz
+widget: sky
+mode: moon
+quiz: on
+need: 5
+# endregion
+
+# region: north
+widget: sky
+mode: moon
+view: north
+# endregion

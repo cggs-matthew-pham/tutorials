@@ -1,0 +1,41 @@
+# Science boards for "Why does heat speed up reactions?".
+
+# region: compare
+widget: reaction
+show: H2 x15, Cl2 x15
+react: H2 + Cl2 -> 2 HCl
+ea: 3
+goal: compare
+caption: "Run it at one temperature, then reset, change the temperature and run it again."
+# endregion
+
+# region: dilute
+widget: reaction
+show: H2 x8, Cl2 x8
+react: H2 + Cl2 -> 2 HCl
+ea: 2.5
+target: HCl 8
+slider: off
+caption: Low concentration. Note the time.
+# endregion
+
+# region: concentrated
+widget: reaction
+show: H2 x20, Cl2 x20
+react: H2 + Cl2 -> 2 HCl
+ea: 2.5
+target: HCl 8
+slider: off
+caption: High concentration, same target. Note the time.
+# endregion
+
+# region: catalyst
+widget: reaction
+show: H2 x15, Cl2 x15
+react: H2 + Cl2 -> 2 HCl
+ea: 3
+catalyst: on
+slider: off
+goal: compare
+caption: "Run it without the catalyst, then reset, turn the catalyst on and run it again."
+# endregion

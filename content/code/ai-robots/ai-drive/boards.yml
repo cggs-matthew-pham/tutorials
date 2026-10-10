@@ -1,0 +1,9 @@
+# Classifier board for "Drive with gestures": the webcam's labels go to the bridge micro:bit, then by radio to the robot.
+
+# region: drive
+widget: classifier
+classes: Forward, Left, Right, Stop
+webcam: on
+serial: on
+threshold: 0.8
+# endregion

@@ -1,0 +1,35 @@
+summary: Students measure variation in a population, distinguish continuous from discontinuous and inherited from environmental variation, and explain why inherited variation matters for evolution (AC9S10U02, node 1, a hinge node).
+time: 20
+timing: "Engage and Explore 7 min · Explain 8 min · Evaluate 3 min · Typical adds 1 min, Wider about 1 min"
+goals:
+  - I can describe the variation in a measured population.
+  - I can classify variation as continuous or discontinuous, inherited or environmental.
+  - I can explain why only inherited variation is passed on.
+before: |
+  A concept tutorial for introducing or revising the idea; it pairs well with measuring hand spans or heights in class. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge misconception is that a species is uniform. The board's population is spread around a middle colour.
+
+  Board notes: beetle colour runs from 0 (palest) to 1 (darkest); the starting population is spread around 0.5. Measuring doesn't change the population. The next lesson uses the same beetles under selection.
+running:
+  - "Engage: count how many chose 'all the same'."
+  - "Explore: compare bar charts between students: similar shape, different details."
+  - "Explain: the 'why only inherited' question is the checkpoint."
+stuck:
+  - see: "A student says the variation is just 'mistakes'."
+    ask: "Would a population where every beetle was identical be better or worse off if things changed?"
+    fix: "Worse: variation is normal and useful."
+  - see: "A student thinks a scar can be inherited."
+    ask: "Does a scar change the DNA in sperm or eggs?"
+    fix: "No: only changes to the genes in gametes are passed on."
+stretch: "Why does a characteristic controlled by many genes give a smooth spread, but one gene gives a few groups?"
+support: "Give a partly drawn bar chart and a word bank (continuous, discontinuous, inherited, environmental)."
+leads: |
+  Next: natural selection (node 2) with the same beetles.
+
+  In class: measure and graph hand spans; compare with blood groups or earlobes.
+exit:
+  q: "Give an example of inherited variation and one of environmental variation in humans."
+  a: "For example: blood group (inherited); a scar or a language spoken (environmental)."
+explain: |
+  **Variation:** individuals in a population differ. **Continuous** (any value, such as height) or **discontinuous** (groups, such as blood group); **inherited**, **environmental**, or both. Only inherited variation is passed on, so only it drives evolution.

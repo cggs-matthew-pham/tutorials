@@ -1,0 +1,62 @@
+# Pattern boards for "Growing patterns". The new part of each figure is drawn in orange.
+
+# region: run
+widget: pattern
+shape: squares
+n: 1, 10, 1
+count: on
+# endregion
+
+# region: pic
+widget: pattern
+shape: squares
+n: 1, 6, 4
+count: on
+# endregion
+
+# region: triangles
+widget: pattern
+shape: triangles
+n: 1, 8, 1
+count: on
+# endregion
+
+# region: cross
+widget: pattern
+shape: cross
+n: 1, 6, 1
+count: on
+# endregion
+
+# region: columns
+widget: pattern
+shape: columns
+add: 3
+start: 2
+n: 1, 6, 1
+count: on
+# endregion
+
+# region: reverse
+widget: pattern
+shape: squares
+n: 1, 10, 1
+count: on
+# endregion
+
+# region: make
+widget: pattern
+shape: columns
+add: 2
+start: 1
+adjust: on
+n: 1, 10, 1
+count: on
+# endregion
+
+# region: explain
+widget: pattern
+shape: squares
+n: 1, 6, 1
+count: on
+# endregion

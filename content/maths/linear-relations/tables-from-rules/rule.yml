@@ -1,0 +1,32 @@
+# Rule machines for "Tables from rules". Students choose inputs; the machine shows the working and collects pairs.
+
+# region: run
+widget: rule
+rule: y = 2x + 3
+x: 0, 10
+# endregion
+
+# region: subtract
+widget: rule
+rule: y = 3x - 2
+x: 0, 10
+# endregion
+
+# region: negative
+widget: rule
+rule: y = 2x + 3
+x: -5, 5
+start: -3
+# endregion
+
+# region: down
+widget: rule
+rule: y = 10 - 2x
+x: 0, 10
+# endregion
+
+# region: explain
+widget: rule
+rule: y = 3x - 1
+x: 0, 10
+# endregion

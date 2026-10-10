@@ -1,0 +1,12 @@
+# Boards for "How does your body stay at 37 °C?".
+
+# region: temp
+widget: coordination
+mode: feedback
+# endregion
+
+# region: broken
+widget: coordination
+mode: feedback
+break: on
+# endregion

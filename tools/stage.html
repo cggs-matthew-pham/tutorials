@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>stage</title>
+<style>
+  :root {
+    --bg: #11161d; --panel: #171e27; --ink: #e6edf3; --muted: #8b98a8; --line: #263140;
+    --accent: #ff9d3d; --kw: #ff7b72; --str: #a5d6ff; --fn: #d2a8ff; --com: #6e7f91; --num: #79c0ff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; background: var(--bg); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { height: 48px; display: flex; align-items: center; padding: 0 20px; gap: 14px; border-bottom: 1px solid var(--line); }
+  header b { font-size: 15px; letter-spacing: .01em; }
+  header .chip { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 99px; color: #11161d; background: var(--accent); }
+  main { display: flex; height: calc(720px - 48px - 76px); }
+  #code-wrap { width: 560px; padding: 18px 20px; background: var(--panel); border-right: 1px solid var(--line); overflow: hidden; }
+  #file { color: var(--muted); font: 13px ui-monospace, Menlo, Consolas, monospace; margin-bottom: 10px; }
+  #code { margin: 0; font: 14px/1.5 ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap; }
+  #code .cur { display: inline-block; width: 8px; height: 1.1em; background: var(--accent); vertical-align: text-bottom; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .kw { color: var(--kw); } .str { color: var(--str); } .fn { color: var(--fn); } .com { color: var(--com); } .num { color: var(--num); }
+  body.full #code-wrap { display: none; }
+  #app-wrap { flex: 1; position: relative; background: #fff; }
+  #placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: var(--bg); color: var(--muted); font-size: 18px; gap: 12px; }
+  #placeholder code { color: var(--accent); font: 20px ui-monospace, Menlo, Consolas, monospace; }
+  iframe { width: 100%; height: 100%; border: 0; display: block; }
+  #caption { height: 76px; display: flex; align-items: center; gap: 16px; padding: 0 24px; background: #0b0f14; border-top: 1px solid var(--line); }
+  #badge { flex: none; min-width: 34px; height: 34px; padding: 0 12px; border-radius: 17px; background: var(--accent); color: #11161d;
+    font-weight: 700; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; }
+  #text { font-size: 21px; line-height: 1.3; }
+  #cursor { position: absolute; left: 0; top: 0; width: 22px; height: 22px; pointer-events: none; z-index: 10; opacity: 0; }
+  #cursor svg { filter: drop-shadow(0 1px 2px rgba(0,0,0,.5)); }
+  .ripple { position: absolute; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; border: 2px solid var(--accent);
+    pointer-events: none; z-index: 9; animation: rip .5s ease-out forwards; }
+  @keyframes rip { to { transform: scale(3.2); opacity: 0; } }
+</style>
+</head>
+<body>
+<header><b id="title"></b><span class="chip" id="chip"></span></header>
+<main>
+  <section id="code-wrap"><div id="file"></div><pre id="code"><span class="cur"></span></pre></section>
+  <section id="app-wrap">
+    <div id="placeholder"><div>Your app will appear here</div><code id="command"></code></div>
+    <iframe id="app" title="App" hidden></iframe>
+  </section>
+</main>
+<div id="caption"><div id="badge"></div><div id="text"></div></div>
+<div id="cursor"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M3 2l14 8-6 1.5L8.5 18z" fill="#fff" stroke="#11161d" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+
+<script>
+/*HIGHLIGHT*/
+(function () {
+  var source = '', lang = 'python', cursorMs = 800;
+  var $ = function (id) { return document.getElementById(id); };
+  var COLORS = { predict: '#c9a0ff', run: '#6fe3a0', investigate: '#6cb6ff', modify: '#ff9d3d', make: '#ff8fc0', info: '#8b98a8' };
+
+  function render() { $('code').innerHTML = highlightCode(source, lang) + '<span class="cur"></span>'; }
+
+  window.stage = {
+    init: function (o) {
+      lang = o.language || 'python'; cursorMs = o.cursorMs || 800;
+      document.body.classList.toggle('full', o.layout === 'full'); // app fills the whole stage; no code panel
+      $('title').textContent = o.title;
+      $('chip').textContent = o.stage;
+      $('badge').textContent = o.stage;
+      var c = COLORS[o.stage] || COLORS.info;
+      $('chip').style.background = c; $('badge').style.background = c;
+      $('command').textContent = o.command || '';
+      $('cursor').style.transition = 'transform ' + cursorMs + 'ms cubic-bezier(.3,.7,.3,1), opacity .2s';
+      $('text').textContent = o.caption || '';
+      this.setCode(o.code || '', o.file || '');
+    },
+    setCode: function (text, file) { source = text; if (file !== undefined) $('file').textContent = file; render(); },
+    type: function (text, cps) {
+      return new Promise(function (resolve) {
+        var i = 0, step = 1000 / cps;
+        (function tick() {
+          if (i >= text.length) return resolve();
+          source += text[i++]; render(); setTimeout(tick, step);
+        })();
+      });
+    },
+    caption: function (t) { $('text').textContent = t; },
+    showApp: function (url) {
+      var f = $('app'); f.src = url; f.hidden = false; $('placeholder').style.display = 'none';
+    },
+    moveCursor: function (x, y) { var c = $('cursor'); c.style.opacity = 1; c.style.transform = 'translate(' + x + 'px,' + y + 'px)'; },
+    ripple: function (x, y) {
+      var r = document.createElement('div'); r.className = 'ripple'; r.style.left = x + 'px'; r.style.top = y + 'px';
+      document.body.appendChild(r); setTimeout(function () { r.remove(); }, 600);
+    },
+  };
+})();
+</script>
+</body>
+</html>

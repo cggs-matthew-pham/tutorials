@@ -1,0 +1,41 @@
+summary: Students send numbers between micro:bits by radio, react when a message arrives, and see that on radio received is one more event.
+time: 50
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Make 10 min · Doorbell 5 min"
+goals:
+  - I can send a number by radio and react when one arrives.
+  - I can explain why micro:bits must share a radio group.
+  - I can make the receiver react differently to different numbers.
+before: |
+  **Radio** sends short messages between micro:bits. **radio set group** chooses a channel (0 to 255); only micro:bits in the same group hear each other. **send number** sends to every other micro:bit in the group (never to itself). **on radio received** is an event: it runs each time a message arrives, and **receivedNumber** holds the number that came. In the simulator, a second micro:bit appears once the program uses radio; both run the same program. With real micro:bits in a classroom, pairs must choose their own group number or they will hear everyone.
+running:
+  - "Predict: many students say 'on both'. Ask: who is listening, and who is talking?"
+  - "Run: press A on each micro:bit in turn. The heart always shows on the other one."
+  - "Investigate: Ella's groups are the most common real-classroom problem. The Python peek shows radio received as one more function the micro:bit calls."
+  - "Modify: using receivedNumber with if revisits the Decide unit. Then each pair picks a group."
+  - "Make: three numbers, three pictures. Remind students that each number is a code both micro:bits agree on."
+  - "Doorbell: send string sends a word; the receiver gets receivedString."
+stuck:
+  - see: "Nothing arrives."
+    ask: "Are both micro:bits in the same group? Are you pressing on the sender?"
+    fix: "Check radio set group on both, and press on one while watching the other."
+  - see: "The receiver shows the same picture for every number."
+    ask: "Where do you check which number arrived?"
+    fix: "Use if receivedNumber = 1 … else if receivedNumber = 2 inside on radio received."
+  - see: "receivedNumber cannot be found in Variables."
+    ask: "Where does receivedNumber come from?"
+    fix: "Drag it out of the on radio received block itself."
+stretch: "Make a two-way chat: each micro:bit sends 1 for 'yes' and 2 for 'no', and shows a tick or cross when the other answers."
+support: "Give students the receiver with if … else if already built, and ask them to add the senders."
+leads: "Next lesson: messages with meaning. A number can stand for a word in a list both micro:bits share. Class ideas: a relay where a message passes around the room micro:bit to micro:bit; a quiz buzzer where the first press locks out the others."
+exit:
+  q: "Two micro:bits run the same radio program, but one is in group 3 and one in group 4. What happens when A is pressed on either?"
+  a: "Nothing arrives: each only hears messages sent to its own group."
+explain: |
+  **radio set group** picks a channel. Only micro:bits in the **same group** hear each other.
+
+  **send number** sends to every **other** micro:bit in the group (not to itself).
+
+  **on radio received** is an **event**: it runs each time a message arrives. **receivedNumber** holds the number that came.
+solutions:
+  step-4#t1: radio.ts#sol-two
+  step-5: radio.ts#sol-make

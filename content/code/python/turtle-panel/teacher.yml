@@ -1,0 +1,40 @@
+summary: An optional lesson in the user interface direction. Students turn the game into an app with rows of buttons built from lists, so adding a control means adding to a list.
+time: 45
+timing: "Predict, Run and Investigate 15 min · Difficulty row 15 min · Your own controls 15 min"
+goals:
+  - I can draw a row of buttons from lists with a loop.
+  - I can find which button was clicked with a loop.
+  - I can add a control to an app by adding to its lists.
+before: |
+  The big idea: **buttons are data**. Three lists (the names, the positions, the values) and two loops (one draws the buttons, one checks which was clicked) replace a pile of copied if statements. "New game" waits 1.1 seconds before starting: that lets any timer still running from the last game stop first, so two games never run at once.
+running:
+  - "Predict: the Pause button covers x from -60 to 60, so a click at x = 0 presses Pause."
+  - "Investigate: follow the loop for a click at x = 100. Only the third button matches."
+  - "Ask: what goes wrong if names has four items but bxs has three? (The loop asks for a position that does not exist.)"
+  - "Modify: the difficulty row is the same pattern again: three lists, a drawing loop and a checking loop."
+  - "Make: students design a row of their own. A colour theme with bgcolor is a good first choice."
+stuck:
+  - see: "An IndexError when clicking or drawing."
+    ask: Do all the lists that go together have the same number of items?
+    fix: Lists used side by side (names and bxs) must be the same length.
+  - see: Two rows of buttons overlap.
+    ask: What y value does each row use?
+    fix: Give each row its own y, at least 50 apart for 40-high buttons.
+  - see: A click changes the difficulty but the turtle still moves at the old speed.
+    ask: Is delay in the global line of clicked?
+    fix: Add delay to clicked's global line.
+stretch: Add a row that chooses between two different paths (two pairs of lists) for the turtle.
+support: Give the difficulty row's three lists already written; students add only the two loops.
+leads: "Gradio lets you list controls (gr.Button, gr.Radio) and draws them and checks clicks for you. On a web page, HTML draws the buttons and JavaScript listens for clicks. Students have built what both do."
+exit:
+  q: "A panel has names = [\"A\", \"B\", \"C\"] and bxs = [-190, -60, 70], each button 120 wide. Which button does a click at x = -100 press?"
+  a: "A. Its button runs from -190 to -70, and -100 is inside that range."
+explain: |
+  Apps have **panels**: rows of buttons that change what the program does. Instead of writing an if for every button, keep the buttons as **data**: a list of names and a list of positions.
+
+  One loop draws a button for every name. Another loop checks each button in turn to find which one was clicked. Adding a button is just one more item in each list.
+
+  This is what tools like Gradio do for you: you list the controls, and they draw them and handle the clicks.
+solutions:
+  step-4: panel.py#solution
+  step-5: panel.py#sol-theme
