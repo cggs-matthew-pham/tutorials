@@ -9,10 +9,12 @@ pathways:
     courses:
       - { path: code/python, stage: foundations }
       - { path: code/console, stage: foundations, after: [code/python] }
-      - { id: console-deep, title: Deeper Python in the console, stage: extensions, summary: "Strings, dictionaries, files and errors.", after: [code/console] }
+      - { id: objects, title: Objects with turtles, stage: extensions, summary: "A small arcade game with many enemies: from lists of numbers to dictionaries to classes.", after: [code/console] }
+      - { id: data-detective, title: Data detective, stage: extensions, summary: "A real data set: count, average, chart and clean it, and check the results with test cases.", after: [code/console] }
+      - { id: console-deep, title: Deeper Python in the console, stage: extensions, summary: "One idea at a time (strings, lists and dictionaries, text files, errors), ending in a text adventure.", after: [code/console] }
       - { path: code/gradio, stage: extensions, after: [code/console] }
-      - { title: Machine learning with Gradio, stage: extensions, summary: "Train small models on data, and put a model behind an app.", after: [console-deep, code/gradio] }
-      - { title: Games with microStudio, stage: extensions, summary: "Sprites, maps, sound and a game loop in text code.", after: [code/console] }
+      - { title: Machine learning with Gradio, stage: extensions, summary: "Train small models on data, and put a model behind an app.", after: [data-detective] }
+      - { title: Games with microStudio, stage: extensions, summary: "Sprites, maps, sound and a game loop in text code.", after: [objects] }
   - id: web
     title: Web
     summary: Build pages, then make them draw, move and react.

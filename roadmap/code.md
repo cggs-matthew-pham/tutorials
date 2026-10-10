@@ -406,12 +406,12 @@ Machine learning after Data detective: Pyodide with scikit-learn on the same CSV
 
 ### Open questions
 
-- Order of the extensions: Objects first (most fun, closest to Catch the turtle) or Data first (closest to the ACARA data descriptors)?
-- Retire "Deeper console Python" as a separate course, since strings, dictionaries, files and errors now arrive inside the projects?
-- Console bridge: canvas hidden, or text and turtle together?
+- **Decided 11 Oct: extensions run side by side** after the console bridge (`after:` is a hint on the card, never a gate). Real dependencies only: machine learning after Data detective (same CSVs); microStudio after Objects (sprites are objects; a hint); Apps works with or without Objects (questions as dictionaries, or `class Question`). **Build Objects first** (closest to Catch the turtle; needs the several-turtles change, the one real engineering job).
+- **Decided 11 Oct: keep Deeper Python in the console** as the concepts-first route for teachers who teach that way: one idea per lesson (strings, lists and dictionaries, text read in as a file, errors with `try`/`except`), ending in a text adventure (rooms in a dictionary, commands split into words, bad commands caught, a game loop). Every extension stands alone after the console bridge and teaches what it needs (dictionaries, `split`, `try`) in its own lessons; a student who meets an idea twice gets a recap in a new context. Parallel courses can both `introduce` an idea without a warning.
+- **Decided 11 Oct: console bridge is console only** (built).
 - Which real data sets (licences, Australian sources)?
 - Is Gradio still the apps endpoint, or our own UI subset?
-- `code/index.md` cards to change once agreed.
+- `code/index.md` cards updated 11 Oct: Objects with turtles and Data detective added as planned courses; Deeper Python's summary names the text adventure; machine learning after Data detective; microStudio after Objects.
 
 **Effort, roughly:** console panel small; several turtles moderate (about 150 lines across the bridge and renderer, plus re-running every turtle lesson); lessons about 4 + 5 + 4 + 3.
 
