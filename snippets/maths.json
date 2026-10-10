@@ -153,6 +153,14 @@
           "unit": "brackets",
           "code": "-2(x - 5) = -2x + 10",
           "hint": "A negative outside flips the sign of every term inside: $-2 \\times (-5) = +10$."
+        },
+        {
+          "label": "factorise",
+          "unit": "brackets",
+          "code": "6x + 9 = 3(2x + 3)",
+          "hint": "Divide every term by the highest common factor and put it outside: $12x - 8 = 4(3x - 2)$, and $2x^2 + 4x = 2x(x + 2)$. Check by expanding.",
+          "board": "widget: tiles\ns: 6\nt: 9\nk: 3",
+          "shows": "6 x-tiles and 9 ones shared into 3 rows of 2x + 3"
         }
       ]
     }

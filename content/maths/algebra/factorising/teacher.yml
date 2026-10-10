@@ -1,0 +1,44 @@
+summary: Students share algebra tiles into equal rows to factorise sx + t, learn to take out the highest common factor (numbers, then letters) and check by expanding (AC9M8A01, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can factorise an expression by taking out a common factor.
+  - I can take out the highest common factor, including a letter, so the expression is fully factorised.
+  - I can check a factorisation by expanding it.
+before: |
+  Do the Run board and the Make task yourself first. Students need Expanding brackets (the lesson before) and highest common factors from Year 7 Number.
+
+  The one idea: factorising divides every term by a common factor, and the factor goes outside the bracket. The common mistake is taking out a common factor that is not the highest (12x − 8 = 2(6x − 4)); it is planted after the method, in Ava's working. Her answer is equal to 12x − 8, so it is not wrong, just not finished: that is the conversation to have.
+
+  Answers are marked by form: an equal answer that could still be factorised further is told so ("could take out more") rather than marked right.
+running:
+  - "Predict: take a show of hands. Students who chose 6(x + 9) divided only the first term; those who chose 2(3x + 4.5) found a factor of 6 but not of 9. Do not correct it yet."
+  - "Run: ask why 2 rows do not work (9 ones do not share into 2) and why 3 does."
+  - "Investigate: model the worked example live, including the check by expanding. Then ask: is Ava's answer wrong?"
+  - "Modify: before the letter task, ask what goes into both 2x² and 4x. Students often find the 2 and miss the x."
+  - "Make: collect students' expressions on the board and ask which ones are fully factorised with 4 outside."
+stuck:
+  - see: "A student divides only the first term (6x + 9 = 3(2x + 9))."
+    ask: "Expand your answer. Do you get back to where you started?"
+    fix: "Expanding is the check: 3 × 9 = 27, not 9."
+  - see: "A student stops at a common factor that is not the highest (Ava's mistake)."
+    ask: "Look inside the bracket. Do those terms share anything?"
+    fix: "Take out what they share as well: 2(6x − 4) = 2 × 2(3x − 2) = 4(3x − 2)."
+  - see: "A student cannot find a common factor."
+    ask: "List the factors of each number. Which appear in both lists?"
+    fix: "Use the board: try k = 2, 3, 4… and see which numbers of rows work."
+stretch: "Factorise 6x²y − 9xy² fully. (3xy(2x − 3y).) Then: write three different expressions whose full factorisation has 6 outside."
+support: "Use the tiles board for every two-term question with positive numbers: try each k and read off the bracket."
+leads: |
+  Next: rearranging formulas (node 3), which divides every term by a number in the same way.
+
+  Where it leads: factorising quadratics in Years 9 and 10, which the same tiles show as a rectangle.
+exit:
+  q: "Factorise 14x − 21 fully, then check by expanding."
+  a: "7(2x − 3). Check: 7 × 2x = 14x and 7 × (−3) = −21."
+explain: |
+  **Factorising** is expanding backwards. Find a number that goes into every term, divide every term by it, and put it outside the bracket.
+
+  $6x + 9$: 3 goes into 6 and 9, so $6x + 9 = 3(2x + 3)$. Take out the **highest** common factor: $12x - 8 = 4(3x - 2)$, not $2(6x - 4)$, which still shares a 2. A letter can be common too: $2x^2 + 4x = 2x(x + 2)$.
+
+  Check by expanding: you should get back to where you started.

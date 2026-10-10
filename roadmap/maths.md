@@ -61,12 +61,16 @@ Earlier recommendation (before the follow-up checks): our rules on WPM's tree (a
 
 AC9M8N04 page added; lesson 3 of Number Foundations' Integers unit, *Multiplying and dividing integers* (node 1): the pattern a × (−2), the number line's new `product: a × b` (a negative number of jumps goes the opposite way), division by the same rule, powers of −1; misconception `sign-rules-addition`; two cards. Fractions on the line moves to order 4. Comparing two plans and Solving with graphs now list it in `uses:`; Expanding brackets lists it in `assumes:` with a quick check (−2 × (−5)) before its negative-outside task, since Algebra does not come after Number Foundations; Tables from rules notes that its rule machine shows 2(−2).
 
+## Done: Factorising (11 Oct 2026)
+
+AC9M8A01 n2: lesson 11 of Algebra Foundations' Brackets unit, *Factorising*. The tiles board gains a factorise mode (`s` x-tiles and `t` ones, a `k` rows slider; values `f` rows work, `h` fully factorised, `g` the HCF): tiles that do not share stay in a heap. Form-checked answers (`form: factorised`, numbers and a letter taken out, three terms), a working check that allows taking out a factor in steps, misconception `hcf-not-highest` (Ava's 2(6x − 4)), one Reference card.
+
 ## Still to do
 
-- **Publish and listen:** the seven new clips (Number Foundations 4, Angles 2, Expanding brackets) record with the real voice on the next manual publish.
-- **Try with classes:** all seven new lessons, the form checks and the working check, and whether students use the sliders or drag.
+- **Publish and listen:** the eight new clips (Number Foundations 4, Angles 2, Expanding brackets, Factorising) record with the real voice on the next manual publish.
+- **Try with classes:** all eight new lessons, the form checks and the working check, and whether students use the sliders or drag.
 - **Next nodes:** AC9M7M05 n3 (unknown angles with reasons) needs the AC9M7M04 page (angles with parallel lines) first.
 - **Reference cards for Linear relations** (it has none yet).
 - **Keyboard access on the graph board:** its dragged points still need a pointer (the Move row could be reused there).
-- **Next in Brackets:** factorising (AC9M8A01 n2, `form: factorised`, tiles backwards) and rearranging formulas (n3, `form: subject x`, working check). 
+- **Next in Brackets:** rearranging formulas (n3, `form: subject x`, working check).
 - **Form-check coverage:** forms beyond algebra (fraction in simplest form, ratio, mixed numerals, inequalities) are not built; add them when a lesson needs one.

@@ -1,0 +1,36 @@
+# Tiles boards for "Factorising". s x-tiles and t ones are given; k is the number of equal rows to share them into.
+
+# region: run
+widget: tiles
+s: 6
+t: 9
+slider k: 1, 6, 1
+# endregion
+
+# region: explain
+widget: tiles
+s: 6
+t: 9
+slider k: 1, 6, 1
+# endregion
+
+# region: explain-pic
+widget: tiles
+s: 6
+t: 9
+k: 3
+# endregion
+
+# region: vary
+widget: tiles
+s: 10
+t: 15
+slider k: 1, 10, 1
+# endregion
+
+# region: make
+widget: tiles
+slider s: 1, 12, 6
+slider t: 1, 12, 9
+slider k: 1, 6, 1
+# endregion

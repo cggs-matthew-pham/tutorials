@@ -547,6 +547,10 @@ Vary, Practise, Make).
     (`k: 3`); optional `slider p` and `slider q` add extra terms after the bracket (for "expand, then collect").
     `result: off` hides the expansion. The panel writes `3(2x + 4) = 6x + 12` and counts the tiles. Values for checks:
     `k`, `a`, `b`, `p`, `q`, `m` (x-tiles in all, k·a + p) and `c` (ones in all, k·b + q).
+    Factorising (first used by `maths/algebra/factorising`): give `s` x-tiles and `t` ones (sliders or fixed, 1 or more)
+    and a `k` slider for the number of rows. When k divides both, the tiles share into k rows of `ax + b` and the panel
+    writes `6x + 9 = 3(2x + 3)`; otherwise they stay in one heap ("2 rows do not work"). Values: `k`, `s`, `t`, `f`
+    (1 when k rows work), `h` (1 when fully factorised: k is the highest common factor) and `g` (the HCF of s and t).
   - `widget: forces` (any subject; first used by the physics lessons): a force diagram and, with `motion: on`, the
     motion it causes.
     - `object: Box` (its name), `mass: 2` (kg; `mass: 1, 10, 2` is a slider), `g: 9.8` (N/kg) or
