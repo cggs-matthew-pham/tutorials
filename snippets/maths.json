@@ -169,6 +169,25 @@
           "hint": "Undo what was done to the letter, last step first, doing the same to both sides. Check by putting in numbers: $x = 2$ gives $y = 11$, and $(11 - 5) \\div 3 = 2$."
         }
       ]
+    },
+    {
+      "name": "Equations and inequalities",
+      "items": [
+        {
+          "label": "x on both sides",
+          "unit": "solving",
+          "code": "3x + 7 = 5x - 9 \\;\\Rightarrow\\; 16 = 2x \\;\\Rightarrow\\; x = 8",
+          "hint": "Expand any brackets. Take the smaller $x$ term from both sides, undo the numbers with the inverse (add to undo $-$), then divide.",
+          "board": "widget: graph\nx: -1, 10\ny: -10, 45\ngrid: 1, 5\nplot: y = 3x + 7\nplot: y = 5x - 9\ncross: 1, 2",
+          "shows": "The two sides as lines meet at x = 8"
+        },
+        {
+          "label": "check by substituting",
+          "unit": "solving",
+          "code": "3(8) + 7 = 31 = 5(8) - 9",
+          "hint": "Put the answer into both sides of the first equation. Equal sides: right. Unequal: look for the first step that went wrong."
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,47 @@
+summary: Students solve linear equations with x on both sides, brackets, negative answers and fractions by doing the same to both sides, writing one step per line, and verify every answer by substitution; a graph shows the solution as where the two sides meet (AC9M8A02, node 2).
+time: 50
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 15 min · Practise and Make 12 min"
+goals:
+  - I can solve an equation with x on both sides, including negatives.
+  - I can solve an equation with brackets by expanding first.
+  - I can check my solution by substituting it into the first equation.
+before: |
+  Do the working check yourself first. Students need The balance method (Year 7), Expanding brackets, and adding and multiplying negatives.
+
+  This is a hinge node: inequalities (next) use the same moves, and sign slips carry over. The common mistake is undoing a term with its own sign (taking 7 away to undo − 7); it is planted in Ben's working and again in Practise.
+
+  The working check marks each line against the one before, so students see the first step that went wrong; the last line must be x = …
+running:
+  - "Predict: take a show of hands, then ask how students chose: trying values is fine, and leads to checking."
+  - "Run: ask what P's y-coordinate means (the value of both sides)."
+  - "Investigate: model the worked example, saying why the smaller x term moves (so x stays positive)."
+  - "Modify: for the no-solution task, ask what the graph would look like."
+  - "Make: collect students' equations and solve one together."
+stuck:
+  - see: "A student takes 7 away to undo − 7 (Ben's mistake)."
+    ask: "What undoes taking 7 away?"
+    fix: "Use the inverse: add 7 to both sides."
+  - see: "A student leaves x on both sides after the first step."
+    ask: "Which x term will you remove from both sides?"
+    fix: "Take the smaller x term from both sides first."
+  - see: "A student expands only the first term of a bracket."
+    ask: "What does the number outside multiply?"
+    fix: "Every term inside: 2(x + 3) = 2x + 6."
+stretch: "Solve (x + 4)/2 = (x − 1)/3. (Multiply both sides by 6: 3x + 12 = 2x − 2, x = −14.)"
+support: "Use the Run graph to check answers: drag P to the meeting point."
+leads: |
+  Next: Inequalities (node 3), which solve the same way except when multiplying or dividing by a negative.
+
+  Where it leads: simultaneous equations (Year 9 and 10), and rearranging formulas with the subject in two places.
+exit:
+  q: "Solve 4(x − 1) = 2x + 6 and check."
+  a: "4x − 4 = 2x + 6, 2x = 10, x = 5. Check: 16 = 16."
+explain: |
+  To solve an equation, **do the same to both sides** until $x$ is on its own:
+
+  1. Expand any brackets.
+  2. Take the smaller $x$ term from both sides, so $x$ is on one side only.
+  3. Undo the numbers with the inverse operation (add to undo $-$, subtract to undo $+$).
+  4. Divide (or multiply) to get $x$.
+
+  $3x + 7 = 5x - 9 \to 7 = 2x - 9 \to 16 = 2x \to x = 8$. **Check**: $3(8) + 7 = 31$ and $5(8) - 9 = 31$. On a graph, $x = 8$ is where the two sides meet.

@@ -89,9 +89,13 @@ Matthew's steer: students own their working; the platform supports it but is not
 
 AC9M7N04 n1 and n2 in Number Foundations' Fractions unit: *Equivalent fractions* (misconception `fraction-add-same`) and *Fractions, decimals and percentages* (`decimal-percent-place`), before *Fractions and decimals on the line* (now order 6, its `assumes` dropped). New board widget `bars` (fraction bars and a hundred grid). Answer forms `simplest` and `decimal`; a typed % or ° is ignored. Six cards and the Fractions primer updated.
 
+## Done: Solving harder equations (11 Oct 2026)
+
+AC9M8A02 n2: new unit Equations and inequalities in Algebra Foundations, lesson 13 *Solving harder equations* (x on both sides, brackets, negatives, a fraction, no solution; working checks; the graph shows the solution where the two sides meet; misconception `inverse-sign`; two cards). It lists AC9M8A02 n1 in `assumes:` (graphing lines is Linear relations; the board draws them).
+
 ## Still to do
 
-- **Publish and listen:** the fifteen new clips (Number Foundations 6, Angles 6, Expanding brackets, Factorising, Changing the subject) record with the real voice on the next manual publish.
-- **Try with classes:** all fifteen new lessons, the form checks and the working check, and whether students use the sliders or drag.
+- **Publish and listen:** the sixteen new clips (Number Foundations 6, Angles 6, Expanding brackets, Factorising, Changing the subject, Solving harder equations) record with the real voice on the next manual publish.
+- **Try with classes:** all sixteen new lessons, the form checks and the working check, and whether students use the sliders or drag.
 - **Watch in class:** whether students write real working in the reasoning box or skip to the marked parts; whether the self-check ticks are honest.
 - **Form-check coverage:** simplest and decimal are built; ratio and inequalities are not; add them when a lesson needs one.

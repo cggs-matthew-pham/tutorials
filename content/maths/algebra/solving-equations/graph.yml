@@ -1,0 +1,34 @@
+# Graph boards for "Solving harder equations". Each side of the equation is a line; they meet at the solution.
+
+# region: run
+widget: graph
+x: -1, 10
+y: -10, 45
+grid: 1, 5
+snap: 1, 1
+plot: y = 3x + 7
+plot: y = 5x - 9
+point P: 2, 0, drag
+# endregion
+
+# region: explain
+widget: graph
+x: -1, 10
+y: -10, 45
+grid: 1, 5
+plot: y = 3x + 7
+plot: y = 5x - 9
+cross: 1, 2
+# endregion
+
+# region: make
+widget: graph
+x: -1, 6
+y: -10, 20
+grid: 1, 5
+slider m: -3, 6, 0
+slider c: -10, 15, 0
+plot: y = 2x + 1
+plot: y = mx + c
+cross: 1, 2
+# endregion

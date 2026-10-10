@@ -1,0 +1,8 @@
+# Ben's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ben
+2x + 5 = 4x − 7
+Take 2x from both sides: 5 = 2x − 7
+Take 7 from both sides: −2 = 2x
+So x = −1.
+# endregion
