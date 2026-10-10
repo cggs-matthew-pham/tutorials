@@ -1,0 +1,45 @@
+summary: Students build k(ax + b) as rows of algebra tiles, find that the number outside multiplies every term inside (signs included), expand, then collect like terms, writing their working one step per line (AC9M8A01, node 1).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can expand a bracket by multiplying every term inside by the number outside.
+  - I can expand when there are negative numbers inside or outside the bracket.
+  - I can expand, then collect like terms, and show each step.
+before: |
+  Do the Run board and the working check yourself first. Students need Algebra Foundations' brackets and expressions, and adding and subtracting negatives (Number Foundations). Multiplying two negatives (−2 × −5 = 10) is Year 8 Number: the tiles show it (a negative row flips every tile), but teach or recap it in class if it is new.
+
+  The one idea: the number outside multiplies every term inside. The common mistake is multiplying only the first term (4(x + 3) = 4x + 3); it is planted after the method, in Sam's working.
+
+  Answers are marked by form: an answer that is equal but still has brackets, or still has like terms to collect, is told what to do next rather than marked right. The working check marks each line against the one before, so students see which step went wrong.
+running:
+  - "Predict: take a show of hands. Students who chose 3x + 2 are thinking the 3 only reaches the x. Do not correct it yet."
+  - "Run: ask students to read the count under the tiles aloud: '3 rows of x + 2: 3 x-tiles and 6 ones'."
+  - "Investigate: model the worked example live. Draw 3 rows of tiles for 2x + 4, write 3 × 2x and 3 × 4 at writing pace, then the − x, then collect. Reveal the prepared lines afterwards to compare."
+  - "Modify: before the negative-outside task, ask: what happens to a tile if you take it away twice? Then let the board show −2(x − 5)."
+  - "Practise: the working check marks the first wrong line. Ask students who get a cross to say what that step did."
+  - "Make: collect the different brackets for 6x + 12 and ask which uses the biggest number outside. That is the lead into factorising."
+stuck:
+  - see: "A student multiplies only the first term (Sam's mistake)."
+    ask: "How many rows are there? What is in each row?"
+    fix: "Build it on the board: every row has the ones as well as the x."
+  - see: "A student gets the sign wrong with a negative inside (4(3x − 2) = 12x + 8)."
+    ask: "What is in each row: add 2 or take away 2?"
+    fix: "4 rows each take away 2, so 8 taken away: −8."
+  - see: "A student expands correctly but stops before collecting."
+    ask: "Are there any terms that are the same kind? Can they be added?"
+    fix: "Underline the x terms and the number terms in different colours, then add each kind."
+stretch: "Expand and simplify 3(2x − 1) − 2(x − 4). (4x + 5.) Then: find the bracket with the biggest number outside that expands to 12x + 18."
+support: "Use the tiles board for every expansion: set k, a and b, read the count, then write it. Physical algebra tiles help if you have them."
+leads: |
+  Next: factorising, which is expanding backwards (the Make task), then rearranging formulas (nodes 2 and 3).
+
+  Where it leads: binomial products (x + 2)(x + 3) in Year 9, which the same area model shows as a grid.
+exit:
+  q: "Expand and simplify 5(x − 2) + 3x."
+  a: "5x − 10 + 3x = 8x − 10."
+explain: |
+  The number outside a bracket **multiplies every term inside**.
+
+  $3(2x + 4)$ is 3 lots of $2x + 4$: $3 \times 2x = 6x$ and $3 \times 4 = 12$, so $6x + 12$. Signs come too: $4(3x - 2) = 12x - 8$, and $-2(x - 5) = -2x + 10$.
+
+  After expanding, collect any like terms: $6x + 12 - x = 5x + 12$.

@@ -30,7 +30,7 @@ Board widget `geometry` (AUTHORING › 11): a triangle or polygon on a dot grid,
 - **AC9M7N04 n3:** new unit Fractions and decimals in Number Foundations, lesson 3 *Fractions and decimals on the line* (positive and negative fractions, decimals and mixed numerals; quarters, tenths, a line without zero in the middle; misconception `negative-decimal-direction`). Node 2 (conversions) is assumed taught in class and retrieved with a quick check. The number line board gained `fractions: 4` (readouts as mixed numerals with the decimal).
 - The Algebra pathway text no longer says Linear relations is being built.
 
-## Proposed: form checks on WPM (prototype run 11 Oct 2026; decision pending)
+## Form checks: options compared (prototype run 11 Oct 2026; Numbas chosen)
 
 The plan named two ways to check that an answer is in a required form (expanded, factorised, simplified, a formula's subject): Numbas's JME with pattern matching, or math.js plus our own rules. A third came out of the prototype: the same rules on the parse tree WPM already builds. All three were run on 35 answers to 11 Year 8–10 tasks (expand and simplify, factorise including negatives and a quadratic, collect like terms, index laws, change the subject), then 12 harder ones.
 
@@ -50,11 +50,20 @@ With the three pattern misses fixed (fractions inside a bracket, `x(...)` as a p
 
 Earlier recommendation (before the follow-up checks): our rules on WPM's tree (about 90 lines). Decision now between that and Numbas; either sits behind the `form` slot the boards plan reserved. Prototypes and cases are in the session scratchpad, not the repo. Next, once agreed: `answer` checks take `form: expanded | factorised | simplified | subject x`, then the line-by-line working check, then Year 8 expanding (AC9M8A01 n1) with an algebra tiles board.
 
+## Done: form checks on Numbas, working check, tiles, Expanding brackets (11 Oct 2026)
+
+- **Decision:** Numbas (vendored v11.0, English only, about 133 KB gzipped) marks `answer` checks with `form:` and the new `working` check, and is loaded only on lessons that use them; plain answer checks and board conditions stay on WPM. The follow-up checks (letter splitting, Node, size) all passed. Validate marks every form answer, feedback answer and working example in Node with the same build. `npm run check-forms`: 71 case-file answers, 15 workings, 717 generated answers. Add a case to `data/forms-cases.json` whenever a real answer is marked wrongly.
+- **Lenient by design:** an equivalent answer the checker cannot judge passes with a note; a wrong form is told its slip (brackets left, like terms, powers, numbers, not a product, whole numbers, common factor left).
+- **Board `tiles`:** algebra tiles for k(ax + b), negatives in red, extra terms to collect.
+- **AC9M8A01 n1:** unit Brackets in Algebra Foundations, lesson *Expanding brackets* (tiles, form-checked answers, two working checks, misconception `partial-distribution`, three Reference cards).
+
 ## Still to do
 
-- **Publish and listen:** the five new clips (Number Foundations 3, Angles 2) record with the real voice on the next manual publish.
-- **Try with classes:** all five new lessons, and whether students use the sliders or drag.
+- **Publish and listen:** the six new clips (Number Foundations 3, Angles 2, Expanding brackets) record with the real voice on the next manual publish.
+- **Try with classes:** all six new lessons, the form checks and the working check, and whether students use the sliders or drag.
 - **Year 8 integers:** Linear relations multiplies negatives (2(−1), −10 × 12), which is Year 8 Number. Needs that descriptor's page (code to confirm) and a lesson, or `assumes:`.
 - **Next nodes:** AC9M7M05 n3 (unknown angles with reasons) needs the AC9M7M04 page (angles with parallel lines) first.
 - **Reference cards for Linear relations** (it has none yet).
 - **Keyboard access on the graph board:** its dragged points still need a pointer (the Move row could be reused there).
+- **Next in Brackets:** factorising (AC9M8A01 n2, `form: factorised`, tiles backwards) and rearranging formulas (n3, `form: subject x`, working check). Expanding brackets multiplies negatives (−2 × −5), which is Year 8 Number: its page is still needed.
+- **Form-check coverage:** forms beyond algebra (fraction in simplest form, ratio, mixed numerals, inequalities) are not built; add them when a lesson needs one.

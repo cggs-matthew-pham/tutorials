@@ -1,0 +1,45 @@
+# Tiles boards for "Expanding brackets". k is outside the bracket; a and b are inside; p and q are extra terms.
+
+# region: run
+widget: tiles
+slider k: 1, 5, 2
+slider a: 1, 3, 1
+slider b: 1, 6, 1
+# endregion
+
+# region: explain
+widget: tiles
+slider k: -3, 4, 2
+slider a: -2, 3, 1
+slider b: -5, 5, 3
+# endregion
+
+# region: explain-pic
+widget: tiles
+k: 3
+a: 2
+b: 4
+# endregion
+
+# region: vary
+widget: tiles
+slider k: -4, 5, 1
+slider a: -3, 4, 1
+slider b: -6, 6, 1
+# endregion
+
+# region: collect
+widget: tiles
+slider k: -4, 5, 1
+slider a: -3, 4, 1
+slider b: -6, 6, 1
+slider p: -3, 3, 0
+slider q: -6, 6, 0
+# endregion
+
+# region: make
+widget: tiles
+slider k: 1, 6, 1
+slider a: 1, 6, 1
+slider b: 1, 12, 1
+# endregion

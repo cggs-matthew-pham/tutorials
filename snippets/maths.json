@@ -130,6 +130,31 @@
           "hint": "Take the same number of $x$ from both sides first, so the bags are on one side only."
         }
       ]
+    },
+    {
+      "name": "Brackets",
+      "items": [
+        {
+          "label": "expand",
+          "unit": "brackets",
+          "code": "3(2x + 4) = 6x + 12",
+          "hint": "Multiply every term inside the bracket by the number outside. Signs come too: $4(3x - 2) = 12x - 8$.",
+          "board": "widget: tiles\nk: 3\na: 2\nb: 4",
+          "shows": "3 rows of 2x + 4: 6 x-tiles and 12 ones"
+        },
+        {
+          "label": "like terms",
+          "unit": "brackets",
+          "code": "6x + 12 - x = 5x + 12",
+          "hint": "Terms with the same letters and powers can be added: $6x - x = 5x$. Collect them after expanding."
+        },
+        {
+          "label": "negative outside",
+          "unit": "brackets",
+          "code": "-2(x - 5) = -2x + 10",
+          "hint": "A negative outside flips the sign of every term inside: $-2 \\times (-5) = +10$."
+        }
+      ]
     }
   ]
 }

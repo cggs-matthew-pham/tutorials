@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Expand 4(x + 3).
+The 4 multiplies the x: 4 × x = 4x.
+The 3 stays as it is.
+So 4(x + 3) = 4x + 3.
+# endregion

@@ -540,6 +540,12 @@ Vary, Practise, Make).
     - Values for checks: each corner's angle by its lower-case letter (`a`, `b`, `c`, …), `s` the total, `m` the largest
       angle, `n` sides, `k` triangles shown by split (else 0), `t` 1 while torn, `v` 1 if no corner points in; corners as
       points (`x(A)`). Examples: `"m > 120"`, `"m = 90"`, `"n = 5 and k = 3"`, `"n = 4 and v = 0"`, `"s = 1260"`.
+  - `widget: tiles` (first used by `maths/algebra/expanding`): algebra tiles for expanding `k(ax + b)`: k rows, each of a
+    x-tiles and b unit tiles, with the bracket along the top and k down the side. Negative tiles are red with a minus;
+    a negative k flips every tile. `slider k: -4, 5, 2`, `slider a`, `slider b` (whole numbers), or fixed values
+    (`k: 3`); optional `slider p` and `slider q` add extra terms after the bracket (for "expand, then collect").
+    `result: off` hides the expansion. The panel writes `3(2x + 4) = 6x + 12` and counts the tiles. Values for checks:
+    `k`, `a`, `b`, `p`, `q`, `m` (x-tiles in all, k·a + p) and `c` (ones in all, k·b + q).
   - `widget: forces` (any subject; first used by the physics lessons): a force diagram and, with `motion: on`, the
     motion it causes.
     - `object: Box` (its name), `mass: 2` (kg; `mass: 1, 10, 2` is a slider), `g: 9.8` (N/kg) or
