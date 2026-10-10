@@ -16,7 +16,7 @@ import { lessonPageHtml, tryEmbed, esc, titleCase, page, codeBlock, siteNav, NAV
 import { readFileSync } from 'node:fs';
 import { snippetId, unlockKind, pictureSpec, usesBoardPictures, pictureBoard, makecodePackage, makecodeExtensions, captionText } from './lesson-core.mjs';
 import { loadLessons, validateLesson, getSnippet, loadDirMeta, loadSnippetFiles, loadSharedModules, CONTENT_ROOT } from './lesson.mjs';
-import { buildPlayground, buildHtmlPlayground, buildMathsPlayground, buildSciencePlayground, buildKatex, buildNumbas, buildMakecodePlayground, buildExplainStage } from './build-playground.mjs';
+import { buildPlayground, buildPyPlayground, buildHtmlPlayground, buildMathsPlayground, buildSciencePlayground, buildKatex, buildNumbas, buildMakecodePlayground, buildExplainStage } from './build-playground.mjs';
 import { buildCreate } from './build-create.mjs';
 import { markedMath, textWithMath, workedHtml } from './maths.mjs';
 import { FORMS_JS, NUMBAS_VERSION } from './maths-forms.mjs';
@@ -145,6 +145,7 @@ if (bad) process.exit(1);
 
 mkdirSync(OUT, { recursive: true });
 buildPlayground(OUT);
+buildPyPlayground(OUT);
 buildHtmlPlayground(OUT);
 await buildMathsPlayground(OUT);
 buildSciencePlayground(OUT);
@@ -153,12 +154,13 @@ buildNumbas(OUT);
 buildMakecodePlayground(OUT);
 buildExplainStage(OUT);
 // Each playground's build stamp, added to the iframe URLs so a deploy is picked up at once.
-const VERSIONS = Object.fromEntries(['_playground', '_playground-html', '_playground-board', '_playground-makecode', '_playground-science'].map((d) => [d, readFileSync(join(OUT, d, 'version.txt'), 'utf8').trim()]));
+const VERSIONS = Object.fromEntries(['_playground', '_playground-py', '_playground-html', '_playground-board', '_playground-makecode', '_playground-science'].map((d) => [d, readFileSync(join(OUT, d, 'version.txt'), 'utf8').trim()]));
 buildCreate(OUT);
 
 // Which lesson step unlocks which snippet: the playgrounds lock exactly these until the check is passed.
 const claimsByKind = {};
 for (const [kind, dir] of [['turtle', '_playground'], ['html', '_playground-html']]) {
+  // The Python playground uses the turtle playground's snippets and unlocks (one Python Reference).
   const claims = claimsByKind[kind] = {};
   for (const l of lessons) for (const s of l.steps) {
     if (unlockKind(l, s) !== kind) continue;
@@ -167,6 +169,7 @@ for (const [kind, dir] of [['turtle', '_playground'], ['html', '_playground-html
     for (const t of s.tasks) for (const id of t.config.unlocks || []) claims[id] = { lesson: l.title, slug: l.slug, step: `${stepTitle} › ${t.title}` };
   }
   writeFileSync(join(OUT, dir, 'unlocks.json'), JSON.stringify(claims));
+  if (kind === 'turtle') writeFileSync(join(OUT, '_playground-py', 'unlocks.json'), JSON.stringify(claims));
 }
 
 // directory tree: path ('' = root) -> { title, summary, kids: [{name, kind, title, summary}] }

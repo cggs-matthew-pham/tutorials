@@ -726,6 +726,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){hidePop();i
 
 export const PLAYGROUNDS = {
   turtle: { dir: '_playground', title: 'Python turtle playground' },
+  python: { dir: '_playground-py', title: 'Python playground' },
   html: { dir: '_playground-html', title: 'HTML and CSS playground' },
   board: { dir: '_playground-board', title: 'Board' },
   maths: { dir: '_playground-board', title: 'Board' },

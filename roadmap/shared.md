@@ -102,3 +102,10 @@ Applies to every subject. The limits are the existing design rules: Predict come
 - Board pictures for science (Matthew approved): `usesBoardPictures(lesson)` in `tools/lesson-core.mjs` (maths, or science with no step on the science board). Validate, `render-pictures.mjs` (the `board` job) and `build-site.mjs` (the picture lookup) use it instead of `language === 'maths'`. Maths pictures and their hashes are unchanged; science-board lessons (`playground: science`) still cannot have pictures (that needs a draw function for `_playground-science/`).
 
 - `playground-board/widgets/universe.js`: the redshift spectrum is drawn 5 times bigger, not 20 (at 20, far galaxies showed no lines). AUTHORING › 12 `universe` line updated to match. Only the Redshift lesson uses it.
+
+## Changed by the code chat (11 Oct 2026): the Python playground (Matthew approved)
+
+- **Pyodide on our own site.** `vendor/pyodide/` (Pyodide 314.0.7: core, pandas, FastAPI, Jinja2 and their dependencies, plus the Flask wheels from PyPI; 30 files, 24 MB) is committed, made by `tools/pyodide-vendor.mjs` (run by hand to change the version or packages). `buildPyPlayground` in `tools/build-playground.mjs` copies it to `dist/_pyodide/` (not stamped; its files are named by version) and builds `playground-py/` into `dist/_playground-py/`. No workflow change.
+- `stampPlayground` also hashes `.py` files (only `playground-py/` has any; other playgrounds' stamps are unchanged).
+- `tools/lesson-core.mjs`: `PLAYGROUND_KINDS` gains `python`; `unlockKind` maps `python` to `turtle`, and code checks on a `python` step use the turtle rules, so Python snippets, unlocks and code rules are shared. `tools/lesson-view.mjs` `PLAYGROUNDS` gains `python` (`_playground-py`). `tools/build-site.mjs` builds it, adds it to `VERSIONS`, and writes the turtle `unlocks.json` into it too.
+- `tools/serve.mjs` serves `.wasm`, `.zip`, `.whl` and `.py` with proper types (Pyodide needs `application/wasm`). `render.mjs` is untouched, so no clip re-records.

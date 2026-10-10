@@ -3,3 +3,4 @@ dist/
 .render-tmp/
 __pycache__/
 .voice-cache/
+.cache/

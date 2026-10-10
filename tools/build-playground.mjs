@@ -31,7 +31,7 @@ export function stampPlayground(dest) {
   walk(dest);
   files.sort();
   const h = createHash('sha1');
-  for (const f of files) if (['.js', '.mjs', '.css', '.html', '.json'].includes(extname(f))) h.update(f.slice(dest.length)).update(readFileSync(f));
+  for (const f of files) if (['.js', '.mjs', '.css', '.html', '.json', '.py'].includes(extname(f))) h.update(f.slice(dest.length)).update(readFileSync(f));
   const v = h.digest('hex').slice(0, 10);
   const local = (u) => !/^[a-z]+:|^\/\//i.test(u);
   for (const f of files) {
@@ -61,6 +61,23 @@ export function buildPlayground(out = 'dist') {
     copyFileSync(src, join(dest, 'vendor', f));
   }
   stampPlayground(dest);
+  return dest;
+}
+
+/**
+ * The Python playground (CPython through Pyodide in a worker) and Pyodide itself: vendor/pyodide/ (made by
+ * tools/pyodide-vendor.mjs) is served from this site as _pyodide/, so a school that allows the site allows Python.
+ * Pyodide is not stamped: its files are named by version, and the playground loads it by a fixed address.
+ */
+export function buildPyPlayground(out = 'dist') {
+  const dest = join(out, '_playground-py');
+  rmSync(dest, { recursive: true, force: true });
+  cpSync(join(root, 'playground-py'), dest, { recursive: true });
+  addSnippets(dest, 'turtle');
+  stampPlayground(dest);
+  const py = join(out, '_pyodide');
+  rmSync(py, { recursive: true, force: true });
+  cpSync(join(root, 'vendor', 'pyodide'), py, { recursive: true });
   return dest;
 }
 
@@ -170,4 +187,5 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   console.log('MakeCode playground built into ' + buildMakecodePlayground(out));
   console.log('Explain stage built into ' + buildExplainStage(out));
   console.log('Science board built into ' + buildSciencePlayground(out));
+  console.log('Python playground built into ' + buildPyPlayground(out));
 }

@@ -24,7 +24,7 @@ export function voiceSpec(v) {
 export const captionText = (v) => (v && typeof v === 'object' ? String(v.text ?? '') : String(v ?? ''));
 export const captionSay = (v) => (v && typeof v === 'object' && v.say !== undefined ? String(v.say) : captionText(v));
 // board: interactive diagrams (balance, machine, graph…); maths is its old name and still works.
-export const PLAYGROUND_KINDS = ['turtle', 'html', 'board', 'maths', 'microbit', 'arcade', 'science'];
+export const PLAYGROUND_KINDS = ['turtle', 'python', 'html', 'board', 'maths', 'microbit', 'arcade', 'science'];
 const isBoard = (pg) => ['board', 'maths', 'science'].includes(pg);
 /** What a board check can expect from a board's report: the board (balance, machine), and the science board (done: the widget's task is finished). Newer boards use when: conditions. */
 export const BOARD_KEYS = ['balanced', 'solved', 'x'];
@@ -156,7 +156,8 @@ export const FEATURES = [
 export const snippetId = (label) => String(label).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 /** Which playground (and so which snippet list) a step's unlocks refer to. */
-export const unlockKind = (lesson, step) => step.config.try?.playground || (lesson.language === 'html' ? 'html' : lesson.language === 'science' ? 'science' : 'turtle');
+// The Python playground (Pyodide) shares the turtle playground's Python snippets, unlocks and code rules.
+export const unlockKind = (lesson, step) => (step.config.try?.playground === 'python' ? 'turtle' : step.config.try?.playground) || (lesson.language === 'html' ? 'html' : lesson.language === 'science' ? 'science' : 'turtle');
 
 export const DEFAULT_PACING = {
   typeCps: 55,        // characters per second when code is "typed" into the stage's code panel
@@ -372,7 +373,7 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
         if (r.count !== undefined && !(r.count && typeof r.count === 'object' && !Array.isArray(r.count) && Object.keys(r.count).length && Object.values(r.count).every((n) => Number.isInteger(n) && n > 0))) err(where, 'code rule count must map a code fragment to a whole number, such as { "basic.show": 3 }');
         if (!Object.keys(r).length) err(where, 'check (code) needs at least one rule');
       }
-      const pk = c.try ? (c.try.playground || (lesson.language === 'html' ? 'html' : 'turtle')) : null;
+      const pk = c.try ? ({ python: 'turtle' }[c.try.playground] || c.try.playground || (lesson.language === 'html' ? 'html' : 'turtle')) : null;
       if (!pk || !['turtle', 'html', ...MAKECODE_KINDS].includes(pk)) err(where, 'a code check needs a playground on the step (try: { starter: ... })');
       else if (r && typeof r === 'object') {
         const allowedR = pk === 'html' ? HTML_RULES : MAKECODE_KINDS.includes(pk) ? MAKECODE_RULES : CODE_RULES.filter((x) => !['tags', 'inside', 'count'].includes(x));
