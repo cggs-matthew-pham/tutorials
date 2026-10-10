@@ -1,0 +1,84 @@
+name: Build and publish (manual)
+
+# Runs only when started by hand: Actions tab > Build and publish (manual) > Run workflow.
+# No push, schedule or other trigger on purpose. It builds main, reusing every clip and picture already
+# on the live site, records and draws only what is new (real Emma voice, MakeCode pictures), and publishes
+# the finished site to the gh-pages branch, which Pages serves.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+env:
+  SITE: https://cggs-matthew-pham.github.io/tutorials
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # A full redraw and re-record is about 20 to 30 minutes; past this something is stuck.
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install site tools
+        run: npm ci --omit=optional   # skip the sandbox-only bundled Chromium
+
+      - name: Validate lessons
+        run: npm run validate
+
+      # Clips and pictures whose hash matches the published one are downloaded from the live site.
+      - name: Fetch unchanged clips and pictures
+        id: reuse
+        run: |
+          node tools/build-playground.mjs
+          node tools/render-pictures.mjs --seed "$SITE" --check
+          node tools/render.mjs --seed "$SITE" --check
+
+      - name: Install browser and ffmpeg
+        if: steps.reuse.outputs.stale != '0' || steps.reuse.outputs.pictures_stale != '0'
+        run: |
+          npx playwright-core install --with-deps chromium
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install lesson dependencies
+        if: steps.reuse.outputs.stale != '0'
+        run: |
+          for f in $(find content -name requirements.txt); do
+            [ -f "$f" ] && pip install -r "$f"
+          done
+          for f in $(find content -name package.json -not -path '*/node_modules/*'); do
+            (cd "$(dirname "$f")" && npm ci)
+          done
+          # Voiceover (lessons with voice:): Kokoro runs in Node; not a site dependency, so install it only here.
+          if grep -rlq '^voice:' content --include=lesson.md; then npm install --no-save --no-audit --no-fund kokoro-js@1.2.1; fi
+
+      - name: Render new clips and pictures
+        run: npm run render
+
+      - name: Build site
+        run: npm run build
+
+      - name: Publish to gh-pages
+        run: |
+          touch dist/.nojekyll
+          cd dist
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Site build from ${GITHUB_SHA::7}"
+          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
