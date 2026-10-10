@@ -1,0 +1,46 @@
+summary: Students describe how one measurement changes as the other increases, section by section, and tell the story a graph shows without reading it as a picture (AC9M7A04, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 14 min · Practise and Make 11 min"
+goals:
+  - I can describe a section of a graph as increasing, decreasing or constant.
+  - I can tell the story of a graph in order, with the measurements named.
+  - I can draw a graph that matches a story.
+before: |
+  Do the Run, Modify (bath) and Make boards yourself first. In Make, the points move up and down only, so students choose each value and the times stay fixed.
+
+  The data are plausible examples, not real measurements. The new move is describing a section by comparing its start and end: as time increases, the other measurement increases, decreases or stays constant.
+
+  The common slip is reading the graph as a picture of the journey, so that a line going down means a hill. Omar's working addresses it. A flat section is a constant measurement while time still passes: the cyclist is stopped, not going slowly.
+
+  The cooling drink adds a decrease that slows down: the line is always going down but gets less steep.
+running:
+  - "Predict: take a show of hands. Ask a student who chose the hill story what the vertical axis measures."
+  - "Run: ask students to narrate the ride aloud as you move the cursor."
+  - "Investigate: model the worked example live: section by section, start value, end value, then the word."
+  - "Modify: after the cooling drink, ask: does the temperature ever go up? How does the drop in the first 10 minutes compare with the last 10?"
+  - "Make: compare two students' baths: where is the flat part, and how do you know?"
+stuck:
+  - see: "A student says the line going down means the cyclist is going downhill (Omar's mistake)."
+    ask: "What does the vertical axis measure? What would the line do if the road were flat but the cyclist rode home?"
+    fix: "Rewrite with the axis name: the distance from home is getting smaller."
+  - see: "A student says a flat line means no time has passed, or no movement is happening at all."
+    ask: "What is going along the bottom axis? Does it keep going?"
+    fix: "Time keeps going. A flat line means the other measurement is not changing."
+  - see: "A student describes only the start and end of the whole graph."
+    ask: "What happens in the middle?"
+    fix: "Split the graph into sections where the direction changes, and describe each one."
+stretch: "Draw a graph of the depth of water in a bath where the water fills quickly, then slowly, then the plug is pulled. Describe it in a sentence."
+support: "Give the sentence frame: As time increases, the ___ increases / decreases / stays constant. Mark where each section starts and ends on a printed graph."
+leads: |
+  Next: the straight line gets a rule. The gradient (how steep) and the intercept (where it starts) name what these graphs have been showing.
+
+  Where it leads in class: describing graphs in science (speed, temperature, growth) and in geography.
+exit:
+  q: "A graph of a tap's water in a bucket (L) against time (min) goes up, then is flat. Describe it."
+  a: "As time increases, the amount of water increases, then stays constant (the tap was turned off)."
+explain: |
+  A graph shows how one measurement **changes** as another changes. Describe it one section at a time: as time increases, the other measurement **increases**, **decreases** or stays **constant**.
+
+  For the bike ride: from 0 to 2 hours the distance from home increases, from 2 to 3 hours it stays constant (the cyclist has stopped), and from 3 to 5 hours it decreases (riding home).
+
+  A graph is not a picture of the journey. A line going down does not mean going downhill: it means the measurement on the up-axis is getting smaller.

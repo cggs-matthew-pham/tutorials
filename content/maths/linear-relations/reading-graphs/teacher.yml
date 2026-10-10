@@ -1,0 +1,46 @@
+summary: Students read values from graphs of real data, starting from either axis, and say what a point means in a sentence with units (AC9M7A04, node 1).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 12 min · Practise and Make 13 min"
+goals:
+  - I can say what a point on a graph of real data means, with units.
+  - I can find a value on one axis and read the matching value from the other.
+  - I can tell the graph's variables from its axis labels.
+before: |
+  Do the Run board and the Make board yourself first. The cursor reads both values off the line; students can click the graph, use the slider, or use the − and + buttons.
+
+  The data are plausible examples, not real measurements. If you have real data (a school weather station, a class experiment), swap in a graph of your own for the Investigate questions.
+
+  Students know how to plot points (the last lesson). The new move is reading a point as two measurements with units: the first from the bottom axis, the second up the side. Axis labels now carry the names and units, such as Time (h).
+
+  The Modify tasks read the other way (from the up-axis to the across-axis), meet a flat section, and meet negative values below the axis.
+running:
+  - "Predict: take a show of hands. Ask a student who chose 'At 24 hours the temperature is 15 °C' which axis they read first."
+  - "Run: ask students to say each reading in a sentence with units before moving the cursor."
+  - "Investigate: model the worked example live on a projected graph: say the axes, put a finger on the known value, go to the line, then across."
+  - "Modify: before the fuel graph, ask: which axis is the 26 on?"
+  - "Make: compare two students' graphs. Both fall every two hours. How do they differ?"
+stuck:
+  - see: "A student gives the time when asked for the temperature, or the reverse (Priya's mistake)."
+    ask: "What is this axis called? Is 9 measured in hours or in degrees?"
+    fix: "Write the units next to each number: 6 h and 9 °C. Then say the sentence: at 6 hours the temperature is 9 °C."
+  - see: "A student cannot find a value between gridlines."
+    ask: "Which two gridlines is the line between? Is it closer to the lower or the upper one?"
+    fix: "Count the grid squares in fives or tens, and use the cursor's readout to check."
+  - see: "A student reads a negative value as positive."
+    ask: "Is the point above or below the Time axis?"
+    fix: "Below the axis is below zero: write the minus sign."
+stretch: "Using the temperature graph, find two different times when the temperature is 16 °C. Why are there two?"
+support: "Give a printed graph with the gridlines labelled and a ruler, and read the first value together, naming the axis out loud."
+leads: |
+  Next: describing the whole relationship in words (it increases, decreases or stays constant) instead of one point at a time.
+
+  Where it leads in class: reading graphs in science experiments and in geography.
+exit:
+  q: "A graph of height (cm) against age (years) has the point (12, 150). What does it say?"
+  a: "At 12 years the height is 150 cm."
+explain: |
+  A graph of real data pairs two measurements. Check the **axis labels** first: one measurement is across (the bottom axis) and the other is up the side.
+
+  To read a graph, find the value you know on its own axis, go to the line, then read across to the other axis. The point $(15, 24)$ on a graph of temperature against time says: at 15 hours the temperature is 24 °C. Give the units in your answer.
+
+  The two numbers of a point belong to different axes. Swapping them gives a different (and wrong) statement.

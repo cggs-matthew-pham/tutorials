@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 9
 unit: using
 title: Rules from real situations
 summary: Many real costs and amounts are a starting amount plus a rate. The starting amount is c and the rate is m, so the rule is y = mx + c.

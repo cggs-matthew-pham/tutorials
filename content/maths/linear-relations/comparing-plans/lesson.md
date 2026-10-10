@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 10
 unit: using
 title: Comparing two plans
 summary: Put two rules on one graph. Where the lines cross they cost the same; on either side, the lower line is the cheaper plan. Then check where the model makes sense.

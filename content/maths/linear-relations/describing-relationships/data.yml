@@ -1,0 +1,104 @@
+# Data graphs for "Describing a relationship". Example data, not real measurements. Plain boards have no cursor,
+# for pictures students describe for themselves.
+
+# region: run
+widget: graph
+axes: Time (h), Distance from home (km)
+x: 0, 5
+y: 0, 80
+grid: 1, 20
+series Data: 0,0; 1,30; 2,60; 3,60; 4,30; 5,0
+cursor R: 1
+# endregion
+
+# region: pic
+widget: graph
+axes: Time (h), Distance from home (km)
+x: 0, 5
+y: 0, 80
+grid: 1, 20
+series Data: 0,0; 1,30; 2,60; 3,60; 4,30; 5,0
+cursor R: 1, 4
+# endregion
+
+# region: ride-plain
+widget: graph
+axes: Time (h), Distance from home (km)
+x: 0, 5
+y: 0, 80
+grid: 1, 20
+series Data: 0,0; 1,30; 2,60; 3,60; 4,30; 5,0
+# endregion
+
+# region: explain
+widget: graph
+axes: Time (h), Distance from home (km)
+x: 0, 5
+y: 0, 80
+grid: 1, 20
+series Data: 0,0; 1,30; 2,60; 3,60; 4,30; 5,0
+cursor R: 1
+# endregion
+
+# region: bath
+widget: graph
+axes: Time (min), Water in bath (L)
+x: 0, 8
+y: 0, 100
+grid: 2, 20
+series Data: 0,0; 2,40; 4,80; 6,80; 8,40
+cursor R: 2
+# endregion
+
+# region: bath-plain
+widget: graph
+axes: Time (min), Water in bath (L)
+x: 0, 8
+y: 0, 100
+grid: 2, 20
+series Data: 0,0; 2,40; 4,80; 6,80; 8,40
+# endregion
+
+# region: walkers-plain
+widget: graph
+axes: Time (min), Distance (m)
+x: 0, 10
+y: 0, 1200
+grid: 2, 200
+series Ali: 0,0; 5,400; 10,800
+series Beth: 0,0; 5,0; 10,1000
+# endregion
+
+# region: cooling-plain
+widget: graph
+axes: Time (min), Drink temperature (°C)
+x: 0, 40
+y: 0, 100
+grid: 10, 20
+series Data: 0,90; 10,60; 20,45; 30,38; 40,35
+# endregion
+
+# region: tank-plain
+widget: graph
+axes: Time (min), Water in tank (L)
+x: 0, 9
+y: 0, 100
+grid: 3, 20
+series Data: 0,0; 3,30; 6,30; 9,90
+# endregion
+
+# region: make
+widget: graph
+axes: Time (min), Water in bath (L)
+x: 0, 10
+y: 0, 100
+grid: 2, 20
+snap: 2, 10
+point A: 0, 50, drag y
+point B: 2, 50, drag y
+point C: 4, 50, drag y
+point D: 6, 50, drag y
+point E: 8, 50, drag y
+point F: 10, 50, drag y
+series: A, B, C, D, E, F
+# endregion

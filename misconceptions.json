@@ -59,5 +59,7 @@
   "timed-move-stops": {"home": "code/robotics/robot-drive", "text": "A move with a time (for 1000 ms) stops when the time is up; in fact the motors keep going until another motor block changes them."},
   "line-steer-wrong-way": {"home": "code/robotics/robot-line", "text": "When a line sensor sees the line, steer away from it; in fact a sensor on the line means the line is on that side, so steer towards it."},
   "music-background-no-wait": {"home": "code/robotics/robot-conductor", "text": "Music played in the background finishes before the next block runs; in fact the program moves on at once, so the next cue is sent straight away."},
-  "alert-repeats": {"home": "code/robotics/robot-report", "text": "A message sent in forever when something happens is sent once; in fact it is sent again every time round while it stays true."}
+  "alert-repeats": {"home": "code/robotics/robot-report", "text": "A message sent in forever when something happens is sent once; in fact it is sent again every time round while it stays true."},
+  "axes-swapped": {"home": "maths/linear-relations/reading-graphs", "text": "The number read up the side is taken as the one measured along the bottom, or the two values of a point are swapped; in fact each number belongs to its own axis, named in the axis label."},
+  "graph-as-picture": {"home": "maths/linear-relations/describing-relationships", "text": "A graph is read as a picture of the journey or the object, so a line going down means going downhill; in fact it shows how one measurement changes with another."}
 }

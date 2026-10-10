@@ -1,0 +1,93 @@
+# Data graphs for "Reading a graph". Example data, not real measurements. The cursor R reads off the line;
+# the plain boards have no cursor, for pictures students read for themselves.
+
+# region: run
+widget: graph
+axes: Time (h), Temperature (°C)
+x: 0, 24
+y: 0, 30
+grid: 3, 5
+series Data: 0,12; 3,10; 6,9; 9,14; 12,20; 15,24; 18,21; 21,16; 24,13
+cursor R: 3
+# endregion
+
+# region: pic
+widget: graph
+axes: Time (h), Temperature (°C)
+x: 0, 24
+y: 0, 30
+grid: 3, 5
+series Data: 0,12; 3,10; 6,9; 9,14; 12,20; 15,24; 18,21; 21,16; 24,13
+cursor R: 3, 15
+# endregion
+
+# region: temp-plain
+widget: graph
+axes: Time (h), Temperature (°C)
+x: 0, 24
+y: 0, 30
+grid: 3, 5
+series Data: 0,12; 3,10; 6,9; 9,14; 12,20; 15,24; 18,21; 21,16; 24,13
+# endregion
+
+# region: explain
+widget: graph
+axes: Time (h), Temperature (°C)
+x: 0, 24
+y: 0, 30
+grid: 3, 5
+series Data: 0,12; 3,10; 6,9; 9,14; 12,20; 15,24; 18,21; 21,16; 24,13
+cursor R: 3
+# endregion
+
+# region: fuel
+widget: graph
+axes: Distance (km), Fuel (L)
+x: 0, 400
+y: 0, 60
+grid: 100, 10
+series Data: 0,50; 100,38; 200,26; 300,14; 400,2
+cursor R: 100
+# endregion
+
+# region: fuel-plain
+widget: graph
+axes: Distance (km), Fuel (L)
+x: 0, 400
+y: 0, 60
+grid: 100, 10
+series Data: 0,50; 100,38; 200,26; 300,14; 400,2
+# endregion
+
+# region: plant-plain
+widget: graph
+axes: Time (weeks), Height (cm)
+x: 0, 6
+y: 0, 20
+grid: 1, 5
+series Data: 0,2; 1,5; 2,9; 3,14; 4,14; 5,14; 6,14
+# endregion
+
+# region: night-plain
+widget: graph
+axes: Time (h), Temperature (°C)
+x: 0, 16
+y: -10, 10
+grid: 4, 5
+series Data: 0,3; 4,-2; 8,-6; 12,-1; 16,5
+# endregion
+
+# region: make
+widget: graph
+axes: Time (h), Battery (%)
+x: 0, 8
+y: 0, 100
+grid: 2, 20
+snap: 2, 10
+point A: 0, 50, drag y
+point B: 2, 50, drag y
+point C: 4, 50, drag y
+point D: 6, 50, drag y
+point E: 8, 50, drag y
+series: A, B, C, D, E
+# endregion

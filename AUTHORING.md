@@ -476,6 +476,13 @@ Vary, Practise, Make).
     - `step: 1`: the "1 right, m up" triangle on the first plot from that x, labelled with how far it goes up or down.
     - `axes: d (km), T ($)`: names for a context. The axes are labelled with them, and the legend, table and `cross:`
       use the letters (`T = 2d + 4`). Plots, points and `when:` conditions still use x and y.
+    - Data graphs (axes start at 0, with a margin for tick labels): `series Gas: 0,5; 1,7; 2,6` is a line through data points
+      (x going up; up to 3 series; the name is the legend). `series: A, B, C` is a line through named points, so students
+      can draw one with `point B: 4, 6, drag y`. `drag y` moves a point up and down only; `drag x` across only.
+      `grid: 6, 10` and `snap: 1, 5` take x then y. `axes: Time (h), Temperature (°C)` takes words and units.
+    - `cursor R: 1` (data series only): a slider (step 1; `cursor R: 1, 4` starts at 4) and a click or drag on the graph read
+      values off the first series. Point R is on the first series (S and T on the others), with a dashed line to the x-axis
+      and a readout ("Time = 14 h. Day = 29 °C"). Checks use `x(R) = 15`, `y(R) > 20`. Not available with draggable points.
     - `cross: 1, 2`: where plots 1 and 2 meet (by number, in order): a point with its coordinates and a dashed line down to the x-axis labelled `x = …`. Nothing is drawn when they do not meet (parallel lines). Leave it off where students should find the point themselves.
   - `widget: pattern`: figure n of a growing pattern, with what each figure adds in orange. `shape: squares` (sticks,
     3n + 1), `triangles` (2n + 1), `cross` (dots, 4n + 1) or `columns` (`add: 3`, `start: 2`: an + b dots; `adjust: on`

@@ -1,0 +1,8 @@
+# Omar's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: omar
+Describe the graph from 3 to 5 hours.
+The line goes down.
+So the cyclist rides down a hill.
+The distance from home is getting smaller.
+# endregion

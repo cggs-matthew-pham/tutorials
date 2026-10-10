@@ -1,0 +1,8 @@
+# Priya's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: priya
+Read the temperature at 6 hours.
+Find 6 on the Time axis.
+Go up to the line.
+Read across: the line is at 9, so at 9 hours the temperature is 6 °C.
+# endregion
