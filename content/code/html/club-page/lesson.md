@@ -4,6 +4,7 @@ unit: challenge
 title: "Final challenge: a club page"
 summary: Build a whole club page from every component in the course, in three milestones, then make it your own.
 language: html
+introduces: [link-in-page]
 explainPicture: page.html#finished
 hook: "This is how real websites are built: a header, a hero, cards, a table and a form, each one a part you already know how to make."
 ---

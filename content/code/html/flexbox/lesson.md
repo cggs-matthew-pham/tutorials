@@ -4,6 +4,7 @@ unit: components
 title: Flexbox
 summary: Line boxes up in a row with Flexbox, space and centre them, and let a gallery wrap onto new lines.
 language: html
+introduces: [flex, flex-options]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8130
   url: http://127.0.0.1:8130/index.html

@@ -4,6 +4,8 @@ unit: structure
 title: Tags and nesting
 summary: Label text with tags, put tags inside tags, and see what the browser does with a mistake.
 language: html
+introduces: [heading, paragraph, emphasis]
+recipes: [page-wrapper]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8124
   url: http://127.0.0.1:8124/index.html

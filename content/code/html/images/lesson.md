@@ -4,6 +4,7 @@ unit: structure
 title: Images
 summary: Show pictures with the img tag, and describe them with alt for people who cannot see them.
 language: html
+introduces: [image]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8126
   url: http://127.0.0.1:8126/index.html

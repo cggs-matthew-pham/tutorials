@@ -2,11 +2,11 @@
 
 The code chat's file. Newest decisions near the top of each section. Shared tools and site pages: `shared.md`.
 
-## Planned: hidden assumptions for HTML and CSS (decided 11 Oct 2026, not built)
+## Done: hidden-assumptions scan for HTML and CSS (11 Oct 2026)
 
-The `introduces`/`assumes` scan in `tools/concepts.mjs` covers MakeCode and Python. HTML is next:
+`CONCEPTS.html` in `tools/concepts.mjs` (41 concepts): tags and attributes read from the markup; CSS concepts (rules, selectors, colours, text styles, the box, display, Flexbox, Grid, units, positioning, `@media`) read only from `<style>` blocks, `style="…"` and tagless regions, so the same words in page text never count. The scan now reads `.html`/`.css` regions and fenced `html`/`css` blocks. All 12 lessons are tagged (`introduces`; `recipes` for the page wrapper in lesson 1 and the JavaScript in Make it react); `npm run check-concepts` has HTML detector tests and lint scenarios.
 
-- **HTML and CSS (12 lessons):** same approach as Python and MakeCode. Add an HTML concept list to `tools/concepts.mjs` (tags such as `ul`/`li`, `a href`, `img`, `table`, forms; CSS selectors, the box model, flex, grid), then tag the lessons. About the same size as the Python work.
+Result: no gaps. Every construct on screen is taught where it first appears (the one-sentence explanations already there, such as `display: block` in Forms and `href="#id"` in the club page, count). Not scanned: code typed in explain clips (as for Python and MakeCode).
 
 ## Done: hidden-assumptions scan, MakeCode pathway (10 Oct 2026)
 

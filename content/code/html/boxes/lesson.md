@@ -4,6 +4,7 @@ unit: style
 title: Boxes
 summary: See every element as a box of content, padding, border and margin, and size and space boxes with CSS.
 language: html
+introduces: [box, div-span]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8129
   url: http://127.0.0.1:8129/index.html

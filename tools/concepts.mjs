@@ -5,7 +5,7 @@
 //   assumes:    [radio-value]            relied on, taught in an earlier lesson (checked, not scanned)
 //   recipes:    [bitwise]                on screen but not taught: the lesson labels it "copy this for now"
 // The scan reads the code students see (every `file#region` the lesson names, except `sol-*` regions, and
-// fenced makecode blocks), finds the constructs in CONCEPTS, and warns (never fails) when a lesson uses a
+// fenced makecode, python, html and css blocks), finds the constructs in CONCEPTS, and warns (never fails) when a lesson uses a
 // concept that no earlier lesson introduces and the lesson neither introduces nor labels as a recipe.
 // A recipe labelled in an earlier lesson counts as seen for later ones. "Earlier" means a lower `order` in the same course, or any lesson of a course it follows (`after:` in
 // code/index.md, followed transitively). An optional lesson's concepts count only for later optional lessons.
@@ -35,6 +35,25 @@ function stripPy(code) {
   }
   return { code: clean.join('\n'), raw: raw.join('\n') };
 }
+/** HTML and CSS: `code` is the markup (comments dropped, the inside of <style> removed, attribute values kept),
+ *  `raw` is the CSS (every <style> block, every style="…" attribute, and any code with no tags, such as a region
+ *  inside a <style> block), so CSS words in page text never count. */
+function stripHtml(code) {
+  code = code.replace(/<!--[\s\S]*?-->/g, '');
+  const css = [];
+  const markup = code
+    .replace(/<style\b[^>]*>([\s\S]*?)(<\/style>|$)/gi, (_, c) => { css.push(c); return '<style></style>'; })
+    .replace(/\sstyle\s*=\s*("[^"]*"|'[^']*')/gi, (m, v) => { css.push(`x{${v.slice(1, -1)}}`); return m; });
+  return { code: markup, raw: css.join('\n').replace(/\/\*[\s\S]*?\*\//g, '') };
+}
+/** Split joined HTML lesson code into markup and CSS; a region with no tags at all is CSS (a region inside <style>). */
+function splitHtml(chunks) {
+  const parts = chunks.map((c) => (/<[a-zA-Z!/]/.test(c) ? stripHtml(c) : { code: '', raw: c.replace(/\/\*[\s\S]*?\*\//g, '') }));
+  return { code: parts.map((p) => p.code).join('\n'), raw: parts.map((p) => p.raw).join('\n') };
+}
+const tag = (names) => new RegExp(`<(${names})\\b`, 'i');
+const prop = (names) => new RegExp(`(^|[{;\\s])(${names})\\s*:`, 'im');
+
 const FOR = /for\s*\(\s*let\s+(\w+)\s*=\s*([^;]+);\s*\1\s*(<=?)\s*([^;]+);[^)]*\)/g;
 const noForHeaders = (c) => c.replace(FOR, 'for ()');
 
@@ -147,6 +166,51 @@ export const CONCEPTS = {
     { id: 'dict', label: 'a dictionary ({k: v})', re: /\{[^}]*:[^}]*\}/ },
     { id: 'tuple-assign', label: 'assigning two names at once', re: /^[ \t]*\w+[ \t]*,[ \t]*\w+[ \t]*=/m },
   ],
+  /** HTML and CSS (one language: `html`). Markup tests read tags and attributes; tests marked `raw` read only the
+   *  CSS (style blocks and style attributes), so the same words in page text never count. */
+  html: [
+    { id: 'page-wrapper', label: 'the page wrapper (<!DOCTYPE>, <html>, <head>, <body>)', re: /<!doctype|<(html|head|body)\b/i },
+    { id: 'heading', label: 'headings (<h1> to <h6>)', re: tag('h[1-6]') },
+    { id: 'paragraph', label: 'paragraphs (<p>)', re: tag('p') },
+    { id: 'emphasis', label: 'important and stressed words (<strong>, <em>)', re: tag('strong|em|b|i') },
+    { id: 'line-break', label: 'a line break (<br>)', re: tag('br') },
+    { id: 'list', label: 'lists (<ul>, <ol>, <li>)', re: tag('ul|ol|li') },
+    { id: 'attribute', label: 'attributes (name="value" in a tag)', re: /<[a-zA-Z][\w-]*\s+[\w-]+\s*=/ },
+    { id: 'link', label: 'links (<a href>)', re: /<a\s[^>]*href/i },
+    { id: 'link-in-page', label: 'links to a place on the page (href="#name", id)', re: /href\s*=\s*["']#/i },
+    { id: 'image', label: 'pictures (<img src alt>)', re: tag('img') },
+    { id: 'table', label: 'tables (<table>, <tr>, <td>, <th>)', re: tag('table|tr|td|th') },
+    { id: 'div-span', label: 'plain boxes (<div>, <span>)', re: tag('div|span') },
+    { id: 'semantic', label: 'page sections (<header>, <nav>, <main>, <section>, <footer>)', re: tag('header|nav|main|section|article|aside|footer') },
+    { id: 'form', label: 'forms (<form>, <label>, <input>, <select>, <textarea>)', re: tag('form|label|input|select|option|textarea') },
+    { id: 'button', label: 'buttons (<button>)', re: tag('button') },
+    { id: 'class', label: 'class="…" on a tag', re: /<[^>]*\sclass\s*=/i },
+    { id: 'id', label: 'id="…" on a tag', re: /<[^>]*\sid\s*=/i },
+    { id: 'script', label: 'JavaScript (<script>)', re: tag('script') },
+    { id: 'style-block', label: 'a <style> block', re: tag('style') },
+    { id: 'style-attr', label: 'style="…" on a tag', re: /<[^>]*\sstyle\s*=/i },
+    { id: 'css-rule', label: 'a CSS rule (selector { property: value; })', raw: true, re: /[\w.#*\]-]\s*\{[^}]*:/ },
+    { id: 'class-selector', label: 'class selectors (.name)', raw: true, re: /(^|[\s,}>])\.[a-zA-Z][\w-]*[^{};]*\{/m },
+    { id: 'id-selector', label: 'id selectors (#name)', raw: true, re: /(^|[\s,}>])#[a-zA-Z][\w-]*[^{};:]*\{/m },
+    { id: 'descendant-selector', label: 'a selector inside a selector (nav a)', raw: true, re: /(^|[},])\s*[\w.#-]+(\s+[\w.#-]+)+\s*\{/m },
+    { id: 'group-selector', label: 'several selectors at once (h1, h2)', raw: true, re: /(^|[}])\s*[\w.#-]+\s*,\s*[\w.#-]+[^{};]*\{/m },
+    { id: 'pseudo-class', label: 'states such as :hover', raw: true, re: /[\w.#)-]:(hover|focus|active|first-child|last-child|nth-child|visited)\b/ },
+    { id: 'text-colour', label: 'colours (color, background)', raw: true, re: prop('color|background|background-color') },
+    { id: 'hex-colour', label: 'colours as hex (#1e90ff)', raw: true, re: /:[^;{}]*#[0-9a-fA-F]{3,8}\b/ },
+    { id: 'colour-function', label: 'colours as rgb() or hsl()', raw: true, re: /\b(rgba?|hsla?)\(/ },
+    { id: 'font', label: 'text styles (font-size, font-family, font-weight, text-align)', raw: true, re: prop('font|font-size|font-family|font-weight|font-style|text-align|text-decoration|line-height') },
+    { id: 'box', label: 'the box (padding, border, margin, width, height)', raw: true, re: prop('padding(-\\w+)?|border(-(top|right|bottom|left|width|style|color))?|margin(-\\w+)?|width|height|max-width|min-height') },
+    { id: 'rounded', label: 'rounded corners and shadows (border-radius, box-shadow)', raw: true, re: prop('border-radius|box-shadow') },
+    { id: 'display', label: 'block or inline (display: block, inline, inline-block, none)', raw: true, re: /display\s*:\s*(block|inline|inline-block|none)\b/ },
+    { id: 'flex', label: 'Flexbox (display: flex)', raw: true, re: /display\s*:\s*(inline-)?flex\b/ },
+    { id: 'flex-options', label: 'Flexbox settings (flex-wrap, gap, justify-content, align-items, flex)', raw: true, re: prop('flex-wrap|flex-direction|gap|justify-content|align-items|flex') },
+    { id: 'grid', label: 'Grid (display: grid, grid-template-columns)', raw: true, re: /display\s*:\s*grid\b|grid-template|grid-column|grid-row|grid-area/ },
+    { id: 'css-units', label: 'units other than px and % (em, rem, vh, vw, fr)', raw: true, re: /\d(em|rem|vh|vw|fr)\b/ },
+    { id: 'position', label: 'positioning (position, top, left)', raw: true, re: prop('position|z-index') },
+    { id: 'media-query', label: 'screen-size rules (@media)', raw: true, re: /@media\b/ },
+    { id: 'js-event', label: 'JavaScript events (addEventListener)', re: /addEventListener\s*\(/ },
+    { id: 'js-query', label: 'JavaScript finding an element (querySelector, getElementById)', re: /querySelector(All)?\s*\(|getElementById\s*\(/ },
+  ],
 };
 
 export const conceptIds = (language) => new Set((CONCEPTS[language] || []).map((c) => c.id));
@@ -154,7 +218,7 @@ const has = (c, code) => (c.test ? c.test(code) : c.re ? c.re.test(code) : false
 
 /** The concept ids a snippet of code uses (for tests and quick checks). */
 export function conceptsIn(code, language = 'python') {
-  const s = language === 'python' ? stripPy(code) : (() => { const x = strip(code); return { code: x, raw: x }; })();
+  const s = language === 'python' ? stripPy(code) : language === 'html' ? splitHtml([code]) : (() => { const x = strip(code); return { code: x, raw: x }; })();
   return new Set((CONCEPTS[language] || []).filter((c) => has(c, c.raw ? s.raw : s.code)).map((c) => c.id));
 }
 
@@ -164,9 +228,11 @@ export function visibleCode(lesson, read) {
   const fm = raw.match(/^---\n[\s\S]*?\n---\n?/)?.[0] || '';
   const sections = [['frontmatter', fm], ...raw.slice(fm.length).split(/^## /m).slice(1).map((s) => [s.slice(0, s.indexOf('\n')).trim(), s])];
   return sections.map(([where, text]) => {
-    const refs = [...text.matchAll(/([\w.-]+\.(?:ts|py|js))#([\w-]+)/g)].filter((m) => !m[2].startsWith('sol-'));
-    const fenced = [...text.matchAll(/```(?:makecode|blocks|ts|typescript|python|py)\n([\s\S]*?)```/g)].map((m) => m[1]);
-    const joined = [...new Set(refs.map((m) => m[0]))].map((r) => read(lesson.dir, r) || '').concat(fenced).join('\n');
+    const refs = [...text.matchAll(/([\w.-]+\.(?:ts|py|js|html|css))#([\w-]+)/g)].filter((m) => !m[2].startsWith('sol-'));
+    const fenced = [...text.matchAll(/```(?:makecode|blocks|ts|typescript|python|py|html|css)\n([\s\S]*?)```/g)].map((m) => m[1]);
+    const chunks = [...new Set(refs.map((m) => m[0]))].map((r) => read(lesson.dir, r) || '').concat(fenced);
+    if (lesson.language === 'html') { const s = splitHtml(chunks); return [where, s.code, s.raw]; }
+    const joined = chunks.join('\n');
     if (lesson.language === 'python') { const s = stripPy(joined); return [where, s.code, s.raw]; }
     const s = strip(joined);
     return [where, s, s];

@@ -4,6 +4,7 @@ unit: components
 title: Forms
 summary: Build a form from labels, input boxes, a drop-down and a button, link each label to its box, and find out what a form does on its own.
 language: html
+introduces: [form, button, id, display]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8132
   url: http://127.0.0.1:8132/index.html

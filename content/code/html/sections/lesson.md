@@ -4,6 +4,7 @@ unit: components
 title: Page sections and components
 summary: Name the parts of a page with header, nav, main, section and footer, and build components such as a hero and a row of cards.
 language: html
+introduces: [semantic]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8131
   url: http://127.0.0.1:8131/index.html

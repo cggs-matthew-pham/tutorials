@@ -4,6 +4,7 @@ unit: structure
 title: Lists and links
 summary: Group items into bulleted and numbered lists, and link to other pages with an address inside the tag.
 language: html
+introduces: [list, attribute, link]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8125
   url: http://127.0.0.1:8125/index.html

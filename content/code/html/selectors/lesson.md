@@ -4,6 +4,7 @@ unit: style
 title: Rules and selectors
 summary: Style a page with CSS rules, pick elements by tag or by class, and find out why a rule does nothing.
 language: html
+introduces: [style-block, css-rule, class, class-selector, group-selector, text-colour, font]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8128
   url: http://127.0.0.1:8128/index.html

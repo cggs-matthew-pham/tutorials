@@ -15,6 +15,10 @@ The `introduces`/`assumes` scan suits code, where a dependency is a construct on
 
 Build it once, in one chat, and note here who is building it before starting; the other subject then tags its own lessons.
 
+## Changed by the code chat (11 Oct 2026)
+
+- `tools/concepts.mjs`: added `CONCEPTS.html`; `visibleCode` now also reads `.html`/`.css` regions and fenced `html`/`css` blocks (other languages unchanged: their warnings are the same before and after). `tools/check-concepts.mjs`: HTML tests.
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).

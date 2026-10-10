@@ -5,6 +5,7 @@ optional: true
 title: Page layout with Grid
 summary: Arrange a page and a gallery in rows and columns with CSS Grid, and choose between Grid and Flexbox.
 language: html
+introduces: [grid, css-units]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8134
   url: http://127.0.0.1:8134/index.html

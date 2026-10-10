@@ -35,6 +35,25 @@ has('import random\nx = random.randint(1, 6)', ['import-module', 'dotted-call', 
 has('while True:\n    break', ['while', 'break']);
 has('x = 7 // 2 + 2 ** 3 + 5 % 2', ['int-divide', 'power', 'remainder']);
 
+// HTML and CSS: tags and attributes in the markup, properties only in CSS (never in page text or comments)
+const hasH = (code, ids) => { const got = conceptsIn(code, 'html'); ids.every((i) => got.has(i)) ? console.log('ok   html', JSON.stringify(code).slice(0, 51), '→', ids.join(', ')) : fail(`html ${JSON.stringify(code)} should use ${ids}; got ${sorted(got)}`); };
+const lacksH = (code, ids) => { const got = conceptsIn(code, 'html'); ids.every((i) => !got.has(i)) ? console.log('ok   html', JSON.stringify(code).slice(0, 51), '↛', ids.join(', ')) : fail(`html ${JSON.stringify(code)} should not use ${ids}; got ${sorted(got)}`); };
+hasH('<h1>Sports day</h1>\n<p>Bring <strong>water</strong></p>', ['heading', 'paragraph', 'emphasis']);
+lacksH('<h1>Sports day</h1>', ['attribute', 'link', 'css-rule']);
+hasH('<ul>\n  <li><a href="https://example.com">Club</a></li>\n</ul>', ['list', 'link', 'attribute']);
+hasH('<a href="#join">Join</a>', ['link', 'link-in-page']);
+hasH('<img src="trophy.svg" alt="A trophy">', ['image', 'attribute']);
+hasH('<style>\n  .note { color: crimson; }\n  h1, h2 { font-size: 40px; }\n</style>\n<p class="note">Hi</p>', ['style-block', 'css-rule', 'class-selector', 'group-selector', 'text-colour', 'font', 'class']);
+lacksH('<p>Favourite color: blue. Padding: none. display: flex</p>', ['text-colour', 'box', 'flex', 'css-rule']);     // CSS words in page text
+lacksH('<!-- <table> display: grid --><p>Hi</p>', ['table', 'grid']);                                           // comments
+hasH('  nav ul {\n    display: flex;\n    gap: 12px;\n  }', ['css-rule', 'descendant-selector', 'flex', 'flex-options']);   // a region inside <style>
+hasH('<p style="color: red; padding: 4px">Hi</p>', ['style-attr', 'text-colour', 'box']);
+hasH('.layout { display: grid; grid-template-columns: 150px 1fr; }', ['grid', 'css-units']);
+lacksH('.card { width: 50%; padding: 10px; }', ['css-units']);
+hasH('label { display: block; }', ['display']);
+lacksH('label { display: block; }', ['flex']);
+hasH('<button id="go">Go</button>\n<script>\n  document.querySelector("#go").addEventListener("click", () => {});\n</script>', ['button', 'id', 'script', 'js-event', 'js-query']);
+
 // lint scenarios on the real lessons
 const read = getSnippet, pre = prerequisites(loadDirMeta, CONTENT_ROOT);
 const run = (mutate) => { const ls = loadLessons(); mutate(ls); return auditConcepts(ls, read, pre).warnings; };
@@ -55,5 +74,10 @@ expect('with no recipe and no introduction, import-star warns in Lesson 1', noRe
 const noImportRecipe = run((ls) => drop(lesson(ls, 'turtle-catch'), 'recipes', 'import-module'));
 expect('taking import-module out of Catch recipes warns again', noImportRecipe, /turtle-catch .*uses import-module/);
 expect('introducing random in Catch is checked against its code', run((ls) => lesson(ls, 'turtle-catch').introduces.push('while')), /turtle-catch › introduces: while, but no code/);
+const baseH = run(() => {}).filter((w) => /code\/html\//.test(w));
+console.log(baseH.length === 0 ? 'ok   HTML course: no warnings' : (fail('HTML baseline changed: ' + baseH.join(' | ')), ''));
+expect('dropping link from Lists and links warns Images (it uses a link)', run((ls) => drop(lesson(ls, 'lists-links'), 'introduces', 'link')), /code\/html\/(lists-links|images) .*uses link/);
+expect('dropping display from Forms warns Forms', run((ls) => drop(lesson(ls, 'forms'), 'introduces', 'display')), /code\/html\/forms .*uses display/);
+expect('the optional Grid lesson does not count for the required club page', run((ls) => { drop(lesson(ls, 'flexbox'), 'introduces', 'flex-options'); lesson(ls, 'grid').introduces.push('flex-options'); }), /code\/html\/(flexbox|sections|club-page) .*uses flex-options/);
 console.log(fails ? `${fails} FAILED` : 'all passed');
 process.exit(fails ? 1 : 0);

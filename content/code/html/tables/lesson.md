@@ -4,6 +4,7 @@ unit: structure
 title: Tables
 summary: Put data in rows and columns with table, row and cell tags, and keep every row the same length.
 language: html
+introduces: [table]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8127
   url: http://127.0.0.1:8127/index.html
