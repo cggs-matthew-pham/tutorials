@@ -6,6 +6,13 @@
 // driven by a 1-10 speed, and a "finish" mode that skips straight to the end.
 // Differences: no p5, the turtle is drawn procedurally (no image asset), and
 // fills follow Python (every move while filling adds a vertex, pen up or down).
+//
+// Several turtles: this object is the screen and the default turtle. spawn() makes another turtle that shares
+// the screen (canvas, drawings, events, stop and finish) through its prototype and keeps its own position,
+// heading, pen and fill. Every drawing remembers its owner, so clear() removes only that turtle's drawings.
+// Programs with one turtle behave exactly as before; #turtle-state always reports the default turtle.
+// The default turtle is drawn unless the program made turtles of its own and never used the default (used is set
+// by the Python bridge when a module-level command moves or styles it).
 
 const DEFAULT_EXTENT = 500; // CodeSwitch uses 800; pass { extent: 800 } to match it exactly
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -18,6 +25,7 @@ export class StopError extends Error {
 
 export class CanvasTurtle {
   constructor(canvas, { onUpdate, extent = DEFAULT_EXTENT, shape = 'turtle' } = {}) {
+    this.screen = this;
     this.extent = extent;
     this.defaultShape = shape; // 'turtle' (the sprite) or 'classic' (Python's arrow); shape() changes it      // visible logical size; 500 shows about +-250 around the origin
     this.canvas = canvas;
@@ -51,8 +59,19 @@ export class CanvasTurtle {
     this.segments = []; this.fills = []; this.dots = []; this.texts = [];
     this.filling = false; this.fillVertices = [];
     this.stopped = false; this.skipping = false;
+    this.turtles = [this]; this.used = false;
     this.clearEvents();
     this.draw(); this.emit();
+  }
+
+  /** Another turtle on the same screen (Python's Turtle()). */
+  spawn() {
+    const t = Object.create(this.screen);
+    Object.assign(t, { x: 0, y: 0, angle: 0, penDown: true, visible: true, shapeName: this.screen.defaultShape || 'turtle',
+      penColor: '#000000', fillColor: '#000000', penWidth: 2, filling: false, fillVertices: [] });
+    this.screen.turtles.push(t);
+    this.draw();
+    return t;
   }
 
   // ---------- events (onscreenclick, onkey, ontimer) ----------
@@ -80,7 +99,7 @@ export class CanvasTurtle {
     return { x: clean(this.x), y: clean(this.y), heading: norm360(this.angle), penDown: this.penDown, visible: this.visible,
       segments: this.segments.length, fills: this.fills.length };
   }
-  emit() { this.onUpdate(this.state); }
+  emit() { const s = this.screen; s.onUpdate(s.state); }
 
   // ---------- geometry / drawing ----------
   resize() {
@@ -130,7 +149,10 @@ export class CanvasTurtle {
       ctx.fillStyle = t.color; ctx.font = `${Math.max(8, t.size * this.scale)}px system-ui, sans-serif`;
       ctx.fillText(t.text, this.cx(t.x), this.cy(t.y));
     }
-    if (this.visible) this.drawTurtle();
+    // The default turtle shows unless the program made its own turtles and never used the default (as in Python,
+    // where it only appears once a module-level command needs it).
+    const s = this.screen;
+    for (const t of s.turtles) if (t.visible && (t !== s || s.used || s.turtles.length === 1)) this.drawTurtle.call(t);
   }
 
   drawTurtle() {
@@ -140,8 +162,15 @@ export class CanvasTurtle {
     ctx.translate(this.cx(this.x), this.cy(this.y));
     ctx.rotate(-this.angle * Math.PI / 180);
     ctx.scale(k, k);
-    if (this.shapeName !== 'turtle') { // Python's "classic" arrow, tip at the turtle's position
-      ctx.fillStyle = this.penColor; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(-9, 5); ctx.lineTo(-7, 0); ctx.lineTo(-9, -5); ctx.closePath(); ctx.fill();
+    if (this.shapeName !== 'turtle') { // Python's other shapes, drawn in the turtle's colours (fill, outlined in the pen colour)
+      ctx.fillStyle = this.shapeName === 'classic' || this.shapeName === 'arrow' ? this.penColor : this.fillColor;
+      ctx.strokeStyle = this.penColor; ctx.lineWidth = 1.5; ctx.beginPath();
+      if (this.shapeName === 'circle') ctx.arc(0, 0, 9, 0, Math.PI * 2);
+      else if (this.shapeName === 'square') ctx.rect(-9, -9, 18, 18);
+      else if (this.shapeName === 'triangle') { ctx.moveTo(10, 0); ctx.lineTo(-7, 9); ctx.lineTo(-7, -9); ctx.closePath(); }
+      else if (this.shapeName === 'arrow') { ctx.moveTo(10, 0); ctx.lineTo(-6, 8); ctx.lineTo(-6, -8); ctx.closePath(); }
+      else { ctx.moveTo(0, 0); ctx.lineTo(-9, 5); ctx.lineTo(-7, 0); ctx.lineTo(-9, -5); ctx.closePath(); } // classic, tip at the position
+      ctx.fill(); if (this.shapeName !== 'classic') ctx.stroke();
       ctx.restore(); return;
     }
     ctx.fillStyle = '#3aa655'; ctx.strokeStyle = '#14532d'; ctx.lineWidth = 1.5;
@@ -193,7 +222,7 @@ export class CanvasTurtle {
 
   async travel(ex, ey, opts) {
     const sx = this.x, sy = this.y;
-    const seg = this.penDown ? { x1: sx, y1: sy, x2: sx, y2: sy, color: this.penColor, width: this.penWidth } : null;
+    const seg = this.penDown ? { x1: sx, y1: sy, x2: sx, y2: sy, color: this.penColor, width: this.penWidth, owner: this } : null;
     if (seg) this.segments.push(seg);
     const dist = Math.hypot(ex - sx, ey - sy);
     await this.animate(dist, (p) => {
@@ -249,17 +278,25 @@ export class CanvasTurtle {
   setPenColor(c) { this.penColor = c; }
   setFillColor(c) { this.fillColor = c; }
   setPenWidth(w) { this.penWidth = w; }
-  setBackground(c) { this.bg = c; this.draw(); }
+  setBackground(c) { this.screen.bg = c; this.draw(); }
   hide() { this.visible = false; this.draw(); this.emit(); }
   show() { this.visible = true; this.draw(); this.emit(); }
   beginFill() { this.filling = true; this.fillVertices = [{ x: this.x, y: this.y }]; }
   endFill() {
-    if (this.filling && this.fillVertices.length >= 3) this.fills.push({ vertices: [...this.fillVertices], color: this.fillColor });
+    if (this.filling && this.fillVertices.length >= 3) this.fills.push({ vertices: [...this.fillVertices], color: this.fillColor, owner: this });
     this.filling = false; this.fillVertices = [];
     this.draw(); this.emit();
   }
-  dot(size = 10, color) { this.dots.push({ x: this.x, y: this.y, r: size / 2, color: color || this.penColor }); this.draw(); }
-  write(text, size = 14) { this.texts.push({ x: this.x, y: this.y, text: String(text), color: this.penColor, size }); this.draw(); }
-  clear() { this.segments = []; this.fills = []; this.dots = []; this.texts = []; this.draw(); this.emit(); }
-  reset() { const bg = '#F9F9F9'; this.resetAll(); this.bg = bg; this.draw(); }
+  dot(size = 10, color) { this.dots.push({ x: this.x, y: this.y, r: size / 2, color: color || this.penColor, owner: this }); this.draw(); }
+  write(text, size = 14) { this.texts.push({ x: this.x, y: this.y, text: String(text), color: this.penColor, size, owner: this }); this.draw(); }
+  /** Remove this turtle's drawings (with one turtle, that is everything). */
+  clear() {
+    const s = this.screen, mine = (i) => i.owner !== this;
+    s.segments = s.segments.filter(mine); s.fills = s.fills.filter(mine); s.dots = s.dots.filter(mine); s.texts = s.texts.filter(mine);
+    this.draw(); this.emit();
+  }
+  reset() {
+    if (this !== this.screen) { this.clear(); Object.assign(this, { x: 0, y: 0, angle: 0, penDown: true, visible: true, penColor: '#000000', fillColor: '#000000', penWidth: 2, filling: false, fillVertices: [] }); this.draw(); return; }
+    const bg = '#F9F9F9'; this.resetAll(); this.bg = bg; this.draw();
+  }
 }
