@@ -2,6 +2,18 @@
 
 Batched for the next "go". Newest decisions first.
 
+## Planned: hidden assumptions beyond code (decided 11 Oct 2026, not built)
+
+The `introduces`/`assumes` lint suits code, where a dependency is a construct on screen. Each subject has a different kind of dependency, so each gets its own check:
+
+- **HTML and CSS (12 lessons):** same approach as Python and MakeCode. Add an HTML concept list to `tools/concepts.mjs` (tags such as `ul`/`li`, `a href`, `img`, `table`, forms; CSS selectors, the box model, flex, grid), then tag the lessons. About the same size as the Python work.
+- **Maths:** dependencies are prior skills in a chain, so the ACARA node graph fits. Each lesson gets a `node:` field (today the node is only named in the teacher notes), and the waypoints-kit `prior_knowledge` is exported into the repo (it is not in the repo or read by the build today). The check warns when a lesson's prerequisite node is neither taught in an earlier lesson nor marked `assumes:` (taught in class). In the lesson itself, the prerequisite is checked with a short retrieval question at the start or in Practise, not taken for granted.
+- **Science:** the risk is less a missing lesson than a model students hold in a different form (distance causes seasons; convection without density). So the main check is in the lesson: the Engage prediction must test the model this lesson relies on, with wrong options tied to its misconceptions, and the teacher notes name the model's simplifications. The node graph (as for maths) only flags big gaps between lessons. Gaps inside a lesson still need a manual review.
+
+Leads for the first science review (from a text search, not yet checked against the lessons or the kit): Year 8 *Plates* relies on convection, taught in Year 9 *Heat transfer*; "warm fluid rises because it is less dense" relies on density from Year 7 *Properties*; Year 10 *Redshift* uses wavelength and spectra, which no science lesson introduces; Year 8 *Organs* and *Specialised* and Year 9 *Carbon and living things* assume photosynthesis.
+
+Related gap (11 Oct): none of the 55 science lessons has an `explainClip`, `explainPicture` or `voice:` yet. The 38 on the shared board can follow the voiced maths pattern; the 17 on the science board (`playground-science/`) may need recorder support first.
+
 ## Done: hidden-assumptions scan, MakeCode pathway (10 Oct 2026)
 
 Built the `assumes`/`introduces` lint from "Hidden assumptions audit" below: `tools/concepts.mjs` (39 MakeCode concepts: loops, lists, functions with parameters and returns, text `charAt`/`indexOf`, `%`, `^`, radio and serial families, and facts such as the 8-character `sendValue` name), frontmatter `introduces`, `assumes`, `recipes`, warnings in `npm run validate`, `npm run concepts` for the per-course table. Prerequisites follow `after:` in `code/index.md`. Every MakeCode lesson is tagged; the six courses now pass. Python has no concept table yet (its audit is in the Project doc; add `CONCEPTS.python` when its findings are fixed).
