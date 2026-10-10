@@ -1,0 +1,54 @@
+# Number line boards for "Fractions and decimals on the line". Dragged points land on quarters or tenths.
+
+# region: run
+widget: numberline
+range: -3, 3
+snap: 0.5
+point P: 0, drag
+# endregion
+
+# region: explain
+widget: numberline
+range: -2, 2
+fractions: 4
+point P: 0.75, drag
+# endregion
+
+# region: explain-pic
+widget: numberline
+range: -2, 2
+fractions: 4
+point A: -1.25
+point B: -0.75
+point C: 0.5
+# endregion
+
+# region: quarters
+widget: numberline
+range: -2, 2
+fractions: 4
+point P: 0, drag
+# endregion
+
+# region: tenths
+widget: numberline
+range: -1, 1
+snap: 0.1
+point P: 0, drag
+# endregion
+
+# region: offset
+widget: numberline
+range: -2, 5
+snap: 0.5
+point P: 1, drag
+point Q: 3, drag
+# endregion
+
+# region: make
+widget: numberline
+range: -1, 0
+snap: 0.05
+labels: 0.1
+point P: -0.5, drag
+# endregion

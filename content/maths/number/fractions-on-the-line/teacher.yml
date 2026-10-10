@@ -1,0 +1,45 @@
+summary: Students place positive and negative fractions, decimals and mixed numerals on number lines split into halves, quarters and tenths, including lines without zero in the middle, and order them (AC9M7N04, node 3).
+time: 40
+timing: "Predict and Run 6 min · Investigate 12 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can place positive and negative fractions, decimals and mixed numerals on a number line.
+  - I can explain why −1.5 is between −2 and −1, not between −1 and 0.
+  - I can put a mixed set of fractions and decimals in order.
+before: |
+  Do the Run board and the Make task yourself first. Students need Comparing integers (further left is less) and converting between fractions and decimals, which this lesson assumes was taught in class (node 2 of the descriptor); the Investigate step opens with a quick check of it.
+
+  The one idea: split each unit into equal parts (the denominator) and count from zero, to the left for a negative. The common mistake is counting the part of a negative number back towards zero (−1.5 at −0.5); it is planted after the method, in Jo's working.
+
+  On the board, a point's readout gives the fraction and the decimal (−1 1/4 (−1.25)).
+running:
+  - "Predict: take a show of hands. Students who chose 'between −1 and 0' are reading −1.5 as −1 then +0.5. Do not correct it yet."
+  - "Run: ask students to say where −1.5 will land before they let go of P."
+  - "Investigate: if many students miss the quick check, do the quarters (0.25, 0.5, 0.75) together first. Then model the worked example live: draw a line from −2 to 1, mark the quarters, and count aloud from zero for −3/4 and −1 1/4. Reveal the prepared lines afterwards to compare."
+  - "Modify: before the line from −2 to 5, ask: where is zero on this line?"
+  - "Practise: in the ordering question, students can write every number as a decimal first."
+  - "Make: ask for different answers. Then ask: is there a number between −0.3 and −0.25 too?"
+stuck:
+  - see: "A student puts −1.5 between −1 and 0 (Jo's mistake)."
+    ask: "Is −1.5 °C colder or warmer than −1 °C?"
+    fix: "Colder, so further left. Count 1 left, then half more left: −1.5 is further from zero than −1."
+  - see: "A student cannot place −3/4."
+    ask: "How many equal parts is each unit split into? Which way is negative?"
+    fix: "Count the quarters aloud from zero: −1/4, −2/4, −3/4."
+  - see: "A student thinks −0.3 is greater than −0.25 because 3 is less than 25."
+    ask: "Write both with two decimal places. Which is further left?"
+    fix: "−0.30 and −0.25: −0.30 is further from zero, so it is less."
+stretch: "Find a number between −1/3 and −1/4. Then explain why there is always another number between any two."
+support: "Use the board for every question: the readout gives the fraction and the decimal. A strip of paper folded into quarters helps for the fractions."
+leads: |
+  Next in Number: adding and subtracting negative fractions and decimals, with the same moves as integers.
+
+  Where it leads: plotting points with fractional coordinates, reading scales in science (thermometers, measuring cylinders), and the density of the rational numbers.
+exit:
+  q: "Put in order from least to greatest: 0.4, −1 1/4, −0.8, −1/2."
+  a: "−1 1/4, −0.8, −1/2, 0.4."
+explain: |
+  To place a fraction or decimal, **split each unit into equal parts and count from zero**. Quarters: split each unit into 4. Tenths: into 10.
+
+  A negative number counts to the **left** of zero. $-\tfrac{3}{4}$ is three quarters left of 0. A negative mixed numeral or decimal is further left still: $-1.5$ is one unit left, then half a unit **further** left, halfway between $-2$ and $-1$.
+
+  Once they are on the line, read from left to right to put them in order.

@@ -498,7 +498,9 @@ Vary, Practise, Make).
     for "write an expression, then check it against what the board gives" (the board still sets the scope, so checks work).
   - `widget: numberline` (first used by `maths/number`): one line, `range: -10, 10` (required), numbered every 1 (or
     `labels: 5`; on a narrow screen the board numbers every 2 or 5 by itself), `snap: 0.5` for where dragged points land
-    (default 1), `context: Temperature (°C)` (a name and unit under the line and in readouts).
+    (default 1), `fractions: 4` (values between whole numbers written as fractions and mixed numerals, −1 1/4, with the
+    decimal beside them in readouts; points land on quarters unless `snap:` says otherwise), `context: Temperature (°C)`
+    (a name and unit under the line and in readouts).
     - `point A: -7` (fixed; `point A: -7, Canberra` adds a caption), `point P: 0, drag` (students drag it along the line;
       checks see it once let go; a **Move** row under the line steps it with buttons or the arrow keys, for keyboards and
       clips: `click: Move P left`), `point A: a` (follows slider a);

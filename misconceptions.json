@@ -69,5 +69,6 @@
   "negative-magnitude": {"home": "maths/number/comparing-integers", "text": "Negatives are compared by their size without the sign (−8 > −2 because 8 > 2); on a number line −8 is further left, so it is less."},
   "subtract-negative": {"home": "maths/number/adding-integers", "text": "The minus sign of the number is taken as the move (5 − (−3): move left 3, giving 2); subtracting moves the opposite way to adding, so subtracting −3 moves right 3, giving 8."},
   "angle-sum-size": {"home": "maths/angles/triangle-angles", "text": "A bigger triangle has bigger angles, so its angle sum is more than 180°; enlarging a triangle changes its sides, not its angles, and every triangle's angles add to 180°."},
-  "polygon-centre-angles": {"home": "maths/angles/polygon-angles", "text": "A polygon split from a point in the middle into n triangles has angle sum n × 180°; that counts the full turn of 360° around the middle point, which is not an angle of the polygon."}
+  "polygon-centre-angles": {"home": "maths/angles/polygon-angles", "text": "A polygon split from a point in the middle into n triangles has angle sum n × 180°; that counts the full turn of 360° around the middle point, which is not an angle of the polygon."},
+  "negative-decimal-direction": {"home": "maths/number/fractions-on-the-line", "text": "The part after the whole number of a negative decimal or mixed numeral is counted back towards zero (−1.5 placed halfway between −1 and 0); it is further from zero too, so −1.5 is halfway between −2 and −1."}
 }

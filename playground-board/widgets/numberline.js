@@ -4,6 +4,8 @@
 //   range: -10, 10           the ends of the line (required)
 //   labels: 1                number every this many (default 1 up to 20 steps, else 5)
 //   snap: 1                  where dragged points land (default 1; 0.5 or 0.1 for halves or tenths)
+//   fractions: 4             write values between whole numbers as fractions (−1 1/4, with the decimal in readouts);
+//                            dragged points land on quarters unless snap says otherwise
 //   context: Temperature (°C)   a name and unit for readouts ("−7 °C"), written under the line
 //   point A: -7              a fixed point; `point A: -7, Canberra` gives it a caption
 //   point P: 0, drag         a point students drag along the line; checks see it once it is let go
@@ -19,7 +21,16 @@
   'use strict';
   var spec = null, vars = {}, op = 1, objs = {}, startAt = {}, ui = {};
   var round = function (v) { return Math.round(v * 1e6) / 1e6; };
-  var show = function (n) { return B.fmt(n).replace(/^-/, '−'); };
+  var dec = function (n) { return B.fmt(n).replace(/^-/, '−'); };
+  // With `fractions: 4`, values between whole numbers are written as fractions or mixed numerals (−1 1/4), simplified.
+  var show = function (n) {
+    var d = spec && spec.den;
+    if (!d || Math.abs(n - Math.round(n)) < 1e-9) return dec(n);
+    var t = Math.round(Math.abs(n) * d); if (Math.abs(Math.abs(n) * d - t) > 1e-6) return dec(n);
+    var w = Math.floor(t / d), r = t % d, g = (function gcd(a, b) { return b ? gcd(b, a % b) : a; })(r, d);
+    return (n < 0 ? '−' : '') + (w ? w + ' ' : '') + r / g + '/' + d / g;
+  };
+  var both = function (n) { var f = show(n), x = dec(n); return f === x ? f : f + ' (' + x + ')'; };
   var paren = function (n) { return n < 0 ? '(' + show(n) + ')' : show(n); };
 
   function num(t, where) {
@@ -32,7 +43,9 @@
     var r = s.range.split(',').map(function (t) { return num(t, 'range'); });
     if (r.length !== 2 || !(r[0] < r[1])) throw new Error('range: two numbers, the smaller first, such as "range: -10, 10".');
     s.lo = r[0]; s.hi = r[1];
-    s.snapStep = s.snap !== undefined ? num(s.snap, 'snap') : 1;
+    s.den = s.fractions !== undefined ? num(s.fractions, 'fractions') : 0;
+    if (s.den && !(s.den >= 2 && s.den <= 20 && s.den === Math.round(s.den))) throw new Error('fractions: a whole number from 2 to 20 (the denominator), such as "fractions: 4".');
+    s.snapStep = s.snap !== undefined ? num(s.snap, 'snap') : s.den ? 1 / s.den : 1;
     if (!(s.snapStep > 0)) throw new Error('snap: a number bigger than 0, such as 1 or 0.5.');
     var steps = (s.hi - s.lo);
     s.labelStep = s.labels !== undefined ? num(s.labels, 'labels') : steps <= 20 ? 1 : 5;
@@ -92,7 +105,7 @@
     return { vars: v, points: pts };
   }
   function result() { var s = spec.sum; return round(vars[s.a] + op * vars[s.b]); }
-  function withUnit(n) { var u = spec.ctx && spec.ctx.unit; return show(n) + (u ? (u === '$' ? '' : ' ') + u : ''); }
+  function withUnit(n) { var u = spec.ctx && spec.ctx.unit; return both(n) + (u ? (u === '$' ? '' : ' ') + u : ''); }
 
   function build() {
     var ink = B.css('--ink') || '#1d2430', muted = B.css('--muted') || '#5d6675', acc = B.css('--accent') || '#c2570a', acc2 = B.css('--left') || '#2563eb';

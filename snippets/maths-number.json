@@ -33,6 +33,12 @@
           "unit": "integers",
           "code": "-10 \\text{ is further from zero than } {-1}",
           "hint": "The size of a number without its sign. Among negatives, the one further from zero is the lesser: $-10 < -1$."
+        },
+        {
+          "label": "mixed numeral",
+          "unit": "fractions",
+          "code": "-1\\tfrac{1}{2} = -1.5",
+          "hint": "A whole number and a fraction. A negative one is both parts below zero: one and a half below zero."
         }
       ]
     },
@@ -60,6 +66,14 @@
           "hint": "Adding $-3$ would move left 3, so subtracting it moves right 3. It gives the same as adding $3$.",
           "board": "widget: numberline\nrange: -10, 10\nsum: a - b\nslider a: -10, 10, 5\nslider b: -10, 10, -3",
           "shows": "Adding −3 would go left; subtracting it goes right 3, to 8"
+        },
+        {
+          "label": "placing a negative fraction",
+          "unit": "fractions",
+          "code": "-1\\tfrac{1}{4} \\text{ is between } {-2} \\text{ and } {-1}",
+          "hint": "Split each unit into equal parts and count from zero. A negative counts left, and the part counts further from zero, not back towards it.",
+          "board": "widget: numberline\nrange: -2, 2\nfractions: 4\npoint A: -1.25\npoint B: -0.75",
+          "shows": "Quarters: A at −1 1/4, B at −3/4"
         }
       ]
     }
