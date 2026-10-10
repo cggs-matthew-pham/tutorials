@@ -58,7 +58,7 @@ Picture a triangle you could pull out into a long, thin shape. Which angles chan
 ```step
 stage: run
 insight: "Dragging the corners and watching the total shows that the angles change but their sum never does."
-try: { playground: board, starter: "geo.yml#run", height: 560 }
+try: { playground: board, starter: "geo.yml#run", height: 600 }
 check: { type: board, text: "Drag the corners until one angle is more than $120°$. What is the total now?", when: "m > 120" }
 ```
 
@@ -68,7 +68,7 @@ Drag any corner to a new dot. The board measures each angle and adds them up und
 
 ```step
 stage: investigate
-try: { playground: board, starter: "geo.yml#tear", height: 680 }
+try: { playground: board, starter: "geo.yml#tear", height: 720 }
 insight: "Tearing off the corners and putting them side by side shows why the total is fixed: the three angles fill a straight line, which is 180°. Kai's mistake ties the angles to the side lengths."
 tasks:
   - starter: "geo.yml#tear"
@@ -115,7 +115,7 @@ Read Kai's working one line at a time. Which line ties the angles to the length 
 ```step
 stage: modify
 insight: "One change at a time: a right angle (the other two must make 90°), a very flat triangle (the other two are tiny), then two edge cases that the 180° rule decides."
-try: { playground: board, starter: "geo.yml#right", height: 680 }
+try: { playground: board, starter: "geo.yml#right", height: 720 }
 tasks:
   - starter: "geo.yml#right"
     hint: ["A right angle is a square corner. Use the dots: one side across, one side straight up.", "Put C straight above A."]
@@ -202,7 +202,7 @@ tasks:
 ```step
 stage: make
 insight: "Building a triangle where one angle equals the other two together reverses the lesson: from the 180° rule to a shape it forces, a right angle."
-try: { playground: board, starter: "geo.yml#make", height: 560 }
+try: { playground: board, starter: "geo.yml#make", height: 600 }
 hint: ["If one angle equals the other two added together, it is half of the total.", "Half of 180° is 90°: make a square corner."]
 check: { type: board, text: "Make a triangle where one angle is exactly the other two added together.", when: "m = 90", explain: "If one angle equals the other two together, it is half of 180°: a right angle. Here 90° = the other two added." }
 ```

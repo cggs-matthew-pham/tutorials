@@ -1,4 +1,4 @@
-// Maths cards (snippets/maths.json): the words and methods of a maths course, typeset with KaTeX, for the student
+// Maths cards (snippets/maths.json, and snippets/maths-<name>.json for other courses): the words and methods of a maths course, typeset with KaTeX, for the student
 // Reference page, the printable cheat sheets (teacher and student copies) and the Markdown sheet for Prepare.
 // The code courses' versions (build-site refItem, teach.mjs cheatSheetBody) are built around program snippets;
 // these mirror their layout and CSS classes so both look the same.
@@ -6,7 +6,8 @@
 // A card: { label, code (TeX, shown typeset), hint (text, may use $...$), unit (the unit that introduces it),
 //           board (optional maths-board setup, drawn as the card's picture by render-pictures), shows (caption) }.
 // Build-only: imports KaTeX through maths.mjs.
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 import katex from 'katex';
 import { texDisplay, textWithMath } from './maths.mjs';
 import { snippetId } from './lesson-core.mjs';
@@ -22,11 +23,20 @@ export function loadMathsCards(path = 'snippets/maths.json') {
   return data;
 }
 
+/**
+ * Every card file: snippets/maths.json and snippets/maths-<name>.json, one per course (each names its course:).
+ * Returns [{ file: 'maths-number', course, cards, ... }], in file-name order.
+ */
+export function loadAllMathsCards(dir = 'snippets') {
+  return readdirSync(dir).filter((f) => /^maths(-[\w-]+)?\.json$/.test(f)).sort()
+    .map((f) => ({ ...loadMathsCards(join(dir, f)), file: f.replace(/\.json$/, '') }));
+}
+
 /** Problems with the cards: TeX that does not parse, a unit the course does not have, a board with no caption. */
 export function validateMathsCards(data, unitIds = null) {
   const errs = [];
   for (const c of data.cards) {
-    const where = `snippets/maths.json › ${c.label}`;
+    const where = `snippets/${data.file || 'maths'}.json › ${c.label}`;
     try { katex.renderToString(c.code, { throwOnError: true, displayMode: true }); } catch (e) { errs.push(`${where}: code is not valid maths (${e.message.split('\n')[0]})`); }
     for (const m of String(c.hint || '').match(/\$[^$\n]+?\$/g) || []) {
       try { katex.renderToString(m.slice(1, -1), { throwOnError: true }); } catch (e) { errs.push(`${where}: hint maths ${m} does not parse`); }

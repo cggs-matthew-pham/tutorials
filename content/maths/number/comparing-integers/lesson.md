@@ -125,7 +125,7 @@ Sort each number: is it less than $-3$, or greater?
 ```step
 stage: modify
 insight: "One change at a time: a number between two negatives, the same idea in temperatures, then the edge case where the number further from zero is the smaller one."
-try: { playground: board, starter: "line.yml#between", height: 380 }
+try: { playground: board, starter: "line.yml#between", height: 420 }
 tasks:
   - starter: "line.yml#between"
     hint: ["Which way from −4 is less: left or right?", "Go left of −4, but not as far as −8."]
@@ -211,7 +211,7 @@ tasks:
 ```step
 stage: make
 insight: "Building a pair where the less number is the one further from zero reverses the lesson: from the rule to an example that shows it."
-try: { playground: board, starter: "line.yml#make", height: 380 }
+try: { playground: board, starter: "line.yml#make", height: 420 }
 hint: ["P must be further left than Q.", "Try putting P below zero, further from zero than Q is: P at −6 and Q at −2, or Q at 3."]
 check: { type: board, text: "Place $P$ and $Q$ so that $P < Q$, but $P$ is further from zero than $Q$.", when: "x(P) < x(Q) and x(P) + x(Q) < 0", explain: "P is left of Q, so P < Q, and further from zero: it must be a negative, such as P = −6 and Q = −2 (or Q = 3)." }
 ```

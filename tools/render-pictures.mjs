@@ -274,11 +274,13 @@ async function drawBoard(page, j) {
   return png;
 }
 
-// Maths cards with a `board` (the Reference page and cheat sheets): dist/_pictures/maths/maths-<card id>.png.
-if (existsSync('snippets/maths.json')) await pictures({
+// Maths cards with a `board` (the Reference page and cheat sheets), from every snippets/maths*.json:
+// dist/_pictures/maths/maths-<card id>.png.
+const mathsCardFiles = readdirSync('snippets').filter((f) => /^maths(-[\w-]+)?\.json$/.test(f)).sort();
+if (mathsCardFiles.length) await pictures({
   name: 'maths', dir: join(DIR, 'maths'), viewport: { width: 760, height: 430 },
   base: hashDir('playground-board', String(drawBoard), 'maths-v1'), legacy: [LEGACY.maths],
-  jobs: JSON.parse(readFileSync('snippets/maths.json', 'utf8')).groups.flatMap((g) => g.items.filter((i) => i.board).map((i) => ({ id: `maths-${snippetId(i.label)}`, code: i.board }))),
+  jobs: mathsCardFiles.flatMap((f) => JSON.parse(readFileSync(join('snippets', f), 'utf8')).groups.flatMap((g) => g.items.filter((i) => i.board).map((i) => ({ id: `maths-${snippetId(i.label)}`, code: i.board })))),
   async draw(page, j) { return { ...(await drawBoard(page, j)), div: 4 }; },
 });
 

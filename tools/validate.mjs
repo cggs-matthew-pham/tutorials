@@ -37,13 +37,12 @@ for (const l of lessons) {
   else if (!l.unit && ids.length) console.warn(`⚠ ${l.slug} › frontmatter: no unit; it will show under "More lessons"`);
 }
 // Maths cards: every card's maths parses, and its unit is one of its course's units.
-import { loadMathsCards, validateMathsCards } from './maths-cards.mjs';
-const cards = loadMathsCards();
-if (cards) {
+import { loadAllMathsCards, validateMathsCards } from './maths-cards.mjs';
+for (const cards of loadAllMathsCards()) {
   const units = loadDirMeta(pjoin(CONTENT_ROOT, cards.course)).units;
   const errs = validateMathsCards(cards, Array.isArray(units) ? units.map((u) => u.id) : []);
   errs.forEach((e) => console.error('✗ ' + e)); bad += errs.length;
-  if (!errs.length) console.log(`✓ snippets/maths.json: ${cards.cards.length} cards typeset, units match ${cards.course}`);
+  if (!errs.length) console.log(`✓ snippets/${cards.file}.json: ${cards.cards.length} cards typeset, units match ${cards.course}`);
 }
 // Teacher notes: a lesson in a course with units should have teacher.yml, and every code-checked task a solution.
 import { workItems } from './lesson-core.mjs';

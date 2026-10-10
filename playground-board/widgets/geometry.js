@@ -163,6 +163,29 @@
     svg.setAttribute('aria-label', 'The three corners side by side: ' + meas.ang.map(function (a, i) { return LET[i] + ' ' + a.whole + '°'; }).join(', ') + ', on a straight line');
   }
 
+  // Keyboard moves: a row to pick a point and step it with buttons or the arrow keys (dragging needs a pointer).
+  function moveRow(panel, names, axes, step) {
+    if (!names.length) return;
+    var row = document.createElement('div'); row.className = 'gbar kmove'; row.setAttribute('role', 'group'); row.setAttribute('aria-label', 'Move a point with the keyboard');
+    var lab = document.createElement('label'); lab.textContent = 'Move'; var sel = document.createElement('select'); sel.id = 'kmove-pt';
+    lab.htmlFor = sel.id;
+    names.forEach(function (n) { var o = document.createElement('option'); o.value = o.textContent = n; sel.appendChild(o); });
+    row.append(lab, sel);
+    var dirs = axes === 2 ? [['←', -1, 0, 'left'], ['→', 1, 0, 'right'], ['↑', 0, 1, 'up'], ['↓', 0, -1, 'down']] : [['←', -1, 0, 'left'], ['→', 1, 0, 'right']];
+    dirs.forEach(function (d) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = d[0];
+      var label = function () { return 'Move ' + sel.value + ' ' + d[3]; };
+      b.setAttribute('aria-label', label()); sel.addEventListener('change', function () { b.setAttribute('aria-label', label()); });
+      b.addEventListener('click', function () { step(sel.value, d[1], d[2]); }); row.appendChild(b);
+    });
+    row.addEventListener('keydown', function (e) {
+      var k = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, 1], ArrowDown: [0, -1] }[e.key];
+      if (!k || (axes === 1 && k[1])) return;
+      e.preventDefault(); step(sel.value, k[0], k[1]);
+    });
+    panel.appendChild(row);
+  }
+
   function paintPanel() {
     var panel = B.el('gpanel'); panel.replaceChildren(); ui = {};
     ui.read = document.createElement('p'); ui.read.className = 'rulework'; ui.read.id = 'gsum'; ui.read.setAttribute('aria-live', 'polite'); panel.appendChild(ui.read);
@@ -175,11 +198,16 @@
     if (spec.tear) ui.tearBtn = btn('Tear off the corners', function () { torn = !torn; ui.tear.hidden = !torn; ui.tearBtn.setAttribute('aria-pressed', String(torn)); B.moved = true; report(); }, torn);
     if (spec.split) ui.splitBtn = btn('Split into triangles', function () { split = !split; ui.splitBtn.setAttribute('aria-pressed', String(split)); B.moved = true; B.jsxBoard.update(); report(); }, split);
     if (spec.choose) {
-      btn('Fewer sides', function () { if (nSides > 3) { nSides--; pts = regular(nSides); B.moved = true; rebuild(); } });
-      btn('More sides', function () { if (nSides < 10) { nSides++; pts = regular(nSides); B.moved = true; rebuild(); } });
+      btn('Fewer sides', function () { if (nSides > 3) { nSides--; pts = regular(nSides); B.moved = true; paintPanel(); rebuild(); } });
+      btn('More sides', function () { if (nSides < 10) { nSides++; pts = regular(nSides); B.moved = true; paintPanel(); rebuild(); } });
     }
     btn('Start again', B.restart);
     panel.appendChild(bar);
+    moveRow(panel, pts.map(function (q, i) { return LET[i]; }), 2, function (n, dx, dy) {
+      var Q = P[LET.indexOf(n)]; if (!Q) return;
+      Q.moveTo([near(Q.X() + dx * spec.snapStep, 0, spec.gw), near(Q.Y() + dy * spec.snapStep, 0, spec.gh)]);
+      preset = null; B.moved = true; meas = measure(corners()); B.jsxBoard.update(); report();
+    });
   }
   function setCorners(c) { pts = c.map(function (p) { return p.slice(); }); B.moved = true; rebuild(); }
   function rebuild() { build(); report(); }
@@ -201,7 +229,7 @@
     }
     ui.read.textContent = text;
     if (torn) drawTear();
-    B.say(nSides === 3 ? 'A triangle' + (preset ? ' (' + preset.toLowerCase() + ')' : '') + '. Drag a corner to change it.' : 'A shape with ' + nSides + ' sides. Drag a corner to change it.');
+    B.say(nSides === 3 ? 'A triangle' + (preset ? ' (' + preset.toLowerCase() + ')' : '') + '. Drag a corner, or use Move, to change it.' : 'A shape with ' + nSides + ' sides. Drag a corner, or use Move, to change it.');
     if (quiet) return;
     B.save({ pts: c, torn: torn, split: split, n: nSides });
     B.post({ scope: { vars: vars, points: points } }, text);

@@ -19,7 +19,7 @@ import { loadLessons, validateLesson, getSnippet, loadDirMeta, loadSnippetFiles,
 import { buildPlayground, buildHtmlPlayground, buildMathsPlayground, buildSciencePlayground, buildKatex, buildMakecodePlayground, buildExplainStage } from './build-playground.mjs';
 import { buildCreate } from './build-create.mjs';
 import { markedMath, textWithMath, workedHtml } from './maths.mjs';
-import { loadMathsCards, mathsRefItem, mathsCheatBody, mathsCheatMd, MATHS_CARD_CSS } from './maths-cards.mjs';
+import { loadAllMathsCards, mathsRefItem, mathsCheatBody, mathsCheatMd, MATHS_CARD_CSS } from './maths-cards.mjs';
 import { deckFor, worksheetFor, cheatSheetFor, cheatSheetBody, unitSnippets, CHEAT_CSS, lessonGuideBody, teachPath, stepUrl, SITE_URL, TEACH_CSS, TEACH_JS, blocksId } from './teach.mjs';
 
 const require = createRequire(import.meta.url);
@@ -192,12 +192,12 @@ for (const l of lessons) {
 const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Python' }, 'code/html': { kind: 'html', dir: '_playground-html', label: 'HTML and CSS' }, 'code/microbit': { kind: 'microbit', dir: '_playground-makecode', label: 'micro:bit' }, 'code/arcade': { kind: 'arcade', dir: '_playground-makecode', label: 'Arcade' }, 'code/robotics': { kind: 'microbit', dir: '_playground-makecode', label: 'Robot', pkg: makecodePackage({ extensions: ['robot'] }) }, 'code/microbit-computer': { kind: 'microbit', dir: '_playground-makecode', label: 'micro:bit' }, 'code/microbit-security': { kind: 'microbit', dir: '_playground-makecode', label: 'micro:bit' }, 'code/ai-robots': { kind: 'microbit', dir: '_playground-makecode', label: 'Robot', pkg: makecodePackage({ extensions: ['robot'] }) },
   // The console bridge: the turtle playground with its own saved program; a starter with no turtle opens it in console mode.
   'code/console': { kind: 'turtle', dir: '_playground', label: 'Python console', id: 'free/console', code: 'name = input("What is your name? ")\nprint("Hello, " + name + "!")\n' } };
-// Maths cards (snippets/maths.json): a Reference page and cheat sheets for the maths course they name.
-const MATHS_CARDS = loadMathsCards();
+// Maths cards (snippets/maths.json, maths-<name>.json): a Reference page and cheat sheets for the course each names.
+const MATHS_CARDS = loadAllMathsCards();
 const REFS = [{ file: 'turtle', path: 'code/python/reference' }, { file: 'html', path: 'code/html/reference' }, { file: 'microbit', path: 'code/microbit/reference' }, { file: 'arcade', path: 'code/arcade/reference' }, { file: 'robot', path: 'code/robotics/reference' },
   { file: 'microbit', path: 'code/microbit-computer/reference' }, { file: 'microbit', path: 'code/microbit-security/reference' },
   // groups: only these groups of the file; title and summary: shown instead of the file's own.
-  { file: 'turtle', path: 'code/console/reference', groups: ['Text in and out', 'Code structure'], title: 'Python console reference', summary: 'The commands from the console bridge, with what each one does.' }, ...(MATHS_CARDS ? [{ file: 'maths', path: `${MATHS_CARDS.course}/reference` }] : [])];
+  { file: 'turtle', path: 'code/console/reference', groups: ['Text in and out', 'Code structure'], title: 'Python console reference', summary: 'The commands from the console bridge, with what each one does.' }, ...MATHS_CARDS.map((m) => ({ file: m.file, path: `${m.course}/reference` }))];
 
 // The site navbar: Learning Waypoints, Tutorials, then one menu per subject (a top-level folder, such as Code)
 // listing its pathways (from its index.md); a pathway page is <subject>/paths/<id>/. navFor(pagePath, here,
@@ -481,7 +481,7 @@ for (const coursePath of teachCourses) {
     .filter((r) => typeof r === 'string').map((r) => { try { return getSnippet(l.dir, r); } catch { return ''; } });
   const unitSeen = new Set();
   const unitItems = Object.fromEntries(units.map((u) => [u.id, mathsCourse
-    ? (MATHS_CARDS?.course === coursePath ? MATHS_CARDS.cards.filter((c) => c.unit === u.id) : [])
+    ? (MATHS_CARDS.find((m) => m.course === coursePath)?.cards.filter((c) => c.unit === u.id) || [])
     : unitSnippets(ls.filter((l) => l.unit === u.id), courseSnips, unitSeen, codeOf)]));
   // dir is relative to OUT. Teacher copies sit in /teach/ with Prepare links; student copies sit under the
   // course's Reference (reference/print/) and link only back to it, so students are never one click from answers.

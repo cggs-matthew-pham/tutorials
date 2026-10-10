@@ -249,3 +249,7 @@ button.clcard { cursor: pointer; }
 .gbtns { flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .gbtns button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
 #gsum { color: var(--ink); }
+/* Keyboard moves (numberline, geometry) */
+.kmove { justify-content: flex-start; align-items: center; gap: 6px; margin-top: 6px; font: 13px system-ui, sans-serif; color: var(--muted); }
+.kmove select { font: 600 13px system-ui, sans-serif; padding: 4px 6px; border-radius: 6px; border: 1px solid var(--line); background: var(--card); color: var(--ink); }
+.kmove button { min-width: 34px; }

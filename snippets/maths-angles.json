@@ -1,0 +1,53 @@
+{
+  "title": "Maths reference: Angles and shapes",
+  "summary": "The words and methods from Angles and shapes, each with an example and, where it helps, a picture of the board.",
+  "language": "maths",
+  "course": "maths/angles",
+  "_about": "Maths cards for maths/angles (see snippets/maths.json for the format).",
+  "groups": [
+    {
+      "name": "Words",
+      "items": [
+        {
+          "label": "interior angle",
+          "unit": "angle-sums",
+          "code": "\\angle A",
+          "hint": "An angle inside a shape, at one of its corners."
+        },
+        {
+          "label": "polygon",
+          "unit": "angle-sums",
+          "code": "n \\text{ sides}, \\; n \\text{ corners}",
+          "hint": "A closed shape with straight sides: triangle (3), quadrilateral (4), pentagon (5), hexagon (6), octagon (8)."
+        },
+        {
+          "label": "regular polygon",
+          "unit": "angle-sums",
+          "code": "\\text{each angle} = \\dfrac{(n - 2) \\times 180^\\circ}{n}",
+          "hint": "All sides and all angles are equal, so each angle is the angle sum shared equally: a regular hexagon has angles of $120^\\circ$."
+        }
+      ]
+    },
+    {
+      "name": "Rules",
+      "items": [
+        {
+          "label": "angle sum of a triangle",
+          "unit": "angle-sums",
+          "code": "a + b + c = 180^\\circ",
+          "hint": "True for every triangle, whatever its shape or size: tear off the corners and they fill a straight line.",
+          "board": "widget: geometry\nshape: triangle\ncorners: 1,1; 7,1; 10,5",
+          "shows": "An obtuse triangle: 24° + 127° + 29° = 180°"
+        },
+        {
+          "label": "angle sum of a polygon",
+          "unit": "angle-sums",
+          "code": "(n - 2) \\times 180^\\circ",
+          "hint": "Split it into triangles from one corner: a shape with $n$ sides makes $n - 2$ triangles. A pentagon: $3 \\times 180^\\circ = 540^\\circ$.",
+          "board": "widget: geometry\nshape: polygon\nsides: 5\ncorners: 2,1; 9,1; 10,5; 6,7; 1,5\nsplit: shown",
+          "shows": "A pentagon splits into 3 triangles from A: 540°"
+        }
+      ]
+    }
+  ]
+}

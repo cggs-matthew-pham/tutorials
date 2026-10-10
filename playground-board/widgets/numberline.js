@@ -145,6 +145,29 @@
   }
   function landing(x) { var v = round(Math.round(x / spec.snapStep) * spec.snapStep); return Math.max(spec.lo, Math.min(spec.hi, v)); }
 
+  // Keyboard moves: a row to pick a point and step it with buttons or the arrow keys (dragging needs a pointer).
+  function moveRow(panel, names, axes, step) {
+    if (!names.length) return;
+    var row = document.createElement('div'); row.className = 'gbar kmove'; row.setAttribute('role', 'group'); row.setAttribute('aria-label', 'Move a point with the keyboard');
+    var lab = document.createElement('label'); lab.textContent = 'Move'; var sel = document.createElement('select'); sel.id = 'kmove-pt';
+    lab.htmlFor = sel.id;
+    names.forEach(function (n) { var o = document.createElement('option'); o.value = o.textContent = n; sel.appendChild(o); });
+    row.append(lab, sel);
+    var dirs = axes === 2 ? [['←', -1, 0, 'left'], ['→', 1, 0, 'right'], ['↑', 0, 1, 'up'], ['↓', 0, -1, 'down']] : [['←', -1, 0, 'left'], ['→', 1, 0, 'right']];
+    dirs.forEach(function (d) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = d[0];
+      var label = function () { return 'Move ' + sel.value + ' ' + d[3]; };
+      b.setAttribute('aria-label', label()); sel.addEventListener('change', function () { b.setAttribute('aria-label', label()); });
+      b.addEventListener('click', function () { step(sel.value, d[1], d[2]); }); row.appendChild(b);
+    });
+    row.addEventListener('keydown', function (e) {
+      var k = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, 1], ArrowDown: [0, -1] }[e.key];
+      if (!k || (axes === 1 && k[1])) return;
+      e.preventDefault(); step(sel.value, k[0], k[1]);
+    });
+    panel.appendChild(row);
+  }
+
   function paintPanel() {
     var panel = B.el('gpanel'); panel.replaceChildren(); ui = { sliders: [] };   // build() adds ghost and jump after this
     if (spec.sum) {
@@ -174,6 +197,9 @@
       ui.sliders.push({ sl: sl, out: out });
     });
     if (spec.cmp) { ui.cmp = document.createElement('p'); ui.cmp.className = 'rulework'; ui.cmp.id = 'nlcompare'; ui.cmp.setAttribute('aria-live', 'polite'); panel.appendChild(ui.cmp); }
+    moveRow(panel, spec.points.filter(function (p) { return p.drag; }).map(function (p) { return p.name; }), 1, function (n, dx) {
+      var P = objs[n]; P.moveTo([landing(P.X() + dx * spec.snapStep), 0]); B.moved = true; report();
+    });
     if (spec.sliders.length || spec.points.some(function (p) { return p.drag; }) || (spec.sum && spec.sum.op === 0)) {
       var bar = document.createElement('div'); bar.className = 'gbar';
       var again = document.createElement('button'); again.type = 'button'; again.textContent = 'Start again';

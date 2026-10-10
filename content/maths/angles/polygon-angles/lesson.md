@@ -58,7 +58,7 @@ Think about a square or a rectangle first. Does a lopsided quadrilateral have th
 ```step
 stage: run
 insight: "Splitting a quadrilateral from one corner shows two triangles whose angles exactly fill the four corners, so the total is 2 × 180° whatever the shape."
-try: { playground: board, starter: "geo.yml#run", height: 600 }
+try: { playground: board, starter: "geo.yml#run", height: 640 }
 check: { type: board, text: "Press **Split into triangles**, then drag the corners into a new quadrilateral. Was your prediction right?", when: "n = 4 and k = 2" }
 ```
 
@@ -68,7 +68,7 @@ The board measures each angle and adds them up. **Split into triangles** draws l
 
 ```step
 stage: investigate
-try: { playground: board, starter: "geo.yml#pentagon", height: 600 }
+try: { playground: board, starter: "geo.yml#pentagon", height: 640 }
 insight: "Lines from one corner split a shape with n sides into n − 2 triangles, and those triangles' angles exactly fill the polygon's corners, so the sum is (n − 2) × 180°. Ben's split adds the angles around his middle point too."
 tasks:
   - check:
@@ -121,7 +121,7 @@ Read Ben's working one line at a time. Which line counts angles that are not the
 ```step
 stage: modify
 insight: "One change at a time: a lopsided pentagon (same total), a corner that points in (still 360°), more sides on the board, then the rule without the board."
-try: { playground: board, starter: "geo.yml#pentagon", height: 600 }
+try: { playground: board, starter: "geo.yml#pentagon", height: 640 }
 tasks:
   - starter: "geo.yml#pentagon"
     hint: "Move any corner. Does the number of triangles change?"
@@ -202,7 +202,7 @@ tasks:
 ```step
 stage: make
 insight: "Building a shape from a given total reverses the lesson: from the angle sum back to the number of triangles and sides."
-try: { playground: board, starter: "geo.yml#choose", height: 600 }
+try: { playground: board, starter: "geo.yml#choose", height: 640 }
 hint: ["How many lots of 180° make 1260°?", "That is the number of triangles. A shape has 2 more sides than triangles."]
 check: { type: board, text: "Make a polygon whose angles add to $1260°$.", when: "s = 1260", explain: "1260° ÷ 180° = 7 triangles, so 9 sides." }
 ```
