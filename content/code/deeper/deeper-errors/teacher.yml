@@ -1,0 +1,39 @@
+summary: Students catch errors with try and except so typed mistakes get a reply instead of a crash, compare it with checking first (isdigit), and catch two kinds of error in one program.
+time: 45
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 10 min"
+goals:
+  - I can use try and except to catch an error and carry on.
+  - I can name the kind of error to catch (ValueError, KeyError, ZeroDivisionError).
+  - I can explain why a caught error is not the same as a sensible answer.
+before: |
+  Read the unit primer first. `try:` runs its lines; if one causes the named error, Python jumps to `except ThatError:` and then carries on after it. Only the named error is caught: the bug task catches `ValueError` when the error is a `KeyError`, so the program still stops. `int()` accepts " 4 " and "-2" but not "3.5" or "three", so a caught error does not check whether a number is sensible (the first Investigate question). Avoid a bare `except:` that catches everything: it hides real mistakes.
+running:
+  - "Predict: trace it on the board. The line after int() never runs."
+  - "Run: ask students to find every kind of answer that gets through (including -2)."
+  - "Investigate: compare with isdigit() from the console bridge. Both are fine; try is the usual Python way."
+  - "Bug task: read the error's name in the message, then the except line."
+  - "Make: two excepts after one try. Ask which one runs for 10 / 0 and for ten."
+stuck:
+  - see: The program still stops with an error.
+    ask: Which error does the message name, and which does your except catch?
+    fix: Catch the error the message names (KeyError, not ValueError).
+  - see: The loop never ends, even with a good answer.
+    ask: Where is break, and does it run when the answer is good?
+    fix: Put break inside try, after the line that might fail.
+  - see: "NameError on a variable after the loop."
+    ask: Was the variable given a value inside try before the loop ended?
+    fix: Only leave the loop (break) once the value has been set.
+stretch: Make a function ask_number(question) that keeps asking until it gets a whole number, and use it twice.
+support: Give students the try and the first except of the calculator, and ask them to add the second except.
+leads: "Next lesson is the text adventure. Later, saving and loading a game uses the same idea for a missing file (FileNotFoundError)."
+exit:
+  q: "try: n = int(\"3.5\") except ValueError: n = 0. What is n?"
+  a: "0: int(\"3.5\") causes a ValueError, so the except line runs."
+explain: |
+  1. `try:` runs its lines. If one causes the error named after `except`, Python jumps to the except lines instead of stopping.
+  2. Name the error you expect: `ValueError` for a bad number, `KeyError` for a missing key, `ZeroDivisionError` for dividing by 0.
+  3. Then the program carries on. In a loop, ask again until the answer works.
+solutions:
+  step-4#t1: errors.py#sol-range
+  step-4#t2: errors.py#sol-quit
+  step-5: errors.py#sol-calculator

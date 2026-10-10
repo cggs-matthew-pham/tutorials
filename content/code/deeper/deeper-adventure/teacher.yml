@@ -1,0 +1,39 @@
+summary: Students combine the parser, the bag and the map into a text adventure in three milestones (take and drop, a locked shed, a win plus a change of their own), each starting from a working game.
+time: 60
+timing: "Predict, Run and Investigate 15 min · Milestone 1 15 min · Milestone 2 10 min · Milestone 3 20 min"
+goals:
+  - I can combine lists, dictionaries and a command loop into one program.
+  - I can add a rule to a game as one check in the right place.
+  - I can extend a program with a feature of my own and test it.
+before: |
+  Read the unit primers first. The game keeps three dictionaries: `rooms` (descriptions), `exits` (each room's dictionary of directions) and `things` (each room's list of things). `here` is the current room and `bag` is a list. Each command is one `elif` branch inside `while True`. Milestone 1 moves a thing between `things[here]` and `bag`; Milestone 2 adds one check (`"key" not in bag`; `not in` is the opposite of `in`, said once in the text); Milestone 3 is goals only. Each milestone starts from a working version, so a student stuck on one can still do the next.
+running:
+  - "Predict: draw the map on the board and walk it with a counter."
+  - "Run: ask students to find the branch that handles each command."
+  - "Milestone 1: the item moves between two lists. Act it out with a real object and two boxes."
+  - "Milestone 2: ask where the check must go: before here changes."
+  - "Milestone 3: pair students to play each other's adventures and report one bug."
+stuck:
+  - see: "Taking something says it is not here, though look shows it."
+    ask: Is the word being checked exactly as stored (small letters)?
+    fix: The command is lowered; store things in small letters too.
+  - see: The shed opens without the key.
+    ask: Does the check happen before here = ... changes?
+    fix: Check where the way leads first, and only move if it is allowed.
+  - see: The win message never appears.
+    ask: Is the win check inside the loop, after the commands?
+    fix: "Put if \"crown\" in bag: at the end of the loop body, with break."
+stretch: Add a second item that must be used somewhere (light the lamp in a dark cellar), or a timer of moves that ends the game.
+support: Give students the take branch for Milestone 1 and ask them to write drop by mirroring it.
+leads: "Saving and loading the game is the next part of this course (files, then try for a missing file). Game engines use the same shape: a loop, input, rules and the world as data."
+exit:
+  q: "Which data structure would you use for the things in each room, and why?"
+  a: "A dictionary from room name to a list: look up the room by name, and the list grows and shrinks as things are taken and dropped."
+explain: |
+  1. The world is data: `rooms` and `exits` are dictionaries, and `things[here]` is a list of what lies in the room.
+  2. Each command is one `elif` branch in a loop. `take` moves a thing from `things[here]` to `bag`; `drop` moves it back.
+  3. A rule is one more check in the right branch, such as a shed that stays locked while `"key" not in bag`.
+solutions:
+  step-4: adventure.py#sol-m1
+  step-5: adventure.py#sol-m2
+  step-6#t1: adventure.py#sol-m3

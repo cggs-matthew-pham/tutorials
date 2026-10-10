@@ -373,6 +373,12 @@
      "matches": "\\.sort\\(\\)",
      "code": "‹items›.sort()\n",
      "hint": "Put a list in order (A to Z, or smallest first). It changes the list itself."
+    },
+    {
+     "label": "try and except",
+     "matches": "^\\s*try\\s*:",
+     "code": "try:\n    ‹n› = int(‹text›)\nexcept ‹ValueError›:\n    print(\"‹That is not a number.›\")\n",
+     "hint": "Run lines that might fail. If the named error happens, the except lines run instead of the program stopping."
     }
    ]
   }
