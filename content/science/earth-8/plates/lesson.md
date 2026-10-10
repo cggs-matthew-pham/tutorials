@@ -26,8 +26,22 @@ check:
 stage: run
 insight: "Following one particle round the loop makes the convection current a path, not an arrow on a diagram."
 try: { playground: science, starter: "boards.yml#mantle", height: 600 }
-check: { type: board, text: "Follow a particle round one full loop of the current.", expect: { done: true } }
+tasks:
+  - check:
+      type: question
+      q: "First, a recap. A pot of soup is heated from below. What does the soup at the bottom do, and why?"
+      options: ["It rises, because warm soup has spread out and is less dense than the cooler soup above", "It rises, because heat always rises", "It stays put: only the heat moves up", "It sinks, because hot soup is heavier"]
+      answer: 0
+      feedback: [null, "Heat on its own does not rise; something has to carry it. What is moving up?", "In a liquid the warm part itself moves. Watch the particles on the board.", "Heating makes the particles spread out, so the same mass takes more space: it gets less dense, not heavier."]
+      explain: "Warm fluid expands, so it is less dense and rises; cooler, denser fluid sinks to take its place. This loop is a convection current. The mantle does the same, only in solid rock and very slowly."
+  - check: { type: board, text: "Follow a particle round one full loop of the current.", expect: { done: true } }
 ```
+
+### Recap: warm rises, cool sinks
+
+Convection is how heat moves through a fluid: the warm part rises because it is less dense, then cools and sinks. You may have met it in a pot on the stove or a heater in a room.
+
+### Follow a particle
 
 Follow the ringed particle (or click another). Blue is cooler, red is hotter. Watch the plates on top too.
 

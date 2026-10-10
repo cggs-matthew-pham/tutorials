@@ -1,6 +1,6 @@
 summary: Students explain that the lithosphere is divided into moving plates and describe mantle convection, driven by heat from the core, as the mechanism (AC9S8U03, node 2, a hinge node).
 time: 25
-timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 4 min, Wider about 5 min"
+timing: "Engage and Explore 9 min · Explain 10 min · Evaluate 3 min · Typical adds 4 min, Wider about 5 min"
 goals:
   - I can explain that the lithosphere is divided into plates that move.
   - I can describe mantle convection as the mechanism that moves the plates.
@@ -9,6 +9,8 @@ before: |
   A concept tutorial for introducing or revising the idea; it does not replace a convection demonstration. Set the width with `?width=minimum`, `typical` (default) or `wider`.
 
   The hinge risk is plate movement with no mechanism: without convection, boundary features (nodes 3 to 5) look arbitrary.
+
+  Assumed: convection, and density from Year 7 (less dense rises). These tutorials teach convection in Year 9 (Heat transfer), so Explore opens with a one-question recap (warm fluid rises because it is less dense). If the class has not met convection, demonstrate it first (see In class, below).
 
   Model notes, worth saying aloud: the board draws the mantle as moving particles, but the real mantle is solid rock that flows over millions of years. In the model hot particles are pushed up directly; real hot rock rises because it is less dense. The plates on top move with the surface flow.
 running:
