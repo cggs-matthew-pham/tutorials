@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 unit: angle-sums
 node: AC9M7M05 n1
 title: Angles in a triangle

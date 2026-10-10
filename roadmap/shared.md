@@ -59,6 +59,7 @@ An intention, not a rule; pilot it before anything becomes a design rule. Applie
 - **Teacher in the loop, light to heavy:** an on-screen "check this with your teacher" after two failed attempts; the own-words explanation as an exit ticket (nothing stored); later, perhaps an ephemeral live "stuck on step X" view in Kit or Prepare. The last one bends the no-tracking stance and needs a decision.
 - **Later, maybe:** a teacher-led LLM version in Waypoints Kit (the AI as a novice scoped to one move), given age terms and answer leakage.
 - **Open:** pilot lesson (the winch, or a maths hinge node); how authored options and branches are written in the lesson format.
+- **First use (maths, 11 Oct):** the `reasoning` check follows "write, then choose, then compare": free working (not marked), a reason chosen at the key step (marked, with misconception feedback), then a model and a self-check. In *Reasoning with angles* and *Unknown angles in shapes*; no Nib yet.
 
 ## Proposed: Nib and Nib's notebook (11 Oct 2026, discussed, not decided)
 
@@ -69,6 +70,9 @@ Replaces the Python-only "turtle companion" proposal (was in `roadmap/code.md`) 
 - **Light gamification:** the notebook is a useful reference, not a score. One small moment when a page is added; no points, streaks or new badges beyond "Challenge complete". Per browser, built from existing progress data (`wp-progress`, `unlocks:`); no tracking.
 - **Link:** the teach-a-novice step (above) is where Nib's pages come from, when a lesson has one.
 - **Cost:** shared change (`tools/lesson-view.mjs`, `site/progress.js`, course pages); maths and science need a rule for which cards count as notebook pages. Snippet unlocks today: Python and HTML courses only; MakeCode, maths and science have none.
+- New check type `reasoning` (Matthew approved 11 Oct; a first use of the teach-a-novice leaning "write before choosing"): `tools/lesson-core.mjs` (validation), `tools/lesson-view.mjs` (render, handler, `.rs-*` in MATHS_CSS, `wp-reasoning` storage), `tools/teach.mjs` (guides show the model steps). The free working is never marked; the answer and picked reasons are. AUTHORING and CLAUDE.md updated.
+- `tools/maths-forms.mjs`: `subject x` accepts the subject in either case (Numbas already compares letters case-insensitively); case added to `data/forms-cases.json`.
+- Board: geometry gains `angles: given …` and `exterior: C`; parallel takes several given angles (maths-only widgets).
 
 ## Proposed: other clips beyond Explain it to me (11 Oct 2026, discussed, not built)
 

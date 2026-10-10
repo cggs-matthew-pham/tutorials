@@ -81,9 +81,13 @@ Every graph board with dragged points gets the Move row (a point picker, arrow b
 
 AC9M7M04 n1 and n2: a new first unit in Angles and shapes, Parallel lines, with *Angles at parallel lines* (naming corresponding, alternate and co-interior pairs; misconception `vertically-opposite-pair`) and *Finding angles with parallel lines* (the rules and reasons; misconception `co-interior-equal`). New board widget `parallel` (turn the transversal, tilt a line so it is not parallel, pick two angles; the board names the pair unless `names: off`). Angles in a triangle and Angles in a polygon move to orders 3 and 4. Six Reference cards (three with pictures) and a primer.
 
+## Done: reasoning check and unknown angles (11 Oct 2026)
+
+Matthew's steer: students own their working; the platform supports it but is not strict about it (unlike Mathspace). New `reasoning` check: free working never marked, then the answer and a reason chosen at the key step are marked, then the student's working beside a model, with a self-check. Lessons: *Reasoning with angles* (AC9M7M04 n3, Parallel lines lesson 3; misconception `assume-equal-angles`) and *Unknown angles in shapes* (AC9M7M05 n3, last in Angle sums; `wrong-angle-sum`, exterior angle = the two opposite angles). Geometry board: `angles: given …` and `exterior: C`; parallel board: several given angles. Triangle and polygon lessons move to orders 4 and 5. `subject x` answers accept either case.
+
 ## Still to do
 
-- **Publish and listen:** the eleven new clips (Number Foundations 4, Angles 4, Expanding brackets, Factorising, Changing the subject) record with the real voice on the next manual publish.
-- **Try with classes:** all eleven new lessons, the form checks and the working check, and whether students use the sliders or drag.
-- **Next nodes:** unknown angles with reasons (AC9M7M04 n3 and AC9M7M05 n3) needs a reasons check designed first (a reason picked per step, or a working check with reasons).
+- **Publish and listen:** the thirteen new clips (Number Foundations 4, Angles 6, Expanding brackets, Factorising, Changing the subject) record with the real voice on the next manual publish.
+- **Try with classes:** all thirteen new lessons, the form checks and the working check, and whether students use the sliders or drag.
+- **Watch in class:** whether students write real working in the reasoning box or skip to the marked parts; whether the self-check ticks are honest.
 - **Form-check coverage:** forms beyond algebra (fraction in simplest form, ratio, mixed numerals, inequalities) are not built; add them when a lesson needs one.

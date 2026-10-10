@@ -1,0 +1,42 @@
+summary: Students find unknown angles in triangles, quadrilaterals and pentagons in steps, with a reason for each (angle sum, straight line, isosceles), and explain why an exterior angle equals the two opposite angles; working is their own, the answer and a key reason are marked (AC9M7M05, node 3).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can find an unknown angle in a triangle or polygon using its angle sum.
+  - I can combine angle sums with straight-line and parallel-line angles, giving a reason for each step.
+  - I can explain why an exterior angle of a triangle equals the two opposite angles added.
+before: |
+  Do the first reasoning task yourself, then compare with its model. Students need Angles in a triangle, Angles in a polygon and Reasoning with angles.
+
+  The one idea: choose the right angle sum for the shape, then chain steps with reasons. The common mistake is using 180° for every shape; it is planted in Zoe's working, where a negative angle is the clue.
+
+  As in Reasoning with angles, the free working is not marked: students write it their way. The answer is marked, and at the key step they choose the reason from a list. Then they compare with a model and tick a self-check. The isosceles task is wider than the minimum: the equal angles are stated in the question.
+running:
+  - "Predict: take a show of hands, then ask students who chose 110° how they got it. Collect both routes (two steps, or a + b)."
+  - "Run: ask why x = a + b must be true (a + b + c = 180° and x + c = 180°)."
+  - "Investigate: model know, choose, say why for the triangle. Ask: what does a negative answer tell you (Zoe)?"
+  - "Modify: before the pentagon, ask students for its angle sum and how they know."
+  - "Make: ask students what c must be before they move anything."
+stuck:
+  - see: "A student uses 180° for a quadrilateral (Zoe's mistake)."
+    ask: "How many triangles does a quadrilateral split into?"
+    fix: "(n − 2) × 180°: two triangles, 360°."
+  - see: "A student stops at the interior angle when asked for the exterior one."
+    ask: "Which angle is x? Is it inside the triangle?"
+    fix: "Mark x on the diagram, then find what links it to an angle you have (a straight line)."
+  - see: "A student writes numbers with no reasons."
+    ask: "Which fact did you use for that line?"
+    fix: "One reason per line, in short words: 'angle sum of triangle', 'straight line'."
+stretch: "Prove that the exterior angles of any convex polygon add to 360°, starting from a triangle (each exterior + interior = 180°)."
+support: "Use the Run board to check: set a triangle, read its angles, and compare with your working."
+leads: |
+  This completes the Year 7 angle work: parallel lines (AC9M7M04) and angle sums (AC9M7M05).
+
+  Where it leads: congruence and similarity (Years 8 and 9) and geometric proof, where chains of reasons are the whole point.
+exit:
+  q: "A triangle has a = 48° and b = 67°. Find c and the exterior angle at C, with reasons."
+  a: "c = 65° (angles in a triangle), x = 115° (a straight line with c). Check: 48° + 67° = 115°."
+explain: |
+  To find an unknown angle in a shape, choose the **angle sum** for the shape: $180^\circ$ for a triangle, $(n - 2) \times 180^\circ$ for $n$ sides ($360^\circ$ for a quadrilateral, $540^\circ$ for a pentagon). Add the angles you know and subtract from the sum.
+
+  Combine it with other facts, one step at a time, each with a reason. Extend a side of a triangle and the outside angle $x$ makes a straight line with $c$: $x = 180^\circ - c$. Since $a + b = 180^\circ - c$ too, **$x = a + b$**.

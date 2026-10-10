@@ -462,6 +462,17 @@ Vary, Practise, Make).
   (`"3(2x + 4) - x"` or `"3x + 7 = 19"`), optional `form`, `example` (a model solution, one string per line; validate
   checks it passes) and optional `wrong` (planted wrong solutions validate checks are rejected). Marked by Numbas, like
   `form:` (`npm run check-forms` has working cases too).
+- **`reasoning` check** (maths; reasoning students own): a free working box that is never marked (students write
+  it their own way: notes and short reasons are fine), then the marked parts, then a model to compare with. Fields:
+  `q`; `steps` (the model solution, each `["statement", "reason"]`, Markdown with `$...$`); optional `answer` (the
+  final value, marked like an `answer` check; a ° is ignored) with `feedback` pairs; optional `picks`, the one or two
+  steps where the misconception bites: `{ step: 1, options: [reasons], answer: 0, feedback: [null, ...] }` (students
+  choose that step's reason); optional `criteria` (self-check sentences; default: each step says what it finds, each
+  step has a reason, my answer matches the model); `explain`. It needs `answer`, `picks` or both. Check marks the
+  answer and picks; when they are right, the student's working and the model show side by side with the self-check
+  (ticked by the student, not needed to complete). After three wrong tries, **Show a model solution** reveals the model
+  without completing. Working, answer and ticks are kept in the browser (`wp-reasoning`). Write without for a single
+  rule; use it where a chain of reasons is the point (first used by `maths/angles/angle-reasoning`).
 - **`board` check:** ticks when the board reports what the check asks for, and never on the starting position. It
   needs `try: { playground: board, starter: file#region }` on the step (`maths` is the old name and still works).
   - `when:` a condition on the board's named values (any board with sliders or points): `"m = -1 and c = 2"`,
@@ -540,6 +551,9 @@ Vary, Practise, Make).
       Acute, Right-angled, Obtuse and Very flat, which clips can press. `sum: off` hides the total.
     - A **Move** row (pick a corner, then the arrow buttons or keys) moves corners without a pointer; clips can press
       `Move C up`.
+    - `angles: given a, b` shows only those corners' sizes (the others show their letter, to find; for pictures).
+      `exterior: C` extends the side into C past C (dashed) and marks the exterior angle `x` (value `x`; add `x` to
+      `given` to show it).
     - Values for checks: each corner's angle by its lower-case letter (`a`, `b`, `c`, …), `s` the total, `m` the largest
       angle, `n` sides, `k` triangles shown by split (else 0), `t` 1 while torn, `v` 1 if no corner points in; corners as
       points (`x(A)`). Examples: `"m > 120"`, `"m = 90"`, `"n = 5 and k = 3"`, `"n = 4 and v = 0"`, `"s = 1260"`.
@@ -548,7 +562,7 @@ Vary, Practise, Make).
     lower crossing e to h the same). `slider t: 30, 150, 60` (or `t: 60`) turns the transversal (step 5 unless given);
     optional `slider w: -20, 20, 0` tilts the lower line so the lines are not parallel. Students pick two angles (click
     them, or the letter buttons) and the board names the pair and its rule. `angles: hidden` shows letters only;
-    `angles: given b` shows only b's size; `names: off` does not name the pair (students decide); `pair: c, f` starts
+    `angles: given b` (or `given b, g`) shows only those sizes; `names: off` does not name the pair (students decide); `pair: c, f` starts
     with two picked (for pictures). Values: `t`, `w`, `a` to `h` (sizes), `m` (angles picked), `r` (the picked pair:
     1 corresponding, 2 alternate, 3 co-interior, 4 vertically opposite, 5 on a straight line, 6 alternate outside the
     lines, 0 other), `s` (sum of the picked sizes), `p` (1 when parallel). Checks: `"r = 2"`, `"c = 65 and r = 3"`, `"c = e"`.

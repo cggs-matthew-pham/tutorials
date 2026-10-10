@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 unit: angle-sums
 node: AC9M7M05 n2
 title: Angles in a polygon

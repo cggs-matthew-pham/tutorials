@@ -1,0 +1,90 @@
+# Parallel lines boards for "Reasoning with angles". "angles: given b" shows only b's size: the rest are to find.
+
+# region: run
+widget: parallel
+slider t: 30, 150, 60
+# endregion
+
+# region: explain
+widget: parallel
+t: 70
+# endregion
+
+# region: explain-pic
+widget: parallel
+t: 70
+angles: given b
+names: off
+# endregion
+
+# region: given-b
+widget: parallel
+t: 70
+angles: given b
+names: off
+# endregion
+
+# region: given-d
+widget: parallel
+t: 65
+angles: given d
+names: off
+# endregion
+
+# region: given-a
+widget: parallel
+t: 50
+angles: given a
+names: off
+# endregion
+
+# region: given-g
+widget: parallel
+t: 75
+angles: given g
+names: off
+# endregion
+
+# region: given-e
+widget: parallel
+t: 40
+angles: given e
+names: off
+# endregion
+
+# region: given-h
+widget: parallel
+t: 55
+angles: given h
+names: off
+# endregion
+
+# region: given-c
+widget: parallel
+t: 80
+angles: given c
+names: off
+# endregion
+
+# region: tilt-pic
+widget: parallel
+t: 60
+w: 15
+angles: given c, f
+names: off
+# endregion
+
+# region: converse
+widget: parallel
+t: 60
+slider w: -20, 20, 15
+angles: given c, f
+names: off
+# endregion
+
+# region: make
+widget: parallel
+slider t: 30, 150, 60
+angles: given b
+names: off
+# endregion

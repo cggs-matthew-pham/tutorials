@@ -4,7 +4,7 @@
 //   slider t: 30, 150, 60    the crossing line's angle to the parallel lines (min, max, start, step 5 unless given);
 //                            or fixed: "t: 60"
 //   slider w: -20, 20, 0     optional: tilt the lower line by w degrees, so the lines are not parallel (default 0)
-//   angles: shown            shown (default) | hidden (letters only) | given f (only f's size; the others to work out)
+//   angles: shown            shown (default) | hidden (letters only) | given f or given b, g (only those sizes; the others to work out)
 //   names: off               do not name the pair (students decide whether it is corresponding, alternate, ...)
 //   pair: c, f               start with these two angles picked (for pictures and worked examples)
 // The angles: at the upper crossing a (above, left), b (above, right), c (below, left), d (below, right);
@@ -40,9 +40,9 @@
     if (Math.abs(lo('w')) > 30 || Math.abs(hi('w')) > 30) throw new Error('w: tilt the lower line by at most 30 degrees either way.');
     var st = function (n) { return s.sl[n] ? s.sl[n].start : s.fixed[n]; };   // while moving, a step that comes within 15° is refused
     if (st('t') - st('w') < 15 || st('t') - st('w') > 165) throw new Error('t and w: the crossing line must start at least 15 degrees from the lower line.');
-    var a = String(s.angles || 'shown').trim(), g = /^given\s+([a-h])$/i.exec(a);
-    if (!/^(shown|hidden)$/i.test(a) && !g) throw new Error('angles: shown, hidden, or "given f" (one of a to h).');
-    s.show = g ? 'given' : a.toLowerCase(); s.given = g ? g[1].toLowerCase() : null;
+    var a = String(s.angles || 'shown').trim(), g = /^given\s+([a-h](\s*,\s*[a-h])*)$/i.exec(a);
+    if (!/^(shown|hidden)$/i.test(a) && !g) throw new Error('angles: shown, hidden, or "given f" (one or more of a to h, such as "given b, g").');
+    s.show = g ? 'given' : a.toLowerCase(); s.given = g ? g[1].toLowerCase().split(',').map(function (t) { return t.trim(); }) : null;
     s.names = !/^off$/i.test(s.names || '');
     var rawPair = s.pair; s.pair = [];
     if (rawPair !== undefined && String(rawPair).trim() !== '') {
@@ -67,7 +67,7 @@
     if ((pi === 0 && pj === 3) || (pi === 1 && pj === 2)) return 6;
     return 0;
   }
-  var visible = function (n) { return spec.show === 'shown' || (spec.show === 'given' && n === spec.given); };
+  var visible = function (n) { return spec.show === 'shown' || (spec.show === 'given' && spec.given.indexOf(n) >= 0); };
   var deg = function (v) { return Math.round(v) + '°'; };
 
   function pick(n) {

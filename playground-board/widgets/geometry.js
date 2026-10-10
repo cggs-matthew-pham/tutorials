@@ -12,6 +12,8 @@
 //                            "tear: shown" starts torn (and "split: shown" starts split), for pictures
 //   split: on                a "Split into triangles" button: lines from A to every other corner (polygon)
 //   presets: on              buttons that set a triangle's shape: Acute, Right-angled, Obtuse, Very flat
+//   angles: given a, b       show only these sizes; the other corners show their letter (angles to find)
+//   exterior: C              extend the side into C past C (dashed) and mark the exterior angle x (value x)
 // Measurements are rounded to whole degrees so that the shown angles add to the shown total.
 // state: { scope: { vars: { a, b, c, ... (each corner's angle), s (total), m (largest angle), n (sides),
 //                   k (triangles shown by split, else 0), t (1 while torn), v (1 if no corner points in) },
@@ -41,6 +43,21 @@
     s.snapStep = s.snap ? num(s.snap, 'snap') : 1;
     var on = function (k, d) { return s[k] === undefined ? d : /^(on|shown)$/i.test(s[k]); };
     s.tearShown = /^shown$/i.test(s.tear || ''); s.splitShown = /^shown$/i.test(s.split || '');
+    // angles: given a, b — show only these sizes (the others show their letter: angles to find); exterior: C — extend
+    // the side into C past C (dashed) and mark the exterior angle x there (shown unless given leaves x out).
+    s.given = null;
+    if (s.angles !== undefined) {
+      var gm = /^given\s+(.+)$/i.exec(String(s.angles).trim());
+      if (!gm) throw new Error('angles: "given a, b" (the corners whose sizes show; add x for an exterior angle).');
+      s.given = gm[1].split(',').map(function (t) { return t.trim().toLowerCase(); });
+      s.given.forEach(function (g) { if (!/^[a-jx]$/.test(g)) throw new Error('angles: "' + g + '" is not a corner letter (a, b, c, …) or x.'); });
+    }
+    s.ext = null;
+    if (s.exterior !== undefined) {
+      var ei = LET.indexOf(String(s.exterior).trim().toUpperCase());
+      if (ei < 0 || ei >= s.n) throw new Error('exterior: a corner letter, such as "exterior: C".');
+      s.ext = ei;
+    }
     s.showSum = on('sum', true); s.tear = on('tear', false) && s.kind === 'triangle'; s.split = on('split', false); s.presets = on('presets', false) && s.kind === 'triangle';
   }
 
@@ -115,10 +132,19 @@
     P.forEach(function (p, i) {
       var col = cols[i % 4];
       board.create('curve', [function (s) { return arcXY(i, s, R)[0]; }, function (s) { return arcXY(i, s, R)[1]; }, 0, 1], { strokeColor: col, strokeWidth: 2, fillColor: col, fillOpacity: 0.25, fixed: true, highlight: false, numberPointsHigh: 60, numberPointsLow: 30 });
-      board.create('text', [function () { return lab(i, R + 18 * u)[0]; }, function () { return lab(i, R + 18 * u)[1]; }, function () { return meas && meas.ang ? meas.ang[i].whole + '°' : ''; }], { anchorX: 'middle', anchorY: 'middle', cssClass: 'gangle', highlightCssClass: 'gangle', strokeColor: col, fixed: true, highlight: false });
+      board.create('text', [function () { return lab(i, R + 18 * u)[0]; }, function () { return lab(i, R + 18 * u)[1]; }, function () { return !meas || !meas.ang ? '' : shown(LET[i].toLowerCase()) ? meas.ang[i].whole + '°' : LET[i].toLowerCase(); }], { anchorX: 'middle', anchorY: 'middle', cssClass: 'gangle', highlightCssClass: 'gangle', strokeColor: col, fixed: true, highlight: false });
       // the corner's letter, on the outside
       board.create('text', [function () { return lab(i, -16 * u)[0]; }, function () { return lab(i, -16 * u)[1]; }, LET[i]], { anchorX: 'middle', anchorY: 'middle', cssClass: 'ptlabel', highlightCssClass: 'ptlabel', fixed: true, highlight: false });
     });
+    if (spec.ext !== null && spec.ext < nSides) (function (i) {
+      var dir = function () { var a = P[(i + nSides - 1) % nSides], c = P[i], dx = c.X() - a.X(), dy = c.Y() - a.Y(), l = Math.hypot(dx, dy) || 1; return [dx / l, dy / l]; };
+      var nx = function () { var c = P[i], b = P[(i + 1) % nSides]; return Math.atan2(b.Y() - c.Y(), b.X() - c.X()); };
+      var ea = function () { var d = dir(), t1 = Math.atan2(d[1], d[0]), t2 = nx(), sw = t2 - t1; while (sw > Math.PI) sw -= 2 * Math.PI; while (sw < -Math.PI) sw += 2 * Math.PI; return [t1, sw]; };
+      board.create('segment', [P[i], [function () { return P[i].X() + 3 * dir()[0]; }, function () { return P[i].Y() + 3 * dir()[1]; }]], { strokeColor: ink, strokeWidth: 2, dash: 2, fixed: true, highlight: false, point2: { visible: false } });
+      var col = muted, RX = 34 * u;
+      board.create('curve', [function (t) { var e = ea(), c = [P[i].X(), P[i].Y()]; if (t < 0.05 || t > 0.95) return c[0]; var th = e[0] + e[1] * (t - 0.05) / 0.9; return c[0] + RX * Math.cos(th); }, function (t) { var e = ea(), c = [P[i].X(), P[i].Y()]; if (t < 0.05 || t > 0.95) return c[1]; var th = e[0] + e[1] * (t - 0.05) / 0.9; return c[1] + RX * Math.sin(th); }, 0, 1], { strokeColor: col, strokeWidth: 2, fillColor: col, fillOpacity: 0.18, fixed: true, highlight: false, numberPointsHigh: 60 });
+      board.create('text', [function () { var e = ea(); return P[i].X() + (RX + 20 * u) * Math.cos(e[0] + e[1] / 2); }, function () { var e = ea(); return P[i].Y() + (RX + 20 * u) * Math.sin(e[0] + e[1] / 2); }, function () { return !meas || !meas.ang ? '' : shown('x') ? 'x = ' + (180 - meas.ang[i].whole) + '°' : 'x'; }], { anchorX: 'middle', anchorY: 'middle', cssClass: 'gangle', highlightCssClass: 'gangle', strokeColor: ink, fixed: true, highlight: false });
+    })(spec.ext);
     P.forEach(function (p) {
       p.on('drag', function () { meas = measure(corners()); report(true); });
       p.on('up', function () { var x = near(p.X(), 0, spec.gw), y = near(p.Y(), 0, spec.gh); p.moveTo([x, y]); preset = null; B.moved = true; meas = measure(corners()); board.update(); report(); });
@@ -126,6 +152,7 @@
     meas = measure(corners());
     board.update();
   }
+  function shown(l) { return !spec.given || spec.given.indexOf(l) >= 0; }
   function near(v, lo, hi) { var s = spec.snapStep; return Math.max(lo, Math.min(hi, round(Math.round(v / s) * s))); }
   // a point on the arc at corner i (s from 0 to 1 walks the sector: centre, round the arc, back to centre)
   function arcXY(i, s, R) {
@@ -224,7 +251,10 @@
       vars.s = meas.total; vars.m = Math.max.apply(null, meas.ang.map(function (a) { return a.whole; })); vars.v = meas.convex ? 1 : 0;
       if (split && meas.convex) vars.k = nSides - 2;
       var list = meas.ang.map(function (a) { return a.whole + '°'; }).join(' + ');
-      text = spec.showSum ? meas.ang.map(function (a, i) { return LET[i]; }).join(' + ') + ' = ' + list + ' = ' + meas.total + '°' : meas.ang.map(function (a, i) { return LET[i] + ' = ' + a.whole + '°'; }).join(', ');
+      if (spec.ext !== null && spec.ext < nSides) vars.x = 180 - meas.ang[spec.ext].whole;
+      if (spec.given) text = spec.given.map(function (g) { return g === 'x' ? 'x = ' + vars.x + '°' : g + ' = ' + (vars[g] !== undefined ? vars[g] : '?') + '°'; }).join(', ') + '. Find the others.';
+      else text = spec.showSum ? meas.ang.map(function (a, i) { return LET[i]; }).join(' + ') + ' = ' + list + ' = ' + meas.total + '°' : meas.ang.map(function (a, i) { return LET[i] + ' = ' + a.whole + '°'; }).join(', ');
+      if (!spec.given && vars.x !== undefined) text += '. Outside angle x = ' + vars.x + '°';
       if (split) text += meas.convex ? '. Split from A: ' + (nSides - 2) + (nSides - 2 === 1 ? ' triangle' : ' triangles') + ', ' + (nSides - 2) + ' × 180° = ' + meas.total + '°' : '. A corner points in, so lines from A would go outside: drag it out to split.';
     }
     ui.read.textContent = text;

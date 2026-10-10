@@ -1,0 +1,46 @@
+summary: Students find unknown angles at parallel lines in two-step chains, with a reason for each step, writing their working their own way; the platform marks the answer and the reason at the key step, then shows a model to compare with (AC9M7M04, node 3).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can find an unknown angle in two or more steps, using parallel-line, straight-line and vertically opposite angles.
+  - I can give a reason for each step, naming the rule.
+  - I can use angles to show whether two lines are parallel.
+before: |
+  Do the first reasoning task yourself first, then compare with its model. Students need both parallel-lines lessons and Year 6 angle facts (straight line, vertically opposite, at a point).
+
+  The one idea: know, choose the rule, say why. Every angle found needs a named reason. The common mistake is linking two angles that only look related (Kai's b and e); it is planted after the routine.
+
+  The reasoning tasks do not mark the free working: students write it their own way (notes, abbreviations such as "vert. opp." and "co-int." are fine). The answer is marked, and at one key step students choose the reason from a list, so the misconception gets feedback. Then they compare their working with a model and tick a short self-check. Look at the working in class: it is where reasoning shows.
+running:
+  - "Predict: take a show of hands. Students who chose 70° are assuming b and h are linked directly."
+  - "Run: ask students to say the two rules that make h = 180° − b true for every crossing angle."
+  - "Investigate: model know, choose, say why on the board, writing the reason in short form. Accept any correct route."
+  - "Modify: collect two different routes to f and ask which is shorter."
+  - "Make: ask students to say their two steps before they turn the line."
+stuck:
+  - see: "A student links two angles that only look related (Kai's mistake)."
+    ask: "Which rule links them? Name it."
+    fix: "If no rule links them directly, find an angle in between that does."
+  - see: "A student gets the right angle with no reasons."
+    ask: "How would you convince someone who did not see the diagram?"
+    fix: "Write one reason per line: the angle, then why."
+  - see: "A student cannot find a first step."
+    ask: "Which angles can you find straight from the given one?"
+    fix: "List every angle one rule away from the given one; the target is usually among those, or one more step on."
+stretch: "Write a three-step puzzle for a partner: give one angle, ask for an angle three rules away, and write the model reasons."
+support: "Allow the Run board for checking each step: set the given angle, pick pairs and read the names."
+leads: |
+  Next: angle sums of triangles and polygons, then Unknown angles in shapes, which combines them with these rules.
+
+  Where it leads: geometric proof (Years 8 to 10), where a chain of reasons is the proof.
+exit:
+  q: "Parallel lines, d = 120°. Find g, with a reason for each step."
+  a: "e = 120° (alternate to d), g = 60° (a straight line with e). Other correct routes are fine."
+explain: |
+  Most angle problems take more than one step. For each step:
+
+  1. **Know**: an angle you already have.
+  2. **Choose**: a rule that links it to a new angle: corresponding or alternate angles are equal, co-interior angles add to $180^\circ$, vertically opposite angles are equal, angles on a straight line add to $180^\circ$.
+  3. **Say why**: write the rule as the reason.
+
+  $b = 70^\circ$: $f = 70^\circ$ (corresponding to $b$), then $h = 110^\circ$ ($f$ and $h$ are on a straight line). If two angles only look related, find one in between that a rule links to both.

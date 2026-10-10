@@ -1,0 +1,71 @@
+# Geometry boards for "Unknown angles in shapes". "angles: given a, b" shows only those sizes; "exterior: C" extends
+# the side into C and marks the exterior angle x.
+
+# region: run
+widget: geometry
+corners: 1,1; 9,1; 4,6
+exterior: C
+# endregion
+
+# region: explain
+widget: geometry
+corners: 1,1; 9,1; 4,6
+exterior: C
+# endregion
+
+# region: explain-pic
+widget: geometry
+corners: 1,1; 9,1; 4,6
+exterior: C
+angles: given a, b
+# endregion
+
+# region: tri1
+widget: geometry
+corners: 1,1; 9,1; 4,6
+exterior: C
+angles: given a, b
+# endregion
+
+# region: quad1
+widget: geometry
+shape: polygon
+sides: 4
+corners: 1,1; 10,1; 8,6; 2,5
+angles: given a, b, c
+# endregion
+
+# region: iso
+widget: geometry
+corners: 2,1; 10,1; 6,7
+angles: given a
+# endregion
+
+# region: pent
+widget: geometry
+shape: polygon
+sides: 5
+corners: 2,1; 9,1; 11,5; 6,7; 1,5
+angles: given a, b, c, d
+# endregion
+
+# region: ext-b
+widget: geometry
+corners: 1,2; 10,2; 3,6
+exterior: B
+angles: given a, c
+# endregion
+
+# region: quad2
+widget: geometry
+shape: polygon
+sides: 4
+corners: 1,1; 9,1; 9,5; 3,6
+angles: given a, b, d
+# endregion
+
+# region: make
+widget: geometry
+corners: 1,1; 9,1; 4,6
+exterior: C
+# endregion

@@ -1,0 +1,8 @@
+# Zoe's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: zoe
+a = 76°, b = 68°, c = 102° (given).
+The angles of a shape add to 180°.
+d = 180° − 76° − 68° − 102°.
+d = −66°.
+# endregion

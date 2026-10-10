@@ -85,5 +85,7 @@
   "divide-one-term": {"home": "maths/algebra/rearranging", "text": "Only one term of a side is divided when rearranging (y = 4x − 3 becomes y ÷ 4 = x − 3); dividing a side divides every term, so undo the − 3 first: x = (y + 3)/4."},
   "vertically-opposite-pair": {"home": "maths/angles/parallel-lines", "text": "A pair at one crossing (vertically opposite, such as b and c) is called alternate or corresponding; the parallel-line pairs take one angle at each crossing."},
   "co-interior-equal": {"home": "maths/angles/parallel-angles", "text": "Co-interior angles are taken to be equal, like alternate and corresponding angles; they add to 180°."},
+  "assume-equal-angles": {"home": "maths/angles/angle-reasoning", "text": "Two angles that look related are taken as a named pair (b and e called alternate) without a rule that links them; every step needs a named rule, so find an angle in between."},
+  "wrong-angle-sum": {"home": "maths/angles/unknown-angles", "text": "The triangle's 180° is used for a quadrilateral (or another polygon); the angle sum depends on the number of sides: (n − 2) × 180°, so 360° for a quadrilateral."},
   "sign-rules-addition": {"home": "maths/number/multiplying-integers", "text": "The addition rule is used for multiplying (−4 × (−3) = −12, \"two negatives make a bigger negative\"); for multiplying and dividing, the same signs give a positive."}
 }

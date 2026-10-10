@@ -1,0 +1,7 @@
+# Kai's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kai
+b = 70° (given).
+b and e look like a pair, so b and e are alternate angles.
+Alternate angles are equal, so e = 70°.
+# endregion
