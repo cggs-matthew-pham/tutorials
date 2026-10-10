@@ -6,7 +6,7 @@ summary: The ideas behind these tutorials. Some are well supported by research; 
 
 Programming is about as cumulative as maths. Variables make loops useful, loops and decisions make functions worth having, and objects only make sense once data and functions feel familiar. Yet coding is usually taught with far less structure than maths, often in short units and often by teachers who aren't programmers. Researchers have suggested this is why programming classes so often split into students who "get it" and students who are lost: early success makes the next idea easier, and an early gap makes it harder (Robins, 2010).
 
-Our answer is a clear sequence. Each lesson teaches one new idea and says which earlier ideas it relies on, and we check this automatically, so a lesson never quietly uses something nobody has taught. Science has strong dependencies too, but within several strands that run side by side, so moving between strands is safe. Coding is closer to a single chain, where almost any skipped step matters. Nothing here is locked and students can start anywhere, but each lesson shows what it builds on.
+Our answer is a clear sequence. Each lesson teaches one new idea and says which earlier ideas it relies on, and we aim to check this automatically, so a lesson never quietly uses something nobody has taught. Science has strong dependencies too, but within several strands that run side by side, so moving between strands is safe. Coding is closer to a single chain, where almost any skipped step matters. Nothing here is locked and students can start anywhere, but each lesson shows what it builds on.
 
 ## Making the invisible visible
 
