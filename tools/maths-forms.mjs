@@ -91,7 +91,8 @@ export function makeForms(Numbas) {
       var eq = false;
       try { eq = same(tree(a[1]), tree(e[1])) || same(tree(a[0]), tree(e[1])); } catch (err) { return { ok: false, equivalent: false, why: err.message }; }
       var lhs = clean(a[0]), rhsHas = has(text(tree(a[1])), 'm_anywhere(' + v + ')');
-      if (lhs !== v || rhsHas) return { ok: false, equivalent: eq, why: 'Write it as ' + v + ' = …, with ' + v + ' only on the left.' };
+      if (lhs.toLowerCase() !== v.toLowerCase() || rhsHas)   // either case: Numbas compares letters case-insensitively too
+       return { ok: false, equivalent: eq, why: 'Write it as ' + v + ' = …, with ' + v + ' only on the left.' };
       return { ok: eq, equivalent: eq, why: eq ? '' : 'Not quite: check each step of your rearranging.' };
     }
     var ta, te;
@@ -153,7 +154,7 @@ export function makeForms(Numbas) {
     var last = lines[lines.length - 1];
     if (f) {
       var sub = /^subject ([a-zA-Z])$/.exec(f);
-      if (sub) { var p = sides(last); if (clean(p[0]) !== sub[1] || has(text(tree(p[1] || '')), 'm_anywhere(' + sub[1] + ')')) return { ok: false, lines: out, why: 'Your last line should be ' + sub[1] + ' = …, with ' + sub[1] + ' only on the left.' }; }
+      if (sub) { var p = sides(last); if (clean(p[0]).toLowerCase() !== sub[1].toLowerCase() || has(text(tree(p[1] || '')), 'm_anywhere(' + sub[1] + ')')) return { ok: false, lines: out, why: 'Your last line should be ' + sub[1] + ' = …, with ' + sub[1] + ' only on the left.' }; }
       else { var fk = null; try { fk = form(text(diff(last)), f); } catch (err) { fk = null; } if (fk) return { ok: false, lines: out, why: 'Every step is right. To finish: ' + MSG[fk].charAt(0).toLowerCase() + MSG[fk].slice(1) }; }
     }
     return { ok: true, lines: out, why: '' };

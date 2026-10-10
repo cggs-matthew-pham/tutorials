@@ -397,6 +397,19 @@ var a=WPM.splitAnswer(v).value;if(WPM.equivalent(a,box.dataset.answer))return wi
 for(var i=0;i<fb.length;i++){try{if(WPM.equivalent(a,String(fb[i][0])))return bad(fb[i][1])}catch(e){}}
 bad('Not quite. Check your working and try again.')}catch(e){bad(e.message)}}
 btn.addEventListener('click',tryIt);inp.addEventListener('keydown',function(e){if(e.key==='Enter')tryIt()})}
+if(ty==='reasoning'){var mk=JSON.parse(box.dataset.marks),ta=box.querySelector('.rs-in'),ai=box.querySelector('.rs-ans input'),go2=box.querySelector('.rs-go'),sh=box.querySelector('.rs-show'),md=box.querySelector('.rs-model'),tries=0;
+var RK='wp-reasoning',rl=function(){try{return JSON.parse(localStorage.getItem(RK)||'{}')}catch(e){return {}}},rs=function(o){try{localStorage.setItem(RK,JSON.stringify(o))}catch(e){}};
+var keep=rl()[key];if(keep){ta.value=keep.text||'';if(ai&&keep.answer)ai.value=keep.answer;(keep.crit||[]).forEach(function(c,i){var cb=box.querySelectorAll('.rs-crit input')[i];if(cb)cb.checked=!!c})}
+function store(){var o=rl();o[key]={text:ta.value,answer:ai?ai.value:'',crit:[].map.call(box.querySelectorAll('.rs-crit input'),function(c){return c.checked})};rs(o)}
+ta.addEventListener('input',store);if(ai)ai.addEventListener('input',store);box.querySelectorAll('.rs-crit input').forEach(function(c){c.addEventListener('change',store)});
+function reveal(){box.querySelector('.rs-mine').textContent=ta.value.trim()||'(nothing written)';md.hidden=false}
+if((load().done||{})[key])reveal();
+function wrong(t){tries++;bad(t);if(tries>=3)sh.hidden=false}
+sh.addEventListener('click',function(){reveal();msg.className='msg';msg.textContent='Compare, then fix your answer and choices above.'});
+go2.addEventListener('click',function(){if(!ta.value.trim())return bad('Write your working first: your own notes and reasons. This part is not marked.');
+if(ai&&mk.answer!==null){var v=ai.value.replace(/\u00b0|degrees?/g,'').trim();if(!v)return bad('Type your answer.');try{var a=WPM.splitAnswer(v).value;if(!WPM.equivalent(a,mk.answer)){for(var i=0;i<mk.feedback.length;i++){try{if(WPM.equivalent(a,String(mk.feedback[i][0])))return wrong(mk.feedback[i][1])}catch(e){}}return wrong('Not quite: check your answer against your working.')}}catch(e){return wrong(e.message)}}
+var fs=box.querySelectorAll('.rs-pick');for(var j=0;j<fs.length;j++){var pk=mk.picks[j],ch=fs[j].querySelector('input:checked');if(!ch)return bad('Choose a reason for each question.');var n=Number(ch.value);if(n!==pk.answer)return wrong('Not that reason. '+(pk.feedback[n]||'Look at where the two angles are.'))}
+reveal();sh.hidden=true;win();store()})}
 if(ty==='board'){var want=JSON.parse(box.dataset.expect||'{}');
 window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='run'||(m.kind==='maths'?'board':m.kind)!==(box.dataset.kind==='maths'?'board':box.dataset.kind)||m.id!==box.dataset.play||!m.moved)return;var pn=box.closest('.tpanel');if(pn&&!pn.classList.contains('active'))return;
 var ok=Object.keys(want).every(function(k){var a=m.state&&m.state[k],b=want[k];return typeof b==='number'?Math.abs(Number(a)-b)<1e-9:a===b});if(ok&&box.dataset.when){try{ok=WPM.holds(box.dataset.when,m.state&&m.state.scope)}catch(er){ok=false}}
@@ -514,6 +527,20 @@ export function checkHtml(lesson, step, names = {}, snippet = null, task = null,
   }
   if (k.type === 'working') {
     return `<div class="check" ${base} data-start="${esc(String(k.start))}" data-form="${esc(String(k.form || ''))}"><p class="check-q">${tx(k.q)}</p><p class="wk-start">Start from ${tx('$' + String(k.start) + '$')}</p><textarea class="wk-in" rows="5" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Your working, one step per line" placeholder="One step per line"></textarea><ol class="wk-lines" aria-live="polite"></ol><button type="button">Check working</button>${msg}</div>`;
+  }
+  if (k.type === 'reasoning') {
+    // Free working (not marked), the marked parts, then a model solution and a self-check (handler: ty==='reasoning').
+    const steps = k.steps || [], picks = k.picks || [];
+    const crit = k.criteria || ['Each step says which angle or value it finds.', 'Each step has a reason.', 'My answer matches the model.'];
+    const pickHtml = picks.map((pk, i) => `<fieldset class="rs-pick" data-i="${i}"><legend>Why is ${tx(String(steps[pk.step - 1]?.[0] ?? ''))}?</legend>${pk.options.map((o, j) => `<label><input type="radio" name="${esc(key)}-rs${i}" value="${j}"><span>${tx(String(o))}</span></label>`).join('')}</fieldset>`).join('');
+    const marks = { answer: k.answer !== undefined ? String(k.answer) : null, feedback: (k.feedback || []).map(([a, m]) => [a, plain(m)]), picks: picks.map((pk) => ({ answer: pk.answer, feedback: (pk.feedback || []).map((f) => (f ? plain(f) : null)) })) };
+    return `<div class="check rs" ${base} data-marks="${esc(JSON.stringify(marks))}"><p class="check-q">${tx(k.q)}</p>`
+      + `<label class="rs-lab">Your working <span>(your own notes and reasons; this part is not marked)</span><textarea class="wk-in rs-in" rows="5" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="For example: b = 70, vert. opp."></textarea></label>`
+      + (k.answer !== undefined ? `<label class="numrow ansrow rs-ans"><span>${esc(k.answerLabel || 'Answer')}</span><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="${esc(k.answerLabel || 'Your answer')}" placeholder="Your answer"></label>` : '')
+      + pickHtml
+      + `<button type="button" class="rs-go">Check</button> <button type="button" class="rs-show" hidden>Show a model solution</button>${msg}`
+      + `<div class="rs-model" hidden><div class="rs-cols"><div><p class="rs-h">Your working</p><pre class="rs-mine"></pre></div><div><p class="rs-h">A model solution</p><ol class="rs-steps">${steps.map(([a, r]) => `<li>${tx(String(a))} <span class="rs-why">${tx(String(r))}</span></li>`).join('')}</ol></div></div>`
+      + `<p class="rs-h">Check your own working</p><ul class="rs-crit">${crit.map((c) => `<li><label><input type="checkbox"><span>${tx(String(c))}</span></label></li>`).join('')}</ul></div></div>`;
   }
   if (k.type === 'board') {
     return `<div class="check" ${base} data-expect="${esc(JSON.stringify(k.expect || {}))}"${k.when !== undefined ? ` data-when="${esc(String(k.when))}"` : ''}><p class="check-q">${tx(k.text)}</p><p class="msg" aria-live="polite">Use the board. This ticks when you get there.</p></div>`;
@@ -745,7 +772,7 @@ bar.querySelector('.wnote').textContent=(q in R?'Your teacher set '+floor+'. You
 bar.addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;cur=b.dataset.w;apply()});apply()})();`;
 
 /** Extra styles for maths lessons: display maths, worked examples, typed answers. */
-export const MATHS_CSS = `.wk-start{margin:.3em 0}.wk-in{display:block;width:100%;box-sizing:border-box;font:16px/1.5 ui-monospace,Menlo,Consolas,monospace;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);margin:.4em 0}.wk-lines{margin:.3em 0;padding-left:1.6em;font:15px/1.5 ui-monospace,Menlo,Consolas,monospace}.wk-lines .ok{color:var(--ok,#1a7f37)}.wk-lines .no{color:#b42318}
+export const MATHS_CSS = `.check label.rs-lab{display:block;margin:.4em 0;font-weight:600;cursor:auto}.rs-lab span{font-weight:400;color:var(--muted)}.rs-pick{border:1px solid var(--line);border-radius:8px;margin:.5em 0;padding:.4em .8em}.rs-pick legend{padding:0 .3em}.rs-pick label{display:block;margin:.2em 0}.rs-model{margin-top:.8em;border-top:1px solid var(--line);padding-top:.6em}.rs-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1em}.rs-h{font-weight:600;margin:.3em 0}.rs-mine{white-space:pre-wrap;font:15px/1.5 ui-monospace,Menlo,Consolas,monospace;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:0}.rs-steps{margin:0;padding-left:1.4em}.rs-steps li{margin:.25em 0}.rs-why{color:var(--muted)}.rs-why::before{content:'(';}.rs-why::after{content:')'}.rs-crit{list-style:none;padding:0;margin:.2em 0}.wk-start{margin:.3em 0}.wk-in{display:block;width:100%;box-sizing:border-box;font:16px/1.5 ui-monospace,Menlo,Consolas,monospace;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);margin:.4em 0}.wk-lines{margin:.3em 0;padding-left:1.6em;font:15px/1.5 ui-monospace,Menlo,Consolas,monospace}.wk-lines .ok{color:var(--ok,#1a7f37)}.wk-lines .no{color:#b42318}
 .mathblock{overflow-x:auto;overflow-y:hidden;margin:.6em 0}.katex{font-size:1.12em}
 .worked{border:1px solid var(--line);border-left:4px solid var(--c,var(--accent));border-radius:10px;background:var(--card);padding:12px 16px;margin:14px 0}
 .worked-head{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin-bottom:6px}.worked-head span{color:var(--muted);font-size:14px}

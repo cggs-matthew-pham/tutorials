@@ -99,6 +99,7 @@ function checkParts(k, snip, key) {
     return { q: k.text || 'Put the lines in order.', parsons: shuffled(lines.concat(k.extra || []), key), solution: lines.join('\n'), answer: 'see the program below', explain: k.explain || '' };
   }
   if (k.type === 'answer') return { q, field: true, answer: k.equation ? `any equation that is true when ${Object.entries(k.equation).map(([n, v]) => `$${n} = ${v}$`).join(', ')}` : String(k.answer), explain: k.explain || '' };
+  if (k.type === 'reasoning') return { q, field: true, answer: (k.steps || []).map(([a, r]) => `${a} (${r})`).join('; '), explain: k.explain || '' };
   if (k.type === 'working') return { q, field: true, answer: [k.start, ...(k.example || [])].join(' → '), explain: k.explain || '' };
   if (k.type === 'board') return { q: k.text, board: true, answer: '', explain: k.explain || '' };
   if (k.type === 'sort') return { q: k.q || 'Sort each one into its group.', options: k.options, answer: k.items.map((it) => `${it[0]} → ${it[1]}`).join('; '), explain: k.explain || '' };

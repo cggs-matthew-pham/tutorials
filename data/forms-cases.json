@@ -439,6 +439,30 @@
           "equivalent"
         ]
       ]
+    },
+    {
+      "form": "subject C",
+      "expected": "C = (F - 30)/2",
+      "task": "Make C the subject of F = 2C + 30 (either case for the subject)",
+      "answers": [
+        [
+          "C = (F - 30)/2",
+          true
+        ],
+        [
+          "c = (F-30)/2",
+          true
+        ],
+        [
+          "C = F/2 - 15",
+          true
+        ],
+        [
+          "C = F/2 - 30",
+          false,
+          "equivalent"
+        ]
+      ]
     }
   ],
   "workings": [

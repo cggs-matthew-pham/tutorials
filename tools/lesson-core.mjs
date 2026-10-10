@@ -53,7 +53,7 @@ export const MAKECODE_EXTENSIONS = {
 export const makecodeExtensions = (lesson) => (Array.isArray(lesson?.extensions) ? lesson.extensions : []).map((k) => MAKECODE_EXTENSIONS[k]).filter(Boolean);
 /** A lesson's extensions as MakeCode's package string ("name=version,name=version"), or '' for none. */
 export const makecodePackage = (lesson) => makecodeExtensions(lesson).map((e) => `${e.name}=${e.version}`).join(',');
-export const CHECK_TYPES = ['reflect', 'question', 'code', 'number', 'bug', 'match', 'trace', 'parsons', 'predict', 'answer', 'board', 'sort', 'flag', 'working'];
+export const CHECK_TYPES = ['reflect', 'question', 'code', 'number', 'bug', 'match', 'trace', 'parsons', 'predict', 'answer', 'board', 'sort', 'flag', 'working', 'reasoning'];
 // What kind of fault an error item plants (bug, and error-based question or predict): see AUTHORING.md "Error tasks".
 export const FAULTS = ['syntax', 'runtime', 'logic', 'design'];
 
@@ -464,6 +464,33 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
       if (!Array.isArray(k.example) || !k.example.length || !k.example.every((l) => str(String(l)))) err(where, 'check (working) needs example: a model solution, one line per step');
       if (k.form !== undefined && !(['expanded', 'simplified', 'factorised'].includes(String(k.form)) || /^subject [a-zA-Z]$/.test(String(k.form)))) err(where, 'check (working) form must be expanded, simplified, factorised or subject x (a letter)');
       if (k.wrong !== undefined && !(Array.isArray(k.wrong) && k.wrong.every((w) => Array.isArray(w) && w.every((l) => str(String(l)))))) err(where, 'check (working) wrong must be a list of planted wrong solutions, each a list of lines');
+    }
+    else if (k.type === 'reasoning') {
+      // Reasoning students own: free working (never marked), then the marked parts (an optional final answer and a
+      // reason picked at one or two key steps), then a model solution to compare with and a self-check.
+      if (!str(k.q)) err(where, 'check (reasoning) needs q');
+      const steps = k.steps;
+      if (!Array.isArray(steps) || !steps.length || !steps.every((st) => Array.isArray(st) && st.length === 2 && str(String(st[0])) && str(String(st[1])))) err(where, 'check (reasoning) needs steps: the model solution, each ["statement", "reason"]');
+      const hasA = k.answer !== undefined && k.answer !== null && String(k.answer).trim() !== '';
+      if (hasA) { try { MATH.parse(String(k.answer)); } catch (e) { err(where, `check (reasoning) answer "${k.answer}": ${e.message}`); } }
+      if (k.feedback !== undefined) {
+        if (!hasA) err(where, 'check (reasoning) feedback needs answer: (it is about the final answer)');
+        else if (!Array.isArray(k.feedback) || !k.feedback.every((f) => Array.isArray(f) && f.length === 2 && str(String(f[0])) && str(f[1]))) err(where, 'check (reasoning) feedback must be a list of [wrong answer, what to say] pairs');
+        else for (const [w] of k.feedback) { try { MATH.parse(String(w)); if (MATH.equivalent(String(w), String(k.answer))) err(where, `check (reasoning) feedback "${w}" is the right answer`); } catch (e) { err(where, `check (reasoning) feedback "${w}": ${e.message}`); } }
+      }
+      if (k.picks !== undefined) {
+        if (!Array.isArray(k.picks) || !k.picks.length) err(where, 'check (reasoning) picks must be a list of { step, options, answer }');
+        else k.picks.forEach((pk, i) => {
+          const at = `check (reasoning) picks[${i + 1}]`;
+          if (!pk || typeof pk !== 'object') return err(where, `${at} must be { step, options, answer }`);
+          if (!Number.isInteger(pk.step) || !Array.isArray(steps) || pk.step < 1 || pk.step > steps.length) err(where, `${at} step must be a step number (1 to ${Array.isArray(steps) ? steps.length : '?'})`);
+          if (!Array.isArray(pk.options) || pk.options.length < 2 || !pk.options.every((o) => str(String(o)))) err(where, `${at} needs at least two options (reasons to choose from)`);
+          else if (!Number.isInteger(pk.answer) || pk.answer < 0 || pk.answer >= pk.options.length) err(where, `${at} answer must be the index of the right option (from 0)`);
+          if (pk.feedback !== undefined && !(Array.isArray(pk.feedback) && Array.isArray(pk.options) && pk.feedback.length === pk.options.length)) err(where, `${at} feedback must have one entry per option (null for the right one)`);
+        });
+      }
+      if (!hasA && !k.picks) err(where, 'check (reasoning) needs answer:, picks:, or both: something to mark besides the free working');
+      if (k.criteria !== undefined && !(Array.isArray(k.criteria) && k.criteria.length && k.criteria.every((c) => str(String(c))))) err(where, 'check (reasoning) criteria must be a list of self-check sentences');
     }
     else if (k.type === 'board') {
       if (!str(k.text)) err(where, 'check (board) needs text, e.g. "Find the value of x that balances the scale."');
