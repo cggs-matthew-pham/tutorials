@@ -161,6 +161,12 @@
           "hint": "Divide every term by the highest common factor and put it outside: $12x - 8 = 4(3x - 2)$, and $2x^2 + 4x = 2x(x + 2)$. Check by expanding.",
           "board": "widget: tiles\ns: 6\nt: 9\nk: 3",
           "shows": "6 x-tiles and 9 ones shared into 3 rows of 2x + 3"
+        },
+        {
+          "label": "change the subject",
+          "unit": "brackets",
+          "code": "y = 3x + 5  so  x = (y - 5)/3",
+          "hint": "Undo what was done to the letter, last step first, doing the same to both sides. Check by putting in numbers: $x = 2$ gives $y = 11$, and $(11 - 5) \\div 3 = 2$."
         }
       ]
     }

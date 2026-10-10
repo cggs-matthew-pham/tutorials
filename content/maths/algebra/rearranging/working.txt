@@ -1,0 +1,8 @@
+# Jo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: jo
+Make x the subject of y = 4x − 3.
+Divide both sides by 4: y ÷ 4 = x − 3.
+Add 3 to both sides: y ÷ 4 + 3 = x.
+So x = y/4 + 3.
+# endregion

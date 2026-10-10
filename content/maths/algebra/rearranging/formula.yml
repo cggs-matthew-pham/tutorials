@@ -1,0 +1,43 @@
+# Formula boards for "Changing the subject". The board works the formula forwards; students check a rearranged one against it.
+
+# region: run
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 10, 2
+slider w: 1, 10, 1
+shape: rectangle
+units: cm
+# endregion
+
+# region: explain
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 10, 6
+slider w: 1, 10, 2
+shape: rectangle
+units: cm
+# endregion
+
+# region: explain-pic
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 10, 6
+slider w: 1, 10, 4
+shape: rectangle
+units: cm
+# endregion
+
+# region: vary
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 10, 1
+slider w: 1, 10, 1
+shape: rectangle
+units: cm
+# endregion
+
+# region: make
+widget: formula
+formula: T = 4n + 6
+slider n: 0, 10, 0
+# endregion

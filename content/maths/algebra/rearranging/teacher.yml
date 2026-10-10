@@ -1,0 +1,44 @@
+summary: Students rearrange formulas to change the subject by undoing the steps in reverse order on both sides, and check each rearrangement by substituting numbers, on a formula board that works the original forwards (AC9M8A01, node 3).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can make a given letter the subject of a formula by undoing the steps in reverse order.
+  - I can do the same to the whole of both sides, so I divide every term.
+  - I can check a rearranged formula by substituting numbers.
+before: |
+  Do the Run board and the working check yourself first. Students need solving equations by backtracking and the balance method (Year 7 equations unit), substituting into formulas, and the two lessons before (expanding and factorising).
+
+  The one idea: changing the subject is solving an equation with letters. Undo what was done to the letter, last step first, doing the same to both sides. The common mistake is dividing only one term (y = 4x − 3 becomes y ÷ 4 = x − 3); it is planted after the method, in Jo's working. Undoing the − 3 first avoids it.
+
+  Answers are marked by form and value: the subject must be on its own on the left, and the formula must agree with the original for every value. An equal formula in another shape, such as x = y/2 − 7/2 for (y − 7)/2, is marked right.
+running:
+  - "Predict: take a show of hands, then test each option with l = 6 and w = 4 (P = 20). Only one gives back 4."
+  - "Run: ask students to say why the board needed trial and error and the rearranged formula did not."
+  - "Investigate: model the worked example live as a flow: x → × 3 → + 5 → y, then backwards: y → − 5 → ÷ 3 → x."
+  - "Modify: before the edge case y = 7 − x, ask: what is x if y = 5? Most find 2 mentally; then ask how they did it."
+  - "Make: ask students to show the formula they wrote before the board answer, and how they checked it."
+stuck:
+  - see: "A student divides only one term (Jo's mistake)."
+    ask: "Put in x = 2. Does your formula give back the y you started with?"
+    fix: "Undo the add or subtract first, so there is only one term left to divide."
+  - see: "A student undoes the steps in the wrong order (x = y/3 − 5 from y = 3x + 5)."
+    ask: "What was done to x first? What was done last?"
+    fix: "Draw the flow: x → × 3 → + 5 → y. Go back along it from y."
+  - see: "A student gets lost with letters."
+    ask: "What would you do if the formula were 11 = 3x + 5?"
+    fix: "Solve it with the number, then do exactly the same steps with y."
+stretch: "Make l the subject of P = 2l + 2w, then r the subject of C = 2πr, then x the subject of ax + b = c."
+support: "Give a number version first (11 = 3x + 5), then the letter version beside it, step for step."
+leads: |
+  This completes AC9M8A01: expanding, factorising and changing the subject.
+
+  Where it leads: formulas in science (v = d/t, F = ma, ρ = m/V), linear relations (y = mx + c rearranged for x), and in Years 9 and 10 rearranging formulas with the subject in more than one term (factorise it out).
+exit:
+  q: "Make x the subject of y = 6x − 2, then check it with x = 3."
+  a: "x = (y + 2)/6. Check: x = 3 gives y = 16, and (16 + 2)/6 = 3."
+explain: |
+  To **change the subject**, undo what was done to the letter you want, **last step first**, doing the same to the whole of both sides.
+
+  $y = 3x + 5$: $x$ was multiplied by 3, then 5 was added. Take 5 away: $y - 5 = 3x$. Divide by 3: $x = \dfrac{y - 5}{3}$.
+
+  Check by putting in numbers: $x = 2$ gives $y = 11$, and $\dfrac{11 - 5}{3} = 2$.
