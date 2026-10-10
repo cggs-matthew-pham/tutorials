@@ -59,7 +59,28 @@ tasks:
       options: ["Selection couldn't change the population: there would be no variation to select from", "They would still evolve the same way", "They would all be eaten", "They would turn the ground's colour"]
       answer: 0
       feedback: [null, "Selection needs variation to act on.", "If they're identical, any beetle is equally likely to be eaten.", "Individuals don't change colour."]
-  - check: { type: reflect, text: "I can explain natural selection in steps without saying individuals change because they need to." }
+  - check:
+      type: question
+      q: "Over millions of years, populations split apart and natural selection changes each part differently. What does that mean for living things today?"
+      options: ["They are all related, in a branching family tree: close relatives share a recent common ancestor", "Each species began separately, so they aren't related", "They form a ladder, with humans at the top as the most evolved"]
+      answer: 0
+      feedback: [null, "Shared DNA and anatomy say otherwise: they point to common ancestors.", "Evolution branches; it doesn't climb. Every species alive today has been evolving for the same length of time."]
+      explain: "Splitting and selection, repeated over millions of years, give a branching tree of life. Every living thing is related; the question is how closely."
+  - check:
+      type: question
+      q: "If relatives share ancestors, which pair would you expect to have the most similar DNA?"
+      options: ["A human and a chimpanzee", "A human and a mouse", "A human and a mushroom"]
+      answer: 0
+      feedback: [null, "Mice are mammals like us, but our line split from theirs much longer ago than from the chimpanzee's.", "We are related to fungi too, but very distantly: our last common ancestor lived over a billion years ago."]
+      explain: "The more recently two species shared an ancestor, the more similar their DNA. Comparing DNA is how biologists now draw the tree of life."
+  - check:
+      type: question
+      q: "In Year 7, kingdoms put mushrooms in their own group, and many people think of them as plant-like. DNA shows fungi share a more recent ancestor with animals than with plants. Why don't features alone show this?"
+      options: ["Similar features can evolve in unrelated groups, and close relatives can come to look very different", "DNA tests are unreliable", "Fungi evolved from plants"]
+      answer: 0
+      feedback: [null, "DNA evidence from many genes and many labs agrees.", "Fungi and plants are separate branches; neither came from the other."]
+      explain: "Natural selection shapes features to suit each environment, so features can mislead about family. That is why classification moved from kingdoms by features to groups by shared ancestry, and changes as evidence improves."
+  - check: { type: reflect, text: "I can explain natural selection in steps without saying individuals change because they need to, and explain why all living things are related." }
 ```
 
 ### The steps
@@ -67,6 +88,12 @@ tasks:
 ### Who changed
 
 ### No variation
+
+### A branching tree
+
+### Closest DNA
+
+### Back to the kingdoms
 
 ### In your own words
 
@@ -121,3 +148,5 @@ Write one sentence: "At first I thought… Now I think… because…"
 - **Natural selection:** individuals **vary**; more are born than survive; those **best suited** to the environment are more likely to **survive and reproduce**; they pass on their **alleles**; over **generations**, the population changes.
 - **Individuals don't change** to suit the environment; the population does.
 - "Fittest" means best suited to the **current** environment. Selection needs **variation**.
+- Over millions of years, populations split and diverge: all living things are related in a **branching tree of life**, not a ladder. The more recent the **common ancestor**, the more similar the DNA.
+- Features can mislead about relatedness (fungi are closer to animals than to plants), so modern classification uses shared ancestry, and changes as evidence improves.
