@@ -1,8 +1,9 @@
 // "Check your school" (/check/): can this device and network run the in-browser Python courses?
 // Runs each check in order, then gives a plain verdict and the addresses to ask IT for.
-// When the site hosts Pyodide itself (roadmap/code.md › Python pathway), change PYODIDE to the site's own copy.
+// Python comes from this site's own copy of Pyodide (_pyodide/, from vendor/pyodide), so a school that allows the site
+// allows Python too; only the optional live-data sites are elsewhere.
 (function () {
-  const PYODIDE = 'https://cdn.jsdelivr.net/pyodide/v314.0.7/full/';
+  const PYODIDE = new URL('_pyodide/', document.currentScript ? document.currentScript.src : location.href).href;
   const $ = (id) => document.getElementById(id);
   const rows = $('ck-rows'), results = [], state = {};
   const secs = (ms) => (ms / 1000).toFixed(1) + ' s';
@@ -36,17 +37,18 @@
   const loadScript = (src) => new Promise((ok, no) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = () => no(new Error('could not load the Python runtime')); document.head.append(s); });
 
   function verdict() {
-    const v = $('ck-verdict'), py = state.python && state.python.ok, flask = state.flask && state.flask.ok;
+    const v = $('ck-verdict'), py = state.python && state.python.ok, flask = state.flask && state.flask.ok, jspi = state.input && state.input.ok;
     const live = state.wikidata && state.wikidata.ok && state.meteo && state.meteo.ok;
     const ask = [];
-    if (!py) ask.push(new URL(PYODIDE).host + ' (the Python runtime)');
-    if (py && !flask) ask.push('pypi.org and files.pythonhosted.org (Flask, for the Web apps course)');
+    if (!py) ask.push(new URL(PYODIDE).host + ', including its .wasm, .zip and .whl files (the Python runtime, on this site)');
+    if (py && !flask) ask.push(new URL(PYODIDE).host + ', including .whl files (Flask, for the Web apps course)');
     if (!(state.wikidata && state.wikidata.ok)) ask.push('query.wikidata.org (optional: live music and film data)');
     if (!(state.meteo && state.meteo.ok)) ask.push('api.open-meteo.com (optional: live weather data)');
     let head, cls;
-    if (py && flask && live) { head = 'Ready: every in-browser Python lesson will work here, including live data.'; cls = 'ck-ok'; }
+    if (py && !jspi) { head = 'Python works, but this browser cannot pause a program for input(), which most Python lessons use. Update the browser, or try another one, then run this check again.'; cls = 'ck-wait'; }
+    else if (py && flask && live) { head = 'Ready: every in-browser Python lesson will work here, including live data.'; cls = 'ck-ok'; }
     else if (py && flask) { head = 'Ready without live data: lessons will use their saved copies of the data. Only the optional "call an API" lesson needs the addresses below.'; cls = 'ck-ok'; }
-    else if (py) { head = 'Mostly ready: Python works, but Flask could not be downloaded. Ask IT to allow the addresses below.'; cls = 'ck-wait'; }
+    else if (py) { head = 'Mostly ready: Python works, but Flask could not be loaded from this site. Ask IT to allow the addresses below, including .whl files.'; cls = 'ck-wait'; }
     else { head = 'Not ready yet: the Python runtime is blocked. Ask IT to allow the addresses below, then run this check again.'; cls = 'ck-bad'; }
     const t = state.python && state.python.ok ? ` Python took ${secs(state.python.ms)} to load${state.pandas && state.pandas.ok ? `, and the data tools another ${secs(state.pandas.ms)}` : ''}; a second visit is faster because the browser keeps the files.` : '';
     v.className = 'ck-verdict ' + cls;
@@ -68,6 +70,10 @@
       py = await window.loadPyodide({ indexURL: PYODIDE });
       return py.runPython('import sys; "Python " + sys.version.split()[0]');
     });
+    await check('input', 'Pause for input() (needs an up-to-date browser)', async () => {
+      if (typeof WebAssembly.Suspending !== 'function') throw new Error('this browser cannot pause WebAssembly (JSPI)');
+      return 'supported';
+    });
     if (py) {
       await check('stdlib', 'Store data: sqlite3, json and csv', async () => py.runPython([
         'import sqlite3, json, csv, io',
@@ -79,9 +85,9 @@
         'f"{n} pop songs found; {json.dumps(rows[1])}"',
       ].join('\n')));
       await check('pandas', 'Load the data tools (pandas)', async () => { await py.loadPackage('pandas'); return py.runPython('import pandas; "pandas " + pandas.__version__'); });
-      await check('flask', 'Download and run Flask (Web apps course)', async () => {
-        await py.loadPackage(['micropip', 'jinja2', 'markupsafe']);
-        await py.pyimport('micropip').install('flask');
+      await check('flask', 'Load and run Flask (Web apps course)', async () => {
+        const man = await (await fetch(PYODIDE + 'manifest.json', { cache: 'no-store' })).json();
+        await py.loadPackage(['jinja2', 'markupsafe', ...man.wheels.map((w) => PYODIDE + w)]);
         return py.runPython([
           'from flask import Flask, request',
           'app = Flask(__name__)',

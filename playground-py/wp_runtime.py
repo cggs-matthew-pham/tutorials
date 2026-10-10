@@ -11,7 +11,7 @@ def _input(prompt=""):
     sys.stdout.flush()
     sys.stderr.flush()
     if not js.wpJSPI or not can_run_sync():
-        raise RuntimeError("This browser cannot pause a program to wait for input(). Use an up-to-date Chrome, Edge, Firefox or Safari.")
+        raise RuntimeError("This browser cannot pause a program to wait for input(). Update this browser, or try another one.")
     return str(run_sync(js.wpAsk(str(prompt))))
 
 

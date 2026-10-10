@@ -2,7 +2,7 @@
 title: Check your school
 summary: Can your school's devices and network run the in-browser Python lessons? Run this once on a student device, at school, before you teach them.
 ---
-Some courses run real Python libraries in the browser: Data detective, Apps with Gradio, and Web apps with Flask. Everything runs on the student's own device, but the browser first downloads the Python runtime, and a few lessons can fetch live data. School filters differ, so this page checks yours. It takes a minute or two; nothing is saved or sent anywhere.
+Some courses run real Python libraries in the browser: Data detective, Apps with Gradio, and Web apps with Flask. Everything runs on the student's own device, but the browser first downloads the Python runtime from this site, and a few lessons can fetch live data. School filters differ, so this page checks yours. It takes a minute or two; nothing is saved or sent anywhere.
 
 <style>
 .ck-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
@@ -25,7 +25,8 @@ Some courses run real Python libraries in the browser: Data detective, Apps with
 
 - **Ready:** every in-browser Python lesson will work.
 - **Ready without live data:** everything works except fetching live data. Lessons that use live data carry a saved copy and use it instead; only the optional lesson about calling an API needs live access.
-- **Mostly ready:** Python works, but Flask could not be downloaded, so only the Web apps course is affected. Ask IT for the addresses listed.
-- **Not ready yet:** the page lists the web addresses to ask your IT team to allow. Send them the list (the Copy button gives the full results), then run the check again.
+- **Python works, but this browser cannot pause for input():** most Python lessons ask the student questions with `input()`, which needs an up-to-date browser. Update it, or try another browser.
+- **Mostly ready:** Python works, but Flask could not be loaded, so only the Web apps course is affected. Ask IT for the addresses listed.
+- **Not ready yet:** the Python runtime could not load. Some filters block `.wasm` files even on a site they allow. The page lists what to ask your IT team to allow. Send them the list (the Copy button gives the full results), then run the check again.
 
 The first visit is the slow one: the Python runtime is a download of about 14 MB, and the data tools about 7 MB more. Browsers keep the files, so later visits are much faster. Run the check on a student device and account if you can, since filters can differ between staff and students.
