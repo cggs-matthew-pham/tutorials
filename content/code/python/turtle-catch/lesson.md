@@ -1,7 +1,8 @@
 ---
 order: 11
 unit: challenge
-introduces: [bool-value]
+introduces: [bool-value, random]
+recipes: [import-module, dotted-call]
 assumes: [list-index, length, callback, global, remainder]
 title: Catch the turtle
 summary: Build a game that uses everything so far. The turtle hops along a path; catch it before it hides.
@@ -168,4 +169,4 @@ check:
   explain: "A path is a pattern, and patterns can be predicted. Random spots can only be reacted to."
 ```
 
-Play a few games. Do you start moving to the next spot before the turtle arrives? Then try random spots instead: `random` is a module someone else wrote, just like your `ui.py`. Swap the first two lines of `hop()` for the two lines above, and add `import random` at the top.
+Play a few games. Do you start moving to the next spot before the turtle arrives? Then try random spots instead. `random` is a module someone else wrote, just like your `ui.py`. `random.randint(-150, 150)` picks a whole number from -150 up to 150, a new one each time it runs, so the turtle lands somewhere new on every hop. The first number is the lowest it can pick and the second is the highest. Swap the first two lines of `hop()` for the two lines above. Copy `import random` to the top and `random.` before `randint` as they are for now; a later lesson explains how they work. Then change the numbers so the turtle only appears in the top half of the screen.
