@@ -21,6 +21,8 @@ Also changed: `prerequisites()` in `tools/concepts.mjs` now treats a course list
 
 ## Changed by the code chat (11 Oct 2026)
 
+- `tools/build-site.mjs`: Playground and Reference entries for `code/deeper`. `snippets/turtle.json`: a Text and collections group. `misconceptions.json`: three Deeper Python misconceptions.
+
 - `tools/build-site.mjs`: Playground and Reference entries for `code/objects` (same pattern as the console bridge). `tools/concepts.mjs`: Python concepts `object`, `attribute`, `class`, `method`. `snippets/turtle.json`: an Objects group. `misconceptions.json`: five Objects misconceptions.
 
 - `BUILDING.md` › 7 and `CLAUDE.md` (runtime limits): the turtle playground now has several turtles and more shapes (`playground/`, code-owned).

@@ -11,7 +11,7 @@ pathways:
       - { path: code/console, stage: foundations, after: [code/python] }
       - { path: code/objects, stage: extensions, after: [code/console] }
       - { id: data-detective, title: Data detective, stage: extensions, summary: "A real data set: count, average, chart and clean it, and check the results with test cases.", after: [code/console] }
-      - { id: console-deep, title: Deeper Python in the console, stage: extensions, summary: "One idea at a time (strings, lists and dictionaries, text files, errors), ending in a text adventure.", after: [code/console] }
+      - { path: code/deeper, stage: extensions, after: [code/console] }
       - { path: code/gradio, stage: extensions, after: [code/console] }
       - { title: Machine learning with Gradio, stage: extensions, summary: "Train small models on data, and put a model behind an app.", after: [data-detective] }
       - { title: Games with microStudio, stage: extensions, summary: "Sprites, maps, sound and a game loop in text code.", after: [code/objects] }

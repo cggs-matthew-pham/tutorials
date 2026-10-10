@@ -1,0 +1,39 @@
+summary: Students keep an inventory in a list that grows with append() and shrinks with remove(), check with in before removing, list it with join(), and build a shopping list app.
+time: 45
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 10 min"
+goals:
+  - I can add to and remove from a list while the program runs.
+  - I can check whether something is in a list with in before removing it.
+  - I can show a list neatly with join().
+before: |
+  Read the unit primer first. `bag.append(x)` adds to the end; `bag.remove(x)` takes the first `x` out and stops with a ValueError if it is not there, so check with `x in bag` first. `", ".join(bag)` joins a list of texts into one, with a comma and space between. `items.sort()` puts the list itself in order. Students met `break` and `while True` in the console bridge.
+running:
+  - "Predict: draw the bag as boxes; add one on the end, cross one out."
+  - "Run: give students the list of commands to type, then let them invent their own."
+  - "Investigate: drop map is the interesting row: nothing changes, thanks to the in check."
+  - "Bug task: ask what should happen when someone drops something they do not have."
+  - "Make: students write the loop themselves. Point them to the bag program as a pattern."
+stuck:
+  - see: "ValueError: list.remove(x): x not in list."
+    ask: Was the item in the list? Did you check first?
+    fix: "if item in bag: bag.remove(item), with an else that replies."
+  - see: "TypeError when joining the list."
+    ask: Is everything in the list text?
+    fix: Only lists of text can be joined; store words, or use str() first.
+  - see: The list prints as ['lamp', 'key'] with brackets and quotes.
+    ask: How do you want it to look?
+    fix: "Use \", \".join(bag) to print lamp, key."
+stretch: Let the shopping list remember how many of each item (milk x2), ready for next lesson's dictionaries.
+support: Give students the loop and the done command, and ask them to add add, remove and show one at a time.
+leads: "Next lesson stores rooms and exits in dictionaries. The bag comes back in the text adventure."
+exit:
+  q: "bag = [\"lamp\"]. What happens with bag.remove(\"key\"), and how do you avoid it?"
+  a: "It stops with a ValueError because key is not in the bag. Check first: if \"key\" in bag: bag.remove(\"key\")."
+explain: |
+  1. `bag.append("key")` adds to the end of the list; `bag.remove("map")` takes it out.
+  2. `remove()` stops with an error if the item is not there, so check first: `if "map" in bag:`.
+  3. `", ".join(bag)` shows the list neatly: `lamp, key`.
+solutions:
+  step-4#t1: bag.py#sol-count
+  step-4#t2: bag.py#sol-full
+  step-5: bag.py#sol-shopping

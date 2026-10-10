@@ -1,0 +1,39 @@
+summary: Students store a map in dictionaries (rooms by name, and each room's exits), look values up by key, check keys with in, use a dictionary inside a dictionary, and count words with a dictionary.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can make a dictionary and look up a value by its key.
+  - I can check whether a key is in a dictionary before looking it up.
+  - I can use a dictionary to count things.
+before: |
+  Read the unit primer first. A dictionary pairs keys with values: `{"north": "kitchen"}`; `exits["north"]` looks up the value. Keys must match exactly (the bug task: `"Hall"` is not `"hall"`, so KeyError). `"west" in exits` checks for a key. `exits[here]` is itself a dictionary, so `exits[here]["north"]` looks up twice. `", ".join(exits[here])` joins the keys. Counting with a dictionary (the Make task) is a classic pattern: a new key starts at 1, an existing one goes up by 1.
+running:
+  - "Predict: draw the dictionary as a two-column table, key and value."
+  - "Run: draw the map (hall in the middle, kitchen north, garden east) and walk it with the class."
+  - "Investigate: read exits[\"hall\"][\"east\"] in two steps: the hall's exits, then east."
+  - "Bug task: ask what Hall and hall have in common, and what Python thinks."
+  - "Make: act it out with words on cards. A new word gets a tally of 1; a word seen before gets another tally."
+stuck:
+  - see: "KeyError: ..."
+    ask: Is the key spelled exactly as it was stored, capitals included?
+    fix: Tidy text before using it as a key (lower()), or check with in first.
+  - see: The new room cannot be reached.
+    ask: Which room's exits lead to it?
+    fix: Add it to another room's exits as well as to rooms and exits.
+  - see: "The word counter crashes on the first word (KeyError)."
+    ask: What is counts[word] before that word has been seen?
+    fix: If the word is not in counts yet, set it to 1; otherwise add 1.
+stretch: Put things in rooms (a dictionary from room to a list of things) and let the player take them into last lesson's bag.
+support: Give students the loop over the words and the if, and ask them to fill in the two lines that count.
+leads: "This completes the lessons that run in the turtle playground. Still to come: errors with try, saving the game to a file, and the text adventure, which joins the parser, the bag and the map. Data detective uses lists of dictionaries for real data."
+exit:
+  q: "ages = {\"Ada\": 12}. What do ages[\"Ada\"] and \"Bo\" in ages give?"
+  a: "12, and False: Bo is not a key."
+explain: |
+  1. A dictionary pairs keys with values: `{"north": "kitchen"}`. `exits["north"]` looks up the value.
+  2. Keys must match exactly. Check first with `in`: `"west" in exits` is True or False.
+  3. A value can be another dictionary: `exits[here]["north"]` looks up twice.
+solutions:
+  step-4#t1: rooms.py#sol-attic
+  step-4#t2: rooms.py#sol-moves
+  step-5: rooms.py#sol-count

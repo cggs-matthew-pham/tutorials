@@ -1,0 +1,39 @@
+summary: Students tidy typed text with strip() and lower(), cut it into words with split(), pick words by place, and see why text must be tidied before it is compared. It is the first part of a text adventure.
+time: 45
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 10 min"
+goals:
+  - I can tidy typed text with strip() and lower().
+  - I can cut text into words with split() and pick a word by its place.
+  - I can explain why text should be tidied before it is compared.
+before: |
+  Read the unit primer first. Text has its own commands, called with a dot: `command.strip()` removes spaces at both ends, `.lower()` and `.upper()` change capitals, and `.split()` gives a list of words. Each gives back new text; the original is unchanged unless you store the result (`command = command.strip()`). They can be chained: `input("> ").strip().lower()`. The bug task is the reason they matter: `"Yes" == "yes"` is False. `in` checks whether something is in a list.
+running:
+  - "Predict: write \"  Go NORTH \" on the board and cross off what strip() and lower() change, then count."
+  - "Run: ask students to try to break it: extra spaces, capitals, one word, five words."
+  - "Investigate: words[1] is the second word, as list places start at 0."
+  - "Bug task: ask how many ways a person could type yes (Yes, YES, yes with a space)."
+  - "Make: word[0] is the first letter of a word, the same idea as words[0]."
+stuck:
+  - see: The program ignores a command that looks right.
+    ask: Was the text tidied before it was compared?
+    fix: "Compare the tidied text: command.strip().lower() == \"quit\"."
+  - see: "IndexError: list index out of range."
+    ask: How many words did split() give? Is there a words[1]?
+    fix: Check len(words) before using words[1].
+  - see: The text did not change after strip() or lower().
+    ask: Was the result stored?
+    fix: "command = command.lower(): the method gives back new text."
+stretch: Accept short commands too, such as n for go north, by checking a list of short forms.
+support: Give students the line that splits the name, and ask them to build the initials with a loop.
+leads: "Next lesson keeps an inventory in a list (append, remove, in). The parser from this lesson comes back in the text adventure."
+exit:
+  q: "What does \"  Hello World \".strip().lower().split() give?"
+  a: "[\"hello\", \"world\"]: spaces off the ends, small letters, then cut into words."
+explain: |
+  1. `strip()` removes the spaces at both ends; `lower()` makes every letter small. Each gives back new text.
+  2. `split()` cuts text into a list of words at the spaces, so `words[0]` is the first word.
+  3. Tidy text before comparing it: `"Yes" == "yes"` is False.
+solutions:
+  step-4#t1: text.py#sol-quit
+  step-4#t2: text.py#sol-verbs
+  step-5: text.py#sol-initials

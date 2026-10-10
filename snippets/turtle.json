@@ -334,6 +334,47 @@
      "hint": "A function inside a class. Call it on one object: star.move(). self is that object."
     }
    ]
+  },
+  {
+   "name": "Text and collections",
+   "items": [
+    {
+     "label": "strip and lower",
+     "matches": "\\.(strip|lower|upper)\\(\\)",
+     "code": "‹command› = ‹command›.strip().lower()\n",
+     "hint": "strip() removes spaces at the ends; lower() and upper() change the capitals. Each gives back new text."
+    },
+    {
+     "label": "split",
+     "matches": "\\.split\\(",
+     "code": "‹words› = ‹command›.split()\n",
+     "hint": "Cut text into a list of words at the spaces: \"go north\".split() is [\"go\", \"north\"]."
+    },
+    {
+     "label": "in",
+     "matches": "\\bin\\s+\\w+\\s*:|\\bin\\s+\\[|\\\"\\s+in\\s+\\w",
+     "code": "if ‹item› in ‹bag›:\n    ‹pass›\n",
+     "hint": "True if the item is in the list (or the key is in the dictionary, or the letters are in the text)."
+    },
+    {
+     "label": "join",
+     "matches": "\\\"[^\\\"]*\\\"\\.join\\(",
+     "code": "\", \".join(‹bag›)\n",
+     "hint": "Join a list of texts into one, with the text in quotes between each: \"lamp, key\"."
+    },
+    {
+     "label": "remove from a list",
+     "matches": "\\.remove\\(",
+     "code": "‹bag›.remove(‹\"lamp\"›)\n",
+     "hint": "Take an item out of a list. It stops with a ValueError if the item is not there, so check with in first."
+    },
+    {
+     "label": "sort",
+     "matches": "\\.sort\\(\\)",
+     "code": "‹items›.sort()\n",
+     "hint": "Put a list in order (A to Z, or smallest first). It changes the list itself."
+    }
+   ]
   }
  ]
 }
