@@ -1,0 +1,36 @@
+summary: Students build the Caesar cipher, decrypt with it, and send encrypted messages by radio with a shared key.
+time: 50
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 10 min · Make 18 min"
+goals:
+  - "I can explain what the key of a Caesar cipher is."
+  - "I can encrypt and decrypt a message with the same key."
+  - "I can explain why a receiver with the wrong key shows nonsense."
+before: |
+  **The idea:** every letter moves along the alphabet by the key. The method (shift) is public; the key (the number) is the secret. Both people need the same key.
+
+  **New code:** `ALPHABET.indexOf(letter)` is the letter's place in the alphabet (A is 0, and −1 if it is not found, which is why spaces pass through). `% 26` wraps: 28 % 26 = 2. Treat these as recipes; the Investigate step makes the wrap visible.
+
+  **A pattern worth naming:** decrypting is encrypting with the rest of the circle, 26 − key. Students often expect a separate "undo" method.
+
+  **Honesty about strength:** this code is easy to break, as the next lesson shows. Say so now; the lesson after turns it into the point.
+running:
+  - "Investigate: the Z → C question is the whole idea. Give time to do it by hand."
+  - "Make: when keys differ, the receiver shows plausible-looking nonsense. Ask: does the receiver know it is wrong?"
+stuck:
+  - see: "Spaces or numbers come out as letters."
+    ask: "What does indexOf return for a space?"
+    fix: "indexOf gives −1 for a character that is not a letter; shift returns it unchanged."
+  - see: "decrypt does not give back the message."
+    ask: "How far round the alphabet is encrypt plus decrypt?"
+    fix: "The two keys must add to 26: decrypt uses 26 − key."
+stretch: "Add a numeric key menu: B counts up and A sends, and the key resets to 1 after 25."
+support: "Give encrypt and decrypt complete; students wire up the buttons and radio."
+leads: "Next: how long does it take to break this?"
+exit:
+  q: "What is the key in a Caesar cipher?"
+  a: "The number of places each letter shifts. Sender and receiver must use the same number."
+explain: |
+  The **Caesar cipher** shifts each letter by the **key**. `% 26` wraps from Z back to A. To decrypt, shift by `26 − key`.
+solutions:
+  step-4: caesar.ts#sol-decrypt
+  step-5: caesar.ts#sol-make

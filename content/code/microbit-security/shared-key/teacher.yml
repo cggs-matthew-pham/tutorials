@@ -1,0 +1,34 @@
+summary: Students lock and unlock numbers with XOR and a shared key, and meet the weakness of sending the same locked message every time.
+time: 45
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 8 min · Make 15 min"
+goals:
+  - "I can lock a number with XOR and a shared key and unlock it with the same key."
+  - "I can explain why a wrong key gives a wrong answer without an error."
+  - "I can say why sending the same locked message each time is a weakness."
+before: |
+  **The idea:** **XOR** gives a 1 where two bits differ and a 0 where they match. Doing it twice with the same key returns the original, so one key and one operation work in both directions. This is a **shared-key** (symmetric) cipher.
+
+  **Bits:** the lesson text shows 7 ^ 5 in bits. If students have not met binary, treat the working as a table to read, not something to learn: the check answers can be found by following the pattern.
+
+  **Two honest limits:** (1) XOR with a short key repeated is breakable; real systems use long keys and better methods. (2) The same message gives the same locked number every time, which the last Make task shows. Both are why the next lessons matter.
+running:
+  - "Investigate: let students do the bit working on paper first."
+  - "Modify: wrong keys. Ask: does the receiver know something is wrong?"
+stuck:
+  - see: "The receiver shows a different number."
+    ask: "Are the keys the same on both micro:bits?"
+    fix: "Make both keys equal; check B was pressed the same number of times on each."
+  - see: "^ looks odd in the blocks."
+    ask: "Which block is it?"
+    fix: "The ^ block is in Math (Advanced), with the other bit operations."
+stretch: "Lock each digit of the PIN separately, using a different key digit for each."
+support: "Give the sending half complete."
+leads: "Next: both ends need the same key. How do they agree it without sending it?"
+exit:
+  q: "Why does the receiver use the same key and the same operation as the sender?"
+  a: "XOR with the same key undoes itself: (message ^ key) ^ key = message."
+explain: |
+  **XOR** with a key scrambles a number; XOR with the **same** key unscrambles it. This is a **shared-key** cipher.
+solutions:
+  step-4: xor.ts#sol-keys
+  step-5#t1: xor.ts#sol-make

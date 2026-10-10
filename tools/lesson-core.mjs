@@ -53,7 +53,7 @@ export const MAKECODE_EXTENSIONS = {
 export const makecodeExtensions = (lesson) => (Array.isArray(lesson?.extensions) ? lesson.extensions : []).map((k) => MAKECODE_EXTENSIONS[k]).filter(Boolean);
 /** A lesson's extensions as MakeCode's package string ("name=version,name=version"), or '' for none. */
 export const makecodePackage = (lesson) => makecodeExtensions(lesson).map((e) => `${e.name}=${e.version}`).join(',');
-export const CHECK_TYPES = ['reflect', 'question', 'code', 'number', 'bug', 'match', 'trace', 'parsons', 'predict', 'answer', 'board', 'sort'];
+export const CHECK_TYPES = ['reflect', 'question', 'code', 'number', 'bug', 'match', 'trace', 'parsons', 'predict', 'answer', 'board', 'sort', 'flag'];
 // What kind of fault an error item plants (bug, and error-based question or predict): see AUTHORING.md "Error tasks".
 export const FAULTS = ['syntax', 'runtime', 'logic', 'design'];
 
@@ -392,6 +392,11 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
       if (!str(k.q)) err(where, 'check (number) needs q');
       if (typeof k.answer !== 'number' || !Number.isFinite(k.answer)) err(where, 'check (number) needs answer: a number');
       if (k.tolerance !== undefined && !(typeof k.tolerance === 'number' && k.tolerance >= 0)) err(where, 'check (number) tolerance must be 0 or more');
+    }
+    else if (k.type === 'flag') {
+      // A typed secret (capture-the-flag): only the SHA-256 of "wp-flag:" + the lowercased, trimmed answer is stored. tools/flag-hash.mjs makes it.
+      if (!str(k.q)) err(where, 'check (flag) needs q');
+      if (typeof k.hash !== 'string' || !/^[0-9a-f]{64}$/.test(k.hash)) err(where, 'check (flag) needs hash: 64 hex digits from tools/flag-hash.mjs');
     }
     else if (k.type === 'bug' || k.type === 'parsons') {
       let code = '';

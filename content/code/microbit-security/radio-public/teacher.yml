@@ -1,0 +1,34 @@
+summary: Students learn that a radio group is a shared channel, so plain-text radio messages are public to everyone in the group.
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 8 min · Make 12 min"
+goals:
+  - "I can say who hears a message sent by radio."
+  - "I can explain why a group number does not make a message private."
+  - "I can send and receive a text message by radio."
+before: |
+  **The idea:** radio goes to everyone. A **radio group** is a channel number; it decides who is listening, not who is allowed to listen. Anything sent in plain text can be read by any micro:bit set to that group.
+
+  **Why start here:** the whole course answers one question: if everyone in the group hears everything, how do we keep a message private, know it was not changed, and know who sent it? Students should leave this lesson feeling that question is real.
+
+  **Hardware:** the course works in the simulator throughout. Real micro:bits make it better: **give every pair its own group** and write the numbers on the board.
+running:
+  - "Predict: most say 3 or 4. Ask: does the sender hear itself? Is group 6 listening?"
+  - "Investigate: Mia's 'secret' group is the key misconception. Ask what a stranger would have to do to hear it."
+stuck:
+  - see: "Nothing arrives."
+    ask: "Are both micro:bits in the same group? Is the other one running the program?"
+    fix: "Use the same radio set group number on both."
+  - see: "Messages from other pairs appear."
+    ask: "Which group number are you using?"
+    fix: "Pick your own number and download again."
+stretch: "Add a third micro:bit in the same group and see that both hear A's message."
+support: "Give the doorbell with the receiving part complete."
+leads: "Next: hide the message from anyone who is listening, starting with a simple scrambling method."
+exit:
+  q: "Why does a radio group number not make a message private?"
+  a: "Every micro:bit set to that group hears every message in it, so the text is public to the group."
+explain: |
+  A micro:bit sends radio messages to **every other micro:bit in its group**. The group number picks the channel; it does not lock anything.
+solutions:
+  step-4: radio.ts#sol-two
+  step-5: radio.ts#sol-make

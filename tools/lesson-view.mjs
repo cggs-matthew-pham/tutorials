@@ -361,6 +361,9 @@ function bad(t){msg.className='msg no';msg.textContent=t}
 var btn=box.querySelector('button');
 if(ty==='number'&&btn){btn.addEventListener('click',function(){var v=parseFloat(box.querySelector('input').value);if(isNaN(v))return bad('Type a number first.');
 if(Math.abs(v-Number(box.dataset.answer))<=Number(box.dataset.tol||0))win();else bad(box.dataset.subj==='maths'?'Not quite. Check your working and try another number.':'Not quite. Look at the code again and try another number.')})}
+if(ty==='flag'&&btn){btn.addEventListener('click',function(){var t=box.querySelector('input').value.trim().toLowerCase();if(!t)return bad('Type the flag first.');
+if(!(window.crypto&&crypto.subtle))return bad('This needs a secure page (https).');
+crypto.subtle.digest('SHA-256',new TextEncoder().encode('wp-flag:'+t)).then(function(b){var h=[].map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('');if(h===box.dataset.hash)win();else bad('Not the flag. Check it is exactly what the puzzle gives, including the WP{ } part.')})})}
 if(ty==='bug'){var good=JSON.parse(box.dataset.answers).map(String),found={};[].forEach.call(box.querySelectorAll('.buglines button'),function(b){b.addEventListener('click',function(){
 var n=String(b.dataset.line);if(good.indexOf(n)>=0){b.className='yes';found[n]=1;var left=good.filter(function(g){return !found[g]}).length;if(!left)win();else{msg.className='msg';msg.textContent='Yes. '+left+' more to find.'}}else{b.className='no';bad(box.dataset.subj==='maths'?'Not that line. Read the working again, one line at a time.':'Not that line. Read the code again, one line at a time.')}})})}
 if(ty==='sort'&&btn){btn.addEventListener('click',function(){var want=JSON.parse(box.dataset.answers),all=true;
@@ -509,6 +512,9 @@ export function checkHtml(lesson, step, names = {}, snippet = null, task = null,
   }
   if (k.type === 'number') {
     return `<div class="check" ${base} data-answer="${k.answer}" data-tol="${k.tolerance || 0}"><p class="check-q">${tx(k.q)}</p><label class="numrow"><input type="number" step="any" aria-label="Your answer"></label><button type="button">Check answer</button>${msg}</div>`;
+  }
+  if (k.type === 'flag') {
+    return `<div class="check" ${base} data-hash="${esc(k.hash)}" data-explain="${esc(k.explain || '')}"><p class="check-q">${tx(k.q)}</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="The flag" placeholder="WP{...}"></label><button type="button">Submit flag</button>${msg}</div>`;
   }
   if (k.type === 'bug') {
     const files = splitFiles(snippet ? snippet(k.code) : '');

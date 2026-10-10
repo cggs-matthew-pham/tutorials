@@ -369,6 +369,7 @@ All except `code` are static and need no running code. Write the check under `ch
 | `reflect` | `text` | ticks a box |
 | `question` | `q`, `options`, `answer` (0-based), `explain` | picks one option |
 | `number` | `q`, `answer`, optional `tolerance`, `explain` | types a number |
+| `flag` | `q`, `hash`, `explain` | types a capture-the-flag answer. Only a hash is stored: make it with `node tools/flag-hash.mjs "WP{answer}"` (SHA-256 of `wp-flag:` + the lower-cased, trimmed answer). The page checks with `crypto.subtle`, so view-source does not give the flag away; the repository is public, so the answer goes in the lesson's teacher notes |
 | `match` | `q`, `pairs: [[left, right], ...]`, `explain` | picks each right-hand item from a list (shuffled for them) |
 | `trace` | `text`, `table`, `explain` | fills the blanks of a table |
 | `bug` | `code: file#region`, `answer: 7` (or `[7, 19]`; `"main.py:7"` when the code has several files), `fault`, `misconception`, `text`, `explain` | clicks the wrong line (every listed line, when there are several) |

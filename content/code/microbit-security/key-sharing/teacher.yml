@@ -1,0 +1,37 @@
+summary: Students agree a key over an open channel with a Diffie–Hellman style exchange using small numbers, then use it as the key for XOR.
+time: 55
+timing: "Predict and Run 12 min · Investigate 12 min · Modify 10 min · Make 18 min"
+goals:
+  - "I can explain why a key cannot simply be sent by radio."
+  - "I can say which numbers cross the air and which stay private in a key exchange."
+  - "I can use an agreed number as the key for a cipher."
+before: |
+  **The idea:** two ends agree a shared key while everyone listens. Each mixes a private number with public numbers, swaps the mixes, and mixes again with its private number. Both reach the same number, which was never sent. This is the **Diffie–Hellman** key exchange, the idea behind the padlock in a browser.
+
+  **Everyday picture:** paint. Everyone knows the common colour (yellow). Each person adds a private colour and shares the mixture. Each then adds their private colour to the other's mixture. Both end with the same colour, and nobody can un-mix the shared one to find the private colours.
+  Where it breaks: with numbers there is no real un-mixing for big numbers, but for tiny numbers you can just try them all.
+
+  **The maths:** students need only the pattern "power, then remainder". The check numbers are small. The program does the working (modPow, a loop, as in micro:bit Foundations).
+
+  **Honest limits:** P = 23 can be broken by trying all private numbers (the third Investigate task says so). Also, a key exchange does not say **who** you are talking to: an unknown micro:bit could do the exchange too. That need, to prove who is who, is the next lessons' job.
+running:
+  - "Predict: let students work out the mixes on paper or with a calculator first."
+  - "Run: remind them to press A on both micro:bits before reading the numbers."
+stuck:
+  - see: "The two micro:bits show different numbers."
+    ask: "Did you press A on both before looking? Does each hear the other's mix?"
+    fix: "Both must send a mix and receive one. Use the same group."
+  - see: "The numbers are far too large or wrong."
+    ask: "Is modPow taking the remainder at every step?"
+    fix: "result = (result × base) % prime inside the loop."
+stretch: "Change P and G. Which private numbers still give a match? (All of them do: the method works for any P and G.)"
+support: "Give the exchange complete and ask only for the locked PIN."
+leads: "Next: how does the receiver know a message was not changed on the way?"
+exit:
+  q: "Which of the numbers go across the air in a key exchange?"
+  a: "P, G and the two mixes. The private numbers and the shared key never do."
+explain: |
+  A **key exchange** lets two ends agree a key in public. Each sends a mix of a private number with public numbers; each then combines the other's mix with its own private number. Both get the same key, and the key is never sent.
+solutions:
+  step-4: keys.ts#sol-lock
+  step-5: keys.ts#sol-make

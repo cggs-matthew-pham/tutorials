@@ -1,0 +1,42 @@
+summary: "Students audit a radio door lock, match each weakness to a tool from the course, and harden it in three milestones: a cipher, a keyed checksum and a challenge and response."
+time: 60
+timing: "Predict and Run 8 min · Audit 10 min · Milestone 1 10 min · Milestones 2 and 3 25 min · Report 5 min"
+goals:
+  - "I can audit a system and name its weaknesses."
+  - "I can match each weakness with a tool that fixes it."
+  - "I can build a lock that is private, notices changes and cannot be reused."
+before: |
+  **The idea:** the course's three tools answer three different questions: **who can read it** (a cipher), **was it changed** (a checksum with a key) and **is this a fresh message from someone who has the key** (challenge and response). A secure system usually needs all three.
+
+  **Framing:** this is the defender's job. Students audit and harden their own system. The lesson does not have them attack each other's locks. If students want to test each other, run it as 'pass the pair': swap pairs' final locks, and try the real key against the lock; the lock should open for the key and refuse everything else.
+
+  **The final system:** the key micro:bit knocks with a keyed checksum; the lock checks it, sends a random challenge, the key answers using the secret key, and the lock opens only on the right answer. The secret key never crosses the air.
+
+  **Limits to say aloud:** these are classroom versions. The XOR step reveals the key if someone knows both a locked and an unlocked value; the answer function is not a one-way function; keys have to be shared safely first (the key exchange lesson). Real systems use proven tools, not ones we invented.
+
+  **Challenge milestones:** Milestone 1 has most of the code; milestone 2 outlines; milestone 3 gives goals only. Students who finish quickly can add the lockout from the Challenge–response lesson.
+running:
+  - "Audit: ask students to say each weakness in their own words before they pick the tool."
+  - "Milestone 3: students must see that the old 'OPEN' code is gone; the answer replaces it."
+stuck:
+  - see: "The lock never opens."
+    ask: "Do both micro:bits have the same secretKey? Is the answer function the same?"
+    fix: "Use one secretKey and one answer function in the same program on both."
+  - see: "The lock opens for the wrong key."
+    ask: "Do you compare the answer with answer(challenge) on the lock?"
+    fix: "Compare value with answer(challenge); keep challenge in a variable on the lock."
+  - see: "Milestone 3 and the checksum work separately but not together."
+    ask: "Which block handles each name (KNOCK, CHALL, ANSWER)?"
+    fix: "One on radio received value block with if, else if on the name."
+stretch: "Add the lockout after three wrong answers from the Challenge–response lesson."
+support: "Share the milestone 2 code and ask students to explain it before they build milestone 3."
+leads: "Where this leads: real systems use proven libraries, long keys, hash functions and certificates. The ideas here are the same."
+exit:
+  q: "Name the three weaknesses of the starting lock and the fix for each."
+  a: "Readable by the group: encrypt with a shared key. A changed message can't be told: a keyed checksum. A heard message works again: challenge and response."
+explain: |
+  A system is as strong as its weakest part. A **cipher** keeps a message private, a **keyed checksum** shows it was not changed, and a **challenge and response** shows a fresh message from someone with the key.
+solutions:
+  step-4: lock.ts#sol-step1
+  step-5#t1: lock.ts#sol-final
+  step-5#t2: lock.ts#sol-final

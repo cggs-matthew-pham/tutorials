@@ -1,0 +1,35 @@
+summary: Students break Caesar ciphers by trying every key, learn that the number of possible keys decides strength, and capture their first flag.
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 6 min · Flag 10 min (typical)"
+goals:
+  - "I can break a Caesar cipher by trying every key."
+  - "I can explain why a cipher with only 25 keys is weak."
+  - "I can say why a longer message does not make a Caesar cipher stronger."
+before: |
+  **The idea:** a cipher's strength comes from how many keys there are to try and how little the cipher text gives away. The Caesar cipher has 25. A computer tries them all in a blink; a person with the program tries them in a minute.
+
+  **Framing for students:** this is how codes are tested. Everyone here is breaking messages given to them, as a code designer does before trusting a code. We are not breaking anyone's private messages.
+
+  **Letter counts:** in English E is the most common letter, then T, A, O. In a long Caesar cipher text the most common letter is probably E shifted by the key. Do the Investigate task on the board together.
+
+  **Flags:** a flag is the answer to a puzzle in a fixed form, `WP{...}`. The page stores only a scrambled fingerprint (a hash) of the right answer, so view source does not give it away. The answer is below in the notes: **WP{keys matter}**.
+running:
+  - "Predict: most do not see that press 3 undoes key 3. Replay it slowly."
+  - "Investigate: ask whether any letter other than E could be most common in a very short message."
+stuck:
+  - see: "The flag is not accepted."
+    ask: "Did you type WP{ then the message in lower case, then }? Is the space in the right place?"
+    fix: "The message has a space in the middle: WP{keys matter}."
+  - see: "Nothing readable appears for any key."
+    ask: "Did you change the cipher text in the program?"
+    fix: "Start again from the step's starter."
+stretch: "Add a third button that tries the next key by itself every second and stops when you press it."
+support: "Tell students to read each attempt aloud and say 'sense or nonsense'."
+leads: "Next: a cipher with a much bigger key."
+exit:
+  q: "Why can a Caesar cipher be broken so quickly?"
+  a: "There are only 25 keys, so trying them all is quick; letter counts shorten it further."
+explain: |
+  A **Caesar cipher** has only 25 possible keys, so trying them all breaks it. Strength comes from having an enormous number of keys.
+solutions:
+  step-4: crack.ts#sol-count

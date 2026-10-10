@@ -1,0 +1,36 @@
+summary: Students build a challenge-and-response lock so that a heard answer cannot be used again, then add a lockout after three wrong answers.
+time: 50
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 8 min · Make 18 min"
+goals:
+  - "I can describe the four steps of a challenge and response."
+  - "I can explain why an answer heard once does not open the lock again."
+  - "I can say what never crosses the air."
+before: |
+  **The idea:** to prove you know a secret without saying it, the other side sets a random question, **the challenge**, and you answer it using the secret. A fresh challenge each time means an old answer fits only the old challenge.
+
+  **Everyday picture:** a bank clerk who asks for a random character of your password each time. Where it breaks: if the same question comes up, the answer works again; the challenge must be random and not repeat.
+
+  **Honest limits:** the answer function here, (n × key + 3) mod 100, is a toy: someone who collects enough challenges and answers can work out the key, and with only 90 possible challenges they repeat soon. Real systems use a **hash function** (a one-way mix) and huge challenges. Tell students the toy is for learning the shape of the idea.
+
+  **Same program on both micro:bits:** the simulator runs two copies. The one where A is pressed acts as the key; the other acts as the lock.
+running:
+  - "Predict: ask for the working before the options."
+  - "Investigate: ask what a listener has after hearing one full exchange (a challenge and its answer), and whether it helps with the next one."
+stuck:
+  - see: "The lock always shows a cross."
+    ask: "Do both micro:bits have the same secretKey? Is the answer function the same?"
+    fix: "Use the same secretKey and answer function on both."
+  - see: "The tick appears on the wrong micro:bit."
+    ask: "Which micro:bit checks the answer?"
+    fix: "The micro:bit that picked the challenge also checks the answer; the knocker only answers."
+stretch: "Make the challenge 3 digits and store it as a number. Why does a longer challenge repeat less often?"
+support: "Give the lockout in outline: students fill in the conditions."
+leads: "Next: capture-the-flag puzzles, then defend a whole system."
+exit:
+  q: "Why does a challenge and response protect a lock better than a fixed password?"
+  a: "The answer depends on a fresh challenge, so an answer that was heard before no longer fits."
+explain: |
+  A **challenge and response** proves a key without sending it. The lock sends a random **challenge**; the key answers with a value worked out from the challenge and the key; the lock checks it. Each answer fits only its own challenge.
+solutions:
+  step-4: lock.ts#sol-count
+  step-5: lock.ts#sol-make

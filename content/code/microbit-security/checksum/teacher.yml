@@ -1,0 +1,36 @@
+summary: Students send messages with a checksum, see the receiver reject a changed one, and learn why a keyed checksum is needed against deliberate changes.
+time: 45
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 7 min · Make 17 min"
+goals:
+  - "I can work out a checksum and use it to check a message."
+  - "I can explain what a checksum does and does not protect against."
+  - "I can say why a secret key makes a checksum harder to forge."
+before: |
+  **The idea:** privacy (encryption) and integrity (nobody changed it) are different jobs. A **checksum** is a small number worked out from the message and sent with it; a mismatch means the message changed.
+
+  **Everyday picture:** counting the cards when you hand over a pack. Say there are 52; if the receiver counts 51, something is missing. Where it breaks: if someone swaps a card for another, the count is still 52.
+
+  **Honest limits:** this checksum is deliberately simple. It ignores the order of letters (Investigate task 2), only has ten values (a changed message matches by chance one time in ten), and when the method is public anyone can make a matching one (task 3). Real systems use hash functions and a keyed checksum called a MAC.
+
+  **Code:** `radio.sendValue(name, value)` sends text and a number together, so the message and its checksum travel in one packet. The name is limited to 8 characters.
+running:
+  - "Investigate task 2: have two students swap letters and check the sum by hand."
+  - "Ask: how would you make the check number more sensitive to order? (Multiply each place by its position.)"
+stuck:
+  - see: "Every message is rejected."
+    ask: "Do the sender and receiver use the same secretKey?"
+    fix: "Use one secretKey value on both micro:bits."
+  - see: "A name longer than 8 letters is cut short."
+    ask: "How long is the message?"
+    fix: "radio.sendValue names are limited to 8 characters. Use shorter messages."
+stretch: "Make the checksum depend on order: add the letter's place times its position in the message."
+support: "Give the receiving checker complete and ask students to write only the sender."
+leads: "Next: prove who is sending, not just that the message is whole."
+exit:
+  q: "What does a checksum let a receiver notice?"
+  a: "That the message was damaged or changed after the checksum was worked out. A keyed checksum also stops someone making a matching one without the key."
+explain: |
+  A **checksum** is a number worked out from a message and sent with it. If the receiver's number is different, the message changed. Mixing in a secret key stops anyone without the key making a matching number.
+solutions:
+  step-4: checksum.ts#sol-keyed
+  step-5: checksum.ts#sol-make

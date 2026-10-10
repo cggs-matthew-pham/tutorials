@@ -79,6 +79,7 @@ function checkParts(k, snip, key) {
     return { q, options: k.options, answer: ans, explain: k.explain || (k.type === 'predict' ? '' : '') };
   }
   if (k.type === 'predict') return { q, answer: k.actual || '', explain: '' };
+  if (k.type === 'flag') return { q, field: true, answer: 'A flag (the exact answer is in the teacher notes)', explain: k.explain || '' };
   if (k.type === 'number') return { q, field: true, answer: String(k.answer), explain: k.explain || '' };
   if (k.type === 'trace') {
     const t = parseTrace(k.table);

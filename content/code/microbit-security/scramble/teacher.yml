@@ -1,0 +1,34 @@
+summary: Students send a reversed message, see that anyone who knows the method can undo it, and meet the idea of a public method with a secret key.
+time: 40
+timing: "Predict and Run 7 min · Investigate 10 min · Modify 6 min · Make 15 min"
+goals:
+  - "I can write a function that scrambles text and one that unscrambles it."
+  - "I can explain why a secret method is not enough."
+  - "I can name the parts of a code: method, key, plain text and cipher text."
+before: |
+  **The idea:** a **cipher** is a method for scrambling a message. If the method is the only secret, everything is lost the moment someone learns it. Real ciphers have a public method and a secret **key**; Caesar's cipher, next, is the smallest example.
+
+  **Vocabulary:** plain text (before), cipher text (after), method (steps), key (the secret value). Use them every time from now on.
+
+  **Code:** reversing uses a loop and a function, both from micro:bit Foundations. Strings are new: `text.charAt(i)` is letter number i (counting from 0), and `text.length` is how many letters.
+running:
+  - "Predict: students expect HELLO. Ask: where in the program is the reversing undone?"
+  - "Make: let pairs swap and guess. The point is that a guess at the method is cheap."
+stuck:
+  - see: "The receiver shows OLLEH."
+    ask: "Where does the receiver undo the reversing?"
+    fix: "Show reverse(received string) instead of received string."
+  - see: "The text comes out shorter or longer than expected in unscramble."
+    ask: "Which letters does unscramble keep?"
+    fix: "Step the loop by 2, starting from 0."
+stretch: "Make the scrambler swap each pair of letters (HELLO → EHLLO)."
+support: "Give scramble complete and ask only for unscramble."
+leads: "Next: a code with a key, the Caesar cipher."
+exit:
+  q: "Why is a message that is scrambled with a method everyone knows not private?"
+  a: "Anyone who knows the method can undo it. A code needs a secret key that is separate from the method."
+explain: |
+  A scrambling method works only while it stays secret. A good code assumes the method is **known** and relies on a secret **key**.
+solutions:
+  step-4: scramble.ts#sol-unscramble
+  step-5: scramble.ts#sol-make

@@ -1,0 +1,36 @@
+summary: Students solve three capture-the-flag puzzles (Caesar, XOR, checksum), typing flags that the page checks without storing the answers, then write a puzzle for a partner.
+time: 45
+timing: "Predict and Run 8 min · Puzzles 22 min · Make 15 min"
+goals:
+  - "I can use a Caesar tool, an XOR key and a checksum to solve puzzles."
+  - "I can explain what a flag is."
+  - "I can write a cipher puzzle for someone else."
+before: |
+  **What this is:** a puzzle session that revisits the course's three tools. Students decrypt messages written for them, as in a puzzle book or a CTF contest. No one is breaking into anything.
+
+  **How flags work:** the page stores only a SHA-256 fingerprint (a hash) of each right answer, so reading the page source does not give the answer away. Answers are checked after trimming spaces and ignoring capitals. Because this repository is public, the flags are also written here for you:
+  - Puzzle 1: **WP{never send keys}** (Caesar key 4)
+  - Puzzle 2: **WP{secret}** (XOR key 9, then A is 1)
+  - Puzzle 3: **WP{key}** (KEY adds to 38, so its checksum is 8)
+
+  **Pacing:** puzzles can be done in any order. Pairs can race; the flag checks give instant feedback so nobody has to wait for you.
+running:
+  - "Puzzle 2 is the slowest because of the second step (numbers to letters). Hint: A is 1."
+  - "Puzzle 3: ask which message's own checksum disagrees with the number it came with."
+stuck:
+  - see: "The flag is refused."
+    ask: "Is it WP{ then lower-case letters then }? Are spaces where they should be?"
+    fix: "Copy the form exactly; spaces count (the Caesar message has spaces)."
+  - see: "Puzzle 2 gives numbers above 26."
+    ask: "Did you use the right XOR key?"
+    fix: "The key is 9. Press B once for each number."
+stretch: "Write a longer puzzle that uses two steps (Caesar, then XOR)."
+support: "Share puzzle 1 as a class, then let pairs do the others."
+leads: "Next: defend a system against all three weaknesses."
+exit:
+  q: "What is a flag in a capture-the-flag puzzle?"
+  a: "A secret answer in a fixed form that proves you solved the puzzle."
+explain: |
+  A **flag** is the answer to a puzzle, typed in a fixed form, `WP{...}`. Here the three tools of the course each solve one puzzle.
+solutions:
+  step-4: toolkit.ts#sol-make
