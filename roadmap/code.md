@@ -333,9 +333,9 @@ Course `content/code/microbit-computer/` (after micro:bit Foundations). **AI rob
 
 **Open:** whether the recycling lesson also opens the Python "Machine learning with Gradio" extension.
 
-## Proposed: turtle companion (discussed, not decided)
+## Proposed: turtle companion (replaced 11 Oct 2026)
 
-A small turtle in the corner of course and lesson pages with a CSS idle animation (blink, bob; none with reduced motion; can be hidden). It earns one item per unit finished: a colourful pen (Drawing and repeating), a signpost and a backpack (Choices and collections), a jigsaw piece (Functions), a remote (Interaction), a crown (Final challenge). Clicking it shows its items and where each was earned; finishing a unit plays a short celebration. Per browser, built from existing progress data.
+Replaced by "Nib and Nib's notebook" in `roadmap/shared.md`: one character for every subject, whose notebook holds what the student has taught it (unlocked Reference cards) instead of per-unit items.
 
 ## Pathways (decided direction, 9 Oct 2026)
 

@@ -47,16 +47,26 @@ Also changed: `prerequisites()` in `tools/concepts.mjs` now treats a course list
 - Maths cards can come from several files: `snippets/maths.json` plus `snippets/maths-<name>.json`, each naming its `course:` (`loadAllMathsCards()` in `tools/maths-cards.mjs`; `build-site.mjs`, `validate.mjs` and the maths section of `render-pictures.mjs` read them all). Existing cards, ids and picture hashes are unchanged.
 - Shared board (`playground-board/`): new maths widget `widgets/parallel.js` with its script tag in `index.html` and `.pangles` styles in `style.css`; the graph widget gains the keyboard Move row (maths-only widget). No change to `core.js` or other widgets.
 
-## Speculative: teach a novice ("Sam") (11 Oct 2026, discussion only)
+## Speculative: teach a novice ("Nib") (11 Oct 2026, discussion only)
 
-An intention, not a rule; pilot it before anything becomes a design rule. Applies to every subject.
+An intention, not a rule; pilot it before anything becomes a design rule. Applies to every subject. The novice is **Nib** (see Nib and Nib's notebook, below): one non-human character across subjects, so the mistake never carries a real student's name. (Error-analysis tasks that use "Sam" can stay as they are.)
 
-- **Intent:** after the worked example, the student explains the lesson's one new move to a novice ("Sam", the character from the sample lessons' error analysis) who holds one named misconception. Sam then tries a new case, run or checked on the board where possible, so a weak explanation fails visibly and a good one works.
+- **Intent:** after the worked example, the student explains the lesson's one new move to Nib, who holds one named misconception. Nib then tries a new case, run or checked on the board where possible, so a weak explanation fails visibly and a good one works.
 - **Why:** learning by teaching (the protégé effect) and self-explanation, without an LLM: offline, no accounts, predictable, reusing the misconception data and `when:` checks. Easier to script than a Socratic tutor, which without an LLM reduces to the hint and feedback lessons already have.
 - **Leanings:** write a one-line explanation before choosing from options (choosing alone tests recognition, not production); use it sparingly, at hinge nodes where the misconception has a visible consequence; only after the worked example; end with an own-words explanation compared with a model one. Not for recall or evaluate steps.
 - **Teacher in the loop, light to heavy:** an on-screen "check this with your teacher" after two failed attempts; the own-words explanation as an exit ticket (nothing stored); later, perhaps an ephemeral live "stuck on step X" view in Kit or Prepare. The last one bends the no-tracking stance and needs a decision.
 - **Later, maybe:** a teacher-led LLM version in Waypoints Kit (the AI as a novice scoped to one move), given age terms and answer leakage.
 - **Open:** pilot lesson (the winch, or a maths hinge node); how authored options and branches are written in the lesson format.
+
+## Proposed: Nib and Nib's notebook (11 Oct 2026, discussed, not decided)
+
+Replaces the Python-only "turtle companion" proposal (was in `roadmap/code.md`) with one character for every subject.
+
+- **Nib:** a small, clearly non-human learner (a nib is a pen tip: it writes down what it is taught). Sits in the corner of course and lesson pages with a light CSS idle animation (blink, bob; still with reduced motion; can be hidden).
+- **Nib's notebook:** clicking Nib opens what the student has taught it so far: the course's unlocked Reference cards (Python, web), maths cards, and later MakeCode blocks and science ideas, each with the lesson it came from. Gives maths and science an unlock moment they lack today.
+- **Light gamification:** the notebook is a useful reference, not a score. One small moment when a page is added; no points, streaks or new badges beyond "Challenge complete". Per browser, built from existing progress data (`wp-progress`, `unlocks:`); no tracking.
+- **Link:** the teach-a-novice step (above) is where Nib's pages come from, when a lesson has one.
+- **Cost:** shared change (`tools/lesson-view.mjs`, `site/progress.js`, course pages); maths and science need a rule for which cards count as notebook pages. Snippet unlocks today: Python and HTML courses only; MakeCode, maths and science have none.
 
 ## Parked
 
