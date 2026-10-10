@@ -70,7 +70,7 @@ for (const l of lessons) {
       if (passed) console.log(`  ✓ ${id} ${k.type}`);
     }
   }
-  console.log('  expected reveals:', await p.locator('details.expected').count(), '| explain clip:', await p.locator('details.explain video').count());
+  console.log('  expected reveals:', await p.locator('details.expected').count(), '| explain clip:', await p.locator('#xdrawer video').count());
   await p.close();
 }
 console.log(fails ? `${fails} failure(s)` : 'all checks pass', '| page errors:', errs, '| http:', bad);

@@ -25,9 +25,9 @@ Also changed: `prerequisites()` in `tools/concepts.mjs` now treats a course list
 - New `tools/check-makecode.mjs` (`npm run check-makecode`, script added to `package.json`): static checks on MakeCode code tasks. Reads only; changes no shared behaviour.
 - `misconceptions.json`: added `global-missing` (home `code/python/turtle-events`).
 
-## Claimed by the code chat (11 Oct 2026, building now): Explain it to me as a help button
+## Done by the code chat (11 Oct 2026): Explain it to me as a help button
 
-`tools/lesson-view.mjs`: the "Explain it to me" panel moves out of the top of every lesson (where its clip could show the Predict answer, as in Lesson 1) into a "?" button in the sticky step-pills bar that opens it as a drawer. Before the lesson's first Predict is locked in, the button says to make the prediction first. Affects every subject's lesson pages; no clip re-records (page HTML is not in clip hashes).
+`tools/lesson-view.mjs`: the "Explain it to me" panel moves out of the top of every lesson (where its clip could show the Predict answer, as in Lesson 1) into a "?" button in the sticky step-pills bar that opens it as a drawer. Before the lesson's first Predict is locked in, the button says to make the prediction first. Affects every subject's lesson pages; no clip re-records (page HTML is not in clip hashes). Built: `.xbtn` first in `nav.steps`, `#xdrawer` (Esc or Close shuts it, video pauses), `EXPLAIN_JS` reads `wp-predict` for the first `.check[data-type=predict]` and unlocks live on the `wp-predict` event; lessons with no Predict open at once. `check-html` now counts `#xdrawer video`. Tested at desktop and phone widths.
 
 ## Parked
 
