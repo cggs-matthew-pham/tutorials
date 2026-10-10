@@ -1,0 +1,8 @@
+# Mia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mia
+Work out 5 − (−3) on a number line.
+Start at 5.
+The number is −3, so move 3 to the left.
+I land on 2, so 5 − (−3) = 2.
+# endregion

@@ -234,3 +234,11 @@ button.clcard { cursor: pointer; }
 .uspec svg { display: block; width: 100%; max-width: 560px; height: auto; margin-top: 6px; }
 .uspec text { font: 11px system-ui, sans-serif; fill: var(--muted); }
 .sphinfo { min-height: 4.6em; }
+/* Number line (widgets/numberline.js) */
+.jxgbox .nlnum { font-size: 15px; color: var(--ink); }
+.jxgbox .nlzero { font-weight: 700; }
+.jxgbox .nlnote { font: italic 14px/1 system-ui, sans-serif; color: var(--muted); white-space: nowrap; }
+.nlops { justify-content: center; gap: 8px; margin-top: 6px; }
+.nlops button { font-size: 20px; min-width: 52px; }
+.nlops button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+#nlcompare { color: var(--ink); font-family: system-ui, sans-serif; }

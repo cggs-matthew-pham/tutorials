@@ -59,7 +59,7 @@ const real = loadLessons();
 const prereqs = prerequisites(loadDirMeta, CONTENT_ROOT);
 const progs = loadProgressions();
 const base = auditNodes(real, prereqs, progs).warnings;
-console.log(`info real lessons: ${base.length} node warning(s)`);
+ok(base.length === 0, `real lessons: no node warnings (${base.length})`);
 const sub = real.find((l) => l.slug === 'maths/algebra/substituting');
 const changed = real.map((l) => (l === sub ? { ...l, node: [] } : l));
 const w2 = auditNodes(changed, prereqs, progs).warnings;

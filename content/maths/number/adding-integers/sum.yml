@@ -1,0 +1,49 @@
+# Number line boards for "Adding and subtracting integers". The jump starts at a and moves by b; R is the result.
+
+# region: run
+widget: numberline
+range: -10, 10
+sum: a - b
+slider a: -10, 10, 5
+slider b: -10, 10, 3
+# endregion
+
+# region: explain
+widget: numberline
+range: -10, 10
+sum: a ? b
+slider a: -10, 10, -3
+slider b: -10, 10, 5
+# endregion
+
+# region: explain-pic
+widget: numberline
+range: -10, 10
+sum: a - b
+slider a: -10, 10, 5
+slider b: -10, 10, -3
+# endregion
+
+# region: add
+widget: numberline
+range: -10, 10
+sum: a + b
+slider a: -10, 10, 0
+slider b: -10, 10, 0
+# endregion
+
+# region: subtract
+widget: numberline
+range: -10, 10
+sum: a - b
+slider a: -10, 10, 0
+slider b: -10, 10, 0
+# endregion
+
+# region: make
+widget: numberline
+range: -12, 12
+sum: a ? b
+slider a: -12, 12, 2
+slider b: -12, 12, 3
+# endregion

@@ -1,0 +1,47 @@
+summary: Students add and subtract integers as moves on a number line, find that adding a negative moves left and that subtracting moves the opposite way to adding, so 5 − (−3) = 8 (AC9M7N07, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can add and subtract integers by moving along a number line.
+  - I can explain why adding a negative number moves left.
+  - I can explain why 5 − (−3) is 8, not 2.
+before: |
+  Do the Run board and the Make task yourself first. Students need the last lesson: further left is less.
+
+  The one rule of the lesson: start at the first number; adding moves the way the second number points (right if positive, left if negative); subtracting moves the opposite way. The board draws the "adding" direction faintly above a subtraction, so students can see the turn-round.
+
+  The lesson does not teach "two minuses make a plus". If students bring it, ask them to explain it with the line: subtracting −3 turns round a move to the left.
+running:
+  - "Predict: take a show of hands. Most will say 2 (5 − 3). Do not correct it yet."
+  - "Run: ask students to make b smaller one step at a time from 3 and say the answer before they look: 2, 3, 4, 5, then past zero, 6, 7, 8. Every step of b smaller adds one to the answer. Point at the dashed arrow when b goes negative."
+  - "Investigate: model the worked example live. Draw a number line, then for each line say 'start at…, which way, how far' before drawing the jump. For 5 − (−3), draw the dashed 'adding −3' arrow first, then turn round. Reveal the prepared lines afterwards to compare."
+  - "Modify: each task changes one thing. Ask students to say the direction before they set the board."
+  - "Practise: the subtracted negative question plants Mia's mistake (−8). A student who gets −8 can draw the dashed arrow first."
+  - "Make: collect a few answers. Ask: what do all the b values have in common, and why?"
+stuck:
+  - see: "A student says 5 − (−3) = 2."
+    ask: "Which way would 5 + (−3) go? So which way does 5 − (−3) go?"
+    fix: "Draw the adding arrow (left 3), then the subtracting arrow the other way (right 3). Then walk the Run board: as b goes 3, 2, 1, 0, −1, −2, −3 the answer goes 2, 3, 4, 5, 6, 7, 8."
+  - see: "A student starts at zero instead of the first number."
+    ask: "Where does the sum start?"
+    fix: "Put a finger on the first number before any move."
+  - see: "A student moves the right distance but lands on the wrong side of zero (−6 + 4 = 2)."
+    ask: "Count the steps out loud. Where is zero on the way?"
+    fix: "Count each step on the line: −5, −4, −3, −2."
+stretch: "Which is bigger, 3 − (−5) or 3 + 5? Explain with the line. Then work out −2 − (−2) − (−2)."
+support: "Use the board for every question: set a and b, choose + or −, and say the move before reading R. A paper number line from −10 to 10 on every desk helps."
+leads: |
+  Next in Number: negative fractions and decimals on the same line, then multiplying and dividing integers.
+
+  Where it leads: tables of values with negative inputs (Tables from rules in Linear relations has a quick check of this), gradients and intercepts below zero, and changes in temperature, height and money.
+exit:
+  q: "Work out −3 + 7, 2 − 9 and 4 − (−5)."
+  a: "4, −7 and 9."
+explain: |
+  To add or subtract integers, **start at the first number and move along the number line**.
+
+  - Adding a positive moves right: $-3 + 5 = 2$.
+  - Adding a negative moves left: $4 + (-6) = -2$.
+  - Subtracting moves the **opposite way** to adding. Adding $-3$ would move left 3, so subtracting $-3$ moves right 3: $5 - (-3) = 8$.
+
+  So subtracting a negative gives the same answer as adding the positive.

@@ -1,0 +1,8 @@
+# Ari's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ari
+Put these in order from least to greatest: −2, −8, 3, 0
+The numbers without signs are 2, 8, 3 and 0.
+8 is the biggest of those, so −8 is the greatest negative.
+Least to greatest: −2, −8, 0, 3
+# endregion

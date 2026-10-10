@@ -496,6 +496,17 @@ Vary, Practise, Make).
     substitution but not the value, so students finish the arithmetic). Scope: each slider and the subject, so checks
     read `when: "P = 20 and l = 6"` or `when: "l = 2w"`. `hide: formula` shows only the sliders and the result (T = 13): a mystery rule
     for "write an expression, then check it against what the board gives" (the board still sets the scope, so checks work).
+  - `widget: numberline` (first used by `maths/number`): one line, `range: -10, 10` (required), numbered every 1 (or
+    `labels: 5`; on a narrow screen the board numbers every 2 or 5 by itself), `snap: 0.5` for where dragged points land
+    (default 1), `context: Temperature (°C)` (a name and unit under the line and in readouts).
+    - `point A: -7` (fixed; `point A: -7, Canberra` adds a caption), `point P: 0, drag` (students drag it along the line;
+      checks see it once let go), `point A: a` (follows slider a: keyboard-friendly, and what clips can move);
+    - `compare: A, B`: the comparison written live under the line ("−7 < −2: A is further left, so it is less than B");
+    - `sum: a + b` or `sum: a - b` with `slider a: ...` and `slider b: ...` (as on the graph): a jump from a by b, landing
+      on R, written "5 − (−3) = 8". When subtracting, a faint dashed arrow shows which way adding b would go. `sum: a ? b`
+      adds + and − buttons.
+    - Values for checks: points as `x(P)` (`"x(P) < -4"`, `"x(P) < x(Q) and x(P) + x(Q) < 0"`), the sliders, `r` the
+      result and `o` the operation (1 add, −1 subtract): `"o = -1 and b < 0 and r = 10"`.
   - `widget: forces` (any subject; first used by the physics lessons): a force diagram and, with `motion: on`, the
     motion it causes.
     - `object: Box` (its name), `mass: 2` (kg; `mass: 1, 10, 2` is a slider), `g: 9.8` (N/kg) or

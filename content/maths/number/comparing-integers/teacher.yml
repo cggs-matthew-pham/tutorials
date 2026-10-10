@@ -1,0 +1,45 @@
+summary: Students place integers on a number line, find that further left is less (so −7 < −2), and compare and order integers with < and > (AC9M7N07, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can put a set of integers, including negatives, in order from least to greatest.
+  - I can write a comparison between two integers with < or >.
+  - I can explain why −10 is less than −1, even though 10 is more than 1.
+before: |
+  Do the Run board and the Make task yourself first. Students should be able to find negative numbers on a number line (Year 6) and know what a temperature below zero means.
+
+  The one idea of the lesson is "further left is less". The common mistake is to compare negatives by their size without the sign (−8 > −2 because 8 > 2), and it is planted only after the method, in Ari's working.
+
+  The lesson says "further from zero" for size without the sign, not "absolute value". The primer has the word if you want it.
+running:
+  - "Predict: take a show of hands. Students who chose −7 usually say 7 is bigger. Do not correct it yet: the board will."
+  - "Run: ask students to try two positives first, then a positive and a negative, then −7 and −2. Ask: what decides which is less every time?"
+  - "Investigate: model the worked example live. Draw a line on the board, place −2, −8, 3 and 0 one at a time, saying 'left of zero, 8 places' and so on, then read left to right. Reveal the prepared lines afterwards to compare."
+  - "Modify: each task changes one thing. Before the temperature task ask: which way is warmer?"
+  - "Practise: the sign question plants the reversed sign. A student who picks < can place both on the line and say which is further left."
+  - "Make: collect a few pairs. Ask: could P be positive? (No: a positive further from zero than Q would be greater than Q.)"
+stuck:
+  - see: "A student says −8 is greater than −2."
+    ask: "Which is colder, −8 °C or −2 °C?"
+    fix: "Place both on the line. Further left is less, and −8 is further left. Say it as 'eight below zero' and 'two below zero'."
+  - see: "A student puts negatives in the order −1, −2, −3 when asked for least to greatest."
+    ask: "Which of these is furthest left on the line?"
+    fix: "Point at the line and read it from left to right: −3, −2, −1."
+  - see: "A student mixes up < and >."
+    ask: "Which number is greater? Which way does the wide end of the sign face?"
+    fix: "The wide end faces the greater number: −6 > −9 reads '−6 is greater than −9'."
+stretch: "Which is greater, −0.5 or −5? Place both on the line. Then: is there an integer between −3 and −2?"
+support: "Use the Run board for every comparison: set a and b to the two numbers and read the sentence. A paper number line from −10 to 10 on every desk helps."
+leads: |
+  Next: adding and subtracting integers, as moves along the same line.
+
+  Where it leads: plotting points in all four quadrants, reading graphs with negative values, and comparing negative fractions and decimals (AC9M7N04).
+exit:
+  q: "Put in order from least to greatest: 4, −6, 0, −1, −10."
+  a: "−10, −6, −1, 0, 4."
+explain: |
+  On a number line, the number **further left is less**. That is true below zero too.
+
+  $-7$ is further left than $-2$, so $-7 < -2$ ("$-7$ is less than $-2$"), even though 7 is more than 2. Think of temperatures: $-7$ °C is colder than $-2$ °C.
+
+  To put integers in order, place each on the line and read from left to right. Zero is greater than every negative number.

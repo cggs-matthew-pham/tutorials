@@ -62,5 +62,7 @@
   "music-background-no-wait": {"home": "code/robotics/robot-conductor", "text": "Music played in the background finishes before the next block runs; in fact the program moves on at once, so the next cue is sent straight away."},
   "alert-repeats": {"home": "code/robotics/robot-report", "text": "A message sent in forever when something happens is sent once; in fact it is sent again every time round while it stays true."},
   "axes-swapped": {"home": "maths/linear-relations/reading-graphs", "text": "The number read up the side is taken as the one measured along the bottom, or the two values of a point are swapped; in fact each number belongs to its own axis, named in the axis label."},
-  "graph-as-picture": {"home": "maths/linear-relations/describing-relationships", "text": "A graph is read as a picture of the journey or the object, so a line going down means going downhill; in fact it shows how one measurement changes with another."}
+  "graph-as-picture": {"home": "maths/linear-relations/describing-relationships", "text": "A graph is read as a picture of the journey or the object, so a line going down means going downhill; in fact it shows how one measurement changes with another."},
+  "negative-magnitude": {"home": "maths/number/comparing-integers", "text": "Negatives are compared by their size without the sign (−8 > −2 because 8 > 2); on a number line −8 is further left, so it is less."},
+  "subtract-negative": {"home": "maths/number/adding-integers", "text": "The minus sign of the number is taken as the move (5 − (−3): move left 3, giving 2); subtracting moves the opposite way to adding, so subtracting −3 moves right 3, giving 8."}
 }

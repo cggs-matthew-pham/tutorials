@@ -1,0 +1,62 @@
+# Number line boards for "Comparing integers". Dragged points land on whole numbers.
+
+# region: run
+widget: numberline
+range: -10, 10
+slider a: -10, 10, 0
+slider b: -10, 10, 0
+point A: a
+point B: b
+compare: A, B
+# endregion
+
+# region: explain
+widget: numberline
+range: -10, 10
+slider a: -10, 10, -3
+slider b: -10, 10, 2
+point A: a
+point B: b
+compare: A, B
+# endregion
+
+# region: explain-pic
+widget: numberline
+range: -10, 10
+point A: -7
+point B: -2
+compare: A, B
+# endregion
+
+# region: between
+widget: numberline
+range: -10, 10
+point A: -8
+point B: -4
+point P: 0, drag
+# endregion
+
+# region: weather
+widget: numberline
+range: -12, 6
+context: Temperature (°C)
+point C: -3, Canberra
+point T: -9, Thredbo
+point P: 3, drag
+# endregion
+
+# region: below
+widget: numberline
+range: -10, 10
+point A: -1
+point P: 0, drag
+compare: A, P
+# endregion
+
+# region: make
+widget: numberline
+range: -10, 10
+point P: 2, drag
+point Q: 5, drag
+compare: P, Q
+# endregion

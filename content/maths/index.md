@@ -15,7 +15,7 @@ pathways:
     summary: Integers, fractions, decimals and percentages, ratios and powers.
     about: "**Number Foundations** comes first for any course that uses negative numbers or the Cartesian plane, including Linear relations."
     courses:
-      - { id: number-foundations, title: Number Foundations, stage: foundations, summary: "Integers, the four operations with fractions and decimals, percentages, ratios, and powers of 10." }
+      - { path: maths/number, id: number-foundations, stage: foundations }
       - { title: Irrational numbers and index laws, stage: extensions, summary: "Surds, recurring decimals and the laws of exponents.", after: [number-foundations] }
   - id: space
     title: Geometry and measurement
