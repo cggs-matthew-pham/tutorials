@@ -17,7 +17,9 @@ about: |
 
   ## How the lessons work
 
-  Students read code before they write it. Each lesson follows **PRIMM**, an approach developed by Sue Sentance and colleagues and used in schools in the UK and beyond: students *predict* what a short program will do, *run* it to see if they were right, *investigate* how it works, *modify* it, then *make* something of their own. Now that AI can write code, being able to read a program and tell whether it's right matters more than ever, and that's the habit these lessons try to build.
+  In coding, students read code before they write it. Each coding lesson follows **PRIMM**, an approach developed by Sue Sentance and colleagues and used in schools in the UK and beyond: students *predict* what a short program will do, *run* it to see if they were right, *investigate* how it works, *modify* it, then *make* something of their own. Now that AI can write code, being able to read a program and tell whether it's right matters more than ever, and that's the habit these lessons try to build.
+
+  Maths and science lessons have their own shapes: maths builds each idea around a worked example (Predict, Try, Worked example, Vary, Practise, Make), and science follows the **5E** model (Engage, Explore, Explain, Elaborate, Evaluate).
 
   [Why we teach this way →](approach/) · [Behind the scenes →](behind-the-scenes/)
 ---

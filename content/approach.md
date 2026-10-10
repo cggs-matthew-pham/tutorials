@@ -14,9 +14,15 @@ Maths and science build on earlier ideas too, in a different shape. Science runs
 
 A computer doesn't show its working. To program well, students need a picture of what happens at each step of a program, which researchers call a *notional machine* (Sorva, 2013; Fincher et al., 2020). The apps students use every day hide those steps completely, so we try to bring them into view: students predict before they run, trace how a value changes each time round a loop, and click the line where a program goes wrong.
 
-## Reading before writing
+## Each subject's own lesson shape
 
-Every lesson follows PRIMM (Sentance, Waite & Kallia, 2019): Predict, Run, Investigate, Modify, Make. Reading and predicting code comes first, and writing it comes last. We think this matters more now that AI tools can write code, because knowing whether a program is right, and why, is the skill that's left. But it's hard to judge code you could never have written yourself, so the Make step still matters: it's where students build their own picture of how a program works.
+Every lesson has the same parts (a prediction to commit to, something to try, checks with feedback, teacher notes), but each subject puts them in the order that suits it.
+
+**Coding: reading before writing.** Coding lessons follow PRIMM (Sentance, Waite & Kallia, 2019): Predict, Run, Investigate, Modify, Make. Reading and predicting code comes first, and writing it comes last. We think this matters more now that AI tools can write code, because knowing whether a program is right, and why, is the skill that's left. But it's hard to judge code you could never have written yourself, so the Make step still matters: it's where students build their own picture of how a program works.
+
+**Maths: a worked example at the centre.** Maths lessons run Predict, Try, Worked example, Vary, Practise, Make, drawing on several well-tested ideas: from objects and pictures to symbols, worked examples that fade into independent work (Sweller & Cooper, 1985), small steps with frequent checks (Rosenshine, 2012), changing one thing at a time so the structure shows, and short mixed practice that brings back earlier ideas. Students try the idea on a model first; new knowledge appears only in the worked example.
+
+**Science: the 5E model.** Science lessons follow Engage, Explore, Explain, Elaborate, Evaluate (Bybee et al., 2006). They start by drawing out what students already think, let them test it in a model, and only then explain. Each lesson is a short concept tutorial to sit beside practical work, never instead of it.
 
 ## One idea, several ways in
 
@@ -38,8 +44,11 @@ For how lessons are made, checked and kept private, see [Behind the scenes](../b
 
 ## References
 
+- Bybee, R. W., Taylor, J. A., Gardner, A., Van Scotter, P., Carlson Powell, J., Westbrook, A., & Landes, N. (2006). *The BSCS 5E instructional model: Origins and effectiveness*. BSCS.
 - Fincher, S., et al. (2020). Notional machines in computing education: the education of attention. *ITiCSE Working Group Reports (ITiCSE-WGR '20)*. ACM. [doi.org/10.1145/3437800.3439202](https://doi.org/10.1145/3437800.3439202)
 - Robins, A. (2010). Learning edge momentum: a new account of outcomes in CS1. *Computer Science Education*, 20(1), 37–71.
+- Rosenshine, B. (2012). Principles of instruction: Research-based strategies that all teachers should know. *American Educator*, 36(1), 12–19, 39.
 - Sentance, S., Waite, J., & Kallia, M. (2019). Teaching computer programming with PRIMM: a sociocultural perspective. *Computer Science Education*, 29(2–3).
 - Sorva, J. (2013). Notional machines and introductory programming education. *ACM Transactions on Computing Education*, 13(2), Article 8.
+- Sweller, J., & Cooper, G. A. (1985). The use of worked examples as a substitute for problem solving in learning algebra. *Cognition and Instruction*, 2(1), 59–89.
 - Raspberry Pi Foundation. [PRIMM: a one-page summary for teachers](https://static.raspberrypi.org/files/curriculum/quickreads/11-Pedagogy_Summary_PRIMM_V4_2023.pdf).

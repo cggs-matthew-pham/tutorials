@@ -19,7 +19,7 @@ Waypoints tutorials: a static site (GitHub Pages) of markdown lessons with recor
 - Do not add rigid pedagogy rules. Clips only where useful (hook, expected result without code, explaining why).
 
 ## Teaching decisions
-- PRIMM: Predict (lock in, compare after Run), Run, Investigate, Modify, Make. Investigate tools must follow the lesson insight. Several tasks per step show as sub-pills only when more than one.
+- PRIMM (code lessons only; maths uses Predict, Try, Worked example, Vary, Practise, Make, and science uses 5E on the same stages): Predict (lock in, compare after Run), Run, Investigate, Modify, Make. Investigate tools must follow the lesson insight. Several tasks per step show as sub-pills only when more than one.
 - Show combinations (a link in a list item, a list in a list, a picture in a link) and make the clip, the Explain it to me text and `explainPicture` cover the same ground (BUILDING › 4). `picture:` shows what code makes (rendered by the playground, Boxes optional).
 - Expected results are clear and shown (BUILDING › 4): a picture (`expected:`, HTML) when static, an output-only clip when it moves, a short captioned clip to explain a spatial idea; never the code.
 - Real-world content is a small complete example students Modify (the heading names the task). Make is an explicit task. Large projects belong to the teacher (For teachers panel).
