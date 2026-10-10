@@ -6,6 +6,8 @@
 //   shape: rectangle          draw a rectangle from the first two sliders (length, width), labelled with their values
 //   units: cm                 shown after lengths and the result's value (optional)
 //   result: off               hide the result's value (students work it out); the substitution still shows
+//   hide: formula             hide the formula and the working, showing only the sliders and the result ("T = 13"): a
+//                             mystery rule that students write as an expression and check against its values
 // state: { scope: { vars: { each slider, and the subject (P) } } }
 (function (B) {
   'use strict';
@@ -33,6 +35,8 @@
     if (s.rect && s.sliders.length < 2) throw new Error('shape: rectangle needs two sliders (length, then width).');
     s.unit = s.units ? ' ' + s.units.trim() : '';
     s.showResult = !/^off$/i.test(s.result || '');
+    s.hidden = /^formula$/i.test(s.hide || '');
+    if (s.hidden && !s.showResult) throw new Error('hide: formula needs the result to show: remove "result: off".');
   }
 
   // 2l + 2w with l = 4, w = 3 -> 2 × 4 + 2 × 3 (letters next to numbers become "×"; a negative value in brackets)
@@ -60,7 +64,7 @@
   function report() {
     var v = Math.round(spec.f(vars) * 1e6) / 1e6;
     ui.sliders.forEach(function (s) { s.out.textContent = s.sl.name + ' = ' + show(vars[s.sl.name]); });
-    ui.work.textContent = spec.subject + ' = ' + substituted() + (spec.showResult ? ' = ' + show(v) + spec.unit : '');
+    ui.work.textContent = spec.subject + ' = ' + (spec.hidden ? '' : substituted() + (spec.showResult ? ' = ' : '')) + (spec.showResult ? show(v) + spec.unit : '');
     if (spec.rect) drawRect();
     var sc = Object.assign({}, vars); sc[spec.subject] = v;
     B.save({ vars: vars });
@@ -69,7 +73,7 @@
 
   B.widget('formula', {
     sections: ['gpanel'],
-    label: function (s) { return 'The formula ' + s.formula; },
+    label: function (s) { return /^formula$/i.test(s.hide || '') ? 'A mystery rule' : 'The formula ' + s.formula; },
     parse: parse,
     start: function (fresh) {
       spec = B.spec;
@@ -78,7 +82,7 @@
       spec.sliders.forEach(function (sl) { vars[sl.name] = sv && sv.vars && sv.vars[sl.name] !== undefined ? sv.vars[sl.name] : sl.start; });
       var panel = B.el('gpanel'); panel.replaceChildren(); ui = { sliders: [] };
       var box = document.createElement('div'); box.className = 'rulebox';
-      var f = document.createElement('p'); f.className = 'rulename'; f.textContent = spec.formula.replace(/\*/g, '×').replace(/-/g, '−'); box.appendChild(f);
+      if (!spec.hidden) { var f = document.createElement('p'); f.className = 'rulename'; f.textContent = spec.formula.replace(/\*/g, '×').replace(/-/g, '−'); box.appendChild(f); }
       if (spec.rect) { ui.svg = document.createElementNS(SVGNS, 'svg'); ui.svg.setAttribute('class', 'fsvg'); ui.svg.setAttribute('role', 'img'); box.appendChild(ui.svg); }
       ui.work = document.createElement('p'); ui.work.className = 'rulework'; ui.work.setAttribute('aria-live', 'polite'); box.appendChild(ui.work);
       panel.appendChild(box);

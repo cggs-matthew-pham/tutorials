@@ -1,0 +1,7 @@
+# Pia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: pia
+Apples cost 3 dollars each. Write the cost of a apples.
+Cost = 3a. I read 3a as "3 apples".
+So the cost of a apples is 3a.
+# endregion

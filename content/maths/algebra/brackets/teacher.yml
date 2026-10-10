@@ -1,0 +1,41 @@
+summary: Students decide where brackets belong when a sentence applies a later step to a whole result, and see that brackets change the value (AC9M7A02, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can say which step is done first, and what is then done to its whole result.
+  - I can put brackets around the part that is done first, and leave them out when they are not needed.
+  - I can show with a number that 2(n + 3) and 2n + 3 are different.
+before: |
+  Do the Run and Modify boards yourself first. They hide the formula: the board does what the words say, so students check their brackets against it.
+
+  The new move is brackets as "do this part first". The common error is leaving them out (Jo's mistake: 6x + 2), so the multiplier only reaches the x. Always check with one number: add 2 to 1 and multiply by 6 is 18, but 6 × 1 + 2 is 8.
+
+  Not every sentence needs brackets. The 'books' and 'multiply then add' questions are there on purpose: when a later step is add or subtract, no brackets are needed. Ask: "what is done to what?"
+running:
+  - "Predict: take a show of hands. Ask students to try 4 stickers on each option."
+  - "Run: ask them to say which of 2 × 4 + 3 and 2(4 + 3) the board matches, and why."
+  - "Investigate: model the worked example live. Underline the part done first, then bracket it."
+  - "Modify: before the no-brackets task, ask 'is anything done to a whole result here?'"
+  - "Make: ask students to say the steps in words before they check their expression."
+stuck:
+  - see: "A student writes 6x + 2 for 'add 2, then multiply by 6' (Jo's mistake)."
+    ask: "Try x = 1 in the words and in your expression. Do they agree?"
+    fix: "To multiply the whole x + 2, put x + 2 in brackets: 6(x + 2)."
+  - see: "A student puts brackets everywhere (8(n − 5) for 'take 5 off the total')."
+    ask: "What is the 5 taken off: n, or the cost of all the books?"
+    fix: "Brackets are for a part that is done first and then has something done to it. Here 8n is made first, then 5 is taken off."
+stretch: "Write 'double n, then add 3 more than n' in two ways. Which words need brackets? Test both with n = 5."
+support: "Give a two-step frame: Step 1 (done first): ___; Step 2 (done to the result): ___. Then write the expression."
+leads: |
+  Next: an expression for a whole situation, where you say what the letter stands for. Brackets come back when expressions are expanded and factorised (Year 8) and in Equations with brackets.
+exit:
+  q: "Write an expression for: (a) add 6 to n, then multiply by 3; (b) multiply n by 3, then add 6. Which one gives 15 when n = 3?"
+  a: "(a) 3(n + 6); (b) 3n + 6. (b): 3 × 3 + 6 = 15; (a) gives 27."
+explain: |
+  **Brackets** group a part so it is worked out first.
+
+  If a sentence says to do something to the whole result of an earlier step, put that earlier step in brackets. "Add 3 to n, then double the result" is $2(n + 3)$.
+
+  If the later step is adding or subtracting, brackets are not needed: "double n, then add 3" is $2n + 3$.
+
+  The two are different. With $n = 4$: $2(n + 3) = 14$ and $2n + 3 = 11$.

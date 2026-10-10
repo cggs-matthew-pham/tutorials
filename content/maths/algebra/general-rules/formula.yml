@@ -1,0 +1,51 @@
+# Boards for "An expression for any case". The run and use boards show the formula; the check boards are mystery
+# rules (hide: formula) that students compare their expression with.
+
+# region: run
+widget: formula
+formula: C = 12n + 50
+slider n: 0, 40, 5
+units: dollars
+# endregion
+
+# region: taxi
+widget: formula
+formula: T = 2d + 3
+hide: formula
+slider d: 0, 20, 4
+# endregion
+
+# region: tank
+widget: formula
+formula: L = 100 - 4m
+hide: formula
+slider m: 0, 25, 5
+# endregion
+
+# region: tickets
+widget: formula
+formula: T = 8a + 5c
+hide: formula
+slider a: 0, 10, 2
+slider c: 0, 10, 3
+# endregion
+
+# region: use
+widget: formula
+formula: T = 12n + 6
+slider n: 0, 60, 5
+# endregion
+
+# region: pic
+widget: formula
+formula: C = 5g + 60
+slider g: 0, 40, 10
+units: dollars
+# endregion
+
+# region: explain
+widget: formula
+formula: C = 5g + 60
+slider g: 0, 40, 10, 10
+units: dollars
+# endregion

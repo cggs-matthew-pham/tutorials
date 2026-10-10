@@ -485,7 +485,8 @@ Vary, Practise, Make).
     (P = 2 × 4 + 2 × 3 = 14 cm). `formula: P = 2l + 2w` (a one-letter subject), `slider l: 1, 10, 4[, step]` for every
     letter on the right, `shape: rectangle` (drawn from the first two sliders), `units: cm`, `result: off` (show the
     substitution but not the value, so students finish the arithmetic). Scope: each slider and the subject, so checks
-    read `when: "P = 20 and l = 6"` or `when: "l = 2w"`.
+    read `when: "P = 20 and l = 6"` or `when: "l = 2w"`. `hide: formula` shows only the sliders and the result (T = 13): a mystery rule
+    for "write an expression, then check it against what the board gives" (the board still sets the scope, so checks work).
   - `widget: forces` (any subject; first used by the physics lessons): a force diagram and, with `motion: on`, the
     motion it causes.
     - `object: Box` (its name), `mass: 2` (kg; `mass: 1, 10, 2` is a slider), `g: 9.8` (N/kg) or

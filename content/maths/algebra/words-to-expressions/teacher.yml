@@ -1,0 +1,41 @@
+summary: Students turn words such as more than, less than, twice and divided by into expressions, writing the operations in the order the words say them and checking with a number (AC9M7A02, node 1).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can say what operation each word in a sentence about a number means.
+  - I can write an expression from words, with the operations in the right order.
+  - I can check my expression by trying a number I can work out in words.
+before: |
+  Do the Run and Modify boards yourself first. They hide the formula on purpose: the board does what the words say and shows the result, so students check their expression against it.
+
+  The new move is turning each word into an operation. The most common error is "less than" (Ana's mistake): the numbers are written in the order they are spoken, 7 − n, when the number you start from comes first, n − 7. Always check with a real number: 7 less than 10 is 3.
+
+  The pizza question in Practise is the opposite on purpose: "n slices are eaten from 8" starts from 8, so 8 − n is correct. Ask students what is being taken away from what.
+running:
+  - "Predict: take a show of hands. Ask a student who chose 5 − n to work out 5 less than 12, then try 5 − 12."
+  - "Run: ask students to say what the board is doing to n before they write anything."
+  - "Investigate: model the worked example live. Say the words in steps and write each step as you say it."
+  - "Modify: at each task, ask 'what is the first thing the words do to n?' before writing."
+  - "Make: ask for the expression in words as well as in symbols."
+stuck:
+  - see: "A student writes 7 − n for '7 less than n' (Ana's mistake)."
+    ask: "What is 7 less than 10? What does 7 − 10 give?"
+    fix: "'Less than' takes the amount away from the number: start from n, then subtract: n − 7."
+  - see: "A student writes 5n for '5 more than n'."
+    ask: "If n is 10, what is 5 more than n? What is 5n?"
+    fix: "'More than' means add. Multiply is for 'times' or 'lots of'."
+stretch: "Write expressions for: 'the next whole number after n', '3 less than half of n', 'the cost of n pens at 2 dollars each and one ruler at 5 dollars'."
+support: "Give a table of words and their operation (more than: +, less than: −, times, twice, half, divided by) to use as a key."
+leads: |
+  Next: when brackets are needed. 'Add 3 to n, then double it' is not 2n + 3. After that, expressions describe whole situations, which leads into Linear relations (y = mx + c) and into Equations.
+exit:
+  q: "Write an expression for: (a) 4 less than n; (b) 2 more than 5 times n; (c) n shared between 3."
+  a: "(a) n − 4. (b) 5n + 2. (c) n/3."
+explain: |
+  Words about a number tell you what to do to it. **More than** means add; **less than** means subtract; **times**, **twice** and **lots of** mean multiply; **divided by** and **shared between** mean divide.
+
+  Write the operations in the order the words say them. "3 more than twice n" is twice n (2n) and then 3 more: $2n + 3$.
+
+  "Less than" starts from the number: 7 less than n is $n - 7$, not $7 - n$.
+
+  Check an expression by trying a number you can work out in words.

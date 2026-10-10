@@ -35,6 +35,18 @@
           "hint": "In an equation, a letter can stand for one particular number: here only $x = 4$ works."
         },
         {
+          "label": "more than, less than",
+          "unit": "expressions",
+          "code": "n + 5 \\qquad n - 5",
+          "hint": "\"5 more than n\" is $n + 5$. \"5 less than n\" is $n - 5$: you start from $n$ and take 5 away, so $n$ comes first."
+        },
+        {
+          "label": "brackets",
+          "unit": "expressions",
+          "code": "2(n + 3) \\ne 2n + 3",
+          "hint": "Brackets keep a part together so it is worked out first. \"Add 3, then double the result\" is $2(n + 3)$; \"double, then add 3\" is $2n + 3$."
+        },
+        {
           "label": "expression",
           "unit": "equations",
           "code": "2x + 3",
@@ -71,6 +83,12 @@
     {
       "name": "Methods",
       "items": [
+        {
+          "label": "write an expression for a situation",
+          "unit": "expressions",
+          "code": "\\begin{aligned} &\\text{Let } g = \\text{number of guests} \\\\ &C = 5g + 60 \\end{aligned}",
+          "hint": "Say what the letter stands for (a number that changes), multiply it by the amount for each one, then add anything paid once."
+        },
         {
           "label": "substitute",
           "unit": "expressions",

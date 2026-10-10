@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 8
 unit: equations
 title: Solving by backtracking
 summary: Undo what was done to x, last step first, to find the number you started with.

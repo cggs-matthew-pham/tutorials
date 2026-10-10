@@ -1,0 +1,42 @@
+summary: Students say what a letter stands for, write an expression for a situation with a fee and a rate, test it with a case they can check, and use it for any number (AC9M7A02, node 3).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can say what the letter in an expression stands for, a number that changes.
+  - I can write an expression for a situation with a once-only amount and an amount for each one.
+  - I can test my expression with a case I can check in words, then use it for a big case.
+before: |
+  Do the Modify boards yourself first. The mystery boards follow the situation, so students check their expression against them before they answer.
+
+  The new move is saying what the letter stands for before writing anything. Two common errors: letting the letter be the thing worked out ("Let n be the cost"), and reading the letter as the object (Pia's mistake: 3a means 3 apples). Insist on the sentence "Let ___ be the number of ___".
+
+  The once-only amount is a constant added on; the amount for each one is multiplied by the letter. This is the same structure as y = mx + c in Linear relations, so say so, but do not name it yet.
+running:
+  - "Predict: take a show of hands. Ask a student who chose 'the total cost' what n would be for a trip of 30 students."
+  - "Run: before moving n, ask what the cost is for 0 students. What does the 50 mean?"
+  - "Investigate: model the worked example live. Write 'Let g be...' first, every time."
+  - "Modify: ask for the sentence 'Let ___ be the number of ___' before each expression."
+  - "Practise: for the plumber questions, ask which amount is paid once."
+  - "Make: have students swap situations and write each other's expressions."
+stuck:
+  - see: "A student reads a letter as an object (Pia's mistake: 3a means 3 apples)."
+    ask: "If a is 5, what is 3a? Is it 3 apples or something else?"
+    fix: "a stands for a number, how many apples. 3a is 3 dollars times that number."
+  - see: "A student multiplies the once-only amount (60h + 40 for a 60 dollar call-out)."
+    ask: "Does the call-out change if the job is 1 hour or 10 hours?"
+    fix: "An amount paid once is added on. Only the price for each hour is multiplied by h."
+stretch: "A shop sells pens at 2 dollars each and rulers at 3 dollars each, with a 1 dollar bag. Let p be pens and r rulers. Write the cost, then find it for 10 pens and 4 rulers."
+support: "Give a sentence frame: Let ___ be the number of ___. Paid once: ___. For each: ___. Expression: ___."
+leads: |
+  This finishes the Expressions unit. The Equations unit starts from expressions like these: what number of students makes the trip cost 290? In Linear relations the same structure becomes y = mx + c and its graph.
+exit:
+  q: "A gym costs 30 dollars to join plus 15 dollars a week. Write what your letter stands for, an expression for the total, and the cost after 8 weeks."
+  a: "Let w be the number of weeks. Total = 15w + 30. After 8 weeks: 15 × 8 + 30 = 150 dollars."
+explain: |
+  To write an expression for a situation: (1) say **what the letter stands for**: the number that changes, such as the number of guests; (2) multiply it by the amount for each one; (3) add anything paid only once.
+
+  A hall costing 60 dollars plus 5 dollars per guest, with $g$ guests, is $5g + 60$.
+
+  Test the expression with one case you can check in words, then use it for any number.
+
+  The letter stands for a number, not for the objects: in $3a$, $a$ is how many apples.

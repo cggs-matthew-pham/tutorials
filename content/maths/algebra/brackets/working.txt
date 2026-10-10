@@ -1,0 +1,8 @@
+# Jo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: jo
+Write "add 2 to x, then multiply by 6" as an expression.
+Add 2 to x is x + 2.
+Then multiply by 6, so I write 6x + 2.
+So the expression is 6x + 2.
+# endregion

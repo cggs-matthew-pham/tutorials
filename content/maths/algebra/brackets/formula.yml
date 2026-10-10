@@ -1,0 +1,56 @@
+# Boards for "When brackets are needed". hide: formula boards are mystery rules that do what the words say.
+
+# region: run
+widget: formula
+formula: T = 2(n + 3)
+hide: formula
+slider n: 0, 10, 1
+# endregion
+
+# region: sub-first
+widget: formula
+formula: T = 3(n - 2)
+hide: formula
+slider n: 2, 10, 5
+# endregion
+
+# region: no-brackets
+widget: formula
+formula: T = 3n + 2
+hide: formula
+slider n: 0, 10, 4
+# endregion
+
+# region: two-letters
+widget: formula
+formula: T = 4(a + b)
+hide: formula
+slider a: 0, 10, 2
+slider b: 0, 10, 3
+# endregion
+
+# region: halve
+widget: formula
+formula: T = (n + 5) / 2
+hide: formula
+slider n: 1, 11, 3
+# endregion
+
+# region: make
+widget: formula
+formula: T = 5(n - 1)
+hide: formula
+slider n: 1, 10, 1
+# endregion
+
+# region: pic
+widget: formula
+formula: T = 2(n + 3)
+slider n: 0, 10, 4
+# endregion
+
+# region: explain
+widget: formula
+formula: T = 2(n + 3)
+slider n: 0, 10, 4
+# endregion

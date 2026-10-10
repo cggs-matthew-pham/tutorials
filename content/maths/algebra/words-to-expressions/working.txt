@@ -1,0 +1,8 @@
+# Ana's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ana
+Write "7 less than n" as an expression.
+"Less than" means subtract, so I use −.
+7 less than n is 7 − n.
+So the expression is 7 − n.
+# endregion

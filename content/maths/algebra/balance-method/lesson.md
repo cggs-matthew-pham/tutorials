@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 9
 unit: equations
 title: The balance method
 summary: Do the same to both sides to get x on its own, then check your answer in the first equation.

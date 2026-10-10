@@ -1,0 +1,57 @@
+# Boards for "Words into expressions". hide: formula boards are mystery rules: students write the expression from the
+# words, then check it against the number the board gives.
+
+# region: run
+widget: formula
+formula: T = n - 5
+hide: formula
+slider n: 0, 20, 3
+# endregion
+
+# region: half
+widget: formula
+formula: T = n / 2
+hide: formula
+slider n: 0, 20, 6, 2
+# endregion
+
+# region: more
+widget: formula
+formula: T = 3n + 5
+hide: formula
+slider n: 0, 10, 4
+# endregion
+
+# region: less
+widget: formula
+formula: T = 4n - 2
+hide: formula
+slider n: 0, 10, 3
+# endregion
+
+# region: product
+widget: formula
+formula: T = ab
+hide: formula
+slider a: 0, 10, 3
+slider b: 0, 10, 4
+# endregion
+
+# region: make
+widget: formula
+formula: T = 4n - 1
+hide: formula
+slider n: 0, 10, 0
+# endregion
+
+# region: pic
+widget: formula
+formula: T = 2n + 3
+slider n: 0, 10, 4
+# endregion
+
+# region: explain
+widget: formula
+formula: T = 2n + 3
+slider n: 0, 10, 4
+# endregion
