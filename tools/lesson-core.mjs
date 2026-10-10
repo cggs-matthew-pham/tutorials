@@ -47,7 +47,7 @@ export const MAKECODE_EXTENSIONS = {
   // ml: micro:bit CreateAI's Machine Learning blocks with practice actions (still, walking, running, jumping, waving,
   // clapping) from this repo's makecode-ext/ml-events (a nested GitHub extension, pinned by the commit that last changed it: this sandbox can't push tags), so lessons can use the
   // blocks and the ML simulator panel without a trained model. It brings machine-learning in as its dependency.
-  ml: { name: 'waypoints-ml-events', version: 'github:edu-matthew-pham/waypoints-tutorials/makecode-ext/ml-events#138b5b2de8df62ae000535e6b29628dcfefde685', target: 'microbit', wide: true, noSimPicture: true },
+  ml: { name: 'waypoints-ml-events', version: 'github:cggs-matthew-pham/tutorials/makecode-ext/ml-events#9d016cb3d6bbef4e344f9066d477a9f4fbcc4382', target: 'microbit', wide: true, noSimPicture: true },
 };
 /** The extension settings a lesson uses (known keys only). */
 export const makecodeExtensions = (lesson) => (Array.isArray(lesson?.extensions) ? lesson.extensions : []).map((k) => MAKECODE_EXTENSIONS[k]).filter(Boolean);

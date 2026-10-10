@@ -39,9 +39,9 @@ Open `dist/index.html`.
 
 ## Publish on GitHub Pages
 
-1. Push this repo to GitHub.
-2. Settings → Pages → Source: **GitHub Actions**.
-3. Push to `main`. `.github/workflows/pages.yml` validates, renders and deploys.
+1. Settings → Pages → Source: **Deploy from a branch**, `gh-pages`, root.
+2. Push to `main` (this runs nothing by itself).
+3. Actions → **Build and publish (manual)** → Run workflow. `.github/workflows/publish.yml` validates, reuses what is live, records and draws the rest, and pushes the built site to `gh-pages`.
 
 A clip whose `expect` fails fails the build, so a published lesson cannot silently drift
 from the code it teaches.
