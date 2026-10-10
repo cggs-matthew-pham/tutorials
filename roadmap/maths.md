@@ -23,12 +23,32 @@ Board widget `numberline` (AUTHORING › 11): fixed, dragged and slider-followin
 
 Board widget `geometry` (AUTHORING › 11): a triangle or polygon on a dot grid, draggable corners, live interior angles rounded so they add to the exact total, Tear off the corners (triangle), Split into triangles from A (convex polygons), presets, More/Fewer sides. Built as its own widget on JSXGraph rather than a preset of `graph` (no axes, square grid, its own values). Course `maths/angles` (pathway id `angles-shapes`), unit Angle sums: 1. Angles in a triangle (7M05 n1), 2. Angles in a polygon (7M05 n2), on the Relationship template (predict, explore, explain why, vary, practise, make). Teacher notes, primer, voiced clips (21 s and 22 s), pictures; misconceptions `angle-sum-size`, `polygon-centre-angles`. Every check passes headless.
 
+## Done: keyboard moves, reference cards, fractions on the line (11 Oct 2026)
+
+- **Keyboard:** the number line and geometry boards have a **Move** row (pick a point, then arrow buttons or keys), so dragged points work without a pointer and clips can press `Move P left`.
+- **Reference cards:** maths cards now come from `snippets/maths.json` plus one `snippets/maths-<name>.json` per course (shared.md has the tool change). Number Foundations (9 cards) and Angles and shapes (5 cards) have Reference pages and filled cheat sheets.
+- **AC9M7N04 n3:** new unit Fractions and decimals in Number Foundations, lesson 3 *Fractions and decimals on the line* (positive and negative fractions, decimals and mixed numerals; quarters, tenths, a line without zero in the middle; misconception `negative-decimal-direction`). Node 2 (conversions) is assumed taught in class and retrieved with a quick check. The number line board gained `fractions: 4` (readouts as mixed numerals with the decimal).
+- The Algebra pathway text no longer says Linear relations is being built.
+
+## Proposed: form checks on WPM (prototype run 11 Oct 2026; decision pending)
+
+The plan named two ways to check that an answer is in a required form (expanded, factorised, simplified, a formula's subject): Numbas's JME with pattern matching, or math.js plus our own rules. A third came out of the prototype: the same rules on the parse tree WPM already builds. All three were run on 35 answers to 11 Year 8–10 tasks (expand and simplify, factorise including negatives and a quadratic, collect like terms, index laws, change the subject), then 12 harder ones.
+
+| | Numbas JME | math.js + our rules | Our rules on WPM's tree |
+|---|---|---|---|
+| 35 main answers | 35/35 (after making `=` order matter) | 35/35 (after reading x(…) as a product) | 35/35 |
+| 12 harder answers | 9/12: missed 6(x + 3/2), 2x(x + 2), (x + 3)² | 12/12 (after allowing (x + 3)²) | 12/12 |
+| Added download | about 430 KB minified (120 KB gzipped) plus an English locale | about 320 KB (90 KB gzipped), parser only | about 3 KB (1 KB gzipped) |
+| Feedback | "like terms or powers not collected" (could be split per rule set) | names the slip: brackets left, like terms not collected, powers not combined, numbers not multiplied, common factor left in a bracket | same as math.js |
+| Notes | patterns are compact but subtle (commutative `=`); reads vt as one name | reads x(…) as a function call unless fixed | same parser as the equivalence check; reads vt as v × t |
+
+Recommendation: our rules on WPM's tree (about 90 lines), behind the `form` slot the boards plan reserved. Prototypes and cases are in the session scratchpad, not the repo. Next, once agreed: `answer` checks take `form: expanded | factorised | simplified | subject x`, then the line-by-line working check, then Year 8 expanding (AC9M8A01 n1) with an algebra tiles board.
+
 ## Still to do
 
 - **Publish and listen:** the four new clips record with the real voice on the next manual publish.
 - **Try with classes:** all four new lessons, and whether students use the sliders or drag.
 - **Year 8 integers:** Linear relations multiplies negatives (2(−1), −10 × 12), which is Year 8 Number. Needs that descriptor's page (code to confirm) and a lesson, or `assumes:`.
-- **Next nodes:** AC9M7M05 n3 (unknown angles with reasons) needs the AC9M7M04 page (angles with parallel lines) first; AC9M7N04 n3 (fractions and decimals on a number line) can reuse `numberline` with `snap: 0.5` or `0.1`.
-- **Reference cards** for Number Foundations and Angles and shapes (their cheat sheets currently say the unit has no new words; `snippets/maths.json` serves one course).
-- **Keyboard access:** dragged points (numberline Modify and Make, all geometry corners) need a pointer; slider points and preset buttons work from the keyboard. A keyboard way to move a corner is worth adding.
-- The Algebra pathway's `about:` still says Linear relations' first lessons are being built.
+- **Next nodes:** AC9M7M05 n3 (unknown angles with reasons) needs the AC9M7M04 page (angles with parallel lines) first.
+- **Reference cards for Linear relations** (it has none yet).
+- **Keyboard access on the graph board:** its dragged points still need a pointer (the Move row could be reused there).
