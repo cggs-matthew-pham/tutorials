@@ -21,3 +21,24 @@ A **force** is a push or a pull. It has a **size** (in newtons, N) and a **direc
 - Balanced means no forces.
 - Heavier objects fall faster (without air resistance, all fall together).
 - Mass and weight are the same thing; weight is measured in kilograms.
+
+## Class task: force, mass and motion (node 5)
+
+Node 5 brings the unit together, so it is a class task, not a tutorial. The checkpoint: students can say which of two objects speeds up more under the same force, and read the pattern in force data.
+
+**Investigation (about 30 minutes).** Pull a trolley along the bench with a stretched rubber band (one band, then two side by side) and time it over 1 m from rest; then add a mass to the trolley and repeat. Keep the surface, distance and starting point the same. Groups record the time for each run and say what changed.
+
+**Predict first.** "The same rubber band pulls an empty trolley and a loaded one. Which speeds up more?" (The empty one: same force, less mass, bigger change in motion.)
+
+**Data to read** (example figures, not real measurements): time to roll 1 m from rest.
+
+| Trolley | One band | Two bands |
+|---|---|---|
+| Empty (0.5 kg) | 1.4 s | 1.0 s |
+| Loaded (1.0 kg) | 2.0 s | 1.4 s |
+
+Questions: Which pull changed the motion most quickly, and how can you tell? What did adding mass do? Which two runs are the fairest test of mass alone? (The same column.) Why do two bands on the loaded trolley match one band on the empty one?
+
+**Success criteria (from the progression):** states the relationship in words (a bigger unbalanced force gives a bigger change in motion; a bigger mass gives a smaller change for the same force); predicts which object speeds up more under the same force; identifies the pattern in data. Keep it qualitative: F = ma waits for Year 10.
+
+**Watch for:** "heavier objects need a force to keep moving" (from node 2), and mixing up mass and weight (node 4) when students explain why the loaded trolley is slower.

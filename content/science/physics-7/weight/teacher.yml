@@ -29,7 +29,7 @@ stuck:
 stretch: "Bathroom scales show kilograms. What are they really measuring, and why would they be wrong on the Moon?"
 support: "Give a two-column card: Mass (kg, matter, same everywhere) and Weight (N, force, depends on g)."
 leads: |
-  Next: relating force, mass and motion (node 5). In Year 10, F = ma uses mass, not weight.
+  Next: relating force, mass and motion (node 5), a class task in the unit primer. In Year 10, F = ma uses mass, not weight.
 
   In class: newton meters and 100 g masses (about 1 N each); the Apollo 15 hammer and feather video.
 exit:

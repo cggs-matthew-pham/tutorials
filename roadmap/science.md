@@ -2,15 +2,29 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: model checks and Year 7 forces node 3 (11 Oct 2026, science chat)
+
+Plan approved 11 Oct; each item pushed to `main` (source only). Year 7 node text came from the AC9S7U04 progression page Matthew pasted (the kit is unreachable).
+
+1. **Plates** (`earth-8/plates`): Explore opens with a one-question convection recap (warm fluid rises because it is less dense; feedback for "heat rises" and "hot is heavier"); teacher notes name the dependency on Year 9 Heat transfer and Year 7 density.
+2. **Model-check review of the leads.** Heat transfer (`physics-9`): new Explain question, why the heated water rises, with feedback that names the board's push-up shortcut. Redshift (`earth-10`): Explore opens with a "Reading a spectrum" recap (wavelength, dark lines, stretched light); teacher note: assumes Year 9 waves. Photosynthesis needs no lesson change: the Year 8 Cell parts board introduces chloroplasts (photosynthesis), Year 7 Energy flow has producers capturing sunlight, and Carbon and living things teaches it itself; Cell parts' revision summary now names it.
+3. **New lesson `physics-7/unbalanced`** (AC9S7U04 n3, order 3; Weight moves to 4): a steady push slows, stops and reverses a puck on ice (`forces`, `when: t >= 1 and v < 0`); Explain widens "change in motion" to starting, stopping, reversing and turning, with a force-diagram question; Typical starts a box from rest against friction; Wider: a fair test and the spearthrower. Every check passes in a headless run; decks fit.
+4. **Node 5 as a class task**, not a tutorial (the kit marks it an integration point): `physics-7/primers/forces.md` › Class task (rubber-band trolleys, predict, an example data table, success criteria from the progression).
+
+**Still open from this pass**
+- **Redshift spectrum (needs a decision):** the `universe` widget draws the shift 20 times bigger, so for most galaxies (above roughly 100 million light-years) every dark line runs off the red end and the "This galaxy" row shows no lines at all. The new recap asks students to compare line positions. Proposed fix: draw it 5 times bigger (the farthest galaxy, z ≈ 0.12, keeps two lines), and change "20 times" in the widget text, `earth-10/redshift/teacher.yml`, `earth-10/primers/universe.md` and AUTHORING (one line). Not done: the widget is on the shared board and was outside the plan.
+- **Science node tags:** the maths chat built the node check (`shared.md`). Science opts in by adding `data/progressions/science/` pages, `node:` on its lessons and itself to `CHECKED`; AC9S7U04 is ready to save from the pasted page. Needs the other science progression pages.
+- Explain clips for science (gap noted above), populations engine, the remaining Years 8–10 nodes: unchanged.
+
 ## Planned: prerequisite checks and model checks (decided 11 Oct 2026, not built)
 
 The code-style scan does not carry over: maths and science have no code to scan, and their tutorials sit beside class teaching. Checked against the repo: no lesson has a `node:` field (the node is named only in `teacher.yml` summaries, such as Plates "AC9S8U03, node 2"), and the repo holds no progression data (`prior_knowledge` lives in waypoints-kit and no build step reads it). 55 science and 19 maths lessons.
 
 - **Science:** the risk is less a missing lesson than a model students hold in a different form (distance causes seasons; convection without density). So the main check is in the lesson: the Engage prediction must test the model this lesson relies on, with wrong options tied to its misconceptions, and the teacher notes name the model's simplifications. The node graph (as for maths) only flags big gaps between lessons. Gaps inside a lesson still need a manual review.
 - **Science:** both kinds of gap matter. Between lessons, dependencies inside a strand are strong (the node graph catches them). Inside a lesson, the bigger risk is a model held in a different form (distance causes seasons; convection without density), so the Engage prediction should test the model the lesson relies on, with wrong options tied to its misconceptions, and the teacher notes name the model's simplifications (a review question, not a hard rule).
-- **Found already:** Year 8 Plates (`earth-8/plates`, AC9S8U03 n2) relies on convection, which the tutorials teach in Year 9 (`physics-9/heat-transfer`). Fix in Plates (a short convection recap with density) or mark `assumes:` with a teacher note.
+- **Found already (fixed 11 Oct, see Done above):** Year 8 Plates (`earth-8/plates`, AC9S8U03 n2) relies on convection, which the tutorials teach in Year 9 (`physics-9/heat-transfer`). Fix in Plates (a short convection recap with density) or mark `assumes:` with a teacher note.
 
-Leads for the first science review (from a text search, not yet checked against the lessons or the kit): Year 8 *Plates* relies on convection, taught in Year 9 *Heat transfer*; "warm fluid rises because it is less dense" relies on density from Year 7 *Properties*; Year 10 *Redshift* uses wavelength and spectra, which no science lesson introduces; Year 8 *Organs* and *Specialised* and Year 9 *Carbon and living things* assume photosynthesis.
+Leads for the first science review (checked and resolved 11 Oct, see Done above): Year 8 *Plates* relies on convection, taught in Year 9 *Heat transfer*; "warm fluid rises because it is less dense" relies on density from Year 7 *Properties*; Year 10 *Redshift* uses wavelength and spectra, which no science lesson introduces; Year 8 *Organs* and *Specialised* and Year 9 *Carbon and living things* assume photosynthesis.
 
 Related gap (11 Oct): none of the 55 science lessons has an `explainClip`, `explainPicture` or `voice:` yet. The 38 on the shared board can follow the voiced maths pattern; the 17 on the science board (`playground-science/`) may need recorder support first.
 
