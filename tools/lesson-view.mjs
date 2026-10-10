@@ -161,7 +161,7 @@ details.insights{margin:10px 0}
 details.teachers{margin:28px 0 0;border:1px solid var(--line);border-radius:8px;padding:0 16px}
 details.teachers summary{cursor:pointer;font-weight:600;padding:12px 0}
 details.teachers h3{font-size:1rem;margin:16px 0 4px}.tguide{background:color-mix(in srgb,var(--accent) 8%,transparent);border-radius:8px;padding:8px 12px}
-.xbtn{flex:none;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13px;font-weight:600;color:var(--investigate);border:1px solid var(--investigate);background:var(--card);padding:4px 11px 4px 5px;border-radius:99px;cursor:pointer}.xbtn b{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--investigate);color:#fff;font-size:12px}.xbtn[aria-expanded=true]{box-shadow:inset 0 0 0 1px var(--investigate)}.xdrawer{position:fixed;z-index:40;right:0;top:var(--nav,0px);bottom:0;width:min(520px,100vw);overflow:auto;background:var(--card);border-left:1px solid var(--line);box-shadow:-8px 0 24px rgba(0,0,0,.12);padding:0 20px 24px}.xd-head{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);padding:14px 0 10px;border-bottom:1px solid var(--line);margin-bottom:12px}.xd-head h2{margin:0;font-size:1.1rem;color:var(--investigate)}.xd-close{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 10px;cursor:pointer}.xd-wait{margin:8px 0;padding:10px 14px;border-left:4px solid var(--predict,#7c3aed);background:var(--bg);border-radius:4px}.xd-body video{max-width:100%}details.explain{margin:12px 0 4px;border:1px solid var(--line);border-left:4px solid var(--investigate);border-radius:8px;padding:0 16px;background:var(--card)}details.explain summary{cursor:pointer;font-weight:600;padding:10px 0;color:var(--investigate)}
+.xbtn{flex:none;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13px;font-weight:600;color:var(--investigate);border:1px solid var(--investigate);background:var(--card);padding:4px 11px 4px 5px;border-radius:99px;cursor:pointer}.xbtn b{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--investigate);color:#fff;font-size:12px}.xbtn[aria-expanded=true]{box-shadow:inset 0 0 0 1px var(--investigate)}.xdrawer{position:fixed;z-index:40;right:0;top:var(--nav,0px);bottom:0;width:min(520px,100vw);overflow:auto;background:var(--card);border-left:1px solid var(--line);box-shadow:-8px 0 24px rgba(0,0,0,.12);padding:0 20px 24px}.xd-head{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);padding:14px 0 10px;border-bottom:1px solid var(--line);margin-bottom:12px}.xd-head h2{margin:0;font-size:1.1rem;color:var(--investigate)}.xd-close{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 10px;cursor:pointer}.xpop{position:fixed;z-index:41;max-width:min(300px,calc(100vw - 32px));margin:0;padding:9px 13px;font-size:14px;line-height:1.4;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--predict,#7c3aed);border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.14)}.xd-body video{max-width:100%}details.explain{margin:12px 0 4px;border:1px solid var(--line);border-left:4px solid var(--investigate);border-radius:8px;padding:0 16px;background:var(--card)}details.explain summary{cursor:pointer;font-weight:600;padding:10px 0;color:var(--investigate)}
 .hook{margin:0 0 16px;padding:8px 14px;border-left:4px solid var(--c,#2563eb);background:rgba(37,99,235,.07);border-radius:4px}
 details.reveal summary{cursor:pointer;font-weight:600;padding:12px 0;color:var(--c)}
 details.reveal[open] summary{border-bottom:1px solid var(--line);margin-bottom:6px}
@@ -684,7 +684,7 @@ export function lessonPageHtml(lesson, deps) {
   const hasExplain = !!(T?.explain || explainClip);
   const explainBtn = hasExplain ? `<button type="button" class="xbtn" aria-controls="xdrawer" aria-expanded="false" title="Explain it to me"><b aria-hidden="true">?</b><span>Explain</span></button>` : '';
   const explainHtml = hasExplain ? `<aside id="xdrawer" class="xdrawer" hidden aria-labelledby="xd-title"><div class="xd-head"><h2 id="xd-title">Explain it to me</h2><button type="button" class="xd-close">Close</button></div>` +
-    `<p class="xd-wait" hidden>Make your prediction first. Help opens once you've locked it in.</p><div class="xd-body">${explainClip}${T?.explain ? md.parse(T.explain) : ''}${explainPic}</div></aside><script>${EXPLAIN_JS}</script>` : '';
+    `<div class="xd-body">${explainClip}${T?.explain ? md.parse(T.explain) : ''}${explainPic}</div></aside><p class="xpop" role="status" hidden>Make your prediction first. Help opens once you've locked it in.</p><script>${EXPLAIN_JS}</script>` : '';
 
   const mathsHead = isMaths ? `<link rel="stylesheet" href="${esc(siteRoot)}_katex/katex.min.css"><style>${MATHS_CSS}</style>` : '';
   return page(lesson.title, `
@@ -702,15 +702,17 @@ ${source ? `<footer>Source: <code>${esc(source)}</code></footer>` : ''}${mk ? `<
 }
 
 // The Explain it to me drawer: opened by the "?" in the step bar; held back until the first Predict is locked in.
-const EXPLAIN_JS = `(function(){var d=document.getElementById('xdrawer'),b=document.querySelector('.xbtn');if(!d||!b)return;
-var w=d.querySelector('.xd-wait'),body=d.querySelector('.xd-body');
+const EXPLAIN_JS = `(function(){var d=document.getElementById('xdrawer'),b=document.querySelector('.xbtn'),pop=document.querySelector('.xpop');if(!d||!b)return;var tm,y0=0;
 function locked(){var pc=document.querySelector('.check[data-type="predict"]'),pk=pc&&pc.dataset.key;if(!pk)return true;try{var p=JSON.parse(localStorage.getItem('wp-predict'))||{};return p[pk]!==undefined&&p[pk]!==null}catch(e){return true}}
-function sync(){var ok=locked();w.hidden=ok;body.hidden=!ok}
-function open(){sync();d.hidden=false;b.setAttribute('aria-expanded','true');d.querySelector('.xd-close').focus()}
+function hidePop(){if(pop)pop.hidden=true;clearTimeout(tm)}
+function showPop(){if(!pop)return;var r=b.getBoundingClientRect();y0=window.scrollY;pop.hidden=false;pop.style.top=(r.bottom+8)+'px';pop.style.left=Math.max(16,Math.min(r.left,window.innerWidth-pop.offsetWidth-16))+'px';clearTimeout(tm);tm=setTimeout(hidePop,4000)}
+function open(){hidePop();d.hidden=false;b.setAttribute('aria-expanded','true');d.querySelector('.xd-close').focus()}
 function shut(){d.hidden=true;b.setAttribute('aria-expanded','false');[].forEach.call(d.querySelectorAll('video'),function(v){v.pause()})}
-b.addEventListener('click',function(){d.hidden?open():shut()});d.querySelector('.xd-close').addEventListener('click',function(){shut();b.focus()});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!d.hidden){shut();b.focus()}});
-document.addEventListener('wp-predict',function(){if(!d.hidden)sync()});})();`;
+b.addEventListener('click',function(e){e.stopPropagation();if(!d.hidden)return shut();if(!locked())return pop&&!pop.hidden?hidePop():showPop();open()});
+d.querySelector('.xd-close').addEventListener('click',function(){shut();b.focus()});
+document.addEventListener('click',function(e){if(pop&&!pop.hidden&&e.target!==pop)hidePop()});
+window.addEventListener('scroll',function(){if(pop&&!pop.hidden&&Math.abs(window.scrollY-y0)>60)hidePop()},{passive:true});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){hidePop();if(!d.hidden){shut();b.focus()}}});})();`;
 
 export const PLAYGROUNDS = {
   turtle: { dir: '_playground', title: 'Python turtle playground' },
