@@ -1,0 +1,22 @@
+{
+  "_about": "Cases for npm run check-forms (tools/check-forms.mjs): for each task, the expected answer and student answers with whether they should be marked right, and for wrong ones the message key (brackets, terms, powers, numbers, product, whole, hcf, subject, equivalent). Add a case whenever a real answer is marked wrongly.",
+  "cases": [
+    { "form": "expanded", "expected": "5x + 12", "task": "Expand and simplify 3(2x + 4) − x", "answers": [["5x + 12", true], ["12 + 5x", true], ["5x+12", true], ["6x + 12 - x", false, "terms"], ["3(2x + 4) - x", false, "brackets"], ["5x + 11", false, "equivalent"], ["6x+12−x", false, "terms"]] },
+    { "form": "expanded", "expected": "-2x + 10", "task": "Expand −2(x − 5)", "answers": [["-2x + 10", true], ["10 - 2x", true], ["-2(x - 5)", false, "brackets"], ["-2x - 10", false, "equivalent"], ["-(2x - 10)", false, "brackets"]] },
+    { "form": "expanded", "expected": "5x + 3", "task": "Expand and simplify 2(x + 3) + 3(x − 1)", "answers": [["5x + 3", true], ["2x + 6 + 3x - 3", false, "terms"], ["5x + 9 - 6", false, "numbers"]] },
+    { "form": "expanded", "expected": "x^2 + 5x + 6", "task": "Expand (x + 2)(x + 3)", "answers": [["x^2 + 5x + 6", true], ["x² + 5x + 6", true], ["6 + 5x + x^2", true], ["x^2 + 2x + 3x + 6", false, "terms"], ["x(x + 3) + 2(x + 3)", false, "brackets"], ["xx + 5x + 6", false, "powers"]] },
+    { "form": "expanded", "expected": "6x^2 - 3x", "task": "Expand 3x(2x − 1)", "answers": [["6x^2 - 3x", true], ["-3x + 6x^2", true], ["3x*2x - 3x", false, "powers"], ["6x^2 - 3", false, "equivalent"]] },
+    { "form": "simplified", "expected": "2a + 6b", "task": "Simplify 3a + 2b − a + 4b", "answers": [["2a + 6b", true], ["6b + 2a", true], ["3a - a + 6b", false, "terms"], ["2a + 2b + 4b", false, "terms"]] },
+    { "form": "simplified", "expected": "x^7", "task": "Simplify x³ × x⁴", "answers": [["x^7", true], ["x^3 x^4", false, "powers"], ["x^12", false, "equivalent"]] },
+    { "form": "simplified", "expected": "6ab", "task": "Simplify 2a × 3b", "answers": [["6ab", true], ["6ba", true], ["2*3ab", false, "numbers"]] },
+    { "form": "factorised", "expected": "3(2x + 3)", "task": "Factorise 6x + 9", "answers": [["3(2x + 3)", true], ["(2x + 3)3", true], ["3(3 + 2x)", true], ["6(x + 1.5)", false, "whole"], ["6(x + 3/2)", false, "whole"], ["3(2x) + 9", false, "product"], ["6x + 9", false, "product"], ["3(2x + 9)", false, "equivalent"]] },
+    { "form": "factorised", "expected": "4(3x - 2)", "task": "Factorise 12x − 8", "answers": [["4(3x - 2)", true], ["-4(2 - 3x)", true], ["2(6x - 4)", false, "hcf"], ["12x - 8", false, "product"]] },
+    { "form": "factorised", "expected": "-3(2x + 3)", "task": "Factorise −6x − 9", "answers": [["-3(2x + 3)", true], ["3(-2x - 3)", true], ["-(6x + 9)", false, "hcf"]] },
+    { "form": "factorised", "expected": "2x(x + 2)", "task": "Factorise 2x² + 4x", "answers": [["2x(x + 2)", true], ["x(2x + 4)", false, "hcf"], ["2(x^2 + 2x)", false, "hcf"]] },
+    { "form": "factorised", "expected": "(x + 2)(x + 3)", "task": "Factorise x² + 5x + 6", "answers": [["(x + 2)(x + 3)", true], ["(x + 3)(x + 2)", true], ["x(x + 5) + 6", false, "product"]] },
+    { "form": "factorised", "expected": "(x + 3)^2", "task": "Factorise x² + 6x + 9", "answers": [["(x + 3)^2", true], ["(x + 3)(x + 3)", true]] },
+    { "form": "factorised", "expected": "5(a + 2b)", "task": "Factorise 5a + 10b", "answers": [["5(a + 2b)", true], ["5(2b + a)", true], ["5a + 10b", false, "product"]] },
+    { "form": "subject d", "expected": "d = vt", "task": "Make d the subject of v = d/t", "answers": [["d = vt", true], ["d = tv", true], ["d=v*t", true], ["vt = d", false, "subject"], ["d/t = v", false, "subject"], ["d = v/t", false, "equivalent"]] },
+    { "form": "subject w", "expected": "w = (P - 2l)/2", "task": "Make w the subject of P = 2l + 2w", "answers": [["w = (P - 2l)/2", true], ["w = P/2 - l", true], ["2w = P - 2l", false, "subject"], ["w = P - 2l/2", false, "equivalent"]] }
+  ]
+}

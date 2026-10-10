@@ -446,6 +446,16 @@ Vary, Practise, Make).
   `equation: { x: 6 }` instead passes any equation that value makes true (for Make tasks). `feedback:` is a list of
   `[wrong answer, what to say]` pairs for planted misconceptions; validate rejects feedback that is the right answer.
   Equivalence is tested by evaluating at several values (`tools/math-expr.mjs`), so it handles algebra like `2(x + 1)`.
+- **`form:` on an `answer` check** (Years 8 and up): the answer must be equivalent **and** written in a form:
+  `form: expanded` (no brackets left, nothing left to collect), `simplified` (nothing left to collect; brackets allowed),
+  `factorised` (a product, whole numbers, no common factor left in a bracket, numbers or letters) or `subject d` (`d = …`,
+  with d only on the left). `answer:` is the expected answer in that form. Students who write an equivalent answer in
+  another form are told the slip ("Collect the like terms", "Take out the highest common factor"); `feedback:` entries
+  may be equivalent on purpose (`["6x + 12 - x", "..."]`) and are matched by what was typed. An equivalent answer whose
+  form cannot be judged passes with a note. These checks are marked by Numbas (`vendor/numbas/`, loaded only on
+  lessons that have one; `tools/maths-forms.mjs`); validate runs the same code in Node, so every `answer:` must be in
+  its form and every `feedback:` answer must be marked wrong. `npm run check-forms` tests the forms
+  (`data/forms-cases.json`: add a case whenever a real answer is marked wrongly).
 - **`board` check:** ticks when the board reports what the check asks for, and never on the starting position. It
   needs `try: { playground: board, starter: file#region }` on the step (`maths` is the old name and still works).
   - `when:` a condition on the board's named values (any board with sliders or points): `"m = -1 and c = 2"`,

@@ -388,6 +388,10 @@ function tryIt(){var v=inp.value.trim();if(!v)return bad('Type your answer first
 try{if(box.dataset.equation){var vals=JSON.parse(box.dataset.equation),sd=WPM.sides(v);if(!sd)return bad('An equation needs one = sign, with something on each side.');
 var need=Object.keys(vals),used=WPM.vars(sd[0]).concat(WPM.vars(sd[1]));if(!need.some(function(n){return used.indexOf(n)>=0}))return bad('Use '+need.join(' and ')+' in your equation.');
 if(WPM.satisfies(v,vals))return win();var shown=need.map(function(n){return n+' = '+vals[n]}).join(', ');return bad('Not quite: when '+shown+', the two sides are not equal. Check each side.')}
+if(box.dataset.form){if(!window.WPF_READY)return bad('The checker did not load. Reload the page and try again.');msg.className='msg';msg.textContent='Checking...';return window.WPF_READY.then(function(F){var r=F.check(v,box.dataset.answer,box.dataset.form);if(r.ok){win();if(r.unsure){msg.textContent=r.why}return}
+if(!r.equivalent)for(var i=0;i<fb.length;i++){try{if(!F.check(String(fb[i][0]),v,'').equivalent)continue;return bad(fb[i][1])}catch(e){}}
+else{var nm=function(t){return String(t).replace(/[\\u2212\\u2013]/g,'-').replace(/[\\u00d7\\u00b7]/g,'*').replace(/\\s+/g,'')};for(var j=0;j<fb.length;j++){if(nm(fb[j][0])===nm(v))return bad(fb[j][1])}}
+bad(r.why)})}
 var a=WPM.splitAnswer(v).value;if(WPM.equivalent(a,box.dataset.answer))return win();
 for(var i=0;i<fb.length;i++){try{if(WPM.equivalent(a,String(fb[i][0])))return bad(fb[i][1])}catch(e){}}
 bad('Not quite. Check your working and try again.')}catch(e){bad(e.message)}}
@@ -504,7 +508,7 @@ export function checkHtml(lesson, step, names = {}, snippet = null, task = null,
     return `<div class="check" ${base} data-rules="${esc(JSON.stringify(k.rules))}"><p class="check-q">${esc(k.text)}</p><ul class="rules" aria-label="What your code needs"${mk ? ' hidden' : ''}></ul><p class="msg" aria-live="polite">${kind === 'html' ? 'This ticks when your page has all of the above.' : mk ? 'This ticks by itself when your blocks do what is asked.' : 'Run your program. This ticks when your code does all of the above.'}</p></div>`;
   }
   if (k.type === 'answer') {
-    const data = k.equation ? `data-equation="${esc(JSON.stringify(k.equation))}"` : `data-answer="${esc(String(k.answer))}"`;
+    const data = (k.equation ? `data-equation="${esc(JSON.stringify(k.equation))}"` : `data-answer="${esc(String(k.answer))}"`) + (k.form !== undefined ? ` data-form="${esc(String(k.form))}"` : '');
     return `<div class="check" ${base} ${data} data-feedback="${esc(JSON.stringify(k.feedback || []))}"><p class="check-q">${tx(k.q)}</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="${k.equation ? 'for example 2x = 10' : 'Your answer'}"></label><button type="button">Check answer</button>${msg}</div>`;
   }
   if (k.type === 'board') {
@@ -566,6 +570,8 @@ export function lessonPageHtml(lesson, deps) {
   const { Marked, highlightCode, snippet, clipHtml, tryHtml, crumb, source, snippetNames, course = null, siteRoot = '', siteNavHtml = '', teacherGuide = '', expectedHtml = () => '', pictureHtml = () => '', maths = null, blocksPicture = () => null } = deps;
   // Maths lessons: $...$ is rendered at build time (deps.maths, from tools/maths.mjs). Without it (the create page) it stays text.
   const isMaths = lesson.language === 'maths' && !!maths;
+  // Answer checks with form: are marked by Numbas, loaded only on lessons that have one (tools/maths-forms.mjs).
+  const hasForms = isMaths && lesson.steps.some((s) => [s.config.check, ...s.tasks.map((t) => t.config.check)].some((k) => k?.type === 'answer' && k.form !== undefined));
   const tx = isMaths ? (t) => maths.textWithMath(t, esc) : esc;
   // MakeCode lessons show display code as a picture of the blocks (see makecodeBlock).
   const mk = lesson.language === 'makecode';
@@ -698,7 +704,7 @@ ${explainHtml}
 ${steps}${tiered ? `<script>${WIDTH_JS}</script>` : ''}
 ${teachersHtml}
 ${nextCard}
-${source ? `<footer>Source: <code>${esc(source)}</code></footer>` : ''}${mk ? `<style>${MAKECODE_CSS}</style>` : ''}`, (siteRoot ? `<script src="${esc(siteRoot)}progress.js" data-root="${esc(siteRoot)}" defer></script>` : '') + (mk ? `<script>${MAKECODE_JS}</script>` : ''), siteNavHtml);
+${source ? `<footer>Source: <code>${esc(source)}</code></footer>` : ''}${mk ? `<style>${MAKECODE_CSS}</style>` : ''}`, (siteRoot ? `<script src="${esc(siteRoot)}progress.js" data-root="${esc(siteRoot)}" defer></script>` : '') + (mk ? `<script>${MAKECODE_JS}</script>` : '') + (hasForms && maths.forms ? `<script src="${esc(siteRoot)}${esc(maths.forms.src)}" defer></script><script>${maths.forms.js}</script>` : ''), siteNavHtml);
 }
 
 // The Explain it to me drawer: opened by the "?" in the step bar; held back until the first Predict is locked in.

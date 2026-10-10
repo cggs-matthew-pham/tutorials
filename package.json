@@ -8,6 +8,7 @@
     "concepts": "node tools/concepts.mjs --report",
     "nodes": "node tools/progressions.mjs --report",
     "check-nodes": "node tools/check-progressions.mjs",
+    "check-forms": "node tools/check-forms.mjs",
     "check-concepts": "node tools/check-concepts.mjs",
     "build:playground": "node tools/build-playground.mjs",
     "render": "node tools/build-playground.mjs && node tools/render-pictures.mjs && node tools/render.mjs",

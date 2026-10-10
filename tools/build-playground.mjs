@@ -153,6 +153,15 @@ export function buildKatex(out = 'dist') {
   return dest;
 }
 
+/** Numbas's JME runtime (vendor/numbas, Apache-2.0) for maths answer checks with form:, loaded only by lessons that use them. */
+export function buildNumbas(out = 'dist') {
+  const dest = join(out, '_numbas');
+  rmSync(dest, { recursive: true, force: true });
+  mkdirSync(dest, { recursive: true });
+  for (const f of ['numbas-jme.min.js', 'LICENSE', 'VERSION']) copyFileSync(join(root, 'vendor', 'numbas', f), join(dest, f));
+  return dest;
+}
+
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const out = process.argv.includes('--out') ? process.argv[process.argv.indexOf('--out') + 1] : 'dist';
   console.log('Playground built into ' + buildPlayground(out));

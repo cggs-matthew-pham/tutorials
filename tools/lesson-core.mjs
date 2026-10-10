@@ -444,11 +444,16 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
       if (!str(k.q)) err(where, 'check (answer) needs q');
       const hasA = k.answer !== undefined && k.answer !== null && String(k.answer).trim() !== '';
       if (hasA === (k.equation !== undefined)) err(where, 'check (answer) needs exactly one of answer: (an expression or number) or equation: (values, such as { x: 6 })');
-      if (hasA) { try { MATH.parse(String(k.answer)); } catch (e) { err(where, `check (answer) answer "${k.answer}": ${e.message}`); } }
+      // form: (expanded, simplified, factorised, subject x) is marked by Numbas (tools/maths-forms.mjs); validate.mjs
+      // checks its answer and feedback in Node, since a wrong-form feedback answer is equivalent on purpose.
+      const formed = k.form !== undefined;
+      if (formed && !(['expanded', 'simplified', 'factorised'].includes(String(k.form)) || /^subject [a-zA-Z]$/.test(String(k.form)))) err(where, 'check (answer) form must be expanded, simplified, factorised or subject x (a letter)');
+      if (formed && !hasA) err(where, 'check (answer) with form needs answer: (the expected answer in that form)');
+      if (hasA && !formed) { try { MATH.parse(String(k.answer)); } catch (e) { err(where, `check (answer) answer "${k.answer}": ${e.message}`); } }
       if (k.equation !== undefined && !(k.equation && typeof k.equation === 'object' && !Array.isArray(k.equation) && Object.entries(k.equation).length && Object.entries(k.equation).every(([n, v]) => /^[a-zA-Z]$/.test(n) && typeof v === 'number'))) err(where, 'check (answer) equation must map one-letter variables to numbers, such as { x: 6 }');
       if (k.feedback !== undefined) {
         if (!Array.isArray(k.feedback) || !k.feedback.every((f) => Array.isArray(f) && f.length === 2 && str(String(f[0])) && str(f[1]))) err(where, 'check (answer) feedback must be a list of [wrong answer, what to say] pairs');
-        else for (const [w] of k.feedback) { try { MATH.parse(String(w)); if (hasA && MATH.equivalent(String(w), String(k.answer))) err(where, `check (answer) feedback "${w}" is the right answer`); } catch (e) { err(where, `check (answer) feedback "${w}": ${e.message}`); } }
+        else if (!formed) for (const [w] of k.feedback) { try { MATH.parse(String(w)); if (hasA && MATH.equivalent(String(w), String(k.answer))) err(where, `check (answer) feedback "${w}" is the right answer`); } catch (e) { err(where, `check (answer) feedback "${w}": ${e.message}`); } }
       }
     }
     else if (k.type === 'board') {

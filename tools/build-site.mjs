@@ -16,9 +16,10 @@ import { lessonPageHtml, tryEmbed, esc, titleCase, page, codeBlock, siteNav, NAV
 import { readFileSync } from 'node:fs';
 import { snippetId, unlockKind, pictureSpec, usesBoardPictures, makecodePackage, makecodeExtensions, captionText } from './lesson-core.mjs';
 import { loadLessons, validateLesson, getSnippet, loadDirMeta, loadSnippetFiles, loadSharedModules, CONTENT_ROOT } from './lesson.mjs';
-import { buildPlayground, buildHtmlPlayground, buildMathsPlayground, buildSciencePlayground, buildKatex, buildMakecodePlayground, buildExplainStage } from './build-playground.mjs';
+import { buildPlayground, buildHtmlPlayground, buildMathsPlayground, buildSciencePlayground, buildKatex, buildNumbas, buildMakecodePlayground, buildExplainStage } from './build-playground.mjs';
 import { buildCreate } from './build-create.mjs';
 import { markedMath, textWithMath, workedHtml } from './maths.mjs';
+import { FORMS_JS, NUMBAS_VERSION } from './maths-forms.mjs';
 import { loadAllMathsCards, mathsRefItem, mathsCheatBody, mathsCheatMd, MATHS_CARD_CSS } from './maths-cards.mjs';
 import { deckFor, worksheetFor, cheatSheetFor, cheatSheetBody, unitSnippets, CHEAT_CSS, lessonGuideBody, teachPath, stepUrl, SITE_URL, TEACH_CSS, TEACH_JS, blocksId } from './teach.mjs';
 
@@ -119,7 +120,7 @@ function buildLesson(lesson, parentTitle, course) {
     source: `content/${lesson.slug}/lesson.md`,
     teacherGuide: lesson.teacher ? `${'../'.repeat(lesson.depth)}${teachPath(lesson)}` : '',
     siteNavHtml: navFor(lesson.slug, 'lesson', lesson.slug.split('/').slice(0, -1).join('/')),
-    maths: lesson.language === 'maths' ? { markedMath, textWithMath, workedHtml } : null,
+    maths: lesson.language === 'maths' ? { markedMath, textWithMath, workedHtml, forms: { js: FORMS_JS, src: `_numbas/numbas-jme.min.js?v=${NUMBAS_VERSION()}` } } : null,
   }));
 }
 
@@ -147,6 +148,7 @@ buildHtmlPlayground(OUT);
 await buildMathsPlayground(OUT);
 buildSciencePlayground(OUT);
 buildKatex(OUT);
+buildNumbas(OUT);
 buildMakecodePlayground(OUT);
 buildExplainStage(OUT);
 // Each playground's build stamp, added to the iframe URLs so a deploy is picked up at once.
