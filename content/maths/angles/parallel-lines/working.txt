@@ -1,0 +1,8 @@
+# Mia's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mia
+Mia looks at angles b and c.
+b and c are on opposite sides of the crossing line.
+So b and c are alternate angles.
+Alternate angles are equal, so b = c.
+# endregion

@@ -543,6 +543,15 @@ Vary, Practise, Make).
     - Values for checks: each corner's angle by its lower-case letter (`a`, `b`, `c`, …), `s` the total, `m` the largest
       angle, `n` sides, `k` triangles shown by split (else 0), `t` 1 while torn, `v` 1 if no corner points in; corners as
       points (`x(A)`). Examples: `"m > 120"`, `"m = 90"`, `"n = 5 and k = 3"`, `"n = 4 and v = 0"`, `"s = 1260"`.
+  - `widget: parallel` (first used by `maths/angles/parallel-lines`): two parallel lines (marked >>) crossed by a
+    transversal, with the eight angles a to h (upper crossing a above left, b above right, c below left, d below right;
+    lower crossing e to h the same). `slider t: 30, 150, 60` (or `t: 60`) turns the transversal (step 5 unless given);
+    optional `slider w: -20, 20, 0` tilts the lower line so the lines are not parallel. Students pick two angles (click
+    them, or the letter buttons) and the board names the pair and its rule. `angles: hidden` shows letters only;
+    `angles: given b` shows only b's size; `names: off` does not name the pair (students decide); `pair: c, f` starts
+    with two picked (for pictures). Values: `t`, `w`, `a` to `h` (sizes), `m` (angles picked), `r` (the picked pair:
+    1 corresponding, 2 alternate, 3 co-interior, 4 vertically opposite, 5 on a straight line, 6 alternate outside the
+    lines, 0 other), `s` (sum of the picked sizes), `p` (1 when parallel). Checks: `"r = 2"`, `"c = 65 and r = 3"`, `"c = e"`.
   - `widget: tiles` (first used by `maths/algebra/expanding`): algebra tiles for expanding `k(ax + b)`: k rows, each of a
     x-tiles and b unit tiles, with the bracket along the top and k down the side. Negative tiles are red with a minus;
     a negative k flips every tile. `slider k: -4, 5, 2`, `slider a`, `slider b` (whole numbers), or fixed values

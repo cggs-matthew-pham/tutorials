@@ -1,0 +1,86 @@
+# Parallel lines boards for "Finding angles with parallel lines". "angles: given x" shows only that angle's size.
+
+# region: run
+widget: parallel
+slider t: 30, 150, 60
+# endregion
+
+# region: explain
+widget: parallel
+t: 70
+# endregion
+
+# region: explain-pic
+widget: parallel
+t: 70
+pair: b, f
+# endregion
+
+# region: given-b
+widget: parallel
+t: 72
+angles: given b
+names: off
+# endregion
+
+# region: given-d
+widget: parallel
+t: 70
+angles: given d
+names: off
+# endregion
+
+# region: given-c
+widget: parallel
+t: 50
+angles: given c
+names: off
+# endregion
+
+# region: given-e
+widget: parallel
+t: 55
+angles: given e
+names: off
+# endregion
+
+# region: given-a
+widget: parallel
+t: 40
+angles: given a
+names: off
+# endregion
+
+# region: given-g
+widget: parallel
+t: 80
+angles: given g
+names: off
+# endregion
+
+# region: given-f
+widget: parallel
+t: 62
+angles: given f
+names: off
+# endregion
+
+# region: letters
+widget: parallel
+t: 60
+angles: hidden
+names: off
+# endregion
+
+# region: tilt-pic
+widget: parallel
+t: 60
+w: 15
+angles: given c
+names: off
+# endregion
+
+# region: make
+widget: parallel
+slider t: 30, 150, 60
+# endregion

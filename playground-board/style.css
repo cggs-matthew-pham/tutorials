@@ -257,3 +257,7 @@ button.clcard { cursor: pointer; }
 .jxgbox .tlab { font: italic 600 15px/1 "Times New Roman", serif; color: var(--ink); pointer-events: none; }
 .jxgbox .tside { font: 600 18px/1 system-ui, sans-serif; color: var(--ink); white-space: nowrap; }
 .tcount { margin: 4px 0 0; text-align: center; color: var(--muted); font: 14px system-ui, sans-serif; }
+/* parallel lines: pick two angles with the letter buttons */
+.pangles { justify-content: flex-start; align-items: center; flex-wrap: wrap; gap: 6px; margin: 6px 0; font: 13px system-ui, sans-serif; color: var(--muted); }
+.pangles button { min-width: 34px; font-style: italic; }
+.pangles button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }

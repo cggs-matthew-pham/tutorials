@@ -1,0 +1,46 @@
+summary: Students turn a transversal across two parallel lines, see that the same place at each crossing gives the same angle, and learn to name corresponding, alternate and co-interior pairs in any orientation, keeping them apart from vertically opposite angles (AC9M7M04, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can find corresponding, alternate and co-interior angles where a line crosses two parallel lines.
+  - I can tell these pairs apart from vertically opposite angles.
+  - I can explain that the names say where the angles are, and parallel lines make the pairs equal or add to 180°.
+before: |
+  Do the Run board and the Investigate board yourself first. Students need angles on a straight line and vertically opposite angles (Year 6).
+
+  The one idea: each pair takes one angle from each crossing, and the name says where they are (same place; between and opposite sides; between and same side). The common mistake is naming a pair at one crossing (vertically opposite) as alternate; it is planted after the names, in Mia's reasoning.
+
+  The boards in Investigate, Modify and Make do not name the pairs: students pick, and the check says whether the pair is right. F, Z and C shapes are given as memory aids only; the Modify board leans the other way so students do not rely on them.
+running:
+  - "Predict: take a show of hands. Students who chose 'one grows, the other shrinks' may be thinking of a and b (a straight line)."
+  - "Run: ask students to say why the bottom crossing looks like the top one (the lines go the same way)."
+  - "Investigate: draw the eight angles on the board and colour each pair as you name it. Ask: does each pair use both crossings?"
+  - "Modify: before the tilt task, ask what changes if the lines are not parallel. Let the board show it."
+  - "Make: collect the pairs students found and ask why only the pairs between the lines always work."
+stuck:
+  - see: "A student names b and c as alternate (Mia's mistake)."
+    ask: "Which crossing is each angle at?"
+    fix: "The parallel-line pairs take one angle from each crossing. b and c are vertically opposite."
+  - see: "A student mixes up alternate and co-interior."
+    ask: "Are both angles on the same side of the crossing line?"
+    fix: "Same side: co-interior (C). Opposite sides: alternate (Z)."
+  - see: "A student cannot find pairs when the diagram is turned."
+    ask: "Where are the parallel lines? Which angles are between them?"
+    fix: "Shade the band between the parallel lines first; alternate and co-interior angles are inside it."
+stretch: "Draw a diagram with three parallel lines and one transversal. How many corresponding pairs are there? (Each angle at the top crossing has two partners: 12 pairs.)"
+support: "Use the board with names on (the Run board): pick pairs and read the names before trying the boards without them."
+leads: |
+  Next: finding angles with parallel lines (node 2), which adds the rules: corresponding and alternate equal, co-interior add to 180°.
+
+  Where it leads: angle sums of triangles and polygons (the next unit), and geometric reasoning with reasons in Years 8 to 10.
+exit:
+  q: "Name the pair: (1) c and f, (2) b and f, (3) d and f, (4) a and d."
+  a: "(1) alternate, (2) corresponding, (3) co-interior, (4) vertically opposite."
+explain: |
+  A line crossing two **parallel** lines (a **transversal**) makes eight angles, $a$ to $h$. Each pair below takes one angle from each crossing:
+
+  - **corresponding**: the same place at each crossing, such as $a$ and $e$ (an F shape);
+  - **alternate**: between the parallel lines, on opposite sides of the transversal, such as $c$ and $f$ (a Z shape);
+  - **co-interior**: between the parallel lines, on the same side, such as $c$ and $e$ (a C shape).
+
+  Two angles at one crossing, opposite each other, are **vertically opposite**: not one of these pairs.

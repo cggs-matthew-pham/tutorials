@@ -77,9 +77,13 @@ AC9M8A01 n3: lesson 12, *Changing the subject*, completing AC9M8A01 in the Brack
 
 Every graph board with dragged points gets the Move row (a point picker, arrow buttons and arrow keys, steps of the snap); `drag y` and `drag x` points get only their own directions. Board clips re-record on the next publish anyway (the board playground changed).
 
+## Done: Parallel lines (11 Oct 2026)
+
+AC9M7M04 n1 and n2: a new first unit in Angles and shapes, Parallel lines, with *Angles at parallel lines* (naming corresponding, alternate and co-interior pairs; misconception `vertically-opposite-pair`) and *Finding angles with parallel lines* (the rules and reasons; misconception `co-interior-equal`). New board widget `parallel` (turn the transversal, tilt a line so it is not parallel, pick two angles; the board names the pair unless `names: off`). Angles in a triangle and Angles in a polygon move to orders 3 and 4. Six Reference cards (three with pictures) and a primer.
+
 ## Still to do
 
-- **Publish and listen:** the nine new clips (Number Foundations 4, Angles 2, Expanding brackets, Factorising, Changing the subject) record with the real voice on the next manual publish.
-- **Try with classes:** all nine new lessons, the form checks and the working check, and whether students use the sliders or drag.
-- **Next nodes:** AC9M7M05 n3 (unknown angles with reasons) needs the AC9M7M04 page (angles with parallel lines) first.
+- **Publish and listen:** the eleven new clips (Number Foundations 4, Angles 4, Expanding brackets, Factorising, Changing the subject) record with the real voice on the next manual publish.
+- **Try with classes:** all eleven new lessons, the form checks and the working check, and whether students use the sliders or drag.
+- **Next nodes:** unknown angles with reasons (AC9M7M04 n3 and AC9M7M05 n3) needs a reasons check designed first (a reason picked per step, or a working check with reasons).
 - **Form-check coverage:** forms beyond algebra (fraction in simplest form, ratio, mixed numerals, inequalities) are not built; add them when a lesson needs one.

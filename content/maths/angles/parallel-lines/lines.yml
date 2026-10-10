@@ -1,0 +1,57 @@
+# Parallel lines boards for "Angles at parallel lines". t turns the crossing line; the angles are a to h.
+
+# region: run
+widget: parallel
+slider t: 30, 150, 60
+pair: a, e
+# endregion
+
+# region: explain
+widget: parallel
+t: 60
+# endregion
+
+# region: explain-pic
+widget: parallel
+t: 60
+pair: c, f
+# endregion
+
+# region: letters
+widget: parallel
+t: 60
+angles: hidden
+names: off
+# endregion
+
+# region: pick-a
+widget: parallel
+t: 60
+angles: hidden
+names: off
+# endregion
+
+# region: pick-b
+widget: parallel
+t: 125
+angles: hidden
+names: off
+# endregion
+
+# region: tilt
+widget: parallel
+t: 60
+slider w: -20, 20, 15
+pair: c, f
+# endregion
+
+# region: turn
+widget: parallel
+slider t: 30, 150, 60
+# endregion
+
+# region: make
+widget: parallel
+slider t: 30, 150, 60
+names: off
+# endregion

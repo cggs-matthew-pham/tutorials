@@ -6,6 +6,53 @@
   "_about": "Maths cards for maths/angles (see snippets/maths.json for the format).",
   "groups": [
     {
+      "name": "Parallel lines",
+      "items": [
+        {
+          "label": "transversal",
+          "unit": "parallel",
+          "code": "\\text{parallel lines} \\gg \\text{ crossed by a transversal}",
+          "hint": "Parallel lines go the same way and never meet; arrows (>>) mark them. A transversal crosses both, making eight angles."
+        },
+        {
+          "label": "corresponding angles",
+          "unit": "parallel",
+          "code": "a = e",
+          "hint": "The same place at each crossing (an F shape). With parallel lines they are equal.",
+          "board": "widget: parallel\nt: 60\npair: a, e",
+          "shows": "a and e: the same place at each crossing, both 120°"
+        },
+        {
+          "label": "alternate angles",
+          "unit": "parallel",
+          "code": "c = f",
+          "hint": "Between the parallel lines, on opposite sides of the transversal (a Z shape). With parallel lines they are equal.",
+          "board": "widget: parallel\nt: 60\npair: c, f",
+          "shows": "c and f: between the lines, opposite sides, both 60°"
+        },
+        {
+          "label": "co-interior angles",
+          "unit": "parallel",
+          "code": "c + e = 180^\\circ",
+          "hint": "Between the parallel lines, on the same side (a C shape). With parallel lines they add to $180^\\circ$: they are not equal unless both are $90^\\circ$.",
+          "board": "widget: parallel\nt: 60\npair: c, e",
+          "shows": "c and e: between the lines, same side, 60° + 120° = 180°"
+        },
+        {
+          "label": "vertically opposite angles",
+          "unit": "parallel",
+          "code": "b = c",
+          "hint": "Opposite each other at one crossing: always equal, parallel lines or not. Not one of the parallel-line pairs."
+        },
+        {
+          "label": "give a reason",
+          "unit": "parallel",
+          "code": "f = 70^\\circ \\;\\text{(corresponding to } b\\text{)}",
+          "hint": "For each angle you find, name the rule: corresponding or alternate angles are equal; co-interior angles add to $180^\\circ$; angles on a straight line add to $180^\\circ$."
+        }
+      ]
+    },
+    {
       "name": "Words",
       "items": [
         {

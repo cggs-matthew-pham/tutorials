@@ -82,5 +82,7 @@
   "partial-distribution": {"home": "maths/algebra/expanding", "text": "The number outside a bracket multiplies only the first term (4(x + 3) = 4x + 3); it multiplies every term inside, so 4x + 12."},
   "hcf-not-highest": {"home": "maths/algebra/factorising", "text": "A common factor that is not the highest is taken out (12x − 8 = 2(6x − 4)); the bracket still shares a factor, so it is not fully factorised: 4(3x − 2)."},
   "divide-one-term": {"home": "maths/algebra/rearranging", "text": "Only one term of a side is divided when rearranging (y = 4x − 3 becomes y ÷ 4 = x − 3); dividing a side divides every term, so undo the − 3 first: x = (y + 3)/4."},
+  "vertically-opposite-pair": {"home": "maths/angles/parallel-lines", "text": "A pair at one crossing (vertically opposite, such as b and c) is called alternate or corresponding; the parallel-line pairs take one angle at each crossing."},
+  "co-interior-equal": {"home": "maths/angles/parallel-angles", "text": "Co-interior angles are taken to be equal, like alternate and corresponding angles; they add to 180°."},
   "sign-rules-addition": {"home": "maths/number/multiplying-integers", "text": "The addition rule is used for multiplying (−4 × (−3) = −12, \"two negatives make a bigger negative\"); for multiplying and dividing, the same signs give a positive."}
 }

@@ -1,0 +1,46 @@
+summary: Students use the parallel-line rules (corresponding and alternate equal, co-interior add to 180°) with straight-line and vertically opposite angles to find unknown angles from one given angle, naming a reason for each (AC9M7M04, node 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - "I can state the rules: with parallel lines, corresponding and alternate angles are equal and co-interior angles add to 180°."
+  - I can find an unknown angle using one of these rules, and say which rule.
+  - I can find angles in two steps, giving a reason for each step.
+before: |
+  Do the Run board yourself first. Students need the pair names (Angles at parallel lines, the lesson before), angles on a straight line and vertically opposite angles (Year 6).
+
+  The one idea: with parallel lines, one angle gives all eight, each by a named rule. The common mistake is making co-interior angles equal, because the other two pairs are; it is planted in the Predict and again in Leo's working.
+
+  Answers are numbers; reasons are asked for in the worked example, the explanations and one question. Ask for them aloud too: an angle without a reason cannot be checked.
+running:
+  - "Predict: take a show of hands. Students who chose 65° are using 'equal' for every pair. Do not correct it yet."
+  - "Run: after setting c = 65°, ask students to turn the line and say what stays true (c + e = 180°)."
+  - "Investigate: model the worked example live, writing the reason beside each angle. Then ask: could you have found e another way?"
+  - "Modify: in the two-step task, collect different routes to g and the reasons each uses."
+  - "Make: ask why c and e can only be equal at 90°."
+stuck:
+  - see: "A student makes co-interior angles equal (Leo's mistake)."
+    ask: "On the board, pick c and e. Are they the same size?"
+    fix: "Co-interior angles add to 180°: one is acute, the other obtuse, unless both are 90°."
+  - see: "A student finds the right size but cannot name the reason."
+    ask: "Where are the two angles: same place, between and opposite, between and same side, or one crossing?"
+    fix: "Name the pair first, then its rule."
+  - see: "A student uses the rules on lines that are not parallel."
+    ask: "Where are the arrows that say the lines are parallel?"
+    fix: "No arrows (or a tilted line): the pair rules do not apply."
+stretch: "In a diagram, a = 3x and f = 2x + 30 with parallel lines (a and f are not a named pair: use a straight line first). Find x. (b = 180 − 3x = f, so x = 30.)"
+support: "Use the Run board to check each answer: set the given angle, pick the pair and read the size."
+leads: |
+  Next: angle sums of triangles and polygons (the next unit). Unknown angles with reasons across all these facts (AC9M7M04 node 3, AC9M7M05 node 3) are planned.
+
+  Where it leads: geometric proof in Years 8 to 10 (congruent triangles, properties of quadrilaterals).
+exit:
+  q: "Parallel lines, b = 75°. Find f and e, with a reason for each."
+  a: "f = 75° (corresponding to b). e = 105° (on a straight line with f, or co-interior with c = 75°)."
+explain: |
+  When the lines are **parallel**:
+
+  - **corresponding** angles are equal;
+  - **alternate** angles are equal;
+  - **co-interior** angles add to $180^\circ$ (they are not equal unless both are $90^\circ$).
+
+  With vertically opposite angles (equal) and angles on a straight line (add to $180^\circ$), one angle gives all eight. Give a reason for each: "$f = 70^\circ$, corresponding to $b$". If the lines are not parallel, these rules do not hold.

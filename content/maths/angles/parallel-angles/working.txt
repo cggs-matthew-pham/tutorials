@@ -1,0 +1,8 @@
+# Leo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leo
+d = 110° (given).
+d and f are between the parallel lines, on the same side.
+So d and f are co-interior angles.
+Co-interior angles are equal, so f = 110°.
+# endregion
