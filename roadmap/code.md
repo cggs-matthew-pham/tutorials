@@ -440,4 +440,6 @@ Course `content/code/microbit-security/` (after micro:bit Foundations, extension
 - New check type `flag` (hash only; `tools/flag-hash.mjs`). Flag answers are in the teacher notes (the repository is public).
 - Untested against the live editor (sandbox cannot reach makecode.com): the text blocks `indexOf`, `charAt`, `length` and the bitwise `^` block must exist in MakeCode; if not, Caesar and XOR need a different shape (a lookup by looping, or arithmetic).
 - Known limits, stated in the teacher notes: toy key exchange numbers, a toy answer function (not one-way), a simple checksum.
-- Not done: snippets for the string and bit blocks (Reference drawer and cheat sheets), clips, teacher trials, a board widget for ciphers.
+- Snippets done (11 Oct): a "Letters and codes" group in `snippets/microbit.json` (for index, letter at, find in text, length of text, join, remainder, xor with a key), so the course's teacher cheat sheets list them and the micro:bit Reference has them. "length of list" no longer matches text names (`message.length`), so text lessons list "length of text" instead. Their block pictures are drawn at the next publish. The XOR hint names `^` rather than a toolbox drawer, since the block is unconfirmed.
+- Secret messages has no student Reference page or student cheat sheets (`REFS` in `build-site.mjs` lists only micro:bit, Arcade and Robotics, as for micro:bit and the computer); adding one is a shared-tool change, not yet asked.
+- Not done: clips, teacher trials, a board widget for ciphers.

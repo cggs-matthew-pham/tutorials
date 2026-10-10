@@ -138,7 +138,7 @@
      "label": "length of list",
      "code": "‹answers›.length",
      "hint": "How many items are in the list. The last place is the length − 1. Arrays.",
-     "matches": "\\w\\.length\\b"
+     "matches": "\\b(?!(?:message|text|word|name|secret|code|result|alphabet|received\\w*)\\.)\\w+\\.length\\b"
     },
     {
      "label": "pick random",
@@ -242,6 +242,53 @@
      "label": "servo write pin",
      "code": "pins.servoWritePin(AnalogPin.‹P0›, ‹90›)",
      "hint": "Turns a servo on that pin to an angle from 0 to 180 (90 is the middle). Pins."
+    }
+   ]
+  },
+  {
+   "name": "Letters and codes",
+   "items": [
+    {
+     "label": "for index",
+     "code": "for (let ‹index› = 0; ‹index› <= ‹4›; ‹index›++) {\n    ‹blocks›\n}",
+     "hint": "Runs the blocks inside once for each number from 0 up to the last one, with index set to that number each time. Loops.",
+     "matches": "for\\s*\\(\\s*let\\s+(\\w+)\\s*=\\s*0\\s*;\\s*\\1\\s*(<=|<(?!\\s*\\d+\\s*;))"
+    },
+    {
+     "label": "letter at",
+     "code": "‹message›.charAt(‹0›)",
+     "hint": "The letter at a place in a text. Places start at 0, as in a list. Text (char from … at).",
+     "matches": "\\.charAt\\s*\\("
+    },
+    {
+     "label": "find in text",
+     "code": "‹alphabet›.indexOf(‹letter›)",
+     "hint": "The place where something first appears in a text, counted from 0, or -1 if it is not there. Text (find index of … in …).",
+     "matches": "\\.indexOf\\s*\\("
+    },
+    {
+     "label": "length of text",
+     "code": "‹message›.length",
+     "hint": "How many letters (and spaces) a text has. The last letter is at place length − 1. Text.",
+     "matches": "\\b(?:message|text|word|name|secret|code|result|alphabet|received\\w*)\\.length\\b"
+    },
+    {
+     "label": "join",
+     "code": "‹result› = ‹letter› + ‹result›",
+     "hint": "Joins two texts, one after the other: \"AB\" + \"C\" is \"ABC\". Text (join).",
+     "matches": "\\\"[^\\\"]*\\\"\\s*\\+|\\+\\s*\\\"[^\\\"]*\\\"|\\.charAt\\([^)]*\\)\\s*\\+|\\+\\s*\\w+\\.charAt\\("
+    },
+    {
+     "label": "remainder",
+     "code": "‹place› % ‹26›",
+     "hint": "What is left over after dividing: 27 % 26 is 1. Wraps a count back round to the start. Math (remainder of … ÷ …).",
+     "matches": "\\S\\s*%\\s*\\S"
+    },
+    {
+     "label": "xor with a key",
+     "code": "‹message› ^ ‹key›",
+     "hint": "XOR: compares two numbers bit by bit. Doing it again with the same key brings the number back, so one key locks and unlocks. Written ^ in JavaScript and Python.",
+     "matches": "\\w\\s*\\^\\s*\\w"
     }
    ]
   }
