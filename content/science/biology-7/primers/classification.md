@@ -17,12 +17,13 @@ A **dichotomous key** identifies an organism by a series of two-way choices ("Do
 
 ## Where the picture breaks
 
-- Classification schemes change as evidence changes (node 5). Many scientists now use three domains above kingdoms, and protists are not one natural group.
+- Kingdoms sort by features, not relatedness, and are not the endpoint of classification. Schemes change as evidence changes (node 5): two kingdoms, then five, and now three domains (bacteria, archaea, eukaryotes) from DNA evidence. Protists are not one natural group, and fungi are closer relatives of animals than of plants. The Kingdoms lesson makes both points explicit.
 - Some organisms sit awkwardly: Euglena moves like an animal and makes food like a plant.
 - The key tool shows specimens as written descriptions; with real specimens or photos, students must observe the features themselves.
 
 ## Common misconceptions
 
 - Fungi are plants (they are not green and can't make their own food).
+- Organisms in the same kingdom must be close relatives (kingdoms group by features; relatedness comes from shared ancestors).
 - Only animals are living things that move; bacteria aren't living.
 - Keys are about names, not features (students guess the animal, then follow the key backwards).

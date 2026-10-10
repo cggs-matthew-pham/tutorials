@@ -1,16 +1,19 @@
-summary: Students place organisms into kingdoms using observable features, justify each placement, and recognise a hard-to-classify case (AC9S7U01, node 2, a hinge node).
-time: 25
-timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 2 min, Wider about 3 min"
+summary: Students place organisms into kingdoms using observable features, justify each placement, recognise a hard-to-classify case, and see that kingdoms sort by features rather than relatedness, a model revised as evidence improved (AC9S7U01, node 2, a hinge node).
+time: 28
+timing: "Engage and Explore 8 min · Explain 13 min · Evaluate 3 min · Typical adds 2 min, Wider about 3 min"
 goals:
   - I can name the five kingdoms.
   - I can place an organism in its kingdom and give the observable feature that decides it.
   - I can explain why some organisms are hard to classify.
+  - I can explain why kingdoms don't always show which organisms are related, and why classification changes with new evidence.
 before: |
   A concept tutorial for introducing or revising the idea; it does not replace specimens, photos or a microscope. Set the width with `?width=minimum`, `typical` (default) or `wider`.
 
   The hinge is feature-based justification: students who sort by first impressions ("it doesn't move, so it's a plant") can't choose discriminating features when they build keys in node 4.
 
-  Model notes: the lesson uses a five-kingdom scheme, common in Year 7. Algae such as kelp are grouped with protists here; many textbooks differ, and modern biology uses domains. Yeast is a single-celled fungus, so "can you see one without a microscope?" doesn't place it: it is in the sort, not the key, on purpose.
+  Kingdoms are not the endpoint. The five-kingdom scheme (common in Year 7) sorts by observable features, which is what the descriptor asks for, but it is not a family tree: fungi share a more recent common ancestor with animals than with plants, "protists" is a grab-bag of unrelated groups, and "bacteria" hides the archaea. Two Explain questions make this explicit, and the history (two kingdoms, then five, then three domains as microscopes and then DNA added evidence) shows classification as a model revised under evidence, the point about scientific rigour.
+
+  Model notes: algae such as kelp are grouped with protists here; many textbooks differ. Yeast is a single-celled fungus, so "can you see one without a microscope?" doesn't place it: it is in the sort, not the key, on purpose.
 running:
   - "Engage: ask the 'plant' voters which feature they used. Keep the list."
   - "Explore: specimen names appear only after the key places them; students should read descriptions, not guess."
@@ -23,13 +26,16 @@ stuck:
   - see: "A student puts coral with plants."
     ask: "How does coral get its food?"
     fix: "Its polyps catch food: animals."
+  - see: "A student says two organisms in the same kingdom must be close relatives."
+    ask: "What does the key look at: family, or features?"
+    fix: "Features. Relatedness comes from shared ancestors, shown by DNA: a mushroom is closer to a sea star than to a fern."
   - see: "A student says bacteria aren't alive."
     ask: "Do they grow, use food and reproduce?"
     fix: "Yes: single-celled living things."
 stretch: "Viruses can reproduce only inside living cells. Should they be in a kingdom? Argue both sides."
 support: "Give the kingdom table from the primer as a card during the sort."
 leads: |
-  Next: using dichotomous keys (node 3), the same feature-by-feature reasoning, one choice at a time.
+  Next: using dichotomous keys (node 3), the same feature-by-feature reasoning, one choice at a time. In Year 10, natural selection and common ancestry explain why relatedness, not features alone, is the basis of modern classification.
 
   In class: a tray of specimens or photos (moss, mushroom, bread mould, insect, shell), and a microscope slide of pond water.
 exit:
@@ -37,3 +43,5 @@ exit:
   a: "Fungi: it can't make food from sunlight and it absorbs food from dead material."
 explain: |
   Living things are grouped into **kingdoms** by observable features: **animals** (eat other living things), **plants** (make food from sunlight), **fungi** (absorb food from other material), **protists** (mostly one cell with a nucleus) and **bacteria** (one tiny cell, no nucleus).
+
+  Kingdoms sort by features; they don't always show who is related (fungi are closer to animals than to plants). Scientists now use DNA to group life into three domains, and change the system when evidence demands it.

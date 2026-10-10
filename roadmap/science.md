@@ -2,6 +2,10 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: kingdoms are not family trees (11 Oct 2026, Matthew's request)
+
+A colleague's objection: teaching kingdoms as the endpoint implies same kingdom = close relatives and hides that classification is a model revised under evidence. Year 7 Kingdoms now has two Explain questions on the main path (a mushroom's closer relative is a sea star, not a fern; why classification went from two kingdoms to five to three domains), plus the revision summary, explain text, clip, goals, teacher notes and primer. Year 10 lessons don't lean on kingdoms. Still worth doing: a tree-of-life or common-ancestry step in Year 10 Natural selection, which would close the loop.
+
 ## Done: Explain it to me, batch 1 (11 Oct 2026, science chat)
 
 Voiced explain clips (Emma, as maths) for 12 shared-board lessons: Year 7 Physics (arrows, balanced, unbalanced, weight), Year 10 Physics (first law, acceleration, F = ma) and Year 7 Biology (kingdoms, keys, food webs, energy flow, cascades). Each lesson has an `explain` region in `boards.yml` (its own small example, not the lesson's tasks) and `app:` on ports 8200–8211 (next free: 8212). Recorded locally with the flite test voice: 18–30 s each, frames checked; the publish run records the real voice.

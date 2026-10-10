@@ -23,6 +23,7 @@ explainClip:
     - click: "No"
     - expect: { selector: "body", contains: "Kangaroo" }
     - caption: { text: "It eats other living things: an animal.", say: "It eats other living things, so it belongs in the animal kingdom." }
+    - caption: { text: "Kingdoms sort by features. They aren't family trees: DNA shows who is related.", say: "Kingdoms sort by features; DNA shows which living things are really related." }
     - wait: 800
 hook: "A mushroom pops up on the lawn overnight. It grows from the ground and doesn't walk away, so it must be a plant. Right?"
 ---
@@ -84,7 +85,21 @@ tasks:
       options: ["Anyone can check them, so everyone sorts the same organism the same way", "They are the most interesting features", "Because organisms choose their own group"]
       answer: 0
       feedback: [null, "Interesting isn't the point: checkable is.", "Groups are decided by people, using evidence."]
-  - check: { type: reflect, text: "I placed five organisms in their kingdoms and gave the feature that decided each one." }
+  - check:
+      type: question
+      q: "DNA evidence shows which living things share a recent common ancestor. Which is a mushroom's closer relative?"
+      options: ["A sea star (an animal)", "A fern (a plant)", "Neither: fungi aren't related to anything"]
+      answer: 0
+      feedback: [null, "Ferns and mushrooms both grow on the forest floor and stay put, but that's a feature, not family. DNA puts fungi closer to animals.", "All living things are related; the question is how closely."]
+      explain: "Fungi and animals share a more recent common ancestor than fungi and plants do. Kingdoms sort by features; they don't always show who is related."
+  - check:
+      type: question
+      q: "Scientists once used two kingdoms (plants and animals), then five, and now group life into three domains. Why did it keep changing?"
+      options: ["New evidence (microscopes, then DNA) showed groups that didn't fit the old system", "The earlier scientists were careless", "Living things have evolved into new kingdoms since then"]
+      answer: 0
+      feedback: [null, "They sorted carefully with the evidence they had. What new evidence came later?", "The organisms didn't change in a few hundred years; what we know about them did."]
+      explain: "Microscopes revealed single-celled life that was neither plant nor animal; DNA showed that 'bacteria' are really two very different groups (bacteria and archaea), and that protists aren't one family. Classification is a model, revised when the evidence demands it."
+  - check: { type: reflect, text: "I placed five organisms in their kingdoms and gave the feature that decided each one, and I can explain why kingdoms aren't family trees." }
 ```
 
 ### Sort them
@@ -92,6 +107,10 @@ tasks:
 ### Plants or fungi
 
 ### Why features
+
+### Closer relatives
+
+### Why it changed
 
 ### In your own words
 
@@ -140,3 +159,5 @@ Write one sentence: "At first I thought… Now I think… because…"
 - **Plants** make their own food from sunlight; **fungi** absorb food from other material; **animals** eat other living things.
 - **Protists** are mostly single cells with a nucleus; **bacteria** are single tiny cells with no nucleus.
 - Some organisms (Euglena, algae) are hard to place: classification is a tool that changes with evidence.
+- Kingdoms sort by **features**; they don't always show who is **related**. Fungi are closer relatives of animals than of plants, and protists aren't one family.
+- Scientists now group life by evolutionary relationships, using DNA: **three domains** (bacteria, archaea and eukaryotes). The five kingdoms are still a useful way to sort what you can see.
