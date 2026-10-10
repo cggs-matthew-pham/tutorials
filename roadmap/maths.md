@@ -42,7 +42,13 @@ The plan named two ways to check that an answer is in a required form (expanded,
 | Feedback | "like terms or powers not collected" (could be split per rule set) | names the slip: brackets left, like terms not collected, powers not combined, numbers not multiplied, common factor left in a bracket | same as math.js |
 | Notes | patterns are compact but subtle (commutative `=`); reads vt as one name | reads x(…) as a function call unless fixed | same parser as the equivalence check; reads vt as v × t |
 
-Recommendation: our rules on WPM's tree (about 90 lines), behind the `form` slot the boards plan reserved. Prototypes and cases are in the session scratchpad, not the repo. Next, once agreed: `answer` checks take `form: expanded | factorised | simplified | subject x`, then the line-by-line working check, then Year 8 expanding (AC9M8A01 n1) with an algebra tiles board.
+**Numbas follow-up checks (11 Oct):** Matthew leans to Numbas for answer checks (equivalence and form), WPM staying for board conditions. Three checks, all passed:
+1. Letters as students mean them: `scope.expandJuxtapositions` turns `2xy` into 2 × x × y, `vt` into v × t and `x(3)` into x × 3, keeps `sin`, `ln`, `pi`, `e`, and `jme.compare` then finds `xy + yx` equivalent to `2xy`. WPM and Numbas would read answers the same way.
+2. Node, for validate: the JME runtime runs in a plain `vm` context (no browser, no jsdom), ready in about 0.3 s; the form checks give the same results as in Chromium.
+3. Size: JME runtime plus an English-only locale, minified, about 474 KB (133 KB gzipped); loaded only on lessons with form checks. Some modules (calculus, scheduling) could be trimmed later.
+With the three pattern misses fixed (fractions inside a bracket, `x(...)` as a product, a squared bracket), Numbas scores 47/47, like the other two.
+
+Earlier recommendation (before the follow-up checks): our rules on WPM's tree (about 90 lines). Decision now between that and Numbas; either sits behind the `form` slot the boards plan reserved. Prototypes and cases are in the session scratchpad, not the repo. Next, once agreed: `answer` checks take `form: expanded | factorised | simplified | subject x`, then the line-by-line working check, then Year 8 expanding (AC9M8A01 n1) with an algebra tiles board.
 
 ## Still to do
 
