@@ -65,18 +65,25 @@ function stepHash(lesson, step) {
   return h.digest('hex').slice(0, 16);
 }
 
+// Which voice a clip may have. A voiced lesson's clip records its engine in <id>.json (`voice`); a Kokoro build only
+// accepts Kokoro clips, so clips made with the test voice (flite) or silent (none) are recorded again with the real
+// voice, while a build without Kokoro reuses Kokoro clips and fills in the rest its own way.
+const okVoice = (lesson, meta) => !voiceSpec(lesson.voice) || ['kokoro', VOICE_ENGINE].includes(meta.voice);
+const clipMeta = (lesson, step, voice) => JSON.stringify(voiceSpec(lesson.voice) ? { hash: stepHash(lesson, step), voice } : { hash: stepHash(lesson, step) });
+
 // Download a clip from the live site when its published hash matches: the same inputs give the same clip.
 async function seedClip(base, lesson, step, outDir) {
   const url = `${base.replace(/\/$/, '')}/${lesson.slug}/clips/${step.id}`;
   try {
     const meta = await fetch(`${url}.json`, { cache: 'no-store' });
-    if (!meta.ok || (await meta.json()).hash !== stepHash(lesson, step)) return false;
+    const m = meta.ok ? await meta.json() : null;
+    if (!m || m.hash !== stepHash(lesson, step) || !okVoice(lesson, m)) return false;
     for (const ext of voiceSpec(lesson.voice) ? ['mp4', 'jpg', 'vtt'] : ['mp4', 'jpg']) {
       const r = await fetch(`${url}.${ext}`);
       if (!r.ok) return false;
       writeFileSync(join(outDir, `${step.id}.${ext}`), Buffer.from(await r.arrayBuffer()));
     }
-    writeFileSync(join(outDir, `${step.id}.json`), JSON.stringify({ hash: stepHash(lesson, step) }));
+    writeFileSync(join(outDir, `${step.id}.json`), clipMeta(lesson, step, m.voice));
     return true;
   } catch { return false; }
 }
@@ -165,7 +172,7 @@ async function recordClip(browser, lesson, step, outDir) {
 
   // Voiceover: every line is generated before recording starts, so the video never waits on the speech engine.
   // The opening line is the step's say: (or its caption, if it has one); then each caption action's say: or text.
-  const vs = voiceSpec(lesson.voice);
+  const vs = VOICE_ENGINE === 'none' ? null : voiceSpec(lesson.voice); // none: record voiced lessons silent
   const voiceDir = join('.voice-cache');
   const opening = vs ? (c.say ?? c.caption ?? '') : '';
   const lineFor = new Map();
@@ -325,7 +332,9 @@ for (const lesson of lessons) {
 
   const isSame = (s) => {
     const meta = join(outDir, `${s.id}.json`);
-    return existsSync(meta) && existsSync(join(outDir, `${s.id}.mp4`)) && JSON.parse(readFileSync(meta, 'utf8')).hash === stepHash(lesson, s);
+    if (!existsSync(meta) || !existsSync(join(outDir, `${s.id}.mp4`))) return false;
+    const m = JSON.parse(readFileSync(meta, 'utf8'));
+    return m.hash === stepHash(lesson, s) && okVoice(lesson, m);
   };
   const todo = [];
   for (const s of clipSteps) {
@@ -346,7 +355,7 @@ for (const lesson of lessons) {
       try {
         clipReport = null;
         await recordClip(browser, lesson, s, outDir);
-        writeFileSync(join(outDir, `${s.id}.json`), JSON.stringify({ hash: stepHash(lesson, s) }));
+        writeFileSync(join(outDir, `${s.id}.json`), clipMeta(lesson, s, VOICE_ENGINE));
         const r = clipReport;
         const voiced = r?.lines ? `, ${r.lines} spoken lines, voice added ${r.narration.toFixed(1)}s` : '';
         console.log(`✓ ${lesson.slug}/${s.id} "${s.title}" (${r ? r.length.toFixed(1) + 's clip' + voiced + ', ' : ''}${((Date.now() - t) / 1000).toFixed(1)}s to record)`);
@@ -357,7 +366,8 @@ for (const lesson of lessons) {
   } finally { stopApp(app); }
 }
 rmSync('.render-tmp', { recursive: true, force: true });
-if (VOICE_ENGINE !== 'kokoro') console.warn(`⚠ voiceover used the ${VOICE_ENGINE} test voice: do not publish these clips`);
+if (VOICE_ENGINE === 'flite') console.warn('⚠ voiced clips used the flite test voice: build-site will refuse to build with them (local tests only)');
+if (VOICE_ENGINE === 'none') console.warn('⚠ voiced clips without a live Kokoro version were recorded silent; the next Kokoro build records them with the voice');
 console.log(`Clips: ${seeded} downloaded, ${stale} ${flag('--check') ? 'to record' : 'recorded or failed'}.`);
 if (process.env.GITHUB_OUTPUT) writeFileSync(process.env.GITHUB_OUTPUT, `stale=${stale}\n`, { flag: 'a' });
 process.exit(failures ? 1 : 0);

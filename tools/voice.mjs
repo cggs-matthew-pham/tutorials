@@ -4,7 +4,9 @@
 // dependency: CI installs it only when a voiced clip needs recording (`npm install --no-save kokoro-js`), and the
 // model (about 90 MB, q8) downloads from Hugging Face on first use.
 // WP_VOICE_ENGINE=flite uses ffmpeg's built-in flite voice instead: robotic, but needs no download. For local tests
-// of timing and mixing only; never publish flite clips.
+// of timing and mixing only: build-site refuses to build a site holding flite clips (WP_ALLOW_TEST_VOICE=1 overrides).
+// WP_VOICE_ENGINE=none records voiced lessons' clips silent (captions only), for builds that cannot reach Hugging
+// Face; a later Kokoro build records them again with the voice.
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { mkdirSync, writeFileSync, existsSync, readFileSync } from 'node:fs';
@@ -19,9 +21,10 @@ const lexicon = JSON.parse(readFileSync(LEXICON_FILE, 'utf8'));
 
 export { VOICES, voiceSpec } from './lesson-core.mjs';
 
-/** Everything that changes how a clip sounds: part of a voiced clip's hash. */
+/** What a voiced clip says and how: part of its hash. The engine is not: it is stored beside the hash as `voice`
+ * (render.mjs), so a build without Kokoro can still reuse the live site's Kokoro clips. */
 export function voiceHashInput(spec) {
-  return JSON.stringify({ spec, ENGINE, MODEL_ID }) + readFileSync(fileURLToPath(import.meta.url), 'utf8') + readFileSync(LEXICON_FILE, 'utf8');
+  return JSON.stringify({ spec, MODEL_ID }) + readFileSync(fileURLToPath(import.meta.url), 'utf8') + readFileSync(LEXICON_FILE, 'utf8');
 }
 
 const spellTag = (t) => lexicon.tags[t.toLowerCase()] ?? t;

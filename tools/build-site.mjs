@@ -25,6 +25,20 @@ const require = createRequire(import.meta.url);
 const { highlightCode } = require('./highlight.cjs');
 const OUT = process.argv.includes('--out') ? process.argv[process.argv.indexOf('--out') + 1] : 'dist';
 
+// Never build a site whose clips speak with the flite test voice (render.mjs records each voiced clip's engine in
+// clips/<id>.json). Record them with Kokoro, or silent with WP_VOICE_ENGINE=none. WP_ALLOW_TEST_VOICE=1 is for
+// looking at a local build only.
+{
+  const { readdirSync, statSync } = await import('node:fs');
+  const robotic = [];
+  const walk = (d) => { if (!existsSync(d)) return; for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p); else if (f.endsWith('.json') && d.endsWith('clips')) { try { if (JSON.parse(readFileSync(p, 'utf8')).voice === 'flite') robotic.push(p); } catch { /* not a clip record */ } } } };
+  walk(OUT);
+  if (robotic.length && !process.env.WP_ALLOW_TEST_VOICE) {
+    console.error(`✗ ${robotic.length} clip(s) use the flite test voice, which must not be published (first: ${robotic[0]}).\n  Record them with Kokoro (the publish workflow) or silent (WP_VOICE_ENGINE=none node tools/render.mjs ...).\n  To look at a local test build anyway: WP_ALLOW_TEST_VOICE=1 npm run build`);
+    process.exit(1);
+  }
+}
+
 function clipHtml(lesson, step) {
   const c = step.config;
   if (!c.clip) return '';
