@@ -300,6 +300,7 @@ for (const path of [...new Set(lessons.map((l) => l.slug.split('/').slice(0, -1)
 }
 writeFileSync(join(OUT, 'progress-manifest.json'), JSON.stringify(manifest));
 copyFileSync(join('site', 'progress.js'), join(OUT, 'progress.js'));
+copyFileSync(join('site', 'check.js'), join(OUT, 'check.js')); // the Check your school page (content/check.md)
 
 const sharedModuleNames = Object.keys(loadSharedModules());
 for (const [path, pg] of Object.entries(PLAY)) {
