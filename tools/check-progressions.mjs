@@ -33,6 +33,8 @@ w = run([L('b', 2, 'AC9M7X01 n2')]);
 ok(w.length === 1 && /needs AC9M7X01 n1/.test(w[0]), 'node 2 without node 1 warns');
 w = run([L('b', 2, 'AC9M7X01 n2', { assumes: ['AC9M7X01 n1'] })]);
 ok(w.length === 0, 'assumes: a node clears it');
+w = run([L('a', 1, 'AC9M7X01 n1'), L('c', 3, 'AC9M7X02 n1', { assumes: ['AC9M7X01 n2'] })]);
+ok(w.length === 0, 'a descriptor: taught nodes plus assumed nodes cover it');
 w = run([L('b', 1, 'AC9M7X01 n2'), L('a', 2, 'AC9M7X01 n1')]);
 ok(w.length === 1, 'order matters: a later lesson does not count');
 w = run([L('a', 1, 'AC9M7X01 n1'), L('b', 2, 'AC9M7X01 n2', { uses: ['AC9M7Y01'] })]);

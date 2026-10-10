@@ -2,6 +2,7 @@
 order: 7
 unit: lines
 node: AC9M8A04 n2
+uses: [AC9M7N07 n2]   # negative c and outputs
 title: What c does to a line
 summary: In y = mx + c, the number on its own moves the line up or down without changing its steepness, so lines with the same m are parallel.
 language: maths

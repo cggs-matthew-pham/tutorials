@@ -121,7 +121,7 @@ export function auditNodes(lessons, prereqs, data) {
           status = 'no page';
           warnings.push(`${l.slug} › needs ${ref.code} (${why}), which has no progression page; add data/progressions/${subjectOf(l)}/${ref.code}.md, or list it in assumes: if it is taught in class`);
         } else {
-          const gaps = page.nodes.filter((x) => !coveredBy(ref.code, x.n)).map((x) => `n${x.n}`);
+          const gaps = page.nodes.filter((x) => !coveredBy(ref.code, x.n) && !assumed.some((a) => a.code === ref.code && a.n === x.n)).map((x) => `n${x.n}`);
           status = gaps.length ? 'missing' : 'taught';
           by = gaps.length ? gaps.join(', ') : '';
           if (gaps.length) warnings.push(`${l.slug} › needs ${ref.code} (${why}), but no earlier lesson teaches ${gaps.join(', ')}; teach it earlier, or list it in assumes: (taught in class)`);

@@ -2,6 +2,7 @@
 order: 3
 unit: rules
 node: AC9M7A05 n3
+uses: [AC9M7N07 n2]   # tables with negative outputs, plotted in four quadrants
 title: Plotting a rule
 summary: Plot each ordered pair from a rule's table as a point, across first and then up. For a rule like y = 2x + 1, the points lie on a straight line.
 language: maths

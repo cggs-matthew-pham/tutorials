@@ -2,6 +2,8 @@
 order: 9
 unit: using
 node: AC9M8A03 n1
+uses: [AC9M7N07 n2]   # a falling battery has a negative rate
+assumes: [AC9M8A02 n1, AC9M8A02 n3]   # its Prior Knowledge; lines from rules are taught earlier in the course and solving with graphs in Solving equations with graphs (n2); inequalities are class work
 title: Rules from real situations
 summary: Many real costs and amounts are a starting amount plus a rate. The starting amount is c and the rate is m, so the rule is y = mx + c.
 language: maths

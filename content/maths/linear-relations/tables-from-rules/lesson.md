@@ -2,6 +2,7 @@
 order: 2
 unit: rules
 node: AC9M7A05 n2
+uses: [AC9M7N07 n2]   # negative inputs and outputs (3(0) − 1 = −1); a quick check in Modify retrieves it
 title: Tables from rules
 summary: A rule turns each input x into an output y. Choose inputs, work out each output, and write them as a table of ordered pairs (x, y), input first.
 language: maths
@@ -117,7 +118,7 @@ Read Jo's working one line at a time. Which number should come first?
 
 ```step
 stage: modify
-insight: "One change at a time: a rule with subtraction, negative inputs, a rule whose output goes down, and a table that starts from the output."
+insight: "One change at a time: a rule with subtraction, negative inputs (after a quick check of adding to a negative, from Number Foundations), a rule whose output goes down, and a table that starts from the output."
 try: { playground: board, starter: "rule.yml#subtract", height: 460 }
 tasks:
   - starter: "rule.yml#subtract"
@@ -128,6 +129,15 @@ tasks:
         | x | 1 | 2 | 3 | 4 |
         | y | [1] | [4] | [7] | [10] |
       explain: "3 × 1 − 2 = 1, 3 × 2 − 2 = 4, 3 × 3 − 2 = 7, 3 × 4 − 2 = 10."
+  - check:
+      type: answer
+      q: "Quick check before negative inputs: what is $-4 + 3$?"
+      answer: "-1"
+      feedback:
+        - ["-7", "That adds the sizes. Start at −4 on a number line and move 3 to the right."]
+        - ["1", "Start at −4 on a number line and move 3 to the right: you are still below zero."]
+        - ["7", "−4 is below zero. Start there and move 3 to the right."]
+      explain: "Start at −4 and move 3 to the right: −1. You need this for x = −2 in y = 2x + 3: 2(−2) + 3 = −4 + 3 = −1."
   - starter: "rule.yml#negative"
     hint: "Put −1 in place of x with brackets: 2(−1) + 3."
     check: { type: board, text: "For $y = 2x + 3$, put in at least 3 inputs, including negative ones.", when: "k >= 3 and l < 0", explain: "A negative input works the same way: x = −2 gives y = 2(−2) + 3 = −1." }
@@ -150,6 +160,10 @@ tasks:
 ```
 
 ### Subtraction
+
+### Quick check
+
+Negative inputs give sums such as $-4 + 3$. Work this one out first: start at $-4$ on a number line, then move.
 
 ### Negative inputs
 

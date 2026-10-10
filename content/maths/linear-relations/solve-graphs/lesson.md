@@ -2,6 +2,8 @@
 order: 8
 unit: using
 node: AC9M8A02 n2
+uses: [AC9M7A05 n3, AC9M7N07 n2]   # each side drawn as a line from its rule
+assumes: [AC9M8A02 n1]   # graphing y = mx + c is taught in Plotting a rule and Lines and their rules; graphing inequalities is class work
 title: Solving equations with graphs
 summary: Draw each side of an equation as a line. Where the lines meet, both sides are equal, so the x there is the solution.
 language: maths

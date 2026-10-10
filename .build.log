@@ -1,0 +1,11 @@
+Playground built into dist/_playground
+HTML playground built into dist/_playground-html
+Board built into dist/_playground-board
+MakeCode playground built into dist/_playground-makecode
+Explain stage built into dist/_playground-explain
+Science board built into dist/_playground-science
+
+> build
+> node tools/build-site.mjs
+
+Built 164 lesson(s) into dist/; 7 clip placeholder(s): code/gradio/intro/step-1, code/gradio/intro/step-2, code/gradio/intro/step-3, code/html/first-page/step-3, code/python/turtle-intro/step-1, code/python/turtle-intro/step-3, code/python/turtle-intro/step-4

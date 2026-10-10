@@ -15,7 +15,7 @@ running:
   - "Predict: take a show of hands. (4, 4) and (11, 4) are the common wrong answers. Ask what each number means."
   - "Run: as students add pairs, ask: which row are your inputs? Which are outputs? Who chose the inputs?"
   - "Investigate: model the worked example live. Write the substitution for each input, then the pair, saying 'input first'."
-  - "Modify: before the negative inputs, ask: where do the brackets go? 2(−3) + 3."
+  - "Modify: the quick check (−4 + 3) retrieves adding to a negative from Number Foundations. If several students miss it, do two or three on a number line before the negative inputs. Then ask: where do the brackets go? 2(−3) + 3. Multiplying a negative (2 × −3) is Year 8 work: here the machine shows the result, so read it together rather than teach the rule."
   - "Practise: for the 'which table' question, ask students to check one column of each table with the rule."
   - "Make: compare methods for finding the rule: the jump in y (2) and then the leftover (3)."
 stuck:

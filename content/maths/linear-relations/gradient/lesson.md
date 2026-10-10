@@ -2,6 +2,8 @@
 order: 6
 unit: lines
 node: AC9M8A04 n1
+uses: [AC9M7A05 n3, AC9M7N07 n2]   # plotting a line from its rule; negative m gives negative outputs
+assumes: [AC9M8A02]   # its Prior Knowledge; only graphing a line from a rule is used, taught in Plotting a rule (7A05 n3). Equations with x on both sides and inequalities are class work
 title: What m does to a line
 summary: In y = mx + c, the number in front of x sets how steep the line is and which way it goes.
 language: maths

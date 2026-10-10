@@ -2,6 +2,7 @@
 order: 4
 unit: expressions
 node: AC9M7A02 n1
+assumes: [AC9M7N07 n2]   # one feedback line and the Make board's figure 0 give a negative (1 − 4 = −3, 0 − 1 = −1); Algebra does not need Number Foundations first
 title: Words into expressions
 summary: Words such as "more than", "less than", "twice" and "divided by" each mean an operation. Write the operations in the order the words say them, then check with a number.
 language: maths
