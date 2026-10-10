@@ -11,6 +11,7 @@ import { mkdirSync, writeFileSync, existsSync, copyFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { createRequire } from 'node:module';
 import { Marked } from 'marked';
+import { parse as YAMLparse } from 'yaml';
 import { lessonPageHtml, tryEmbed, esc, titleCase, page, codeBlock, siteNav, NAV_CSS, NAV_JS, makecodeBlock } from './lesson-view.mjs';
 import { readFileSync } from 'node:fs';
 import { snippetId, unlockKind, pictureSpec, makecodePackage, makecodeExtensions, captionText } from './lesson-core.mjs';
@@ -402,8 +403,25 @@ for (const node of dirs.values()) {
     }
     continue;
   }
+  // The home page (content/index.md) can carry an about: section (Markdown) above the subjects.
+  const homeAbout = isRoot && node.meta?.about ? `<div class="pabout home-about">${new Marked().parse(String(node.meta.about))}</div><h2 class="home-subjects">Choose a subject</h2>` : '';
   writeFileSync(join(outDir, 'index.html'), page(isRoot ? 'Waypoints tutorials' : node.title,
-    `<header class="top">${crumb}<h1>${esc(isRoot ? 'Waypoints tutorials' : node.title)}</h1>${node.summary ? `<p class="lede">${esc(node.summary)}</p>` : ''}</header><ul class="lessons">${items}</ul>`, `<script src="${up}progress.js" data-root="${up}" defer></script>`, navFor(node.path, 'home')));
+    `<header class="top">${crumb}<h1>${esc(isRoot ? 'Waypoints tutorials' : node.title)}</h1>${node.summary ? `<p class="lede">${esc(node.summary)}</p>` : ''}</header>${homeAbout}<ul class="lessons">${items}</ul>`, `<script src="${up}progress.js" data-root="${up}" defer></script>`, navFor(node.path, 'home')));
+}
+
+// ---------- "Why we teach this way" (content/approach.md): one plain Markdown page at /approach/ ----------
+{
+  const src = join(CONTENT_ROOT, 'approach.md');
+  if (existsSync(src)) {
+    const raw = readFileSync(src, 'utf8').replace(/\r\n/g, '\n');
+    const fm = raw.match(/^---\n([\s\S]*?)\n---\n?/);
+    const meta = fm ? (YAMLparse(fm[1]) || {}) : {};
+    const body = new Marked().parse(fm ? raw.slice(fm[0].length) : raw);
+    mkdirSync(join(OUT, 'approach'), { recursive: true });
+    writeFileSync(join(OUT, 'approach', 'index.html'), page(meta.title || 'Why we teach this way',
+      `<header class="top"><a class="crumb" href="../">← Tutorials</a><h1>${esc(meta.title || 'Why we teach this way')}</h1>${meta.summary ? `<p class="lede">${esc(meta.summary)}</p>` : ''}</header><div class="pabout approach">${body}</div>`,
+      '', navFor('approach', 'home')));
+  }
 }
 
 // ---------- teacher guide: /teach/<course>/ and /teach/<lesson>/ with decks, worksheets and cheat sheets ----------
