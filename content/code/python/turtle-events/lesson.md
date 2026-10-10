@@ -1,6 +1,9 @@
 ---
 order: 9
 unit: interaction
+introduces: [callback, global]
+recipes: [write]
+assumes: [variable-update]
 title: Events
 summary: Make a program wait, then react when something happens.
 language: python

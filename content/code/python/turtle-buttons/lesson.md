@@ -1,6 +1,8 @@
 ---
 order: 10
 unit: interaction
+introduces: [and-or]
+assumes: [callback, variable-update, global]
 title: Build a button
 summary: Turtle has no buttons, so build one from a rectangle and a click check.
 language: python

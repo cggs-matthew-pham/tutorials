@@ -1,6 +1,8 @@
 ---
 order: 2
 unit: drawing
+introduces: [variable, arithmetic, variable-update, print]
+recipes: [string]
 title: Variables and operations
 summary: Give a number a name, then calculate with it.
 language: python
@@ -134,7 +136,16 @@ A variable can change itself. The line `size = size + 5` works out `size + 5`, t
 
 ### Watch it grow
 
-Follow `size` round a loop that adds to it every pass.
+Follow `size` round this loop, which adds to it every pass.
+
+```python
+size = 10
+
+for i in range(4):
+    forward(size)
+    right(90)
+    size = size + 10
+```
 
 ## Modify
 

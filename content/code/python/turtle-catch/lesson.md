@@ -1,6 +1,8 @@
 ---
 order: 11
 unit: challenge
+introduces: [bool-value]
+assumes: [list-index, length, callback, global, remainder]
 title: Catch the turtle
 summary: Build a game that uses everything so far. The turtle hops along a path; catch it before it hides.
 language: python

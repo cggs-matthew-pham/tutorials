@@ -1,6 +1,7 @@
 ---
 order: 8
 unit: functions
+introduces: [import-from, import-star]
 title: Modules
 summary: Keep related functions together in a file you can import, like a toolbox.
 language: python

@@ -1,6 +1,8 @@
 ---
 order: 1
 unit: drawing
+introduces: [repeat]
+recipes: [import-star]
 title: Drawing with a turtle
 summary: Predict, run and change short Python programs that draw shapes.
 language: python

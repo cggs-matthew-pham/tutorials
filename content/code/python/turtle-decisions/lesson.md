@@ -1,6 +1,7 @@
 ---
 order: 3
 unit: choices
+introduces: [if, else, elif, compare, remainder, loop-index]
 title: Decisions
 summary: Make a program choose between two things with if and else.
 language: python

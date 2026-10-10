@@ -1,6 +1,7 @@
 ---
 order: 5
 unit: functions
+introduces: [function]
 title: Functions
 summary: Give a group of commands a name, then use that name again and again.
 language: python

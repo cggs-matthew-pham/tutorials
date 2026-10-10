@@ -1,6 +1,7 @@
 ---
 order: 4
 unit: choices
+introduces: [list, list-index, length, for-of]
 title: Lists
 summary: Store many values under one name, then work through them one by one.
 language: python
