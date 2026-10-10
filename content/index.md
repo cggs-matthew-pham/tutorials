@@ -3,7 +3,7 @@ title: Waypoints tutorials
 about: |
   ## About
 
-  Waypoints tutorials are short coding lessons that run in your browser, with maths and science lessons on the way. There's nothing to install and no account to make, and we don't track anyone's progress beyond their own browser.
+  Waypoints tutorials are short lessons in coding, maths and science that run in your browser. They're a work in progress: coding has the fullest set so far, and some maths and science lessons are ready to use, with more on the way. Every lesson is still being tested in classrooms and refined. There's nothing to install and no account to make, and we don't track anyone's progress beyond their own browser.
 
   Each idea is explained in a few different ways, because students come at things differently. You can try the code yourself, watch a short clip with captions (the sound is optional), look at a picture of what the code makes, or read an explanation in plain words. Cheat sheets and worksheets print for times away from the screen. Every lesson also has notes for the teacher, written for someone who may never have taught coding before.
 
