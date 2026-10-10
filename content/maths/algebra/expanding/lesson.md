@@ -2,6 +2,7 @@
 order: 10
 unit: brackets
 node: AC9M8A01 n1
+assumes: [AC9M8N04 n1]   # multiplying negatives (−2 × −5): Number Foundations' Multiplying and dividing integers; Algebra does not need that course first, so a quick check in Modify retrieves it
 title: Expanding brackets
 summary: The number outside a bracket multiplies every term inside it. 3(2x + 4) is 3 rows of 2x + 4, so 6x + 12. Then collect any like terms.
 language: maths
@@ -124,7 +125,7 @@ Write each step on its own line. The checker marks the first line that does not 
 
 ```step
 stage: modify
-insight: "One change at a time: bigger numbers, subtraction in the bracket, a negative outside, extra terms to collect, then the edge case of two brackets."
+insight: "One change at a time: bigger numbers, subtraction in the bracket, a negative outside (after a quick check of multiplying negatives), extra terms to collect, then the edge case of two brackets."
 try: { playground: board, starter: "tiles.yml#vary", height: 600 }
 tasks:
   - starter: "tiles.yml#vary"
@@ -133,6 +134,14 @@ tasks:
   - starter: "tiles.yml#vary"
     hint: "b is negative here: each row has 2 negative ones."
     check: { type: answer, q: "Expand $4(3x - 2)$.", answer: "12x - 8", form: expanded, feedback: [["12x - 2", "The 4 multiplies the 2 as well."], ["12x + 8", "4 × (−2) is −8."]], explain: "4 × 3x = 12x and 4 × (−2) = −8." }
+  - check:
+      type: answer
+      q: "Quick check before a negative outside: what is $-2 \\times (-5)$?"
+      answer: "10"
+      feedback:
+        - ["-10", "Same signs give a positive: −2 × (−5) = 10."]
+        - ["-7", "That is −2 + (−5). Multiply."]
+      explain: "Same signs give a positive: 10 (Number Foundations, Multiplying and dividing integers)."
   - starter: "tiles.yml#vary"
     hint: ["Set k to −2. Every tile flips sign.", "−2 × x = −2x and −2 × (−5) = +10."]
     check: { type: answer, q: "Expand $-2(x - 5)$.", answer: "-2x + 10", form: expanded, feedback: [["-2x - 10", "A negative times a negative is positive: −2 × (−5) = +10."], ["-2x + 5", "The −2 multiplies the 5 as well."]], explain: "−2 × x = −2x and −2 × (−5) = +10, so −2x + 10." }
@@ -155,6 +164,10 @@ tasks:
 Each task changes one thing. The board shows the tiles; type the expansion.
 
 ### Subtraction inside
+
+### Quick check
+
+Multiplying two negatives, from Number Foundations.
 
 ### A negative outside
 

@@ -1,0 +1,47 @@
+summary: Students find the sign rules for multiplying and dividing integers from the pattern a × (−2) and from jumps on a number line (a negative number of jumps goes the opposite way), and apply them, including powers of −1 (AC9M8N04, node 1).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can multiply and divide integers, including two negatives.
+  - I can explain why a negative times a negative is positive, from a pattern or the number line.
+  - I can tell the rule for multiplying apart from the rule for adding negatives.
+before: |
+  Do the Run board yourself first. Students need Adding and subtracting integers (subtracting goes the opposite way), which this lesson echoes: a negative number of jumps goes the opposite way.
+
+  Two justifications are offered: the pattern (3 × (−2), 2 × (−2), … goes up by 2 each time, so it keeps going past zero) and the line. Use whichever lands; the debt model (taking away 3 debts of $2 leaves you $6 better off) is a good third in class.
+
+  The common mistake is to use the addition rule for multiplication ("two negatives make a bigger negative"); it is planted after the method, in Kai's working, and the review question puts −4 + (−3) next to −4 × (−3).
+
+  This lesson is Year 8 (AC9M8N04). It sits in Number Foundations so that Expanding brackets and the Year 8 Linear relations lessons can rely on it.
+running:
+  - "Predict: take a show of hands. Students who chose −6 usually say 'two negatives make a negative'. Do not correct it yet."
+  - "Run: have the class say each answer aloud before the click: −6, −4, −2, 0, … and then 2. Ask: why would it suddenly stop going up?"
+  - "Investigate: model the worked example live. Write the pattern down the board at writing pace, then draw 3 jumps of −2 and the reverse for −3 × (−2). Reveal the prepared lines afterwards to compare."
+  - "Modify: each task changes one sign. Ask for the sign before the number."
+  - "Practise: (−1)³ is a stretch for some; let them multiply two at a time."
+  - "Make: collect pairs. Ask: could one of them be positive? (Then the product would be negative.)"
+stuck:
+  - see: "A student says −4 × (−3) = −12 (Kai's mistake)."
+    ask: "What is −4 + (−3)? Is multiplying the same as adding?"
+    fix: "Go back to the pattern: 2 × (−3), 1 × (−3), 0 × (−3), −1 × (−3). Each step adds 3."
+  - see: "A student gets the size right but always the wrong sign for division."
+    ask: "What would you multiply to check?"
+    fix: "Check with multiplication: if −12 ÷ 3 = 4, then 3 × 4 should be −12. It is 12, so the answer is −4."
+  - see: "A student adds instead of multiplying (−6 × −5 = −11)."
+    ask: "How many jumps, and how big is each one?"
+    fix: "Set it on the board: a = −6 is off the line, so use −3 × (−5) first, then double."
+stretch: "Work out (−2)⁴ and (−2)⁵. Then: what is the sign of the product of 7 negative numbers? Why?"
+support: "Use the board for every product: set a and b and read R. A printed sign table (+ × + = +, and so on) can come out after the pattern, not before."
+leads: |
+  Next in class: operations with negative fractions and decimals (node 2).
+
+  Where it leads: expanding brackets with negatives (−2(x − 5) = −2x + 10), gradients and rules with negative values in Linear relations, and powers of negative numbers.
+exit:
+  q: "Work out −7 × (−4), 24 ÷ (−6) and (−1)⁴."
+  a: "28, −4 and 1."
+explain: |
+  $a \times b$ is $a$ jumps of $b$ from zero. $3 \times (-2)$ is 3 jumps of $-2$: left to $-6$.
+
+  A **negative** number of jumps goes the **opposite** way: $-3 \times (-2) = 6$. The pattern agrees: $3 \times (-2) = -6$, $2 \times (-2) = -4$, $1 \times (-2) = -2$, $0 \times (-2) = 0$, so $-1 \times (-2) = 2$.
+
+  The rule: **same signs give a positive, different signs give a negative**. Dividing follows the same rule, because it undoes multiplying: $-12 \div 3 = -4$, since $3 \times (-4) = -12$.

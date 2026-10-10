@@ -57,13 +57,16 @@ Earlier recommendation (before the follow-up checks): our rules on WPM's tree (a
 - **Board `tiles`:** algebra tiles for k(ax + b), negatives in red, extra terms to collect.
 - **AC9M8A01 n1:** unit Brackets in Algebra Foundations, lesson *Expanding brackets* (tiles, form-checked answers, two working checks, misconception `partial-distribution`, three Reference cards).
 
+## Done: Multiplying and dividing integers (11 Oct 2026)
+
+AC9M8N04 page added; lesson 3 of Number Foundations' Integers unit, *Multiplying and dividing integers* (node 1): the pattern a × (−2), the number line's new `product: a × b` (a negative number of jumps goes the opposite way), division by the same rule, powers of −1; misconception `sign-rules-addition`; two cards. Fractions on the line moves to order 4. Comparing two plans and Solving with graphs now list it in `uses:`; Expanding brackets lists it in `assumes:` with a quick check (−2 × (−5)) before its negative-outside task, since Algebra does not come after Number Foundations; Tables from rules notes that its rule machine shows 2(−2).
+
 ## Still to do
 
-- **Publish and listen:** the six new clips (Number Foundations 3, Angles 2, Expanding brackets) record with the real voice on the next manual publish.
-- **Try with classes:** all six new lessons, the form checks and the working check, and whether students use the sliders or drag.
-- **Year 8 integers:** Linear relations multiplies negatives (2(−1), −10 × 12), which is Year 8 Number. Needs that descriptor's page (code to confirm) and a lesson, or `assumes:`.
+- **Publish and listen:** the seven new clips (Number Foundations 4, Angles 2, Expanding brackets) record with the real voice on the next manual publish.
+- **Try with classes:** all seven new lessons, the form checks and the working check, and whether students use the sliders or drag.
 - **Next nodes:** AC9M7M05 n3 (unknown angles with reasons) needs the AC9M7M04 page (angles with parallel lines) first.
 - **Reference cards for Linear relations** (it has none yet).
 - **Keyboard access on the graph board:** its dragged points still need a pointer (the Move row could be reused there).
-- **Next in Brackets:** factorising (AC9M8A01 n2, `form: factorised`, tiles backwards) and rearranging formulas (n3, `form: subject x`, working check). Expanding brackets multiplies negatives (−2 × −5), which is Year 8 Number: its page is still needed.
+- **Next in Brackets:** factorising (AC9M8A01 n2, `form: factorised`, tiles backwards) and rearranging formulas (n3, `form: subject x`, working check). 
 - **Form-check coverage:** forms beyond algebra (fraction in simplest form, ratio, mixed numerals, inequalities) are not built; add them when a lesson needs one.

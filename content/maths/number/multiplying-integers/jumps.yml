@@ -1,0 +1,46 @@
+# Number line boards for "Multiplying and dividing integers". a × b is a jumps of b from 0.
+
+# region: run
+widget: numberline
+range: -12, 12
+labels: 2
+product: a × b
+slider a: -4, 4, 3
+slider b: -4, 4, -2
+# endregion
+
+# region: explain
+widget: numberline
+range: -12, 12
+labels: 2
+product: a × b
+slider a: -4, 4, 2
+slider b: -4, 4, 3
+# endregion
+
+# region: explain-pic
+widget: numberline
+range: -12, 12
+labels: 2
+product: a × b
+slider a: -4, 4, -3
+slider b: -4, 4, -2
+# endregion
+
+# region: vary
+widget: numberline
+range: -20, 20
+labels: 4
+product: a × b
+slider a: -5, 5, 1
+slider b: -5, 5, 1
+# endregion
+
+# region: make
+widget: numberline
+range: -20, 20
+labels: 4
+product: a × b
+slider a: -5, 5, 1
+slider b: -5, 5, 1
+# endregion

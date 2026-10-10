@@ -1,0 +1,8 @@
+# Kai's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kai
+Work out −4 × −3.
+4 × 3 = 12.
+Both numbers are negative, so the answer is negative, like −4 + −3.
+So −4 × −3 = −12.
+# endregion

@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 unit: fractions
 node: AC9M7N04 n3
 assumes: [AC9M7N04 n2]   # converting fractions, decimals and percentages is class work; a quick check in Investigate retrieves it

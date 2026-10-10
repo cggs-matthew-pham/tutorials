@@ -71,5 +71,6 @@
   "angle-sum-size": {"home": "maths/angles/triangle-angles", "text": "A bigger triangle has bigger angles, so its angle sum is more than 180°; enlarging a triangle changes its sides, not its angles, and every triangle's angles add to 180°."},
   "polygon-centre-angles": {"home": "maths/angles/polygon-angles", "text": "A polygon split from a point in the middle into n triangles has angle sum n × 180°; that counts the full turn of 360° around the middle point, which is not an angle of the polygon."},
   "negative-decimal-direction": {"home": "maths/number/fractions-on-the-line", "text": "The part after the whole number of a negative decimal or mixed numeral is counted back towards zero (−1.5 placed halfway between −1 and 0); it is further from zero too, so −1.5 is halfway between −2 and −1."},
-  "partial-distribution": {"home": "maths/algebra/expanding", "text": "The number outside a bracket multiplies only the first term (4(x + 3) = 4x + 3); it multiplies every term inside, so 4x + 12."}
+  "partial-distribution": {"home": "maths/algebra/expanding", "text": "The number outside a bracket multiplies only the first term (4(x + 3) = 4x + 3); it multiplies every term inside, so 4x + 12."},
+  "sign-rules-addition": {"home": "maths/number/multiplying-integers", "text": "The addition rule is used for multiplying (−4 × (−3) = −12, \"two negatives make a bigger negative\"); for multiplying and dividing, the same signs give a positive."}
 }

@@ -68,6 +68,20 @@
           "shows": "Adding −3 would go left; subtracting it goes right 3, to 8"
         },
         {
+          "label": "multiplying integers",
+          "unit": "integers",
+          "code": "-3 \\times (-2) = 6 \\qquad 3 \\times (-2) = -6",
+          "hint": "Same signs give a positive, different signs a negative. On the line: $a$ jumps of $b$; a negative number of jumps goes the opposite way.",
+          "board": "widget: numberline\nrange: -12, 12\nlabels: 2\nproduct: a × b\nslider a: -4, 4, -3\nslider b: -4, 4, -2",
+          "shows": "−3 jumps of −2 go the opposite way: to 6"
+        },
+        {
+          "label": "dividing integers",
+          "unit": "integers",
+          "code": "-12 \\div 3 = -4",
+          "hint": "The same sign rule as multiplying, because dividing undoes it: check $3 \\times (-4) = -12$."
+        },
+        {
           "label": "placing a negative fraction",
           "unit": "fractions",
           "code": "-1\\tfrac{1}{4} \\text{ is between } {-2} \\text{ and } {-1}",

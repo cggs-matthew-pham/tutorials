@@ -2,7 +2,7 @@
 order: 10
 unit: using
 node: AC9M8A03 n2
-uses: [AC9M7N07 n2]   # models give negative values (−10 × 12 + 100) that students judge
+uses: [AC9M7N07 n2, AC9M8N04 n1]   # models give negative values (−10 × 12 + 100) that students judge
 title: Comparing two plans
 summary: Put two rules on one graph. Where the lines cross they cost the same; on either side, the lower line is the cheaper plan. Then check where the model makes sense.
 language: maths

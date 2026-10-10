@@ -523,7 +523,8 @@ Vary, Practise, Make).
     - `compare: A, B`: the comparison written live under the line ("−7 < −2: A is further left, so it is less than B");
     - `sum: a + b` or `sum: a - b` with `slider a: ...` and `slider b: ...` (as on the graph): a jump from a by b, landing
       on R, written "5 − (−3) = 8". When subtracting, a faint dashed arrow shows which way adding b would go. `sum: a ? b`
-      adds + and − buttons.
+      adds + and − buttons. `product: a × b`: a jumps of b from 0; a negative number of jumps goes the opposite way, with
+      the jumps it reverses drawn faintly above ("−3 × (−2) = 6"); values `a`, `b` and `r`.
     - Values for checks: points as `x(P)` (`"x(P) < -4"`, `"x(P) < x(Q) and x(P) + x(Q) < 0"`), the sliders, `r` the
       result and `o` the operation (1 add, −1 subtract): `"o = -1 and b < 0 and r = 10"`.
   - `widget: geometry` (first used by `maths/angles`): a triangle or polygon on a square dot grid. Students drag the
