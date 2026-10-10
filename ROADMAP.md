@@ -423,6 +423,17 @@ Machine learning after Data detective: Pyodide with scikit-learn on the same CSV
 
 Audit of the 14 turtle lessons. **Fixed:** the loop counter `i` is traced in lesson 1 and Decisions points back to it; `size = size + 5` has its own question and a trace (with the code shown) in Variables before the spiral Make task; `from turtle import *` (lesson 1) and `write(score, False, ...)` (Events) are labelled copy-for-now recipes. **Lint:** the Python concept list is in `tools/concepts.mjs` beside MakeCode's, lessons 1 to 11 carry `introduces:`, `recipes:` and `assumes:`, and `npm run validate` reports what is left (`npm run check-concepts` tests it). **Done after:** Catch teaches `randint` (the range) and labels `import random` and the `random.` form as copy-for-now recipes. **Still open:** Gradio intro assumes joined text (`"a" + b`), which no turtle lesson teaches, so the console bridge must (it also needs `while`, `input()`, `to-text` and `+=`, and could teach `import x` and `x.f()` properly); a "forgot `global`" bug task; an early boolean Predict in Decisions; turtle facts (start at the centre facing right, a closed shape turns 360) as predict-then-notice. Full report in the project doc "python-hidden-assumptions-audit".
 
+## Proposed: prerequisite checks for maths and science (11 Oct 2026, from a review in another chat)
+
+The code-style scan does not carry over: maths and science have no code to scan, and their tutorials sit beside class teaching. Checked against the repo: no lesson has a `node:` field (the node is named only in `teacher.yml` summaries, such as Plates "AC9S8U03, node 2"), and the repo holds no progression data (`prior_knowledge` lives in waypoints-kit and no build step reads it). 55 science and 19 maths lessons.
+
+- **Data:** export the kit's nodes and `prior_knowledge` for the covered descriptors into the repo (a small JSON file), and add `node:` (descriptor and node) to every maths and science lesson.
+- **Check:** warn when a lesson's node depends on a node that no earlier lesson covers and that the lesson does not list in `assumes:` (taught in class). Without `assumes:` most science lessons would warn, since one tutorial per hinge node leaves most prior nodes to class teaching. It finds gaps between nodes only; ideas used inside a lesson that the kit does not record still need a read-through.
+- **Maths:** prerequisites form a skills chain, so the node graph fits; in the lesson, a prerequisite is checked with a short retrieval question at the start or in Practise, not assumed.
+- **Science:** both kinds of gap matter. Between lessons, dependencies inside a strand are strong (the node graph catches them). Inside a lesson, the bigger risk is a model held in a different form (distance causes seasons; convection without density), so the Engage prediction should test the model the lesson relies on, with wrong options tied to its misconceptions, and the teacher notes name the model's simplifications (a review question, not a hard rule).
+- **Found already:** Year 8 Plates (`earth-8/plates`, AC9S8U03 n2) relies on convection, which the tutorials teach in Year 9 (`physics-9/heat-transfer`). Fix in Plates (a short convection recap with density) or mark `assumes:` with a teacher note.
+- **Site wording updated** to match (approach page, home page): checks differ by subject, and the curriculum-map check is "working towards".
+
 ## Next ideas
 
 - A small form on the create page for code-check rules (templates exist; no form yet).

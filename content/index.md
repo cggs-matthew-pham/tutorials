@@ -11,7 +11,7 @@ about: |
 
   ## Why we made this
 
-  A lot of coding in schools is taught by teachers who aren't programmers themselves, often in short units squeezed between other topics. Coding builds on itself more than most subjects do, so a student who misses one idea can quietly fall behind on everything that follows. We wanted a path that keeps the steps small and in order, makes it clear what each lesson builds on, and gives teachers what they need to run it with confidence.
+  A lot of coding in schools is taught by teachers who aren't programmers themselves, often in short units squeezed between other topics. Coding builds on itself more than most subjects do, so a student who misses one idea can quietly fall behind on everything that follows. We wanted a path that keeps the steps small and in order, keeps track of what each lesson builds on, and gives teachers what they need to run it with confidence.
 
   Teachers can [suggest or request a lesson](https://forms.gle/CoRAXJWHnVQ8mXpPA), and each one is reviewed before it's added. Part of [Learning Waypoints](https://learningwaypoints.com).
 
