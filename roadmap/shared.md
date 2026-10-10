@@ -70,6 +70,22 @@ Replaces the Python-only "turtle companion" proposal (was in `roadmap/code.md`) 
 - **Link:** the teach-a-novice step (above) is where Nib's pages come from, when a lesson has one.
 - **Cost:** shared change (`tools/lesson-view.mjs`, `site/progress.js`, course pages); maths and science need a rule for which cards count as notebook pages. Snippet unlocks today: Python and HTML courses only; MakeCode, maths and science have none.
 
+## Proposed: other clips beyond Explain it to me (11 Oct 2026, discussed, not built)
+
+Applies to every subject. The limits are the existing design rules: Predict comes before the new move, and new knowledge appears only in the worked example (or Investigate). So no clip may teach before Predict, and no "today we will learn" intro.
+
+- **Hooks (phenomenon clips).** 10 to 20 s, little or no narration. A hook shows a situation without explaining it (the winch stalls, the sorter fails on a messy bench, a line tilts as m changes) and ends on the Predict question.
+  - **Unit hook (the default):** one clip that sets the driving problem the unit returns to. Optional `hook:` clip in the course `index.md` `units:` entry, shown on the course page and the unit's first lesson.
+  - **Lesson hook (sparingly):** only where the Predict depends on seeing something move or fail. Optional, on the Predict step. Many Predicts already hook; don't add filler.
+  - Recorded from a board or playground setup with the existing clip pipeline, so cost is low. Avoid real footage (licences, school filters).
+- **How-to clips: their own section, like Reference.** Short screen recordings of tool setup that is a recipe, not the lesson's knowledge: export a Teachable Machine model, connect a micro:bit over Web Serial, paste a link into the board, open MakeCode full screen.
+  - One place per subject or pathway (beside Reference). A step links to the clip at the point of need ("How to: …").
+  - Reused across courses (record "Connect a micro:bit" once).
+  - Dated, with the tool version, so stale ones are easy to find when a tool's interface changes.
+  - Prepare lists the how-tos a lesson needs, so teachers can rehearse the setup.
+- **Recap: no new clip type.** Practise already does recap as retrieval. A review question's feedback can link to the earlier lesson's Explain clip instead.
+- **Open:** format for `hook:` (clip spec as for `explainClip`, or a board setup); where the How-to section lives (per pathway or per subject); whether how-tos are recorded by `render.mjs` or by hand (real tools such as Teachable Machine can't be driven from the sandbox).
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).
