@@ -2,6 +2,18 @@
 
 The code chat's file. Newest decisions near the top of each section. Shared tools and site pages: `shared.md`.
 
+## Status (11 Oct 2026, unsupervised batch)
+
+**Done and pushed** (approved plan): the HTML and CSS hidden-assumptions scan (no gaps); Secret messages Reference snippets (Letters and codes); `npm run check-makecode` (fixed Defend the door lock's milestone 2 solution); the Python audit follow-ups and the Gradio joined-text recipe (validate now has no hidden-assumption warnings); the console bridge (four lessons, console mode in the turtle playground). Details in each section below.
+
+**Next publish will:** re-record every clip served by the turtle playground (its files changed) plus the new console clips; re-record Catch, Decisions and Defend the door lock clips (their folders changed); draw the new micro:bit block pictures.
+
+**Left, needs Matthew:**
+- A Playground chip and Reference page for the console bridge and Secret messages (`PLAY` and `REFS` in `tools/build-site.mjs`, a shared file).
+- Python pathway open questions below (extension order, retiring Deeper console Python, data sets, Gradio or our own UI).
+- Live-editor and hardware checks for MakeCode (unchanged), including whether the `^` block exists.
+- Seen while testing, not caused by this batch: `npm run check-decks` reports slide 12 of the Variables deck at 715px (limit 690).
+
 ## Done: MakeCode solution check (11 Oct 2026)
 
 `npm run check-makecode` (`tools/check-makecode.mjs`, optional course argument such as `code/arcade`) checks all 165 code-checked tasks in the 63 MakeCode lessons with the lesson page's own rules: the solution passes, the starter does not, and no earlier task's solution in the same step does (a step keeps one project). First run: one failure, in Defend the door lock: milestone 2 shared the final solution, so it looked as if milestone 3 came free. Milestone 2 now has its own solution (`lock.ts#sol-milestone2`, teacher material only). Static, so it cannot tell whether blocks decompile; that still needs the live editor.
