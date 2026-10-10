@@ -20,6 +20,7 @@ Waypoints tutorials: a static site (GitHub Pages) of markdown lessons with recor
 
 ## Teaching decisions
 - PRIMM (code lessons only; maths uses Predict, Try, Worked example, Vary, Practise, Make, and science uses 5E on the same stages): Predict (lock in, compare after Run), Run, Investigate, Modify, Make. Investigate tools must follow the lesson insight. Several tasks per step show as sub-pills only when more than one.
+- "Explain it to me" (`explainClip`, `teacher.yml` `explain`, `explainPicture`) opens from the "? Explain" button at the start of the sticky step bar, as a drawer, and shows only a "predict first" note until the lesson's first Predict is locked in (so it may use the Predict program). Built 11 Oct; see roadmap/shared.md.
 - Show combinations (a link in a list item, a list in a list, a picture in a link) and make the clip, the Explain it to me text and `explainPicture` cover the same ground (BUILDING › 4). `picture:` shows what code makes (rendered by the playground, Boxes optional).
 - Expected results are clear and shown (BUILDING › 4): a picture (`expected:`, HTML) when static, an output-only clip when it moves, a short captioned clip to explain a spatial idea; never the code.
 - Real-world content is a small complete example students Modify (the heading names the task). Make is an explicit task. Large projects belong to the teacher (For teachers panel).
