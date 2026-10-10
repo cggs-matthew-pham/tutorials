@@ -14,6 +14,8 @@ Everything runs in the student's browser. Their code runs on their own device, n
 
 A few lessons open tools made by others, such as Microsoft MakeCode for micro:bit and Arcade, or Google's Teachable Machine for training a model. Those tools load from their own sites and follow their own privacy terms; the lesson tells you when one is used.
 
+Some later Python courses run real Python libraries in the browser, which means a larger first download and, for a few lessons, live data from other sites. School filters differ, so before teaching them, [check your school](../check/) on a student device.
+
 ## Changing a lesson
 
 Because each lesson is one text file, fixing a typo or adding a question is a small change that's easy to review, and the clips, slides and worksheet update with it. If you spot something that could be better, [let us know](https://forms.gle/CoRAXJWHnVQ8mXpPA).
