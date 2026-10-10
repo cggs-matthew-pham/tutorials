@@ -1,0 +1,39 @@
+summary: Students meet the console, the text version of the playground. They ask a question with input(), store the answer, reply with print(), join text with +, and turn a number into text with str().
+time: 45
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 10 min"
+goals:
+  - I can ask a question with input() and store the answer in a variable.
+  - I can join text with + and print it, spaces included.
+  - I can turn a number into text with str() before joining it.
+before: |
+  Read the unit primer first. The playground looks different here: there is no turtle, so the right-hand side is a **console**. When the program reaches `input()`, a line appears in the console with a cursor; the student clicks it, types and presses Enter. Try the bug task yourself before class: `"Your score is " + 5` stops with a TypeError, because `+` cannot join a number onto text. `str(5)` turns the number into the text `"5"`.
+running:
+  - "Predict: ask students to write the exact line, punctuation and spaces included. The space after the comma is inside the quotes, so it stays."
+  - "Run: show where to type. The answer goes into the variable on the left of the = sign, just like size = 100 in the turtle course."
+  - "Investigate: the spaces question is where most mistakes happen. Read the line aloud piece by piece: Bo, then space-likes-space, then pizza, then a full stop."
+  - "Bug task: + joins text to text. A number has to become text first, with str(). Link it to len(name): len gives a number, so it needs str() too."
+  - "Make: let students be silly with the story. Check they print the answers, not the variable names in quotes."
+stuck:
+  - see: "TypeError: cannot concatenate 'str' and 'int' objects."
+    ask: Is everything joined with + text? Which part is a number?
+    fix: "Wrap the number in str(): \"Score: \" + str(score)."
+  - see: The console prints the word name instead of what was typed.
+    ask: Is name inside quotes?
+    fix: "Variables go outside the quotes: \"Hello, \" + name, not \"Hello, name\"."
+  - see: Words run together, such as Bolikespizza.
+    ask: "Where is the space: inside the quotes or outside?"
+    fix: "Put the space inside the quotes: \" likes \"."
+stretch: Ask for a name and a year group, then print a two-line welcome that uses both and says how many letters are in the name.
+support: Give students the three input() lines for the story machine and ask them to write only the print lines.
+leads: "Next lesson turns typed text into a number with int(), so programs can calculate with what they are told, and checks the text first so a typo does not crash the program. Class ideas: a greeting kiosk for open night; a story machine shared around the room."
+exit:
+  q: "age = 12. Why does print(\"I am \" + age) stop with an error, and how do you fix it?"
+  a: "+ cannot join a number onto text. Turn the number into text first: print(\"I am \" + str(age))."
+explain: |
+  1. `input("What is your name? ")` shows the question in the console and waits. Whatever is typed is given back as **text** and stored, here in `name`.
+  2. `print(...)` shows a line in the console. `+` joins pieces of text into one line, exactly as written: spaces go inside the quotes.
+  3. A number cannot be joined onto text. `str(5)` turns it into the text `"5"` first.
+solutions:
+  step-4#t1: text.py#sol-animal
+  step-4#t2: text.py#sol-letters
+  step-5: text.py#sol-story

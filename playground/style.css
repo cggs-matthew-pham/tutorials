@@ -55,3 +55,16 @@ canvas { position: absolute; inset: 0; display: block; }
    The editor stays in the page, invisible, so the clip recorder can still find it. */
 body.output-only .pg { grid-template-columns: 1fr; }
 body.output-only .editor-pane { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none; padding: 0; border: 0; }
+
+/* Console mode (programs with no turtle, or ?console=1): the output becomes a console where the drawing was,
+   and input() asks on an inline line in it. */
+body.console .canvas-wrap, body.console #turtle-state, body.console #finish, body.console .speed { display: none; }
+body.console .bar #reset { margin-left: auto; }
+body.console .canvas-pane { background: var(--bg); }
+body.console #output { flex: 1; max-height: none; min-height: 0; padding: 12px 14px; border-radius: 10px; border: 0;
+  background: var(--code-bg); color: var(--code-ink); font: 15px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+body.console #output:empty::before { content: "Run the program. What it prints appears here, and you type your answers here."; color: #9aa7b6; }
+body.console #output .err { color: #ff8a80; }
+#output .typed { color: #7ee2a8; font-weight: 600; }
+#output .con-in { font: inherit; font-weight: 600; color: #7ee2a8; background: transparent; border: 0; border-bottom: 2px solid #7ee2a8;
+  padding: 0 2px; margin: 0; width: min(24ch, 60%); outline: none; caret-color: #7ee2a8; }

@@ -257,6 +257,48 @@
      "hint": "Ask for text in a pop-up."
     }
    ]
+  },
+  {
+   "name": "Text in and out",
+   "items": [
+    {
+     "label": "input",
+     "code": "‹name› = input(\"‹What is your name? ›\")\n",
+     "hint": "Show a question in the console, wait for an answer, and store what was typed. It is always text."
+    },
+    {
+     "label": "join text",
+     "matches": "\\\"[^\\\"\\n]*\\\"\\s*\\+|\\+\\s*\\\"[^\\\"\\n]*\\\"",
+     "code": "\"‹Hello, ›\" + ‹name›\n",
+     "hint": "Join pieces of text into one with +. Spaces only appear where they are inside the quotes."
+    },
+    {
+     "label": "str",
+     "code": "str(‹score›)\n",
+     "hint": "Turn a number into text, so it can be joined: \"Score: \" + str(score)."
+    },
+    {
+     "label": "int",
+     "code": "int(‹text›)\n",
+     "hint": "Turn text made of digits, such as \"12\", into a whole number you can calculate with."
+    },
+    {
+     "label": "isdigit",
+     "code": "‹text›.isdigit()\n",
+     "hint": "True if the text is all digits (0 to 9) and not empty, so int() will work on it."
+    },
+    {
+     "label": "add to (+=)",
+     "matches": "\\w\\s*\\+=",
+     "code": "‹total› += ‹1›\n",
+     "hint": "Add to a variable: total += 5 is short for total = total + 5."
+    },
+    {
+     "label": "break",
+     "code": "break\n",
+     "hint": "Leave the loop straight away; the program carries on after it."
+    }
+   ]
   }
  ]
 }

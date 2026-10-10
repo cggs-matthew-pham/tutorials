@@ -71,7 +71,7 @@ The student tutorial stays light on words; the teacher layer carries the explana
 
 ## 7. Runtime facts that shape lessons
 
-**Turtle playground:** one turtle only; `?shape=classic` (or `shape("classic")`) draws Python's arrow instead of the sprite (cheat-sheet pictures use it); the turtle sprite's colour is fixed (mark it with a `dot`); `speed(0)` for instant drawing; clicks wait until an animated move ends, so moving targets step on a 50 ms timer; `write` needs positional arguments (`write(v, False, "left", ("Arial", 20, "normal"))`); `str()` and string joining are not taught yet, so write labels and values separately.
+**Turtle playground:** one turtle only; `?shape=classic` (or `shape("classic")`) draws Python's arrow instead of the sprite (cheat-sheet pictures use it); the turtle sprite's colour is fixed (mark it with a `dot`); `speed(0)` for instant drawing; clicks wait until an animated move ends, so moving targets step on a 50 ms timer; `write` needs positional arguments (`write(v, False, "left", ("Arial", 20, "normal"))`); `str()` and string joining are not taught in the turtle course (the console bridge teaches them), so turtle lessons write labels and values separately. **Console mode:** a step whose starter never mentions `turtle` (or `?console=1`) gets a console where the drawing was, and `input()` asks on an inline line in it (clips type there with `type: { selector: ".con-in", text: ... }` then `press: Enter`); a console program that imports turtle gets the drawing back when it runs.
 
 **HTML playground:** live preview, no Run button (a paste closes the Reference drawer); edits autosave per step.
 

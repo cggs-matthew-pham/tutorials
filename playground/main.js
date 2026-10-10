@@ -60,7 +60,58 @@ const modulesReady = (async () => {
   return out;
 })();
 
-const run = createRunner({ turtle, onOutput: (t) => { outEl.append(document.createTextNode(t)); window.__playground.output += t; } });
+// Console mode (the console bridge course): a program that does not use the turtle gets a console in place of the
+// drawing. It is decided once, from the step's starter (or ?console=1), so turtle lessons never change; if a
+// console program starts using the turtle, the drawing comes back when it runs. input() then asks on an inline
+// line in the console instead of the browser's prompt box.
+const canvasPane = document.querySelector('.canvas-pane');
+const usesTurtle = (code) => /\bturtle\b/.test(code);
+let consoleOn = false;
+const forcedConsole = params.get('console') === '1';
+function setConsole(on) {
+  consoleOn = on;
+  document.body.classList.toggle('console', on);
+  if (on) canvasPane.prepend(outEl); else statusEl.after(outEl);
+  canvasPane.setAttribute('aria-label', on ? 'Console' : 'Drawing');
+  outEl.setAttribute('aria-label', on ? 'Console' : 'Output');
+}
+if (forcedConsole || !usesTurtle(starter)) setConsole(true);
+
+const OUT_CAP = 40000; // a loop that prints for ever should not freeze the page
+let outLen = 0;
+function show(t) {
+  outEl.append(document.createTextNode(t)); window.__playground.output += t;
+  outLen += t.length;
+  while (consoleOn && outLen > OUT_CAP && outEl.firstChild) { outLen -= (outEl.firstChild.textContent || '').length; outEl.firstChild.remove(); }
+  if (consoleOn) outEl.scrollTop = outEl.scrollHeight;
+}
+let pendingInput = null;
+function askInline(prompt) {
+  if (!consoleOn) return null;
+  if (prompt) show(String(prompt));
+  return new Promise((resolve, reject) => {
+    const field = document.createElement('input');
+    Object.assign(field, { type: 'text', className: 'con-in', autocomplete: 'off', spellcheck: false });
+    field.setAttribute('aria-label', 'Answer');
+    field.setAttribute('autocapitalize', 'off');
+    outEl.append(field);
+    outEl.scrollTop = outEl.scrollHeight;
+    field.focus({ preventScroll: true });
+    setStatus('running', 'Type your answer and press Enter');
+    pendingInput = (err) => { field.remove(); pendingInput = null; reject(err); };
+    field.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      const v = field.value;
+      const typed = document.createElement('span'); typed.className = 'typed'; typed.textContent = v;
+      field.replaceWith(typed); pendingInput = null;
+      outEl.append(document.createTextNode('\n')); window.__playground.output += v + '\n'; outLen += v.length + 1;
+      setStatus('running', 'Running…');
+      resolve(v);
+    });
+  });
+}
+const run = createRunner({ turtle, onOutput: show, onInput: askInline });
 
 function setStatus(state, text) {
   statusEl.dataset.state = state;
@@ -95,7 +146,8 @@ codeEl.addEventListener('keydown', (e) => {
 
 runBtn.addEventListener('click', async () => {
   ctl?.close(); // the picture matters now, not the reference
-  outEl.textContent = '';
+  if (consoleOn && !forcedConsole && [mainText, ...Object.values(studentMods)].some(usesTurtle)) setConsole(false);
+  outEl.textContent = ''; outLen = 0;
   turtle.resetAll();
   turtle.speed = Number(speedEl.value);
   turtle.beginRun();
@@ -123,11 +175,12 @@ runBtn.addEventListener('click', async () => {
   }
 });
 
-stopBtn.addEventListener('click', () => turtle.stop());
+stopBtn.addEventListener('click', () => { turtle.stop(); pendingInput?.(new Error('Stopped')); });
 finishBtn.addEventListener('click', () => turtle.finish());
 resetBtn.addEventListener('click', () => {
   mainText = starter; write(null); switchTab('main');
-  outEl.textContent = ''; turtle.resetAll();
+  outEl.textContent = ''; outLen = 0; turtle.resetAll();
+  if (forcedConsole || !usesTurtle(starter)) setConsole(true);
   setStatus('idle', 'Ready');
   window.__playground.output = ''; window.__playground.error = null;
 });

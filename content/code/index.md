@@ -8,11 +8,11 @@ pathways:
     about: "Start with **Python Foundations with Turtle**: commands, loops, variables, decisions, lists, functions and events, ending in a game you build in milestones. The **console bridge** then shows the same logic as text in and text out, and every extension starts from it: deeper Python in the console, web apps with Gradio (and machine learning after both), and games."
     courses:
       - { path: code/python, stage: foundations }
-      - { id: console-bridge, title: "Console bridge: text in, text out", stage: foundations, summary: "input(), print() and a text menu: the same logic without the turtle. Every extension starts here.", after: [code/python] }
-      - { id: console-deep, title: Deeper Python in the console, stage: extensions, summary: "Strings, dictionaries, files and errors.", after: [console-bridge] }
-      - { path: code/gradio, stage: extensions, after: [console-bridge] }
+      - { path: code/console, stage: foundations, after: [code/python] }
+      - { id: console-deep, title: Deeper Python in the console, stage: extensions, summary: "Strings, dictionaries, files and errors.", after: [code/console] }
+      - { path: code/gradio, stage: extensions, after: [code/console] }
       - { title: Machine learning with Gradio, stage: extensions, summary: "Train small models on data, and put a model behind an app.", after: [console-deep, code/gradio] }
-      - { title: Games with microStudio, stage: extensions, summary: "Sprites, maps, sound and a game loop in text code.", after: [console-bridge] }
+      - { title: Games with microStudio, stage: extensions, summary: "Sprites, maps, sound and a game loop in text code.", after: [code/console] }
   - id: web
     title: Web
     summary: Build pages, then make them draw, move and react.

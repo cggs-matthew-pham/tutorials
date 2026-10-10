@@ -191,6 +191,8 @@ const FRIENDLY = [
   [/name '(\w+)' is not defined/, (m) => `${m[0]}. Check the spelling, and that you created it before using it.`],
   [/unexpected indent|expected an indented block/i, () => 'Indentation problem: lines inside a loop or function must be indented by the same amount.'],
   [/SyntaxError: bad input/, () => 'Python could not read this line. Check for a missing colon (:), bracket or quote on this line or the one above.'],
+  [/cannot concatenate 'str' and '(int|float)'|unsupported operand type\(s\) for \+: '(int|float)' and 'str'/, () => '+ cannot mix a number and text. To join a number onto text, use str(): "Score: " + str(score). To add a typed number, turn the text into a number with int() first.'],
+  [/invalid literal for int\(\)/, () => 'int() can only turn text made of digits into a number, such as "12". Check what was typed before turning it into a number.'],
 ];
 
 export function friendlyError(err) {
@@ -199,7 +201,10 @@ export function friendlyError(err) {
   return text;
 }
 
-export function createRunner({ turtle, onOutput }) {
+// onInput(prompt): optional; returns a promise of the typed answer (the console's inline input line), or null to
+// fall back to the browser's prompt box (turtle programs). Time spent waiting for an answer does not count
+// towards the run's time limit.
+export function createRunner({ turtle, onOutput, onInput }) {
   window.__wpTurtle = turtle;
   Sk.builtinFiles.files['src/lib/turtle.js'] = MODULE_SOURCE;
 
@@ -227,7 +232,11 @@ export function createRunner({ turtle, onOutput }) {
       __future__: Sk.python3,
       execLimit: 60000,
       yieldLimit: 200,
-      inputfun: (prompt) => Promise.resolve(window.prompt(prompt) ?? ''),
+      inputfun: (prompt) => {
+        const asked = onInput && onInput(prompt);
+        if (!asked) return Promise.resolve(window.prompt(prompt) ?? '');
+        return asked.then((v) => { Sk.execStart = new Date(); return v; });
+      },
       inputfunTakesPrompt: true,
     });
     return Sk.misceval.asyncToPromise(() => Sk.importMainWithBody('<stdin>', false, code, true), {

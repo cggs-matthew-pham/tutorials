@@ -1,0 +1,39 @@
+summary: Students meet while, a loop that repeats until its question is no longer true, through a guess-the-number game, then count tries with += and keep a running total.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can use while to repeat until something becomes true.
+  - I can explain what makes a while loop stop, and why a loop runs for ever.
+  - I can keep a count or a running total with +=.
+before: |
+  Read the unit primer first. `while guess != secret:` asks a question before every lap; `!=` means "is not equal to". The loop stops only when something inside it changes the answer, here the new guess. `tries += 1` is short for `tries = tries + 1` (students know the long form from the turtle course). The bug task is a loop that never ends: `total + points` works out a sum but throws it away. In the playground, **Stop** ends a runaway loop. `import random` and `random.randint(1, 20)` are the recipe students copied in Catch the turtle.
+running:
+  - "Predict: act it out. One student holds the secret, another guesses; the class says the while question aloud before each guess."
+  - "Run: ask for the smallest number of guesses that always works for 1 to 20 (five, by halving). It is a good lead into searching algorithms."
+  - "Investigate: the guess = 0 question matters. Remove the line in the playground and show the NameError."
+  - "Bug task: ask what total + points does with its answer. Nothing stores it."
+  - "Make: points must start at a value that is not 0, or the loop never runs. Let students discover this, then ask why."
+stuck:
+  - see: The program keeps asking for ever.
+    ask: Which line changes the value the while question tests?
+    fix: Store the change (+= or x = x + ...), and check the question can become False.
+  - see: NameError on the while line.
+    ask: Does the variable have a value before the loop asks about it?
+    fix: Give it a starting value before the while line, one that keeps the loop running the first time.
+  - see: "The 0 that should stop the counter is added or counted."
+    ask: When does the program check for 0, before or after adding?
+    fix: Only add when the points are not 0 (an if inside the loop), or check before adding.
+stretch: Make the guessing game tell the player when they are within 3 of the secret ("Very close!").
+support: Give students the first two lines of the points counter (total = 0, count = 0) and the while line, and ask them to fill in the loop body and the print after it.
+leads: "Next lesson puts a whole menu inside while True and leaves it with break, then tests the app against a table of cases. Guessing by halving is the idea behind binary search, which comes back in algorithms."
+exit:
+  q: "n = 1. while n < 20: n = n * 2. What is n when the loop stops?"
+  a: "32. n goes 1, 2, 4, 8, 16, 32; at 32 the question n < 20 is False, so the loop stops."
+explain: |
+  1. `while question:` asks its question before every lap. While the answer is True, the indented lines run again.
+  2. Something inside the loop must change what the question tests, or the loop runs for ever. `+=` adds to a variable: `total += 5` is `total = total + 5`.
+  3. When the answer becomes False, the loop stops and the line after it runs.
+solutions:
+  step-4#t1: loops.py#sol-hundred
+  step-4#t2: loops.py#sol-limit
+  step-5: loops.py#sol-counter

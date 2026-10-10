@@ -23,7 +23,8 @@ Also changed: `prerequisites()` in `tools/concepts.mjs` now treats a course list
 
 - `tools/concepts.mjs`: added `CONCEPTS.html`; `visibleCode` now also reads `.html`/`.css` regions and fenced `html`/`css` blocks (other languages unchanged: their warnings are the same before and after). `tools/check-concepts.mjs`: HTML tests.
 - New `tools/check-makecode.mjs` (`npm run check-makecode`, script added to `package.json`): static checks on MakeCode code tasks. Reads only; changes no shared behaviour.
-- `misconceptions.json`: added `global-missing` (home `code/python/turtle-events`).
+- `misconceptions.json`: added `global-missing` (home `code/python/turtle-events`), and `text-plus-number`, `input-is-text`, `loop-never-changes` (console bridge).
+- `BUILDING.md` › 7 and `CLAUDE.md` › Playground runtime: console mode in the turtle playground (`playground/`, code-owned).
 
 ## Done by the code chat (11 Oct 2026): Explain it to me as a help button
 
