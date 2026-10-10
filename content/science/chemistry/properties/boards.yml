@@ -21,3 +21,7 @@ jit: 0.12
 colour: p3
 caption: Substance X: particles close together, no pattern, sliding slowly past each other because they attract strongly.
 # endregion
+
+# region: explain
+widget: syringe
+# endregion

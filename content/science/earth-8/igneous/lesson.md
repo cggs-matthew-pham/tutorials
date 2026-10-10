@@ -4,6 +4,29 @@ unit: rocks
 title: Why do some rocks have big crystals?
 summary: Igneous rock forms when magma or lava cools. Slow cooling underground gives large crystals (granite); fast cooling at the surface gives small crystals (basalt) or glass (obsidian). Crystal size is a record of cooling rate.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8253
+  url: http://127.0.0.1:8253/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Crystal size and cooling"
+  say: "Slow cooling makes large crystals; fast cooling makes small ones."
+  clip:
+    - caption: { text: "Magma cooling slowly, underground.", say: "Magma cooling slowly, underground." }
+    - wait: 1630
+    - click: "Cool the magma"
+    - wait: 6000
+    - expect: { selector: "body", contains: "Solid rock" }
+    - caption: { text: "Slow cooling: fewer, larger crystals, like granite.", say: "Slow cooling gives fewer, larger crystals, like granite." }
+    - wait: 2950
+    - click: "Very fast"
+    - click: "Cool the magma"
+    - wait: 4000
+    - caption: { text: "Very fast cooling at the surface: many tiny crystals, like basalt.", say: "Very fast cooling at the surface gives many tiny crystals, like basalt." }
+    - wait: 800
 hook: "Granite kitchen benches have crystals you can see from across the room. Basalt, from the same kind of molten rock, has crystals too small to see. Both crystallised from molten rock: what was different?"
 ---
 Rocks keep a record of how they formed. This lesson teaches you to read one part of it.

@@ -14,3 +14,8 @@ hunter: birds
 change: on
 need: 6
 # endregion
+
+# region: explain
+widget: selection
+hunter: birds
+# endregion

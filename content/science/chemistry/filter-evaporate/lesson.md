@@ -4,6 +4,25 @@ unit: mixtures
 title: Filtration and evaporation
 summary: Filtration separates a solid that hasn't dissolved; evaporation recovers a solid that has. Describe both, name the residue and filtrate, and choose the right one.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8248
+  url: http://127.0.0.1:8248/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Filtration"
+  say: "Filtration separates an undissolved solid from a liquid."
+  clip:
+    - caption: { text: "Sand and salt water. The filter's holes are smaller than a sand grain.", say: "Sand and salt water. The filter's holes are smaller than a sand grain." }
+    - wait: 3940
+    - click: "Pour through the filter paper"
+    - wait: 3500
+    - caption: { text: "Sand stays behind: the residue. Water and dissolved salt pass: the filtrate.", say: "The sand stays behind as residue; water and dissolved salt pass through." }
+    - wait: 1500
+    - caption: { text: "To get the salt back, evaporate the water.", say: "To get the salt back, evaporate the water." }
+    - wait: 800
 hook: "How do you get clean salt back out of sandy salt water? Two techniques, in the right order: filtration takes out what didn't dissolve, and evaporation takes the water away from what did."
 ---
 Both techniques use a property difference from the last lesson: **particle size** for filtration, **boiling point** for evaporation. This lesson is about doing them correctly.

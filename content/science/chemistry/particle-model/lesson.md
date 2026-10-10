@@ -4,6 +4,27 @@ unit: particles
 title: What is everything made of?
 summary: All matter is made of tiny particles with empty space between them, always moving and attracting each other. Match particle diagrams to solids, liquids and gases.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8239
+  url: http://127.0.0.1:8239/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "The particle model"
+  say: "Everything is made of tiny particles, with empty space between them."
+  clip:
+    - caption: { text: "Zoom in on ice: particles packed in a pattern, vibrating in place.", say: "Zoom in on ice: particles packed in a pattern, vibrating in place." }
+    - wait: 3200
+    - click: "Liquid water"
+    - caption: { text: "Water: still close, but sliding past each other.", say: "In water they are still close, but slide past each other." }
+    - wait: 3000
+    - click: "Steam"
+    - caption: { text: "Steam: far apart and fast. Between them is empty space, not air.", say: "In steam they are far apart and fast, with empty space between." }
+    - wait: 2500
+    - caption: { text: "Same particles in all three. Only their arrangement and motion change.", say: "The particles are the same in all three; only arrangement and motion change." }
+    - wait: 800
 hook: "Water looks smooth and continuous. Zoom in about a billion times and the picture changes completely: that picture is the particle model, and the rest of chemistry is built on it."
 ---
 Scientists explain how substances behave with a **model**: a simplified picture that is good at explaining and predicting. This lesson builds the particle model and its four key ideas.

@@ -13,3 +13,8 @@ need: 6
 # region: build
 widget: build
 # endregion
+
+# region: explain
+widget: zoom
+samples: ice, water, steam
+# endregion

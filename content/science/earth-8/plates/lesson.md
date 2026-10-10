@@ -4,6 +4,23 @@ unit: plates
 title: What moves the plates?
 summary: The lithosphere is broken into rigid plates that move a few centimetres a year. Slow convection currents in the hot mantle, driven by heat from the core, carry them.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8254
+  url: http://127.0.0.1:8254/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "What moves the plates"
+  say: "Slow convection currents in the mantle carry the plates."
+  clip:
+    - caption: { text: "Heat from the core warms the mantle rock at the bottom.", say: "Heat from the core warms the mantle rock at the bottom." }
+    - wait: 3000
+    - caption: { text: "Warm rock is less dense and rises; it cools and sinks again.", say: "Warm rock is less dense and rises; it cools at the top and sinks." }
+    - wait: 4000
+    - caption: { text: "The current drags the plates: apart above rising rock.", say: "The current drags the plates with it, apart above the rising rock." }
+    - wait: 3000
 hook: "Australia is moving north about 7 centimetres a year, roughly as fast as your fingernails grow. A whole continent. What could possibly push it?"
 ---
 Earth's surface is not fixed. This lesson is about the engine underneath.

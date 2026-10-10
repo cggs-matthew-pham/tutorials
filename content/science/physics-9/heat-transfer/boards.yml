@@ -13,3 +13,8 @@ widget: convection
 widget: convection
 caption: "Turn the heat off once the current is going. What happens?"
 # endregion
+
+# region: explain
+widget: convection
+mode: solid
+# endregion

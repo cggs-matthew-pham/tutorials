@@ -4,6 +4,25 @@ unit: mixtures
 title: Pure substance or mixture?
 summary: A pure substance contains only one kind of particle; a mixture contains two or more. Classify familiar materials by their particles, not by how they look.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8250
+  url: http://127.0.0.1:8250/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Pure substances and mixtures"
+  say: "A pure substance has one kind of particle; a mixture has two or more."
+  clip:
+    - caption: { text: "Distilled water: only one kind of particle. A pure substance.", say: "Distilled water has only one kind of particle: a pure substance." }
+    - wait: 3280
+    - click: "Salt water"
+    - caption: { text: "Salt water: two kinds of particle. A mixture.", say: "Salt water has two kinds of particle: a mixture." }
+    - wait: 2620
+    - click: "Air"
+    - caption: { text: "Air is a mixture too: several kinds of particle.", say: "Air is a mixture too, of several kinds of particle." }
+    - wait: 800
 hook: "In the supermarket, \"100% pure\" orange juice means nothing has been added. In science, pure means something much stricter, and you can only check it by looking at the particles."
 ---
 Before you can separate a mixture, you need to know whether you have one. That is a question about **particles**, not appearance.

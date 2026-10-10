@@ -4,6 +4,27 @@ unit: evolution
 title: How different are individuals?
 summary: "Individuals in a population vary. Measuring one characteristic across a population gives a spread of values, often most near the middle. Some variation is inherited (genes) and some comes from the environment; inherited variation is what natural selection acts on."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8241
+  url: http://127.0.0.1:8241/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Variation"
+  say: "Individuals in a population differ; inherited variation is passed on."
+  clip:
+    - caption: { text: "No two beetles are quite the same colour: that's variation.", say: "No two beetles are quite the same colour: that's variation." }
+    - wait: 1200
+    - caption: { text: "Colour can take any value from pale to dark: continuous variation.", say: "Colour can take any value from pale to dark: continuous variation." }
+    - wait: 3280
+    - click: "Let the birds hunt"
+    - wait: 2500
+    - click: "Survivors breed"
+    - wait: 1500
+    - caption: { text: "Colour is inherited, so the survivors' colours are passed on.", say: "Colour is inherited, so the survivors' colours are passed on." }
+    - wait: 800
 hook: "Look closely at a patch of grass beetles, a school of fish or a class of Year 10s. No two are quite the same. That spread is the raw material of evolution."
 ---
 Meiosis and fertilisation make every offspring different. This lesson: what that variation looks like across a whole population.

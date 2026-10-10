@@ -13,3 +13,7 @@ need: all
 caption: Four gases. Which are elements?
 # endregion
 
+# region: explain
+widget: atoms
+show: N2 x1, O2 x1, Ar x1, CO2 x1, N2 x5, O2 x2
+# endregion

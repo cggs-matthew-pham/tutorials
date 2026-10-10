@@ -4,6 +4,28 @@ unit: particles
 title: Why does a gas fill its container?
 summary: Describe the arrangement, motion and attraction of particles in a solid, a liquid and a gas, and use them to explain why solids keep their shape and gases fill their containers.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8252
+  url: http://127.0.0.1:8252/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "States of matter"
+  say: "Each state is described by arrangement, motion and attraction of particles."
+  clip:
+    - caption: { text: "A solid: particles close, fixed, vibrating in place.", say: "In a solid, particles are close and fixed, vibrating in place." }
+    - wait: 3280
+    - click: "Liquid"
+    - caption: { text: "A liquid: still close, but free to slide past each other.", say: "In a liquid, they are still close but slide past each other." }
+    - wait: 3610
+    - click: "Gas"
+    - wait: 1000
+    - click: "Remove the jar"
+    - wait: 1500
+    - caption: { text: "A gas: far apart and fast, spreading to fill any space.", say: "In a gas, they are far apart and fast, spreading to fill any space." }
+    - wait: 1500
 hook: "Tip a sugar cube out of its box and it stays a cube. Tip out juice and it spreads across the table. Open perfume and soon the whole room smells. Same particles idea, three behaviours."
 ---
 The particle model is not just a picture to label. In this lesson you use it to **explain** what solids, liquids and gases do.

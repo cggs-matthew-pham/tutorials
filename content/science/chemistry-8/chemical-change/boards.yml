@@ -25,3 +25,10 @@ ea: 1.5
 release: 1
 caption: Methane (natural gas) burning in oxygen.
 # endregion
+
+# region: explain
+widget: reaction
+show: H2 x10, Cl2 x10
+react: H2 + Cl2 -> 2 HCl
+temp: 500
+# endregion

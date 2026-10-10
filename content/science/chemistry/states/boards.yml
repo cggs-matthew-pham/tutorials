@@ -19,3 +19,7 @@ widget: windows
 set: ice
 caption: The same volume of ice and of liquid water.
 # endregion
+
+# region: explain
+widget: jar
+# endregion

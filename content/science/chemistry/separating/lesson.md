@@ -4,6 +4,31 @@ unit: mixtures
 title: How do you separate a mixture?
 summary: Every separation technique uses a difference in a physical property between the parts of a mixture. Match property differences to techniques, and choose the order.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8251
+  url: http://127.0.0.1:8251/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Separating mixtures"
+  say: "Each separation technique uses a difference in a property."
+  clip:
+    - caption: { text: "Water, salt, sand and iron filings. Each tool uses a different property.", say: "Water, salt, sand and iron: each tool uses a different property." }
+    - wait: 3280
+    - click: "Magnet"
+    - wait: 1500
+    - caption: { text: "A magnet pulls out the iron: it's magnetic.", say: "A magnet pulls out the iron, because it's magnetic." }
+    - wait: 2620
+    - click: "Filter paper"
+    - wait: 2000
+    - caption: { text: "Filter paper keeps the sand: its grains are too big.", say: "Filter paper keeps the sand: its grains are too big to pass." }
+    - wait: 3610
+    - click: "Evaporate"
+    - wait: 2500
+    - caption: { text: "Evaporating leaves the dissolved salt.", say: "Evaporating the water leaves the dissolved salt behind." }
+    - wait: 800
 hook: "A recycling plant lifts steel cans out of the rubbish with a giant magnet and leaves everything else behind. Every way of separating a mixture works like that: it uses a difference between the parts."
 ---
 Separating doesn't change the particles: you get back the same substances you mixed. The trick is to find a **property** where the parts differ.

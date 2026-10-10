@@ -6,3 +6,8 @@ goal: measure
 need: 20
 n: 40
 # endregion
+
+# region: explain
+widget: selection
+hunter: birds
+# endregion

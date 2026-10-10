@@ -2,6 +2,12 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: Explain it to me on the science board (11 Oct 2026, science chat)
+
+The recorder needed no change: the science board takes `?code=` like the shared board. Voiced clips for all 17 science-board lessons (Year 7 Chemistry, Chemistry 8 and 9–10, Year 10 Variation and Natural selection, Igneous, Plates, Heat transfer); ports 8239–8255 (next free: 8256). Timed with flite: 20–35 s (Igneous 35 s: the cooling itself takes time). Tips: "Inspect next particle" walks particles in setup order, so explain setups list one of each kind first; slow reactions need `temp:` raised to show change within a clip; canvas-drawn boards (beetles) can't be clicked by element.
+
+Every one of the 56 science lessons now has an Explain it to me clip. Still open: pictures for the 17 science-board lessons (needs a draw function for `_playground-science/` in `render-pictures.mjs`, a shared tool).
+
 ## Done: Explain it to me, batch 2 (11 Oct 2026, science chat)
 
 Voiced explain clips for the other 27 shared-board lessons: Biology 8 (4), 9 (6), 10 (DNA and genes, meiosis, Punnett), Earth and space 7 (5), 8 (layers), 9 (3) and 10 (5). Ports 8212–8238 (next free: 8239). Explain pictures on 17 of them; none where the widget isn't drawn on the board (cross, the pathway and race modes, feedback) or where the picture tool's smaller size makes the labels collide (the carbon cycle). Sunlight's picture uses a four-tile `explain-pic`.
@@ -46,7 +52,7 @@ The code-style scan does not carry over: maths and science have no code to scan,
 
 Leads for the first science review (checked and resolved 11 Oct, see Done above): Year 8 *Plates* relies on convection, taught in Year 9 *Heat transfer*; "warm fluid rises because it is less dense" relies on density from Year 7 *Properties*; Year 10 *Redshift* uses wavelength and spectra, which no science lesson introduces; Year 8 *Organs* and *Specialised* and Year 9 *Carbon and living things* assume photosynthesis.
 
-Related gap (11 Oct): none of the 55 science lessons has an `explainClip`, `explainPicture` or `voice:` yet. The 38 on the shared board can follow the voiced maths pattern; the 17 on the science board (`playground-science/`) may need recorder support first.
+Related gap (11 Oct), since closed: every science lesson now has a voiced `explainClip` (see Done above); pictures on 26 shared-board lessons.
 
 The shared part (progression data in the repo, the `node:` field and the node check in validate) is in `shared.md` › Shared: progression data and node check.
 

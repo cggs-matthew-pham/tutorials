@@ -39,3 +39,9 @@ slider: off
 goal: compare
 caption: "Run it without the catalyst, then reset, turn the catalyst on and run it again."
 # endregion
+
+# region: explain
+widget: reaction
+show: H2 x15, Cl2 x15
+react: H2 + Cl2 -> 2 HCl
+# endregion

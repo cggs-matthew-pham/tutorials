@@ -4,6 +4,31 @@ unit: evolution
 title: Why did the beetles change?
 summary: "Natural selection: individuals vary; more are born than survive; those best suited to the environment are more likely to survive and reproduce, passing on their alleles. Over generations the population changes. Individuals don't change to suit the environment."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8240
+  url: http://127.0.0.1:8240/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Natural selection"
+  say: "The population changes because survivors pass on their colours; no beetle changes."
+  clip:
+    - caption: { text: "Beetles vary in colour. Birds eat the ones that stand out most.", say: "Beetles vary in colour. Birds eat the ones that stand out most." }
+    - wait: 3610
+    - click: "Let the birds hunt"
+    - wait: 2500
+    - caption: { text: "Survivors breed, and their young are like them.", say: "The survivors breed, and their young are like them." }
+    - wait: 2620
+    - click: "Survivors breed"
+    - wait: 1500
+    - click: "Let the birds hunt"
+    - wait: 2500
+    - click: "Survivors breed"
+    - wait: 1500
+    - caption: { text: "Over generations the population blends in. No single beetle changed.", say: "Over generations the population blends in, but no single beetle changed." }
+    - wait: 800
 hook: "After a bushfire, the ground is black. A few years later, a beetle population on it is darker than before. No beetle changed colour."
 ---
 Individuals vary. This lesson: what happens to that variation when some individuals are more likely to survive.

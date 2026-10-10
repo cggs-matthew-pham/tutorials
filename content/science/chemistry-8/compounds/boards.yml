@@ -27,3 +27,8 @@ release: 1
 goal: react
 caption: "Hydrogen and oxygen. Watch for the yellow rings: each one is a reaction."
 # endregion
+
+# region: explain
+widget: atoms
+show: H2 x1, H2O x1, O2 x2, H2 x2, H2O x3
+# endregion

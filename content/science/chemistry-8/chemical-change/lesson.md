@@ -4,6 +4,23 @@ unit: changes
 title: Is it a new substance?
 summary: A chemical change makes a new substance, because atoms rearrange into new particles. A physical change only rearranges or spreads out the same particles. "Can it be reversed?" is not the test.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8243
+  url: http://127.0.0.1:8243/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Chemical change"
+  say: "A chemical change makes a new substance by rearranging atoms."
+  clip:
+    - caption: { text: "Hydrogen and chlorine molecules collide. A yellow ring marks a reaction.", say: "Hydrogen and chlorine molecules collide; a yellow ring marks each reaction." }
+    - wait: 4000
+    - caption: { text: "The atoms separate and join into new particles: hydrogen chloride.", say: "The atoms separate and join into new particles: hydrogen chloride." }
+    - wait: 3000
+    - caption: { text: "A new substance: a chemical change. Melting only moves the same particles.", say: "That makes a new substance; melting only moves the same particles." }
+    - wait: 800
 hook: "You can melt ice and freeze it again. You can't unburn toast. Is that how to tell a chemical change? Dissolved salt comes back when the water dries up…"
 ---
 In Year 6 you may have learned that changes you can reverse are physical. This lesson tests that rule, and replaces it with a better one.

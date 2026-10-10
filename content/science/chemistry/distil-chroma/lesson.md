@@ -4,6 +4,25 @@ unit: mixtures
 title: Distillation and chromatography
 summary: Distillation collects a liquid by boiling and condensing it; chromatography separates dissolved substances such as dyes. Explain each principle and when distillation beats evaporation.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8247
+  url: http://127.0.0.1:8247/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Distillation"
+  say: "Distillation separates by boiling point: the vapour is cooled and collected."
+  clip:
+    - caption: { text: "Seawater: water with dissolved salt.", say: "Seawater is water with dissolved salt." }
+    - wait: 1630
+    - click: "Heat the seawater"
+    - wait: 2500
+    - caption: { text: "The water boils off. The condenser cools the vapour back to liquid.", say: "The water boils off, and the condenser cools the vapour back to liquid." }
+    - wait: 3000
+    - caption: { text: "Pure water collects in the flask; the salt stays behind.", say: "Pure water collects in the flask, and the salt stays behind." }
+    - wait: 800
 hook: "Ships at sea make fresh water by boiling seawater and catching the steam. Forensic scientists find out which pen wrote a note by letting water creep up a strip of paper."
 ---
 Two more techniques. Distillation uses the same property as evaporation (boiling point) but keeps the vapour. Chromatography separates substances that are **all** dissolved.

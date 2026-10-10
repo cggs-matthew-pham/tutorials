@@ -4,6 +4,25 @@ unit: atoms
 title: Why isn't salt poisonous?
 summary: A compound is two or more types of atom chemically joined in a fixed ratio. It is a new substance with new properties, and a formula like H₂O tells you which atoms and how many.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8244
+  url: http://127.0.0.1:8244/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Elements and compounds"
+  say: "A compound is different atoms chemically joined in a fixed ratio."
+  clip:
+    - caption: { text: "Hydrogen, oxygen and water molecules, mixed together.", say: "Hydrogen, oxygen and water molecules, mixed together." }
+    - wait: 1960
+    - click: "Inspect next particle"
+    - caption: { text: "Hydrogen: one type of atom, an element.", say: "Hydrogen: one type of atom, an element." }
+    - wait: 1960
+    - click: "Inspect next particle"
+    - caption: { text: "Water: two hydrogens joined to one oxygen, always. A compound.", say: "Water is always two hydrogens joined to one oxygen: a compound." }
+    - wait: 800
 hook: "Sodium is a metal that bursts into flame in water. Chlorine is a poisonous gas. Put them together and you can sprinkle the result on your chips."
 ---
 Last lesson: atoms come in types, one for each element. This lesson: what happens when different types join.

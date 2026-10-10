@@ -4,6 +4,23 @@ unit: equations
 title: Where do the atoms go?
 summary: In a chemical reaction atoms are rearranged into new particles, never made or destroyed. Counting atoms before and after shows why mass is conserved and why equations must balance.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8246
+  url: http://127.0.0.1:8246/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Rearranging atoms"
+  say: "In a reaction atoms are rearranged; none are made or destroyed."
+  clip:
+    - caption: { text: "Hydrogen and oxygen react to make water.", say: "Hydrogen and oxygen react to make water." }
+    - wait: 4500
+    - caption: { text: "Check the atom tally: the same atoms before and now.", say: "Check the atom tally: the same atoms before and now." }
+    - wait: 2500
+    - caption: { text: "Atoms are rearranged, not made or destroyed, so mass is conserved.", say: "Atoms are rearranged, not made or destroyed, so mass is conserved." }
+    - wait: 800
 hook: "A log burns down to a handful of ash. Where did the rest of the log go?"
 ---
 You know a chemical change makes a new substance. This lesson follows the atoms.

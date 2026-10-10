@@ -4,6 +4,23 @@ unit: energy
 title: How does heat get through?
 summary: Conduction passes energy from particle to particle by collisions, with the particles staying in place. Convection carries energy as the heated fluid itself moves. The particle model explains both, and why metals conduct and trapped air insulates.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8255
+  url: http://127.0.0.1:8255/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Conduction"
+  say: "In conduction the particles stay in place and pass energy on by collisions."
+  clip:
+    - caption: { text: "A metal bar heated at one end. Blue is cool, red is hot.", say: "A metal bar heated at one end: blue is cool, red is hot." }
+    - wait: 3000
+    - caption: { text: "Particles vibrate harder and bump their neighbours. None of them move along.", say: "Particles vibrate harder and bump their neighbours; none of them move along." }
+    - wait: 4000
+    - caption: { text: "That's conduction. In liquids and gases, the warm fluid itself moves: convection.", say: "That is conduction; in liquids and gases the warm fluid itself moves." }
+    - wait: 1500
 hook: "Leave a metal spoon in hot soup and the handle soon burns your fingers. Heat a pot of water from the bottom and the top gets hot too. Two different journeys for the energy."
 ---
 In Year 7 you used the particle model to explain solids, liquids and gases. This lesson uses it to explain how energy moves.

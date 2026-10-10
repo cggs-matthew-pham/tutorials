@@ -23,3 +23,7 @@ item: Sugar dissolved in water. Get the sugar. | evap | Sugar is dissolved. Heat
 item: Muddy salt water. Get the salt. | both | Filter out the mud, then evaporate.
 item: Oil floating on water. Separate them. | neither | Both are liquids. Let them settle and pour off the top layer.
 # endregion
+
+# region: explain
+widget: filter
+# endregion

@@ -4,6 +4,27 @@ unit: atoms
 title: What are particles made of?
 summary: The particles of the particle model are atoms. Atoms come in different types, one type for each element, and atom type decides what element a substance is.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8242
+  url: http://127.0.0.1:8242/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Atoms and elements"
+  say: "The particles in the particle model are atoms, or atoms joined together."
+  clip:
+    - caption: { text: "Air, zoomed in: every particle is made of atoms.", say: "This is air, zoomed in: every particle is made of atoms." }
+    - wait: 3280
+    - click: "Inspect next particle"
+    - caption: { text: "Two nitrogen atoms joined: one element, nitrogen.", say: "Two nitrogen atoms are joined: one element, nitrogen." }
+    - wait: 2290
+    - click: "Inspect next particle"
+    - wait: 1200
+    - click: "Inspect next particle"
+    - caption: { text: "Oxygen, argon: different elements. There are about 118 types of atom.", say: "Oxygen and argon are other elements; there are about a hundred and eighteen." }
+    - wait: 800
 hook: "Water, oxygen and carbon dioxide are all made of particles. So why is one a drink, one keeps you alive, and one puts out fires?"
 ---
 In Year 7 every particle was just "a particle". This lesson gives them an identity.

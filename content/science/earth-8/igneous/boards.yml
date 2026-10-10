@@ -9,3 +9,8 @@ widget: cooling
 rates: 1, 5
 caption: "Very slow, or instant: compare the two extremes."
 # endregion
+
+# region: explain
+widget: cooling
+rates: 2, 4
+# endregion

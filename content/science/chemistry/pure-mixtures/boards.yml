@@ -14,3 +14,8 @@ caption: Three particle diagrams. Each colour or size is a different kind of par
 # region: dissolve
 widget: dissolve
 # endregion
+
+# region: explain
+widget: zoom
+samples: distilled, salt, air
+# endregion

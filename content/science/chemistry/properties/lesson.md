@@ -4,6 +4,31 @@ unit: particles
 title: Why can you squash air but not water?
 summary: Use particle theory to explain physical properties (how easily a substance squashes, its density, how it flows) by naming the arrangement, motion or attraction behind each one.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-science" 8249
+  url: http://127.0.0.1:8249/index.html
+  readySelector: "#board svg"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", id: explain }
+  caption: "Properties from particles"
+  say: "Every property comes from a particle feature."
+  clip:
+    - caption: { text: "A syringe of air. Push the plunger.", say: "Here is a syringe of air. Push the plunger." }
+    - wait: 2620
+    - click: "Air"
+    - click: { selector: "input[type=range]" }
+    - press: "End"
+    - wait: 1500
+    - caption: { text: "Air squashes: its particles have lots of empty space between them.", say: "Air squashes, because there is lots of empty space between its particles." }
+    - wait: 3610
+    - click: "Water"
+    - click: { selector: "input[type=range]" }
+    - press: "End"
+    - wait: 1500
+    - caption: { text: "Water barely squashes: its particles are already close together.", say: "Water barely squashes: its particles are already close together." }
+    - wait: 800
 hook: "Seal the end of a syringe full of air and you can push the plunger a long way in. Do the same with water and it barely moves. Particle theory explains why, and the same explanation works for density, runny honey and smells crossing a room."
 ---
 This lesson moves from describing particles to **explaining properties** with them. Every explanation names a particle feature: arrangement, motion or attraction.

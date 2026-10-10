@@ -18,3 +18,8 @@ release: 1
 caption: Hydrogen and oxygen making water.
 # endregion
 
+# region: explain
+widget: reaction
+show: H2 x12, O2 x6
+react: 2 H2 + O2 -> 2 H2O
+# endregion
