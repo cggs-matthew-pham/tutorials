@@ -96,6 +96,22 @@ tasks:
       fault: logic
       misconception: angle-from-sides
       explain: "angle = 360 * sides is too big. To split one full turn between the corners it should be 360 / sides."
+  - check:
+      type: question
+      q: "A program has size = 20. Then it runs the line size = size + 5. What is stored in size afterwards?"
+      options: ["25", "5", "20 + 5", "Nothing: the line is an error"]
+      answer: 0
+      explain: "Read the line from the right. Python works out size + 5, which is 25, then stores 25 back in size. The = means store, not 'is equal to'."
+  - check:
+      type: trace
+      text: "A loop starts with size = 10 and ends every pass with size = size + 10. Fill in the size the line uses on each pass."
+      table: |
+        | pass | size used by forward(size) |
+        | 1 | 10 |
+        | 2 | [20] |
+        | 3 | [30] |
+        | 4 | [40] |
+      explain: "The last line of each pass stores size + 10 back in size, so the next pass starts with a bigger size. This is how a spiral grows."
 ```
 
 `print(angle)` shows a value under the drawing. Change `sides` and watch what `angle` becomes.
@@ -111,6 +127,14 @@ Work out `angle` yourself before you check.
 ### Spot the bug
 
 Here is a version where something is wrong.
+
+### Store it back
+
+A variable can change itself. The line `size = size + 5` works out `size + 5`, then stores the answer back in `size`. Read the equals sign as "store".
+
+### Watch it grow
+
+Follow `size` round a loop that adds to it every pass.
 
 ## Modify
 
@@ -142,7 +166,7 @@ stage: make
 try: { starter: "variables.py#make", height: 420 }
 hint:
   - "The line should get longer every time round the loop. What can change `size` inside the loop?"
-  - "A variable can be updated using its own value: the new `size` is the old `size` plus something."
+  - "Look back at 'Store it back' and 'Watch it grow'. Make the last line inside the loop store a bigger `size`."
 ```
 
 Draw a **square spiral**: each time round the loop, the line should be a little longer than the last.

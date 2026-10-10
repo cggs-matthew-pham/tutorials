@@ -10,7 +10,7 @@ before: |
 running:
   - "Predict: show the first program and ask what shape it draws and where the turtle finishes. Take two or three answers before anyone runs it."
   - "Run: students run it and compare with their prediction. Ask: where did the turtle end up, and which way is it facing?"
-  - "Investigate: the key idea is that a loop does the same work as copied lines, but stays the same size. Ask a student to say why the loop version is easier to change."
+  - "Investigate: the key idea is that a loop does the same work as copied lines, but stays the same size. Ask a student to say why the loop version is easier to change. The last task traces the counter i (0, 1, 2, 3); say that it counts from 0, because later lessons use it."
   - "Modify: let students get the triangle wrong first. If they try 60 degrees, ask them to walk the shape themselves: how far do you turn at each corner?"
   - "Make: the house is built in three small steps. Students who finish early can add a door or a window."
 stuck:
@@ -32,7 +32,9 @@ exit:
 explain: |
   A program is a list of instructions the computer follows in order, from the top down. `forward(100)` moves the turtle 100 steps and draws a line. `right(90)` turns it on the spot, a quarter of a full turn.
 
-  A **loop** repeats the lines indented under it. `for i in range(4):` means "do the indented lines 4 times". Instead of writing the same two lines four times, you write them once and say how often.
+  A **loop** repeats the lines indented under it. `for i in range(4):` means "do the indented lines 4 times". Instead of writing the same two lines four times, you write them once and say how often. The name `i` is a counter that takes the values 0, 1, 2, 3 on the four passes. A square does not use it, but later programs do.
+
+  The first line of every program, `from turtle import *`, gives it the turtle commands. Students copy it for now; Functions and Modules explain how it works.
 
   To close any shape, the turtle turns all the way round once in total: 360 degrees. Split that between the corners: 360 ÷ 4 = 90 for a square, 360 ÷ 3 = 120 for a triangle.
 solutions:

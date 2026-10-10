@@ -10,7 +10,7 @@ before: |
 running:
   - "Predict: ask how many sides the shape will have and why the turtle turns 72 degrees. The answer is in the line angle = 360 / sides."
   - "Read = aloud as 'store'. sides = 5 means 'store 5 in sides', not 'sides equals 5'. This one habit prevents most confusion later."
-  - "Investigate: print(angle) shows what is stored. Students change sides and watch angle change. Ask: why do we never need to type 72?"
+  - "Investigate: print(angle) shows what is stored. Students change sides and watch angle change. Ask: why do we never need to type 72? The last two tasks teach size = size + 5 before the spiral: the question settles what it stores, and the table shows the value growing each pass."
   - "Modify: students should only ever change the top numbers. If someone edits inside the loop, ask them to find the one variable that does the job."
   - "Make: the spiral needs a variable that changes inside the loop. Let students struggle for a few minutes before showing the hint."
 stuck:

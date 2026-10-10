@@ -48,7 +48,7 @@ check:
   actual: "Black. The squares alternate black, white, black, white, starting with black, because i % 2 is 0 for 0, 2, 4 and 6."
 ```
 
-`i % 2` is the **remainder** when `i` is divided by 2. It is 0 for even numbers and 1 for odd numbers. The `if` line runs its body only when that remainder is 0.
+`i` is the loop counter from Lesson 1, which counts 0, 1, 2, 3 and so on. `i % 2` is the **remainder** when `i` is divided by 2. It is 0 for even numbers and 1 for odd numbers. The `if` line runs its body only when that remainder is 0.
 
 ## Run
 

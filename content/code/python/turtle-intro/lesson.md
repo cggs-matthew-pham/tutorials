@@ -74,6 +74,8 @@ unlocks: [forward, backward, right, left]
 
 Run the program and compare it with your prediction.
 
+The first line, `from turtle import *`, gives your program the turtle commands. Copy it to the top of every program for now; a later lesson shows how it works.
+
 ## Investigate
 
 ```step
@@ -104,6 +106,16 @@ tasks:
       options: ["Only the first line", "The two indented lines", "The whole program", "Nothing"]
       answer: 1
       explain: "Indented lines belong to the loop. range(4) says how many times they repeat."
+  - check:
+      type: trace
+      text: "for i in range(4): makes a counter called i. It starts at 0 and goes up by 1 each time round the loop. Fill in the table for the square."
+      table: |
+        | pass | i | turned so far |
+        | 1 | 0 | 90 |
+        | 2 | [1] | [180] |
+        | 3 | [2] | [270] |
+        | 4 | [3] | [360] |
+      explain: "i counts 0, 1, 2, 3: four passes, starting from 0. This square never uses i, but it is there, and later programs will use it. After four turns of 90 the turtle has turned 360 degrees, a full turn."
 unlocks: [for-loop, square-loop]
 ```
 
@@ -120,6 +132,10 @@ Now imagine the shape needs to change. Which version is easier to change?
 ### Read the loop
 
 Look at the loop version one more time. What belongs to it, and what controls how often it runs?
+
+### Follow the counter
+
+In `for i in range(4):`, the name `i` is a counter. Follow it round the loop.
 
 ## Modify
 
