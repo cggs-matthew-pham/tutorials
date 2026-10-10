@@ -38,5 +38,5 @@ explain: |
   A system is as strong as its weakest part. A **cipher** keeps a message private, a **keyed checksum** shows it was not changed, and a **challenge and response** shows a fresh message from someone with the key.
 solutions:
   step-4: lock.ts#sol-step1
-  step-5#t1: lock.ts#sol-final
+  step-5#t1: lock.ts#sol-milestone2
   step-5#t2: lock.ts#sol-final

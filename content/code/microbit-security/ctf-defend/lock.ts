@@ -89,3 +89,32 @@ radio.onReceivedValue(function (name, value) {
     }
 })
 // endregion
+
+// region: sol-milestone2
+let ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let secretKey = 7
+let challenge = 0
+function checksum(message: string): number {
+    let total = secretKey
+    for (let i = 0; i < message.length; i++) {
+        total += ALPHABET.indexOf(message.charAt(i))
+    }
+    return total % 10
+}
+function answer(n: number): number {
+    return (n * secretKey + 3) % 100
+}
+radio.setGroup(5)
+input.onButtonPressed(Button.A, function () {
+    radio.sendValue("KNOCK", checksum("KNOCK"))
+})
+radio.onReceivedValue(function (name, value) {
+    if (name == "KNOCK") {
+        if (checksum("KNOCK") == value) {
+            basic.showIcon(IconNames.Yes)
+        } else {
+            basic.showIcon(IconNames.No)
+        }
+    }
+})
+// endregion

@@ -2,6 +2,10 @@
 
 The code chat's file. Newest decisions near the top of each section. Shared tools and site pages: `shared.md`.
 
+## Done: MakeCode solution check (11 Oct 2026)
+
+`npm run check-makecode` (`tools/check-makecode.mjs`, optional course argument such as `code/arcade`) checks all 165 code-checked tasks in the 63 MakeCode lessons with the lesson page's own rules: the solution passes, the starter does not, and no earlier task's solution in the same step does (a step keeps one project). First run: one failure, in Defend the door lock: milestone 2 shared the final solution, so it looked as if milestone 3 came free. Milestone 2 now has its own solution (`lock.ts#sol-milestone2`, teacher material only). Static, so it cannot tell whether blocks decompile; that still needs the live editor.
+
 ## Done: hidden-assumptions scan for HTML and CSS (11 Oct 2026)
 
 `CONCEPTS.html` in `tools/concepts.mjs` (41 concepts): tags and attributes read from the markup; CSS concepts (rules, selectors, colours, text styles, the box, display, Flexbox, Grid, units, positioning, `@media`) read only from `<style>` blocks, `style="…"` and tagless regions, so the same words in page text never count. The scan now reads `.html`/`.css` regions and fenced `html`/`css` blocks. All 12 lessons are tagged (`introduces`; `recipes` for the page wrapper in lesson 1 and the JavaScript in Make it react); `npm run check-concepts` has HTML detector tests and lint scenarios.
