@@ -4,6 +4,7 @@ unit: trust
 title: Agreeing a key in the open
 summary: Both ends need the same key, but anything sent by radio is public. Each end mixes a private number with public numbers, swaps the mixes, and both arrive at the same key without it ever being sent.
 language: makecode
+introduces: [radio-value, value-name-limit, text-compare]
 hook: "Every time you open a secure web page, your computer and a server agree a key with a stranger, in public, in less than a second. This lesson is the idea behind it, with numbers small enough to follow by hand."
 ---
 The last lesson needs both micro:bits to hold the **same key**. How do they get it? If one sends the key by radio, everyone in the group hears it (lesson 1). Meeting in person works for two friends, but not for a phone and a web server.
@@ -16,6 +17,8 @@ The trick: agree a key **in public** without ever sending it.
 4. Each takes the other's mix and raises it to its **own** private number, mod P. 19⁶ mod 23 = **2**, and 8¹⁵ mod 23 = **2**. They match, and the key 2 was never sent.
 
 The function **modPow** does "base to the power, remainder after dividing by prime" with a loop.
+
+**Behind the code:** the mix travels with **radio send value** (in **Radio**), which sends a short **name** and a number together: here the name `mix` and the number. **on radio received value** gives the receiver both, as `name` and `value`, and `name == "mix"` checks the name; text must match exactly, capital letters included. A name can be **8 characters at most**: a longer name is cut short on the way, so it no longer matches.
 
 ## Predict
 

@@ -4,13 +4,14 @@ unit: trust
 title: Has the message changed?
 summary: A checksum is a small number worked out from a message and sent with it. If the number the receiver works out is different, the message was damaged or changed on the way.
 language: makecode
+assumes: [radio-value, value-name-limit]
 hook: "A bar code, a bank card number and a downloaded file all carry a small check number. If one digit is wrong, the scanner or the browser notices and refuses to trust it."
 ---
 Radio can garble a message (a bit flips in the air), and a message can be changed on purpose. Encryption keeps a message **private**; it does not tell you it is **unchanged**. A **checksum** is the tool for that.
 
 The sender works out a small number from the message (here: add up each letter's place in the alphabet, keep the last digit) and sends it with the message. The receiver works it out again. If the two differ, something changed.
 
-`radio.sendValue(name, value)` sends a short text (the **name**) and a number together. Here the name is the message and the number is its checksum.
+**send value** sends a name and a number together (Agreeing a key in the open). Here the name is the message itself and the number is its checksum, so each message can be **8 characters at most**: a longer one is cut short on the way and fails its own checksum.
 
 ## Predict
 

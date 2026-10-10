@@ -4,6 +4,7 @@ unit: worlds
 title: Levels
 summary: Keep the player's level in a variable, keep what changes per level in a list, and start each level with one function.
 language: makecode
+introduces: [list, list-index, text-join, variable-update]
 explainPicture: levels.ts#predict
 hook: "Almost every game gets harder as you play: faster ghosts, more aliens, a new world. Behind it is one number, the level, and a list of what each level is like."
 app:

@@ -4,6 +4,7 @@ unit: decide
 title: Else and chasing
 summary: Compare two positions to steer an enemy towards the player with if … else, then meet the follow block that does it for you.
 language: makecode
+introduces: [else]
 explainPicture: chase.ts#predict
 hook: "The ghosts in Pac-Man, the zombies in Plants vs. Zombies, a guard walking up and down in a stealth game: each one asks 'where is the player?' and turns that way."
 app:

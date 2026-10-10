@@ -172,7 +172,7 @@ radio.onReceivedString(function (receivedString) {
     }
     if (receivedString == "Stop" && mode == "Go") {
         deliveries += 1
-        radio.sendValue("deliveries", deliveries)
+        radio.sendValue("done", deliveries)
     }
     mode = receivedString
     lastHeard = input.runningTime()

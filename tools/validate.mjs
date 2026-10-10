@@ -87,6 +87,15 @@ for (const l of lessons) {
 }
 if (warned) console.warn(`${warned} warning(s) in error tasks (see AUTHORING.md, Error tasks)`);
 else console.log('✓ error tasks: every planted error names its fault and an on-path misconception');
+// Hidden assumptions (warnings, never a failure): every construct in the code students see is introduced by this
+// or an earlier lesson, or labelled a recipe; radio value names fit in 8 characters. See tools/concepts.mjs.
+{
+  const { auditConcepts, prerequisites } = await import('./concepts.mjs');
+  const { getSnippet } = await import('./lesson.mjs');
+  const { warnings } = auditConcepts(lessons, getSnippet, prerequisites(loadDirMeta, CONTENT_ROOT));
+  warnings.forEach((w) => console.warn('⚠ ' + w));
+  if (!warnings.length) console.log('✓ hidden assumptions: every construct is introduced, assumed or a recipe');
+}
 // Bare tags in Markdown: in an HTML lesson, "<h1>" written outside `backticks` becomes a real tag on the page,
 // the teacher guide and the slides, and swallows the text after it. Write tags as `<h1>`.
 {

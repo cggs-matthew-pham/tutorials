@@ -358,6 +358,8 @@ units:
 challenge: challenge   # optional: the unit whose required lessons mark "Challenge complete"
 ```
 
+**Hidden assumptions** (`introduces`, `assumes`, `recipes`; MakeCode lessons today). In the frontmatter, `introduces: [remainder, text-char]` lists the concepts the lesson teaches, `assumes: [radio-value]` the ones it relies on from an earlier lesson that the scan cannot see (facts such as `value-name-limit`), and `recipes: [if]` the ones it shows but labels "read this for now". Concept ids and the patterns that find them are in `tools/concepts.mjs`. `npm run validate` scans the code students see (every `file#region` the lesson names except `sol-*`, and fenced makecode blocks) and warns when a lesson uses a concept that no earlier lesson introduces (a lower `order` in the course, or a course it follows through `after:` in `code/index.md`; an optional lesson's concepts count only for later optional lessons), and when a radio value name is longer than 8 characters. `npm run concepts` prints each course's concepts per lesson, new ones marked. Fix a warning in the lesson that should teach the concept, not the one that trips over it.
+
 Each lesson then names its unit (`unit: functions`) and can be `optional: true` (shown with an Optional tag and not needed to finish the course). `npm run validate` checks the unit ids. `code/index.md` lists the pathways shown on `/code/`: each has `courses`, either `{ path: code/python, stage: foundations }` for a built course or `{ title, summary, stage: extensions }` for one coming later.
 
 ### Check types

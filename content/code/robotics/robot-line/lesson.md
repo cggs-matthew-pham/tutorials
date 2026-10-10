@@ -4,6 +4,7 @@ unit: sense
 title: Follow the line
 summary: Use the two line sensors to tell which side the line is on, and steer to stay on it.
 language: makecode
+introduces: [and-or]
 extensions: [robot]
 explainPicture: line.ts#investigate
 hook: "In many warehouses and hospitals, robots carry boxes and medicines along coloured lines on the floor. They do not know where they are; they only know whether each sensor still sees the line."
@@ -62,7 +63,7 @@ tasks:
       explain: "When only the left sensor sees the line, the line is to the left, so the robot must steer left, towards it. Kai steers away, so the robot leaves the line."
 ```
 
-This version uses **both** sensors, so the robot knows which way it has drifted. It drives straight while both see the line, and steers only when one slips off.
+This version uses **both** sensors, so the robot knows which way it has drifted. It drives straight while both see the line, and steers only when one slips off. *Both see the line* is an **and** block (in **Logic**): it is true only when the question on each side is true.
 
 ### What should it do?
 

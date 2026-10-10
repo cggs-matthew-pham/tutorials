@@ -4,6 +4,7 @@ unit: usb
 title: Commands from the computer
 summary: The computer can send lines of text too. The micro:bit reads each whole line and its program decides what the word means, so both sides must agree on every word.
 language: makecode
+introduces: [serial-read, text-compare]
 explainPicture: commands.ts#predict
 hook: "A 3D printer, a laser cutter and a robot arm in a factory all take orders from a computer as short lines of text: move here, heat up, stop. The machine's own program decides what each line means."
 ---

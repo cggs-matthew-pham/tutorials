@@ -114,7 +114,8 @@ insight: "A finished system counts what it has done and tells people, so they ca
 try: { playground: microbit, starter: "robot.ts#sol-m2" }
 hint:
   - "A delivery is a Stop sign that arrives while the robot was going (mode = Go)."
-check: { type: code, text: "The robot counts deliveries (a Stop that arrives while going), sends the count back, and shows it when shaken.", rules: { contains: ["receivedString==\"Stop\"&&mode==\"Go\"", "deliveries+=1", "radio.sendValue(\"deliveries\",deliveries)", "basic.showNumber(deliveries)"] } }
+  - "Send the count with send value. Pick a short name, such as done: names are 8 characters at most, so deliveries would be cut short."
+check: { type: code, text: "The robot counts deliveries (a Stop that arrives while going), sends the count back, and shows it when shaken.", rules: { contains: ["receivedString==\"Stop\"&&mode==\"Go\"", "deliveries+=1", ",deliveries)", "basic.showNumber(deliveries)"] } }
 ```
 
 Count **deliveries**: a Stop sign that arrives while the robot is going. Send the count back and show it when the robot is shaken. Then make it yours: a library book trolley, a lunch-order runner, a parcel robot. Change the signs, lights and sounds to suit.

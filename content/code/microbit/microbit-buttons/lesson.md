@@ -4,6 +4,7 @@ unit: show-react
 title: Buttons and gestures
 summary: Make the micro:bit wait for a button press or a shake, then react.
 language: makecode
+recipes: [if]
 explainPicture: buttons.ts#events
 hook: "A doorbell, a game controller, a TV remote: each one waits for a press, then does one job."
 app:
@@ -104,7 +105,7 @@ Work out how often an event block runs.
 
 ### Ben's button
 
-Ben's program used an **if** block from Logic:
+Ben's program used an **if** block from Logic. It asks a yes-or-no question, here *is A pressed right now?*, and runs the blocks inside only if the answer is yes. You will use **if** properly in lesson 5; for now, read it as a question.
 
 ```makecode
 if (input.buttonIsPressed(Button.A)) {

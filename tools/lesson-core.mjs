@@ -257,6 +257,9 @@ export function parseLessonText(raw, slug = 'lesson') {
     hook: meta.hook ? String(meta.hook).trim() : '',
     unit: meta.unit ? String(meta.unit) : '',          // the unit (group of lessons) in the course's index.md
     optional: meta.optional === true,                // an optional lesson: not needed to finish the course
+    introduces: Array.isArray(meta.introduces) ? meta.introduces.map(String) : [],   // concept ids taught here (tools/concepts.mjs)
+    assumes: Array.isArray(meta.assumes) ? meta.assumes.map(String) : [],         // concept ids taught in an earlier lesson
+    recipes: Array.isArray(meta.recipes) ? meta.recipes.map(String) : [],         // on screen, labelled "copy this for now"
     teachers: meta.teachers ? String(meta.teachers).trim() : '',
     modules: Array.isArray(meta.modules) ? meta.modules.map(String) : [],
     language: meta.language || 'python',

@@ -48,8 +48,8 @@ function scramble(text: string): string {
 }
 function unscramble(text: string): string {
     let result = ""
-    for (let i = 0; i < text.length; i += 2) {
-        result = result + text.charAt(i)
+    for (let i = 0; i < text.length / 2; i++) {
+        result = result + text.charAt(i * 2)
     }
     return result
 }

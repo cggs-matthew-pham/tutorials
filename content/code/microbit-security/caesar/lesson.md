@@ -4,6 +4,7 @@ unit: codes
 title: The Caesar cipher
 summary: Shift every letter along the alphabet by a secret number. The method is public; the number is the key.
 language: makecode
+introduces: [index-of, remainder]
 hook: "Julius Caesar is said to have shifted each letter of his orders three places along the alphabet. Anyone who did not know the shift saw nonsense."
 ---
 The **Caesar cipher** shifts every letter along the alphabet by the **key**. With key 3, A becomes D, B becomes E, and Z wraps round to C. The function **shift** moves one letter; **encrypt** shifts every letter of a message. Spaces and numbers pass through unchanged.

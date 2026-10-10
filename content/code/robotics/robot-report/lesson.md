@@ -4,6 +4,7 @@ unit: talk
 title: Report back
 summary: A patrol robot sends an alert to a base station when its way is blocked, once, using a variable to remember it has already told.
 language: makecode
+introduces: [not]
 extensions: [robot]
 explainPicture: report.ts#predict
 hook: "Inspection robots patrol pipelines, warehouses and bush tracks on their own. They only call a person when they find something: a leak, a spill, a fallen tree."
@@ -11,6 +12,8 @@ hook: "Inspection robots patrol pipelines, warehouses and bush tracks on their o
 So far a person told the robot what to do. Now the robot does its job on its own and **reports back**. It follows the line (lesson 5); when something blocks it, it stops and sends **"blocked"** by radio to a **base station**.
 
 Both micro:bits run the same program, so each one has a **role**. Every micro:bit starts as a **robot**. Pressing **A+B** makes it the **base**: it stops driving and listens for alerts.
+
+A true/false variable, `alerted`, remembers whether the robot has already told the base. **if not alerted** asks the opposite question: **not** (in **Logic**) turns true into false and false into true, so it runs only while `alerted` is still false.
 
 ## Predict
 

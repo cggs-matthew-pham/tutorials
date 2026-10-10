@@ -4,6 +4,7 @@ unit: show-move
 title: Sprites on the screen
 summary: Put pictures called sprites on the game screen, and place each one with x and y.
 language: makecode
+introduces: [variable]
 explainPicture: sprites.ts#corners
 hook: "Every 2D game you have played, from Pac-Man to Mario, is pictures placed on a grid of tiny squares, then moved."
 app:

@@ -4,6 +4,7 @@ unit: tools
 title: Projectiles and lists
 summary: Fire projectiles with the A button, then use a list of every sprite of a kind to do something to all of them at once.
 language: makecode
+introduces: [for-of]
 explainPicture: projectiles.ts#predict
 hook: "Space Invaders, Galaga and every 'shoot 'em up' since: you fire, and the game has to keep track of every shot and every alien on the screen at once."
 app:

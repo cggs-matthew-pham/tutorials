@@ -4,6 +4,7 @@ unit: codes
 title: One key to lock and unlock
 summary: XOR mixes a number with a key. Doing it again with the same key brings the number back, so one shared key works in both directions.
 language: makecode
+introduces: [xor]
 hook: "Most of the secret messages on the internet are locked with a key that both ends already share. The locking step is much like this lesson, only with far bigger numbers."
 ---
 A computer stores numbers as patterns of **bits** (0s and 1s). **XOR** (written `^`) compares two numbers bit by bit: where the bits differ the answer has a 1, where they match it has a 0.

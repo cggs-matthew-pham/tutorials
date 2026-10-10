@@ -4,6 +4,7 @@ unit: challenge
 title: Reaction timer
 summary: Build a reaction game that uses everything so far. Wait for the heart, press A as fast as you can, and beat your best.
 language: makecode
+introduces: [running-time, bool-value]
 explainPicture: reaction.ts#timing
 hook: "Sprinters, racing drivers and goalkeepers train their reactions with timers like this. You already know every idea it needs."
 app:

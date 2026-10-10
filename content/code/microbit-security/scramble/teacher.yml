@@ -10,7 +10,7 @@ before: |
 
   **Vocabulary:** plain text (before), cipher text (after), method (steps), key (the secret value). Use them every time from now on.
 
-  **Code:** reversing uses a loop and a function, both from micro:bit Foundations. Strings are new: `text.charAt(i)` is letter number i (counting from 0), and `text.length` is how many letters.
+  **Code:** this lesson teaches the code every later cipher is built from. Foundations functions were named jobs with nothing in or out; `reverse(text)` takes a **parameter** and **returns** a text. The **for index** loop visits each place 0 to length − 1, and `text.charAt(i)` is the letter at place i (counted from 0, like a list). The Investigate trace task (result after i = 0 and 1) checks students can follow it; spend time here, because Caesar, Checksum and the CTF reuse the same shape.
 running:
   - "Predict: students expect HELLO. Ask: where in the program is the reversing undone?"
   - "Make: let pairs swap and guess. The point is that a guess at the method is cheap."
@@ -20,7 +20,7 @@ stuck:
     fix: "Show reverse(received string) instead of received string."
   - see: "The text comes out shorter or longer than expected in unscramble."
     ask: "Which letters does unscramble keep?"
-    fix: "Step the loop by 2, starting from 0."
+    fix: "Loop i up to half the length, and join the letter at place i × 2."
 stretch: "Make the scrambler swap each pair of letters (HELLO → EHLLO)."
 support: "Give scramble complete and ask only for unscramble."
 leads: "Next: a code with a key, the Caesar cipher."

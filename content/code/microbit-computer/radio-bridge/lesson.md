@@ -4,12 +4,15 @@ unit: radio
 title: A radio bridge
 summary: A micro:bit on the cable relays messages by radio, so the micro:bit doing the work can be anywhere in the room. The bridge passes radio to serial one way and serial to radio the other.
 language: makecode
+introduces: [radio-value, value-name-limit]
 explainPicture: bridge.ts#predict
 hook: "Smart-home sensors, farm soil probes and wildlife cameras send their readings by radio to one hub, and the hub passes them on to a computer. The hub is a bridge."
 ---
 A micro:bit on a cable can't go far. In this lesson a second micro:bit, anywhere in the room, sends its readings by **radio** to the micro:bit on the cable, which passes them on to the computer. That micro:bit is a **bridge**.
 
 The same program goes on both micro:bits: each part only does something on the micro:bit where it makes sense. In the simulator you will see two micro:bits running it.
+
+Readings travel with **radio send value** (in **Radio**): a short **name**, such as `temp`, and a number together. **on radio received value** gives the bridge both, as `name` and `value`. A name can be **8 characters at most**: a longer one, such as `temperature`, is cut short on the way.
 
 ## Predict
 

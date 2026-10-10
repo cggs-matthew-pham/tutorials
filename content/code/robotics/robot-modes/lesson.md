@@ -4,11 +4,12 @@ unit: modes
 title: One robot, many jobs
 summary: A mode variable remembers which job the robot is doing; buttons change it, and forever does that job.
 language: makecode
+introduces: [text-compare]
 extensions: [robot]
 explainPicture: modes.ts#predict
 hook: "A robot lawn mower has modes: mow, go home, pause. You press one button and it keeps doing that job until you choose another."
 ---
-So far each program did one job. Real robots switch between jobs. The trick is a **variable** called **mode** that remembers which job is chosen. The buttons only **change** the mode; **forever** looks at the mode every time round and does that job.
+So far each program did one job. Real robots switch between jobs. The trick is a **variable** called **mode** that remembers which job is chosen. It holds a word, such as `"follow"`, and `mode = "follow"` (the compare block in **Logic**, with a text in it) asks whether it is that word. Text must match exactly, so `"Follow"` would not match. The buttons only **change** the mode; **forever** looks at the mode every time round and does that job.
 
 **followLine** is lesson 5's line follower, now in a function so forever stays easy to read.
 

@@ -4,6 +4,7 @@ unit: tools
 title: Functions
 summary: Name a job once as a function, give it a parameter so it can do the job differently each time, and see that every event block is a function too.
 language: makecode
+introduces: [function, param]
 explainPicture: functions.ts#predict
 hook: "A game makes the same thing again and again: another enemy, another coin, another wave. Programmers write that job once, give it a name, and use the name everywhere."
 app:

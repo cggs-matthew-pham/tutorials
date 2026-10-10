@@ -4,6 +4,7 @@ unit: trust
 title: Prove it with a challenge
 summary: A password sent again and again is the same every time. A challenge that changes each time makes each answer good for one use only.
 language: makecode
+assumes: [value-name-limit]
 hook: "Car key fobs, tap-to-pay cards and building passes do not send a fixed code. The reader sends a random number, and the card answers in a way only it can. Next time the number is different."
 ---
 In the XOR lesson the keypad sent the **same locked PIN every time**. Anyone who ever heard that number has a number that works today, tomorrow and next week, without ever knowing the key.
@@ -16,6 +17,8 @@ The fix is a **challenge and response**:
 4. The lock works out the same answer itself and opens only if they match.
 
 The secret key never goes through the air, and the answer is different whenever the challenge is.
+
+In the code the challenge travels under the name `chall`, not `challenge`: **send value** names are 8 characters at most (Agreeing a key in the open), and `challenge` has 9.
 
 ## Predict
 
@@ -95,7 +98,7 @@ try: { playground: microbit, starter: "lock.ts#make" }
 hint:
   - "Add one to wrong when an answer is wrong and set wrong to 0 when it is right."
   - "On a knock, if wrong is 3 or more: show a skull, pause 5 seconds, set wrong to 0. Otherwise send the challenge."
-check: { type: code, text: "After three wrong answers the lock refuses to give a challenge for five seconds.", rules: { contains: ["wrong+=1", "wrong>=3", "basic.pause(5000)", "radio.sendValue(\"challenge\""] } }
+check: { type: code, text: "After three wrong answers the lock refuses to give a challenge for five seconds.", rules: { contains: ["wrong+=1", "wrong>=3", "basic.pause(5000)", "radio.sendValue(\"chall\""] } }
 ```
 
 Make the lock safer. After **three wrong answers** it shows a skull and ignores knocks for **five seconds**. Why does this help against someone who just guesses?

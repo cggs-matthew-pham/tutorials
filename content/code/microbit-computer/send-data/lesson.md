@@ -4,6 +4,7 @@ unit: usb
 title: Send data to the computer
 summary: A micro:bit sends each sensor reading down the USB cable as a line of text, such as light:128. The computer turns the stream of lines into a graph.
 language: makecode
+introduces: [serial-write]
 explainPicture: send.ts#predict
 hook: "Weather stations, heart-rate monitors and the sensors in a science lab all do the same simple thing: send a reading, wait, send the next. A computer collects the readings and draws the graph."
 ---

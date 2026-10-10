@@ -4,6 +4,7 @@ unit: talk
 title: Send and receive
 summary: Send a number by radio from one micro:bit to another, and react when it arrives.
 language: makecode
+introduces: [radio, radio-number, radio-string]
 explainPicture: radio.ts#predict
 hook: "Wireless doorbells, car keys and walkie-talkies all send small radio messages to a receiver tuned to the same channel."
 app:

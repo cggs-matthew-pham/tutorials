@@ -4,6 +4,7 @@ unit: collide-score
 title: Overlaps and kinds
 summary: Make something happen when two sprites touch, and use kinds to decide which event runs.
 language: makecode
+introduces: [random]
 explainPicture: overlaps.ts#kinds
 hook: "Pac-Man eats a dot, Mario grabs a coin, a ghost catches you: every game is full of things touching, and each touch means something different."
 app:

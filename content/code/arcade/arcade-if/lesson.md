@@ -4,6 +4,7 @@ unit: decide
 title: If, every frame
 summary: Put an if inside on game update, so the game keeps checking a question while it runs.
 language: makecode
+introduces: [if]
 explainPicture: if.ts#predict
 hook: "In Pac-Man, go off one side of the screen and you come back on the other. The game is asking 'has Pac-Man gone off the edge?' many times every second."
 app:

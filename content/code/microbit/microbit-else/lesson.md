@@ -4,6 +4,7 @@ unit: decide
 title: Else and ranges
 summary: Choose between two or more options with else and else if, and see that the first true question wins.
 language: makecode
+introduces: [else]
 explainPicture: else.ts#predict
 hook: "A spirit level shows whether a shelf is flat, tilted left or tilted right. One reading, three possible answers, and exactly one of them shows."
 app:

@@ -4,6 +4,7 @@ unit: tools
 title: Lists
 summary: Keep many values in one list, pick one by its place, and pick one at random.
 language: makecode
+introduces: [list, list-index, length, random]
 explainPicture: lists.ts#ball
 hook: "A playlist, a lunch menu, a class roll: each is a list of things in order, and you pick one by its place or at random."
 app:

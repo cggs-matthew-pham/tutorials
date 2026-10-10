@@ -15,11 +15,11 @@ input.onButtonPressed(Button.A, function () {
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "KNOCK") {
         challenge = randint(10, 99)
-        radio.sendValue("challenge", challenge)
+        radio.sendValue("chall", challenge)
     }
 })
 radio.onReceivedValue(function (name, value) {
-    if (name == "challenge") {
+    if (name == "chall") {
         radio.sendValue("answer", answer(value))
     } else if (name == "answer") {
         if (value == answer(challenge)) {
@@ -48,11 +48,11 @@ input.onButtonPressed(Button.B, function () {
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "KNOCK") {
         challenge = randint(10, 99)
-        radio.sendValue("challenge", challenge)
+        radio.sendValue("chall", challenge)
     }
 })
 radio.onReceivedValue(function (name, value) {
-    if (name == "challenge") {
+    if (name == "chall") {
         radio.sendValue("answer", answer(value))
     } else if (name == "answer") {
         if (value == answer(challenge)) {
@@ -79,11 +79,11 @@ input.onButtonPressed(Button.A, function () {
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "KNOCK") {
         challenge = randint(10, 99)
-        radio.sendValue("challenge", challenge)
+        radio.sendValue("chall", challenge)
     }
 })
 radio.onReceivedValue(function (name, value) {
-    if (name == "challenge") {
+    if (name == "chall") {
         radio.sendValue("answer", answer(value))
     } else if (name == "answer") {
         if (value == answer(challenge)) {
@@ -114,12 +114,12 @@ radio.onReceivedString(function (receivedString) {
             wrong = 0
         } else {
             challenge = randint(10, 99)
-            radio.sendValue("challenge", challenge)
+            radio.sendValue("chall", challenge)
         }
     }
 })
 radio.onReceivedValue(function (name, value) {
-    if (name == "challenge") {
+    if (name == "chall") {
         radio.sendValue("answer", answer(value))
     } else if (name == "answer") {
         if (value == answer(challenge)) {

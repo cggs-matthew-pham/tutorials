@@ -4,6 +4,7 @@ unit: remember-sense
 title: Counting
 summary: Use a variable to remember a number, and change it each time a button is pressed.
 language: makecode
+introduces: [variable, variable-update]
 explainPicture: counting.ts#trace
 hook: "A step counter, a scoreboard, a ticket machine at the deli: each one remembers a number and changes it when something happens."
 app:

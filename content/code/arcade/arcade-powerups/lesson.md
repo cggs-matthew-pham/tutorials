@@ -4,6 +4,7 @@ unit: challenge
 title: Power-ups
 summary: Add a shield that runs out and a blaster with limited ammo to Space dodger, then design a power-up of your own.
 language: makecode
+introduces: [bool-value]
 explainPicture: powerups.ts#predict
 hook: "A mushroom in Mario, a power pellet in Pac-Man, a shield in a space shooter: each one is a variable that changes the rules for a while."
 app:
