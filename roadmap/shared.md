@@ -15,6 +15,8 @@ The `introduces`/`assumes` scan suits code, where a dependency is a construct on
 
 Build it once, in one chat, and note here who is building it before starting; the other subject then tags its own lessons.
 
+**In progress: the maths chat is building this (11 Oct 2026).** Data as pasted progression pages (`data/progressions/<subject>/<code>.md`, the waypoints-kit markdown export, since the kit repo is unreachable from here), parsed by a new `tools/progressions.mjs`; `node:` and `uses:` in lesson frontmatter; warnings in `validate.mjs`. Science can add `data/progressions/science/` pages and tag its lessons once it lands.
+
 ## Changed by the code chat (11 Oct 2026)
 
 - `tools/concepts.mjs`: added `CONCEPTS.html`; `visibleCode` now also reads `.html`/`.css` regions and fenced `html`/`css` blocks (other languages unchanged: their warnings are the same before and after). `tools/check-concepts.mjs`: HTML tests.
