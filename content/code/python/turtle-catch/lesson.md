@@ -93,6 +93,14 @@ tasks:
       options: ["Add a number to xs only", "Add one number to xs and one to ys", "Change % len(xs) to % 7", "Add another hop() call"]
       answer: 1
       explain: "Each spot is one x and one y at the same place in the two lists. len(xs) already counts the new spot."
+  - check:
+      type: bug
+      code: catch.py#bug-global
+      text: "Every click should add a point, but the first click stops with an error. Click the line where it goes wrong."
+      answer: 7
+      fault: runtime
+      misconception: global-missing
+      explain: "Without global score, the line score = score + 1 makes a new score inside add_point and tries to read it before it has a value (UnboundLocalError). Add global score as the first line of the function so it changes the score made outside. Your game needs the same line in every function that changes score."
 ```
 
 ### Trace the path
@@ -102,6 +110,10 @@ Follow `place` through a lap.
 ### Change the path
 
 How would you add a spot?
+
+### Spot the bug
+
+The score from Events, with one line missing.
 
 ## Milestone 1: catch it
 

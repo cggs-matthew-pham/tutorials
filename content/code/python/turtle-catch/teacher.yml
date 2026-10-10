@@ -9,6 +9,7 @@ before: |
   Play the finished game (the Milestone 3 solution below) for a minute, then read the three milestone starters. Milestone 1 gives most of the code, milestone 2 an outline, milestone 3 only the goals: that fading support is deliberate. The two new words are `True` and `False`: a variable like `showing` remembers whether the turtle is on screen right now. Finishing this lesson and Power-ups marks the course "Challenge complete".
 running:
   - "Predict and Investigate: the path is two lists (xs and ys) and place says where we are. % wraps place back to 0 at the end of a lap."
+  - "The bug task is the missing global line from Events: Python stops on score = score + 1 with UnboundLocalError. Every milestone needs global in each function that changes score, showing or time_left, so point back to it when a student meets this error."
   - "Milestone 1: the catch is the hit test from Build a button, with the box centred on the turtle (tx - 20, ty - 20)."
   - "Milestone 2: showing is True while the turtle is visible. Clicks only count when showing is True, and a turtle that hides uncaught is a miss."
   - "Milestone 3: students work from the five goals in the comment. Encourage one goal at a time, running after each."

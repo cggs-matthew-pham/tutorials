@@ -23,6 +23,7 @@
   "copied-code": {"home": "code/python/turtle-modules", "text": "Copying working code is free; in fact every copy must be fixed separately."},
   "return-vs-print": {"home": "code/python/turtle-returns", "text": "print gives a value back; only return does, and a function without return gives None."},
   "handler-call-vs-pass": {"home": "code/python/turtle-events", "text": "Handing over a handler with brackets calls it at once instead of passing the function."},
+  "global-missing": {"home": "code/python/turtle-events", "text": "A function can change a variable made outside it just by assigning to it, without a global line."},
   "and-vs-or": {"home": "code/python/turtle-buttons", "text": "Conditions that must all hold are joined with or instead of and."},
   "html-error-message": {"home": "code/html/first-page", "text": "A mistake in HTML stops the page with an error message, as in Python; the browser actually shows its best guess and says nothing."},
   "tag-overlap": {"home": "code/html/first-page", "text": "Tags can close in any order, so they overlap (<b><i>…</b></i>) instead of nesting."},

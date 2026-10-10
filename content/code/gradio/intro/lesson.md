@@ -3,6 +3,7 @@ order: 1
 title: Intro to Gradio
 summary: Turn a Python function into a web app you can click, in five short PRIMM steps.
 language: python
+recipes: [text-join]
 app:
   command: python app.py
   url: http://127.0.0.1:7860
@@ -43,6 +44,8 @@ clip:
 ```
 
 Read the function below. **Do not run anything yet.**
+
+Three pieces of Python are new here; read them as a recipe for now. `f"Hello, {name}"` puts the value of `name` inside the text. `+` joins two pieces of text into one. `A if excited else B` gives `A` when `excited` is `True`, and `B` otherwise.
 
 Write down what `greet` returns for each call:
 

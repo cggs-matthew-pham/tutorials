@@ -398,3 +398,18 @@ onscreenclick(clicked)
 listen()
 mainloop()
 # endregion
+
+# region: bug-global
+from turtle import *
+
+hideturtle()
+score = 0
+
+def add_point(x, y):
+    score = score + 1
+    clear()
+    write(score, False, "left", ("Arial", 20, "normal"))
+
+onscreenclick(add_point)
+mainloop()
+# endregion

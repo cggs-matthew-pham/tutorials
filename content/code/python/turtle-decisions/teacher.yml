@@ -10,7 +10,7 @@ before: |
 running:
   - "Predict: ask what colour the third square is. Walk through it together: the third square has i = 2, 2 % 2 is 0, so the if is true and it is black."
   - "Say the if line out loud as a question: 'Is the remainder of i divided by 2 equal to 0?' Yes runs the indented lines under if; no runs the lines under else."
-  - "Investigate: students fill in the trace table before running. The bug task is the classic mistake: = stores, == asks."
+  - "Investigate: students fill in the trace table before running. The bug task is the classic mistake: = stores, == asks. The last question shows that a condition is itself a value, True or False; Catch the turtle stores one in a variable later (showing = False)."
   - "Modify: elif is a second question, asked only if the first answer was no. The order matters, so ask students what happens if they put the elif check last."
   - "Make: let students choose their two shapes. Check that both paths still move the turtle forward."
 stuck:

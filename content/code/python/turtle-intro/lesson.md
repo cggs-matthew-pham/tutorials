@@ -118,6 +118,13 @@ tasks:
         | 3 | [2] | [270] |
         | 4 | [3] | [360] |
       explain: "i counts 0, 1, 2, 3: four passes, starting from 0. This square never uses i, but it is there, and later programs will use it. After four turns of 90 the turtle has turned 360 degrees, a full turn."
+  - check:
+      type: question
+      q: "The turtle starts in the middle, facing right. After the square, which way is it facing?"
+      options: ["Up", "Down", "Right", "Left"]
+      answer: 2
+      feedback: ["Up is after three right turns of 90 (270 degrees). Count the fourth turn.", "Down is after one right turn of 90. The loop turns four times.", null, "Left is after two turns (180 degrees). The loop turns four times."]
+      explain: "Four turns of 90 make 360 degrees, a full turn, so the turtle faces right again, where it started. Any shape that closes up turns a full 360 degrees in total."
 unlocks: [for-loop, square-loop]
 ```
 
@@ -138,6 +145,10 @@ Look at the loop version one more time. What belongs to it, and what controls ho
 ### Follow the counter
 
 In `for i in range(4):`, the name `i` is a counter. Follow it round the loop.
+
+### Which way now?
+
+Use the last column of your table. Then run the square and check the turtle.
 
 ## Modify
 

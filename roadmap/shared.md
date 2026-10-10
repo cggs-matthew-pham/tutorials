@@ -21,6 +21,7 @@ Build it once, in one chat, and note here who is building it before starting; th
 
 - `tools/concepts.mjs`: added `CONCEPTS.html`; `visibleCode` now also reads `.html`/`.css` regions and fenced `html`/`css` blocks (other languages unchanged: their warnings are the same before and after). `tools/check-concepts.mjs`: HTML tests.
 - New `tools/check-makecode.mjs` (`npm run check-makecode`, script added to `package.json`): static checks on MakeCode code tasks. Reads only; changes no shared behaviour.
+- `misconceptions.json`: added `global-missing` (home `code/python/turtle-events`).
 
 ## Parked
 

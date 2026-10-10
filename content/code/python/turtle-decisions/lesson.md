@@ -93,6 +93,13 @@ tasks:
       fault: syntax
       misconception: assign-vs-compare
       explain: "A single = stores a value. To ask whether two things are equal, the condition needs two: i % 2 == 0."
+  - check:
+      type: question
+      q: "A condition is worked out to a value, like a sum is. What would print(3 % 2 == 0) show?"
+      options: ["False", "True", "1", "0"]
+      answer: 0
+      feedback: [null, "3 % 2 is 1, not 0, so the question 'is it equal to 0?' has the answer no.", "1 is the remainder, 3 % 2. The == then asks whether that remainder equals 0.", "0 would be the remainder for an even number. 3 is odd, and the whole line is a question, so the answer is True or False."]
+      explain: "3 % 2 is 1, and 1 == 0 is not true, so the condition is False. Every condition works out to True or False, and if runs its lines only when it is True."
 ```
 
 `print(i, i % 2)` shows each remainder as it is worked out. Run it and watch the output.
@@ -108,6 +115,10 @@ Use the pattern to answer without drawing.
 ### Spot the bug
 
 Here is a version where something is wrong.
+
+### True or false
+
+`if` asks a question, and Python works out the answer before deciding. Predict the answer to one of those questions.
 
 ## Modify
 
