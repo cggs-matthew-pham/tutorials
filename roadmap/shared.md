@@ -83,7 +83,11 @@ Applies to every subject. The limits are the existing design rules: Predict come
   - Reused across courses (record "Connect a micro:bit" once).
   - Dated, with the tool version, so stale ones are easy to find when a tool's interface changes.
   - Prepare lists the how-tos a lesson needs, so teachers can rehearse the setup.
-- **Recap: no new clip type.** Practise already does recap as retrieval. A review question's feedback can link to the earlier lesson's Explain clip instead.
+- **Recap: no new clip type.** Practise already does recap as retrieval. Instead, a review question (one revisiting an earlier lesson's idea) can point back to where the idea was taught:
+  - A `revisit: <lesson slug>` field on the check. After a wrong answer (or two), the page shows "Revisit: <lesson title>", which opens that lesson with its Explain drawer already open (`?explain=1` on lesson pages).
+  - Validate checks that the slug exists and comes earlier (same rule as `assumes`).
+  - Not plain links in feedback: feedback is rendered as plain text (`textContent`, `plain()` in `lesson-view.mjs`).
+  - Build it with the first Practise step that has review questions; document in AUTHORING.md only once built.
 - **Open:** format for `hook:` (clip spec as for `explainClip`, or a board setup); where the How-to section lives (per pathway or per subject); whether how-tos are recorded by `render.mjs` or by hand (real tools such as Teachable Machine can't be driven from the sandbox).
 
 ## Parked
