@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8206/index.html
   readySelector: "#gpanel"
   layout: full
+explainPicture: { ref: boards.yml#explain-pic, caption: "F = ma: the same 8 N on twice the mass (4 kg) gives half the acceleration, 2 m/s²." }
 explainClip:
   query: { code: "@boards.yml#explain", fresh: 1, id: explain }
   caption: "F = ma"

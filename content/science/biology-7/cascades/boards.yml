@@ -48,3 +48,13 @@ organism F: Fox
 eats A: G
 eats F: A
 # endregion
+
+# region: explain-pic
+widget: foodweb
+mode: remove
+organism G: Grass
+organism A: Rabbit
+organism F: Fox
+eats A: G
+eats F: A
+# endregion

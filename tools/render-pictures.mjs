@@ -219,7 +219,7 @@ await pictures({
 
 // ---- "What this code makes": picture: on steps and tasks, and explainPicture, drawn by the HTML playground itself
 // (so the Boxes view looks exactly as students see it), cropped to the page's content.
-const { pictureItems } = await import('./lesson.mjs');
+const { pictureItems, usesBoardPictures } = await import('./lesson.mjs');
 await pictures({
   name: 'shown', dir: join(DIR, 'shown'), viewport: { width: 1100, height: 1400 },
   base: hashDir('media', 'playground-html', 'shown-v1'), legacy: [LEGACY.shown],
@@ -284,12 +284,12 @@ if (mathsCardFiles.length) await pictures({
   async draw(page, j) { return { ...(await drawBoard(page, j)), div: 4 }; },
 });
 
-// picture: on steps and tasks, and explainPicture, in lessons that use the board (maths): the region is a board
+// picture: on steps and tasks, and explainPicture, in lessons that use the board (maths, and science on the shared board): the region is a board
 // setup. dist/_pictures/board/<lesson>/<key>.png.
 await pictures({
   name: 'board', dir: join(DIR, 'board'), viewport: { width: 680, height: 440 },
   base: hashDir('playground-board', String(drawBoard), 'board-v1'), legacy: [LEGACY.board],
-  jobs: loadLessons().filter((l) => l.language === 'maths').flatMap((l) => pictureItems(l).map((e) => ({ id: `${l.slug}/${e.key}`, code: getSnippet(l.dir, e.ref) }))),
+  jobs: loadLessons().filter((l) => usesBoardPictures(l)).flatMap((l) => pictureItems(l).map((e) => ({ id: `${l.slug}/${e.key}`, code: getSnippet(l.dir, e.ref) }))),
   async draw(page, j) { return { ...(await drawBoard(page, j)), div: 2 }; },
 });
 

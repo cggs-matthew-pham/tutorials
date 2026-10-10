@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8205/index.html
   readySelector: "#gpanel"
   layout: full
+explainPicture: { ref: boards.yml#explain-pic, caption: "Net force 8 N on 2 kg: acceleration 4 m/s², in the direction of the net force." }
 explainClip:
   query: { code: "@boards.yml#explain", fresh: 1, id: explain }
   caption: "Acceleration"

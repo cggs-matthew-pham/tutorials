@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8200/index.html
   readySelector: "#gpanel"
   layout: full
+explainPicture: { ref: boards.yml#explain-pic, caption: "A force diagram: each force on the box as a named arrow, its length showing the size." }
 explainClip:
   query: { code: "@boards.yml#explain", fresh: 1, id: explain }
   caption: "Forces as arrows"

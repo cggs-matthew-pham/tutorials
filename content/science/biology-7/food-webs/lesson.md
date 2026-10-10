@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8209/index.html
   readySelector: "#gpanel"
   layout: full
+explainPicture: { ref: boards.yml#explain-pic, caption: "Arrows point from the food to the eater: the way energy flows." }
 explainClip:
   query: { code: "@boards.yml#explain", fresh: 1, id: explain }
   caption: "Arrows in a food web"

@@ -46,3 +46,14 @@ force W: down, weight, Weight
 force N: up, support, Support
 force P: right, 10, Push, adjust 0-40 by 10
 # endregion
+
+# region: explain-pic
+widget: forces
+object: Box
+mass: 2
+g: 10
+force W: down, weight, Weight
+force N: up, support, Support
+force P: right, 30, Push
+friction: 10
+# endregion

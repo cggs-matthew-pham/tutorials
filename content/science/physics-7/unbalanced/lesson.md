@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8202/index.html
   readySelector: "#gpanel"
   layout: full
+explainPicture: { ref: boards.yml#explain-pic, caption: "Net force 2 N to the left: the motion changes towards the left, whichever way the puck was moving." }
 explainClip:
   query: { code: "@boards.yml#explain", fresh: 1, id: explain }
   caption: "What an unbalanced force does"

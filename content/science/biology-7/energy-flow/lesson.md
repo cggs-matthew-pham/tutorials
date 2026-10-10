@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8210/index.html
   readySelector: "#gpanel"
   layout: full
+explainPicture: { ref: boards.yml#explain-pic, caption: "About 10% of the energy passes to each level: 20,000 kJ in the phytoplankton, 20 kJ in the penguin." }
 explainClip:
   query: { code: "@boards.yml#explain", fresh: 1, id: explain }
   caption: "Energy along a food chain"

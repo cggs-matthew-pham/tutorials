@@ -19,3 +19,11 @@ motion: on
 track: 80
 time: 3
 # endregion
+
+# region: explain-pic
+widget: forces
+object: Trolley
+mass: 4
+g: 10
+force P: right, 8, Push
+# endregion

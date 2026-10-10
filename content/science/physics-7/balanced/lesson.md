@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8201/index.html
   readySelector: "#gpanel"
   layout: full
+explainPicture: { ref: boards.yml#explain-pic, caption: "Push 4 N, friction 4 N: balanced, so the net force is 0 N and the motion doesn't change." }
 explainClip:
   query: { code: "@boards.yml#explain", fresh: 1, id: explain }
   caption: "Balanced forces"

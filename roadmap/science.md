@@ -6,7 +6,7 @@ The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › S
 
 Voiced explain clips (Emma, as maths) for 12 shared-board lessons: Year 7 Physics (arrows, balanced, unbalanced, weight), Year 10 Physics (first law, acceleration, F = ma) and Year 7 Biology (kingdoms, keys, food webs, energy flow, cascades). Each lesson has an `explain` region in `boards.yml` (its own small example, not the lesson's tasks) and `app:` on ports 8200–8211 (next free: 8212). Recorded locally with the flite test voice: 18–30 s each, frames checked; the publish run records the real voice.
 
-Not done: `explainPicture` for science. `lesson-core.mjs` (validate) and `render-pictures.mjs` (the board picture job) accept board pictures only in maths lessons, and the page's picture lookup in `build-site.mjs` is maths-only too: a small change to all three shared tools, waiting for approval.
+`explainPicture` (a still of the idea, `explain-pic` region in `boards.yml`) on 9 of them, after the shared-tool change in `shared.md`. Not on Kingdoms and Keys (the key widget has no drawing for the picture tool) or First law (sliding friction cannot show in a still).
 
 Next: batch 2 (Biology 8–10, Earth and space 7–10, 27 lessons), then a science-board pilot.
 

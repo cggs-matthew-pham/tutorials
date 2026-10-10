@@ -31,3 +31,16 @@ eats K: P
 eats F: K
 eats N: F
 # endregion
+
+# region: explain-pic
+widget: foodweb
+mode: trace
+energy: 20000
+organism P: Phytoplankton
+organism K: Krill
+organism F: Fish
+organism N: Penguin
+eats K: P
+eats F: K
+eats N: F
+# endregion

@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8211/index.html
   readySelector: "#gpanel"
   layout: full
+explainPicture: { ref: boards.yml#explain-pic, caption: "Remove the foxes: more rabbits survive, so they eat more grass. The change passes along the web." }
 explainClip:
   query: { code: "@boards.yml#explain", fresh: 1, id: explain }
   caption: "A cascade"

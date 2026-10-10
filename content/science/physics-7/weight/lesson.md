@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8203/index.html
   readySelector: "#gpanel"
   layout: full
+explainPicture: { ref: boards.yml#explain-pic, caption: "On the Moon: mass 60 kg, weight 96 N (on Earth the same astronaut weighs 588 N)." }
 explainClip:
   query: { code: "@boards.yml#explain", fresh: 1, id: explain }
   caption: "Mass and weight"

@@ -304,14 +304,15 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
     const sp = pictureSpec(v);
     if (!sp) return err(where, 'picture must be a code reference, such as page.html#combos, or { ref: page.html#combos, boxes: true }');
     if (lesson.language === 'makecode' && where === 'explainPicture') { try { snip(sp.ref); } catch (e) { err(where, `explainPicture: ${e.message}`); } return; } // shown as blocks
-    if (lesson.language === 'maths') {
+    if (lesson.language === 'science' && !usesBoardPictures(lesson)) return err(where, 'pictures work only in science lessons on the shared board (playground: board), not the science board, for now');
+    if (usesBoardPictures(lesson)) {
       // A board setup, drawn as a picture by render-pictures (the board as students see it, without its controls).
       if (stage === 'predict' || stage === 'run') return err(where, 'picture would give the prediction away: use it on Investigate, Modify, Make or info steps');
       let setup = ''; try { setup = snip(sp.ref); } catch (e) { return err(where, `picture: ${e.message}`); }
       if (!/^\s*widget\s*:/m.test(setup)) err(where, `picture: ${sp.ref} is not a board setup (it needs a "widget:" line)`);
       return;
     }
-    if (lesson.language !== 'html') return err(where, lesson.language === 'makecode' ? 'picture works in HTML lessons only (MakeCode lessons can use explainPicture, shown as blocks)' : 'picture works in HTML and maths lessons only');
+    if (lesson.language !== 'html') return err(where, lesson.language === 'makecode' ? 'picture works in HTML lessons only (MakeCode lessons can use explainPicture, shown as blocks)' : 'picture works in HTML, maths and science (shared board) lessons only');
     if (stage === 'predict' || stage === 'run') return err(where, 'picture would give the prediction away: use it on Investigate, Modify, Make or info steps');
     try { snip(sp.ref); } catch (e) { err(where, `picture: ${e.message}`); }
   };
@@ -580,6 +581,13 @@ export const TEACHER_TEXT = ['summary', 'before', 'stretch', 'support', 'leads',
 /** Steps and tasks a solution can be keyed by: "step-4" or "step-4#t2". */
 /** picture: "page.html#x", { ref, boxes: true } (Boxes view) or { ref, inspect: ".card" } (Box model view pinned on that element) -> { ref, boxes, inspect, caption } (or null). caption: shown under a board picture (maths). */
 export const pictureSpec = (v) => (typeof v === 'string' ? { ref: v, boxes: false, inspect: '' } : v && typeof v === 'object' && typeof v.ref === 'string' ? { ref: v.ref, boxes: !!v.boxes && !v.inspect, inspect: typeof v.inspect === 'string' ? v.inspect : '', caption: typeof v.caption === 'string' ? v.caption : '' } : null);
+
+/** Lessons whose pictures are board setups drawn by the shared board: maths, and science lessons on the shared board
+ *  (science-board lessons, playground: science, are not drawn yet). */
+export function usesBoardPictures(lesson) {
+  if (lesson.language === 'maths') return true;
+  return lesson.language === 'science' && !(lesson.steps || []).some((s) => s.config?.try?.playground === 'science' || (s.tasks || []).some((t) => t.config?.try?.playground === 'science'));
+}
 
 /** Every "what this code makes" picture in an HTML lesson: steps' and tasks' picture:, and explainPicture (key "explain"). */
 export function pictureItems(lesson) {

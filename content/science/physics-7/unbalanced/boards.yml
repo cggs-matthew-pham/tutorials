@@ -33,3 +33,11 @@ speed: 3
 track: 20
 time: 8
 # endregion
+
+# region: explain-pic
+widget: forces
+object: Puck
+mass: 1
+g: 10
+force P: left, 2, Push
+# endregion

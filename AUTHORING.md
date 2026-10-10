@@ -739,4 +739,5 @@ revising one idea, beside practical work, never instead of it. One tutorial per 
   `measure` (no hunting: click beetles to measure; done after `need`, default 20). `n` (40), `mean` (0.5).
 - Boards with hundreds of particles (cooling, convection) draw on a canvas layer over the board (`SCI.dots`), because
   SVG points cannot move that many each frame. After changing any engine, run `node tools/check-engines.mjs`.
+- **Explain it to me** (science on the shared board): as for maths, `explainClip` runs a board setup (`query: { code: "@boards.yml#explain" }`) and `explainPicture` draws one (`{ ref: boards.yml#explain-pic, caption: … }`). Pictures need a drawn board: not the key widget, and not lessons on the science board yet.
 - **Science pathways:** `content/science/index.md` lists Chemistry (built), Biology, Physics and Earth and space.
