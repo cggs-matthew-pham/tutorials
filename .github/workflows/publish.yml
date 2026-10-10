@@ -20,8 +20,8 @@ env:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    # A full redraw and re-record is about 20 to 30 minutes; past this something is stuck.
-    timeout-minutes: 60
+    # A full redraw and re-record is about 20 to 60 minutes (the first run after a long gap is slowest); past this something is stuck.
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
 
