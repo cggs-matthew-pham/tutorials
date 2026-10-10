@@ -332,6 +332,39 @@
     return out;
   }
 
+  // Keyboard moves (dragging needs a pointer): pick a dragged point and step it by the snap with buttons or arrow keys.
+  // A "drag y" point moves only up and down, a "drag x" point only across; directions no point can take are left out.
+  function moveRow(panel) {
+    var pts = spec.points.filter(function (p) { return p.drag; });
+    if (!pts.length) return;
+    var canX = pts.some(function (p) { return p.lock !== 'y'; }), canY = pts.some(function (p) { return p.lock !== 'x'; });
+    var row = document.createElement('div'); row.className = 'gbar kmove'; row.setAttribute('role', 'group'); row.setAttribute('aria-label', 'Move a point with the keyboard');
+    var lab = document.createElement('label'); lab.textContent = 'Move'; var sel = document.createElement('select'); sel.id = 'kmove-pt'; lab.htmlFor = sel.id;
+    pts.forEach(function (p) { var o = document.createElement('option'); o.value = o.textContent = p.name; sel.appendChild(o); });
+    row.append(lab, sel);
+    var step = function (dx, dy) {
+      var P = objs[sel.value]; if (!P) return;
+      if ((P._lock === 'y' && dx) || (P._lock === 'x' && dy)) return;
+      P.moveTo([P.X() + dx * spec.snapStep[0], P.Y() + dy * spec.snapStep[1]]); settle(P);
+      B.moved = true; B.jsxBoard.update(); report();
+    };
+    var dirs = [['←', -1, 0, 'left'], ['→', 1, 0, 'right'], ['↑', 0, 1, 'up'], ['↓', 0, -1, 'down']].filter(function (d) { return d[1] ? canX : canY; });
+    dirs.forEach(function (d) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = d[0];
+      var label = function () { return 'Move ' + sel.value + ' ' + d[3]; };
+      b.setAttribute('aria-label', label()); sel.addEventListener('change', function () { b.setAttribute('aria-label', label()); });
+      b.addEventListener('click', function () { step(d[1], d[2]); }); row.appendChild(b);
+    });
+    row.addEventListener('keydown', function (e) {
+      var k = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, 1], ArrowDown: [0, -1] }[e.key];
+      if (!k) return;
+      e.preventDefault();   // arrows always move the point, never change the chosen point
+      if ((k[0] && !canX) || (k[1] && !canY)) return;
+      step(k[0], k[1]);
+    });
+    panel.appendChild(row);
+  }
+
   function paintPanel() {
     var panel = B.el('gpanel'); panel.replaceChildren();
     sliders = spec.sliders.map(function (sl) {
@@ -372,6 +405,7 @@
     }
     if (spec.plots.length) { var lg = document.createElement('ul'); lg.id = 'legend'; panel.appendChild(lg); }
     if (spec.table) { var tb = document.createElement('table'); tb.id = 'gtable'; panel.appendChild(tb); }
+    moveRow(panel);
     if (spec.sliders.length || spec.points.some(function (p) { return p.drag; })) {
       var bar = document.createElement('div'); bar.className = 'gbar';
       var again = document.createElement('button'); again.type = 'button'; again.textContent = 'Start again';

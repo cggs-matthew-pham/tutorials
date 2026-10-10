@@ -488,6 +488,8 @@ Vary, Practise, Make).
       `plot: y = 5x + 20, from 0` (and/or `to 10`) draws only where a model makes sense; `cross:` looks only there;
     - `point A: 2, 5` (fixed; coordinates may use sliders, as in `point B: 0, c`) and `point P: 1, 3, drag`
       (students drag it; it lands on the nearest grid point, and checks see it only once it is let go); one capital letter each;
+      dragged points also get a Move row (pick the point, then arrow buttons or arrow keys step it by the snap), so they work
+      without a pointer; a `drag y` point gets only ↑ ↓;
     - `segment: A, B` or `line: A, B`; `table: 0, 1, 2, 3` (a table of values of each plot at these x values).
     - `step: 1`: the "1 right, m up" triangle on the first plot from that x, labelled with how far it goes up or down.
     - `axes: d (km), T ($)`: names for a context. The axes are labelled with them, and the legend, table and `cross:`

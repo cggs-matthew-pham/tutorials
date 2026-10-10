@@ -73,10 +73,13 @@ AC9M8A01 n3: lesson 12, *Changing the subject*, completing AC9M8A01 in the Brack
 
 `snippets/maths-linear.json`: 11 cards in three groups (Rules and tables, Lines, Solving and modelling), five with board pictures (growing pattern, ordered pair, gradient, parallel lines, solve with a graph). The course now has a Reference page and cheat sheets.
 
+## Done: keyboard moves on the graph board (11 Oct 2026)
+
+Every graph board with dragged points gets the Move row (a point picker, arrow buttons and arrow keys, steps of the snap); `drag y` and `drag x` points get only their own directions. Board clips re-record on the next publish anyway (the board playground changed).
+
 ## Still to do
 
 - **Publish and listen:** the nine new clips (Number Foundations 4, Angles 2, Expanding brackets, Factorising, Changing the subject) record with the real voice on the next manual publish.
 - **Try with classes:** all nine new lessons, the form checks and the working check, and whether students use the sliders or drag.
 - **Next nodes:** AC9M7M05 n3 (unknown angles with reasons) needs the AC9M7M04 page (angles with parallel lines) first.
-- **Keyboard access on the graph board:** its dragged points still need a pointer (the Move row could be reused there).
 - **Form-check coverage:** forms beyond algebra (fraction in simplest form, ratio, mixed numerals, inequalities) are not built; add them when a lesson needs one.
