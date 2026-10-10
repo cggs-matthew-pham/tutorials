@@ -46,8 +46,8 @@ Recommendation: our rules on WPM's tree (about 90 lines), behind the `form` slot
 
 ## Still to do
 
-- **Publish and listen:** the four new clips record with the real voice on the next manual publish.
-- **Try with classes:** all four new lessons, and whether students use the sliders or drag.
+- **Publish and listen:** the five new clips (Number Foundations 3, Angles 2) record with the real voice on the next manual publish.
+- **Try with classes:** all five new lessons, and whether students use the sliders or drag.
 - **Year 8 integers:** Linear relations multiplies negatives (2(−1), −10 × 12), which is Year 8 Number. Needs that descriptor's page (code to confirm) and a lesson, or `assumes:`.
 - **Next nodes:** AC9M7M05 n3 (unknown angles with reasons) needs the AC9M7M04 page (angles with parallel lines) first.
 - **Reference cards for Linear relations** (it has none yet).
