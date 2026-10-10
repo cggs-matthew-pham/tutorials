@@ -69,11 +69,14 @@ AC9M8A01 n2: lesson 11 of Algebra Foundations' Brackets unit, *Factorising*. The
 
 AC9M8A01 n3: lesson 12, *Changing the subject*, completing AC9M8A01 in the Brackets unit. The formula board works P = 2l + 2w forwards so students check a rearranged formula by substitution (Run, Modify, and Make with T = 4n + 6). `form: subject x` answers (one step, minus sign, undoing a divide, a fraction, a negative subject), two working checks, misconception `divide-one-term` (Jo's y ÷ 4 = x − 3), one Reference card. The Brackets primer and unit summary now cover all three lessons. Found: the subject check is case-sensitive while Numbas compares letters case-insensitively, so a subject written in the other case (c for C) is told to rewrite; lessons use lower-case subjects for now.
 
+## Done: Linear relations cards (11 Oct 2026)
+
+`snippets/maths-linear.json`: 11 cards in three groups (Rules and tables, Lines, Solving and modelling), five with board pictures (growing pattern, ordered pair, gradient, parallel lines, solve with a graph). The course now has a Reference page and cheat sheets.
+
 ## Still to do
 
 - **Publish and listen:** the nine new clips (Number Foundations 4, Angles 2, Expanding brackets, Factorising, Changing the subject) record with the real voice on the next manual publish.
 - **Try with classes:** all nine new lessons, the form checks and the working check, and whether students use the sliders or drag.
 - **Next nodes:** AC9M7M05 n3 (unknown angles with reasons) needs the AC9M7M04 page (angles with parallel lines) first.
-- **Reference cards for Linear relations** (it has none yet).
 - **Keyboard access on the graph board:** its dragged points still need a pointer (the Move row could be reused there).
 - **Form-check coverage:** forms beyond algebra (fraction in simplest form, ratio, mixed numerals, inequalities) are not built; add them when a lesson needs one.

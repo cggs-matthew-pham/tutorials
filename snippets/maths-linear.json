@@ -1,0 +1,100 @@
+{
+  "title": "Maths reference: Linear relations",
+  "summary": "The words and methods from Linear relations, each with an example and, where it helps, a picture of the board.",
+  "language": "maths",
+  "course": "maths/linear-relations",
+  "_about": "Maths cards for maths/linear-relations (see snippets/maths.json for the format).",
+  "groups": [
+    {
+      "name": "Rules and tables",
+      "items": [
+        {
+          "label": "growing pattern",
+          "unit": "rules",
+          "code": "s = 3n + 1",
+          "hint": "What each new figure adds goes in front of $n$; what is there at the start goes on its own. Figure 4 has $3 \\times 4 + 1 = 13$ sticks.",
+          "board": "widget: pattern\nshape: squares\nn: 1, 8, 4\ncount: on",
+          "shows": "Figure 4: each square adds 3 sticks, plus 1 at the start"
+        },
+        {
+          "label": "rule",
+          "unit": "rules",
+          "code": "y = 2x + 1",
+          "hint": "A rule turns each input $x$ into an output $y$. Put the input in for $x$: $x = 3$ gives $y = 2 \\times 3 + 1 = 7$."
+        },
+        {
+          "label": "table of values",
+          "unit": "rules",
+          "code": "\\begin{array}{c|cccc} x & 0 & 1 & 2 & 3 \\\\ \\hline y & 1 & 3 & 5 & 7 \\end{array}",
+          "hint": "Choose inputs, work out each output from the rule ($y = 2x + 1$ here), and write them in pairs."
+        },
+        {
+          "label": "ordered pair",
+          "unit": "rules",
+          "code": "(x, y) = (2, 5)",
+          "hint": "Input first, then output. To plot it: across 2 on the $x$-axis, then up 5.",
+          "board": "widget: graph\nx: -1, 5\ny: -1, 8\npoint A: 2, 5",
+          "shows": "The point (2, 5): across 2, up 5"
+        },
+        {
+          "label": "reading a graph",
+          "unit": "rules",
+          "code": "\\text{axis} \\to \\text{line} \\to \\text{other axis}",
+          "hint": "Find the value you know on its axis, go to the line, then read across to the other axis. Sections of a graph increase, decrease or stay constant."
+        }
+      ]
+    },
+    {
+      "name": "Lines",
+      "items": [
+        {
+          "label": "gradient",
+          "unit": "lines",
+          "code": "y = \\mathbf{3}x + 1",
+          "hint": "$m$, the number in front of $x$: one step right, the line goes up $m$ (down when $m$ is negative). A bigger $m$ is steeper; $m = 0$ is flat.",
+          "board": "widget: graph\nx: -1, 5\ny: -2, 14\nplot: y = 3x + 1\nstep: 1",
+          "shows": "y = 3x + 1: one step right, up 3"
+        },
+        {
+          "label": "y-intercept",
+          "unit": "lines",
+          "code": "y = 2x + \\mathbf{4}",
+          "hint": "$c$, the number on its own: where the line crosses the $y$-axis (at $x = 0$). Changing $c$ moves the line up or down without changing its steepness."
+        },
+        {
+          "label": "parallel lines",
+          "unit": "lines",
+          "code": "y = 2x + 1 \\quad y = 2x + 4",
+          "hint": "The same $m$ gives the same steepness, so the lines never meet. $y = 2x + 4$ is $y = 2x + 1$ moved up 3.",
+          "board": "widget: graph\nx: -1, 5\ny: -1, 14\nplot: y = 2x + 1\nplot: y = 2x + 4",
+          "shows": "y = 2x + 1 and y = 2x + 4: same m, so parallel"
+        }
+      ]
+    },
+    {
+      "name": "Solving and modelling",
+      "items": [
+        {
+          "label": "solve with a graph",
+          "unit": "using",
+          "code": "2x + 3 = 11 \\;\\Rightarrow\\; x = 4",
+          "hint": "Draw each side as a line: $y = 2x + 3$ and $y = 11$. Where they meet, both sides are equal, so the $x$ there is the solution.",
+          "board": "widget: graph\nx: -1, 7\ny: -1, 16\nplot: y = 2x + 3\nplot: y = 11\ncross: 1, 2",
+          "shows": "y = 2x + 3 meets y = 11 at x = 4"
+        },
+        {
+          "label": "rule from a situation",
+          "unit": "using",
+          "code": "T = 2d + 4",
+          "hint": "A starting amount plus a rate: the start is $c$ (4 dollars to get in) and the rate is $m$ (2 dollars per km)."
+        },
+        {
+          "label": "comparing two plans",
+          "unit": "using",
+          "code": "5g + 20 = 40 \\text{ at } g = 4",
+          "hint": "Put both rules on one graph. Where the lines cross, the plans cost the same; on either side, the lower line is cheaper. Check where the model makes sense (no negative gigabytes)."
+        }
+      ]
+    }
+  ]
+}
