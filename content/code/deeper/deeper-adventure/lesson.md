@@ -160,4 +160,4 @@ check:
   explain: "Saving means writing the game's state to a file and reading it back. That is the next step in this course: files."
 ```
 
-Every game, from text adventures to open worlds, is this shape: a loop that reads input, rules that change the world, and the world stored as data. Still to come in this course: saving and loading the game with a file.
+Every game, from text adventures to open worlds, is this shape: a loop that reads input, rules that change the world, and the world stored as data. Next in this course: saving and loading the game with a file.

@@ -79,9 +79,12 @@ html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink);
 #file-list .empty { color: var(--muted); font-size: 14px; }
 #file-view { margin: 0; padding: 10px 12px; border-radius: 8px; background: var(--code-bg); color: var(--code-ink); font: 13px/1.5 ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
 
-/* ?view=output: only the console (recorded clips that show what a program does, not its code) */
-body.output-only .pg { grid-template-columns: 1fr; }
-body.output-only .editor-pane { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none; padding: 0; border: 0; }
+/* ?view=output: the buttons and the console, not the code (recorded clips that show what a program does). The
+   editor stays in the page, invisible, so the clip recorder can still find it. */
+body.output-only .pg { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
+body.output-only .editor-pane { border: 0; padding-bottom: 0; flex-direction: row; align-items: center; gap: 16px; }
+body.output-only .editor-pane .bar { flex: 1; }
+body.output-only #code { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 
 @media (max-width: 700px) {
   .pg { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1.1fr) minmax(0, 1fr); }

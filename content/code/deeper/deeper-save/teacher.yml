@@ -1,0 +1,41 @@
+summary: Students write and read a file, save a dictionary with json, catch FileNotFoundError for a first run, then add save and load commands to their text adventure and test that a save survives a page reload.
+time: 50
+timing: "Predict and Run 10 min · Investigate 10 min · Milestone 1 10 min · Milestone 2 10 min · Make 10 min"
+goals:
+  - I can write text to a file and read it back.
+  - I can save a dictionary with json.dump and load it with json.load.
+  - I can catch FileNotFoundError when there is no file yet.
+before: |
+  Read the unit primer first. This lesson runs in the **Python playground** (real Python in the browser, Pyodide), not the turtle playground: it has real files. The first load takes a few seconds; before teaching it, open the site's Check your school page once on a student device at school. A student's files are kept in their browser for this course and listed in the **Files** tab, where they can be read and deleted; they survive closing the page, but not clearing the browser's data, and they do not follow a student to another device. `open(name, "w")` empties the file first (the Predict and the bug task); `open(name)` reads. `with` closes the file when its block ends. `json.dump(data, f)` writes a dictionary or list as JSON text, and `json.load(f)` gives the same dictionary back. Opening a missing file causes `FileNotFoundError`, caught exactly like the errors in Lesson 4. The game saves `here`, `bag` and `things` (everything that changes during play): saving only `here` and `bag` would let a player take the key twice.
+running:
+  - "Predict: write kitchen then garden on two sticky notes; the second \"w\" throws the first note away."
+  - "Run: have students reload the page between runs. The point is that the file outlives the program."
+  - "Investigate: open the Files tab and compare me.json with the dictionary in the code."
+  - "Milestone 1: ask what changes during play. Everything that changes must be saved."
+  - "Milestone 2: test with a reload, not just a second command. Pair students: one saves, the other reloads and loads."
+stuck:
+  - see: "FileNotFoundError when they load."
+    ask: Did you save first, in this course's playground?
+    fix: "Save first, or catch FileNotFoundError and say there is no saved game."
+  - see: The save file is empty, or json.load says the file is not valid JSON.
+    ask: Which open() has "w" in it?
+    fix: "Read with open(\"game.json\"), not \"w\": \"w\" empties the file. Delete the broken file in the Files tab and save again."
+  - see: After load, the key is back in the kitchen as well as in the bag.
+    ask: What else changes during play, apart from here and bag?
+    fix: Save and load things too.
+  - see: "load says Loaded. but nothing changed."
+    ask: Did you set here, bag and things from game, or only read the file?
+    fix: "here = game[\"here\"], and the same for bag and things."
+stretch: Keep a best score in a second file (fewest moves to win), and only replace it when a new game beats it.
+support: Give students the save branch written out and ask them to write load by mirroring it, with json.load instead of json.dump.
+leads: "Data detective reads data files (CSV and JSON) the same way. Web apps later store what users type in a file, then in a database."
+exit:
+  q: "Why does the game save things as well as here and bag?"
+  a: "things changes during play (taking moves an item out of a room), so without it a loaded game would put the item back in the room as well as in the bag."
+explain: |
+  1. A file outlives the program. `open(name, "w")` empties the file and writes; `open(name)` reads.
+  2. `json.dump(game, f)` writes a dictionary as text; `json.load(f)` gives the dictionary back.
+  3. The first time there is no file, so `except FileNotFoundError:` starts afresh instead of crashing.
+solutions:
+  step-4: save.py#sol-m1
+  step-5: save.py#sol-m2

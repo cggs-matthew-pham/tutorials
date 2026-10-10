@@ -2,14 +2,15 @@
 // with open() kept in this browser, and apps: a mini-Gradio form, Flask pages, FastAPI through uvicorn.run.
 // URL parameters (set by the lesson page), as for the turtle playground:
 //   ?code=<starter>  ?id=<autosave key; its first two parts name the course, whose files the program sees>
-//   ?view=output (console only, for clips)  ?autorun=1  ?free=1 (the course's free playground)
+//   ?view=output (buttons and console, no code: clips)  ?autorun=1  ?free=1 (the course's free playground)
 import { mountSnippets } from './snippets.js';
 
 const params = new URLSearchParams(location.search);
 const starter = params.get('code') ?? 'name = input("What is your name? ")\nprint("Hello, " + name + "!")\n';
 const id = params.get('id');
 const storeKey = id ? `wp-playground:${id}` : null;
-const filesKey = `wp-pyfiles:${id ? id.split('/').slice(0, 2).join('/') : 'free'}`;
+// Files belong to a course (code/deeper), so every lesson in it, and its free playground (id free/deeper), sees them.
+const filesKey = `wp-pyfiles:${!id ? 'free' : id.startsWith('free/') ? 'code/' + id.split('/')[1] : id.split('/').slice(0, 2).join('/')}`;
 if (params.get('view') === 'output') document.body.classList.add('output-only');
 
 const $ = (x) => document.getElementById(x);

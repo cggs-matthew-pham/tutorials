@@ -165,6 +165,8 @@ export const CONCEPTS = {
     { id: 'list-change', label: '.append() and friends', re: /\.(append|remove|pop|insert)\(/ },
     { id: 'dict', label: 'a dictionary ({k: v})', re: /\{[^}]*:[^}]*\}/ },
     { id: 'tuple-assign', label: 'assigning two names at once', re: /^[ \t]*\w+[ \t]*,[ \t]*\w+[ \t]*=/m },
+    { id: 'file', label: 'open() and with (reading and writing a file)', re: /\bopen\(/ },
+    { id: 'json', label: 'json.dump() and json.load()', re: /\bjson\.(dump|load)s?\(/ },
     { id: 'try', label: 'try and except (catching an error)', re: /^[ \t]*(try|except\b[^:\n]*)[ \t]*:/m },
     { id: 'object', label: 'making an object (t = Turtle(), e = Enemy(5))', re: /=[ \t]*[A-Z]\w*\(|\.append\([ \t]*[A-Z]\w*\(/ },
     { id: 'attribute', label: "an object's own value (e.speed, self.speed)", re: /\b[a-z_]\w*\.[a-z_]\w*\b(?![ \t]*\()/ },

@@ -381,6 +381,41 @@
      "hint": "Run lines that might fail. If the named error happens, the except lines run instead of the program stopping."
     }
    ]
+  },
+  {
+   "name": "Files",
+   "items": [
+    {
+     "label": "write a file",
+     "matches": "open\\([^)]*[\"']w[\"']",
+     "code": "with open(\"‹save.txt›\", \"w\") as f:\n    f.write(‹text›)\n",
+     "hint": "\"w\" makes the file, or empties it first if it is already there, then writes. with closes the file at the end."
+    },
+    {
+     "label": "read a file",
+     "matches": "^\\s*with\\s+open\\([^,)]*\\)\\s+as",
+     "code": "with open(\"‹save.txt›\") as f:\n    ‹text› = f.read()\n",
+     "hint": "Opens the file to read and gives you all of it as one piece of text."
+    },
+    {
+     "label": "save with json",
+     "matches": "json\\.dump\\(",
+     "code": "import json\n\nwith open(\"‹game.json›\", \"w\") as f:\n    json.dump(‹game›, f)\n",
+     "hint": "Writes a dictionary or list to a file as JSON text."
+    },
+    {
+     "label": "load with json",
+     "matches": "json\\.load\\(",
+     "code": "import json\n\nwith open(\"‹game.json›\") as f:\n    ‹game› = json.load(f)\n",
+     "hint": "Reads JSON text back into the dictionary or list that was saved."
+    },
+    {
+     "label": "a missing file",
+     "matches": "except\\s+FileNotFoundError",
+     "code": "try:\n    with open(\"‹save.txt›\") as f:\n        ‹text› = f.read()\nexcept FileNotFoundError:\n    print(\"‹There is no save yet.›\")\n",
+     "hint": "The first time, there is no file: catch FileNotFoundError instead of stopping."
+    }
+   ]
   }
  ]
 }

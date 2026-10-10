@@ -35,6 +35,7 @@
   "text-case": {"home": "code/deeper/deeper-text", "text": "Text compares equal whatever its capitals; in fact \"Yes\" == \"yes\" is False."},
   "remove-missing": {"home": "code/deeper/deeper-lists", "text": "remove() does nothing when the item is not in the list; in fact it stops with a ValueError."},
   "key-exact": {"home": "code/deeper/deeper-dicts", "text": "A dictionary finds a key that is nearly the same; in fact the key must match exactly, capitals included."},
+  "open-w-reads": {"home": "code/deeper/deeper-save", "text": "open(name, \"w\") opens a file to read it; in fact \"w\" empties the file at once, ready for writing."},
   "except-any": {"home": "code/deeper/deeper-errors", "text": "except catches any error; in fact except ValueError catches only a ValueError, and other errors still stop the program."},
   "and-vs-or": {"home": "code/python/turtle-buttons", "text": "Conditions that must all hold are joined with or instead of and."},
   "html-error-message": {"home": "code/html/first-page", "text": "A mistake in HTML stops the page with an error message, as in Python; the browser actually shows its best guess and says nothing."},

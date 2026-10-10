@@ -199,14 +199,14 @@ const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Pyth
   // The console bridge: the turtle playground with its own saved program; a starter with no turtle opens it in console mode.
   'code/console': { kind: 'turtle', dir: '_playground', label: 'Python console', id: 'free/console', code: 'name = input("What is your name? ")\nprint("Hello, " + name + "!")\n' },
   'code/objects': { kind: 'turtle', dir: '_playground', label: 'Python', id: 'free/objects' },
-  'code/deeper': { kind: 'turtle', dir: '_playground', label: 'Python console', id: 'free/deeper', code: 'words = input("What do you do? ").strip().lower().split()\nprint(words)\n' } };
+  'code/deeper': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/deeper', code: 'words = input("What do you do? ").strip().lower().split()\nprint(words)\n' } };
 // Maths cards (snippets/maths.json, maths-<name>.json): a Reference page and cheat sheets for the course each names.
 const MATHS_CARDS = loadAllMathsCards();
 const REFS = [{ file: 'turtle', path: 'code/python/reference' }, { file: 'html', path: 'code/html/reference' }, { file: 'microbit', path: 'code/microbit/reference' }, { file: 'arcade', path: 'code/arcade/reference' }, { file: 'robot', path: 'code/robotics/reference' },
   { file: 'microbit', path: 'code/microbit-computer/reference' }, { file: 'microbit', path: 'code/microbit-security/reference' },
   // groups: only these groups of the file; title and summary: shown instead of the file's own.
   { file: 'turtle', path: 'code/console/reference', groups: ['Text in and out', 'Code structure'], title: 'Python console reference', summary: 'The commands from the console bridge, with what each one does.' },
-  { file: 'turtle', path: 'code/deeper/reference', groups: ['Text in and out', 'Text and collections', 'Code structure', 'Objects'], title: 'Python console reference', summary: 'Text, lists and dictionaries in the console, with what each command does.' },
+  { file: 'turtle', path: 'code/deeper/reference', groups: ['Text in and out', 'Text and collections', 'Files', 'Code structure', 'Objects'], title: 'Python console reference', summary: 'Text, lists, dictionaries and files in the console, with what each command does.' },
   { file: 'turtle', path: 'code/objects/reference', title: 'Python turtle and objects reference', summary: 'Turtle commands, and the objects, dictionaries and classes from Objects with turtles.' }, ...MATHS_CARDS.map((m) => ({ file: m.file, path: `${m.course}/reference` }))];
 
 // The site navbar: Learning Waypoints, Tutorials, then one menu per subject (a top-level folder, such as Code)
