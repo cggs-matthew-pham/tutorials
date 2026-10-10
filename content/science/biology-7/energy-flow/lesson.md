@@ -4,6 +4,26 @@ unit: foodwebs
 title: Where does the energy go?
 summary: "Energy enters a food web as sunlight captured by producers and flows one way along the arrows. At each step only about 10% is passed on; the rest is used for living or lost as heat. Matter is different: decomposers return it to be used again."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8210
+  url: http://127.0.0.1:8210/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Energy along a food chain"
+  say: "Only about a tenth of the energy passes to each level."
+  clip:
+    - caption: { text: "Phytoplankton capture 20,000 kJ from sunlight.", say: "Phytoplankton capture twenty thousand kilojoules from sunlight." }
+    - click: "Phytoplankton"
+    - click: "Krill"
+    - caption: { text: "Krill get about 10%: 2,000 kJ. The rest is used for living or lost as heat.", say: "Krill get about ten percent; the rest is used for living or lost as heat." }
+    - click: "Fish"
+    - click: "Penguin"
+    - expect: { selector: "body", contains: "20 kJ" }
+    - caption: { text: "Each step keeps about 10%: the penguin gets only 20 kJ.", say: "Each step keeps about ten percent, so the penguin gets only twenty kilojoules." }
+    - wait: 800
 hook: "A field of grass can feed many grasshoppers, which feed fewer lizards, which feed a couple of kookaburras, which feed perhaps one eagle. Why the shrinking numbers?"
 ---
 Last lesson: the arrows. This lesson: what travels along them, and how much arrives.

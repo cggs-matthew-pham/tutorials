@@ -32,3 +32,15 @@ speed: 3
 track: 40
 time: 10
 # endregion
+
+# region: explain
+widget: forces
+object: Box
+mass: 2
+force P: right, 4, Push, adjust 0-12
+friction: 4
+motion: on
+speed: 2
+track: 30
+time: 6
+# endregion

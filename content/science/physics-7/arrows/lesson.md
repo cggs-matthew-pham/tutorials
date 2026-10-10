@@ -4,6 +4,24 @@ unit: forces
 title: How big, which way?
 summary: A force has a size and a direction, so we draw it as an arrow. In a force diagram every force on an object gets an arrow of the right length, pointing the right way, with its name.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8200
+  url: http://127.0.0.1:8200/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Forces as arrows"
+  say: "A force has a size and a direction, so we draw it as an arrow."
+  clip:
+    - caption: { text: "Each force is an arrow: its length is the size, it points the way the force acts.", say: "Each arrow's length shows the size, and it points the way the force acts." }
+    - click: "Push: more"
+    - click: "Push: more"
+    - caption: { text: "A bigger push: a longer arrow.", say: "A bigger push gets a longer arrow." }
+    - expect: { selector: "body", contains: "Push 30 N" }
+    - caption: { text: "Every force on the box is drawn and named: weight, support, push.", say: "A force diagram shows every force on the object, each one named." }
+    - wait: 1200
 hook: "Push a shopping trolley gently, then hard. Same direction, different force. Push it from the other side: same size, different force. Two things to get right every time."
 ---
 Forces are invisible, so scientists draw them. This lesson is about drawing them precisely.

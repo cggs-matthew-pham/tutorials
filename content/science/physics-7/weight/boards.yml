@@ -17,3 +17,12 @@ place: Earth, Moon, Mars, Jupiter
 force W: down, weight, Weight
 force N: up, support, Support
 # endregion
+
+# region: explain
+widget: forces
+object: Astronaut
+mass: 60
+place: Earth, Moon, Mars
+force W: down, weight, Weight
+force N: up, support, Support
+# endregion

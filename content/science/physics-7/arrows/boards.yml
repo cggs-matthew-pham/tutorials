@@ -36,3 +36,13 @@ g: 10
 force W: down, weight, Weight
 force A: up, 200, Air resistance, adjust 0-1200 by 50
 # endregion
+
+# region: explain
+widget: forces
+object: Box
+mass: 2
+g: 10
+force W: down, weight, Weight
+force N: up, support, Support
+force P: right, 10, Push, adjust 0-40 by 10
+# endregion

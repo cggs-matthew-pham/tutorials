@@ -36,3 +36,10 @@ specimen: Platypus | A backbone, fur and a flat bill; lays eggs.
 specimen: Garden snail | No backbone, a soft body and a shell; no legs.
 need: 3
 # endregion
+
+# region: explain
+widget: key
+step A: Does it have a backbone? | B | Earthworm
+step B: Does it have feathers? | Emu | Wombat
+specimen: Wombat | A backbone, thick fur and strong digging claws; no feathers.
+# endregion

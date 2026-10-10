@@ -4,6 +4,25 @@ unit: foodwebs
 title: Who eats whom?
 summary: A food web joins all the food chains in an ecosystem. Arrows point the way energy flows, from the food to the eater. Every organism is a producer, a consumer or a decomposer, and decomposers include microorganisms.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8209
+  url: http://127.0.0.1:8209/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Arrows in a food web"
+  say: "Arrows in a food web point the way energy flows, from food to eater."
+  clip:
+    - caption: { text: "A kangaroo eats grass. Click the food, then the eater.", say: "A kangaroo eats grass. Click the food first, then the eater." }
+    - click: "Grass"
+    - click: "Kangaroo"
+    - caption: { text: "The arrow points from grass to kangaroo: the energy goes into the kangaroo.", say: "The arrow points from the grass to the kangaroo, the way the energy goes." }
+    - click: "Kangaroo"
+    - click: "Dingo"
+    - caption: { text: "A dingo eats kangaroos: kangaroo → dingo.", say: "A dingo eats kangaroos, so the next arrow points from kangaroo to dingo." }
+    - wait: 1000
 hook: "A kookaburra eats lizards, grasshoppers, even small snakes. A food chain can only show one of those meals. How do you show all of them?"
 ---
 Food chains are a start. This lesson builds the whole web.

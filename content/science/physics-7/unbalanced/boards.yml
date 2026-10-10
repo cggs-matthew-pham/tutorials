@@ -22,3 +22,14 @@ speed: 0
 track: 20
 time: 6
 # endregion
+
+# region: explain
+widget: forces
+object: Puck
+mass: 1
+force P: left, 1, Push, adjust 0-4
+motion: on
+speed: 3
+track: 20
+time: 8
+# endregion

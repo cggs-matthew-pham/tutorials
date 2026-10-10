@@ -4,6 +4,28 @@ unit: newton
 title: Does a moving thing need a push?
 summary: "Newton's first law: an object at rest stays at rest, and a moving object keeps moving at a constant velocity, unless a net force acts. Moving things slow down because of friction, not because their push runs out."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8204
+  url: http://127.0.0.1:8204/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Newton's first law"
+  say: "Moving things need no force to keep going, only to change their motion."
+  clip:
+    - caption: { text: "No push. Friction is the only force, so the puck slows down.", say: "With no push, friction is the only force, so the puck slows down." }
+    - click: "Play"
+    - wait: 3200
+    - click: "Friction: on"
+    - click: "Reset"
+    - caption: { text: "Friction off: no forces at all.", say: "Now switch friction off, so there are no forces at all." }
+    - click: "Play"
+    - wait: 2500
+    - expect: { selector: "body", contains: "speed 3 m/s" }
+    - caption: { text: "It keeps going at the same speed: no net force, no change.", say: "It keeps going at the same speed: no net force, no change." }
+    - wait: 600
 hook: "Kick a ball on grass and it rolls to a stop. Slide a puck on ice and it goes much further. In space, a probe launched decades ago is still coasting out of the solar system with its engines off."
 ---
 For 2000 years people believed, with Aristotle, that motion needs a force to keep it going. This lesson tests that idea.

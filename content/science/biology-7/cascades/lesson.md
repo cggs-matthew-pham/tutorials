@@ -4,6 +4,27 @@ unit: foodwebs
 title: What if the dingo disappeared?
 summary: A biotic factor is a living part of an ecosystem. When one population changes, the effect ripples along the food web, beyond the species directly linked to it. Tracing the links lets you predict the cascade.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8211
+  url: http://127.0.0.1:8211/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "A cascade"
+  say: "A change in one population passes along the food web, one link at a time."
+  clip:
+    - caption: { text: "Foxes eat rabbits; rabbits eat grass. Remove the foxes.", say: "Foxes eat rabbits, and rabbits eat grass; now remove the foxes." }
+    - click: "Remove the fox"
+    - caption: { text: "Fewer predators: more rabbits.", say: "With no foxes eating them, there are more rabbits." }
+    - click: "Rabbit"
+    - caption: { text: "More rabbits eat more grass: less grass.", say: "More rabbits eat more grass, so there is less grass." }
+    - click: "Grass"
+    - click: "Grass"
+    - click: "Check my predictions"
+    - caption: { text: "The effect passed along the web, link by link: a cascade.", say: "The effect passed along the web one link at a time: a cascade." }
+    - wait: 1200
 hook: "Where dingoes were removed to protect sheep, kangaroos and foxes boomed, and some small native animals nearly vanished. How could removing one predator harm small animals it rarely ate?"
 ---
 You can build a web and follow its energy. This lesson uses the web to predict.

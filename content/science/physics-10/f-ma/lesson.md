@@ -4,6 +4,31 @@ unit: newton
 title: How hard do you need to push?
 summary: "Newton's second law: the net force on an object equals its mass times its acceleration, F = ma. Double the net force and the acceleration doubles; double the mass and the acceleration halves."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8206
+  url: http://127.0.0.1:8206/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "F = ma"
+  say: "Newton's second law: net force equals mass times acceleration."
+  clip:
+    - caption: { text: "8 N on 2 kg: a = F ÷ m = 4 m/s².", say: "Eight newtons on two kilograms gives four metres per second squared." }
+    - click: "Play"
+    - wait: 2000
+    - expect: { selector: "body", contains: "acceleration 4 m/s²" }
+    - wait: 1200
+    - caption: { text: "Same force, double the mass: 4 kg.", say: "Same force, but double the mass: four kilograms." }
+    - click: "Reset"
+    - click: "Mass: more"
+    - click: "Mass: more"
+    - click: "Play"
+    - wait: 2000
+    - expect: { selector: "body", contains: "acceleration 2 m/s²" }
+    - caption: { text: "Half the acceleration: 2 m/s². F = ma.", say: "Double the mass, half the acceleration: F equals m a." }
+    - wait: 600
 hook: "Push an empty shopping trolley and it shoots off. Push a full one just as hard and it barely gets going. Same push, different result: by exactly how much?"
 ---
 You know a net force makes things accelerate. This lesson finds the exact rule.

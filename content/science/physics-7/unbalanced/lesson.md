@@ -4,6 +4,26 @@ unit: forces
 title: What does an unbalanced force do?
 summary: An unbalanced force changes an object's motion, in the direction of the net force. Speeding up, slowing down, stopping, reversing and turning are all changes in motion, and every one needs an unbalanced force.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8202
+  url: http://127.0.0.1:8202/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "What an unbalanced force does"
+  say: "An unbalanced force changes the motion, in the direction of the net force."
+  clip:
+    - caption: { text: "A puck slides right. A push to the left keeps acting on it.", say: "A puck slides right on ice, while a push to the left keeps acting." }
+    - click: "Play"
+    - wait: 1600
+    - caption: { text: "First it slows down…", say: "First it slows down." }
+    - wait: 900
+    - caption: { text: "…stops, then speeds up to the left.", say: "It stops, and then speeds up to the left." }
+    - expect: { selector: "body", contains: "speed -" }
+    - caption: { text: "One unbalanced force: slowing, stopping and reversing are all one change.", say: "Slowing, stopping and reversing are all changes caused by one unbalanced force." }
+    - wait: 800
 hook: "A curling stone glides 40 metres across the ice. Sweep in front of it and it slides further; let it hit another stone and it stops dead. Every time its motion changes, something has pushed or pulled it."
 ---
 Last lesson: balanced forces keep the motion the same. This lesson: what an unbalanced force changes.

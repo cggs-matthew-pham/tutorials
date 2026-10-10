@@ -4,6 +4,25 @@ unit: forces
 title: Does balanced mean no forces?
 summary: Balanced forces cancel out (the net force is zero), so the motion doesn't change. The object stays still or keeps moving at a steady speed. Unbalanced forces change the motion.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8201
+  url: http://127.0.0.1:8201/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Balanced forces"
+  say: "Balanced forces cancel out, but they are still there."
+  clip:
+    - caption: { text: "The box is already moving. Push 4 N forward, friction 4 N back.", say: "The moving box has four newtons of push forward and four of friction back." }
+    - click: "Play"
+    - wait: 1500
+    - caption: { text: "Balanced: net force 0 N. The dots stay evenly spaced.", say: "The forces are balanced, so the dots stay evenly spaced." }
+    - wait: 2500
+    - expect: { selector: "body", contains: "speed 2 m/s" }
+    - caption: { text: "Balanced doesn't mean no forces: it means no change in motion.", say: "Balanced doesn't mean no forces: it means the motion doesn't change." }
+    - wait: 800
 hook: "A car cruises down the highway at a steady 100 km/h, engine running. Is its engine pushing harder than the air and the road are holding it back?"
 ---
 Last lesson: drawing forces. This lesson: what the diagram tells you about the motion.

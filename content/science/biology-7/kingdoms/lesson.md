@@ -4,6 +4,26 @@ unit: classification
 title: Plant, animal or something else?
 summary: Living things are sorted into kingdoms (animals, plants, fungi, protists and bacteria) using features you can observe, and you can justify each placement with those features.
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8207
+  url: http://127.0.0.1:8207/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Sorting into kingdoms"
+  say: "Living things are sorted into kingdoms by features you can observe."
+  clip:
+    - caption: { text: "Sort a kangaroo by its features, one question at a time.", say: "Let's sort a kangaroo by its features, one question at a time." }
+    - click: "Yes"
+    - caption: { text: "Does it make its own food using sunlight? No: it eats grass.", say: "Does it make its own food using sunlight? No. It eats grass." }
+    - click: "No"
+    - caption: { text: "Does it absorb food from dead material, like a fungus? No.", say: "Does it absorb its food from dead material, like a fungus? No." }
+    - click: "No"
+    - expect: { selector: "body", contains: "Kangaroo" }
+    - caption: { text: "It eats other living things: an animal.", say: "It eats other living things, so it belongs in the animal kingdom." }
+    - wait: 800
 hook: "A mushroom pops up on the lawn overnight. It grows from the ground and doesn't walk away, so it must be a plant. Right?"
 ---
 There are millions of kinds of living things. This lesson is about the biggest groups scientists sort them into, and the features that decide.

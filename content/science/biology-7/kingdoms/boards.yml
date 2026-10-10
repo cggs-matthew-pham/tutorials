@@ -15,3 +15,12 @@ specimen: Fungus | Fuzzy white and black patches on old bread; absorbs food from
 specimen: Plant | Small, soft and green; makes its own food from sunlight; grows on damp rocks. | Moss
 need: 5
 # endregion
+
+# region: explain
+widget: key
+step A: Can you see a single one without a microscope? | B | D
+step B: Does it make its own food using sunlight? | Plant | C
+step C: Does it absorb its food from dead or decaying material? | Fungus | Animal
+step D: Does its cell have a nucleus? | Protist | Bacteria
+specimen: Animal | Hops on strong back legs; eats grass; cannot make its own food. | Kangaroo
+# endregion

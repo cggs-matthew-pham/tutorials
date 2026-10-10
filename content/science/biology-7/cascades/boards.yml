@@ -37,3 +37,14 @@ eats B: L, H
 eats S: L
 eats E: S, B, K
 # endregion
+
+# region: explain
+widget: foodweb
+mode: remove
+remove: F
+organism G: Grass
+organism A: Rabbit
+organism F: Fox
+eats A: G
+eats F: A
+# endregion

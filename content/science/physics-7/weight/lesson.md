@@ -4,6 +4,27 @@ unit: forces
 title: Would you weigh less on the Moon?
 summary: "Mass is how much matter an object has, in kilograms, and it is the same everywhere. Weight is the force of gravity on that mass, in newtons, and depends on where you are: weight = mass × g."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8203
+  url: http://127.0.0.1:8203/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Mass and weight"
+  say: "Mass stays the same everywhere. Weight is the pull of gravity on it."
+  clip:
+    - caption: { text: "A 60 kg astronaut on Earth: weight = 60 × 9.8 = 588 N.", say: "On Earth, a sixty kilogram astronaut weighs five hundred and eighty eight newtons." }
+    - wait: 600
+    - click: "Moon"
+    - expect: { selector: "body", contains: "weight 96 N" }
+    - caption: { text: "On the Moon, g is 1.6 N/kg: weight 96 N. The mass is still 60 kg.", say: "On the Moon she weighs ninety six newtons, but her mass is still sixty kilograms." }
+    - wait: 2500
+    - click: "Mars"
+    - expect: { selector: "body", contains: "weight 222 N" }
+    - caption: { text: "Mass is the matter in you (kg). Weight is a force (N).", say: "Mass is the matter in her; weight is the force of gravity on it." }
+    - wait: 600
 hook: "Astronauts on the Moon bounce around like they're on a trampoline. Did they lose something on the way there?"
 ---
 "Weight" in everyday talk and "weight" in science are different. This lesson sorts that out.

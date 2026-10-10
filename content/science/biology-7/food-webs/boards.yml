@@ -33,3 +33,12 @@ eats E: F, K, S
 eats L: E, F
 eats B: P, L
 # endregion
+
+# region: explain
+widget: foodweb
+organism G: Grass
+organism R: Kangaroo
+organism D: Dingo
+eats R: G
+eats D: R
+# endregion
