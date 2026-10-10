@@ -9,6 +9,32 @@
       "name": "Words",
       "items": [
         {
+          "label": "formula",
+          "unit": "expressions",
+          "code": "P = 2l + 2w",
+          "hint": "A rule that gives one quantity from others, written with letters. This one gives the perimeter of a rectangle.",
+          "board": "widget: formula\nformula: P = 2l + 2w\nslider l: 1, 10, 5\nslider w: 1, 6, 3\nshape: rectangle\nunits: cm",
+          "shows": "l = 5 and w = 3 give P = 16"
+        },
+        {
+          "label": "variable",
+          "unit": "expressions",
+          "code": "P, \\; l, \\; w",
+          "hint": "A letter for a quantity that can change. Each rectangle has its own $l$, $w$ and $P$."
+        },
+        {
+          "label": "constant",
+          "unit": "expressions",
+          "code": "C = 5h + \\mathbf{20}",
+          "hint": "A number that stays the same, such as a 20 dollar call-out fee. $\\pi$ is a constant too."
+        },
+        {
+          "label": "unknown",
+          "unit": "expressions",
+          "code": "3x + 2 = 14",
+          "hint": "In an equation, a letter can stand for one particular number: here only $x = 4$ works."
+        },
+        {
           "label": "expression",
           "unit": "equations",
           "code": "2x + 3",
@@ -30,7 +56,7 @@
         },
         {
           "label": "2x means 2 times x",
-          "unit": "equations",
+          "unit": "expressions",
           "code": "2x = 2 \\times x",
           "hint": "With $x = 4$, $2x$ is 8, not 24."
         },
@@ -45,6 +71,18 @@
     {
       "name": "Methods",
       "items": [
+        {
+          "label": "substitute",
+          "unit": "expressions",
+          "code": "\\begin{aligned} P &= 2l + 2w \\\\ &= 2 \\times 5 + 2 \\times 3 \\\\ &= 16 \\end{aligned}",
+          "hint": "Replace each letter with its value, write in the × signs, then work it out: brackets, then × and ÷, then + and −."
+        },
+        {
+          "label": "find an unknown in a formula",
+          "unit": "expressions",
+          "code": "\\begin{aligned} 20 &= 2 \\times 6 + 2w \\\\ 8 &= 2w \\\\ w &= 4 \\end{aligned}",
+          "hint": "Substitute what you know, then solve the equation that is left by undoing. Check by substituting back."
+        },
         {
           "label": "check by substitution",
           "unit": "equations",

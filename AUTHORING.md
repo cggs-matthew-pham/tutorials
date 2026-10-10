@@ -479,6 +479,11 @@ Vary, Practise, Make).
   - `widget: rule`: a rule machine. `rule: y = 2x + 3`, `x: -5, 10` (allowed inputs), `start: 0`. Students put inputs in,
     see the substitution and collect ordered pairs in a table. Scope: k (pairs), l and h (lowest and highest input), x, y.
     Condition names are single letters (`lo` would read as l × o).
+  - `widget: formula`: a formula with a slider for each letter and the substitution written out with × signs
+    (P = 2 × 4 + 2 × 3 = 14 cm). `formula: P = 2l + 2w` (a one-letter subject), `slider l: 1, 10, 4[, step]` for every
+    letter on the right, `shape: rectangle` (drawn from the first two sliders), `units: cm`, `result: off` (show the
+    substitution but not the value, so students finish the arithmetic). Scope: each slider and the subject, so checks
+    read `when: "P = 20 and l = 6"` or `when: "l = 2w"`.
   - `widget: forces` (any subject; first used by the physics lessons): a force diagram and, with `motion: on`, the
     motion it causes.
     - `object: Box` (its name), `mass: 2` (kg; `mass: 1, 10, 2` is a slider), `g: 9.8` (N/kg) or

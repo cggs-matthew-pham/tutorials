@@ -1,0 +1,40 @@
+# Formula boards for "Letters that vary".
+
+# region: run
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 10, 4
+slider w: 1, 6, 3
+shape: rectangle
+units: cm
+# endregion
+
+# region: plumber
+widget: formula
+formula: C = 5h + 20
+slider h: 0, 8, 1
+# endregion
+
+# region: drive
+widget: formula
+formula: d = 60t
+slider t: 0, 5, 1, 0.5
+# endregion
+
+# region: area
+widget: formula
+formula: A = lw
+slider l: 1, 10, 4
+slider w: 1, 6, 3
+shape: rectangle
+units: cm
+# endregion
+
+# region: explain
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 10, 4
+slider w: 1, 6, 2
+shape: rectangle
+units: cm
+# endregion

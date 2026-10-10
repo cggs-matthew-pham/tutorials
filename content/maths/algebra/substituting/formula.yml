@@ -1,0 +1,62 @@
+# Formula boards for "Substituting into formulas". result: off boards show the substitution but not the value.
+
+# region: run
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 10, 2
+slider w: 1, 6, 1
+shape: rectangle
+units: cm
+# endregion
+
+# region: decimal
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 6, 1, 0.5
+slider w: 1, 6, 1
+shape: rectangle
+units: cm
+result: off
+# endregion
+
+# region: box
+widget: formula
+formula: V = lwh
+slider l: 1, 6, 1
+slider w: 1, 6, 1
+slider h: 1, 6, 1
+result: off
+# endregion
+
+# region: speed
+widget: formula
+formula: s = d / t
+slider d: 0, 200, 100, 10
+slider t: 1, 5, 1
+result: off
+# endregion
+
+# region: brackets
+widget: formula
+formula: C = 5(h + 4)
+slider h: 0, 8, 0
+result: off
+# endregion
+
+# region: make
+widget: formula
+formula: A = lw
+slider l: 1, 12, 1
+slider w: 1, 12, 1
+shape: rectangle
+units: cm
+# endregion
+
+# region: explain
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 10, 3
+slider w: 1, 6, 2
+shape: rectangle
+units: cm
+# endregion

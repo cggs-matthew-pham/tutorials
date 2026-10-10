@@ -1,0 +1,9 @@
+# Mia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mia
+P = 2l + 2w, with P = 20 and l = 6.
+20 = 2 × 6 + 2w
+20 = 12 + 2w
+8 = 2w
+w = 16
+# endregion

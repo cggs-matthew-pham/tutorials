@@ -1,0 +1,39 @@
+summary: Students substitute values into formulas, writing in the hidden × signs and using the order of operations, including decimals, division and brackets (AC9M7A01, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can replace each letter in a formula with its value, writing in the × signs.
+  - I can work out the result in the right order, including brackets and division.
+  - I can show my substitution as a line of working, with units.
+before: |
+  Do the Modify boards yourself first: they show the substitution but hide the value, so students must finish the arithmetic.
+
+  The new move is writing the hidden × signs. The common error is reading 2l with l = 5 as 25 (Leo's mistake). Insist on a line of working with × signs, every time, before any arithmetic.
+
+  The Run board shows the full working, so students can compare it with their own line.
+running:
+  - "Predict: show of hands. Ask a student who chose 48 how they got it, then write 2l = 2 × l on the board."
+  - "Run: have students say the board's working line aloud: 'two times five plus two times three'."
+  - "Investigate: model the worked example live. Write the formula, the values, then the substituted line, before any arithmetic."
+  - "Modify: before brackets, ask what 5(h + 4) means in words."
+  - "Make: collect every rectangle the class found with area 24. Is there a pattern?"
+stuck:
+  - see: "A student writes digits side by side (25 for 2l with l = 5)."
+    ask: "What sign is hiding between the 2 and the l?"
+    fix: "Write the formula again with every × sign in, then substitute."
+  - see: "A student adds before multiplying (5 × 3 + 20 = 75)."
+    ask: "Which do you do first: multiply or add?"
+    fix: "Multiply and divide before adding and subtracting, unless brackets say otherwise."
+stretch: "Find P = 2l + 2w and A = lw for l = 4.5 and w = 2. Find a rectangle where P and A are the same number."
+support: "Give a template with three lines: formula, substituted (with × signs), answer with units."
+leads: |
+  Next: finding an unknown, where the answer is known and one letter is not. Substitution is also how every solution is checked, in Equations and in Linear relations (tables from rules).
+exit:
+  q: "Find C = 8h + 15 when h = 3, and V = lwh when l = 2, w = 5, h = 3."
+  a: "C = 8 × 3 + 15 = 39. V = 2 × 5 × 3 = 30."
+explain: |
+  To **substitute**, replace each letter with its value.
+
+  A number next to a letter means multiply: $2l$ means $2 \times l$. Two letters next to each other also multiply: $lw$ means $l \times w$. Write the × signs in before working anything out.
+
+  Then work it out in order: brackets first, then × and ÷, then + and −. Give the units.

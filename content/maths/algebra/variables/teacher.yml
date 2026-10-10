@@ -1,0 +1,39 @@
+summary: Students tell the variables in a formula from the constants, and see that in an equation a letter can be one unknown number (AC9M7A01, node 1).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can say which letters in a formula are variables and which numbers are constants.
+  - I can say what a constant means in a real formula, such as a call-out fee.
+  - I can tell a variable (can take many values) from an unknown (one value makes the equation true).
+before: |
+  Do the Run board yourself first: change l and w and watch the working.
+
+  The new move is reading a letter as a quantity that changes. Students often think each letter has one fixed value, or link a letter to its place in the alphabet (Kim's mistake). Keep saying the quantity aloud: "l, the length", not just "l".
+
+  This lesson does not ask students to calculate much; the next lesson is substitution. The board does the arithmetic so attention stays on what changes.
+running:
+  - "Predict: ask students who chose 'Nothing changes' to describe two different rectangles. Do they have the same length?"
+  - "Run: before they reach l = 7, w = 2, ask: which numbers in the working never changed?"
+  - "Investigate: model the worked example live. Draw the contrast on the board: formula (variables, many values) and equation (unknown, one value)."
+  - "Modify: for π, point out that a letter is not automatically a variable."
+  - "Make: have two students compare 4s with s + s + s + s. Are they the same formula?"
+stuck:
+  - see: "A student gives a letter its alphabet value (Kim's mistake)."
+    ask: "What does l stand for in this formula? How would you find its value?"
+    fix: "A letter stands for a quantity. Its value is measured or given, and can change from one rectangle to the next."
+  - see: "A student says the 2 in 2l is a variable because it is next to a letter."
+    ask: "Draw a different rectangle. Did the 2 change?"
+    fix: "Constants stay the same for every case. 2l means 2 × l: two lengths."
+stretch: "Write a formula for the cost of n pizzas at 15 dollars each with a 5 dollar delivery fee. Name every variable and constant, and say what each constant means."
+support: "Give a two-column table, 'changes' and 'stays the same', to sort the parts of each formula into before answering."
+leads: |
+  Next: substituting into formulas, then finding an unknown in a formula. Later, linear relations use the same letters: in y = mx + c, x and y vary and m and c are constants for one line.
+exit:
+  q: "A taxi charges T = 2d + 4 dollars for d km. Name the variables and the constants, and say what the 4 means."
+  a: "Variables: T and d. Constants: 2 and 4. The 4 is the fee to get in, paid even for 0 km."
+explain: |
+  In a **formula**, letters stand for quantities. A letter whose value can change is a **variable**; a number that stays the same is a **constant**.
+
+  In $P = 2l + 2w$, $P$, $l$ and $w$ are variables and the 2s are constants.
+
+  In an **equation** such as $3x + 2 = 14$, the letter is an **unknown**: one particular number ($x = 4$) makes it true.

@@ -1,0 +1,58 @@
+# Formula boards for "Finding an unknown". The target is in the task; students move the unknown until it is met.
+
+# region: run
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 10, 6
+slider w: 1, 8, 1
+shape: rectangle
+units: cm
+# endregion
+
+# region: pic
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 10, 6
+slider w: 1, 8, 4
+shape: rectangle
+units: cm
+# endregion
+
+# region: drive
+widget: formula
+formula: d = 60t
+slider t: 0, 5, 1, 0.5
+# endregion
+
+# region: area
+widget: formula
+formula: A = lw
+slider l: 1, 10, 1
+slider w: 1, 10, 5
+shape: rectangle
+units: cm
+# endregion
+
+# region: battery
+widget: formula
+formula: B = 100 - 4m
+slider m: 0, 25, 0
+# endregion
+
+# region: make
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 12, 1
+slider w: 1, 12, 1
+shape: rectangle
+units: m
+# endregion
+
+# region: explain
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 10, 6
+slider w: 1, 8, 1
+shape: rectangle
+units: cm
+# endregion

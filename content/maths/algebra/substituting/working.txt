@@ -1,0 +1,7 @@
+# Leo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leo
+P = 2l + 2w, with l = 5 and w = 3.
+P = 25 + 23
+P = 48
+# endregion

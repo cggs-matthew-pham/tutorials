@@ -1,0 +1,8 @@
+# Kim's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kim
+P = 2l + 2w
+l is the 12th letter of the alphabet, so l = 12.
+w is the 23rd letter, so w = 23.
+P = 2 × 12 + 2 × 23 = 70.
+# endregion

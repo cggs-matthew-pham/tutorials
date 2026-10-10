@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 4
 unit: equations
 title: Equations as a balance
 summary: An equation says two things are equal. Find the value that makes it true, then check it.

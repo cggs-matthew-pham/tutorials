@@ -236,9 +236,9 @@ await pictures({
 // axes and lines), cropped to what is drawn (anything unlike the board's background), ignoring the board's border.
 async function drawBoard(page, j) {
   await page.goto(`http://localhost:${port}/_playground-board/index.html?id=picture&fresh=1&code=${encodeURIComponent(j.code)}`);
-  // What to photograph: the machine's row, a growing pattern's figure, or the board.
-  const sel = /widget:\s*machine/.test(j.code) ? '#mrow' : /widget:\s*pattern/.test(j.code) ? '.patfig' : /widget:\s*rule/.test(j.code) ? '#gpanel' : '#board';
-  await page.waitForSelector({ '#mrow': '#mrow .mbox', '.patfig': '.patsvg line, .patsvg circle', '#gpanel': '.rulebox', '#board': '#board svg' }[sel], { timeout: 20000, state: 'attached' });
+  // What to photograph: the machine's row, a growing pattern's figure, a formula (with its shape and working), or the board.
+  const sel = /widget:\s*formula/.test(j.code) ? '.rulebox' : /widget:\s*machine/.test(j.code) ? '#mrow' : /widget:\s*pattern/.test(j.code) ? '.patfig' : /widget:\s*rule/.test(j.code) ? '#gpanel' : '#board';
+  await page.waitForSelector({ '#mrow': '#mrow .mbox', '.patfig': '.patsvg line, .patsvg circle', '#gpanel': '.rulebox', '.rulebox': '.rulebox .rulework', '#board': '#board svg' }[sel], { timeout: 20000, state: 'attached' });
   await page.waitForTimeout(400);
   if (await page.locator('#error').isVisible()) throw new Error(`${j.id}: the board did not start: ${await page.locator('#error').innerText()}`);
   const shot = (await page.locator(sel).screenshot()).toString('base64');
