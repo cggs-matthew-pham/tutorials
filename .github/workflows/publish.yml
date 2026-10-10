@@ -70,9 +70,27 @@ jobs:
       # 150. What is done is published; what is left keeps the live version and is done by the next run (the run's
       # summary says how much is left).
       - name: Render new clips and pictures
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           export WP_DEADLINE=$(( $(date +%s) + 125 * 60 )) WP_LIVE_SITE="$SITE"
+          # Snapshots: every 30 minutes, publish what is done so far, so a crash or a cancel loses at most 30 minutes.
+          # Each snapshot is built in a copy (the live site, with this run's work laid over it), never in dist/, so it
+          # does not disturb the recording; anything not redone yet keeps its live version.
+          mkdir -p ../live
+          git fetch -q --depth 1 origin gh-pages && git archive FETCH_HEAD | tar -x -C ../live || echo "no live site to start from"
+          snapshot() {
+            rm -rf ../snap && cp -r ../live ../snap && cp -r dist/. ../snap/ \
+              && node tools/build-site.mjs --out ../snap > ../snap.log 2>&1 && touch ../snap/.nojekyll \
+              && (cd ../snap && git init -q -b gh-pages && git add -A \
+                  && git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -q -m "Snapshot of build from ${GITHUB_SHA::7} (in progress)" \
+                  && git push -q --force "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages) \
+              && echo "::notice::Snapshot published at $(date -u +%H:%M) UTC" || { echo "::warning::Snapshot failed"; tail -5 ../snap.log; }
+          }
+          ( while sleep 1800; do snapshot; done ) &
+          SNAP=$!
           npm run render
+          kill $SNAP 2>/dev/null || true
 
       - name: Build site
         run: npm run build
