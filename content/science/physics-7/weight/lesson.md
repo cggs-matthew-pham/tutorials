@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 unit: forces
 title: Would you weigh less on the Moon?
 summary: "Mass is how much matter an object has, in kilograms, and it is the same everywhere. Weight is the force of gravity on that mass, in newtons, and depends on where you are: weight = mass × g."

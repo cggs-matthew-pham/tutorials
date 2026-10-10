@@ -1,0 +1,24 @@
+# Boards for "What does an unbalanced force do?".
+
+# region: puck
+widget: forces
+object: Puck
+mass: 2
+force P: left, 2, Push, adjust 0-6
+motion: on
+speed: 4
+track: 20
+time: 10
+# endregion
+
+# region: start
+widget: forces
+object: Box
+mass: 2
+force P: right, 2, Push, adjust 0-12
+friction: 4
+motion: on
+speed: 0
+track: 20
+time: 6
+# endregion

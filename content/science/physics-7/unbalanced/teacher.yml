@@ -1,0 +1,43 @@
+summary: Students explain that unbalanced forces change motion (starting, speeding up, slowing down, stopping, reversing and changing direction) and represent each change with a force diagram (AC9S7U04, node 3).
+time: 25
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 4 min, Wider about 4 min"
+goals:
+  - I can explain that an unbalanced force changes an object's motion, in the direction of the net force.
+  - I can name speed and direction as the two things that can change.
+  - I can draw force diagrams for two different changes in motion.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace trolleys, force meters and ramps. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  Not a hinge node, but its misconception is common: students apply "unbalanced force" to speeding up and miss slowing down, reversing and turning (and often think a backward force can only stop things). The Explore board shows one steady force slowing, stopping and reversing the puck. It builds on node 2 (Balanced), so set that first.
+
+  Board notes: the puck slides on frictionless ice and moves left and right only; turning and falling are covered by the sort and the round-the-bend question, not the board. Speeds below zero on the graph mean moving to the left. The Typical board has friction that matches the push up to 4 N while the box is still.
+running:
+  - "Engage: tally the predictions. 'Slows down and stops, then stays still' is the one to watch."
+  - "Explore: ask what the graph does at the moment the speed crosses zero, and which way the net force points before and after."
+  - "Explain: the sort is the checkpoint (the roundabout and the thrown ball are the hard ones); the diagram question asks for a force diagram."
+  - "In your own words: two diagrams, one speed change and one direction change, are the node's success criteria."
+stuck:
+  - see: "A student says the puck turned round because it ran out of force."
+    ask: "On ice with no push at all, what would the puck do?"
+    fix: "Keep sliding at the same speed. Moving needs no force; changing the motion does. The push changed it."
+  - see: "A student says the car on the roundabout has balanced forces because its speed is steady."
+    ask: "Is it going in a straight line?"
+    fix: "No: its direction changes, so its motion changes, so the forces are unbalanced (the road pulls it towards the centre)."
+  - see: "A student thinks a force only acts while the object moves in its direction."
+    ask: "When did the speed start falling on the graph?"
+    fix: "The moment the push started: the force acts whichever way the puck is moving."
+stretch: "A ball is thrown straight up. At the very top it is still for an instant. Is the force on it balanced at that moment? (No: weight still acts, which is why it falls.)"
+support: "Give the sentence frame: 'The net force points … so the object … (speeds up, slows down, turns) …'."
+leads: |
+  Next: gravity, mass and weight (node 4). Node 5 (force, mass and the size of the change) is a class task: see the unit primer. In Year 10 this becomes Newton's first and second laws.
+
+  In class: a trolley pulled by a force meter, then released against a rubber band; a ball rolled across the floor and tapped sideways with a ruler (a change of direction only).
+
+  The spearthrower question (Wider) is general. For richer context, use local resources and community guidance about spearthrowers in your region.
+exit:
+  q: "A netball flies towards the ring and bounces back off the backboard. Give the change in motion and the force that caused it."
+  a: "It reversed direction (and slowed, then sped up the other way). The backboard pushed it back: an unbalanced force away from the board."
+explain: |
+  An **unbalanced** force changes an object's motion, in the direction of the net force: it can start, speed up, slow down, stop, reverse or turn an object.
+
+  A force against the motion doesn't only stop things: if it keeps acting, the object turns round and speeds up the other way. A steady speed round a bend is a change in direction, so it needs an unbalanced force too.
