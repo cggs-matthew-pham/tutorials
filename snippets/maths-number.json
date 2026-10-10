@@ -128,6 +128,18 @@
           "hint": "Split each unit into equal parts and count from zero. A negative counts left, and the part counts further from zero, not back towards it.",
           "board": "widget: numberline\nrange: -2, 2\nfractions: 4\npoint A: -1.25\npoint B: -0.75",
           "shows": "Quarters: A at −1 1/4, B at −3/4"
+        },
+        {
+          "label": "negative fractions and decimals",
+          "unit": "fractions",
+          "code": "-\\tfrac{3}{4} \\times \\tfrac{2}{5} = -\\tfrac{3}{10}",
+          "hint": "The integer sign rules hold for every fraction and decimal. Sign first, then size."
+        },
+        {
+          "label": "efficient order",
+          "unit": "fractions",
+          "code": "25 \\times (-3.7) \\times 4 = 100 \\times (-3.7) = -370",
+          "hint": "Multiply in any order, pairing friendly numbers; or split a number: $6 \\times (-2.5) = 6 \\times (-2) + 6 \\times (-0.5)$."
         }
       ]
     }

@@ -1,0 +1,46 @@
+# Number line boards for "Calculating with negative fractions and decimals". Steps of a quarter or a half.
+
+# region: run
+widget: numberline
+range: -4, 4
+fractions: 2
+product: a × b
+slider a: -4, 4, 3
+slider b: -2, 2, 0.5, 0.5
+# endregion
+
+# region: explain
+widget: numberline
+range: -4, 4
+fractions: 2
+product: a × b
+slider a: -4, 4, 3
+slider b: -2, 2, 0.5, 0.5
+# endregion
+
+# region: explain-pic
+widget: numberline
+range: -4, 4
+fractions: 2
+product: a × b
+slider a: -4, 4, -3
+slider b: -2, 2, -0.5, 0.5
+# endregion
+
+# region: add
+widget: numberline
+range: -4, 4
+fractions: 4
+sum: a + b
+slider a: -4, 4, 0, 0.25
+slider b: -4, 4, 0, 0.25
+# endregion
+
+# region: make
+widget: numberline
+range: -3, 3
+fractions: 4
+sum: a + b
+slider a: -3, 3, 1, 0.25
+slider b: -3, 3, 1, 0.25
+# endregion

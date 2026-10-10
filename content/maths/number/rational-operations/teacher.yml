@@ -1,0 +1,42 @@
+summary: Students carry the integer sign rules to negative fractions and decimals (sign first, then size) and choose efficient strategies, reordering products and splitting numbers with the distributive law (AC9M8N04, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 13 min · Practise and Make 12 min"
+goals:
+  - I can add, subtract, multiply and divide negative fractions and decimals.
+  - I can work out the sign first, then the size.
+  - I can choose an efficient order or split a number to make a calculation easier, and say why it works.
+before: |
+  Do the reasoning task yourself first. Students need Multiplying and dividing integers, Adding and subtracting integers, and Equivalent fractions.
+
+  The one idea: the sign rules do not change for fractions and decimals; and the order of multiplying, or a split, can make the size easy. The common mistake is the addition rule for multiplying (two negatives make a negative); it is planted in Leo's working and again in Practise.
+
+  The strategy tasks use the reasoning check: students write their own steps (not marked); the answer and the reason for the key step are marked, then they compare with a model.
+running:
+  - "Predict: take a show of hands. Students who chose −1 1/2 used the addition rule."
+  - "Run: ask whether it matters that the jump is a half, not a whole number."
+  - "Investigate: collect different ways to do 25 × (−3.7) × 4 and ask which is least work."
+  - "Modify: for the fraction division, recall multiplying by the reciprocal if it is new."
+  - "Make: ask for the product question too."
+stuck:
+  - see: "A student uses the addition rule for multiplying (Leo's mistake)."
+    ask: "What does −3 × (−2) give? Does a decimal change that?"
+    fix: "Same signs give a positive for multiplying and dividing, whatever the numbers."
+  - see: "A student gets the size wrong with decimals."
+    ask: "Can you work with whole numbers first (0.3 × 40 = 3 × 4)?"
+    fix: "Count the decimal places, or scale: 2.4 ÷ 0.6 = 24 ÷ 6."
+  - see: "A student works strictly left to right."
+    ask: "Which two numbers are friendly together?"
+    fix: "Multiplication can be done in any order: pair 25 and 4."
+stretch: "Work out (−1/2)⁵ and (−0.2)³. When is a power of a negative number positive?"
+support: "Use the number line board for every addition and for multiplying by a whole number of jumps."
+leads: |
+  This completes AC9M8N04 (both nodes).
+
+  Where it leads: substituting negative fractions into formulas, gradient from two points, and financial calculations (Year 8 and 9).
+exit:
+  q: "Work out −3/5 × 10/9 and −4 × (−2.25). Show one strategy."
+  a: "−2/3. 9 (−4 × −2 = 8, −4 × −0.25 = 1, so 8 + 1 = 9)."
+explain: |
+  The sign rules for integers work for **every** fraction and decimal: same signs give a positive, different signs a negative (for × and ÷). Work out the **sign** first, then the **size**: $-\tfrac{3}{4} \times \tfrac{2}{5} = -\tfrac{6}{20} = -\tfrac{3}{10}$.
+
+  Make the size easy: multiply in any order ($25 \times (-3.7) \times 4 = 100 \times (-3.7) = -370$), or split a number ($6 \times (-2.5) = 6 \times (-2) + 6 \times (-0.5) = -15$).

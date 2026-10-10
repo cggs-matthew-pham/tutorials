@@ -97,9 +97,14 @@ AC9M8A02 n2: new unit Equations and inequalities in Algebra Foundations, lesson 
 
 AC9M8A02 n1: *Lines and regions* (Linear relations, Lines unit, order 8; Solving with graphs, Rules from situations and Comparing two plans move to 9 to 11; misconception `boundary-solid`). AC9M8A02 n3: *Inequalities* (Algebra, Equations and inequalities unit, lesson 14; reversing for a negative, number-line rays, graphical check; `inequality-reverse`). Board: graph `plot: x = a` and `shade:`; numberline `ray:`. Four cards.
 
+## Done: Calculating with negative fractions and decimals (11 Oct 2026)
+
+AC9M8N04 n2: Number Foundations' Fractions unit, lesson 7 (sign first, then size; efficient order and the distributive split, with two reasoning-check strategy tasks). Two cards. Number unit and course summaries updated.
+
 ## Still to do
 
-- **Publish and listen:** the eighteen new clips (Number Foundations 6, Angles 6, Algebra 5, Linear relations 1) record with the real voice on the next manual publish.
-- **Try with classes:** all eighteen new lessons, the form checks and the working check, and whether students use the sliders or drag.
+- **Publish and listen:** the nineteen new clips (Number Foundations 7, Angles 6, Algebra 5, Linear relations 1) record with the real voice on the next manual publish.
+- **Try with classes:** all nineteen new lessons, the form checks and the working check, and whether students use the sliders or drag.
 - **Watch in class:** whether students write real working in the reasoning box or skip to the marked parts; whether the self-check ticks are honest.
+- **Next nodes:** every node on the pasted progression pages now has a lesson except AC9M7A06 (formulas with digital tools: class work with a spreadsheet, left out on purpose). More pages are needed to go on (for example Year 8 measurement or statistics).
 - **Form-check coverage:** simplest and decimal are built; ratio and inequalities are not; add them when a lesson needs one.

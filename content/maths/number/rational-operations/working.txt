@@ -1,0 +1,8 @@
+# Leo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leo
+Work out −0.4 × (−0.5).
+4 × 5 = 20, so 0.4 × 0.5 = 0.20.
+Both numbers are negative, so the answer is negative.
+−0.4 × (−0.5) = −0.2.
+# endregion
