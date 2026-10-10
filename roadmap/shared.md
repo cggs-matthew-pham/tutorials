@@ -25,6 +25,10 @@ Also changed: `prerequisites()` in `tools/concepts.mjs` now treats a course list
 - New `tools/check-makecode.mjs` (`npm run check-makecode`, script added to `package.json`): static checks on MakeCode code tasks. Reads only; changes no shared behaviour.
 - `misconceptions.json`: added `global-missing` (home `code/python/turtle-events`).
 
+## Claimed by the code chat (11 Oct 2026, building now): Explain it to me as a help button
+
+`tools/lesson-view.mjs`: the "Explain it to me" panel moves out of the top of every lesson (where its clip could show the Predict answer, as in Lesson 1) into a "?" button in the sticky step-pills bar that opens it as a drawer. Before the lesson's first Predict is locked in, the button says to make the prediction first. Affects every subject's lesson pages; no clip re-records (page HTML is not in clip hashes).
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).
