@@ -189,10 +189,15 @@ for (const l of lessons) {
 }
 
 // Paths with a playground, and reference (cheat sheet) pages generated from the snippet files the playgrounds use.
-const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Python' }, 'code/html': { kind: 'html', dir: '_playground-html', label: 'HTML and CSS' }, 'code/microbit': { kind: 'microbit', dir: '_playground-makecode', label: 'micro:bit' }, 'code/arcade': { kind: 'arcade', dir: '_playground-makecode', label: 'Arcade' }, 'code/robotics': { kind: 'microbit', dir: '_playground-makecode', label: 'Robot', pkg: makecodePackage({ extensions: ['robot'] }) }, 'code/microbit-computer': { kind: 'microbit', dir: '_playground-makecode', label: 'micro:bit' }, 'code/microbit-security': { kind: 'microbit', dir: '_playground-makecode', label: 'micro:bit' }, 'code/ai-robots': { kind: 'microbit', dir: '_playground-makecode', label: 'Robot', pkg: makecodePackage({ extensions: ['robot'] }) } };
+const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Python' }, 'code/html': { kind: 'html', dir: '_playground-html', label: 'HTML and CSS' }, 'code/microbit': { kind: 'microbit', dir: '_playground-makecode', label: 'micro:bit' }, 'code/arcade': { kind: 'arcade', dir: '_playground-makecode', label: 'Arcade' }, 'code/robotics': { kind: 'microbit', dir: '_playground-makecode', label: 'Robot', pkg: makecodePackage({ extensions: ['robot'] }) }, 'code/microbit-computer': { kind: 'microbit', dir: '_playground-makecode', label: 'micro:bit' }, 'code/microbit-security': { kind: 'microbit', dir: '_playground-makecode', label: 'micro:bit' }, 'code/ai-robots': { kind: 'microbit', dir: '_playground-makecode', label: 'Robot', pkg: makecodePackage({ extensions: ['robot'] }) },
+  // The console bridge: the turtle playground with its own saved program; a starter with no turtle opens it in console mode.
+  'code/console': { kind: 'turtle', dir: '_playground', label: 'Python console', id: 'free/console', code: 'name = input("What is your name? ")\nprint("Hello, " + name + "!")\n' } };
 // Maths cards (snippets/maths.json): a Reference page and cheat sheets for the maths course they name.
 const MATHS_CARDS = loadMathsCards();
-const REFS = [{ file: 'turtle', path: 'code/python/reference' }, { file: 'html', path: 'code/html/reference' }, { file: 'microbit', path: 'code/microbit/reference' }, { file: 'arcade', path: 'code/arcade/reference' }, { file: 'robot', path: 'code/robotics/reference' }, ...(MATHS_CARDS ? [{ file: 'maths', path: `${MATHS_CARDS.course}/reference` }] : [])];
+const REFS = [{ file: 'turtle', path: 'code/python/reference' }, { file: 'html', path: 'code/html/reference' }, { file: 'microbit', path: 'code/microbit/reference' }, { file: 'arcade', path: 'code/arcade/reference' }, { file: 'robot', path: 'code/robotics/reference' },
+  { file: 'microbit', path: 'code/microbit-computer/reference' }, { file: 'microbit', path: 'code/microbit-security/reference' },
+  // groups: only these groups of the file; title and summary: shown instead of the file's own.
+  { file: 'turtle', path: 'code/console/reference', groups: ['Text in and out', 'Code structure'], title: 'Python console reference', summary: 'The commands from the console bridge, with what each one does.' }, ...(MATHS_CARDS ? [{ file: 'maths', path: `${MATHS_CARDS.course}/reference` }] : [])];
 
 // The site navbar: Learning Waypoints, Tutorials, then one menu per subject (a top-level folder, such as Code)
 // listing its pathways (from its index.md); a pathway page is <subject>/paths/<id>/. navFor(pagePath, here,
@@ -247,10 +252,10 @@ for (const r of REFS) {
   const isM = data.language === 'maths';
   const printLink = units ? `<p class="ref-print"><a href="print/">Print a cheat sheet</a> <span class="muted">(the whole course or one unit, ${isM ? 'with board pictures' : `with a picture of ${data.language === 'makecode' ? 'each block' : 'what each command draws'}`})</span></p>` : '';
   const item = isM ? (i) => mathsRefItem({ ...i, id: `maths-${snippetId(i.label)}` }, { pictures: PICS.maths.pics, depth, esc }) : (i) => refItem(i, data.language, depth, data.target === 'arcade' ? 'arcade' : data.language);
-  const body = (isM ? `<link rel="stylesheet" href="${'../'.repeat(depth)}_katex/katex.min.css"><style>${MATHS_CARD_CSS}</style>` : '') + printLink + search + data.groups.map((g) => `<section class="ref-section"><h2 class="ref-group">${esc(g.name)}</h2>` + g.items.map(item).join('') + '</section>').join('') + script;
+  const body = (isM ? `<link rel="stylesheet" href="${'../'.repeat(depth)}_katex/katex.min.css"><style>${MATHS_CARD_CSS}</style>` : '') + printLink + search + data.groups.filter((g) => !r.groups || r.groups.includes(g.name)).map((g) => `<section class="ref-section"><h2 class="ref-group">${esc(g.name)}</h2>` + g.items.map(item).join('') + '</section>').join('') + script;
   mkdirSync(join(OUT, r.path), { recursive: true });
-  writeFileSync(join(OUT, r.path, 'index.html'), page(data.title,
-    `<header class="top"><a class="crumb" href="../">← ${esc(dirs.get(parent)?.title || titleCase(parent.split('/').pop()))}</a><h1>${esc(data.title)}</h1><p class="lede">${esc(data.summary)}</p></header>${body}`, '', navFor(r.path, 'reference', parent)));
+  writeFileSync(join(OUT, r.path, 'index.html'), page(r.title || data.title,
+    `<header class="top"><a class="crumb" href="../">← ${esc(dirs.get(parent)?.title || titleCase(parent.split('/').pop()))}</a><h1>${esc(r.title || data.title)}</h1><p class="lede">${esc(r.summary || data.summary)}</p></header>${body}`, '', navFor(r.path, 'reference', parent)));
 }
 
 // Playground pages live beside Reference on the paths that have a playground (PLAY is defined above).
@@ -299,7 +304,7 @@ for (const [path, pg] of Object.entries(PLAY)) {
   const depth = path.split('/').length + 1; // .../playground/ -> site root
   const up = '../'.repeat(depth);
   const mkPg = pg.kind === 'microbit' || pg.kind === 'arcade';
-  const src = `${up}${pg.dir}/index.html?id=${mkPg ? `free/${pg.pkg ? path.split('/').pop() : pg.kind}` : 'free'}&free=1&v=${VERSIONS[pg.dir]}${mkPg ? `&target=${pg.kind}` : ''}${pg.pkg ? `&pkg=${encodeURIComponent(pg.pkg)}` : ''}${pg.kind === 'turtle' && sharedModuleNames.length ? `&use=${sharedModuleNames.join(',')}` : ''}`;
+  const src = `${up}${pg.dir}/index.html?id=${pg.id || (mkPg ? `free/${pg.pkg ? path.split('/').pop() : pg.kind}` : 'free')}&free=1${pg.code ? `&code=${encodeURIComponent(pg.code)}` : ''}&v=${VERSIONS[pg.dir]}${mkPg ? `&target=${pg.kind}` : ''}${pg.pkg ? `&pkg=${encodeURIComponent(pg.pkg)}` : ''}${pg.kind === 'turtle' && sharedModuleNames.length ? `&use=${sharedModuleNames.join(',')}` : ''}`;
   mkdirSync(join(OUT, path, 'playground'), { recursive: true });
   writeFileSync(join(OUT, path, 'playground', 'index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(pg.label)} playground</title><style>${PLAYGROUND_PAGE_CSS}${NAV_CSS}</style></head><body>
