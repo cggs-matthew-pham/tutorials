@@ -252,10 +252,14 @@ const course = (slug) => slug.split('/').slice(0, -1).join('/');
 /** Courses each course follows, transitively, from `after:` in every subject's index.md pathways (through planned courses too, by their `id`). */
 export function prerequisites(loadDirMeta, root) {
   const after = {};
+  const alias = {};   // a built course listed with both path and id: `after:` may name either
   for (const subj of ['code', 'maths', 'science']) {
-    for (const p of loadDirMeta(join(root, subj)).pathways || []) for (const c of p.courses || []) if (c.path || c.id) after[c.path || c.id] = c.after || [];   // planned courses (id:) pass their prerequisites on
+    for (const p of loadDirMeta(join(root, subj)).pathways || []) for (const c of p.courses || []) {
+      if (c.path && c.id) { alias[c.id] = c.path; alias[c.path] = c.id; }
+      if (c.path || c.id) after[c.path || c.id] = c.after || [];   // planned courses (id:) pass their prerequisites on
+    }
   }
-  const all = (c, seen = new Set()) => { for (const a of after[c] || []) if (!seen.has(a)) { seen.add(a); all(a, seen); } return seen; };
+  const all = (c, seen = new Set()) => { for (const a of after[c] || []) for (const k of [a, alias[a]].filter(Boolean)) if (!seen.has(k)) { seen.add(k); all(k, seen); } return seen; };
   return (c) => all(c);
 }
 

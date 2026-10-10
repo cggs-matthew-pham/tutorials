@@ -1,6 +1,7 @@
 ---
 order: 8
 unit: using
+node: AC9M8A02 n2
 title: Solving equations with graphs
 summary: Draw each side of an equation as a line. Where the lines meet, both sides are equal, so the x there is the solution.
 language: maths

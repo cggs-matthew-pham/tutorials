@@ -1,6 +1,7 @@
 ---
 order: 5
 unit: expressions
+node: AC9M7A02 n2
 title: When brackets are needed
 summary: Brackets keep a part together so it is worked out first. If a sentence says to do something to a whole result, such as "add 3, then double it", the expression needs brackets.
 language: maths

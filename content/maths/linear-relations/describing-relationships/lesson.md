@@ -1,6 +1,7 @@
 ---
 order: 5
 unit: rules
+node: AC9M7A04 n2
 title: Describing a relationship
 summary: "Describe how one measurement changes as the other increases, one section of the graph at a time: it increases, decreases or stays constant."
 language: maths

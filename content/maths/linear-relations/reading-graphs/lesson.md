@@ -1,6 +1,7 @@
 ---
 order: 4
 unit: rules
+node: AC9M7A04 n1
 title: Reading a graph
 summary: A point on a graph of real data pairs two measurements. Find one value on its axis, go to the line, and read across to the other axis.
 language: maths

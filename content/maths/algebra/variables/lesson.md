@@ -1,6 +1,7 @@
 ---
 order: 1
 unit: expressions
+node: AC9M7A01 n1
 title: Letters that vary
 summary: In a formula, letters stand for quantities that can change (variables) and numbers stay the same (constants). In an equation, a letter can stand for one unknown number.
 language: maths

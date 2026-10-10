@@ -1,6 +1,7 @@
 ---
 order: 6
 unit: expressions
+node: AC9M7A02 n3
 title: An expression for any case
 summary: Say what the letter stands for, write an expression for the situation, then test it with a number you can check. One expression then gives the answer for every case.
 language: maths

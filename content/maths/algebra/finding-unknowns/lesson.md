@@ -1,6 +1,7 @@
 ---
 order: 3
 unit: expressions
+node: AC9M7A01 n3
 title: Finding an unknown
 summary: When a formula's answer is known but one letter is not, substitute what you know. That leaves an equation; solve it by undoing, then check.
 language: maths

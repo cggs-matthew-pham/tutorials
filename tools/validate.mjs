@@ -96,6 +96,15 @@ else console.log('✓ error tasks: every planted error names its fault and an on
   warnings.forEach((w) => console.warn('⚠ ' + w));
   if (!warnings.length) console.log('✓ hidden assumptions: every construct is introduced, assumed or a recipe');
 }
+// Progression nodes (warnings, never a failure): each maths lesson names its node, and its prerequisites (the node
+// before, the descriptor's prior knowledge, its uses:) are taught earlier, assumed, or from an earlier year.
+{
+  const { auditNodes, loadProgressions } = await import('./progressions.mjs');
+  const { prerequisites } = await import('./concepts.mjs');
+  const { warnings } = auditNodes(lessons, prerequisites(loadDirMeta, CONTENT_ROOT), loadProgressions());
+  warnings.forEach((w) => console.warn('⚠ ' + w));
+  if (!warnings.length) console.log('✓ progression nodes: every prerequisite is taught earlier, assumed or from an earlier year');
+}
 // Bare tags in Markdown: in an HTML lesson, "<h1>" written outside `backticks` becomes a real tag on the page,
 // the teacher guide and the slides, and swallows the text after it. Write tags as `<h1>`.
 {

@@ -631,6 +631,15 @@ Vary, Practise, Make).
   lists it) and optionally `board` (a board setup, drawn as the card's picture by `npm run render`) with `shows` (its
   caption). They make the course's Reference page (`<course>/reference/`, with search), the student print sheets, and
   the teacher cheat sheets (A4 and Markdown for Prepare). Validate checks the maths parses and the unit exists.
+- **Progression nodes:** every maths lesson names the node it teaches, `node: AC9M7A01 n2` (a list if it teaches
+  more than one), from the pages in `data/progressions/maths/` (one per descriptor; see its README). Validate warns
+  when a prerequisite is not taught by an earlier lesson: the node before it in the same descriptor, or for node 1 the
+  descriptors in the page's Prior Knowledge (all their nodes), plus anything in `uses: [AC9M7N07]` (a descriptor or
+  node the lesson relies on that the page does not name, found by reading the lesson). Earlier means a lower `order`
+  in the course, or a course it comes `after:` in `content/maths/index.md`. Prerequisites from an earlier year count
+  as taught in class. Otherwise teach it earlier, or list it in `assumes:` (taught in class) and, where it matters,
+  check it with a short retrieval question at the start or in Practise. `npm run nodes` prints the map;
+  `npm run check-nodes` tests the check. Related standards are not prerequisites.
 - **Maths pathways:** `content/maths/index.md` lists pathways like `code/index.md`, with planned courses as "Coming later".
 
 ## 12. Science lessons

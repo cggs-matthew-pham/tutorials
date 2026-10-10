@@ -1,6 +1,7 @@
 ---
 order: 4
 unit: expressions
+node: AC9M7A02 n1
 title: Words into expressions
 summary: Words such as "more than", "less than", "twice" and "divided by" each mean an operation. Write the operations in the order the words say them, then check with a number.
 language: maths

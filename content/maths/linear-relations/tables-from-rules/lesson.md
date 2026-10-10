@@ -1,6 +1,7 @@
 ---
 order: 2
 unit: rules
+node: AC9M7A05 n2
 title: Tables from rules
 summary: A rule turns each input x into an output y. Choose inputs, work out each output, and write them as a table of ordered pairs (x, y), input first.
 language: maths

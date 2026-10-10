@@ -1,6 +1,7 @@
 ---
 order: 1
 unit: rules
+node: AC9M7A05 n1
 title: Growing patterns
 summary: In a growing pattern, look at what each new figure adds. That gives a rule, and the rule gives any figure without drawing it.
 language: maths

@@ -1,6 +1,7 @@
 ---
 order: 2
 unit: expressions
+node: AC9M7A01 n2
 title: Substituting into formulas
 summary: To use a formula, replace each letter with its value, write in the × signs, then work it out in the right order.
 language: maths

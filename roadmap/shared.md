@@ -15,7 +15,9 @@ The `introduces`/`assumes` scan suits code, where a dependency is a construct on
 
 Build it once, in one chat, and note here who is building it before starting; the other subject then tags its own lessons.
 
-**In progress: the maths chat is building this (11 Oct 2026).** Data as pasted progression pages (`data/progressions/<subject>/<code>.md`, the waypoints-kit markdown export, since the kit repo is unreachable from here), parsed by a new `tools/progressions.mjs`; `node:` and `uses:` in lesson frontmatter; warnings in `validate.mjs`. Science can add `data/progressions/science/` pages and tag its lessons once it lands.
+**Built by the maths chat (11 Oct 2026).** Data as pasted progression pages (`data/progressions/<subject>/<code>.md`, the waypoints-kit markdown export, since the kit repo is unreachable from here; README there), parsed by `tools/progressions.mjs`. Lesson frontmatter `node:` and `uses:` (`tools/lesson-core.mjs` keeps them); `assumes:` also takes descriptor and node codes. Warnings in `validate.mjs`; `npm run nodes` (map) and `npm run check-nodes` (tests, `tools/check-progressions.mjs`). Only subjects in `CHECKED` (maths) must name a node: science adds `data/progressions/science/` pages, tags its lessons and adds itself to `CHECKED`. Rules: the node before in the descriptor, or the page's Prior Knowledge for node 1, plus `uses:`; earlier-year prerequisites count as taught in class; Related standards are ignored.
+
+Also changed: `prerequisites()` in `tools/concepts.mjs` now treats a course listed with both `path` and `id` as one (an `after:` may name either), so `after: [number-foundations]` reaches `maths/number`. Code courses are unaffected (none has both).
 
 ## Changed by the code chat (11 Oct 2026)
 
