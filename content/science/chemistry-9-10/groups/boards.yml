@@ -1,0 +1,19 @@
+# Boards for "Why do elements in a group behave alike?".
+
+# region: alkali
+widget: atom
+mode: table
+find: Li, Na, K
+# endregion
+
+# region: halogens
+widget: atom
+mode: table
+find: F, Cl, He, Ne, Ar
+# endregion
+
+# region: explain
+widget: atom
+mode: table
+find: Li, Na, K, F, Cl
+# endregion

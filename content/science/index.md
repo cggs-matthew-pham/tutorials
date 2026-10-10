@@ -5,7 +5,7 @@ pathways:
   - id: chemistry
     title: Chemistry
     summary: The particle model, mixtures, atoms and compounds, chemical change, then reactions at the level of atoms.
-    about: "**Year 7 Chemistry** follows AC9S7U05 (particle theory) and AC9S7U06 (pure substances and mixtures): one tutorial per hinge idea, plus filtration, evaporation, distillation and chromatography. **Year 8 Chemistry** upgrades the particles to atoms (AC9S8U06) and defines chemical change (AC9S8U07). **Years 9 and 10 Chemistry** follow the atoms through reactions (AC9S9U07) and explain reaction rates with collision theory (AC9S10U07). Nodes whose response is a class task (such as choosing a separation technique, or balancing equations with evidence) are left to class work."
+    about: "**Year 7 Chemistry** follows AC9S7U05 (particle theory) and AC9S7U06 (pure substances and mixtures): one tutorial per hinge idea, plus filtration, evaporation, distillation and chromatography. **Year 8 Chemistry** upgrades the particles to atoms (AC9S8U06) and defines chemical change (AC9S8U07). **Years 9 and 10 Chemistry** open up the atom (AC9S9U06), follow the atoms through reactions and balanced equations (AC9S9U07), explain the periodic table with electron shells (AC9S10U06) and reaction rates with collision theory (AC9S10U07). Nodes whose response is a class task (such as choosing a separation technique, or conservation of mass in open and closed systems) are left to class work."
     courses:
       - { path: science/chemistry, stage: foundations }
       - { path: science/chemistry-8, stage: foundations }

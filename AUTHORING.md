@@ -710,6 +710,18 @@ Vary, Practise, Make).
     about 15 °C at 280 ppm, −18 °C with no greenhouse gases and +3 °C for double CO₂; Run 10 or 50 years with a
     temperature graph. Values: `t` °C, `i` in, `o` out, `d` in − out, `y` years, `b` 1 once balance returned after
     being upset, `c` changes, `g` ppm, `z` 1 once a run with no greenhouse gases went below −10 °C, `w` warmest.
+  - `widget: atom` (AC9S9U06, AC9S10U06): a Bohr model, not to scale. `mode: build` (default): + and − for
+    protons, neutrons and electrons (aria-labels "Protons: more" and so on); the board names the element (1 to 20),
+    gives atomic number, mass number, charge and shells (2, 8, 8, 2). `start: 6, 6, 6` (p, n, e), `target:
+    carbon-12` (or `C 12`, or `Na+ 23` for an ion) shows a card and sets `t`; `shells: off` draws one ring. Values:
+    `p`, `n`, `e`, `z`, `a`, `q` charge, `o` outer electrons, `s` shells, `t`. `mode: table`: elements 1 to 20 by
+    group and period (buttons labelled with the element's name); clicking one shows its shells with the outer shell
+    orange and a note on its group. `find: Li, Na, K` (default all 20). Values: `n` found, `k`, `z`, `o`, `g` group.
+  - `widget: equation` (AC9S9U07 n4): `equation: CH4 + O2 -> CO2 + H2O` (symbols and subscripts, no brackets, 2 to 5
+    substances, at most 9 atoms each). + and − change only the coefficients (aria-labels "CH4: more" and so on, 1 to
+    6); each molecule is drawn, with an atom tally per element. `start: 1, 2, 1, 2`. Values: `b` 1 while balanced,
+    `l` 1 while balanced with the smallest whole numbers (check with `when: "l = 1"`), `c` changes, `m` largest
+    coefficient.
   - Each task's `starter` loads its own board when the task is opened. Work is saved in the browser per step;
     `?fresh=1` on the board's address starts from the setup and saves nothing (slides on a shared projector).
   - The board's old address, `_playground-maths/`, forwards to it with the same parameters, so embeds keep working

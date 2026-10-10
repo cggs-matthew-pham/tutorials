@@ -1,0 +1,35 @@
+summary: Students arrange the electrons of elements 1 to 20 in shells (2, 8, 8, 2) and identify the outer-shell electrons, the variable the periodic table depends on (AC9S10U06, node 1, a hinge node).
+time: 25
+timing: "Engage and Explore 7 min · Explain 10 min · Evaluate 3 min · Typical adds 4 min, Wider about 2 min"
+goals:
+  - I can arrange the electrons of any element from 1 to 20 in shells.
+  - I can state the capacities of the first three shells (2, 8, 8).
+  - I can find the number of outer-shell electrons.
+before: |
+  A concept tutorial for introducing or revising the idea; it builds on Year 9's nuclear atom (What's inside an atom?). Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge is fluency: students who can't place outer electrons quickly can't use the periodic table later. The Explain checks and the book task are practice, not breadth.
+
+  Board notes: the Bohr model, not to scale. Shells hold 2, 8, 8, then 2 (the simple rule for elements 1 to 20; the third shell holds more in heavier atoms, which Year 10 doesn't need).
+running:
+  - "Engage: tally the four options. '2, 9' means they know shell 1 but not the 8."
+  - "Explore: stop the class at 3 and 11 electrons: what happened?"
+  - "Explain: chlorine and the two number checks are the evidence."
+stuck:
+  - see: "A student writes 2, 8, 9 for potassium."
+    ask: "How many does the third shell hold for elements 1 to 20?"
+    fix: "8. The 19th electron starts a fourth shell: 2, 8, 8, 1."
+  - see: "A student counts protons into the shells."
+    ask: "Which particles are in the shells, and which in the nucleus?"
+    fix: "Only electrons are in shells; in a neutral atom there are as many as there are protons."
+stretch: "Why does the periodic table have 2 elements in its first row and 8 in the next two?"
+support: "Give a shell template (three circles with 2, 8, 8 boxes) to fill in for each element."
+leads: |
+  Next: Why do elements in a group behave alike? (node 2), then periodic trends (node 3); predicting properties from position is a class task (node 4).
+
+  In class: flame tests (sodium, potassium, lithium, copper chlorides) with a hand spectroscope if available.
+exit:
+  q: "Write the electron arrangement of aluminium (13 electrons). How many outer electrons does it have?"
+  a: "2, 8, 3: three outer electrons."
+explain: |
+  Electrons fill **shells** in order: **2**, then **8**, then **8**. The outermost occupied shell is the **outer shell**, and its electrons decide how the element reacts.

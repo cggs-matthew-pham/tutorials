@@ -1,0 +1,37 @@
+summary: Students explain why elements in the same group have similar chemical properties using outer-shell electrons, contrasting group 1, group 17 and the noble gases (AC9S10U06, node 2, a hinge node).
+time: 26
+timing: "Engage and Explore 7 min · Explain 11 min · Evaluate 3 min · Typical adds 4 min, Wider about 2 min"
+goals:
+  - I can explain that elements in the same group have the same number of outer-shell electrons.
+  - I can use outer electrons to explain the properties of a group.
+  - I can contrast a reactive group with the noble gases.
+before: |
+  A concept tutorial for introducing or revising the idea, after How are the electrons arranged? (node 1). Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge: students learn group properties as lists ("alkali metals are reactive") without the reason. Every question here asks for the outer-electron explanation.
+
+  Board notes: the first 20 elements only, by group (1, 2, 13 to 18) and period. Each element's nucleus shows its commonest isotope. Hydrogen sits above group 1 with a note that it is a non-metal.
+running:
+  - "Engage: tally the options; 'same total electrons' is the misconception to address."
+  - "Explore: ask a student to read out the shell arrangements of Li, Na and K: the last number is the same."
+  - "Explain: the group 17 prediction is the node's checkpoint: position to outer electrons to behaviour."
+stuck:
+  - see: "A student says noble gases don't react because they're gases."
+    ask: "Is chlorine a gas? Is it reactive?"
+    fix: "Yes and yes: state isn't the reason; a full outer shell is."
+  - see: "A student says group number equals the total electrons."
+    ask: "How many electrons does sodium have? Which group is it in?"
+    fix: "11 electrons, group 1: the group matches the outer electrons (for groups 1 and 2; groups 13 to 17 have 3 to 7)."
+stretch: "Predict the behaviour of rubidium, below potassium in group 1. What would you expect when it touches water?"
+support: "Give a blank first-20 table to colour by number of outer electrons."
+leads: |
+  Next: periodic trends (node 3); predicting the properties of an unfamiliar element from its position is a class task (node 4).
+
+  In class: a teacher demonstration of lithium, sodium and potassium in water (video if the school does not hold them).
+exit:
+  q: "Bromine is in group 17. Predict how many outer electrons it has and how it reacts. Explain."
+  a: "Seven outer electrons; it gains one easily, so it is a reactive non-metal, like chlorine."
+explain: |
+  Elements in the same **group** have the same number of **outer-shell electrons**, so they react in similar ways.
+
+  **Group 1**: one outer electron, easily lost: very reactive metals. **Group 17**: seven, one short of full: reactive non-metals. **Group 18**: full outer shell: hardly react.

@@ -1,0 +1,22 @@
+# Boards for "What's inside an atom?".
+
+# region: carbon
+widget: atom
+target: carbon-12
+# endregion
+
+# region: chlorine
+widget: atom
+target: chlorine-35
+# endregion
+
+# region: ion
+widget: atom
+start: 11, 12, 11
+target: Na+ 23
+# endregion
+
+# region: explain
+widget: atom
+start: 6, 6, 6
+# endregion

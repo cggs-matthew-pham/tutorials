@@ -2,6 +2,12 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: atoms, the periodic table and balancing equations (11 Oct 2026, science chat)
+
+From the progression pages Matthew pasted (now in `data/progressions/science/`). Two new shared-board widgets, `atom` (Bohr model; build mode and a first-20 table) and `equation` (coefficients only, molecules drawn, atom tally, smallest whole numbers). Four lessons in `chemistry-9-10/`, one per hinge node: What's inside an atom? (9U06 n1, new unit Inside the atom), How do you balance an equation? (9U07 n4, with a Practise step: methane, ammonia, magnesium), How are the electrons arranged? (10U06 n1) and Why do elements in a group behave alike? (10U06 n2), the last two in a new unit, Atoms and the periodic table. Rearranging atoms moves to order 2 and Collision theory to 6. Primers for the two new units. Each lesson has a voiced explain clip and picture (ports 8256–8259; next free 8260). Every check passes in a headless run; decks fit.
+
+Not tutorials (by the progression's response modes): 9U06 n2 isotopes and n4 half-life (not hinges; the atom board's build mode already makes isotopes), n5 decay chains and 9U07 n5 conservation in open and closed systems, 10U06 n4 (integration, class tasks). Still worth building: 9U06 n3 (alpha, beta and gamma decay, a hinge), which needs a decay mode on the atom board (Z and A changes, penetration); 10U06 n3 periodic trends.
+
 ## Done: Explain it to me on the science board (11 Oct 2026, science chat)
 
 The recorder needed no change: the science board takes `?code=` like the shared board. Voiced clips for all 17 science-board lessons (Year 7 Chemistry, Chemistry 8 and 9–10, Year 10 Variation and Natural selection, Igneous, Plates, Heat transfer); ports 8239–8255 (next free: 8256). Timed with flite: 20–35 s (Igneous 35 s: the cooling itself takes time). Tips: "Inspect next particle" walks particles in setup order, so explain setups list one of each kind first; slow reactions need `temp:` raised to show change within a clip; canvas-drawn boards (beetles) can't be clicked by element.

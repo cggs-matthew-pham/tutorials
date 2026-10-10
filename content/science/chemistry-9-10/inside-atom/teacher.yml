@@ -1,0 +1,41 @@
+summary: Students describe the nuclear atom (protons and neutrons in the nucleus, electrons in shells), use atomic and mass numbers to count each particle, and connect the model to the evidence that replaced earlier ones (AC9S9U06, node 1, a hinge node).
+time: 26
+timing: "Engage and Explore 7 min · Explain 12 min · Evaluate 3 min · Typical adds 4 min, Wider about 4 min"
+goals:
+  - I can describe the nuclear atom.
+  - I can use the atomic number and mass number to find the protons, neutrons and electrons.
+  - I can describe the relative mass and charge of protons, neutrons and electrons.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace a timeline of atomic models or a gold-foil analogy activity. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge: students arrive with Year 7 particles that have no inside, so the model has to be extended explicitly. The prediction asks for neutrons from the two numbers before students meet the rule; the usual slips are taking the mass number as the neutrons, or adding the numbers.
+
+  Board notes: the Bohr model is drawn not to scale (the nucleus would be about 100 000 times smaller than the atom). Shells fill 2, 8, 8, 2; this lesson doesn't need shells beyond "electrons around the nucleus" (Year 10 Shells does). Protons up to 20, neutrons up to 24.
+running:
+  - "Engage: tally 6 / 12 / 18. The 12s have mixed up mass number and neutrons."
+  - "Explore: ask what changed on the board when they added a neutron (mass number, not the name)."
+  - "Explain: the two number checks are the node's success criteria; the gold foil question is the evidence."
+  - "In your own words: the labelled carbon-12 diagram with working is the evidence."
+stuck:
+  - see: "A student says carbon-12 has 12 neutrons."
+    ask: "What does the mass number count?"
+    fix: "Protons plus neutrons. Subtract the protons (the atomic number): 12 − 6 = 6."
+  - see: "A student changes the protons to make a heavier carbon."
+    ask: "What happened to the element's name on the board?"
+    fix: "Protons decide the element. Add neutrons for a heavier atom of the same element."
+  - see: "A student thinks electrons hold most of the mass because they fill the atom."
+    ask: "What is the mass of an electron compared with a proton?"
+    fix: "About 1/1840: almost nothing. The nucleus is tiny but holds nearly all the mass."
+stretch: "Carbon-14 is used to date old wood and bone. How is a carbon-14 atom different from carbon-12, and how is it the same?"
+support: "Give the frame: 'Atomic number = protons = … . Mass number − atomic number = neutrons = … . Neutral, so electrons = … .'"
+leads: |
+  Next: isotopes (node 2), then alpha, beta and gamma decay (node 3), half-life (node 4); decay chains are a class task (node 5). In Year 10, Shells uses the same board to arrange electrons.
+
+  In class: a timeline of atomic models (Dalton, Thomson, Rutherford, Bohr) with the evidence for each change; a "mystery box" gold-foil analogy (rolling marbles at a hidden shape).
+exit:
+  q: "Oxygen has atomic number 8 and mass number 16. How many protons, neutrons and electrons does a neutral oxygen atom have?"
+  a: "8 protons, 8 neutrons (16 − 8), 8 electrons."
+explain: |
+  An atom has a tiny, dense **nucleus** of **protons** (+1, mass 1) and **neutrons** (0, mass 1), with **electrons** (−1, almost no mass) around it.
+
+  **Atomic number** = protons, and it decides the element. **Mass number** = protons + neutrons. A neutral atom has as many electrons as protons.

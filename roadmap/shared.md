@@ -102,6 +102,8 @@ Applies to every subject. The limits are the existing design rules: Predict come
 
 ## Changed by the science chat (11 Oct 2026)
 
+- Board: two new widgets, `playground-board/widgets/atom.js` and `equation.js`, each a `<script>` line in `playground-board/index.html` and a small block at the end of `playground-board/style.css` (`.atgrid`/`.atcell` for the element table, `.eqtally` for the tally). Nothing existing changed. AUTHORING › 12 and CLAUDE.md › Science list them. `data/progressions/science/` holds four pasted pages (science is not in `CHECKED`, so validate is unchanged).
+
 - Pictures on the science board (Matthew approved): `pictureBoard(lesson)` in `lesson-core.mjs` ('science' when a step uses `playground: science`, else 'board'); `usesBoardPictures` is now maths or science. `render-pictures.mjs` has a new `science` section (`drawScience`: the science board's `#board` after 1.8 s, cropped like the board's; `dist/_pictures/science/`); the board section's filter takes `pictureBoard(l) === 'board'`, so its hash and the maths pictures are unchanged. `build-site.mjs` reads the right folder.
 
 - Board pictures for science (Matthew approved): `usesBoardPictures(lesson)` in `tools/lesson-core.mjs` (maths, or science with no step on the science board). Validate, `render-pictures.mjs` (the `board` job) and `build-site.mjs` (the picture lookup) use it instead of `language === 'maths'`. Maths pictures and their hashes are unchanged; science-board lessons (`playground: science`) still cannot have pictures (that needs a draw function for `_playground-science/`).

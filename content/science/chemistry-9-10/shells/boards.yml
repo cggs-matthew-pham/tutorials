@@ -1,0 +1,17 @@
+# Boards for "How are the electrons arranged?".
+
+# region: sodium
+widget: atom
+target: sodium-23
+# endregion
+
+# region: argon
+widget: atom
+start: 18, 22, 17
+target: argon-40
+# endregion
+
+# region: explain
+widget: atom
+start: 10, 10, 10
+# endregion

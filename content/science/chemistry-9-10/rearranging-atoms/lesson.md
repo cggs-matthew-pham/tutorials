@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 unit: equations
 title: Where do the atoms go?
 summary: In a chemical reaction atoms are rearranged into new particles, never made or destroyed. Counting atoms before and after shows why mass is conserved and why equations must balance.

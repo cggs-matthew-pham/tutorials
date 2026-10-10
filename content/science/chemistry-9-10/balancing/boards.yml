@@ -1,0 +1,32 @@
+# Boards for "How do you balance an equation?".
+
+# region: water
+widget: equation
+equation: H2 + O2 -> H2O
+# endregion
+
+# region: methane
+widget: equation
+equation: CH4 + O2 -> CO2 + H2O
+# endregion
+
+# region: ammonia
+widget: equation
+equation: N2 + H2 -> NH3
+# endregion
+
+# region: magnesium
+widget: equation
+equation: Mg + O2 -> MgO
+# endregion
+
+# region: explain
+widget: equation
+equation: Na + Cl2 -> NaCl
+# endregion
+
+# region: explain-pic
+widget: equation
+equation: Na + Cl2 -> NaCl
+start: 2, 1, 2
+# endregion

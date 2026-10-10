@@ -1,0 +1,40 @@
+summary: Students balance simple symbolic equations by changing coefficients (never subscripts), verify by counting atoms, and explain that a balanced equation shows conservation of mass (AC9S9U07, node 4, a hinge node).
+time: 28
+timing: "Engage and Explore 7 min · Explain 9 min · Practise 8 min · Evaluate 3 min · Wider about 3 min"
+goals:
+  - I can balance a simple equation by changing only the coefficients.
+  - I can check an equation by counting the atoms of each element on both sides.
+  - I can explain why a balanced equation shows conservation of mass.
+before: |
+  A concept tutorial for introducing or revising the idea, after Where do the atoms go? (node 2). Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge errors are systematic: changing subscripts (H₂O to H₂O₂) and miscounting atoms in a coefficient (2 H₂O as 2 hydrogen). The board makes both visible: formulas can't be edited, and every molecule is drawn, so students can count rather than compute.
+
+  Board notes: formulas without brackets only; coefficients 1 to 6. The board accepts a balance only with the smallest whole numbers (4 H₂ + 2 O₂ → 4 H₂O balances but is not accepted). Word equations (node 3) and open and closed systems (node 5) are class work; the Wider step is one open-system case.
+running:
+  - "Engage: count who chose H₂O₂. Ask them what H₂O₂ is."
+  - "Explore: ask what changed in the drawing when they pressed + on H₂O (a whole molecule, two H and one O)."
+  - "Practise: the three equations are the node's evidence; methane is the hardest, so give the 'atom that appears once' hint aloud."
+stuck:
+  - see: "A student wants to change a subscript."
+    ask: "What substance would H₂O₂ be?"
+    fix: "A different one. Only the number of molecules (coefficient) can change."
+  - see: "A student counts 2 H₂O as 3 atoms."
+    ask: "How many molecules is that, and how many atoms in each?"
+    fix: "Two molecules of three atoms: 4 hydrogen and 2 oxygen."
+  - see: "A student goes round in circles on methane."
+    ask: "Which element appears in only one substance on each side?"
+    fix: "Balance carbon, then hydrogen, then oxygen last (it appears in two products)."
+stretch: "Balance C₃H₈ + O₂ → CO₂ + H₂O (propane burning)."
+support: "Give an atom-tally table to fill in for each attempt: element, left, right."
+leads: |
+  Before: Where do the atoms go? (node 2). Node 5 (conservation of mass in open and closed systems) is a class task: weigh a reaction in a sealed bag, then open it.
+
+  In class: molecular model kits to build both sides of 2 H₂ + O₂ → 2 H₂O.
+exit:
+  q: "Balance: H₂ + Cl₂ → HCl. How do you know it's balanced?"
+  a: "H₂ + Cl₂ → 2 HCl. Two hydrogen and two chlorine atoms on each side."
+explain: |
+  A **balanced equation** has the same number of each kind of atom on both sides, because atoms are only rearranged.
+
+  Change only the **coefficients** (numbers in front); the **subscripts** define the substance. Same atoms on both sides means the same mass: **conservation of mass**.
