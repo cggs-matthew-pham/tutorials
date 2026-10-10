@@ -342,6 +342,56 @@ Three pathways offered as options, not gates. Each shares one concept spine (seq
 
 This supersedes the earlier "Series shape", "Console bridge and fork" and "Games path" entries below where they differ (they stay for their reasoning).
 
+## Proposed: Python pathway beyond turtle (10 Oct 2026, for discussion)
+
+Supersedes nothing yet; once agreed it replaces the Python part of "Pathways" above. The Gradio intro was a proof of concept and is not locked.
+
+**Approach.** Projects are the hooks, and each one forces the structure it needs: students use a thing, feel the mess without it, then refactor to it (as with the hand-built button before Gradio). Build it yourself, then meet the real tool. Lightweight: start from a working program, one new move per lesson, the plumbing (drawing, hit tests, timers) as recipes from a module, Parsons and bug tasks instead of long typing, Modify before Make. Browser only, no student accounts.
+
+**ACARA v9 (confirmed from the Years 7–10 Digital Technologies document).** Years 7–8: P01 acquire, store and validate data; P03 model and query the attributes of objects and events using structured data; P05 algorithms with nested control structures, flowcharts and pseudocode; P06 trace algorithms to predict output and find errors; P07 design the user experience; P09 implement, modify and debug programs with control structures and functions in a general-purpose language. Years 9–10: P01 techniques to acquire, store and validate data; P03 model and query entities and their relationships; P05 algorithms with logical operators; P06 validate programs against a range of test cases; P07 design and prototype the user experience; P09 modular programs applying algorithms and data structures, including in an object-oriented language. Turtle covers 7–8 P06 and P09 well. Gaps: validating input (7–8 P01), structured data (P03), test cases (9–10 P06) and an object-oriented language (9–10 P09).
+
+**Runtime checked (10 Oct, headless Chromium in the turtle playground).** Skulpt runs classes, `__init__`, methods, class attributes, `__str__`, `isinstance`, dictionaries, `try`/`except ValueError`, f-strings, `split`/`upper`/`len`, `while`, `+=`, list comprehensions and `input()` (through `window.prompt`). 10,000 method calls on 20 objects take about 20 to 40 ms. Zero-argument `super()` fails; `super(B, self)` works (inheritance is not planned anyway). So everything below except machine learning and real Gradio stays on Skulpt; Pyodide only when real libraries are needed. One turtle only: `Turtle()` returns the same turtle (`skulpt-bridge.js`), and `CanvasTurtle` holds screen and turtle state in one object.
+
+### 1. Console bridge (foundations, typically Years 7–8; about 4 lessons)
+
+The last foundations course; every extension starts from it. Same playground with a console panel: an inline input line instead of `window.prompt` (already on the "nicer input UI" list), and `?console=1` to hide the canvas.
+
+1. **Text in, text out**: `print`, `input`, joining text, `str()`. Error task: `"Score: " + 5`.
+2. **Numbers from text**: `int()`, checking input before using it (7–8 P01). Error task: `"5" + "5"` gives `"55"`.
+3. **Keep asking**: `while`, `+=`, a running total, guess the number with `randint`. Error task: a loop that never ends.
+4. **A text menu**: `while True` with `if`/`elif` and functions; Make a small app (a till, a quiz, a converter), tested against a table of inputs and expected outputs (a first taste of 9–10 P06).
+
+Introduces what the scan found missing (`text-join`, `to-text`, `input`, `while`, `variable-update` with `+=`), tagged with `after: [code/python]`.
+
+### 2. Objects with turtles (extension, typically Year 9; about 5 lessons)
+
+The hook is a small arcade game, built from a working starter: one player, 3 to 5 enemies, a coin. Sequence: many `Turtle()`s → parallel lists break (`xs[i]`, `speeds[i]`, `alive[i]`) → one dictionary per enemy → `class Enemy` (`__init__`, `self`) → methods (`move`, `hit`) → a list of objects in a loop, plus `class Coin`. Count the cost before and after ("how many lines to add a sixth enemy?"), as lesson 1 does for loops. `self` replaces most `global` lines. Reveal: microStudio sprites (or Arcade for MakeCode students) are this idea with an engine drawing them. No inheritance, getters and setters, or class diagrams.
+
+**Build needed:** several turtles. Split `CanvasTurtle` into shared screen state (segments, fills, dots, texts, background, events) and per-turtle state (position, heading, pen, colours, shape, visibility, fill); `Turtle()` makes a new one; `from turtle import *` keeps driving the default turtle, which `#turtle-state` and existing clips still report. Optional later: `t.onclick`. Every turtle lesson must still pass unchanged.
+
+### 3. Data detective (extension, typically Year 9; about 4 lessons)
+
+A real CSV (weather, sport or school data; licence to check) as text in the playground: rows → a list of dictionaries → count, average, find the largest → a bar chart drawn with turtle → spot and clean bad rows (9–10 P01), check results against test cases (P06). Relationships between two tables for 9–10 P03 as a stretch. Leads to machine learning.
+
+### 4. Apps (extension)
+
+A quiz or flashcard app: questions in a list of dictionaries, then `class Question` with `check(answer)`, a turtle UI from `ui.py`, then the reveal that Gradio's components are the same idea (rebuild the Gradio intro on this, or use our own `gr.Interface` subset in Pyodide; see "Gradio → ML" above). Covers 9–10 P07.
+
+### 5. Machine learning and games (later)
+
+Machine learning after Data detective: Pyodide with scikit-learn on the same CSVs, or the Teachable Machine route the MakeCode pathway already has. Games: microStudio as the real-engine endpoint after Objects (still to check: account and age terms, iframe embedding; its Python is Brython, switched on under advanced options, with `aio.sleep` instead of `time.sleep` and `.new` for JavaScript classes).
+
+### Open questions
+
+- Order of the extensions: Objects first (most fun, closest to Catch the turtle) or Data first (closest to the ACARA data descriptors)?
+- Retire "Deeper console Python" as a separate course, since strings, dictionaries, files and errors now arrive inside the projects?
+- Console bridge: canvas hidden, or text and turtle together?
+- Which real data sets (licences, Australian sources)?
+- Is Gradio still the apps endpoint, or our own UI subset?
+- `code/index.md` cards to change once agreed.
+
+**Effort, roughly:** console panel small; several turtles moderate (about 150 lines across the bridge and renderer, plus re-running every turtle lesson); lessons about 4 + 5 + 4 + 3.
+
 ## Proposed (discussed, not decided)
 
 - **Revisit if/else** later in a new context (a function that decides, `if` over a list, `if` inside a Gradio function), the same spiral as functions.
