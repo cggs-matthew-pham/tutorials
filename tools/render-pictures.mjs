@@ -13,6 +13,8 @@
 // pictures(), open() or the browser setup, which every section uses. --force redraws all.
 // --seed <url>: first download pictures whose hash matches the live site's pictures.json.
 // --check: draw nothing; report how many pictures need drawing (pictures_stale=N to $GITHUB_OUTPUT).
+// WP_NO_MAKECODE=1: skip the MakeCode sections (blocks and output) and keep the pictures already there. For builds
+// where makecode.com cannot be reached, such as a sandbox.
 import { chromium } from 'playwright-core';
 import { createServer } from 'node:http';
 import { createHash } from 'node:crypto';
@@ -23,6 +25,7 @@ const OUT = resolve(process.argv.includes('--out') ? process.argv[process.argv.i
 const FORCE = process.argv.includes('--force');
 const CHECK = process.argv.includes('--check');
 const SEED = process.argv.includes('--seed') ? process.argv[process.argv.indexOf('--seed') + 1].replace(/\/$/, '') : null;
+const NO_MAKECODE = !!process.env.WP_NO_MAKECODE && process.env.WP_NO_MAKECODE !== '0';
 let stale = 0, seeded = 0;
 const DIR = join(OUT, '_pictures');
 mkdirSync(DIR, { recursive: true });
@@ -285,7 +288,8 @@ await pictures({
 // MakeCode lesson shows (decks, worksheets, guides, explainPicture), drawn by MakeCode's own renderer through
 // _playground-makecode/render.html. Needs makecode.microbit.org: offline, nothing is drawn and the pages keep the
 // code as text. ?render= in MAKECODE_RENDER points at another renderer (tests only).
-{
+if (NO_MAKECODE) console.log('Pictures (makecode, makecode-out): skipped (WP_NO_MAKECODE), existing pictures kept.');
+else {
   const { blocksId, makecodePrograms } = await import('./teach.mjs');
   // Each job names its editor (target): Arcade blocks are drawn by Arcade's renderer, micro:bit ones by micro:bit's.
   const snipJobs = (file, target, prefix, pkg = '') => (existsSync(`snippets/${file}.json`) ? JSON.parse(readFileSync(`snippets/${file}.json`, 'utf8')).groups.flatMap((g) => g.items.map((i) => ({ id: prefix + snippetId(i.label), code: strip(i.code), target, pkg }))) : []);
@@ -323,7 +327,7 @@ await pictures({
 // picture mode, ?sim=1), MakeCode runs it, and the simulator's screen is screenshotted: the Arcade game screen or the
 // micro:bit board, after WAIT ms. Saved as _pictures/makecode-out/<lesson slug>/<key>.png. Needs makecode.com
 // (offline, nothing is drawn and pages show the blocks only). MAKECODE_EDITOR points the editor at a mock (tests only).
-{
+if (!NO_MAKECODE) {
   const { pictureItems } = await import('./lesson.mjs');
   const targetOf = (l) => l.steps.map((s) => s.config.try?.playground).find((k) => k === 'microbit' || k === 'arcade') || 'microbit';
   const WAIT = { arcade: 2500, microbit: 3000 };

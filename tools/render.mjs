@@ -4,6 +4,7 @@
 //   --no-serve        app is already running  --out <dir>  output root (default: dist)
 //   --seed <url>      first download unchanged clips from the live site (same hash = same clip)
 //   --check           only report which clips need recording (writes stale=N to $GITHUB_OUTPUT)
+//   WP_NO_MAKECODE=1  skip MakeCode lessons and keep their existing clips (makecode.com unreachable, e.g. a sandbox)
 import { chromium } from 'playwright-core';
 import { spawn, execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -313,7 +314,9 @@ const lessons = loadLessons(opt('--lesson'));
 if (!lessons.length) { console.error('No lessons found.'); process.exit(1); }
 
 let failures = 0, stale = 0, seeded = 0;
+const NO_MAKECODE = !!process.env.WP_NO_MAKECODE && process.env.WP_NO_MAKECODE !== '0';
 for (const lesson of lessons) {
+  if (NO_MAKECODE && lesson.language === 'makecode') { console.log(`• ${lesson.slug}: MakeCode, skipped (WP_NO_MAKECODE), existing clips kept`); continue; }
   const errs = validateLesson(lesson);
   if (errs.length) { errs.forEach((e) => console.error('✗ ' + e)); failures += errs.length; continue; }
   const clipSteps = [...lesson.steps, ...(lesson.explainStep ? [lesson.explainStep] : [])].filter((s) => s.config.clip);

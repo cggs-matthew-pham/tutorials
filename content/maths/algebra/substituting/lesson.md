@@ -11,6 +11,7 @@ app:
   url: http://127.0.0.1:8143/index.html
   readySelector: "#sl-l"
   layout: full
+explainPicture: { ref: formula.yml#pic, caption: "$l = 5$ and $w = 3$: write in the × signs, $P = 2 \\times 5 + 2 \\times 3 = 10 + 6 = 16$ cm." }
 explainClip:
   query: { code: "@formula.yml#explain", fresh: 1, id: explain }
   caption: "Replace each letter with its value"

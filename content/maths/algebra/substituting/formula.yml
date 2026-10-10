@@ -60,3 +60,12 @@ slider w: 1, 6, 2
 shape: rectangle
 units: cm
 # endregion
+
+# region: pic
+widget: formula
+formula: P = 2l + 2w
+slider l: 1, 10, 5
+slider w: 1, 6, 3
+shape: rectangle
+units: cm
+# endregion

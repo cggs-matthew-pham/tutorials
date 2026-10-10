@@ -11,6 +11,7 @@ app:
   url: http://127.0.0.1:8142/index.html
   readySelector: "#sl-l"
   layout: full
+explainPicture: { ref: formula.yml#pic, caption: "$P = 2l + 2w$: $P$, $l$ and $w$ are variables (each rectangle has its own); the 2s are constants (the same for every rectangle)." }
 explainClip:
   query: { code: "@formula.yml#explain", fresh: 1, id: explain }
   caption: "Variables change; constants stay the same"
