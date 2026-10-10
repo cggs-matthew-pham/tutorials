@@ -10,11 +10,14 @@ app:
   url: http://127.0.0.1:8252/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A gas in a jar: particles far apart and moving fast. Remove the jar and it spreads to fill the whole box." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "States of matter"
   say: "Each state is described by arrangement, motion and attraction of particles."
   clip:
+    - click: "Solid"
+    - wait: 600
     - caption: { text: "A solid: particles close, fixed, vibrating in place.", say: "In a solid, particles are close and fixed, vibrating in place." }
     - wait: 3280
     - click: "Liquid"

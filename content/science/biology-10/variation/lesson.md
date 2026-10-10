@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8241/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "No two beetles quite the same colour: continuous variation in one population." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "Variation"

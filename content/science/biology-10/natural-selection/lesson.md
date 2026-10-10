@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8240/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A population of beetles: each one a slightly different colour, on pale ground." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "Natural selection"

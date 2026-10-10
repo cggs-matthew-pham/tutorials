@@ -6,7 +6,7 @@ The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › S
 
 The recorder needed no change: the science board takes `?code=` like the shared board. Voiced clips for all 17 science-board lessons (Year 7 Chemistry, Chemistry 8 and 9–10, Year 10 Variation and Natural selection, Igneous, Plates, Heat transfer); ports 8239–8255 (next free: 8256). Timed with flite: 20–35 s (Igneous 35 s: the cooling itself takes time). Tips: "Inspect next particle" walks particles in setup order, so explain setups list one of each kind first; slow reactions need `temp:` raised to show change within a clip; canvas-drawn boards (beetles) can't be clicked by element.
 
-Every one of the 56 science lessons now has an Explain it to me clip. Still open: pictures for the 17 science-board lessons (needs a draw function for `_playground-science/` in `render-pictures.mjs`, a shared tool).
+Every one of the 56 science lessons now has an Explain it to me clip. Pictures on 16 of the 17 science-board lessons too (after the shared change in `shared.md`); not Igneous, whose first moment is all liquid. 42 science lessons have pictures in all.
 
 ## Done: Explain it to me, batch 2 (11 Oct 2026, science chat)
 

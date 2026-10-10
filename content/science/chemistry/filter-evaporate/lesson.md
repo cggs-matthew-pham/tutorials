@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8248/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "Sand and salt water above filter paper: the sand grains are too big to pass through." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "Filtration"

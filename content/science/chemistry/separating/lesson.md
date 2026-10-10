@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8251/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A mixture of water, dissolved salt, sand and iron filings: each part is separated by a different property." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "Separating mixtures"

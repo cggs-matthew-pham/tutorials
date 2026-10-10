@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8254/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A model of the mantle: hot rock (red) rises above the core, spreads under the plates, cools (blue) and sinks." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "What moves the plates"

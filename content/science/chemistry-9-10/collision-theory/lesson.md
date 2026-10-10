@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8245/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "Hydrogen and chlorine molecules colliding: only collisions with enough energy react." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "Collision theory"

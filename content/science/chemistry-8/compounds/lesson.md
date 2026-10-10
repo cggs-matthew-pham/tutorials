@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8244/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "Hydrogen and oxygen (elements: one type of atom each) mixed with water (a compound: H₂O, always two H to one O)." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "Elements and compounds"

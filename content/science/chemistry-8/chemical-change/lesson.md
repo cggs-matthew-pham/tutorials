@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8243/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "Hydrogen and chlorine molecules: when they collide hard enough, the atoms rearrange into hydrogen chloride." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "Chemical change"

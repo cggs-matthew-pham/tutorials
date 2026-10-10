@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8246/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "Hydrogen and oxygen before they react: the same atoms will be rearranged into water." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "Rearranging atoms"

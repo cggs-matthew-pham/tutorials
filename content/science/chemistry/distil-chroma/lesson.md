@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8247/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "Distillation: heat the seawater, cool the vapour in the condenser, collect pure water." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "Distillation"

@@ -14,7 +14,7 @@ import { Marked } from 'marked';
 import { parse as YAMLparse } from 'yaml';
 import { lessonPageHtml, tryEmbed, esc, titleCase, page, codeBlock, siteNav, NAV_CSS, NAV_JS, makecodeBlock } from './lesson-view.mjs';
 import { readFileSync } from 'node:fs';
-import { snippetId, unlockKind, pictureSpec, usesBoardPictures, makecodePackage, makecodeExtensions, captionText } from './lesson-core.mjs';
+import { snippetId, unlockKind, pictureSpec, usesBoardPictures, pictureBoard, makecodePackage, makecodeExtensions, captionText } from './lesson-core.mjs';
 import { loadLessons, validateLesson, getSnippet, loadDirMeta, loadSnippetFiles, loadSharedModules, CONTENT_ROOT } from './lesson.mjs';
 import { buildPlayground, buildHtmlPlayground, buildMathsPlayground, buildSciencePlayground, buildKatex, buildNumbas, buildMakecodePlayground, buildExplainStage } from './build-playground.mjs';
 import { buildCreate } from './build-create.mjs';
@@ -79,7 +79,7 @@ function expectedHtml(lesson, cfg, key) {
 }
 
 // "What this code makes": picture: on steps and tasks, and explainPicture (render-pictures, _pictures/shown/<slug>/<key>.png).
-let SHOWN = null, MKOUT = null, BOARDPICS = null;
+let SHOWN = null, MKOUT = null, BOARDPICS = null, SCIPICS = null;
 function pictureHtml(lesson, v, key) {
   const sp = pictureSpec(v);
   if (lesson.language === 'makecode' && sp) {
@@ -91,11 +91,12 @@ function pictureHtml(lesson, v, key) {
     return `<div class="mkpair${out ? ' has-out' : ''}"><figure class="shown mkshown">${makecodeBlock(highlightCode, code, '', target, blocksPic(code, '../'.repeat(lesson.depth)), makecodePackage(lesson))}<figcaption>The example, as blocks</figcaption></figure>${outFig}</div>`;
   }
   if (usesBoardPictures(lesson) && sp) {
-    // A board setup drawn as students see it (render-pictures, board), with its caption.
-    const bp = (BOARDPICS ||= readPics(['board']))[`${lesson.slug}/${key}`];
+    // A board setup drawn as students see it (render-pictures, board or science), with its caption.
+    const kind = pictureBoard(lesson);
+    const bp = (kind === 'science' ? (SCIPICS ||= readPics(['science'])) : (BOARDPICS ||= readPics(['board'])))[`${lesson.slug}/${key}`];
     if (!bp) return '';
     const cap = sp.caption ? (lesson.language === 'maths' ? textWithMath(sp.caption, esc) : esc(sp.caption)) : '';
-    return `<figure class="shown boardpic"><img src="${'../'.repeat(lesson.depth)}_pictures/board/${esc(lesson.slug)}/${esc(key)}.png?v=${esc(bp.hash || '')}" alt="${esc(sp.caption ? sp.caption.replace(/\$/g, '') : 'The board')}" width="${Math.round(bp.w / (bp.div || 2))}" height="${Math.round(bp.h / (bp.div || 2))}" loading="lazy">${cap ? `<figcaption>${cap}</figcaption>` : ''}</figure>`;
+    return `<figure class="shown boardpic"><img src="${'../'.repeat(lesson.depth)}_pictures/${kind}/${esc(lesson.slug)}/${esc(key)}.png?v=${esc(bp.hash || '')}" alt="${esc(sp.caption ? sp.caption.replace(/\$/g, '') : 'The board')}" width="${Math.round(bp.w / (bp.div || 2))}" height="${Math.round(bp.h / (bp.div || 2))}" loading="lazy">${cap ? `<figcaption>${cap}</figcaption>` : ''}</figure>`;
   }
   const pic = sp && (SHOWN ||= readPics(['shown']))[`${lesson.slug}/${key}`];
   if (!pic) return '';

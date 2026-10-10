@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8249/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "Wax in a syringe: its particles are already touching, so pushing the plunger can't squash it. Air, with space between its particles, squashes easily." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "Properties from particles"

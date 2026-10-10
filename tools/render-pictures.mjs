@@ -219,7 +219,7 @@ await pictures({
 
 // ---- "What this code makes": picture: on steps and tasks, and explainPicture, drawn by the HTML playground itself
 // (so the Boxes view looks exactly as students see it), cropped to the page's content.
-const { pictureItems, usesBoardPictures } = await import('./lesson.mjs');
+const { pictureItems, usesBoardPictures, pictureBoard } = await import('./lesson.mjs');
 await pictures({
   name: 'shown', dir: join(DIR, 'shown'), viewport: { width: 1100, height: 1400 },
   base: hashDir('media', 'playground-html', 'shown-v1'), legacy: [LEGACY.shown],
@@ -289,8 +289,45 @@ if (mathsCardFiles.length) await pictures({
 await pictures({
   name: 'board', dir: join(DIR, 'board'), viewport: { width: 680, height: 440 },
   base: hashDir('playground-board', String(drawBoard), 'board-v1'), legacy: [LEGACY.board],
-  jobs: loadLessons().filter((l) => usesBoardPictures(l)).flatMap((l) => pictureItems(l).map((e) => ({ id: `${l.slug}/${e.key}`, code: getSnippet(l.dir, e.ref) }))),
+  jobs: loadLessons().filter((l) => usesBoardPictures(l) && pictureBoard(l) === 'board').flatMap((l) => pictureItems(l).map((e) => ({ id: `${l.slug}/${e.key}`, code: getSnippet(l.dir, e.ref) }))),
   async draw(page, j) { return { ...(await drawBoard(page, j)), div: 2 }; },
+});
+
+// ---- The science board (playground-science): explainPicture and picture: in science lessons on that board. Particles
+// move, so the picture is a moment after the widget has run for a short while (each widget starts from a fixed seed).
+// Cropped like the board's pictures. dist/_pictures/science/<lesson>/<key>.png.
+async function drawScience(page, j) {
+  await page.goto(`http://localhost:${port}/_playground-science/index.html?id=picture&code=${encodeURIComponent(j.code)}`);
+  await page.waitForSelector('#board svg', { timeout: 20000, state: 'attached' });
+  await page.waitForTimeout(1800);
+  if (await page.locator('#error').isVisible()) throw new Error(`${j.id}: the science board did not start: ${await page.locator('#error').innerText()}`);
+  const shot = (await page.locator('#board').screenshot()).toString('base64');
+  const png = await page.evaluate(async (b64) => {
+    const img = new Image(); img.src = 'data:image/png;base64,' + b64; await img.decode();
+    const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+    const x = c.getContext('2d'); x.drawImage(img, 0, 0);
+    const { width: w, height: hh } = c, px = x.getImageData(0, 0, w, hh).data, edge = 8;
+    const k0 = (edge * w + edge) * 4, bg = [px[k0], px[k0 + 1], px[k0 + 2]];
+    let x0 = w, y0 = hh, x1 = 0, y1 = 0;
+    for (let y = edge; y < hh - edge; y++) for (let i = edge; i < w - edge; i++) {
+      const k = (y * w + i) * 4;
+      if (Math.abs(px[k] - bg[0]) + Math.abs(px[k + 1] - bg[1]) + Math.abs(px[k + 2] - bg[2]) <= 30) continue;
+      if (i < x0) x0 = i; if (i > x1) x1 = i; if (y < y0) y0 = y; if (y > y1) y1 = y;
+    }
+    if (x1 < x0) return null;
+    const m = 12; x0 = Math.max(0, x0 - m); y0 = Math.max(0, y0 - m); x1 = Math.min(w - 1, x1 + m); y1 = Math.min(hh - 1, y1 + m);
+    const o = document.createElement('canvas'); o.width = x1 - x0 + 1; o.height = y1 - y0 + 1;
+    o.getContext('2d').drawImage(c, x0, y0, o.width, o.height, 0, 0, o.width, o.height);
+    return { data: o.toDataURL('image/png'), w: o.width, h: o.height };
+  }, shot);
+  if (!png) throw new Error(`${j.id}: the science board drew nothing`);
+  return png;
+}
+await pictures({
+  name: 'science', dir: join(DIR, 'science'), viewport: { width: 680, height: 440 },
+  base: hashDir('playground-science', String(drawScience), 'science-v1'),
+  jobs: loadLessons().filter((l) => usesBoardPictures(l) && pictureBoard(l) === 'science').flatMap((l) => pictureItems(l).map((e) => ({ id: `${l.slug}/${e.key}`, code: getSnippet(l.dir, e.ref) }))),
+  async draw(page, j) { return { ...(await drawScience(page, j)), div: 2 }; },
 });
 
 // ---- MakeCode blocks: each snippets/microbit.json and snippets/arcade.json block (for the cheat sheets and Reference) and every program a

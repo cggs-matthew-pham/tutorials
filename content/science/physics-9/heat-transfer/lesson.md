@@ -10,6 +10,7 @@ app:
   url: http://127.0.0.1:8255/index.html
   readySelector: "#board svg"
   layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A metal bar heated at one end: the particles stay in place and pass energy along by collisions." }
 explainClip:
   query: { code: "@boards.yml#explain", id: explain }
   caption: "Conduction"
