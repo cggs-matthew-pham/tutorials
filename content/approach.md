@@ -32,6 +32,8 @@ There are no accounts, no class tracking and no locked lessons. Progress is save
 
 These ideas are a starting point. If something works in your class, or doesn't, or you'd like a lesson that isn't here yet, please [let us know](https://forms.gle/CoRAXJWHnVQ8mXpPA).
 
+For how lessons are made, checked and kept private, see [Behind the scenes](../behind-the-scenes/).
+
 ## References
 
 - Fincher, S., et al. (2020). Notional machines in computing education: the education of attention. *ITiCSE Working Group Reports (ITiCSE-WGR '20)*. ACM. [doi.org/10.1145/3437800.3439202](https://doi.org/10.1145/3437800.3439202)

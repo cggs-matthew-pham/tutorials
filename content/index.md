@@ -19,5 +19,5 @@ about: |
 
   Students read code before they write it. Each lesson follows **PRIMM**, an approach developed by Sue Sentance and colleagues and used in schools in the UK and beyond: students *predict* what a short program will do, *run* it to see if they were right, *investigate* how it works, *modify* it, then *make* something of their own. Now that AI can write code, being able to read a program and tell whether it's right matters more than ever, and that's the habit these lessons try to build.
 
-  [Why we teach this way →](approach/)
+  [Why we teach this way →](approach/) · [Behind the scenes →](behind-the-scenes/)
 ---

@@ -7,7 +7,7 @@
 //   dist/_playground-html/               the embeddable HTML & CSS playground
 // A step with a clip embeds clips/step-N.mp4 if it exists, otherwise a labelled placeholder,
 // so lessons can be written, reviewed and published before any clip is rendered.
-import { mkdirSync, writeFileSync, existsSync, copyFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, existsSync, copyFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { createRequire } from 'node:module';
 import { Marked } from 'marked';
@@ -409,19 +409,18 @@ for (const node of dirs.values()) {
     `<header class="top">${crumb}<h1>${esc(isRoot ? 'Waypoints tutorials' : node.title)}</h1>${node.summary ? `<p class="lede">${esc(node.summary)}</p>` : ''}</header>${homeAbout}<ul class="lessons">${items}</ul>`, `<script src="${up}progress.js" data-root="${up}" defer></script>`, navFor(node.path, 'home')));
 }
 
-// ---------- "Why we teach this way" (content/approach.md): one plain Markdown page at /approach/ ----------
-{
-  const src = join(CONTENT_ROOT, 'approach.md');
-  if (existsSync(src)) {
-    const raw = readFileSync(src, 'utf8').replace(/\r\n/g, '\n');
-    const fm = raw.match(/^---\n([\s\S]*?)\n---\n?/);
-    const meta = fm ? (YAMLparse(fm[1]) || {}) : {};
-    const body = new Marked().parse(fm ? raw.slice(fm[0].length) : raw);
-    mkdirSync(join(OUT, 'approach'), { recursive: true });
-    writeFileSync(join(OUT, 'approach', 'index.html'), page(meta.title || 'Why we teach this way',
-      `<header class="top"><a class="crumb" href="../">← Tutorials</a><h1>${esc(meta.title || 'Why we teach this way')}</h1>${meta.summary ? `<p class="lede">${esc(meta.summary)}</p>` : ''}</header><div class="pabout approach">${body}</div>`,
-      '', navFor('approach', 'home')));
-  }
+// ---------- plain pages: content/<name>.md (besides index.md) becomes /<name>/ (approach, behind-the-scenes) ----------
+for (const f of readdirSync(CONTENT_ROOT).filter((n) => n.endsWith('.md') && n !== 'index.md')) {
+  const name = f.replace(/\.md$/, '');
+  const raw = readFileSync(join(CONTENT_ROOT, f), 'utf8').replace(/\r\n/g, '\n');
+  const fm = raw.match(/^---\n([\s\S]*?)\n---\n?/);
+  const meta = fm ? (YAMLparse(fm[1]) || {}) : {};
+  const title = meta.title || titleCase(name);
+  const body = new Marked().parse(fm ? raw.slice(fm[0].length) : raw);
+  mkdirSync(join(OUT, name), { recursive: true });
+  writeFileSync(join(OUT, name, 'index.html'), page(title,
+    `<header class="top"><a class="crumb" href="../">← Tutorials</a><h1>${esc(title)}</h1>${meta.summary ? `<p class="lede">${esc(meta.summary)}</p>` : ''}</header><div class="pabout approach">${body}</div>`,
+    '', navFor(name, 'home')));
 }
 
 // ---------- teacher guide: /teach/<course>/ and /teach/<lesson>/ with decks, worksheets and cheat sheets ----------
