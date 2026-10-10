@@ -12,7 +12,7 @@ before: |
 
   The misconception to watch is galaxies flying away from a centre (and us being at it). Changing the home galaxy shows the same pattern from everywhere.
 
-  Board notes: a 2D field of galaxies; "Let space expand" stretches every distance by 1.6. Distances are in millions of light-years (one grid square is 100 million) and speeds use a Hubble constant of about 70 km/s per megaparsec (21.5 km/s for every million light-years). Spectra show four hydrogen lines, with the shift drawn 20 times bigger. Strictly, cosmological redshift is space stretching the light, not a Doppler effect from motion through space; the Doppler explanation is the curriculum's model.
+  Board notes: a 2D field of galaxies; "Let space expand" stretches every distance by 1.6. Distances are in millions of light-years (one grid square is 100 million) and speeds use a Hubble constant of about 70 km/s per megaparsec (21.5 km/s for every million light-years). Spectra show four hydrogen lines, with the shift drawn 5 times bigger. Strictly, cosmological redshift is space stretching the light, not a Doppler effect from motion through space; the Doppler explanation is the curriculum's model.
 running:
   - "Engage: count how many chose 'we are at the centre'."
   - "Explore: collect a few class points on one graph."

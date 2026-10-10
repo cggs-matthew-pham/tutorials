@@ -135,8 +135,8 @@
     bd.update();
   }
   function spectrum(z, label) {
-    // Hydrogen lines at 410, 434, 486 and 656 nm; the shift is drawn 20 times bigger so it can be seen.
-    var W = 420, x = function (nm) { return (nm - 380) / (750 - 380) * W; }, lines = [410, 434, 486, 656], f = 1 + 20 * z;
+    // Hydrogen lines at 410, 434, 486 and 656 nm; the shift is drawn 5 times bigger so it can be seen (at 20 times, every line of a far galaxy ran off the red end).
+    var W = 420, x = function (nm) { return (nm - 380) / (750 - 380) * W; }, lines = [410, 434, 486, 656], f = 1 + 5 * z;
     var grad = '<linearGradient id="sp" x1="0" x2="1"><stop offset="0" stop-color="#7a3cff"/><stop offset=".2" stop-color="#2b5cff"/><stop offset=".38" stop-color="#18c3ff"/><stop offset=".5" stop-color="#3bd94a"/><stop offset=".62" stop-color="#ffe23a"/><stop offset=".78" stop-color="#ff8c1a"/><stop offset="1" stop-color="#e01e1e"/></linearGradient>';
     var row = function (y, k, lab) { return '<rect x="0" y="' + y + '" width="' + W + '" height="18" fill="url(#sp)"/>' + lines.map(function (nm) { var X = x(nm * k); return X < W ? '<rect x="' + (X - 1.5) + '" y="' + y + '" width="3" height="18" fill="#000"/>' : ''; }).join('') + '<text x="' + (W + 6) + '" y="' + (y + 13) + '">' + lab + '</text>'; };
     return '<svg viewBox="0 0 560 50" role="img" aria-label="Spectrum of the galaxy compared with a lab"><defs>' + grad + '</defs>' + row(2, 1, 'Lab (not moving)') + row(28, f, label) + '</svg>';
@@ -166,7 +166,7 @@
     else {
       var p = st.pts[st.sel] || [0, 0], z = p[1] / 299792;
       box.appendChild(el('b', '', 'This galaxy: ' + Math.round(p[0]).toLocaleString('en-AU') + ' million light-years away, moving away at ' + Math.round(p[1]).toLocaleString('en-AU') + ' km/s.'));
-      box.appendChild(el('i', '', 'Its light is redshifted: every dark line is moved towards red by ' + (z * 100).toFixed(1) + '% (drawn 20 times bigger below).'));
+      box.appendChild(el('i', '', 'Its light is redshifted: every dark line is moved towards red by ' + (z * 100).toFixed(1) + '% (drawn 5 times bigger below).'));
       var sp = el('div', 'uspec'); sp.innerHTML = spectrum(z, 'This galaxy'); box.appendChild(sp);
     }
     panel.appendChild(box);

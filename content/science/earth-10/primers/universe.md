@@ -11,7 +11,7 @@ title: The big bang in 5 minutes
 ## Where the picture breaks
 
 - The timeline board spaces the stages evenly; the real times run from a tiny fraction of a second to billions of years.
-- The expanding-space board is 2D and its redshifts are drawn 20 times bigger. Real galaxies also have their own small motions (nearby Andromeda is blueshifted, moving towards us).
+- The expanding-space board is 2D and its redshifts are drawn 5 times bigger. Real galaxies also have their own small motions (nearby Andromeda is blueshifted, moving towards us).
 - Strictly, cosmological redshift is space stretching the light on its way, not just a Doppler effect; at Year 10 the Doppler picture is a good model.
 
 ## Common misconceptions

@@ -33,3 +33,7 @@ Also changed: `prerequisites()` in `tools/concepts.mjs` now treats a course list
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).
 - Progress export and import (a short copy-and-paste code to move progress between browsers) and a printable certificate of current progress. A fun long-term idea; keep it account-free.
+
+## Changed by the science chat (11 Oct 2026)
+
+- `playground-board/widgets/universe.js`: the redshift spectrum is drawn 5 times bigger, not 20 (at 20, far galaxies showed no lines). AUTHORING › 12 `universe` line updated to match. Only the Redshift lesson uses it.

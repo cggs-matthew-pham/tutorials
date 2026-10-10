@@ -12,8 +12,8 @@ Plan approved 11 Oct; each item pushed to `main` (source only). Year 7 node text
 4. **Node 5 as a class task**, not a tutorial (the kit marks it an integration point): `physics-7/primers/forces.md` › Class task (rubber-band trolleys, predict, an example data table, success criteria from the progression).
 
 **Still open from this pass**
-- **Redshift spectrum (needs a decision):** the `universe` widget draws the shift 20 times bigger, so for most galaxies (above roughly 100 million light-years) every dark line runs off the red end and the "This galaxy" row shows no lines at all. The new recap asks students to compare line positions. Proposed fix: draw it 5 times bigger (the farthest galaxy, z ≈ 0.12, keeps two lines), and change "20 times" in the widget text, `earth-10/redshift/teacher.yml`, `earth-10/primers/universe.md` and AUTHORING (one line). Not done: the widget is on the shared board and was outside the plan.
-- **Science node tags:** the maths chat built the node check (`shared.md`). Science opts in by adding `data/progressions/science/` pages, `node:` on its lessons and itself to `CHECKED`; AC9S7U04 is ready to save from the pasted page. Needs the other science progression pages.
+- **Redshift spectrum (fixed 11 Oct, approved):** the `universe` widget drew the shift 20 times bigger, so far galaxies showed no dark lines at all; it now draws it 5 times bigger (an 876 million light-year galaxy keeps three lines; the farthest keeps two). Text updated in the widget, Redshift teacher notes, the universe primer and AUTHORING.
+- **Science node tags (waiting for the kit, Matthew 11 Oct):** the maths chat built the node check (`shared.md`). Science opts in by adding `data/progressions/science/` pages, `node:` on its lessons and itself to `CHECKED`; AC9S7U04 is ready to save from the pasted page. Needs the other science progression pages.
 - Explain clips for science (gap noted above), populations engine, the remaining Years 8–10 nodes: unchanged.
 
 ## Planned: prerequisite checks and model checks (decided 11 Oct 2026, not built)
