@@ -62,6 +62,13 @@ tasks:
       feedback: [null, "That happens a little (conduction), but your particle travelled the whole way round.", "Cool water does sink, but the energy is carried up by the warm water rising."]
       explain: "Convection: the heated fluid rises, carrying its energy, and cooler fluid sinks to replace it."
   - check:
+      type: question
+      q: "Why does the heated water rise?"
+      options: ["Its particles spread out, so it is less dense than the cooler water around it", "Heat always rises", "Hot particles are lighter than cold ones", "The heater pushes it up"]
+      answer: 0
+      feedback: [null, "Heat on its own does not go anywhere; something carries it. What moved up on the board?", "Each particle has the same mass hot or cold. What changes is how far apart they are.", "That is what the model does, to keep it simple. In real water nothing pushes: the warm water floats up, like a cork."]
+      explain: "Heated water expands: the same particles take up more space, so it is less dense (density, from Year 7) and floats up through the cooler, denser water. The board pushes hot particles up directly; that part is a simplification."
+  - check:
       type: sort
       q: "Conduction or convection?"
       options: ["Conduction", "Convection"]
@@ -85,6 +92,8 @@ tasks:
 ### In the bar
 
 ### In the water
+
+### Why it rises
 
 ### Which is which
 

@@ -26,8 +26,22 @@ check:
 stage: run
 insight: "Stretching space and measuring several galaxies shows speed growing with distance, the pattern Hubble found."
 try: { playground: board, starter: "boards.yml#expand", height: 760 }
-check: { type: board, text: "Let space expand, then measure at least three galaxies at different distances.", when: "e = 1 and q = 1" }
+tasks:
+  - check:
+      type: question
+      q: "First, reading light. A galaxy's spectrum runs from violet (short wavelengths) to red (long wavelengths). Its dark hydrogen lines sit further towards the red end than the same lines measured in a lab. What has happened to its light?"
+      options: ["It has been stretched to longer wavelengths", "It has been squashed to shorter wavelengths", "The whole galaxy has turned red", "It has become hotter"]
+      answer: 0
+      feedback: [null, "Shorter wavelengths are at the violet end. Which way did the lines move?", "The colours across the spectrum are the same; only the dark lines have moved.", "Temperature changes the overall glow, not where hydrogen's lines sit."]
+      explain: "Hydrogen always leaves its dark lines at the same wavelengths. Lines moved towards the red mean longer wavelengths: the light has been stretched. That is a redshift."
+  - check: { type: board, text: "Let space expand, then measure at least three galaxies at different distances.", when: "e = 1 and q = 1" }
 ```
+
+### Reading a spectrum
+
+Spread a galaxy's light out and you get a **spectrum**, a rainbow from violet (short wavelengths) to red (long wavelengths). Hydrogen gas leaves dark lines in it at fixed wavelengths, a fingerprint you can compare with the same lines measured in a lab.
+
+### Stretch space
 
 Press **Let space expand**. Then click galaxies near and far: compare their distances, speeds and light.
 

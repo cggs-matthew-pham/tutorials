@@ -123,4 +123,4 @@ Write one sentence: "At first I thought… Now I think… because…"
 
 - Plant and animal cells share the **nucleus** (holds DNA, controls the cell), **cell membrane** (controls what gets in and out) and **cytoplasm** (where reactions happen).
 - Both also have **mitochondria** (release energy).
-- Plant cells also have a **cell wall**, **chloroplasts** and a large **vacuole**.
+- Plant cells also have a **cell wall**, **chloroplasts** (where photosynthesis captures light energy to make food) and a large **vacuole**.
