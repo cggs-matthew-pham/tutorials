@@ -1,0 +1,8 @@
+# Kai's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kai
+Kai draws a small triangle, then one with every side twice as long.
+Small triangle: 50° + 60° + 70° = 180°.
+The big triangle has longer sides, so its angles are bigger.
+So the big triangle's angles add to more than 180°.
+# endregion

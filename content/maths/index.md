@@ -22,7 +22,7 @@ pathways:
     summary: Angles, shapes and transformations, then area, volume and Pythagoras.
     about: "**Angles and shapes** links to the coding pathway: the turtle already turns through exterior angles, and classifying shapes is an algorithm students can write."
     courses:
-      - { id: angles-shapes, title: Angles and shapes, stage: foundations, summary: "Angles and parallel lines, polygons, transformations on the Cartesian plane, and algorithms for classifying shapes." }
+      - { path: maths/angles, id: angles-shapes, stage: foundations }
       - { id: area-volume, title: Area, volume and Pythagoras, stage: foundations, summary: "Area of composite shapes, volume of prisms, circles, and Pythagoras' theorem.", after: [angles-shapes] }
       - { title: Trigonometry, stage: extensions, summary: "Similar triangles and the trigonometric ratios.", after: [area-volume] }
   - id: data

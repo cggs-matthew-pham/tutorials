@@ -1,0 +1,47 @@
+summary: Students drag triangles of every shape on a dot grid, see that the three angles always add to 180°, and explain why by tearing off the corners to make a straight line (AC9M7M05, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can show that the angles of a triangle add to 180°, by measuring and by tearing off the corners.
+  - I can explain why this is true for every triangle, whatever its shape or size.
+  - I can tell whether three angles could be the angles of a triangle.
+before: |
+  Do the Run board and the tear-off task yourself first. Students should know that angles on a straight line add to 180° (Year 6).
+
+  The board measures to the nearest degree and shares out the rounding so the shown angles add to the shown total. With a real protractor, totals of 178° to 182° are normal: say so when students measure by hand (Practise has a question on it).
+
+  If you have time, do the paper version too: every student draws a different triangle, tears off the corners and lines them up. Seeing 25 different triangles all make a straight line is the strongest evidence. The formal proof with parallel lines comes with AC9M7M04.
+
+  Finding a missing angle from the other two is the next step in class (node 3), not this lesson.
+running:
+  - "Predict: take a show of hands. Students who chose 'it gets bigger' are thinking of the big angle only. Do not correct it yet."
+  - "Run: ask students to make the tallest, the widest and the flattest triangle they can, and to read the total each time."
+  - "Investigate: model the worked example live with a paper triangle: mark the three angles, tear them off at writing pace, and put the points together on a ruler's edge, saying each step. Then show the board's torn pieces changing as a corner moves."
+  - "Modify: before the right-angle task ask: if one angle is 90°, what must the other two add to? Then check on the board."
+  - "Practise: Lia's measurement question is a chance to talk about measuring error, which science lessons need too."
+  - "Make: ask a student to explain why the angle must be 90° before anyone builds it."
+stuck:
+  - see: "A student thinks a bigger triangle has bigger angles (Kai's mistake)."
+    ask: "If you make a photocopy twice as big, do the corners get pointier or blunter?"
+    fix: "Enlarge a triangle on the board by doubling each corner's coordinates: the angles stay the same."
+  - see: "A student adds the angles and gets 179° or 181° with a protractor."
+    ask: "How accurately can you read a protractor?"
+    fix: "Each reading can be a degree out, so three readings can be two or three degrees out. The true total is 180°."
+  - see: "A student says the rule only works for the triangles they tried."
+    ask: "Which triangle could you try that would break it?"
+    fix: "Let them try their 'breaking' triangle on the board or on paper. Then point to the torn corners: they always fill a straight line, whatever the shape."
+stretch: "Can a triangle have one angle that is twice the other two added together? (Yes: 120°, since 120 = 2 × 60.) What about three times? (135°.)"
+support: "Use the Run board throughout, and the preset buttons are on the explain clip's board. Give students paper triangles to tear."
+leads: |
+  Next: angles in any polygon, by splitting it into triangles.
+
+  Where it leads: finding unknown angles with reasons (node 3), the proof with parallel lines (AC9M7M04), and why regular hexagons tessellate.
+exit:
+  q: "A student says the angles of a very large triangle add to more than 180°. Explain why they are wrong."
+  a: "Every triangle's angles add to 180°: tear off the corners and they fill a straight line. Size changes the sides, not the angles."
+explain: |
+  The three angles of **any** triangle add to $180°$.
+
+  When you change a triangle's shape, one angle grows and the others shrink by exactly as much. Making it bigger without changing its shape does not change the angles at all.
+
+  Why? Tear off the three corners and put their points together: they fill a straight line, and angles on a straight line add to $180°$.

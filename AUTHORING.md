@@ -507,6 +507,18 @@ Vary, Practise, Make).
       adds + and − buttons.
     - Values for checks: points as `x(P)` (`"x(P) < -4"`, `"x(P) < x(Q) and x(P) + x(Q) < 0"`), the sliders, `r` the
       result and `o` the operation (1 add, −1 subtract): `"o = -1 and b < 0 and r = 10"`.
+  - `widget: geometry` (first used by `maths/angles`): a triangle or polygon on a square dot grid. Students drag the
+    corners (they land on the dots); the interior angle at each corner is measured live, to the nearest degree, with the
+    rounding shared out so the shown angles add to the shown total.
+    - `shape: triangle` or `polygon` with `sides: 5` (3 to 10) or `sides: choose` (More sides and Fewer sides buttons);
+      `grid: 12, 8`; `corners: 1,1; 9,1; 4,6` (A, B, C, … in order; default a regular shape); `snap: 0.5`.
+    - `tear: on` (triangle): a **Tear off the corners** button showing the three angles side by side on a straight line;
+      `split: on` (polygon): **Split into triangles**, lines from A to every corner not next to it (only when no corner
+      points in). `tear: shown` and `split: shown` start pressed (for pictures). `presets: on` (triangle): buttons
+      Acute, Right-angled, Obtuse and Very flat, which clips can press. `sum: off` hides the total.
+    - Values for checks: each corner's angle by its lower-case letter (`a`, `b`, `c`, …), `s` the total, `m` the largest
+      angle, `n` sides, `k` triangles shown by split (else 0), `t` 1 while torn, `v` 1 if no corner points in; corners as
+      points (`x(A)`). Examples: `"m > 120"`, `"m = 90"`, `"n = 5 and k = 3"`, `"n = 4 and v = 0"`, `"s = 1260"`.
   - `widget: forces` (any subject; first used by the physics lessons): a force diagram and, with `motion: on`, the
     motion it causes.
     - `object: Box` (its name), `mass: 2` (kg; `mass: 1, 10, 2` is a slider), `g: 9.8` (N/kg) or

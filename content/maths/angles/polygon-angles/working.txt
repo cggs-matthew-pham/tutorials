@@ -1,0 +1,8 @@
+# Ben's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ben
+Ben wants the angle sum of a pentagon.
+He puts a point in the middle and draws a line to each corner.
+That makes 5 triangles.
+5 × 180° = 900°, so the pentagon's angles add to 900°.
+# endregion

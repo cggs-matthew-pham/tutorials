@@ -242,3 +242,10 @@ button.clcard { cursor: pointer; }
 .nlops button { font-size: 20px; min-width: 52px; }
 .nlops button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
 #nlcompare { color: var(--ink); font-family: system-ui, sans-serif; }
+/* Geometry (widgets/geometry.js) */
+.jxgbox .gangle { font: 700 15px/1 system-ui, sans-serif; white-space: nowrap; }
+.gtear { display: block; width: 100%; max-width: 360px; height: auto; margin: 4px auto 0; }
+.gtear .gtorn { font: 700 13px system-ui, sans-serif; fill: var(--ink); }
+.gbtns { flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.gbtns button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+#gsum { color: var(--ink); }

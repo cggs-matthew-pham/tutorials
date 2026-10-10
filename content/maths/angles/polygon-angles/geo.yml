@@ -1,0 +1,47 @@
+# Geometry boards for "Angles in a polygon". Corners land on the dots; split draws lines from A.
+
+# region: run
+widget: geometry
+shape: polygon
+sides: 4
+corners: 1,1; 9,2; 8,6; 3,7
+split: on
+# endregion
+
+# region: explain
+widget: geometry
+shape: polygon
+sides: choose
+split: on
+# endregion
+
+# region: explain-pic
+widget: geometry
+shape: polygon
+sides: 5
+corners: 2,1; 9,1; 10,5; 6,7; 1,5
+split: shown
+# endregion
+
+# region: pentagon
+widget: geometry
+shape: polygon
+sides: 5
+corners: 2,1; 9,1; 10,5; 6,7; 1,5
+split: on
+# endregion
+
+# region: dart
+widget: geometry
+shape: polygon
+sides: 4
+corners: 1,1; 10,1; 9,6; 3,7
+split: on
+# endregion
+
+# region: choose
+widget: geometry
+shape: polygon
+sides: choose
+split: on
+# endregion

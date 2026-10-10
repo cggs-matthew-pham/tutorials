@@ -1,0 +1,45 @@
+summary: Students split polygons into triangles from one corner, find that a shape with n sides makes n − 2 triangles, and use (n − 2) × 180° for the angle sum (AC9M7M05, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can split a polygon into triangles from one corner and find its angle sum.
+  - I can explain why a shape with n sides has an angle sum of (n − 2) × 180°.
+  - I can find the number of sides from an angle sum.
+before: |
+  Do the Run board and the Make task yourself first. Students need the last lesson: a triangle's angles add to 180°.
+
+  The method is to draw lines from one corner only (the board's Split into triangles). Students who split from a point in the middle get n triangles and must take off the full turn of 360° round that point: that is Ben's mistake, planted after the method.
+
+  The board only splits shapes whose corners all point out. A corner that points in is the edge case in Modify: the angle sum is still (n − 2) × 180°, with one angle over 180°.
+running:
+  - "Predict: take a show of hands. Students who chose 180° are treating every shape like a triangle; '4 × 90°' students may pick 360° for the wrong reason. Ask: does a lopsided quadrilateral still add to 360°?"
+  - "Run: ask students to drag the corners into a very lopsided quadrilateral and read both totals: the measured one and 2 × 180°."
+  - "Investigate: model the worked example live. Draw a pentagon, choose A, draw the two lines at writing pace, shade the 3 triangles, then write 3 × 180° = 540°. Reveal the prepared lines afterwards to compare. Then fill the table together and ask: what is the pattern?"
+  - "Modify: before the 1080° task ask students to predict the number of sides, then use More sides to check."
+  - "Practise: the 'backwards' question plants 5 (the number of triangles). Ask: how many sides make 5 triangles?"
+  - "Make: collect answers and reasons. Then the stretch: 1000 is not a multiple of 180."
+stuck:
+  - see: "A student counts n triangles (Ben's split from the middle)."
+    ask: "Which angles in your triangles are not corners of the polygon?"
+    fix: "Point at the angles round the middle point: a full turn, 360°. Take it off, or split from a corner instead."
+  - see: "A student draws lines from A to the corners next to it."
+    ask: "Do those lines make a new triangle?"
+    fix: "Those lines are sides. Join A only to the corners that are not next to it."
+  - see: "A student thinks each angle of any pentagon is 108°."
+    ask: "Is the pentagon on the board regular? What happens to one angle when you drag a corner?"
+    fix: "108° is each angle of a regular pentagon only: 540° shared equally. The total is 540° for every pentagon."
+stretch: "Why can no polygon have angles adding to 1000°? Each interior angle of a regular polygon with 20 sides? (162°.)"
+support: "Use the choose board (More sides) to count triangles for each shape. A printed table with the first two columns filled helps students see the pattern."
+leads: |
+  Next in class: finding unknown angles in triangles and polygons, giving the angle rule as the reason (node 3).
+
+  Where it leads: exterior angles (they add to 360° for any convex polygon), which regular polygons tessellate, and the turtle: a closed shape turns 360° in total, which the coding pathway uses for its polygons.
+exit:
+  q: "Find the angle sum of a heptagon (7 sides), and explain your method."
+  a: "900°. From one corner it splits into 7 − 2 = 5 triangles, and 5 × 180° = 900°."
+explain: |
+  To find the angle sum of a polygon, **split it into triangles from one corner**: draw lines from that corner to every corner that is not next to it.
+
+  A shape with $n$ sides splits into $n - 2$ triangles, and their angles exactly fill the polygon's corners. So the angle sum is $(n - 2) \times 180°$.
+
+  A quadrilateral: $2 \times 180° = 360°$. A pentagon: $3 \times 180° = 540°$. A hexagon: $4 \times 180° = 720°$.

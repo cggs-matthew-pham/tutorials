@@ -1,0 +1,47 @@
+# Geometry boards for "Angles in a triangle". Corners land on the dots; angles are measured to the nearest degree.
+
+# region: run
+widget: geometry
+shape: triangle
+corners: 2,1; 9,1; 5,6
+# endregion
+
+# region: explain
+widget: geometry
+shape: triangle
+corners: 2,1; 9,1; 6,6
+tear: on
+presets: on
+# endregion
+
+# region: explain-pic
+widget: geometry
+shape: triangle
+corners: 1,1; 7,1; 10,5
+# endregion
+
+# region: tear
+widget: geometry
+shape: triangle
+corners: 1,1; 8,1; 3,6
+tear: on
+# endregion
+
+# region: right
+widget: geometry
+shape: triangle
+corners: 2,1; 9,1; 5,6
+# endregion
+
+# region: flat
+widget: geometry
+shape: triangle
+corners: 2,1; 9,1; 5,6
+tear: on
+# endregion
+
+# region: make
+widget: geometry
+shape: triangle
+corners: 1,1; 7,1; 3,5
+# endregion
