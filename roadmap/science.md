@@ -2,6 +2,14 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: Explain it to me, batch 2 (11 Oct 2026, science chat)
+
+Voiced explain clips for the other 27 shared-board lessons: Biology 8 (4), 9 (6), 10 (DNA and genes, meiosis, Punnett), Earth and space 7 (5), 8 (layers), 9 (3) and 10 (5). Ports 8212–8238 (next free: 8239). Explain pictures on 17 of them; none where the widget isn't drawn on the board (cross, the pathway and race modes, feedback) or where the picture tool's smaller size makes the labels collide (the carbon cycle). Sunlight's picture uses a four-tile `explain-pic`.
+
+How the clips drive the boards (worth reusing): cell parts and spheres things by fill colour (`click: { selector: '#board [fill="#8e6bbf"]' }`), sliders by clicking then `press: End` or `Home` (a click lands in the middle), Punnett boxes by aria-label. A caption followed by a click gets a pause of about 0.33 s per spoken word so the board doesn't run ahead of the voice. Timed with flite: 21–31 s, Punnett 38 s (14 clicks).
+
+All 39 shared-board science lessons now have clips. Next: the science-board pilot (17 lessons on `playground-science/`).
+
 ## Done: kingdoms are not family trees (11 Oct 2026, Matthew's request)
 
 A colleague's objection: teaching kingdoms as the endpoint implies same kingdom = close relatives and hides that classification is a model revised under evidence. Year 7 Kingdoms now has two Explain questions on the main path (a mushroom's closer relative is a sea star, not a fern; why classification went from two kingdoms to five to three domains), plus the revision summary, explain text, clip, goals, teacher notes and primer. Year 10 lessons don't lean on kingdoms. Loop closed (11 Oct): Year 10 Natural selection (AC9S10U02 n2) has three Explain questions on the main path: a branching tree, not a ladder; DNA similarity tracks how recently species shared an ancestor; back to the Year 7 kingdoms (features can mislead about relatedness). The descriptor asks students to explain past and present diversity and analyse the evidence for evolution, so this sits inside it. Still open: a fuller evidence-for-evolution lesson (fossils, comparative anatomy, DNA) when the kit's later U02 nodes are available.

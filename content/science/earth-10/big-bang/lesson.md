@@ -4,6 +4,30 @@ unit: universe
 title: How did the universe begin?
 summary: "The big bang theory: space, time, matter and energy began about 13.8 billion years ago in an extremely hot, dense state, and the universe has expanded and cooled ever since: from particles to atoms, stars, galaxies and planets."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8234
+  url: http://127.0.0.1:8234/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A patch of the universe soon after the big bang: extremely hot and dense." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "The big bang"
+  say: "The universe began hot and dense, and has expanded and cooled ever since."
+  clip:
+    - caption: { text: "13.8 billion years ago: extremely hot and dense, and space began to expand.", say: "Thirteen point eight billion years ago, the universe was extremely hot and dense." }
+    - wait: 3940
+    - click: "Later →"
+    - click: "Later →"
+    - click: "Later →"
+    - caption: { text: "As it expanded it cooled: first nuclei, then atoms.", say: "As it expanded it cooled, forming first nuclei, then atoms." }
+    - wait: 2950
+    - click: "Later →"
+    - click: "Later →"
+    - click: "Later →"
+    - caption: { text: "Then stars and galaxies; heavier elements were made inside stars.", say: "Then came stars and galaxies; heavier elements were made inside stars." }
+    - wait: 600
 hook: "Every hydrogen atom in the water you drink was made in the first few minutes of the universe. The carbon in you was made inside stars."
 ---
 Before weighing the evidence for the big bang, you need a clear picture of what the theory says.

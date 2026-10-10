@@ -4,6 +4,27 @@ unit: moon
 title: Why are there two high tides a day?
 summary: "The moon's gravity pulls the oceans into two bulges, one facing the moon and one on the far side; the Earth spins through both, so most coasts get two high tides a day. Spring tides (biggest range) come at new and full moon, when the sun and moon pull in line; neap tides at the quarters."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8229
+  url: http://127.0.0.1:8229/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "The oceans pulled into two bulges by the moon (and two smaller ones by the sun)." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Tides"
+  say: "The moon pulls the oceans into two bulges; the Earth spins through both."
+  clip:
+    - caption: { text: "The moon's gravity pulls the oceans into two bulges.", say: "The moon's gravity pulls the oceans into two bulges." }
+    - wait: 2620
+    - click: "Play a day at the beach"
+    - wait: 1500
+    - caption: { text: "The Earth spins through both bulges: two high tides a day.", say: "The Earth spins through both bulges: two high tides a day." }
+    - wait: 2500
+    - click: "Moon: next quarter"
+    - caption: { text: "At the quarters, sun and moon pull at right angles: small neap tides.", say: "At the quarters, sun and moon pull at right angles: small neap tides." }
+    - wait: 800
 hook: "At a beach the water creeps up the sand and back down about every 12 and a half hours, and the biggest tides of the month always arrive near a new or full moon."
 ---
 You know the moon's phases and positions. This lesson connects them to the oceans.

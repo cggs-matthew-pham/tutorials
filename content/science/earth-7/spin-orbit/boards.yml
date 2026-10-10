@@ -10,3 +10,8 @@ widget: sky
 mode: earth
 place: Darwin
 # endregion
+
+# region: explain
+widget: sky
+mode: earth
+# endregion

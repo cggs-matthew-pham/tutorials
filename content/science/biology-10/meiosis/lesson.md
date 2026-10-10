@@ -4,6 +4,26 @@ unit: genetics
 title: Why is every sperm and egg different?
 summary: "Meiosis makes gametes. The chromosome pairs separate and each gamete gets one chromosome from each pair, chosen at random, so it has half the number and a different combination. With 23 pairs there are over 8 million combinations."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8223
+  url: http://127.0.0.1:8223/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Meiosis"
+  say: "Meiosis gives each gamete one chromosome from each pair, chosen at random."
+  clip:
+    - caption: { text: "Three pairs: one of each pair came from each parent.", say: "Three pairs of chromosomes: one of each pair came from each parent." }
+    - wait: 3610
+    - click: "Make a gamete"
+    - caption: { text: "A gamete gets one from each pair, chosen at random.", say: "A gamete gets one from each pair, chosen at random." }
+    - wait: 2950
+    - click: "Make a gamete"
+    - click: "Make a gamete"
+    - caption: { text: "Each gamete is a different mix: over 8 million in humans.", say: "Each gamete is a different mix: over eight million possible in humans." }
+    - wait: 600
 hook: "You and your brother or sister came from the same two parents. The chance that two of their sperm or eggs carry exactly the same chromosomes is tiny."
 ---
 Chromosomes come in pairs, one from each parent. This lesson: how gametes get half, and why each is different.

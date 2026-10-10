@@ -4,6 +4,25 @@ unit: control
 title: Nerve or hormone?
 summary: "The nervous system sends fast, short-lived electrical impulses along nerves to one place. The endocrine system releases hormones into the blood: slower, longer-lasting, and they reach every cell but act only on target cells."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8218
+  url: http://127.0.0.1:8218/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Nerves and hormones"
+  say: "Nerves are fast and targeted; hormones are slower, travel in the blood and last longer."
+  clip:
+    - caption: { text: "A nerve signal and a hormone, released at the same moment.", say: "A nerve signal and a hormone, released at the same moment." }
+    - wait: 3280
+    - click: "Send both signals"
+    - wait: 1500
+    - caption: { text: "The nerve impulse arrives first, at one muscle.", say: "The nerve impulse arrives first, at one muscle." }
+    - wait: 2500
+    - caption: { text: "The hormone travels in the blood: slower, but reaches many organs.", say: "The hormone travels in the blood: slower, but it reaches many organs." }
+    - wait: 2000
 hook: "A fright makes you jump in a fraction of a second. Your heart is still pounding a few minutes later. Two different systems are at work."
 ---
 The nervous system is one way the body sends messages. This lesson: the other way, and how they compare.

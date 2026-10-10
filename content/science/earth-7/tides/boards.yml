@@ -4,3 +4,8 @@
 widget: sky
 mode: tides
 # endregion
+
+# region: explain
+widget: sky
+mode: tides
+# endregion

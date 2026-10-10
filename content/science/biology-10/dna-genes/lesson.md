@@ -4,6 +4,29 @@ unit: genetics
 title: Where are the instructions?
 summary: "DNA carries the instructions for an organism. It is coiled into chromosomes in the nucleus; a gene is a section of DNA that codes for a protein. Alleles are different versions of the same gene."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8222
+  url: http://127.0.0.1:8222/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "From body to gene"
+  say: "DNA carries the instructions; a gene is a section of DNA."
+  clip:
+    - caption: { text: "Zoom in from a person to a single gene.", say: "Zoom in from a person to a single gene." }
+    - wait: 2620
+    - click: "Zoom in"
+    - caption: { text: "Nearly every cell has the same DNA, in its nucleus.", say: "Nearly every cell has the same DNA, in its nucleus." }
+    - wait: 2950
+    - click: "Zoom in"
+    - click: "Zoom in"
+    - caption: { text: "A chromosome is one long, coiled DNA molecule.", say: "A chromosome is one long, coiled DNA molecule." }
+    - wait: 2290
+    - click: "Zoom in"
+    - click: "Zoom in"
+    - caption: { text: "A gene is a section of DNA: the code for one protein.", say: "A gene is a section of DNA: the code for one protein." }
 hook: "Unwound, the DNA in one of your cells would be about two metres long. It fits in a nucleus a hundredth of a millimetre across."
 ---
 In Year 9 you learnt gametes carry half the chromosomes. This lesson: what a chromosome is made of, and what a gene is.

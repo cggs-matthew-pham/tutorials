@@ -4,6 +4,28 @@ unit: climate
 title: Where does the sunlight go?
 summary: "The sun is Earth's main energy source. Some sunlight is reflected straight back to space and the rest is absorbed and warms the planet. How much is reflected (the albedo) depends on the surface: ice reflects most, oceans and forests absorb most."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8238
+  url: http://127.0.0.1:8238/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain-pic, caption: "Surfaces under the sun: bright ones (ice) reflect most sunlight; dark ones (ocean, forest) absorb most." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Where sunlight goes"
+  say: "Some sunlight is reflected; the rest is absorbed and warms the surface."
+  clip:
+    - caption: { text: "Sunlight reaches the surface. Bright surfaces reflect most of it.", say: "Sunlight reaches the surface. Bright surfaces reflect most of it." }
+    - wait: 2950
+    - click: "Melt the ice"
+    - wait: 800
+    - caption: { text: "Melt the ice: dark ocean absorbs more, so the surface warms more.", say: "Melt the ice, and darker ocean absorbs more, so the surface warms more." }
+    - wait: 3940
+    - click: "Freeze the oceans"
+    - wait: 800
+    - caption: { text: "Ice reflects most sunlight: about 80%.", say: "Ice reflects most sunlight, about eighty percent." }
+    - wait: 600
 hook: "Fresh snow reflects about 80% of the sunlight that hits it. The open ocean reflects about 6%. When sea ice melts, that difference matters for the whole planet."
 ---
 To understand climate, start with the energy coming in.

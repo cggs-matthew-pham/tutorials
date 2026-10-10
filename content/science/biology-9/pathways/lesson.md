@@ -4,6 +4,27 @@ unit: control
 title: Who decides?
 summary: "The central nervous system (brain and spinal cord) is the command centre: sensory neurons carry impulses in from receptors, motor neurons carry them out to effectors. Reflexes go through the spinal cord without waiting for the brain."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8219
+  url: http://127.0.0.1:8219/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Who decides?"
+  say: "The central nervous system, the brain and spinal cord, decides the response."
+  clip:
+    - caption: { text: "Stimulus, receptor, command centre, effector, response.", say: "Stimulus, receptor, command centre, effector, response." }
+    - wait: 1630
+    - click: "Stepping on a drawing pin"
+    - expect: { selector: "body", contains: "Spinal cord" }
+    - caption: { text: "A reflex goes through the spinal cord: automatic and fast.", say: "A reflex goes through the spinal cord: automatic and fast." }
+    - wait: 2950
+    - click: "A ball thrown towards you"
+    - expect: { selector: "body", contains: "Brain" }
+    - caption: { text: "Catching a ball: the brain decides.", say: "Catching a ball: the brain decides." }
+    - caption: { text: "Brain and spinal cord together are the central nervous system.", say: "Brain and spinal cord together are the central nervous system." }
 hook: "Step on a pin and your foot is off the floor before you've said 'ouch'. Your brain wasn't the one who decided."
 ---
 Every response follows the same pathway. This lesson: building the pathway yourself, and which part of the nervous system decides.

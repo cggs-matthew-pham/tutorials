@@ -4,6 +4,26 @@ unit: climate
 title: How do greenhouse gases warm the Earth?
 summary: "Earth gives off infrared. Greenhouse gases (water vapour, CO₂, methane, nitrous oxide) absorb some of it and send part back down, slowing the energy going out. Without them Earth would average about −18 °C. Adding more upsets the balance, and Earth warms until it is restored."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8236
+  url: http://127.0.0.1:8236/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "Sunlight in; infrared from the surface, part absorbed by greenhouse gases and sent back down." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "The greenhouse effect"
+  say: "Greenhouse gases slow the loss of infrared, keeping Earth warmer."
+  clip:
+    - caption: { text: "Greenhouse gases absorb infrared and send some back down.", say: "Greenhouse gases absorb infrared from the surface and send some back down." }
+    - wait: 3610
+    - click: "Remove all greenhouse gases"
+    - click: "Run 50 years"
+    - wait: 2500
+    - caption: { text: "Without them, Earth would cool to about −18 °C.", say: "Without them, Earth would cool to about minus eighteen degrees." }
+    - caption: { text: "Extra greenhouse gases do the opposite: Earth warms.", say: "Extra greenhouse gases do the opposite, and Earth warms." }
+    - wait: 600
 hook: "The moon is the same distance from the sun as Earth, but its average surface temperature is far below freezing. Earth's thin blanket of gases makes the difference."
 ---
 You know Earth balances energy in and out. This lesson: what the air does to the energy going out.

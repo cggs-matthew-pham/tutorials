@@ -20,3 +20,10 @@ mode: punnett
 gene: B | black fur | b | white fur
 parents: choose
 # endregion
+
+# region: explain
+widget: cross
+mode: punnett
+gene: B | brown eyes | b | blue eyes
+parents: Bb x Bb
+# endregion

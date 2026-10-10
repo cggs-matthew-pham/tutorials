@@ -11,3 +11,8 @@ widget: cell
 show: animal, plant
 find: membrane, cytoplasm
 # endregion
+
+# region: explain
+widget: cell
+show: bacterium, yeast
+# endregion

@@ -4,3 +4,8 @@
 widget: cell
 show: zoom
 # endregion
+
+# region: explain
+widget: cell
+show: zoom
+# endregion

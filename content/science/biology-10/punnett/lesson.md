@@ -4,6 +4,36 @@ unit: genetics
 title: Can you predict the offspring?
 summary: "A Punnett square shows every way two parents' gametes can combine for one gene. It gives the probability of each genotype and phenotype (such as 3 in 4 showing the dominant trait for Pp × Pp), not a guaranteed count."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8224
+  url: http://127.0.0.1:8224/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "A Punnett square"
+  say: "A Punnett square shows every combination of the parents' gametes."
+  clip:
+    - caption: { text: "Each Bb parent makes two kinds of gamete: B or b.", say: "Each Bb parent makes two kinds of gamete: B or b." }
+    - wait: 3280
+    - click: { selector: "[aria-label=\"Parent 1 gamete 1\"]" }
+    - click: { selector: "[aria-label=\"Parent 1 gamete 2\"]" }
+    - click: { selector: "[aria-label=\"Parent 1 gamete 2\"]" }
+    - click: { selector: "[aria-label=\"Parent 2 gamete 1\"]" }
+    - click: { selector: "[aria-label=\"Parent 2 gamete 2\"]" }
+    - click: { selector: "[aria-label=\"Parent 2 gamete 2\"]" }
+    - caption: { text: "Every combination of gametes fills the grid.", say: "Every combination of gametes fills the grid." }
+    - wait: 1960
+    - click: { selector: "[aria-label=\"Offspring 1, 1\"]" }
+    - click: { selector: "[aria-label=\"Offspring 1, 2\"]" }
+    - click: { selector: "[aria-label=\"Offspring 1, 2\"]" }
+    - click: { selector: "[aria-label=\"Offspring 2, 1\"]" }
+    - click: { selector: "[aria-label=\"Offspring 2, 1\"]" }
+    - click: { selector: "[aria-label=\"Offspring 2, 2\"]" }
+    - click: { selector: "[aria-label=\"Offspring 2, 2\"]" }
+    - click: { selector: "[aria-label=\"Offspring 2, 2\"]" }
+    - caption: { text: "1 BB : 2 Bb : 1 bb. Each child has a 3 in 4 chance of brown eyes.", say: "One BB, two Bb, one bb: a three in four chance of brown eyes." }
 hook: "Two purple-flowered pea plants can have white-flowered offspring. Gregor Mendel counted thousands of them in the 1860s and found the same ratio every time."
 ---
 Gametes get one of each pair at random. This lesson: following one gene from parents to offspring.

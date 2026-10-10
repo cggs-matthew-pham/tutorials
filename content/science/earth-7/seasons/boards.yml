@@ -18,3 +18,9 @@ mode: earth
 place: Canberra
 tilt: choose
 # endregion
+
+# region: explain
+widget: sky
+mode: earth
+place: Canberra
+# endregion

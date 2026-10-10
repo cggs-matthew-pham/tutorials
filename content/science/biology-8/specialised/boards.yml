@@ -9,3 +9,8 @@ show: redblood, nerve
 widget: cell
 show: muscle, roothair
 # endregion
+
+# region: explain
+widget: cell
+show: redblood, nerve
+# endregion

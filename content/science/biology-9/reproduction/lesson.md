@@ -4,6 +4,27 @@ unit: reproduction
 title: Why don't brothers and sisters look the same?
 summary: "In sexual reproduction each offspring gets a random half of each parent's genes, so offspring vary. In asexual reproduction one parent makes genetically identical clones. Variation helps a population survive change; asexual reproduction is fast and needs no partner."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8220
+  url: http://127.0.0.1:8220/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Sexual and asexual reproduction"
+  say: "Sexual reproduction gives varied offspring; asexual reproduction gives clones."
+  clip:
+    - caption: { text: "Two parents, each with two alleles for three genes.", say: "Two parents, each with two alleles for three genes." }
+    - wait: 2620
+    - click: "Sexual reproduction: one offspring"
+    - click: "Sexual reproduction: one offspring"
+    - click: "Sexual reproduction: one offspring"
+    - caption: { text: "Each offspring gets a random half from each parent, so they vary.", say: "Each offspring gets a random half from each parent, so they vary." }
+    - wait: 3610
+    - click: "Asexual reproduction: a clone of parent 1"
+    - caption: { text: "One parent: a clone, exactly the same.", say: "With one parent, the offspring is a clone, exactly the same." }
+    - wait: 600
 hook: "Two kittens from the same litter can be black and ginger. A strawberry plant's runners grow into plants identical to it. Same question, two answers."
 ---
 Gametes carry half a parent's chromosomes. This lesson: what that means for the offspring.

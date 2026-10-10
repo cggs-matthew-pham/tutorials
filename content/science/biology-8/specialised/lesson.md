@@ -4,6 +4,27 @@ unit: systems
 title: Why are cells different shapes?
 summary: "Almost all your cells have the same DNA, but they specialise: each develops a shape and contents that suit its job, like a red blood cell packed with haemoglobin or a nerve cell with a long axon."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8215
+  url: http://127.0.0.1:8215/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A red blood cell (no nucleus, biconcave) and a nerve cell (a long axon): shapes that suit their jobs." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Specialised cells"
+  say: "Cells with the same DNA specialise: each shape suits its job."
+  clip:
+    - caption: { text: "Same DNA, different jobs: each cell's shape suits its job.", say: "Same DNA, different jobs: each cell's shape suits its job." }
+    - wait: 2950
+    - click: { selector: "#board [fill=\"#ea8f8f\"]" }
+    - expect: { selector: "body", contains: "no nucleus" }
+    - caption: { text: "A red blood cell has no nucleus, leaving room for haemoglobin.", say: "A red blood cell has no nucleus, leaving room for haemoglobin." }
+    - wait: 3280
+    - click: { selector: "#board [fill=\"#f1e3a6\"]" }
+    - expect: { selector: "body", contains: "Axon." }
+    - caption: { text: "A nerve cell's long axon carries signals a long way.", say: "A nerve cell's long axon carries signals a long way." }
 hook: "A nerve cell in your leg can be a metre long. A red blood cell is a tiny squashed disc with no nucleus. Same DNA, same body. Why so different?"
 ---
 Last unit: what all cells share. This one: why they differ.

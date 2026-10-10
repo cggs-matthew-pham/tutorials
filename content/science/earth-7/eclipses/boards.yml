@@ -10,3 +10,8 @@ widget: sky
 mode: eclipse
 tilt: choose
 # endregion
+
+# region: explain
+widget: sky
+mode: eclipse
+# endregion

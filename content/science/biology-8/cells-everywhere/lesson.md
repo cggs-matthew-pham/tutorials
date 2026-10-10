@@ -4,6 +4,25 @@ unit: cells
 title: Is everything alive made of cells?
 summary: "Cell theory: all living things, including plants, fungi and bacteria, are made of cells. Some organisms are a single cell; others are made of many."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8213
+  url: http://127.0.0.1:8213/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A bacterium and a yeast cell: single-celled living things." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Living things are made of cells"
+  say: "All living things are made of cells: one, or many."
+  clip:
+    - caption: { text: "A bacterium and a yeast cell: each is a whole living thing.", say: "A bacterium and a yeast cell: each one is a whole living thing." }
+    - wait: 3940
+    - click: { selector: "#board [fill=\"#8e6bbf\"]" }
+    - expect: { selector: "body", contains: "Nucleus." }
+    - caption: { text: "Yeast has a nucleus; a bacterium has none, but both are cells.", say: "Yeast has a nucleus; a bacterium has none, but both are cells." }
+    - caption: { text: "Your body is trillions of cells. A bacterium is just one.", say: "Your body is trillions of cells; a bacterium is just one." }
+    - wait: 600
 hook: "A gum tree, a mushroom, the bacteria in yoghurt and you. One thing they share that a rock, a cloud and a robot don't."
 ---
 In Year 3 you sorted living from non-living. This lesson gives the deeper reason.

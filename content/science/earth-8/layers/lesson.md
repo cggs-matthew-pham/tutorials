@@ -4,6 +4,28 @@ unit: plates
 title: What's inside the Earth?
 summary: "Earth has layers: a thin solid crust, a thick solid mantle that flows very slowly, a liquid outer core and a solid inner core. Temperature and pressure rise with depth. The lithosphere (crust plus the rigid top of the mantle) is the rigid outer shell that breaks into plates."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8230
+  url: http://127.0.0.1:8230/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A wedge of the Earth: crust, mantle, outer core and inner core (outer layers drawn thicker than to scale)." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Earth's layers"
+  say: "Crust, mantle, outer core and inner core: hotter and higher pressure with depth."
+  clip:
+    - caption: { text: "A wedge of the Earth, from the crust to the centre.", say: "A wedge of the Earth, from the crust to the centre." }
+    - wait: 3280
+    - click: { selector: "#lyd" }
+    - expect: { selector: "body", contains: "Outer core" }
+    - caption: { text: "About 3,000 km down: the liquid outer core.", say: "About three thousand kilometres down: the liquid outer core." }
+    - wait: 4200
+    - press: "End"
+    - expect: { selector: "body", contains: "Inner core" }
+    - caption: { text: "The centre: the solid inner core, hottest and under the most pressure.", say: "At the centre, the inner core is solid: hottest, and under the most pressure." }
+    - wait: 600
 hook: "The deepest hole ever drilled reached about 12 km. The centre of the Earth is 6371 km down. Everything we know about the rest comes from earthquakes."
 ---
 Before plates can make sense, you need a picture of what they sit on.

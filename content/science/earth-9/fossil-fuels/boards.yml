@@ -12,3 +12,9 @@ mode: cycle
 combustion: on
 start: today
 # endregion
+
+# region: explain
+widget: carbon
+mode: cycle
+combustion: on
+# endregion

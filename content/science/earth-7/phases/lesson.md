@@ -4,6 +4,27 @@ unit: moon
 title: Why does the moon change shape?
 summary: "The sun always lights half of the moon. As the moon goes round the Earth (29.5 days from new moon to new moon), we see more or less of that lit half: the phases. They are not caused by Earth's shadow."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8226
+  url: http://127.0.0.1:8226/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "The moon orbiting the Earth, lit on one side by the sun, and how it looks from Earth." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "The moon's phases"
+  say: "The sun always lights half the moon; we see different amounts of that half."
+  clip:
+    - caption: { text: "The sun always lights half the moon.", say: "The sun always lights half the moon." }
+    - wait: 1960
+    - click: "Next phase"
+    - click: "Next phase"
+    - caption: { text: "As it orbits, we see more or less of that lit half.", say: "As it orbits, we see more or less of that lit half." }
+    - wait: 3610
+    - click: "Next phase"
+    - caption: { text: "Full moon: we see the whole lit half. A cycle takes 29.5 days.", say: "At full moon we see the whole lit half; a cycle takes a month." }
+    - wait: 600
 hook: "The moon looks like a thin smile one week and a bright full disc two weeks later. Nothing about the moon itself has changed."
 ---
 You have watched the moon's phases. This lesson explains them.

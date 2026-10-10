@@ -4,6 +4,25 @@ unit: earth
 title: Why is summer hot?
 summary: "Seasons are caused by the Earth's tilted axis, not its distance from the sun. Leaning towards the sun gives a higher noon sun (concentrated light) and longer days: summer. The two hemispheres have opposite seasons."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8227
+  url: http://127.0.0.1:8227/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "Earth's orbit from above, its axis always leaning the same way; from the side, Canberra tilted towards the sun in December." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Why summer is hot"
+  say: "Seasons come from the Earth's tilt, not its distance from the sun."
+  clip:
+    - caption: { text: "December: Canberra leans towards the sun. Long days, high noon sun.", say: "In December, Canberra leans towards the sun: long days and a high noon sun." }
+    - wait: 800
+    - click: { selector: "#skyd" }
+    - caption: { text: "July: Canberra leans away. Short days, low sun: winter.", say: "In July, Canberra leans away: short days, a low sun, winter." }
+    - wait: 1200
+    - caption: { text: "Earth is closest to the sun in January, so distance isn't the cause.", say: "Earth is closest to the sun in January, so distance isn't the cause." }
+    - wait: 600
 hook: "On 4 January the Earth is at its closest to the sun all year, five million kilometres closer than in July. That day it's summer in Canberra and winter in London."
 ---
 The Earth's axis is tilted and always points the same way. This lesson: what that does across a year.

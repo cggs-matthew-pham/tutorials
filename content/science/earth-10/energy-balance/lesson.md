@@ -4,6 +4,28 @@ unit: climate
 title: What keeps Earth's temperature steady?
 summary: "Earth is in energy balance when the energy it absorbs from the sun equals the energy it gives off to space as infrared. Energy moves between the spheres by radiation, conduction and convection, and the oceans store heat. Upset the balance and Earth warms or cools until it is restored."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8235
+  url: http://127.0.0.1:8235/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "Sunlight in, some reflected, the rest absorbed; infrared given off to space." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Energy balance"
+  say: "Earth's temperature settles where energy out equals energy in."
+  clip:
+    - caption: { text: "Energy in equals energy out, so the temperature stays steady.", say: "Energy in equals energy out, so the temperature stays steady." }
+    - wait: 2950
+    - click: { selector: "#csun" }
+    - press: "End"
+    - caption: { text: "More sunlight: now energy in is bigger than energy out.", say: "With more sunlight, energy in is bigger than energy out." }
+    - wait: 2950
+    - click: "Run 50 years"
+    - wait: 2500
+    - caption: { text: "Earth warms until the infrared it gives off catches up: a new balance.", say: "Earth warms until the infrared it gives off catches up: a new balance." }
+    - wait: 600
 hook: "Every second, the sun pours more energy onto Earth than humanity uses in a year. Yet, year to year, Earth's average temperature barely changes. Where does it all go?"
 ---
 Sunlight comes in and some is absorbed. This lesson: where that energy goes.

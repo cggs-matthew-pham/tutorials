@@ -4,6 +4,28 @@ unit: carbon
 title: Where does the carbon in a tree go?
 summary: "Photosynthesis moves carbon from the atmosphere into living things; respiration and decomposition move it back. These huge flows nearly balance, so the air's CO₂ stays steady until something upsets them."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8231
+  url: http://127.0.0.1:8231/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Photosynthesis and respiration"
+  say: "Photosynthesis takes carbon from the air; respiration and decomposition return it."
+  clip:
+    - caption: { text: "Carbon flows between the air, living things and the oceans.", say: "Carbon flows between the air, living things and the oceans." }
+    - wait: 2950
+    - click: "Run 10 years"
+    - wait: 1500
+    - caption: { text: "In balance, as much leaves the air as enters it: CO₂ stays steady.", say: "In balance, as much carbon leaves the air as enters it." }
+    - wait: 3280
+    - click: "Photosynthesis: on"
+    - click: "Run 10 years"
+    - wait: 1500
+    - caption: { text: "Switch off photosynthesis, and CO₂ builds up in the air.", say: "Switch off photosynthesis, and carbon dioxide builds up in the air." }
+    - wait: 600
 hook: "A big gum tree can weigh many tonnes. Almost all of that mass came out of the air."
 ---
 You know the four spheres. This lesson follows carbon between two of them.

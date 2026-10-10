@@ -4,6 +4,25 @@ unit: universe
 title: How do we know the universe is expanding?
 summary: "Light from distant galaxies is redshifted: shifted to longer wavelengths, so they are moving away. Farther galaxies move away faster (Hubble's law), exactly what an expanding universe predicts, from any galaxy. Run backwards, everything was once together: evidence for the big bang."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8237
+  url: http://127.0.0.1:8237/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A field of galaxies. When space expands, every galaxy moves away from every other, farther ones faster." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "An expanding universe"
+  say: "Space is expanding, so farther galaxies move away faster, from anywhere."
+  clip:
+    - caption: { text: "A field of galaxies. Now let space expand.", say: "Here is a field of galaxies. Now let space expand." }
+    - wait: 2950
+    - click: "Let space expand"
+    - wait: 3000
+    - caption: { text: "Every distance stretches, so farther galaxies move away faster.", say: "Every distance stretches, so farther galaxies move away faster." }
+    - caption: { text: "Their light is stretched too: redshift. And it looks the same from any galaxy.", say: "Their light is stretched too: redshift. It looks the same from any galaxy." }
+    - wait: 600
 hook: "In 1929 Edwin Hubble found that almost every galaxy is moving away from us. Does that put us at the centre of the universe?"
 ---
 The big bang model predicts an expanding universe. This lesson tests that prediction.

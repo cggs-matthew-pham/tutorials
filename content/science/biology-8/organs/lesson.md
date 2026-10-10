@@ -4,6 +4,28 @@ unit: systems
 title: What is an organ made of?
 summary: "An organ is made of several different tissues working together. A leaf has epidermis, palisade and spongy mesophyll and vascular tissue; the heart has cardiac muscle, a lining, connective tissue and nervous tissue."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8214
+  url: http://127.0.0.1:8214/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A leaf in cross-section: epidermis, two kinds of mesophyll, xylem and phloem, each a tissue." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "A leaf is an organ"
+  say: "An organ is several tissues working together."
+  clip:
+    - caption: { text: "A leaf is an organ: several tissues working together.", say: "A leaf is an organ: several tissues working together." }
+    - wait: 2620
+    - click: { selector: "#board [fill=\"#7cb860\"]" }
+    - expect: { selector: "body", contains: "Palisade mesophyll." }
+    - caption: { text: "Palisade mesophyll does most of the photosynthesis.", say: "Palisade mesophyll does most of the photosynthesis." }
+    - wait: 1960
+    - click: { selector: "#board [fill=\"#c8d6e8\"]" }
+    - expect: { selector: "body", contains: "Xylem" }
+    - caption: { text: "Xylem brings water in; phloem carries sugar away.", say: "Xylem brings water in; phloem carries sugar away." }
+    - caption: { text: "Cells make tissues; tissues make organs; organs make systems.", say: "Cells make tissues; tissues make organs; organs make systems." }
 hook: "A leaf looks like one green sheet. Slice it thinly and look through a microscope, and you find at least five different layers, each doing a different job."
 ---
 Cells specialise; similar cells form tissues. This lesson: tissues build organs.

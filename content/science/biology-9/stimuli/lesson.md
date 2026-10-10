@@ -4,6 +4,26 @@ unit: control
 title: What counts as a stimulus?
 summary: "A stimulus is any change the body detects, outside it or inside it. Every response follows the same pathway: stimulus, receptor, command centre, effector, response."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8221
+  url: http://127.0.0.1:8221/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Stimulus to response"
+  say: "A stimulus is any change the body detects, inside or outside it."
+  clip:
+    - caption: { text: "A stimulus is any change the body detects.", say: "A stimulus is any change the body detects." }
+    - wait: 2290
+    - click: "Touching a hot pan"
+    - expect: { selector: "body", contains: "Arm muscles" }
+    - caption: { text: "A change outside: receptors detect it, and muscles respond.", say: "A change outside: receptors detect it, and muscles respond." }
+    - wait: 2620
+    - click: "Body getting too hot"
+    - expect: { selector: "body", contains: "Sweat glands" }
+    - caption: { text: "A change inside counts too: the brain detects it, and you sweat.", say: "A change inside counts too: the brain detects it, and you sweat." }
 hook: "You pull your hand off a hot pan before you feel the pain. After lunch, your blood sugar is brought back down without you noticing at all. Both are responses to a stimulus."
 ---
 Earlier you met body systems. This lesson: how the body detects change and responds.

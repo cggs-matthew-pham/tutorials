@@ -11,3 +11,8 @@ widget: cell
 show: pollen, egg
 find: nucleus, pwall
 # endregion
+
+# region: explain
+widget: cell
+show: sperm, egg
+# endregion

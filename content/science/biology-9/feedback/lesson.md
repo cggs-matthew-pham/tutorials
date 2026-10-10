@@ -4,6 +4,28 @@ unit: control
 title: How does your body stay at 37 °C?
 summary: "Homeostasis keeps internal conditions near a set point by negative feedback: a change away from the set point is detected, and the response reverses it. Body temperature is controlled by the hypothalamus through sweating, shivering and blood flow."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8216
+  url: http://127.0.0.1:8216/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Negative feedback"
+  say: "Negative feedback keeps body temperature near its set point."
+  clip:
+    - caption: { text: "Body temperature stays near 37 °C, its set point.", say: "Body temperature stays near thirty seven degrees, its set point." }
+    - wait: 2950
+    - click: { selector: "#air" }
+    - press: "End"
+    - caption: { text: "Very hot air: the body starts to warm.", say: "In very hot air, the body starts to warm." }
+    - wait: 2500
+    - caption: { text: "Sweating and flushed skin bring it back down: negative feedback.", say: "Sweating and flushed skin bring it back down: negative feedback." }
+    - wait: 2500
+    - press: "Home"
+    - caption: { text: "Cold air: shivering warms it back up.", say: "In cold air, shivering warms it back up." }
+    - wait: 3000
 hook: "On a 45 °C day in Marble Bar or a frosty morning in Canberra, your body stays within about half a degree of 37 °C. Something is constantly correcting it."
 ---
 Responses follow a pathway. This lesson: a pathway whose response feeds back to switch off its own stimulus.

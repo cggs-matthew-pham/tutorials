@@ -4,6 +4,26 @@ unit: carbon
 title: What does burning fossil fuels do to the carbon cycle?
 summary: "Fossil fuels are carbon taken out of the cycle and stored in the geosphere over millions of years. Burning them returns it to the atmosphere in years, faster than plants and oceans can take it back, so CO₂ in the air rises."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8232
+  url: http://127.0.0.1:8232/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Burning fossil fuels"
+  say: "Burning moves carbon stored over millions of years into the air in years."
+  clip:
+    - caption: { text: "Fossil fuels store carbon locked away over millions of years.", say: "Fossil fuels store carbon locked away over millions of years." }
+    - wait: 2950
+    - click: { selector: "#cbn" }
+    - caption: { text: "Burning about 10 billion tonnes a year puts it back into the air.", say: "Burning about ten billion tonnes a year puts it back into the air." }
+    - wait: 3940
+    - click: "Run 50 years"
+    - wait: 2000
+    - caption: { text: "Oceans and plants take up part; the rest builds up, so CO₂ rises.", say: "Oceans and plants take up part; the rest builds up, so carbon dioxide rises." }
+    - wait: 600
 hook: "Coal is a forest from 300 million years ago. Burning it takes seconds."
 ---
 Photosynthesis and respiration balance. This lesson: what happens when a new flow joins in.

@@ -4,6 +4,31 @@ unit: carbon
 title: What are Earth's spheres?
 summary: "Earth can be described as four interacting spheres: the atmosphere (air), biosphere (living things), hydrosphere (water) and geosphere (rock, soil and magma). Many things sit where spheres meet."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8233
+  url: http://127.0.0.1:8233/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A landscape with things from all four spheres: air, living things, water and rock." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Earth's spheres"
+  say: "Atmosphere, biosphere, hydrosphere and geosphere overlap and interact."
+  clip:
+    - caption: { text: "Air, living things, water and rock: Earth's four spheres.", say: "Air, living things, water and rock: Earth's four spheres." }
+    - wait: 2620
+    - click: { selector: "#board [fill=\"#3f8a3a\"]" }
+    - click: "Biosphere"
+    - caption: { text: "A tree is part of the biosphere.", say: "A tree is part of the biosphere." }
+    - wait: 1960
+    - click: { selector: "#board [fill=\"#2e6db8\"]" }
+    - click: "Hydrosphere"
+    - caption: { text: "The ocean is part of the hydrosphere.", say: "The ocean is part of the hydrosphere." }
+    - wait: 1960
+    - click: { selector: "#board [fill=\"#7a5636\"]" }
+    - caption: { text: "Soil sits where spheres meet: rock, water, air and living things.", say: "Soil sits where spheres meet: rock, water, air and living things." }
+    - wait: 600
 hook: "A single bushfire involves all of Earth: burning trees, smoke in the air, ash washed into rivers and scorched soil. Scientists use four 'spheres' to keep track of it."
 ---
 To follow carbon around the Earth, you first need a map of where it can be.

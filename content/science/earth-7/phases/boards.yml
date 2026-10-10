@@ -18,3 +18,8 @@ widget: sky
 mode: moon
 view: north
 # endregion
+
+# region: explain
+widget: sky
+mode: moon
+# endregion

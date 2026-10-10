@@ -9,3 +9,8 @@ show: leaf
 widget: cell
 show: heart
 # endregion
+
+# region: explain
+widget: cell
+show: leaf
+# endregion

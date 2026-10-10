@@ -4,6 +4,25 @@ unit: reproduction
 title: What makes a sex cell special?
 summary: "Gametes (sperm and egg, or the nuclei in pollen and ovules) carry half the usual number of chromosomes, so fertilisation restores the full set. Each is specialised: sperm to swim and get in, the egg to feed the embryo and let only one sperm in."
 language: science
+voice: { name: bf_emma, speed: 1.05 }
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8217
+  url: http://127.0.0.1:8217/index.html
+  readySelector: "#gpanel"
+  layout: full
+explainPicture: { ref: boards.yml#explain, caption: "A sperm (head, midpiece, tail) and an egg (much larger, with a food store): each carries 23 chromosomes." }
+explainClip:
+  query: { code: "@boards.yml#explain", fresh: 1, id: explain }
+  caption: "Sperm and egg"
+  say: "Gametes carry half the chromosomes, so fertilisation restores the full number."
+  clip:
+    - caption: { text: "A sperm and an egg: each carries half the chromosomes.", say: "A sperm and an egg: each carries half the chromosomes." }
+    - wait: 2950
+    - click: { selector: "#board [fill=\"#e39b4c\"]" }
+    - expect: { selector: "body", contains: "Midpiece" }
+    - caption: { text: "The midpiece is packed with mitochondria to power the tail.", say: "The midpiece is packed with mitochondria to power the tail." }
+    - caption: { text: "23 chromosomes from each gamete make 46 in the fertilised egg.", say: "Twenty three from each gamete make forty six in the fertilised egg." }
+    - wait: 600
 hook: "A human egg is just big enough to see without a microscope. A sperm is one of the smallest cells in the body. Together they make one cell that grows into a person."
 ---
 In Year 8 you met specialised cells. This lesson: the cells made for reproduction.

@@ -4,3 +4,8 @@
 widget: climate
 mode: greenhouse
 # endregion
+
+# region: explain
+widget: climate
+mode: greenhouse
+# endregion
