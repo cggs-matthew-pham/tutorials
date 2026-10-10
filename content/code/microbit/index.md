@@ -1,6 +1,7 @@
 ---
 title: micro:bit Foundations
 summary: Program a micro:bit with blocks in the simulator. Pictures, buttons, sensors, decisions, lists, functions and radio, ending in a reaction game.
+tagline: "Make a micro:bit show pictures, sense the world and play a reaction game."
 order: 1
 challenge: challenge
 units:

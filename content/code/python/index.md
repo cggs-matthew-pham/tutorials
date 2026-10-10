@@ -1,6 +1,7 @@
 ---
 title: Python Foundations with Turtle
 summary: Learn Python by drawing with a turtle.
+tagline: "Draw with code, then build your own catch-the-turtle game."
 order: 1
 challenge: challenge
 units:

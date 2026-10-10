@@ -18,6 +18,7 @@ import { snippetId, unlockKind, pictureSpec, usesBoardPictures, pictureBoard, ma
 import { loadLessons, validateLesson, getSnippet, loadDirMeta, loadSnippetFiles, loadSharedModules, CONTENT_ROOT } from './lesson.mjs';
 import { buildPlayground, buildPyPlayground, buildHtmlPlayground, buildMathsPlayground, buildSciencePlayground, buildKatex, buildNumbas, buildMakecodePlayground, buildExplainStage } from './build-playground.mjs';
 import { buildCreate } from './build-create.mjs';
+import { layoutTrail, trailHtml, TRAIL_CSS } from './trail.mjs';
 import { markedMath, textWithMath, workedHtml } from './maths.mjs';
 import { FORMS_JS, NUMBAS_VERSION } from './maths-forms.mjs';
 import { loadAllMathsCards, mathsRefItem, mathsCheatBody, mathsCheatMd, MATHS_CARD_CSS } from './maths-cards.mjs';
@@ -308,6 +309,7 @@ for (const path of [...new Set(lessons.map((l) => l.slug.split('/').slice(0, -1)
 }
 writeFileSync(join(OUT, 'progress-manifest.json'), JSON.stringify(manifest));
 copyFileSync(join('site', 'progress.js'), join(OUT, 'progress.js'));
+copyFileSync(join('site', 'trail.js'), join(OUT, 'trail.js')); // the trail map on pathway pages (tools/trail.mjs)
 copyFileSync(join('site', 'check.js'), join(OUT, 'check.js')); // the Check your school page (content/check.md)
 
 const sharedModuleNames = Object.keys(loadSharedModules());
@@ -390,9 +392,10 @@ for (const node of dirs.values()) {
       if (c.path) {
         const d = dirs.get(c.path);
         if (!d) throw new Error(`${node.path}/index.md: pathway course "${c.path}" is not a folder of lessons`);
-        return `<a class="pcard" href="${esc(up + c.path)}/"><b>${esc(d.title)}</b>${d.summary ? `<span>${esc(d.summary)}</span>` : ''}${after(c)}</a>`;
+        const tag = d.meta?.tagline || c.tagline;
+        return `<a class="pcard" href="${esc(up + c.path)}/"><b>${esc(d.title)}</b>${tag ? `<span class="ptag">${esc(tag)}</span>` : ''}${d.summary ? `<span>${esc(d.summary)}</span>` : ''}${after(c)}</a>`;
       }
-      return `<div class="pcard soon"><b>${esc(c.title)}</b>${c.summary ? `<span>${esc(c.summary)}</span>` : ''}${after(c)}<em>Coming later</em></div>`;
+      return `<div class="pcard soon"><b>${esc(c.title)}</b>${c.tagline ? `<span class="ptag">${esc(c.tagline)}</span>` : ''}${c.summary ? `<span>${esc(c.summary)}</span>` : ''}${after(c)}<em>Coming later</em></div>`;
     };
     const stage = (courses, name, label, up) => { const cs = courses.filter((c) => (c.stage || 'foundations') === name); return cs.length ? `<div class="pstage"><h3>${label}</h3><div class="pcards">${cs.map((c) => card(c, up)).join('')}</div></div>` : ''; };
     const stages = (pw, up) => stage(pw.courses || [], 'foundations', 'Foundations', up) + stage(pw.courses || [], 'extensions', 'Extensions', up);
@@ -409,13 +412,22 @@ for (const node of dirs.values()) {
       const built = (pw.courses || []).some((c) => c.path);
       const others = pathways.filter((x) => x !== pw).map((x) => `<a href="../${esc(x.id)}/">${esc(x.title)}</a>`).join(' · ');
       mkdirSync(join(OUT, pp), { recursive: true });
+      // trail: true in the subject's index.md turns the map on (Code for now; maths and science later).
+      const useTrail = node.meta?.trail === true;
+      if (useTrail) for (const c of pw.courses || []) if (!(c.tagline || (c.path && dirs.get(c.path)?.meta?.tagline))) console.warn(`  ! ${node.path}/index.md: pathway ${pw.id}: ${c.path || c.id || c.title} has no tagline (the line students see on the trail map)`);
+      // Trail map (students, the default) and list (teachers: about, what each course covers). The choice
+      // is remembered per browser; without JavaScript the list shows. tools/trail.mjs, site/trail.js.
+      const trail = useTrail && trailHtml(layoutTrail(pw, pathways, dirs, (path) => lessons.filter((l) => l.slug.split('/').slice(0, -1).join('/') === path && !l.optional).length), pup, esc);
+      const view = `<script>(function(){var d=document.documentElement;d.classList.add('js-on');try{if(localStorage.getItem('wp-pathview')!=='list')d.classList.add('trail-on')}catch(e){d.classList.add('trail-on')}})()</script>` +
+        `<div class="ptoggle" role="group" aria-label="View"><button type="button" data-view="map">Trail map</button><button type="button" data-view="list">List for teachers</button></div>`;
       writeFileSync(join(OUT, pp, 'index.html'), page(`${pw.title}: ${node.title}`,
-        `<header class="top"><a class="crumb" href="../../">← ${esc(node.title)}</a><h1>${esc(pw.title)}</h1>${pw.summary ? `<p class="lede">${esc(pw.summary)}</p>` : ''}</header>` +
+        (useTrail ? `<style>${TRAIL_CSS}</style>` : '') + `<header class="top"><a class="crumb" href="../../">← ${esc(node.title)}</a><h1>${esc(pw.title)}</h1>${pw.summary ? `<p class="lede">${esc(pw.summary)}</p>` : ''}</header>` +
+        (useTrail ? view + `<div class="pview-map">${trail}</div>` : '') + `<div class="pview-list">` +
         (pw.about ? `<div class="pabout">${new Marked().parse(String(pw.about))}</div>` : '') +
         (built ? '' : `<p class="pnote">Nothing to open here yet: these courses are being written. The other pathways teach the same big ideas, so you can start there.</p>`) +
-        `<section class="pathway">${stages(pw, pup)}</section>` +
+        `<section class="pathway">${stages(pw, pup)}</section></div>` +
         (others ? `<p class="ptools">Other pathways: ${others}</p>` : ''),
-        `<script src="${pup}progress.js" data-root="${pup}" defer></script>`, navFor(pp, 'home')));
+        `<script src="${pup}progress.js" data-root="${pup}" defer></script>` + (useTrail ? `<script src="${pup}trail.js" data-root="${pup}" defer></script>` : ''), navFor(pp, 'home')));
     }
     continue;
   }

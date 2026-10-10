@@ -1,6 +1,7 @@
 ---
 title: Deeper Python in the console
 summary: "One idea at a time, in the console: text, lists, dictionaries and errors, then a text adventure built from all of them, saved to a file."
+tagline: "Text, lists and errors, then a text adventure that saves."
 order: 4
 units:
   - { id: text, title: Working with text, summary: "Tidy, compare and cut up what people type." }

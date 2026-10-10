@@ -1,6 +1,7 @@
 ---
 title: AI robots
 summary: Drive a robot with a model you trained, on the computer or on your wrist. Turn labels into moves, keep the robot safe when the model is unsure or goes quiet, and make it more careful where a mistake costs more.
+tagline: "Drive a robot with an AI model you trained."
 order: 5
 challenge: challenge
 units:

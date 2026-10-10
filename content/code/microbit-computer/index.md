@@ -1,6 +1,7 @@
 ---
 title: micro:bit and the computer
 summary: A web page and a micro:bit talk over USB and radio. Graph a micro:bit's sensors, send it commands, relay messages by radio, train models on photos and on movements, and finish with an AI sorter of your own.
+tagline: "Connect a micro:bit to the computer, then build an AI sorter."
 order: 4
 challenge: capstone
 units:

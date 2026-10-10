@@ -1,6 +1,7 @@
 ---
 title: Robotics challenges
 summary: Drive, sense and decide with a two-wheeled micro:bit robot. Each idea runs in the robot simulator first, then on a real robot.
+tagline: "Program a robot to drive, sense and decide."
 order: 3
 challenge: challenge
 units:

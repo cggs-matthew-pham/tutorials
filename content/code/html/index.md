@@ -1,6 +1,7 @@
 ---
 title: HTML & CSS
 summary: Build web pages by typing HTML and CSS and watching the page change.
+tagline: "Build your own web pages and watch them change as you type."
 order: 2
 challenge: challenge
 units:

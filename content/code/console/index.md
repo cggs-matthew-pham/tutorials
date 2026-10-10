@@ -1,6 +1,7 @@
 ---
 title: "Console bridge: text in, text out"
 summary: "input(), print() and a text menu: the same logic as the turtle course, as text in and text out. Every Python extension starts here."
+tagline: "Make programs that ask questions and answer back."
 order: 2
 units:
   - { id: text, title: "Text in, text out", summary: "Ask a question with input(), answer with print(), and turn typed text into numbers safely." }

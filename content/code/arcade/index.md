@@ -1,6 +1,7 @@
 ---
 title: MakeCode Arcade
 summary: Make games with blocks in the Arcade simulator. Sprites, movement, overlaps, score and lives, decisions, projectiles, functions, gravity and levels, ending in a game you choose and plan yourself.
+tagline: "Make your own games with sprites, scores and levels."
 order: 2
 challenge: challenge
 units:

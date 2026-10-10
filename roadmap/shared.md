@@ -95,6 +95,24 @@ Applies to every subject. The limits are the existing design rules: Predict come
 - **Open:** format for `hook:` (clip spec as for `explainClip`, or a board setup); where the How-to section lives (per pathway or per subject); whether how-tos are recorded by `render.mjs` or by hand (real tools such as Teachable Machine can't be driven from the sandbox).
 - Answer forms `simplest` (fraction in lowest terms) and `decimal` in `tools/maths-forms.mjs` (no Numbas needed for them) and the form lists in `tools/lesson-core.mjs`; answer checks (`tools/lesson-view.mjs`) ignore a trailing % or °. New maths board widget `widgets/bars.js` (script tag in `playground-board/index.html`).
 
+## Done (11 Oct 2026): trail map on Code pathway pages
+
+Pathway pages open on a trail map for students, with a "List for teachers" toggle. Code only (`trail: true` in `content/code/index.md`); maths and science pathway pages are unchanged. Mockup and discussion: the "Trail map mockup" canvas.
+
+- **Shared files changed:** `tools/build-site.mjs` (pathway page: map, toggle, `tagline` on cards, warns when a course has no tagline; only when the subject has `trail: true`), `tools/lesson-view.mjs` (one rule: `.pcard .ptag`). New: `tools/trail.mjs` (layout and CSS), `site/trail.js` (copied to `dist/trail.js`).
+- **Layout** from `after:`: a column per step along the trail, rows lining a course up with what it follows. An extension with no `after:` follows the foundations. A prerequisite in another pathway (Flask needs HTML & CSS) is a portal node linking to that pathway.
+- **Progress** from `wp-progress` through `progress.js`: done, in progress (n/m), not started, coming later. "You are here" is the course of the last lesson opened, else one in progress; otherwise "Next stop" or "Start here". Hover or focus previews a course in the card; Continue opens the next unfinished lesson. On phones the map is a list with "After …" lines and the taglines.
+- **Content:** every Code course has a student `tagline:` (drafts; Matthew to adjust wording).
+- **Tested** headless at 1280 and 390 px, light and dark, no progress and seeded progress, keyboard focus, list remembered, list shown without JavaScript.
+
+**Next:** Things you've made (proposed, not built): a gallery of each student's Make outputs, grouped by course on the pathway page (latest few plus "All n"), the full set on the course page, one starred favourite. Needs a snapshot per playground (turtle canvas, HTML preview, MakeCode simulator) saved per browser.
+
+**Maths and science: to plan before turning the map on** (`trail: true`):
+- Is a pathway a trail there? Maths courses follow the curriculum's year order and the progression data's `prior_knowledge`; the map could use those links instead of hand-written `after:`, which would make it much denser.
+- What is a waypoint: a course, a unit, or a progression node? Science "courses" are year-level sets of concept tutorials (a side tool, not a whole course), so a map may not fit at all.
+- Cross-subject links (the winch needs maths ratio and science forces) could be portal nodes, as Code does across pathways.
+- Taglines for every maths and science course.
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).

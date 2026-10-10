@@ -1,6 +1,7 @@
 ---
 title: Secret messages
 summary: Radio is a shared space, so how do you keep a message private, know it was not changed, and know who sent it? Build ciphers, a checksum and a challenge–response lock with micro:bits, then defend a radio door lock in a capture-the-flag finale.
+tagline: "Send secret radio messages, then defend a lock in a capture-the-flag."
 order: 5
 challenge: defend
 units:
