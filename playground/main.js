@@ -75,7 +75,7 @@ function setConsole(on) {
   canvasPane.setAttribute('aria-label', on ? 'Console' : 'Drawing');
   outEl.setAttribute('aria-label', on ? 'Console' : 'Output');
 }
-if (forcedConsole || !usesTurtle(starter)) setConsole(true);
+if (forcedConsole || (starter.trim() && !usesTurtle(starter))) setConsole(true);
 
 const OUT_CAP = 40000; // a loop that prints for ever should not freeze the page
 let outLen = 0;
@@ -180,7 +180,7 @@ finishBtn.addEventListener('click', () => turtle.finish());
 resetBtn.addEventListener('click', () => {
   mainText = starter; write(null); switchTab('main');
   outEl.textContent = ''; outLen = 0; turtle.resetAll();
-  if (forcedConsole || !usesTurtle(starter)) setConsole(true);
+  if (forcedConsole || (starter.trim() && !usesTurtle(starter))) setConsole(true);
   setStatus('idle', 'Ready');
   window.__playground.output = ''; window.__playground.error = null;
 });

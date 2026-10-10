@@ -14,7 +14,7 @@ app:
   layout: full
 voice: true
 explainClip:
-  query: { code: "", speed: 8 }
+  query: { code: "", speed: 8, console: 1 }
   caption: "A menu is a loop that runs until you choose to leave"
   say: "A menu is a loop that keeps going until you choose to leave."
   pacing: { keyDelayMs: 18 }

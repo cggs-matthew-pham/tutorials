@@ -13,7 +13,7 @@ app:
   layout: full
 voice: true
 explainClip:
-  query: { code: "", speed: 8 }
+  query: { code: "", speed: 8, console: 1 }
   caption: "while repeats until its question is no longer true"
   say: "A while loop keeps repeating for as long as its question is true."
   pacing: { keyDelayMs: 22 }

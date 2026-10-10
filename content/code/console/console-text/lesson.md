@@ -13,7 +13,7 @@ app:
   layout: full
 voice: true
 explainClip:
-  query: { code: "", speed: 8 }
+  query: { code: "", speed: 8, console: 1 }
   caption: "input() asks and waits; print() answers"
   say: "A console program asks a question, waits for an answer, and replies."
   pacing: { keyDelayMs: 22 }
