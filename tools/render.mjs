@@ -322,6 +322,28 @@ if (!lessons.length) { console.error('No lessons found.'); process.exit(1); }
 
 let failures = 0, stale = 0, seeded = 0;
 const NO_MAKECODE = !!process.env.WP_NO_MAKECODE && process.env.WP_NO_MAKECODE !== '0';
+// WP_DEADLINE=<unix seconds>: record nothing new after this time. A clip left over keeps the live site's version if it
+// has one (with its old record, so the next run records it again), and the run ends normally, so what is done is
+// published. The robotic test voice is never carried over.
+const DEADLINE = Number(process.env.WP_DEADLINE) || 0;
+const outOfTime = () => DEADLINE > 0 && Date.now() / 1000 > DEADLINE;
+let leftForNextRun = 0, keptOld = 0;
+async function keepLive(base, lesson, step, outDir) {
+  if (!base) return false;
+  const url = `${base.replace(/\/$/, '')}/${lesson.slug}/clips/${step.id}`;
+  try {
+    const meta = await fetch(`${url}.json`, { cache: 'no-store' });
+    if (!meta.ok) return false;
+    const m = await meta.json();
+    if (m.voice === 'flite') return false;
+    const got = {};
+    for (const ext of ['mp4', 'jpg', 'vtt']) { const r = await fetch(`${url}.${ext}`); if (r.ok) got[ext] = Buffer.from(await r.arrayBuffer()); }
+    if (!got.mp4) return false;
+    for (const [ext, buf] of Object.entries(got)) writeFileSync(join(outDir, `${step.id}.${ext}`), buf);
+    writeFileSync(join(outDir, `${step.id}.json`), JSON.stringify(m));
+    return true;
+  } catch { return false; }
+}
 for (const lesson of lessons) {
   if (NO_MAKECODE && lesson.language === 'makecode') { console.log(`• ${lesson.slug}: MakeCode, skipped (WP_NO_MAKECODE), existing clips kept`); continue; }
   const errs = validateLesson(lesson);
@@ -346,9 +368,11 @@ for (const lesson of lessons) {
   stale += todo.length;
   if (!todo.length || flag('--check')) { todo.forEach((s) => console.log(`○ ${lesson.slug}/${s.id}: needs recording`)); continue; }
 
+  if (outOfTime()) { for (const s of todo) { leftForNextRun++; if (await keepLive(opt('--seed') || process.env.WP_LIVE_SITE, lesson, s, outDir)) keptOld++; } continue; }
   const app = await startApp(lesson);
   try {
     for (const s of todo) {
+      if (outOfTime()) { leftForNextRun++; if (await keepLive(opt('--seed') || process.env.WP_LIVE_SITE, lesson, s, outDir)) keptOld++; continue; }
       const t = Date.now();
       // A fresh browser per clip: some sandboxed Chromium builds die when a recording context closes.
       const browser = await launchBrowser();
@@ -370,4 +394,9 @@ if (VOICE_ENGINE === 'flite') console.warn('⚠ voiced clips used the flite test
 if (VOICE_ENGINE === 'none') console.warn('⚠ voiced clips without a live Kokoro version were recorded silent; the next Kokoro build records them with the voice');
 console.log(`Clips: ${seeded} downloaded, ${stale} ${flag('--check') ? 'to record' : 'recorded or failed'}.`);
 if (process.env.GITHUB_OUTPUT) writeFileSync(process.env.GITHUB_OUTPUT, `stale=${stale}\n`, { flag: 'a' });
+if (leftForNextRun) {
+  const msg = `Out of time (WP_DEADLINE): ${leftForNextRun} clip(s) left for the next run (${keptOld} keep their live version meanwhile). Run the publish workflow again to finish.`;
+  console.warn('⚠ ' + msg);
+  if (process.env.GITHUB_STEP_SUMMARY) writeFileSync(process.env.GITHUB_STEP_SUMMARY, `- ${msg}\n`, { flag: 'a' });
+}
 process.exit(failures ? 1 : 0);

@@ -26,6 +26,11 @@ const FORCE = process.argv.includes('--force');
 const CHECK = process.argv.includes('--check');
 const SEED = process.argv.includes('--seed') ? process.argv[process.argv.indexOf('--seed') + 1].replace(/\/$/, '') : null;
 const NO_MAKECODE = !!process.env.WP_NO_MAKECODE && process.env.WP_NO_MAKECODE !== '0';
+// WP_DEADLINE=<unix seconds>: draw nothing new after this time. Pictures left over keep their old entry (so the next
+// run draws them), and the run still ends normally, so the publish workflow can publish what is done.
+const DEADLINE = Number(process.env.WP_DEADLINE) || 0;
+const outOfTime = () => DEADLINE > 0 && Date.now() / 1000 > DEADLINE;
+let leftForNextRun = 0;
 let stale = 0, seeded = 0;
 const DIR = join(OUT, '_pictures');
 mkdirSync(DIR, { recursive: true });
@@ -86,10 +91,12 @@ async function pictures({ name, dir, base, jobs, viewport, draw, legacy = [] }) 
     console.log(`Pictures (${name}): ${jobs.length} examples, ${todo.length} to draw.`);
     return;
   }
-  if (todo.length) {
+  let skipped = 0;
+  if (todo.length && !outOfTime()) {
     await open();
     const page = await browser.newPage({ viewport, deviceScaleFactor: 2 });
     for (const j of todo) {
+      if (outOfTime()) { leftForNextRun++; skipped++; if (old[j.id]) manifest[j.id] = old[j.id]; continue; }
       const png = await draw(page, j);
       if (!png) { console.log(`- ${name} ${j.id}: draws nothing, no picture`); continue; }
       mkdirSync(dirname(join(dir, `${j.id}.png`)), { recursive: true }); // expected pictures sit in a folder per lesson
@@ -98,9 +105,9 @@ async function pictures({ name, dir, base, jobs, viewport, draw, legacy = [] }) 
       console.log(`✓ ${name} ${j.id} (${png.w}×${png.h})`);
     }
     await page.close();
-  }
+  } else for (const j of todo) { leftForNextRun++; skipped++; if (old[j.id]) manifest[j.id] = old[j.id]; }
   writeFileSync(manifestPath, JSON.stringify(manifest, null, 1) + '\n');
-  console.log(`Pictures (${name}): ${jobs.length} examples, ${todo.length} drawn, ${jobs.length - todo.length} cached.`);
+  console.log(`Pictures (${name}): ${jobs.length} examples, ${todo.length - skipped} drawn, ${jobs.length - todo.length} cached${skipped ? `, ${skipped} left for the next run` : ''}.`);
 }
 
 // HTML pages are drawn as the playground's preview shows them: pictures (src="trophy.svg") come from its media folder.
@@ -392,3 +399,8 @@ if (!NO_MAKECODE) {
 if (browser) { await browser.close(); server.close(); }
 if (SEED) console.log(`Pictures: ${seeded} downloaded from the live site.`);
 if (process.env.GITHUB_OUTPUT) writeFileSync(process.env.GITHUB_OUTPUT, `pictures_stale=${stale}\n`, { flag: 'a' });
+if (leftForNextRun) {
+  const msg = `Out of time (WP_DEADLINE): ${leftForNextRun} picture(s) left for the next run.`;
+  console.warn('⚠ ' + msg);
+  if (process.env.GITHUB_STEP_SUMMARY) writeFileSync(process.env.GITHUB_STEP_SUMMARY, `- ${msg}\n`, { flag: 'a' });
+}

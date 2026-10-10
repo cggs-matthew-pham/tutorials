@@ -66,8 +66,13 @@ jobs:
           # Voiceover (lessons with voice:): Kokoro runs in Node; not a site dependency, so install it only here.
           if grep -rlq '^voice:' content --include=lesson.md; then npm install --no-save --no-audit --no-fund kokoro-js@1.2.1; fi
 
+      # Save progress: after 125 minutes nothing new is started, so the build and publish below still fit in the job's
+      # 150. What is done is published; what is left keeps the live version and is done by the next run (the run's
+      # summary says how much is left).
       - name: Render new clips and pictures
-        run: npm run render
+        run: |
+          export WP_DEADLINE=$(( $(date +%s) + 125 * 60 )) WP_LIVE_SITE="$SITE"
+          npm run render
 
       - name: Build site
         run: npm run build
