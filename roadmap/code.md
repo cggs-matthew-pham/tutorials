@@ -386,7 +386,11 @@ The last foundations course; every extension starts from it. Same playground wit
 
 Introduces what the scan found missing (`text-join`, `to-text`, `input`, `while`, `variable-update` with `+=`), tagged with `after: [code/python]`.
 
-### 2. Objects with turtles (extension, typically Year 9; about 5 lessons)
+### 2. Objects with turtles (extension, typically Year 9; about 5 lessons): BUILT 11 Oct 2026
+
+Built: `content/code/objects/` (units Many things on screen, Classes): 1 Many turtles (separate variables; count the cost: 11 lines a star), 2 Lists of stars (lists side by side, `append`), 3 One dictionary per star, 4 A Star class (`__init__`, `self`), 5 Stars that move themselves (methods; Make: a Rock class with the same method names). One game throughout: catch the falling stars, the player is the default turtle, a hidden `pen` turtle writes the score. Each lesson: Predict, Run, Investigate (match or trace, question, bug), Modify (2 tasks), Make, Where this leads; teacher notes; primers for both units; Objects snippets; misconceptions `dot-missing`, `parallel-lists-sync`, `dict-key-quotes`, `self-missing`, `method-self`; concepts `object`, `attribute`, `class`, `method`. Tested: every region played or run, every check answered on the pages, no starter or earlier solution ticks a task, two clips timed with the test voice (21 s). The pathway card now points at `code/objects`; microStudio follows it. Code generated from one scratch script so the five games stay consistent; the `.py` files are the source of truth now.
+
+Original plan:
 
 The hook is a small arcade game, built from a working starter: one player, 3 to 5 enemies, a coin. Sequence: many `Turtle()`s → parallel lists break (`xs[i]`, `speeds[i]`, `alive[i]`) → one dictionary per enemy → `class Enemy` (`__init__`, `self`) → methods (`move`, `hit`) → a list of objects in a loop, plus `class Coin`. Count the cost before and after ("how many lines to add a sixth enemy?"), as lesson 1 does for loops. `self` replaces most `global` lines. Reveal: microStudio sprites (or Arcade for MakeCode students) are this idea with an engine drawing them. No inheritance, getters and setters, or class diagrams.
 

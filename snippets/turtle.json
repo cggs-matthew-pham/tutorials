@@ -299,6 +299,41 @@
      "hint": "Leave the loop straight away; the program carries on after it."
     }
    ]
+  },
+  {
+   "name": "Objects",
+   "items": [
+    {
+     "label": "new turtle",
+     "matches": "=\\s*Turtle\\(\\)",
+     "code": "‹star› = Turtle()\n‹star›.shape(\"‹circle›\")\n‹star›.forward(‹50›)\n",
+     "hint": "Make another turtle with its own name. Put the name and a dot in front of a command to give it to that turtle."
+    },
+    {
+     "label": "dictionary",
+     "matches": "=\\s*\\{",
+     "code": "‹star› = {\"‹speed›\": ‹5›, \"‹points›\": ‹1›}\n",
+     "hint": "Values stored under names (keys). One dictionary can hold everything about one thing."
+    },
+    {
+     "label": "dictionary value",
+     "matches": "\\w\\[\\\"\\w+\\\"\\]",
+     "code": "‹star›[\"‹speed›\"]\n",
+     "hint": "The value stored under that key. The key goes in quotes. Assign to it to change it: star[\"speed\"] = 8."
+    },
+    {
+     "label": "class",
+     "matches": "^\\s*class\\s+\\w+",
+     "code": "class ‹Star›:\n    def __init__(self, ‹x›):\n        self.‹speed› = ‹5›\n\n‹s› = ‹Star›(‹100›)\n",
+     "hint": "A new kind of object. __init__ runs when one is made; self.name = value stores a value in that object."
+    },
+    {
+     "label": "method",
+     "matches": "^\\s+def\\s+(?!__init__)\\w+\\(\\s*self",
+     "code": "    def ‹move›(self):\n        self.‹turtle›.forward(self.‹speed›)\n",
+     "hint": "A function inside a class. Call it on one object: star.move(). self is that object."
+    }
+   ]
   }
  ]
 }

@@ -1,0 +1,39 @@
+summary: Students give the Star class methods (move, restart, touches), so the game loop asks each star to act, then add methods of their own and a Rock class with the same method names.
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 20 min"
+goals:
+  - I can write a method (a def inside a class, with self first) and call it on an object.
+  - I can explain why behaviour belongs inside the class.
+  - I can add a second class with the same method names, so the game treats both kinds alike.
+before: |
+  Read the unit primer first. A **method** is a function inside a class; its first parameter is `self`, the object it was called on. `star.move()` runs `move` with `self` as that star, which is why a method without `self` (the bug task) stops with "takes 0 positional arguments but 1 was given". Methods can call each other (`self.restart()`) and change the object's own values (`self.points += 1`). The Make task gives Rock the same method names as Star, so `tick` treats both the same way. That is the idea behind game engines, without the word polymorphism.
+running:
+  - "Predict: trace c.count on the board: 0, then 2, then 7."
+  - "Run: read tick aloud. Ask how much shorter it is than the first lesson's."
+  - "Investigate: the 'where does it belong' question is the main idea. Behaviour lives with the object."
+  - "Bug task: Python always passes the object first. That is what self receives."
+  - "Make: when students finish, ask how many lines a third kind of thing would need in tick."
+stuck:
+  - see: "TypeError: ... takes 0 positional arguments but 1 was given."
+    ask: Does the method's def start with self?
+    fix: "def flash(self):, then use self inside it."
+  - see: "NameError: name 'turtle' is not defined (or speed)."
+    ask: Inside a method, how do you reach the star's own values?
+    fix: "Use self. in front: self.turtle, self.speed."
+  - see: The method is written but nothing happens.
+    ask: Where is the method called?
+    fix: Call it on a star where it should happen, such as star.flash() when a star is caught.
+stretch: Add a Heart class that gives back a life, and a lives counter that ends the game at 0.
+support: Give students the Rock class with __init__ and move written, and ask them to add restart and touches by copying Star's.
+leads: "This completes the course. microStudio's sprites and MakeCode Arcade's sprites are objects with their own values and behaviour. Apps with Gradio and Data detective use objects too (a Question class, a row of data)."
+exit:
+  q: "class Lamp: def __init__(self): self.on = False. Write a method switch that turns it on."
+  a: "def switch(self): self.on = True (inside the class), called as lamp.switch()."
+explain: |
+  1. A **method** is a function inside a class. Its first parameter is `self`, the object it was called on.
+  2. `star.move()` runs `move` for that star, so the star's own speed and turtle are used.
+  3. Behaviour lives in the class, so the code that uses the objects stays short: `for star in stars: star.move()`.
+solutions:
+  step-4#t1: stars.py#sol-flash
+  step-4#t2: stars.py#sol-level
+  step-5: stars.py#sol-rock

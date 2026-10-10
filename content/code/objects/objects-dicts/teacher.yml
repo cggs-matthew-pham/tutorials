@@ -1,0 +1,39 @@
+summary: Students keep each star's turtle, speed and points together in a dictionary, loop over a list of dictionaries, and see that a new property is now one key instead of one more list kept in step.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can make a dictionary, and read and change a value by its key.
+  - I can loop over a list of dictionaries.
+  - I can explain why one dictionary per thing is safer than lists side by side.
+before: |
+  Read the unit primer first. A dictionary pairs **keys** with **values**: `{"speed": 5, "points": 2}`. `star["speed"]` reads the value; `star["speed"] = 8` changes it. Keys are text, so they need quotes; `star[speed]` (the bug task) looks for a variable called `speed` and stops with a NameError. A list of dictionaries is a table: one row per thing. The Make task repeats last lesson's bad star so students can compare a new list with a new key.
+running:
+  - "Predict: read the second line from the right: work out star[\"points\"] + 1, then store it under \"points\"."
+  - "Run: ask students to find where a star's speed is stored and where it is read."
+  - "Investigate: the colour question is the lesson's point. One key, made in one place."
+  - "Bug task: quotes make it text. Without them Python looks for a variable."
+  - "Make: compare with last lesson's bad star. No list to keep in step."
+stuck:
+  - see: "NameError: name 'speed' is not defined."
+    ask: Is the key in quotes?
+    fix: "star[\"speed\"], not star[speed]."
+  - see: "KeyError: 'colour'."
+    ask: Was the key added to every dictionary when the stars were made?
+    fix: Add the key in the dictionary where each star is made, with the same spelling.
+  - see: All the stars are the same colour.
+    ask: Where is each turtle coloured, and which value does it use?
+    fix: "After the loop that makes them: star[\"turtle\"].color(star[\"colour\"]) for each star."
+stretch: Add a "hits" key that counts how often each star has been caught, and make a star faster every third catch.
+support: Give students the "bad" key already in the dictionary and ask them only to change what happens when a star is caught.
+leads: "Next lesson makes a Star class, so a star's values read star.speed instead of star[\"speed\"], and later the star can do things itself. Data detective uses lists of dictionaries for real data sets."
+exit:
+  q: "pet = {\"name\": \"Rex\", \"legs\": 4}. Write the line that changes legs to 3."
+  a: "pet[\"legs\"] = 3"
+explain: |
+  1. A **dictionary** pairs keys with values: `{"speed": 5, "points": 2}`.
+  2. `star["points"]` reads the value under that key, and `star["points"] = 3` changes it. Keys need quotes.
+  3. Everything about one star stays in one dictionary, so adding a property is one more key, and nothing can fall out of step.
+solutions:
+  step-4#t1: stars.py#sol-points
+  step-4#t2: stars.py#sol-colour
+  step-5: stars.py#sol-bad

@@ -165,6 +165,10 @@ export const CONCEPTS = {
     { id: 'list-change', label: '.append() and friends', re: /\.(append|remove|pop|insert)\(/ },
     { id: 'dict', label: 'a dictionary ({k: v})', re: /\{[^}]*:[^}]*\}/ },
     { id: 'tuple-assign', label: 'assigning two names at once', re: /^[ \t]*\w+[ \t]*,[ \t]*\w+[ \t]*=/m },
+    { id: 'object', label: 'making an object (t = Turtle(), e = Enemy(5))', re: /=[ \t]*[A-Z]\w*\(|\.append\([ \t]*[A-Z]\w*\(/ },
+    { id: 'attribute', label: "an object's own value (e.speed, self.speed)", re: /\b[a-z_]\w*\.[a-z_]\w*\b(?![ \t]*\()/ },
+    { id: 'class', label: 'class (with __init__ and self)', re: /^[ \t]*class[ \t]+\w+/m },
+    { id: 'method', label: 'a method (def inside a class, with self)', re: /^[ \t]+def[ \t]+(?!__init__)\w+\([ \t]*self\b/m },
   ],
   /** HTML and CSS (one language: `html`). Markup tests read tags and attributes; tests marked `raw` read only the
    *  CSS (style blocks and style attributes), so the same words in page text never count. */

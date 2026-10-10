@@ -1,0 +1,39 @@
+summary: Students rebuild the stars game with a list of stars and lists of speeds and points beside it, so one loop moves every star, then meet the weakness of lists side by side (they must stay in step).
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can keep many objects in a list and give each one a command in a loop.
+  - I can use the same place number to find a star's values in several lists.
+  - I can explain why lists side by side must be changed together.
+before: |
+  Read the unit primer first. `stars.append(s)` adds a turtle to the end of a list. `speeds[i]` and `points[i]` are the values for `stars[i]`: lists side by side ("parallel lists") linked only by the place number. They work while every list is changed together, and break when one is not. The bug task shows this: five stars but four speeds gives `IndexError: list index out of range`. The lesson ends with four lists for one star, which is the problem next lesson fixes.
+running:
+  - "Predict: places start at 0, so place 2 is the third item. Point at the same column in both lists."
+  - "Run: ask how many lines a fifth star costs now (one number) compared with last lesson (11 lines)."
+  - "Investigate: in the trace, say each row aloud: star 1 uses speed 7 and 1 point."
+  - "Bug task: ask students to count the stars and the speeds. Then ask which line should change."
+  - "Make: four lists for one star. Ask what could go wrong when someone adds a fifth property."
+stuck:
+  - see: "IndexError: list index out of range."
+    ask: Does every list have one item for every star?
+    fix: Append to every list in the same loop that makes the stars.
+  - see: A star moves at another star's speed.
+    ask: Do the lists have their items in the same order?
+    fix: Fill all the lists in the same loop, one item each time round.
+  - see: The bad star costs points but stays gold.
+    ask: Where is the bad star's colour set?
+    fix: Set s.color("red") in the loop when bad is True for that star.
+stretch: Add a fifth list, sizes, and use it to make some stars bigger with turtlesize-style shapes (or different shapes) and worth more.
+support: Give students the bad list already filled in, and ask them only to change what happens when a star is caught.
+leads: "Next lesson keeps everything about one star in one dictionary, so nothing can fall out of step. Databases have the same choice: separate columns kept in step, or one record per thing."
+exit:
+  q: "names = [\"Ada\", \"Bo\"] and ages = [12, 13, 11]. What is wrong?"
+  a: "The lists are out of step: three ages for two names, so the third age belongs to nobody (and a loop over ages would fail on names[2])."
+explain: |
+  1. `stars.append(s)` adds each new star to a list, so one loop can move them all.
+  2. `speeds[i]` and `points[i]` belong to `stars[i]`: the same place number, the same star.
+  3. Lists side by side must be changed together. If one list has an item the others do not, you get an IndexError or a star using another star's values.
+solutions:
+  step-4#t1: stars.py#sol-six
+  step-4#t2: stars.py#sol-points
+  step-5: stars.py#sol-bad

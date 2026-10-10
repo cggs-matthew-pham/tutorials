@@ -1,0 +1,39 @@
+summary: Students rebuild the stars game with a Star class, set up each star in __init__, store its values with self, and add a second class for rocks.
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 20 min"
+goals:
+  - I can write a class with __init__ that stores values with self.
+  - I can make several objects from one class and read their values (star.speed).
+  - I can explain what self is inside __init__.
+before: |
+  Read the unit primer first. `class Star:` describes a new kind of object. `__init__` (two underscores each side; say "init") runs every time `Star(...)` makes one, and `self` is the object being made. `self.speed = 5` stores a value **in that object**; a plain `speed = 5` only makes a variable that disappears when `__init__` ends, which is the bug task (AttributeError later, when the game asks for `s.speed`). Values read as `star.speed`, like a turtle's own commands. No inheritance, getters or class diagrams in this course.
+running:
+  - "Predict: make two cards labelled a and b on the board, and write name and legs on each as __init__ runs."
+  - "Run: compare star.speed with last lesson's star[\"speed\"]. Same idea, tidier."
+  - "Investigate: self is the hardest word. 'The star being made right now' is enough for now."
+  - "Bug task: speed = speed looks like it works. Ask where the value lives after __init__ ends."
+  - "Make: the Rock class is the Star class's shape again. Ask what is the same and what differs."
+stuck:
+  - see: "AttributeError: 'Star' object has no attribute ..."
+    ask: Was the value stored with self. in front, inside __init__?
+    fix: "self.speed = ..., not speed = ...."
+  - see: "TypeError: __init__() missing 1 required positional argument."
+    ask: How many values does __init__ need, and how many does Star(...) pass?
+    fix: Pass one value for every parameter after self.
+  - see: "NameError: name 'self' is not defined."
+    ask: Is the line inside a method of the class (indented under def)?
+    fix: Use self only inside the class's methods; outside, use the object's name (star.speed).
+stretch: Give Star a size parameter and use shape() and points so bigger stars are worth more.
+support: Give students the Rock class already written, and ask them to make the list of rocks and move them in tick.
+leads: "Next lesson adds methods, so a star moves itself (star.move()) and adding a new kind of falling thing is one class. Every game engine is built from classes like these."
+exit:
+  q: "class Dog: def __init__(self, name): self.name = name. d = Dog(\"Rex\"). What is d.name?"
+  a: "\"Rex\": __init__ stored it in d with self.name = name."
+explain: |
+  1. `class Star:` describes a new kind of object, and `Star(100)` makes one.
+  2. `__init__` runs each time an object is made. `self` is the object being made, so `self.speed = 5` stores a speed in that star.
+  3. Read a value with the object's name and a dot: `star.speed`. Each star keeps its own.
+solutions:
+  step-4#t1: stars.py#sol-colour
+  step-4#t2: stars.py#sol-points
+  step-5: stars.py#sol-rock

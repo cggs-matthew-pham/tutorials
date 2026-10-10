@@ -1,0 +1,39 @@
+summary: Students make extra turtles with Turtle(), give each one commands by name, and play a catch-the-stars game built from three separate star variables, so they can count what each star costs in code.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can make a new turtle with Turtle() and give it commands by name.
+  - I can explain which turtle a command without a name in front goes to.
+  - I can work out how much code each extra object costs when every one has its own variable.
+before: |
+  Read the unit primer first. `a = Turtle()` makes a new turtle; `a.forward(100)` moves only `a`. Commands with no name in front (`forward`, `goto`, `xcor()`) go to the **default turtle**, the one from the turtle course. As in real Python, the default turtle only appears once such a command uses it, which is why the Predict program shows two turtles, not three. In the game the student is the default turtle; the stars are `s1`, `s2` and `s3`; `pen` is a hidden turtle that writes the score. Keys need the picture clicked first.
+running:
+  - "Predict: most students say 3. Run it and ask where the third turtle went: nothing ever used it."
+  - "Run: give two minutes to play. Then ask students to put a finger on every line about s1."
+  - "Investigate: the count (11 lines per star) is the point of the lesson. Ask what 20 stars would cost."
+  - "Bug task: a missing name sends the command to the default turtle, which then appears. Students meet this again in their own games."
+  - "Make: the rock is a whole new block of lines. Ask how many lines it took, and keep the number for next lesson."
+stuck:
+  - see: An extra turtle appears in the middle, or the player moves when a star should.
+    ask: Does every command for a star have the star's name and a dot in front?
+    fix: "Add the name: s4.forward(5), not forward(5)."
+  - see: The arrow keys do nothing.
+    ask: Did you click the picture after pressing Run?
+    fix: Click the picture once, then use the arrow keys.
+  - see: "NameError: name 's4' is not defined."
+    ask: Is s4 made (s4 = Turtle()) before tick uses it?
+    fix: Put the lines that make s4 with the other stars, above the functions.
+stretch: Give the rock its own speed that increases a little every time it is sent back to the top.
+support: Give students the six lines that make the rock, and ask them to add only its lines in tick.
+leads: "Next lesson keeps the stars in lists, so one loop moves them all and adding a star is one number. Real games (Arcade sprites, microStudio, every game engine) are many objects like these, each with its own position and behaviour."
+exit:
+  q: "a = Turtle(), then forward(50). Which turtle moves?"
+  a: "The default turtle, not a: forward(50) has no name in front. a.forward(50) would move a."
+explain: |
+  1. `a = Turtle()` makes a new turtle and names it `a`. Each turtle is an **object** with its own position, heading and colour.
+  2. Put the name and a dot in front of a command to give it to that turtle: `a.forward(100)` moves only `a`.
+  3. A command with no name in front goes to the default turtle, the one from the turtle course.
+solutions:
+  step-4#t1: stars.py#sol-blue
+  step-4#t2: stars.py#sol-four
+  step-5: stars.py#sol-rock
