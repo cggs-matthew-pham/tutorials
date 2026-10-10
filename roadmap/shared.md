@@ -46,6 +46,17 @@ Also changed: `prerequisites()` in `tools/concepts.mjs` now treats a course list
 
 - Maths cards can come from several files: `snippets/maths.json` plus `snippets/maths-<name>.json`, each naming its `course:` (`loadAllMathsCards()` in `tools/maths-cards.mjs`; `build-site.mjs`, `validate.mjs` and the maths section of `render-pictures.mjs` read them all). Existing cards, ids and picture hashes are unchanged.
 
+## Speculative: teach a novice ("Sam") (11 Oct 2026, discussion only)
+
+An intention, not a rule; pilot it before anything becomes a design rule. Applies to every subject.
+
+- **Intent:** after the worked example, the student explains the lesson's one new move to a novice ("Sam", the character from the sample lessons' error analysis) who holds one named misconception. Sam then tries a new case, run or checked on the board where possible, so a weak explanation fails visibly and a good one works.
+- **Why:** learning by teaching (the protégé effect) and self-explanation, without an LLM: offline, no accounts, predictable, reusing the misconception data and `when:` checks. Easier to script than a Socratic tutor, which without an LLM reduces to the hint and feedback lessons already have.
+- **Leanings:** write a one-line explanation before choosing from options (choosing alone tests recognition, not production); use it sparingly, at hinge nodes where the misconception has a visible consequence; only after the worked example; end with an own-words explanation compared with a model one. Not for recall or evaluate steps.
+- **Teacher in the loop, light to heavy:** an on-screen "check this with your teacher" after two failed attempts; the own-words explanation as an exit ticket (nothing stored); later, perhaps an ephemeral live "stuck on step X" view in Kit or Prepare. The last one bends the no-tracking stance and needs a decision.
+- **Later, maybe:** a teacher-led LLM version in Waypoints Kit (the AI as a novice scoped to one move), given age terms and answer leakage.
+- **Open:** pilot lesson (the winch, or a maths hinge node); how authored options and branches are written in the lesson format.
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).
