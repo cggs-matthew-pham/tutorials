@@ -88,5 +88,7 @@
   "co-interior-equal": {"home": "maths/angles/parallel-angles", "text": "Co-interior angles are taken to be equal, like alternate and corresponding angles; they add to 180°."},
   "assume-equal-angles": {"home": "maths/angles/angle-reasoning", "text": "Two angles that look related are taken as a named pair (b and e called alternate) without a rule that links them; every step needs a named rule, so find an angle in between."},
   "wrong-angle-sum": {"home": "maths/angles/unknown-angles", "text": "The triangle's 180° is used for a quadrilateral (or another polygon); the angle sum depends on the number of sides: (n − 2) × 180°, so 360° for a quadrilateral."},
+  "fraction-add-same": {"home": "maths/number/equivalent-fractions", "text": "The same number is added to the top and the bottom to make an equal fraction (2/3 = 3/4); that changes the amount, so multiply or divide both by the same number."},
+  "decimal-percent-place": {"home": "maths/number/fractions-decimals-percentages", "text": "The digits after the point are read as the percentage (0.5 = 5%); 0.5 is 50 hundredths, so 50%: multiply a decimal by 100."},
   "sign-rules-addition": {"home": "maths/number/multiplying-integers", "text": "The addition rule is used for multiplying (−4 × (−3) = −12, \"two negatives make a bigger negative\"); for multiplying and dividing, the same signs give a positive."}
 }

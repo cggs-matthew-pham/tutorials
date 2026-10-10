@@ -10,11 +10,12 @@
 //   not be judged (an unusual way of writing it): it passes, with a note, because a correct answer is never marked
 //   wrong for its shape.
 // Forms: expanded (no brackets, nothing left to collect), simplified (nothing left to collect; brackets allowed),
-// factorised (a product, whole numbers, no common factor left in a bracket), subject x (x = ..., x only on the left).
+// factorised (a product, whole numbers, no common factor left in a bracket), subject x (x = ..., x only on the left),
+// simplest (a number as a whole number, a fraction or a mixed numeral in lowest terms) and decimal (a decimal number).
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
-export const FORMS = ['expanded', 'simplified', 'factorised'];
+export const FORMS = ['expanded', 'simplified', 'factorised', 'simplest', 'decimal'];
 export const isForm = (f) => FORMS.includes(f) || /^subject [a-zA-Z]$/.test(String(f));
 
 export function makeForms(Numbas) {
@@ -27,6 +28,9 @@ export function makeForms(Numbas) {
     product: 'Write it as a product: a number or letter times a bracket.',
     whole: 'Use whole numbers in a factorised answer.',
     hcf: 'Take out the highest common factor: the bracket still has a common factor.',
+    lowest: 'Simplify: the top and bottom still have a common factor.',
+    fraction: 'Write it as a fraction, such as 3/4.',
+    decimal: 'Write it as a decimal, such as 0.75.',
   };
   var clean = function (s) { return String(s).replace(/[−–]/g, '-').replace(/[×·]/g, '*').replace(/÷/g, '/').trim(); };
   // what students mean: 2xy is 2 × x × y and x(x + 3) is x × (x + 3); sin, ln, pi and e stay as they are
@@ -83,7 +87,28 @@ export function makeForms(Numbas) {
     }
     throw new Error('unknown form ' + f);
   }
+  // A number as written: a whole number, a decimal, a fraction a/b or a mixed numeral "1 1/2"; null if none of those.
+  var gcd = function (a, b) { return b ? gcd(b, a % b) : a; };
+  function rat(s0) {
+    var s = clean(s0).replace(/\s+/g, ' '), m;
+    if ((m = /^(-?)(\d+) (\d+) ?\/ ?(\d+)$/.exec(s)) && +m[4]) return { v: (+m[2] + +m[3] / +m[4]) * (m[1] ? -1 : 1), kind: 'mixed', n: +m[3], d: +m[4] };
+    if ((m = /^(-?)(\d+) ?\/ ?(\d+)$/.exec(s)) && +m[3]) return { v: +m[2] / +m[3] * (m[1] ? -1 : 1), kind: 'fraction', n: +m[2], d: +m[3] };
+    if (/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return { v: Number(s), kind: /\./.test(s) ? 'decimal' : 'whole' };
+    return null;
+  }
+  function numberForm(answer, expected, f) {
+    var A = rat(answer), E = rat(expected);
+    if (!E) throw new Error('form ' + f + ': the expected answer "' + expected + '" is not a number, fraction or mixed numeral');
+    if (!A) return { ok: false, equivalent: false, why: f === 'decimal' ? MSG.decimal : 'Write one number: a fraction such as 3/4, or a mixed numeral such as 1 1/2.' };
+    if (Math.abs(A.v - E.v) > 1e-9) return { ok: false, equivalent: false, why: 'Not quite. Check your working and try again.' };
+    if (f === 'decimal') return A.kind === 'decimal' || A.kind === 'whole' ? { ok: true, equivalent: true, why: '' } : { ok: false, equivalent: true, why: MSG.decimal };
+    if (A.kind === 'decimal') return { ok: false, equivalent: true, why: MSG.fraction };
+    if (A.kind === 'whole' || (A.n === 0)) return { ok: true, equivalent: true, why: '' };
+    if (A.d === 1 || gcd(A.n, A.d) > 1) return { ok: false, equivalent: true, why: MSG.lowest };
+    return { ok: true, equivalent: true, why: '' };
+  }
   function check(answer, expected, f) {
+    if (f === 'simplest' || f === 'decimal') return numberForm(answer, expected, f);
     var sub = /^subject ([a-zA-Z])$/.exec(f || '');
     if (sub) {
       var v = sub[1], a = clean(answer).split('='), e = clean(expected).split('=');

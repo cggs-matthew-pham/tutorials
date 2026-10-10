@@ -93,6 +93,7 @@ Applies to every subject. The limits are the existing design rules: Predict come
   - Not plain links in feedback: feedback is rendered as plain text (`textContent`, `plain()` in `lesson-view.mjs`).
   - Build it with the first Practise step that has review questions; document in AUTHORING.md only once built.
 - **Open:** format for `hook:` (clip spec as for `explainClip`, or a board setup); where the How-to section lives (per pathway or per subject); whether how-tos are recorded by `render.mjs` or by hand (real tools such as Teachable Machine can't be driven from the sandbox).
+- Answer forms `simplest` (fraction in lowest terms) and `decimal` in `tools/maths-forms.mjs` (no Numbas needed for them) and the form lists in `tools/lesson-core.mjs`; answer checks (`tools/lesson-view.mjs`) ignore a trailing % or °. New maths board widget `widgets/bars.js` (script tag in `playground-board/index.html`).
 
 ## Parked
 

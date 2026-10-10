@@ -1,0 +1,8 @@
+# Max's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: max
+Write 0.5 as a percentage.
+Percent means out of 100.
+0.5 has a 5 after the point.
+So 0.5 = 5%.
+# endregion

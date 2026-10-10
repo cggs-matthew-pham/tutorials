@@ -463,6 +463,82 @@
           "equivalent"
         ]
       ]
+    },
+    {
+      "form": "simplest",
+      "expected": "2/3",
+      "task": "Write 12/18 in its simplest form",
+      "answers": [
+        [
+          "2/3",
+          true
+        ],
+        [
+          "4/6",
+          false,
+          "lowest"
+        ],
+        [
+          "0.667",
+          false,
+          "equivalent"
+        ],
+        [
+          "0.6666666666666666",
+          false,
+          "fraction"
+        ]
+      ]
+    },
+    {
+      "form": "simplest",
+      "expected": "3/2",
+      "task": "Simplest form of 6/4 (improper or mixed)",
+      "answers": [
+        [
+          "3/2",
+          true
+        ],
+        [
+          "1 1/2",
+          true
+        ],
+        [
+          "1 2/4",
+          false,
+          "lowest"
+        ],
+        [
+          "1.5",
+          false,
+          "fraction"
+        ]
+      ]
+    },
+    {
+      "form": "decimal",
+      "expected": "0.375",
+      "task": "Write 3/8 as a decimal",
+      "answers": [
+        [
+          "0.375",
+          true
+        ],
+        [
+          ".375",
+          true
+        ],
+        [
+          "3/8",
+          false,
+          "decimal"
+        ],
+        [
+          "0.38",
+          false,
+          "equivalent"
+        ]
+      ]
     }
   ],
   "workings": [

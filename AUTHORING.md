@@ -446,10 +446,12 @@ Vary, Practise, Make).
   `equation: { x: 6 }` instead passes any equation that value makes true (for Make tasks). `feedback:` is a list of
   `[wrong answer, what to say]` pairs for planted misconceptions; validate rejects feedback that is the right answer.
   Equivalence is tested by evaluating at several values (`tools/math-expr.mjs`), so it handles algebra like `2(x + 1)`.
+  A trailing `%` or `°` on a typed answer is ignored, so a percentage can be typed as `60` or `60%` (write `answer: "60"`).
 - **`form:` on an `answer` check** (Years 8 and up): the answer must be equivalent **and** written in a form:
   `form: expanded` (no brackets left, nothing left to collect), `simplified` (nothing left to collect; brackets allowed),
-  `factorised` (a product, whole numbers, no common factor left in a bracket, numbers or letters) or `subject d` (`d = …`,
-  with d only on the left). `answer:` is the expected answer in that form. Students who write an equivalent answer in
+  `factorised` (a product, whole numbers, no common factor left in a bracket, numbers or letters), `subject d` (`d = …`,
+  with d only on the left, either case), `simplest` (a whole number, fraction or mixed numeral in lowest terms: `4/6`
+  is told to simplify) or `decimal` (a decimal number: `3/8` is told to write a decimal). `answer:` is the expected answer in that form. Students who write an equivalent answer in
   another form are told the slip ("Collect the like terms", "Take out the highest common factor"); `feedback:` entries
   may be equivalent on purpose (`["6x + 12 - x", "..."]`) and are matched by what was typed. An equivalent answer whose
   form cannot be judged passes with a note. These checks are marked by Numbas (`vendor/numbas/`, loaded only on
@@ -557,6 +559,12 @@ Vary, Practise, Make).
     - Values for checks: each corner's angle by its lower-case letter (`a`, `b`, `c`, …), `s` the total, `m` the largest
       angle, `n` sides, `k` triangles shown by split (else 0), `t` 1 while torn, `v` 1 if no corner points in; corners as
       points (`x(A)`). Examples: `"m > 120"`, `"m = 90"`, `"n = 5 and k = 3"`, `"n = 4 and v = 0"`, `"s = 1260"`.
+  - `widget: bars` (first used by `maths/number/equivalent-fractions`): fraction bars. The top bar is `a` of `b` equal
+    parts shaded (sliders or fixed values; b from 1 to 24); an optional second bar `c` of `d` (give both). `hundred: on`
+    makes the second a 10 by 10 grid with `c` of 100 squares shaded. `show: decimal, percent` writes each fraction as a
+    decimal and/or a percentage too. The panel says whether the two shade the same amount and how (× or ÷ on the top
+    and the bottom). Values: `a`, `b`, `c`, `d`, `v` (a/b), `w` (c/d), `e` (1 when equal), `t` and `s` (1 when a/b, c/d
+    are in lowest terms), `p` (a/b as a percentage). Checks: `"e = 1 and d = 6"`, `"e = 1 and s = 1"`, `"e = 1"` (grid).
   - `widget: parallel` (first used by `maths/angles/parallel-lines`): two parallel lines (marked >>) crossed by a
     transversal, with the eight angles a to h (upper crossing a above left, b above right, c below left, d below right;
     lower crossing e to h the same). `slider t: 30, 150, 60` (or `t: 60`) turns the transversal (step 5 unless given);

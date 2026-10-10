@@ -85,9 +85,13 @@ AC9M7M04 n1 and n2: a new first unit in Angles and shapes, Parallel lines, with 
 
 Matthew's steer: students own their working; the platform supports it but is not strict about it (unlike Mathspace). New `reasoning` check: free working never marked, then the answer and a reason chosen at the key step are marked, then the student's working beside a model, with a self-check. Lessons: *Reasoning with angles* (AC9M7M04 n3, Parallel lines lesson 3; misconception `assume-equal-angles`) and *Unknown angles in shapes* (AC9M7M05 n3, last in Angle sums; `wrong-angle-sum`, exterior angle = the two opposite angles). Geometry board: `angles: given …` and `exterior: C`; parallel board: several given angles. Triangle and polygon lessons move to orders 4 and 5. `subject x` answers accept either case.
 
+## Done: equivalent fractions and conversions (11 Oct 2026)
+
+AC9M7N04 n1 and n2 in Number Foundations' Fractions unit: *Equivalent fractions* (misconception `fraction-add-same`) and *Fractions, decimals and percentages* (`decimal-percent-place`), before *Fractions and decimals on the line* (now order 6, its `assumes` dropped). New board widget `bars` (fraction bars and a hundred grid). Answer forms `simplest` and `decimal`; a typed % or ° is ignored. Six cards and the Fractions primer updated.
+
 ## Still to do
 
-- **Publish and listen:** the thirteen new clips (Number Foundations 4, Angles 6, Expanding brackets, Factorising, Changing the subject) record with the real voice on the next manual publish.
-- **Try with classes:** all thirteen new lessons, the form checks and the working check, and whether students use the sliders or drag.
+- **Publish and listen:** the fifteen new clips (Number Foundations 6, Angles 6, Expanding brackets, Factorising, Changing the subject) record with the real voice on the next manual publish.
+- **Try with classes:** all fifteen new lessons, the form checks and the working check, and whether students use the sliders or drag.
 - **Watch in class:** whether students write real working in the reasoning box or skip to the marked parts; whether the self-check ticks are honest.
-- **Form-check coverage:** forms beyond algebra (fraction in simplest form, ratio, mixed numerals, inequalities) are not built; add them when a lesson needs one.
+- **Form-check coverage:** simplest and decimal are built; ratio and inequalities are not; add them when a lesson needs one.

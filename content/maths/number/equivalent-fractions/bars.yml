@@ -1,0 +1,49 @@
+# Fraction bars for "Equivalent fractions". The top bar is a out of b parts shaded; the second, c out of d.
+
+# region: run
+widget: bars
+a: 2
+b: 3
+slider c: 0, 12, 1
+slider d: 1, 12, 2
+# endregion
+
+# region: explain
+widget: bars
+a: 2
+b: 3
+slider c: 0, 12, 2
+slider d: 1, 12, 3
+# endregion
+
+# region: explain-pic
+widget: bars
+a: 2
+b: 3
+c: 8
+d: 12
+# endregion
+
+# region: twelfths
+widget: bars
+a: 3
+b: 4
+slider c: 0, 12, 1
+slider d: 1, 12, 4
+# endregion
+
+# region: simplify
+widget: bars
+a: 8
+b: 12
+slider c: 0, 12, 8
+slider d: 1, 12, 12
+# endregion
+
+# region: make
+widget: bars
+slider a: 0, 12, 1
+slider b: 1, 12, 2
+slider c: 0, 12, 1
+slider d: 1, 12, 2
+# endregion

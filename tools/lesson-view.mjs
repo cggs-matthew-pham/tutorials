@@ -393,7 +393,7 @@ if(box.dataset.form){if(!window.WPF_READY)return bad('The checker did not load. 
 if(!r.equivalent)for(var i=0;i<fb.length;i++){try{if(!F.check(String(fb[i][0]),v,'').equivalent)continue;return bad(fb[i][1])}catch(e){}}
 else{var nm=function(t){return String(t).replace(/[\\u2212\\u2013]/g,'-').replace(/[\\u00d7\\u00b7]/g,'*').replace(/\\s+/g,'')};for(var j=0;j<fb.length;j++){if(nm(fb[j][0])===nm(v))return bad(fb[j][1])}}
 bad(r.why)})}
-var a=WPM.splitAnswer(v).value;if(WPM.equivalent(a,box.dataset.answer))return win();
+var a=WPM.splitAnswer(v).value.replace(/\s*(%|\u00b0)\s*$/,'');if(WPM.equivalent(a,box.dataset.answer))return win();
 for(var i=0;i<fb.length;i++){try{if(WPM.equivalent(a,String(fb[i][0])))return bad(fb[i][1])}catch(e){}}
 bad('Not quite. Check your working and try again.')}catch(e){bad(e.message)}}
 btn.addEventListener('click',tryIt);inp.addEventListener('keydown',function(e){if(e.key==='Enter')tryIt()})}

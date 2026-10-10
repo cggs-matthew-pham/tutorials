@@ -1,0 +1,8 @@
+# Lily's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: lily
+Find a fraction equal to 2/3.
+Do the same to the top and the bottom.
+Add 1 to the top and add 1 to the bottom.
+So 2/3 = 3/4.
+# endregion

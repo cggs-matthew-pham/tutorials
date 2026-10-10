@@ -447,7 +447,7 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
       // form: (expanded, simplified, factorised, subject x) is marked by Numbas (tools/maths-forms.mjs); validate.mjs
       // checks its answer and feedback in Node, since a wrong-form feedback answer is equivalent on purpose.
       const formed = k.form !== undefined;
-      if (formed && !(['expanded', 'simplified', 'factorised'].includes(String(k.form)) || /^subject [a-zA-Z]$/.test(String(k.form)))) err(where, 'check (answer) form must be expanded, simplified, factorised or subject x (a letter)');
+      if (formed && !(['expanded', 'simplified', 'factorised', 'simplest', 'decimal'].includes(String(k.form)) || /^subject [a-zA-Z]$/.test(String(k.form)))) err(where, 'check (answer) form must be expanded, simplified, factorised, simplest, decimal or subject x (a letter)');
       if (formed && !hasA) err(where, 'check (answer) with form needs answer: (the expected answer in that form)');
       if (hasA && !formed) { try { MATH.parse(String(k.answer)); } catch (e) { err(where, `check (answer) answer "${k.answer}": ${e.message}`); } }
       if (k.equation !== undefined && !(k.equation && typeof k.equation === 'object' && !Array.isArray(k.equation) && Object.entries(k.equation).length && Object.entries(k.equation).every(([n, v]) => /^[a-zA-Z]$/.test(n) && typeof v === 'number'))) err(where, 'check (answer) equation must map one-letter variables to numbers, such as { x: 6 }');
@@ -462,7 +462,7 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
       if (!str(k.q)) err(where, 'check (working) needs q');
       if (!str(String(k.start ?? ''))) err(where, 'check (working) needs start (the expression or equation to work from)');
       if (!Array.isArray(k.example) || !k.example.length || !k.example.every((l) => str(String(l)))) err(where, 'check (working) needs example: a model solution, one line per step');
-      if (k.form !== undefined && !(['expanded', 'simplified', 'factorised'].includes(String(k.form)) || /^subject [a-zA-Z]$/.test(String(k.form)))) err(where, 'check (working) form must be expanded, simplified, factorised or subject x (a letter)');
+      if (k.form !== undefined && !(['expanded', 'simplified', 'factorised', 'simplest', 'decimal'].includes(String(k.form)) || /^subject [a-zA-Z]$/.test(String(k.form)))) err(where, 'check (working) form must be expanded, simplified, factorised or subject x (a letter)');
       if (k.wrong !== undefined && !(Array.isArray(k.wrong) && k.wrong.every((w) => Array.isArray(w) && w.every((l) => str(String(l)))))) err(where, 'check (working) wrong must be a list of planted wrong solutions, each a list of lines');
     }
     else if (k.type === 'reasoning') {

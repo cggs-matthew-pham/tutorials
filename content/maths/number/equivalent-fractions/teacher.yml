@@ -1,0 +1,42 @@
+summary: Students match shaded amounts on fraction bars to find equivalent fractions, learn that multiplying or dividing the top and the bottom by the same number keeps the amount, and simplify by the highest common factor (AC9M7N04, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can find equivalent fractions by multiplying or dividing the top and the bottom by the same number.
+  - I can write a fraction in its simplest form using the highest common factor.
+  - I can explain with a picture why two fractions are equal.
+before: |
+  Do the Run board yourself first. Students need fractions as parts of a whole (Year 6) and factors and highest common factors (Year 7 Number).
+
+  The one idea: equal fractions shade the same amount; the same multiplication or division on the top and the bottom keeps the amount. The common mistake is adding the same number to both (2/3 = 3/4); it is planted in Lily's working.
+
+  Simplest-form answers are marked by form: an equal fraction that can still be simplified is told so, not marked right.
+running:
+  - "Predict: take a show of hands. Students who chose 3/4 added 1 to both."
+  - "Run: ask what happened to each third when the orange bar went to 6 parts."
+  - "Investigate: model the worked example with the bars: split each part (multiply), join parts (divide)."
+  - "Modify: before the fewest-parts task, ask: how will you know you cannot join any more?"
+  - "Make: collect pairs and ask for the simplest form of each."
+stuck:
+  - see: "A student adds the same number to the top and the bottom (Lily's mistake)."
+    ask: "Set both on the bars. Is the same amount shaded?"
+    fix: "Same means the same multiplication or division: 2/3 = 4/6."
+  - see: "A student simplifies in steps and stops too early (6/9 for 12/18)."
+    ask: "Do the top and the bottom still share a factor?"
+    fix: "Keep dividing, or divide by the highest common factor once."
+  - see: "A student cannot find the missing number in 3/5 = ?/20."
+    ask: "What was the bottom multiplied by?"
+    fix: "Do the same to the top."
+stretch: "Find all the fractions equal to 3/4 with a bottom number less than 50. What do their bottoms have in common?"
+support: "Use the bars for every question; physical fraction walls help too."
+leads: |
+  Next: Fractions, decimals and percentages (node 2), then Fractions and decimals on the line (node 3).
+
+  Where it leads: adding and subtracting fractions with different denominators (common denominators), and ratio.
+exit:
+  q: "Write 20/32 in its simplest form, and give one other fraction equal to it."
+  a: "5/8 (÷ 4). For example 10/16 or 15/24."
+explain: |
+  Fractions are **equivalent** when they name the same amount. Multiply or divide the top and the bottom by the **same** number: $\tfrac{2}{3} = \tfrac{2 \times 4}{3 \times 4} = \tfrac{8}{12}$. (Adding the same number to both changes the amount.)
+
+  A fraction is in **simplest form** when the top and the bottom share no factor but 1. Divide both by their highest common factor: $\tfrac{12}{18} = \tfrac{2}{3}$ (÷ 6).

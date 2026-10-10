@@ -1,0 +1,46 @@
+# Fraction bar and hundred grid for "Fractions, decimals and percentages". c squares of 100 are shaded.
+
+# region: run
+widget: bars
+a: 3
+b: 4
+slider c: 0, 100, 0
+hundred: on
+show: percent
+# endregion
+
+# region: explain
+widget: bars
+a: 3
+b: 4
+slider c: 0, 100, 70
+hundred: on
+show: decimal, percent
+# endregion
+
+# region: explain-pic
+widget: bars
+a: 3
+b: 4
+c: 75
+hundred: on
+show: decimal, percent
+# endregion
+
+# region: fifths
+widget: bars
+a: 2
+b: 5
+slider c: 0, 100, 0
+hundred: on
+show: percent
+# endregion
+
+# region: make
+widget: bars
+slider a: 0, 8, 1
+b: 8
+slider c: 0, 100, 0
+hundred: on
+show: decimal, percent
+# endregion
