@@ -620,7 +620,8 @@
   // ---------- cooling magma (crystals.js) ----------
   W.cooling = function (spec) {
     var C = S.crystals, picks = spec.rates ? String(spec.rates).split(',').map(function (x) { return Number(x.trim()) - 1; }).filter(function (i) { return C.RATES[i]; }) : [0, 1, 2, 3, 4];
-    var goal = spec.goal || 'compare', rate = picks[0], running = false, runs = [];
+    // steps: cooling steps per frame (1 to 10, default 1). Same result, shorter wait: for clips, which play at about 7 frames a second.
+    var goal = spec.goal || 'compare', rate = picks[0], running = false, runs = [], per = Math.max(1, Math.min(10, Math.round(Number(spec.steps)) || 1));
     var g = group('top', picks.map(function (i) { return [i, C.RATES[i][1]]; }), rate, function (i) { rate = i; if (!running) { melt.reset(); view.paint(true); } describe(); touch(); });
     var cool = button('controls', 'Cool the magma', function () { if (melt.solid()) melt.reset(); running = true; cool.disabled = true; touch(); }, 'go');
     button('controls', 'Reset', function () { running = false; cool.disabled = false; melt.reset(); view.paint(true); describe(); touch(); });
@@ -645,7 +646,7 @@
     var tick = 0;
     S.loop(function () {
       if (running) {
-        melt.step(C.RATES[rate][0]);
+        for (var k = 0; k < per && !melt.solid(); k++) melt.step(C.RATES[rate][0]);
         if (melt.solid()) {
           running = false; cool.disabled = false;
           var st = melt.stats(); st.name = C.RATES[rate][1]; st.rate = rate;

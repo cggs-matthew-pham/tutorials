@@ -911,7 +911,7 @@ revising one idea, beside practical work, never instead of it. One tutorial per 
   Cool the magma and watch crystals start and grow; each finished run adds a row (crystals, average and largest size,
   glass). Typical results: very slow, about 5 crystals of 60 particles (like granite); fast, about 23 of 14 (like
   basalt); instant, mostly glass (like obsidian). `rates: 1, 3, 5` offers only some speeds; `goal: compare` (default:
-  done after two different speeds) or `none`. Name for students: real granite and basalt also differ in what they are
+  done after two different speeds) or `none`. `steps: 6` takes six cooling steps per frame (1 to 10): the same result in a sixth of the time. Clips use it, because the recorder plays only about 7 frames a second. Name for students: real granite and basalt also differ in what they are
   made of; the model shows only the effect of cooling speed.
 - **Heat transfer** (`convection.js`): `widget: convection`. Particles are coloured blue (cool) to red (hot).
   - Default (a liquid heated from below, 9U04 node 1): a ringed particle and its trail; click another, or press Follow

@@ -6,6 +6,10 @@ Things more than one subject depends on: the build, publishing, the home and pla
 
 The publish workflow now records clips in parallel jobs: `plan` → `record` (matrix, default 4, set in the Run workflow form) → `publish`. `tools/render-shards.mjs` asks `render.mjs --seed --check` what needs recording and shares lessons out by clip count. `render.mjs` is unchanged, so this re-records nothing. Caches (11 Oct): the browser, pip, the Kokoro model (key: `tools/voice.mjs`) and spoken lines (`.voice-cache`: each record job uploads its lines, the publish job merges them with the last set and saves `voice-<run id>`; old lines are never pruned, so clear the cache in the Actions tab if it grows large). Not done yet: narrow the clip hash (`render.mjs` source and whole playground folders re-record every clip on any edit); one browser per job instead of per clip.
 
+## Done (11 Oct 2026): cooling widget `steps`, igneous clip
+
+`widget: cooling` takes `steps: N` (1 to 10 cooling steps per frame, same result). The recorder plays about 7 frames a second, so the igneous explain clip (Slow cooling, about 290 frames) never reached "Solid rock" inside the check's 10 s window and failed in CI; with `steps: 6` it records. Open: in this sandbox the clip is still about 67 s (over the 30 s guide) because every click takes 7 to 15 s on that page; check the real length in the next run's log (the over-30 s warning) and shorten the clip if it is long, for example one cooling run instead of two. Editing `playground-science/main.js` re-records every science clip once (27 lessons).
+
 ## Effort: "if coding is hard, why do it" (11 Oct 2026)
 
 Students expect coding to be fun and easy and read struggle as failure. Response: cut friction (bad hard), keep and name the thinking (good hard). AUTHORING › Effort and struggle has the rules.

@@ -20,7 +20,6 @@ explainClip:
     - caption: { text: "Magma cooling slowly, underground.", say: "Magma cooling slowly, underground." }
     - wait: 1630
     - click: "Cool the magma"
-    - wait: 6000
     - expect: { selector: "body", contains: "Solid rock" }
     - caption: { text: "Slow cooling: fewer, larger crystals, like granite.", say: "Slow cooling gives fewer, larger crystals, like granite." }
     - wait: 2950

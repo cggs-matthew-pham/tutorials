@@ -13,4 +13,5 @@ caption: "Very slow, or instant: compare the two extremes."
 # region: explain
 widget: cooling
 rates: 2, 4
+steps: 6
 # endregion
