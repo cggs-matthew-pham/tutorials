@@ -35,6 +35,7 @@ function start(c, R) {
 export function layoutTrail(pw, pathways, dirs, lessonCount, opts = {}) {
   // opts.stops === 'units' (a subject's `trail: units`): each unit of a course is a stop, named by the unit
   // (one curriculum standard each in science), with the course's year as a small label.
+  if (opts.stops === 'expand') return layoutTrailExpand(pw, pathways, dirs, lessonCount);
   if (opts.stops === 'units') return layoutTrailUnits(pw, pathways, dirs, lessonCount);
   return layoutCourses(pw, pathways, dirs, lessonCount);
 }
@@ -70,6 +71,40 @@ function layoutTrailUnits(pw, pathways, dirs, lessonCount) {
   const pw2 = { ...pw, courses };
   const others = pathways.map((p) => (p === pw ? pw2 : p));
   return layoutCourses(pw2, others, dirs, lessonCount);
+}
+
+const cleanSummary = (t) => String(t || '').replace(/\s*\((?:AC9|Year)[^)]*\)\s*\.?$/, '.').replace(/\.\.$/, '.');
+
+// Expandable trail (a subject's `trail: units`, on its pathway pages): one stop per course, laid out as the
+// course trail. A course with two or more units can open into an area headed by the course's name, its units as
+// stops snaking inside (per to a row); site/trail.js opens one at a time (the current course, else the first).
+function layoutTrailExpand(pw, pathways, dirs, lessonCount) {
+  const base = layoutCourses(pw, pathways, dirs, lessonCount);
+  const per = base.cols <= 3 ? 3 : 2;
+  const hasKids = (n) => base.nodes.some((k) => k.parents.includes(n.id));
+  for (const n of base.nodes) {
+    if (n.portal || n.soon || !n.path) continue;
+    const d = dirs.get(n.path);
+    const us = (Array.isArray(d?.meta?.units) ? d.meta.units : []).filter((u) => lessonCount(n.path, u.id) > 0);
+    if (us.length < 2) continue;
+    // Stops snake row by row. The trail leaves an area on the right, so the last row should run left to right
+    // and end in the right-hand column: prefer a row width that gives an odd number of rows; failing that, a
+    // course nothing leads into may start right to left instead. A short last row sits against the right.
+    const m = us.length;
+
+    let p = Math.min(per, m);
+    for (let q = p; q >= 2; q--) if (Math.ceil(m / q) % 2) { p = q; break; }
+    const rows = Math.ceil(m / p);
+    const flip = rows % 2 === 0 && hasKids(n) && !n.parents.length;
+    n.per = p;
+    n.units = us.map((u, i) => {
+      const r = Math.floor(i / p), inRow = r === rows - 1 ? m - r * p : p, k = i - r * p;
+      const ltr = (r % 2 === 0) !== flip;
+      const c = ltr ? p - inRow + k : p - 1 - k;
+      return { id: `${n.id}#${u.id}`, unit: u.id, title: u.title, tagline: cleanSummary(u.summary), lessons: lessonCount(n.path, u.id), acol: c, arow: r };
+    });
+  }
+  return { ...base, expand: true, per };
 }
 
 function layoutCourses(pw, pathways, dirs, lessonCount) {
@@ -165,20 +200,27 @@ export function trailHtml(layout, up, esc) {
     const meta = n.portal ? `${n.pathway} pathway` : n.soon ? 'Coming later' : `${n.group ? `${n.group} · ` : ''}${n.lessons} ${n.lessons === 1 ? 'lesson' : 'lessons'}`;
     const kind = n.portal ? 'is-portal' : n.soon ? 'is-soon' : 'is-todo';
     const inner = n.portal ? '↗' : n.soon ? '' : String(n.lessons);
-    return `<${tag} class="tnode ${kind}" data-id="${esc(n.id)}"${href ? ` href="${href}"` : ' type="button"'} style="grid-column:${n.col + 1};grid-row:${n.row};--c:${n.col}">` +
+    return `<${tag} class="tnode ${kind}${n.units ? ' has-units' : ''}" data-id="${esc(n.id)}"${href ? ` href="${href}"` : ' type="button"'} style="grid-column:${n.col + 1};grid-row:${n.row};--c:${n.col}">` +
       `<span class="tdot" aria-hidden="true"><span class="tin">${esc(inner)}</span></span>` +
       `<span class="tlab"><span class="there" hidden></span><b>${esc(n.title)}</b><small class="tmeta">${esc(meta)}</small>${after}<span class="tline">${esc(n.tagline)}</span></span></${tag}>`;
   };
-  const data = nodes.map((n) => ({ id: n.id, path: n.path, unit: n.unit || null, group: n.group || null, title: n.title, tagline: n.tagline, stage: n.stage, soon: !!n.soon, portal: n.portal, pathway: n.pathway || null, lessons: n.lessons || 0, parents: n.parents }));
+  // An expandable course: its area (hidden until site/trail.js opens it) follows the course's stop.
+  const unitHtml = (n, u) => `<a class="tnode tunit is-todo" data-id="${esc(u.id)}" href="${esc(up + n.path)}/#unit-${esc(u.unit)}" style="grid-column:${u.acol + 1};grid-row:${u.arow + 1}">` +
+    `<span class="tdot" aria-hidden="true"><span class="tin">${u.lessons}</span></span>` +
+    `<span class="tlab"><span class="there" hidden></span><b>${esc(u.title)}</b><small class="tmeta">${u.lessons} ${u.lessons === 1 ? 'lesson' : 'lessons'}</small><span class="tline">${esc(u.tagline)}</span></span></a>`;
+  const areaHtml = (n) => (n.units ? `<section class="tarea" data-area="${esc(n.id)}" hidden style="grid-column:${n.col + 1};grid-row:${n.row};--c:${n.col};--per:${n.per}" aria-label="${esc(n.title)}">` +
+    `<h3 class="tatitle">${esc(n.title)}</h3><div class="tastops">${n.units.map((u) => unitHtml(n, u)).join('')}</div></section>` : '');
+  const stopHtml = (n) => nodeHtml(n) + areaHtml(n);
+  const data = nodes.map((n) => ({ units: n.units ? n.units.map((u) => ({ id: u.id, unit: u.unit, title: u.title, tagline: u.tagline, lessons: u.lessons })) : null, id: n.id, path: n.path, unit: n.unit || null, group: n.group || null, title: n.title, tagline: n.tagline, stage: n.stage, soon: !!n.soon, portal: n.portal, pathway: n.pathway || null, lessons: n.lessons || 0, parents: n.parents }));
   const narrow = nodes.some((n) => n.unit);
   return `<section class="trail tbreak" aria-label="Trail map">` +
     `<div class="tcard" id="tcard" aria-live="polite"></div>` +
-    `<div class="tscroll"><div class="tmap${narrow ? ' tunits' : ''}" id="tmap" style="--cols:${cols};--rows:${rows};--fz:${(100 * fcols / cols).toFixed(2)}%">` +
+    `<div class="tscroll"><div class="tmap${narrow ? ' tunits' : ''}${layout.expand ? ' texp' : ''}" id="tmap" style="--cols:${cols};--rows:${rows};--per:${layout.per || 2};--fz:${(100 * fcols / cols).toFixed(2)}%">` +
     `<svg class="tlines" aria-hidden="true"></svg>` +
     zone('tzf', 'Foundations', 0, fcols) +
-    nodes.filter((n) => n.col < fcols).map(nodeHtml).join('') +
+    nodes.filter((n) => n.col < fcols).map(stopHtml).join('') +
     zone('tze', 'Extensions', fcols, cols) +
-    nodes.filter((n) => n.col >= fcols).map(nodeHtml).join('') +
+    nodes.filter((n) => n.col >= fcols).map(stopHtml).join('') +
     `</div></div></section>` +
     `<script type="application/json" id="trail-data">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
 }
@@ -205,6 +247,12 @@ export const TRAIL_CSS = `
 grid-template-columns:repeat(var(--cols),minmax(220px,1fr));grid-template-rows:repeat(var(--rows),minmax(128px,auto)) auto;
 min-width:calc(var(--cols) * 220px);padding:18px 8px 0;border-radius:20px;background:linear-gradient(90deg,var(--zf) 0 var(--fz),var(--ze) var(--fz) 100%)}
 .tmap.tunits{grid-template-columns:repeat(var(--cols),minmax(132px,1fr));min-width:calc(var(--cols) * 132px)}.tunits .tlab{max-width:128px}.tunits .tlab b{font-size:14px}.tunits .tmeta{font-size:12.5px}
+.tmap.texp{grid-template-columns:repeat(var(--cols),minmax(200px,auto))}
+.tarea{position:relative;z-index:1;align-self:center;justify-self:stretch;margin:6px 4px;padding:10px 4px 6px;border-radius:16px;border:2px solid color-mix(in srgb,var(--accent) 40%,var(--line));background:color-mix(in srgb,var(--card) 85%,transparent)}
+.tarea[hidden]{display:none}.tnode.is-open{display:none}
+.tatitle{margin:0 10px;font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);line-height:1.3;text-align:center}
+.tastops{display:grid;grid-template-columns:repeat(var(--per),minmax(112px,1fr));margin-top:10px}
+.tunit{margin:6px 2px}.tunit .tdot{width:44px;height:44px;font-size:14px}.tunit .tlab{max-width:118px}.tunit .tlab b{font-size:13.5px}.tunit .tmeta{font-size:12.5px}
 .tlines{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .tlines path{fill:none;stroke-linecap:round}
 .tlines .walked{stroke:var(--ink);stroke-width:5}.tlines .open{stroke:var(--muted);stroke-width:3.5;stroke-dasharray:1 9}
@@ -235,6 +283,8 @@ min-width:calc(var(--cols) * 220px);padding:18px 8px 0;border-radius:20px;backgr
 .tdot{width:46px;height:46px;font-size:14px}
 .tlab{max-width:none}.tline{display:block;font-size:14px;color:var(--ink);margin-top:3px}.tafter{display:block;font-size:13px;color:var(--muted)}
 .tzone{padding:12px 4px 2px;align-self:stretch}
+.tarea{margin:4px 0 8px calc(min(var(--c),2) * 14px);padding:8px 8px 4px}.tatitle{text-align:left;margin:0 4px}.tastops{display:flex;flex-direction:column;margin-top:4px}
+.tunit{margin:6px 0;align-self:stretch}.tunit .tlab{max-width:none;flex:1;min-width:0}.tunit .tlab b{font-size:15px}.tunit .tafter{display:none}
 .tmap.tunits{min-width:0}.tunits .tnode{margin-left:calc(min(var(--c),2) * 14px)}.tunits .tafter{display:none}.tunits .tlab{max-width:none;flex:1;min-width:0}.tunits .tlab b{font-size:15px}.tunits .tnode{align-self:stretch;max-width:calc(100% - min(var(--c),2) * 14px)}
 .tcard .tgo{justify-content:flex-start}
 }

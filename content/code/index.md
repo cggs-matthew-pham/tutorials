@@ -1,6 +1,6 @@
 ---
 title: Code
-trail: true
+trail: units
 summary: Learn to program by predicting, running, investigating, modifying and making. Three pathways share the same big ideas; start with whichever fits your class.
 pathways:
   - id: python

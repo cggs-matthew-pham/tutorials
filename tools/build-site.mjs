@@ -452,7 +452,7 @@ for (const node of dirs.values()) {
     const lessonCount = (path, unit) => lessons.filter((l) => l.slug.split('/').slice(0, -1).join('/') === path && !l.optional && (unit == null || l.unit === unit)).length;
     const trailOn = node.meta?.trail === true || node.meta?.trail === 'units';
     const trailOpts = { stops: node.meta?.trail === 'units' ? 'units' : 'courses' };
-    const heads = trailOn ? trailheadsHtml(pathways, pathways.map((pw) => layoutTrail(pw, pathways, dirs, lessonCount, trailOpts)), esc) : '';
+    const heads = trailOn ? trailheadsHtml(pathways, pathways.map((pw) => layoutTrail(pw, pathways, dirs, lessonCount, { stops: 'courses' })), esc) : '';
     const viewToggle = `<script>(function(){var d=document.documentElement;d.classList.add('js-on');try{if(localStorage.getItem('wp-pathview')!=='list')d.classList.add('trail-on')}catch(e){d.classList.add('trail-on')}})()</script>` +
       `<div class="ptoggle" role="group" aria-label="View"><button type="button" data-view="map">Trails</button><button type="button" data-view="list">List for teachers</button></div>`;
     writeFileSync(join(outDir, 'index.html'), page(node.title,
@@ -472,7 +472,8 @@ for (const node of dirs.values()) {
       if (useTrail) for (const c of pw.courses || []) if (!(c.tagline || (c.path && dirs.get(c.path)?.meta?.tagline))) console.warn(`  ! ${node.path}/index.md: pathway ${pw.id}: ${c.path || c.id || c.title} has no tagline (the line students see on the trail map)`);
       // Trail map (students, the default) and list (teachers: about, what each course covers). The choice
       // is remembered per browser; without JavaScript the list shows. tools/trail.mjs, site/trail.js.
-      const trail = useTrail && trailHtml(layoutTrail(pw, pathways, dirs, lessonCount, trailOpts), pup, esc);
+      // trail: units opens courses into their units on the map (one at a time); trailheads keep one dot per course.
+      const trail = useTrail && trailHtml(layoutTrail(pw, pathways, dirs, lessonCount, { stops: trailOpts.stops === 'units' ? 'expand' : 'courses' }), pup, esc);
       const view = `<script>(function(){var d=document.documentElement;d.classList.add('js-on');try{if(localStorage.getItem('wp-pathview')!=='list')d.classList.add('trail-on')}catch(e){d.classList.add('trail-on')}})()</script>` +
         `<div class="ptoggle" role="group" aria-label="View"><button type="button" data-view="map">Trail map</button><button type="button" data-view="list">List for teachers</button></div>`;
       writeFileSync(join(OUT, pp, 'index.html'), page(`${pw.title}: ${node.title}`,
