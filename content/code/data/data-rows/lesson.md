@@ -15,7 +15,7 @@ app:
   layout: full
 voice: true
 explainClip:
-  query: { code: "", files: music.csv, from: "code/data/data-rows/files/" }
+  query: { code: "", "file:music.csv": "@../sets/music.csv" }
   caption: "csv.DictReader turns each row of the file into a dictionary"
   say: "csv dot DictReader turns each row of the file into a dictionary."
   pacing: { keyDelayMs: 22 }

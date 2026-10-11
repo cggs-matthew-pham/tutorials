@@ -1,0 +1,39 @@
+summary: Students build a quiz app from a list of question dictionaries, make a Radio input for each question with a loop, mark the answers with feedback, then add a question, a perfect-score message and handling for blanks, and make and user-test a quiz of their own.
+time: 50
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 15 min"
+goals:
+  - I can store questions as a list of dictionaries.
+  - I can make inputs from data with a loop, and mark answers with another loop.
+  - I can improve an app from a classmate's feedback.
+before: |
+  Read the unit primer first. Each question is a dictionary (`q["q"]`, `q["choices"]`, `q["answer"]`), introduced here only as far as reading one. The inputs list starts empty and a loop appends a `gr.Radio` per question; `mark` takes one parameter per question (`a1, a2, a3`) and puts them in a list to compare by position. A Radio gives the chosen text, or `None` when nothing is chosen (the third Modify task). The bug task returns inside the loop, so only the first question is ever marked. The info question points at `*answers` (any number of inputs as a list) as a stretch. The Make ends with user testing: a classmate takes the quiz.
+running:
+  - "Predict: trace i through the loop on the board with the two answers."
+  - "Run: change a question in the list and run again; the app follows the data."
+  - "Investigate: count the inputs, the questions and the parameters: three of each."
+  - "Make: pairs swap quizzes and report one confusing thing."
+stuck:
+  - see: The score is never more than 1.
+    ask: Is return inside the loop?
+    fix: Move return to after the loop (no indent under for).
+  - see: "TypeError: mark() takes 3 positional arguments but 4 were given."
+    ask: How many questions are there now, and how many parameters?
+    fix: Add a parameter for the new question, and add it to answers.
+  - see: A right answer is marked wrong.
+    ask: Does the answer exactly match one of the choices, capitals and spaces included?
+    fix: Copy the answer text from the choices list.
+stretch: "def mark(*answers): to accept any number of questions, or shuffle each question's choices (import random; random.shuffle)."
+support: Give students a fourth question dictionary written out, and ask them only to change the parameters to match.
+leads: "The optional next lesson stores each question as an object with a check method. Machine learning with Gradio (coming later) puts a trained model behind the same kind of app."
+exit:
+  q: "Why keep the questions in a list instead of writing each Radio by hand?"
+  a: "One loop makes the inputs and one loop marks them, so adding a question means adding data, not new code."
+explain: |
+  1. Each question is a dictionary in a list: its text, its choices and its answer.
+  2. A loop makes one Radio input for each question.
+  3. `mark` compares each answer with its question's answer, counts the score and builds the feedback.
+solutions:
+  step-4#t1: quiz.py#sol-four
+  step-4#t2: quiz.py#sol-message
+  step-4#t3: quiz.py#sol-blank
+  step-5#t1: quiz.py#sol-make

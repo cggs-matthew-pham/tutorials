@@ -1,0 +1,38 @@
+summary: Students build a movie-night ticket calculator with sliders, a dropdown and two outputs, learn that inputs match parameters and outputs match returned values in order, then add a popcorn checkbox, a seat radio and a calculator of their own.
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 10 min"
+goals:
+  - I can return two values from a function and use them as two outputs.
+  - I can match each kind of input with the kind of value it gives.
+  - I can add an input in the right place in both inputs and parameters.
+before: |
+  Read the unit primer first. `return total, summary` returns two values; Gradio puts them in the two outputs, in order (the Predict shows the same thing with `a, b = ...`). Each input is one parameter, in order. Kinds of value: Slider and Number give numbers (possibly 2.0, hence `int()`), Dropdown and Radio give the chosen text, Checkbox gives True or False, Textbox gives text. The bug task works out the summary but returns only the total, so one output stays empty. Encourage planning: inputs and outputs on paper before code.
+running:
+  - "Predict: write return n * 2, n + 1 on the board with two arrows to two boxes."
+  - "Investigate: hold up each kind of input and ask what value it gives."
+  - "Modify: add the input to inputs and the parameter at the same time, in the same place."
+  - "Make: plan on paper: a sketch of the app with labelled boxes."
+stuck:
+  - see: An output box stays empty.
+    ask: Does return have one value for each output?
+    fix: "return total, summary."
+  - see: "TypeError: price() takes 3 positional arguments but 4 were given."
+    ask: How many inputs and how many parameters are there?
+    fix: Add the parameter for the new input.
+  - see: The summary says 2.0 adults.
+    ask: What kind of number does the slider give?
+    fix: "str(int(adults))."
+stretch: Add a Number input for a discount code percentage, and show the saving as a third output.
+support: Give students the popcorn checkbox line and the if, and ask them to put each in the right place.
+leads: "Next lesson builds a quiz whose inputs come from a list of questions."
+exit:
+  q: "A function has three parameters. How many inputs does its Gradio app need, and in what order?"
+  a: "Three, in the same order as the parameters."
+explain: |
+  1. Each input in the list is one parameter of the function, in order.
+  2. The function returns one value for each output, separated by commas.
+  3. Gradio puts the first returned value in the first output, and so on.
+solutions:
+  step-4#t1: app.py#sol-popcorn
+  step-4#t2: app.py#sol-seats
+  step-5: app.py#sol-make

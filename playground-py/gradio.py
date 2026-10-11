@@ -1,5 +1,5 @@
 # A small stand-in for Gradio in the browser playground. The same student code runs in real Gradio:
-# gr.Interface(fn, inputs, outputs).launch() with Textbox, Number, Slider, Dropdown, Checkbox, Dataframe and BarPlot.
+# gr.Interface(fn, inputs, outputs).launch() with Textbox, Number, Slider, Dropdown, Radio, Checkbox, Dataframe and BarPlot.
 import wp_runtime
 
 
@@ -35,6 +35,13 @@ class Slider(Component):
 
 class Dropdown(Component):
     kind = "dropdown"
+
+    def __init__(self, choices=None, value=None, label=None, **kw):
+        super().__init__(label, value, choices=[str(c) for c in (choices or [])], **kw)
+
+
+class Radio(Component):
+    kind = "radio"
 
     def __init__(self, choices=None, value=None, label=None, **kw):
         super().__init__(label, value, choices=[str(c) for c in (choices or [])], **kw)

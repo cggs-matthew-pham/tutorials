@@ -1,0 +1,37 @@
+summary: An optional lesson. Students rebuild the quiz with a Question class whose objects check answers and give feedback, then add a hint method and points, and rebuild their own quiz with objects.
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 10 min"
+goals:
+  - I can write a class with __init__ and methods that use self.
+  - I can explain what self means inside a method.
+  - I can add a method or an attribute to a class and use it.
+before: |
+  Optional: not needed for completing the course. Students who did Objects with turtles have met classes; for others the lesson introduces them briefly. `class Question` stores each question's text, choices and answer as attributes (`self.answer`), set in `__init__`, and has methods `check(guess)` and `feedback(guess)`. Python passes the object as the first argument of every method, so the first parameter is `self` (the bug task leaves it out, and the error says it got 2 arguments instead of 1). `mark` now asks each question to check itself. The info question introduces the idea behind designing with objects: different kinds of question can each have a check method.
+running:
+  - "Predict: draw one Question object as a box with its three values and two methods."
+  - "Investigate: ask what self is when questions[2].check(...) runs."
+  - "Modify: hint first (a method), then points (an attribute in __init__)."
+stuck:
+  - see: "TypeError: ... takes 1 positional argument but 2 were given."
+    ask: Is self the first parameter of the method?
+    fix: "def check(self, guess):."
+  - see: "AttributeError: 'Question' object has no attribute 'points'."
+    ask: Is points stored in __init__ with self.?
+    fix: "self.points = points in __init__, and pass a value when making each Question."
+  - see: "NameError: name 'answer' is not defined, inside a method."
+    ask: Does the method use self.answer, or just answer?
+    fix: "Use self.answer: the object's own value."
+stretch: Make a TypedQuestion class with its own check that compares lower-case text, for questions answered in a Textbox.
+support: Give students the hint method written out, and ask them only to use it in feedback.
+leads: "Gradio's components are classes too. Machine learning with Gradio (coming later) and games with microStudio build on objects."
+exit:
+  q: "What is self inside a method?"
+  a: "The object the method was called on, so self.answer is that object's own answer."
+explain: |
+  1. `class Question` describes what every question has (text, choices, answer) and can do (check, feedback).
+  2. `Question(...)` makes one question object; `q.check(guess)` runs check with `self` being `q`.
+  3. `mark` asks each question to check itself and give feedback.
+solutions:
+  step-4#t1: quiz.py#sol-hint
+  step-4#t2: quiz.py#sol-points
+  step-5: quiz.py#sol-make

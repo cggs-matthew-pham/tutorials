@@ -84,6 +84,10 @@ async function fetchLessonFiles(names) {
   for (const n of names) { try { const r = await fetch(new URL(n, fileBase), { cache: 'no-cache' }); if (r.ok) got[n] = { text: await r.text() }; } catch { /* offline: skip */ } }
   return got;
 }
+// Clips pass a file's text in the address (?file:music.csv=...), since they are recorded before the site is built.
+const given = {};
+for (const [k, v] of params) if (k.startsWith('file:') && k.length > 5) given[k.slice(5).replace(/[^\w.-]/g, '_')] = { text: v };
+if (Object.keys(given).length) saveFiles({ ...files, ...given });
 const lessonFilesReady = (async () => {
   const missing = lessonFiles.filter((n) => !files[n]);
   if (missing.length) saveFiles({ ...files, ...(await fetchLessonFiles(missing)) });
@@ -165,9 +169,14 @@ function gradioApp(spec) {
   if (spec.title) root.append(Object.assign(document.createElement('h2'), { textContent: spec.title }));
   if (spec.description) root.append(Object.assign(document.createElement('p'), { textContent: spec.description }));
   const inputs = spec.inputs.map((c, i) => {
-    const lab = document.createElement('label'); lab.append(c.label || `Input ${i + 1}`);
+    const lab = document.createElement(c.kind === 'radio' ? 'div' : 'label'); lab.className = c.kind === 'radio' ? 'field' : ''; lab.append(c.label || `Input ${i + 1}`);
     let el, get;
-    if (c.kind === 'dropdown') { el = document.createElement('select'); c.choices.forEach((o) => el.add(new Option(o, o))); if (c.value != null) el.value = c.value; get = () => el.value; lab.append(el); }
+    if (c.kind === 'radio') {
+      const box = document.createElement('div'); box.className = 'radios'; box.setAttribute('role', 'radiogroup'); box.setAttribute('aria-label', c.label || `Input ${i + 1}`);
+      const group = `r${i}-${Math.random().toString(36).slice(2, 7)}`;
+      c.choices.forEach((o) => { const l = document.createElement('label'); const r = Object.assign(document.createElement('input'), { type: 'radio', name: group, value: o, checked: c.value === o }); l.append(r, ' ' + o); box.append(l); });
+      lab.append(box); get = () => { const r = box.querySelector('input:checked'); return r ? r.value : null; };
+    } else if (c.kind === 'dropdown') { el = document.createElement('select'); c.choices.forEach((o) => el.add(new Option(o, o))); if (c.value != null) el.value = c.value; get = () => el.value; lab.append(el); }
     else if (c.kind === 'checkbox') { el = Object.assign(document.createElement('input'), { type: 'checkbox', checked: !!c.value }); lab.className = 'checkbox'; lab.prepend(el); get = () => el.checked; }
     else if (c.kind === 'slider') {
       el = Object.assign(document.createElement('input'), { type: 'range', min: c.minimum, max: c.maximum, step: c.step, value: c.value });

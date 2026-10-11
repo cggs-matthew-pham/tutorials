@@ -119,7 +119,7 @@ function tidy(err) {
   let keep = true;
   for (const line of lines) {
     const frame = line.match(/^ {2}File "([^"]+)"/);
-    if (frame) keep = !/^\/lib\/|^\/wp_lib\/wp_runtime|_pyodide|<frozen/.test(frame[1]);
+    if (frame) keep = !/^\/lib\/|^\/wp_lib\/|_pyodide|<frozen/.test(frame[1]);
     else if (!/^ {3,}/.test(line)) keep = true;
     if (keep) out.push(line);
   }

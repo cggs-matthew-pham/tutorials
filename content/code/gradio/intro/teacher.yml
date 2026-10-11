@@ -1,0 +1,38 @@
+summary: Students turn a greeting function into a Gradio app with a Textbox and a Checkbox, see that Gradio passes inputs to parameters in order, then add a slider and a second output, and make a small tool of their own.
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 10 min"
+goals:
+  - I can turn a function into an app with gr.Interface, inputs and outputs.
+  - I can explain how Gradio matches inputs to parameters (in order).
+  - I can add an input or an output and change the function to match.
+before: |
+  Read the unit primer first. This course runs in the **Python playground** (real Python in the browser, Pyodide) with a small **stand-in for Gradio** (Textbox, Number, Slider, Dropdown, Radio, Checkbox, Dataframe, BarPlot and `gr.Interface`), written so the same file runs unchanged in real Gradio. To show the real thing, on a teacher computer: `pip install -r requirements.txt` (in this lesson's folder of the site's source) or `pip install gradio`, then `python app.py`, and open `http://127.0.0.1:7860`; a teacher can also host an app as a Hugging Face Space (accounts need age 13+). Before teaching it, open the site's Check your school page once on a student device at school. `fn=greet` hands Gradio the function (no brackets); Gradio calls it on Submit with one argument per input **in order**, and shows each returned value in an output, in order (the bug task swaps the inputs). A Checkbox gives True or False; a Slider gives a number. Two outputs means returning two values with a comma.
+running:
+  - "Predict: call greet three times on the board before anyone sees an app."
+  - "Run: ask which line made each part of the screen."
+  - "Investigate: swap the inputs on purpose and read the error together."
+  - "Make: insist on a print test before the gr.Interface line."
+stuck:
+  - see: "TypeError: can only concatenate str (not \"bool\") to str."
+    ask: Which input goes to which parameter?
+    fix: Put the inputs in the same order as the parameters.
+  - see: The second output box stays empty.
+    ask: How many values does the function return, and how many outputs are there?
+    fix: "Return one value per output, separated by commas."
+  - see: "TypeError: can't multiply sequence by non-int of type 'float'."
+    ask: Is the slider value a whole number?
+    fix: "Use step=1 on the slider, or int(excitement)."
+stretch: Add a Dropdown of languages (English, Māori, French) and greet in the chosen one.
+support: Give students the Slider line, and ask them only to change the function to match.
+leads: "Next lesson: several inputs and outputs in a calculator. Data detective's dashboard and Machine learning with Gradio (coming later) build on this."
+exit:
+  q: "How does Gradio know which input goes to which parameter?"
+  a: "By order: the first input goes to the first parameter, the second to the second."
+explain: |
+  1. `gr.Interface` wraps a function: `fn` is the function, `inputs` and `outputs` are the boxes.
+  2. On Submit, Gradio calls the function with the inputs' values, in order.
+  3. What the function returns appears in the output box.
+solutions:
+  step-4#t1: app.py#sol-slider
+  step-4#t2: app.py#sol-length
+  step-5: app.py#sol-make

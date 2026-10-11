@@ -13,7 +13,7 @@ app:
   layout: full
 voice: true
 explainClip:
-  query: { code: "@chart.py#run", files: music.csv, from: "code/data/data-chart/files/" }
+  query: { code: "@chart.py#run", "file:music.csv": "@../sets/music.csv" }
   caption: "A dictionary keeps one count per genre; each count becomes a bar"
   say: "A dictionary keeps one count for each genre, and each count becomes a bar."
   clip:

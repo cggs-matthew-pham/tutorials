@@ -204,6 +204,7 @@ const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Pyth
   'code/console': { kind: 'turtle', dir: '_playground', label: 'Python console', id: 'free/console', code: 'name = input("What is your name? ")\nprint("Hello, " + name + "!")\n' },
   'code/objects': { kind: 'turtle', dir: '_playground', label: 'Python', id: 'free/objects' },
   'code/flask': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/flask', code: 'from flask import Flask\n\napp = Flask(__name__)\n\n\n@app.route("/")\ndef home():\n    return "<h1>Hello</h1>"\n\n\napp.run()\n' },
+  'code/gradio': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/gradio', code: 'import gradio as gr\n\n\ndef shout(text):\n    return text.upper() + "!"\n\n\ngr.Interface(fn=shout, inputs="text", outputs="text").launch()\n' },
   'code/data': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/data', code: 'import csv\n\nwith open("music.csv") as f:\n    songs = list(csv.DictReader(f))\n\nprint(songs[0])\n' },
   'code/deeper': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/deeper', code: 'words = input("What do you do? ").strip().lower().split()\nprint(words)\n' } };
 // Maths cards (snippets/maths.json, maths-<name>.json): a Reference page and cheat sheets for the course each names.
@@ -214,6 +215,7 @@ const REFS = [{ file: 'turtle', path: 'code/python/reference' }, { file: 'html',
   { file: 'turtle', path: 'code/console/reference', groups: ['Text in and out', 'Code structure'], title: 'Python console reference', summary: 'The commands from the console bridge, with what each one does.' },
   { file: 'turtle', path: 'code/deeper/reference', groups: ['Text in and out', 'Text and collections', 'Files', 'Code structure', 'Objects'], title: 'Python console reference', summary: 'Text, lists, dictionaries and files in the console, with what each command does.' },
   { file: 'turtle', path: 'code/flask/reference', groups: ['Web apps', 'Data', 'Files', 'Text and collections', 'Code structure'], title: 'Web apps reference', summary: 'Routes, templates, forms, saving to a file and JSON in Flask, and routes in FastAPI.' },
+  { file: 'turtle', path: 'code/gradio/reference', groups: ['Data', 'Text and collections', 'Objects', 'Code structure'], title: 'Apps with Gradio reference', summary: 'Gradio apps, quiz questions as data, and the Python they use.' },
   { file: 'turtle', path: 'code/data/reference', groups: ['Data', 'Text and collections', 'Code structure'], title: 'Data detective reference', summary: 'Reading, counting, charting, cleaning and testing data in Python, then pandas and Gradio.' },
   { file: 'turtle', path: 'code/objects/reference', title: 'Python turtle and objects reference', summary: 'Turtle commands, and the objects, dictionaries and classes from Objects with turtles.' }, ...MATHS_CARDS.map((m) => ({ file: m.file, path: `${m.course}/reference` }))];
 

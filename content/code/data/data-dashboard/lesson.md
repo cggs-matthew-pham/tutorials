@@ -15,7 +15,7 @@ app:
   layout: full
 voice: true
 explainClip:
-  query: { code: "@dashboard.py#run", view: output, autorun: 1, files: music.csv, from: "code/data/data-dashboard/files/" }
+  query: { code: "@dashboard.py#run", view: output, autorun: 1, "file:music.csv": "@../sets/music.csv" }
   caption: "Choose a genre: the function filters the table, and Gradio shows the result"
   say: "Choose a genre. The function filters the table, and Gradio shows the result."
   clip:

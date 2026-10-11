@@ -56,7 +56,7 @@ html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink);
 .gr { padding: 14px; display: grid; gap: 12px; }
 .gr h2 { margin: 0; font-size: 18px; }
 .gr p { margin: 0; color: var(--muted); }
-.gr label { display: grid; gap: 4px; font-size: 14px; font-weight: 600; }
+.gr label, .gr .field { display: grid; gap: 4px; font-size: 14px; font-weight: 600; }
 .gr input[type=text], .gr input[type=number], .gr select { font: inherit; font-weight: 400; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); }
 .gr .slider { display: flex; gap: 8px; align-items: center; }
 .gr .slider input { flex: 1; }
@@ -94,3 +94,5 @@ body.output-only #code { position: absolute; width: 1px; height: 1px; opacity: 0
 .file-tools { display: flex; flex-wrap: wrap; gap: 8px; }
 .file-tools .btn { font-size: 14px; padding: 4px 12px; }
 .file-tools .btn[hidden] { display: none; }
+.gr .radios { display: flex; flex-wrap: wrap; gap: 4px 14px; font-weight: 400; }
+.gr .radios label { display: flex; align-items: center; gap: 4px; font-weight: 400; }

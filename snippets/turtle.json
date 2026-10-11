@@ -461,6 +461,12 @@
      "matches": "gr\\.Interface\\(",
      "code": "import gradio as gr\n\ndef ‹answer›(‹choice›):\n    return ‹\"You chose \" + choice›\n\ngr.Interface(fn=‹answer›, inputs=gr.Dropdown(‹[\"pop\", \"rock\"]›), outputs=\"text\").launch()\n",
      "hint": "Gradio calls your function with what was chosen, and shows what it returns."
+    },
+    {
+     "label": "a quiz question",
+     "matches": "gr\\.Radio\\(",
+     "code": "{\"q\": \"‹What is 7 x 8?›\", \"choices\": [‹\"54\", \"56\", \"64\"›], \"answer\": \"‹56›\"}\n\ninputs.append(gr.Radio(‹q[\"choices\"]›, label=‹q[\"q\"]›))\n",
+     "hint": "A question as a dictionary, and a Radio input made from it: the student picks one of the choices, and the function gets that text."
     }
    ]
   },
