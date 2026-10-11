@@ -62,7 +62,7 @@ The blue lines are the crests of the waves. Watch what happens to the gap betwee
 
 ```step
 stage: investigate
-insight: "Applying the wave model to refraction, then the law of reflection, then the everyday straw, meets the node's third success criterion."
+insight: "Applying the wave model to refraction, then the law of reflection, then the everyday straw, meets the node's second success criterion."
 tasks:
   - check:
       type: question

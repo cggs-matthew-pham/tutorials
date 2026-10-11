@@ -82,7 +82,7 @@ tasks:
       q: "In sound, the particles vibrate backwards and forwards along the direction the wave travels. What do we call this kind of wave?"
       options: ["Longitudinal", "Transverse", "Stationary"]
       answer: 0
-      feedback: [null, "In a transverse wave the vibration is at right angles to the direction of travel, like a wave on a rope shaken up and down.", "Stationary isn't a kind of wave in this sense."]
+      feedback: [null, "In a transverse wave the vibration is at right angles to the direction of travel, like a wave on a rope shaken up and down.", "A stationary (standing) wave is a pattern that stays in place; it doesn't describe which way the particles vibrate."]
       explain: "Longitudinal: the vibration is along the direction of travel. That is why sound is squashes and stretches."
   - check:
       type: question
@@ -176,4 +176,4 @@ Write one sentence: "At first I thought… Now I think… because…"
 - Sound is a **longitudinal wave**: particles vibrate to and fro along the direction the wave travels.
 - A wave is a line of **compressions** (squashed) and **rarefactions** (spread out). The pattern travels; the particles stay in place.
 - **Frequency** (vibrations per second) sets the **pitch**; **amplitude** (size of the vibration) sets the **loudness**.
-- Sound needs a **medium**: it cannot travel through a vacuum. It is faster in solids than in gases because the particles are closer together.
+- Sound needs a **medium**: it cannot travel through a vacuum. It is faster in solids than in gases because the particles are closer together and more tightly bonded.

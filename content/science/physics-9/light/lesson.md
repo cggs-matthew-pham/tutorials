@@ -40,7 +40,7 @@ check:
   type: predict
   q: "Microwaves and X-rays are both electromagnetic waves. Which has more energy in each wave?"
   options: ["X-rays: a higher frequency means more energy", "Microwaves: they can cook food", "They are the same, because they travel at the same speed", "You can't compare them"]
-  actual: "X-rays. Energy goes up with frequency, and X-rays have a frequency tens of thousands of times higher than microwaves. A microwave oven cooks food because it is powerful, not because each wave has a lot of energy."
+  actual: "X-rays. Energy goes up with frequency, and X-rays have a frequency millions of times higher than microwaves, or more. A microwave oven cooks food because it is powerful, not because each wave has a lot of energy."
 ```
 
 ## Explore: the seven bands
@@ -70,7 +70,7 @@ Watch the wave at the bottom change: not to scale, but the pattern is real.
 
 ```step
 stage: investigate
-insight: "Transverse, speed in a vacuum, and the link between frequency, wavelength and energy are the node's three success criteria; the uses sort connects the pattern to technologies."
+insight: "Transverse waves, the spectrum as one family at one speed, and the link between frequency, wavelength and energy cover the node's first and third success criteria (bending light covers the second); the uses sort connects the pattern to technologies."
 tasks:
   - check:
       type: question
@@ -108,7 +108,7 @@ tasks:
       q: "Why are UV, X-rays and gamma rays more dangerous to living cells than radio waves?"
       options: ["Each wave carries a lot more energy, enough to damage cells", "They are brighter", "They travel faster"]
       answer: 0
-      feedback: [null, "Brightness is about visible light only.", "They all travel at the same speed."]
+      feedback: [null, "Brightness is how much energy arrives in total; the danger comes from the energy in each wave.", "They all travel at the same speed."]
       explain: "High-frequency waves carry much more energy in each wave, enough to damage the molecules in cells. Low-frequency waves such as radio don't."
   - check: { type: reflect, text: "I can describe light as a transverse wave, and say how wavelength, frequency and energy change across the spectrum." }
 ```

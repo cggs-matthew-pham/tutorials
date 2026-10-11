@@ -2,6 +2,19 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: review pass, Quick checks and Physics 9 waves and charge (11 Oct 2026, science chat)
+
+Read the 12 Quick check lessons and Physics 9 sound, static charge, electric current, light, bending light and wave or particle against their nodes' success criteria. Fixed (lesson.md only, so no clip re-records):
+- Universe check: hydrogen and helium proportions are by mass (three-quarters by mass, about 92% by number of atoms); the matter-proportions sort item said "three atoms in four". Now matches the `universe` widget.
+- Light: X-rays are millions of times (or more) higher in frequency than microwaves, not tens of thousands; the "brighter" feedback said brightness applies to visible light only; the Explain insight named the wrong success criteria.
+- Bending light: Explain insight said the third success criterion (it is the second, reflection and refraction).
+- Sound: "stationary" feedback said it isn't a kind of wave; revision summary now says closer together and more tightly bonded (closeness alone is a misconception).
+- Wave or particle: "sound needing a medium" was sorted as wave model, but the particle model explains that (the lesson says so later); replaced with an echo.
+- Genetics check: the X-linked question's fourth option ("One quarter of daughters") didn't answer the question and had mismatched feedback; now "One quarter" with feedback.
+- Boundaries check: matching fossils are plants and animals (Glossopteris, Mesosaurus), not "land animals". Reproduction check: a garbled explanation rewritten.
+
+Left for Matthew (judgement calls, unchanged): joke distractors in Year 7 to 9 checks; success criteria only partly checked (9U02 n2 stamen and carpel, n5 resource cost, 9U01 n6 the stimulus as a fourth component, 8U04 n5 First Nations stone selection named only as "people"); "insulators have no free electrons" (simplification); granite's hardness put down to interlocking crystals rather than its minerals.
+
 ## Done: Quick checks for class-taught nodes, Years 7 and 8 (11 Oct 2026, science chat)
 
 Matthew asked for very brief basic checks of what students should know where a node stays class-taught. Format (no shared tool change): one optional, check-only lesson per progression descriptor, a few `question`, `sort` and `reflect` checks per node, no board, clip or picture, `optional: true` so completion is unaffected, `node:` as a list so the curriculum map shows the node as covered. Teacher notes say the node is taught in class and the lesson is a self-test. Built: `biology-7/classification-check` (7U01 n4, n5), `biology-7/foodweb-check` (7U02 n3, n5), `chemistry/choose-technique-check` (7U06 n5), `earth-8/boundaries-check` (8U03 n3 to n6), `earth-8/rocks-check` (8U04 n1, n3 to n5). Validate clean, pages load, marking checked headless.

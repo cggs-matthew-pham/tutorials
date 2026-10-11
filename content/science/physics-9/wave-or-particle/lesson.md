@@ -33,7 +33,7 @@ tasks:
       q: "Which model explains it best?"
       options: ["Wave model", "Particle model"]
       items:
-        - ["Sound needing air or water to travel", "Wave model", "Compressions and rarefactions pass through the medium."]
+        - ["An echo: sound bouncing back off a cliff", "Wave model", "Sound reflects, like any wave."]
         - ["Heat passing along a metal spoon", "Particle model", "Collisions between particles pass the energy on."]
         - ["Light bending as it goes into glass", "Wave model", "The wave fronts slow down and turn."]
         - ["Warm water rising in a pot", "Particle model", "Bulk movement of particles, driven by density."]
