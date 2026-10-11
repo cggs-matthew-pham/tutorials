@@ -504,3 +504,21 @@ Course `content/code/microbit-security/` (after micro:bit Foundations, extension
 - Snippets done (11 Oct): a "Letters and codes" group in `snippets/microbit.json` (for index, letter at, find in text, length of text, join, remainder, xor with a key), so the course's teacher cheat sheets list them and the micro:bit Reference has them. "length of list" no longer matches text names (`message.length`), so text lessons list "length of text" instead. Their block pictures are drawn at the next publish. The XOR hint names `^` rather than a toolbox drawer, since the block is unconfirmed.
 - Secret messages has no student Reference page or student cheat sheets (`REFS` in `build-site.mjs` lists only micro:bit, Arcade and Robotics, as for micro:bit and the computer); adding one is a shared-tool change, not yet asked.
 - Not done: clips, teacher trials, a board widget for ciphers.
+
+## Proposed (11 Oct 2026, awaiting Matthew's approval): Drawing and animation with p5.js (Web pathway, extension, after HTML & CSS)
+
+**Why:** the Web pathway has two "Coming later" courses; this is the first. p5.js is the turtle ideas (variables, decisions, lists, functions, events) in JavaScript on a canvas, and `setup`/`draw` is the game loop from Games with microStudio. Typical fit Year 9+; students who did Python Foundations get the most from it, but only HTML & CSS is assumed.
+
+**Playground (new, shared tool, would be noted in shared.md):** `playground-p5/`, p5.js 2.3.4 vendored unminified-free (`p5.min.js`, LGPL-2.1, licence beside it, never modified) into `vendor/p5/`. Editor (our own, as the Python playground) with Run and Stop; the sketch runs in a sandboxed iframe (`allow-scripts`, no forms, no top navigation) with `console.log` and errors captured to an output panel; friendly hints for the common slips (missing bracket, `let` used before it is made, `draw` not defined, a p5 function used before `setup`), like `python-errors.mjs`. Saved per step in localStorage. Code checks with `contains` and `calls`-style rules on the student's text (the HTML playground's `tags`/`contains` model, plus `defs`/`calls`/`loops` read from JavaScript by a small pure parser in `lesson-core`). Clips type code live as for Python. Expected results are pictures drawn by `render-pictures` (a `picture:` renders the sketch to a PNG) or output-only clips when it moves. Nothing here needs the network at run time.
+
+**Course (6 lessons, units *Drawing* and *Moving*; Predict, Run, Investigate, Modify, Make, Where this leads):**
+1. Shapes on a canvas: `createCanvas`, `circle`, `rect`, `fill`, `background`; coordinates start top left, y goes DOWN (a misconception: `screen-y-up` in reverse; turtle and microStudio have y up).
+2. Variables and `draw`: `setup` once, `draw` 60 times a second (same loop idea as microStudio), a variable that changes (`x = x + 1`; `let`), trails with and without `background`.
+3. Decisions: `if`, bouncing, `mouseX`/`mouseY`, colour changes (links to turtle decisions).
+4. Arrays and loops: `for` loop, array of objects as `{x, y, speed}` (links to Python lists and dictionaries; no classes yet).
+5. Functions: your own `drawStar(x, y)`, parameters, returns a value; `random()`.
+6. Events and a small game: `mousePressed`, `keyPressed`, catch-the-circle with a score (the final challenge; marks "Challenge complete").
+Optional 7: Make art (generative: `noise`, `map`, `sin`) for the creative direction.
+Concepts: a `CONCEPTS.javascript` table so the hidden-assumptions lint covers it (let, function, array, object, for, if, ===, `+=`, `Math`); first JavaScript steps label `;` and `{}` as a recipe and name them as the hard part (struggle notes).
+
+**Decisions for Matthew:** (a) vendor p5 2.3.4 (LGPL-2.1, unmodified, licence file shipped) rather than load it from a CDN, so it works on school networks that block CDNs; (b) our own editor, not the p5 web editor (no accounts, no sharing of student work); (c) JavaScript only, no TypeScript or modules; (d) 6 lessons plus 1 optional; (e) the DOM course follows later as its own plan.
