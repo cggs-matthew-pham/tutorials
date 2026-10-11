@@ -1,0 +1,20 @@
+# Practice for "Volume in layers".
+templates:
+  - q: "A box is {l} cm long, {w} cm wide and {h} cm high. What is its volume, in cm³?"
+    vars: { l: "2..12", w: "2..8", h: "2..9" }
+    answer: "{l * w * h}"
+    feedback:
+      - ["{l + w + h}", "Volume multiplies: a layer of {l} × {w}, then {h} layers."]
+      - ["{l * w}", "That is one layer. There are {h} layers."]
+    explain: "Each layer is {l} × {w} = {l * w} cubes, and there are {h} layers: {l * w * h} cm³."
+  - q: "A prism has a base of area {A} cm² and height {h} cm. What is its volume, in cm³?"
+    vars: { A: "6..40", h: "2..12" }
+    answer: "{A * h}"
+    explain: "V = A × h = {A} × {h} = {A * h} cm³."
+  - q: "A box has volume {V} cm³ and a base {l} cm by {w} cm. How high is it, in cm?"
+    vars: { l: "2..10", w: "2..8", h: "2..9" }
+    let: { V: "l * w * h" }
+    answer: "{h}"
+    feedback:
+      - ["{V / l}", "Divide by the whole base area, {l} × {w} = {l * w}."]
+    explain: "Base {l} × {w} = {l * w}, so height = {V} ÷ {l * w} = {h} cm."

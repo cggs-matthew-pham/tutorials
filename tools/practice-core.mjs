@@ -142,12 +142,15 @@ export function makePractice() {
       if (WPM.vars(parts[1]).indexOf(L) >= 0) return { ok: false, keep: true, msg: 'Keep ' + L + ' only on the left.' };
       return { ok: true };
     }
+    if (!/[a-z]/i.test(g.answer) && /\d\s*[ap]\.?m\.?\s*$/i.test(raw)) return { ok: false, keep: true, msg: 'Write it in 24-hour time: 2 pm is 14:00, and 12 am is 0:00.' };
+    if (/π|\bpi\b/i.test(raw) && !/π/.test(g.answer)) return { ok: false, keep: true, msg: 'Give a number: work it out with the π button (or 3.14).' };
     if (/^\s*\(.*,.*\)\s*$/.test(raw)) return { ok: false, keep: true, msg: 'Give just the number, not a point.' };
     raw = String(raw).replace(/^(.+?)\s*=\s*[a-zA-Z]\s*$/, '$1');   // 3n + 2 = s
+    if (g.answer.indexOf(':') < 0) raw = String(raw).replace(/^\s*(\d{1,2}):00\b/, '$1');   // 14:00 for the hour 14
     var v = WPM.splitAnswer(String(raw).trim()).value.trim().replace(/[−–]/g, '-').replace(/^(-?)\s*\$\s*/, '$1').replace(/^-\s+/, '-').replace(/(\d),(?=\d{3}(\D|$))/g, '$1');
     if (!v) return { ok: false, msg: 'Type your answer first.' };
     // Numeric answers: drop units or words after the number ("36 litres", "30 km/h", "−1°C", "12 dollars", "45%").
-    if (!/[a-z]/i.test(g.answer)) v = v.replace(/\s*[A-Za-z°%\/](?:[A-Za-z°%\/\s.⁰¹²³⁴⁵⁶⁷⁸⁹]|\^\d)*$/, '').trim() || v;
+    if (!/[a-z]/i.test(g.answer)) v = v.replace(/\s*[A-Za-z°%\/](?:[A-Za-z°%\/\s.⁰¹²³⁴⁵⁶⁷⁸⁹]|\^\d|(?<=[A-Za-z])\d)*$/, '').trim() || v;
     v = caret(v);
     // A mixed numeral (1 1/2) is read as 1 + 1/2, not 11/2.
     var mx = /^(-?)(\d+)\s+(\d+)\s*\/\s*(\d+)$/.exec(v), mixedOk = false;

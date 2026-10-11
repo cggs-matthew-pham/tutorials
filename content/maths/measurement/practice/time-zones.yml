@@ -1,0 +1,23 @@
+# Practice for "Time zones". Hours in 24-hour time.
+templates:
+  - q: "It is {h < 10 ? '0' : ''}{h}:00 in {A} (UTC+{p}). What hour is it in {B} (UTC{q > 0 ? '+' : '−'}{abs(q)}), in 24-hour time?"
+    vars: { h: "0..23", i: "0..4", j: "0..5" }
+    let: { A: "i = 0 ? 'Sydney' : i = 1 ? 'Perth' : i = 2 ? 'Tokyo' : i = 3 ? 'Singapore' : 'Auckland'", p: "i = 0 ? 11 : i = 1 ? 8 : i = 2 ? 9 : i = 3 ? 8 : 13", B: "j = 0 ? 'London' : j = 1 ? 'New York' : j = 2 ? 'Los Angeles' : j = 3 ? 'Paris' : j = 4 ? 'Dubai' : 'Honolulu'", q: "j = 0 ? 1 : j = 1 ? -4 : j = 2 ? -7 : j = 3 ? 2 : j = 4 ? 4 : -10" }
+    answer: "{(h + q - p + 48) % 24}"
+    feedback:
+      - ["{(h + p - q + 48) % 24}", "{B} has a smaller offset, so it is behind: take the difference away."]
+    explain: "The difference is {p} − {q|p} = {p - q} hours, and {B} is behind. {h < 10 ? '0' : ''}{h}:00 − {p - q} h = {(h + q - p + 48) % 24 < 10 ? '0' : ''}{(h + q - p + 48) % 24}:00{h + q - p < 0 ? ', the day before' : ''}."
+  - q: "A flight leaves {A} (UTC+{p}) at {h < 10 ? '0' : ''}{h}:00 and takes {f} hours. At what hour, in 24-hour time, does it land in {B} (UTC{q > 0 ? '+' : '−'}{abs(q)})?"
+    vars: { h: "0..23", r: "0..5" }
+    let: { A: "r < 2 ? 'Sydney' : r = 2 ? 'Perth' : r = 3 ? 'Sydney' : r = 4 ? 'Tokyo' : 'Sydney'", p: "r < 2 or r = 3 or r = 5 ? 11 : r = 2 ? 8 : 9", B: "r = 0 ? 'Auckland' : r = 1 ? 'Los Angeles' : r = 2 ? 'Singapore' : r = 3 ? 'Singapore' : r = 4 ? 'London' : 'London'", q: "r = 0 ? 13 : r = 1 ? -7 : r = 2 or r = 3 ? 8 : 1", f: "r = 0 ? 3 : r = 1 ? 14 : r = 2 ? 5 : r = 3 ? 8 : r = 4 ? 14 : 23" }
+    answer: "{(h + f + q - p + 72) % 24}"
+    feedback:
+      - ["{(h + f) % 24}", "That is the time in {A} when it lands. Change it to {B}'s time."]
+    explain: "Landing, {A} time: {h}:00 + {f} h = {(h + f) % 24}:00{h + f >= 24 ? ' the next day' : ''}. {B} is {abs(p - q)} h {q < p ? 'behind' : 'ahead'}, so {(h + f + q - p + 72) % 24}:00 there."
+  - q: "{A} is UTC+{p} and {B} is UTC{q > 0 ? '+' : '−'}{abs(q)}. How many hours ahead of {B} is {A}?"
+    vars: { i: "0..3", j: "0..4" }
+    let: { A: "i = 0 ? 'Sydney' : i = 1 ? 'Perth' : i = 2 ? 'Tokyo' : 'Auckland'", p: "i = 0 ? 11 : i = 1 ? 8 : i = 2 ? 9 : 13", B: "j = 0 ? 'London' : j = 1 ? 'New York' : j = 2 ? 'Los Angeles' : j = 3 ? 'Paris' : 'Honolulu'", q: "j = 0 ? 1 : j = 1 ? -4 : j = 2 ? -7 : j = 3 ? 2 : -10" }
+    answer: "{p - q}"
+    feedback:
+      - ["{p + q}", "Subtract the offsets: {p} − {q|p} = {p - q}."]
+    explain: "{p} − {q|p} = {p - q} hours ahead."

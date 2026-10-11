@@ -1,0 +1,23 @@
+# Practice for "Right, acute or obtuse?". The page has one answer box, so the type is asked as a count or a number.
+templates:
+  - q: "How many of these triangles are right-angled: sides {a1}, {b1}, {c1}; sides {a2}, {b2}, {c2}; sides {a3}, {b3}, {c3}?"
+    vars: { x: [3, 5, 6, 7, 8, 9], y: [4, 6, 8, 12, 15], d1: [-1, 0, 0, 0, 1], d2: [-1, 0, 0, 1], d3: [-1, 0, 0, 0, 1] }
+    where: "x < y and c1 > y and c2 > y and c3 > 2 * y"
+    let: { a1: "x", b1: "y", c1: "round(sqrt(x * x + y * y)) + d1", a2: "x + 1", b2: "y", c2: "round(sqrt((x + 1) * (x + 1) + y * y)) + d2", a3: "2 * x", b3: "2 * y", c3: "round(sqrt(4 * x * x + 4 * y * y)) + d3", n: "(a1 * a1 + b1 * b1 = c1 * c1) + (a2 * a2 + b2 * b2 = c2 * c2) + (a3 * a3 + b3 * b3 = c3 * c3)" }
+    answer: "{n}"
+    explain: "Compare a² + b² with c²: {a1 * a1 + b1 * b1} vs {c1 * c1}{a1 * a1 + b1 * b1 = c1 * c1 ? ' (equal: right)' : ''}; {a2 * a2 + b2 * b2} vs {c2 * c2}{a2 * a2 + b2 * b2 = c2 * c2 ? ' (equal: right)' : ''}; {a3 * a3 + b3 * b3} vs {c3 * c3}{a3 * a3 + b3 * b3 = c3 * c3 ? ' (equal: right)' : ''}. {n} right-angled."
+  - q: "A triangle has sides {a}, {b} and {c}. Work out a² + b² − c² (using the two shorter sides for a and b)."
+    vars: { a: "3..9", b: "4..12", e: "-3..3" }
+    where: "a < b and c > b and c < a + b"
+    let: { c: "round(sqrt(a * a + b * b)) + e" }
+    answer: "{a * a + b * b - c * c}"
+    feedback:
+      - ["{c * c - a * a - b * b}", "a² + b² first, then take away c²."]
+    explain: "{a * a} + {b * b} − {c * c} = {a * a + b * b - c * c}. {a * a + b * b - c * c = 0 ? 'Zero: right-angled.' : a * a + b * b - c * c > 0 ? 'Positive: c² is smaller, so acute.' : 'Negative: c² is bigger, so obtuse.'}"
+  - q: "Two sides of a triangle are {a} and {b}. What is the smallest whole-number longest side that makes it obtuse?"
+    vars: { a: "3..9", b: "4..12" }
+    where: "a < b"
+    answer: "{floor(sqrt(a * a + b * b)) + 1}"
+    feedback:
+      - ["{floor(sqrt(a * a + b * b))}", "{floor(sqrt(a * a + b * b))}² = {floor(sqrt(a * a + b * b)) ^ 2}, which is not more than {a * a + b * b}."]
+    explain: "Obtuse needs c² > {a}² + {b}² = {a * a + b * b}. {floor(sqrt(a * a + b * b)) + 1}² = {(floor(sqrt(a * a + b * b)) + 1) ^ 2} is the first square above it."

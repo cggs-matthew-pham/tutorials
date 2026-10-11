@@ -1,0 +1,23 @@
+# Practice for "Discovering π".
+templates:
+  - q: "A {thing}'s circumference measures {C} cm and its diameter {d} cm. What is C ÷ d, to 2 decimal places?"
+    vars: { d: "5..40", w: [0, 1, 2, 3], e: [-0.4, -0.3, -0.2, 0, 0.2, 0.3, 0.4] }
+    let: { C: "rd(3.1416 * d + e, 1)", thing: "w = 0 ? 'bin lid' : w = 1 ? 'plate' : w = 2 ? 'tin' : 'wheel'" }
+    answer: "{rd(C / d, 2)}"
+    tolerance: 0.01
+    feedback:
+      - ["{rd(d / C, 2)}", "Circumference ÷ diameter: {C} ÷ {d}."]
+    explain: "{C} ÷ {d} = {C / d|3}… ≈ {rd(C / d, 2)}: close to π, as for every circle (measurements are never exact)."
+  - q: "A wheel has diameter {d} cm. Estimate its circumference, in cm, using π ≈ 3.14."
+    vars: { d: "8..90" }
+    answer: "{3.14 * d}"
+    tolerance: 0.5
+    feedback:
+      - ["{3.14 * d / 2}", "C = π × diameter. You don't halve it."]
+    explain: "C ≈ 3.14 × {d} = {3.14 * d} cm. It is just over 3 diameters."
+  - q: "Using π ≈ 22/7, about how long is the circumference of a circle with diameter {d} cm?"
+    vars: { k: "1..12" }
+    let: { d: "7 * k" }
+    answer: "{22 * k}"
+    tolerance: 0.3
+    explain: "22/7 × {d} = 22 × {k} = {22 * k} cm."

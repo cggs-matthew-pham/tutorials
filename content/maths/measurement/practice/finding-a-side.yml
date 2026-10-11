@@ -1,0 +1,25 @@
+# Practice for "Finding a side".
+templates:
+  - q: "A right-angled triangle has hypotenuse {c} cm and one shorter side {a} cm. How long is the other side, in cm?"
+    vars: { k: "1..5", t: [0, 0, 1, 2, 3], s: [0, 1] }
+    let: { p: "k * (t = 0 ? 3 : t = 1 ? 5 : t = 2 ? 8 : 7)", q: "k * (t = 0 ? 4 : t = 1 ? 12 : t = 2 ? 15 : 24)", c: "k * (t = 0 ? 5 : t = 1 ? 13 : t = 2 ? 17 : 25)", a: "s ? p : q" }
+    answer: "{s ? q : p}"
+    feedback:
+      - ["{rd(sqrt(c * c + a * a), 1)}", "That adds the squares, giving a side longer than the hypotenuse. For a shorter side, subtract: {c * c} − {a * a}."]
+      - ["{rd(sqrt(c * c + a * a), 2)}", "That adds the squares, giving a side longer than the hypotenuse. For a shorter side, subtract: {c * c} − {a * a}."]
+      - ["{c - a}", "Subtract the squares, not the sides: {c * c} − {a * a}."]
+    explain: "b² = {c}² − {a}² = {c * c} − {a * a} = {c * c - a * a}, so b = {s ? q : p} cm. Check: {c} is still the longest."
+  - q: "A {L} m ladder leans against a wall with its foot {a} m from the wall. How high up the wall does it reach, in m, to 2 decimal places?"
+    vars: { L: [3, 4, 5, 6, 7, 8], a: [0.8, 1, 1.2, 1.5, 1.8, 2] }
+    where: "a >= L / 5 and a <= L / 3"
+    answer: "{rd(sqrt(L * L - a * a), 2)}"
+    tolerance: 0.005
+    feedback:
+      - ["{rd(sqrt(L * L + a * a), 2)}", "The ladder is the hypotenuse, the longest side. Subtract: {L * L} − {a * a}."]
+    explain: "The ladder is the hypotenuse: h² = {L}² − {a}² = {L * L} − {a * a} = {L * L - a * a}, so h ≈ {rd(sqrt(L * L - a * a), 2)|f2} m."
+  - q: "A rectangular screen is {w} cm wide and {h} cm high. How long is its diagonal, in cm?"
+    vars: { k: [2, 3, 4, 5, 6, 8, 10, 12], t: [0, 1, 2] }
+    let: { w: "k * (t = 0 ? 4 : t = 1 ? 12 : 15)", h: "k * (t = 0 ? 3 : t = 1 ? 5 : 8)" }
+    where: "w <= 150"
+    answer: "{sqrt(w * w + h * h)}"
+    explain: "d² = {w}² + {h}² = {w * w} + {h * h} = {w * w + h * h}, so d = {sqrt(w * w + h * h)} cm."

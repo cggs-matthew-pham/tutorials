@@ -1,0 +1,27 @@
+# Practice for "Volume and capacity".
+templates:
+  - q: "A jug holds {L} L. How many cm³ is that?"
+    vars: { L: "0.25..5 by 0.25" }
+    answer: "{L * 1000}"
+    feedback:
+      - ["{L * 100}", "1 L = 1000 cm³."]
+    explain: "1 L = 1000 cm³, so {L} L = {L * 1000} cm³."
+  - q: "A tank is {a} m by {b} m by {c} m. How many litres does it hold?"
+    vars: { a: [1, 2, 3, 0.5], b: [1, 2, 1.5], c: [1, 2, 0.5] }
+    answer: "{a * b * c * 1000}"
+    feedback:
+      - ["{a * b * c}", "That is in m³. 1 m³ holds 1000 L."]
+    explain: "{a} × {b} × {c} = {a * b * c} m³, and 1 m³ = 1000 L: {a * b * c * 1000|n} L."
+  - q: "How many cm³ are in {m} m³?"
+    vars: { m: [1, 2, 0.5, 3, 0.25, 1.5, 4, 5, 0.1] }
+    answer: "{m * 1000000}"
+    feedback:
+      - ["{m * 100}", "1 m³ is 100 × 100 × 100 cm³, not 100."]
+      - ["{m * 1000}", "That is litres. 1 m³ is 100 × 100 × 100 = 1 000 000 cm³."]
+    explain: "1 m³ = 100 × 100 × 100 = 1 000 000 cm³, so {m} m³ = {m * 1000000|n} cm³."
+  - q: "A box {a} cm by {b} cm by {c} cm is filled with water. How many litres is that?"
+    vars: { a: [10, 20, 25, 30, 40], b: [10, 20, 25], c: [10, 15, 20, 30] }
+    answer: "{a * b * c / 1000}"
+    feedback:
+      - ["{a * b * c}", "That is cm³ (and mL). Divide by 1000 for litres."]
+    explain: "{a} × {b} × {c} = {a * b * c|n} cm³ = {a * b * c / 1000} L."

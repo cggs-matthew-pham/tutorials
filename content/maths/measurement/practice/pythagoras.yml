@@ -1,0 +1,18 @@
+# Practice for "Pythagoras' theorem".
+templates:
+  - q: "A right-angled triangle has sides {a} cm and {b} cm at the right angle. How long is the hypotenuse, in cm?"
+    vars: { k: "1..5", t: [0, 0, 1, 2, 3] }
+    let: { a: "k * (t = 0 ? 3 : t = 1 ? 5 : t = 2 ? 8 : 7)", b: "k * (t = 0 ? 4 : t = 1 ? 12 : t = 2 ? 15 : 24)" }
+    answer: "{sqrt(a * a + b * b)}"
+    feedback:
+      - ["{a + b}", "Add the squares, not the sides: {a * a} + {b * b}."]
+      - ["{a * a + b * b}", "That is c². Take the square root."]
+    explain: "c² = {a}² + {b}² = {a * a} + {b * b} = {a * a + b * b}, so c = √{a * a + b * b} = {sqrt(a * a + b * b)} cm."
+  - q: "The sides at the right angle are {a} m and {b} m. How long is the hypotenuse, in m, to 2 decimal places?"
+    vars: { a: "1..9", b: "1..9" }
+    where: "sqrt(a * a + b * b) != round(sqrt(a * a + b * b))"
+    answer: "{rd(sqrt(a * a + b * b), 2)}"
+    tolerance: 0.005
+    feedback:
+      - ["{a + b}", "Add the squares: {a * a} + {b * b} = {a * a + b * b}, then square root."]
+    explain: "c = √({a * a} + {b * b}) = √{a * a + b * b} ≈ {rd(sqrt(a * a + b * b), 2)|f2} m."

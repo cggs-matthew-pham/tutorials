@@ -1,0 +1,23 @@
+# Practice for "Area of triangles".
+templates:
+  - q: "A triangle has base {b} cm and perpendicular height {h} cm. What is its area, in cm²?"
+    vars: { b: "3..16", h: "2..12" }
+    answer: "{b * h / 2}"
+    feedback:
+      - ["{b * h}", "That is the parallelogram (or rectangle). A triangle is half of it: ½ × {b} × {h}."]
+    explain: "A = ½ × {b} × {h} = ½ × {b * h} = {b * h / 2} cm²."
+  - q: "A triangle has area {A} cm² and base {b} cm. What is its perpendicular height, in cm?"
+    vars: { b: [4, 6, 8, 10, 12, 14], h: "2..12" }
+    let: { A: "b * h / 2" }
+    answer: "{h}"
+    feedback:
+      - ["{A / b}", "Area is half of base × height, so base × height = {2 * A}. Then divide by {b}."]
+    explain: "½ × {b} × h = {A}, so {b} × h = {2 * A} and h = {h} cm."
+  - q: "A right-angled triangle has sides {a} cm, {b} cm and {c} cm, with the right angle between the {a} cm and {b} cm sides. What is its area, in cm²?"
+    vars: { k: "1..4", t: [0, 1, 2] }
+    let: { a: "k * (t = 0 ? 3 : t = 1 ? 5 : 8)", b: "k * (t = 0 ? 4 : t = 1 ? 12 : 15)", c: "k * (t = 0 ? 5 : t = 1 ? 13 : 17)" }
+    answer: "{a * b / 2}"
+    feedback:
+      - ["{b * c / 2}", "{c} cm is the slanted side. The two sides at the right angle are the base and height."]
+      - ["{a * b}", "Halve it: a triangle is half of the rectangle."]
+    explain: "The sides at the right angle are the base and height: ½ × {a} × {b} = {a * b / 2} cm². The {c} cm side isn't needed."

@@ -1,0 +1,23 @@
+# Practice for "Composite shapes".
+templates:
+  - q: "An L-shaped room is a rectangle {W} m by {H} m with a corner {a} m by {b} m missing. What is its area, in m²?"
+    vars: { W: "6..12", H: "5..10", a: "2..5", b: "2..4" }
+    where: "a < W - 1 and b < H - 1"
+    answer: "{W * H - a * b}"
+    feedback:
+      - ["{W * H}", "Take the missing corner away: {a} × {b} = {a * b}."]
+    explain: "Big rectangle {W} × {H} = {W * H}, minus the corner {a} × {b} = {a * b}: {W * H - a * b} m²."
+  - q: "An L-shape is a rectangle {W} m by {H} m with a corner {a} m by {b} m missing. What is its perimeter, in m?"
+    vars: { W: "6..12", H: "5..10", a: "2..5", b: "2..4" }
+    where: "a < W - 1 and b < H - 1"
+    answer: "{2 * (W + H)}"
+    feedback:
+      - ["{2 * (W + H) - 2 * (a + b)}", "Cutting a corner out doesn't shorten the outside: the two new edges replace the two that were cut off."]
+      - ["{W * H - a * b}", "That is the area. The perimeter is the distance round the outside."]
+    explain: "Walk round: the step's edges, {a} and {b}, replace the {a} and {b} cut off the corner, so the perimeter is the same as the rectangle's: 2 × ({W} + {H}) = {2 * (W + H)} m."
+  - q: "A shape is a rectangle {b} cm by {h} cm with a triangle on top (base {b} cm, height {t} cm). What is its area, in cm²?"
+    vars: { b: [4, 6, 8, 10, 12], h: "3..9", t: "2..6" }
+    answer: "{b * h + b * t / 2}"
+    feedback:
+      - ["{b * h + b * t}", "Halve the triangle: ½ × {b} × {t} = {b * t / 2}."]
+    explain: "{b} × {h} = {b * h}, plus ½ × {b} × {t} = {b * t / 2}: {b * h + b * t / 2} cm²."

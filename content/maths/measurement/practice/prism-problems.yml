@@ -1,0 +1,24 @@
+# Practice for "Prism problems".
+templates:
+  - q: "A tank has a base {a} m by {b} m and holds {V} L when full. How deep is it, in m?"
+    vars: { a: [2, 3, 4, 5], b: [2, 3, 4], d: [0.5, 1, 1.5, 2, 2.5, 3] }
+    let: { V: "a * b * d * 1000" }
+    answer: "{d}"
+    feedback:
+      - ["{d * 1000}", "Change litres to m³ first: 1000 L = 1 m³."]
+    explain: "{V|n} L = {a * b * d} m³. Divide by the base, {a} × {b} = {a * b}: {d} m."
+  - q: "A triangular prism's end has legs {a} cm and {b} cm (a right angle between them). The prism is {L} cm long. What is its volume in cm³?"
+    vars: { a: [3, 4, 5, 6, 8], b: [4, 6, 10, 12], L: "4..15" }
+    answer: "{a * b / 2 * L}"
+    feedback:
+      - ["{a * b * L}", "Halve: the end is a triangle, ½ × {a} × {b}."]
+    explain: "End ½ × {a} × {b} = {a * b / 2} cm², × {L} = {a * b / 2 * L} cm³."
+  - q: "A box has a volume of {V} cm³ and a base {a} cm by {b} cm. How tall is it, in cm?"
+    vars: { a: "3..10", b: "2..8", h: "2..12" }
+    let: { V: "a * b * h" }
+    answer: "{h}"
+    explain: "{V} ÷ ({a} × {b}) = {V} ÷ {a * b} = {h} cm."
+  - q: "A step {L} m long has an L-shaped end made of two rectangles, {p} m by {q} m and {r} m by {s} m. How many m³ of concrete does it need?"
+    vars: { L: [1, 1.5, 2, 3], p: [0.6, 0.8, 1], q: [0.2, 0.3], r: [0.3, 0.4], s: [0.3, 0.5] }
+    answer: "{(p * q + r * s) * L}"
+    explain: "End area {p} × {q} + {r} × {s} = {p * q} + {r * s} = {p * q + r * s} m², × {L} = {(p * q + r * s) * L} m³."

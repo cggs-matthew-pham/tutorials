@@ -1,0 +1,38 @@
+# Practice for "Circumference".
+templates:
+  - q: "A circle has diameter {d} cm. Using π ≈ 3.14, what is its circumference, in cm?"
+    vars: { d: "2..30" }
+    answer: "{3.14 * d}"
+    tolerance: 0.05
+    feedback:
+      - ["{3.14 * d * 2}", "C = πd: the diameter is already across the whole circle, so don't double it."]
+      - ["{rd(3.14 * d * d / 4, 2)}", "That is an area. Circumference is π × diameter."]
+      - ["{rd(3.14159265 * d, 1)}", "Use π ≈ 3.14, as the question says."]
+      - ["{rd(3.14159265 * d, 2)}", "Use π ≈ 3.14, as the question says."]
+    explain: "C = πd = 3.14 × {d} = {3.14 * d} cm."
+  - q: "A circle has radius {r} cm. Using π ≈ 3.14, what is its circumference, in cm?"
+    vars: { r: "2..20" }
+    answer: "{2 * 3.14 * r}"
+    tolerance: 0.05
+    feedback:
+      - ["{3.14 * r}", "That uses the radius as the diameter. C = 2πr: double the radius first."]
+      - ["{3.14 * r * r}", "That is the area. Circumference is 2πr."]
+      - ["{rd(2 * 3.14159265 * r, 1)}", "Use π ≈ 3.14, as the question says."]
+      - ["{rd(2 * 3.14159265 * r, 2)}", "Use π ≈ 3.14, as the question says."]
+    explain: "C = 2πr = 2 × 3.14 × {r} = {2 * 3.14 * r} cm."
+  - q: "A circle has circumference {C} cm. Using π ≈ 3.14, what is its radius, in cm?"
+    vars: { r: "2..15" }
+    let: { C: "2 * 3.14 * r" }
+    answer: "{r}"
+    tolerance: 0.05
+    feedback:
+      - ["{2 * r}", "That is the diameter, C ÷ π. Halve it for the radius."]
+    explain: "d = C ÷ π = {C} ÷ 3.14 = {2 * r}, so r = {r} cm."
+  - q: "Using π ≈ 22/7, find the circumference of a circle with radius {r} cm."
+    vars: { k: "1..10" }
+    let: { r: "7 * k" }
+    answer: "{44 * k}"
+    feedback:
+      - ["{22 * k}", "Radius {r} means diameter {2 * r}: C = 22/7 × {2 * r}."]
+      - ["{rd(6.28 * r, 2)}", "Use 22/7, as the question says: it makes the sevens cancel."]
+    explain: "C = 2 × 22/7 × {r} = 44 × {k} = {44 * k} cm."

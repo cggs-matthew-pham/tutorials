@@ -1,0 +1,24 @@
+# Practice for "Area of a circle". Answers to 1 decimal place with the π button; 3.14 is accepted too.
+templates:
+  - q: "Find the area of a circle of radius {r} cm, in cm², to 1 decimal place."
+    vars: { r: "2..15 by 0.5" }
+    answer: "{rd(3.14159265 * r * r, 1)}"
+    tolerance: 0.4
+    feedback:
+      - ["{rd(2 * 3.14159265 * r, 1)}", "That is the circumference. Area is πr²."]
+      - ["{rd((3.14159265 * r) ^ 2, 1)}", "Only r is squared: π × {r * r}."]
+      - ["{rd(3.14159265 * 4 * r * r, 1)}", "That used the diameter. A = πr² with r = {r}."]
+    explain: "A = π × {r}² = π × {r * r} = {3.14159265 * r * r|2}… ≈ {rd(3.14159265 * r * r, 1)|f1} cm²."
+  - q: "Find the area of a circle of diameter {d} m, in m², to 1 decimal place."
+    vars: { d: "3..24" }
+    answer: "{rd(3.14159265 * d * d / 4, 1)}"
+    tolerance: 0.3
+    feedback:
+      - ["{rd(3.14159265 * d * d, 1)}", "Halve the diameter first: r = {d / 2}."]
+    explain: "r = {d} ÷ 2 = {d / 2}, so A = π × {d / 2}² = π × {d * d / 4} ≈ {rd(3.14159265 * d * d / 4, 1)|f1} m²."
+  - q: "A circle's radius goes from {r} cm to {k * r} cm. How many times bigger is its area?"
+    vars: { r: "1..6", k: [2, 3, 4] }
+    answer: "{k * k}"
+    feedback:
+      - ["{k}", "The radius is squared in πr², so {k} times the radius is {k} × {k} times the area."]
+    explain: "π({k * r})² ÷ π({r})² = {k * k * r * r} ÷ {r * r} = {k * k}."

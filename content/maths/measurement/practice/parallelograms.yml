@@ -1,0 +1,27 @@
+# Practice for "Area of parallelograms".
+templates:
+  - q: "A parallelogram has base {b} cm and perpendicular height {h} cm. What is its area, in cm²?"
+    vars: { b: "3..15", h: "2..12" }
+    answer: "{b * h}"
+    feedback:
+      - ["{b * h / 2}", "That halves it, as for a triangle. A parallelogram rearranges into a whole rectangle: base × height."]
+    explain: "Area = base × perpendicular height = {b} × {h} = {b * h} cm²."
+  - q: "A parallelogram has base {b} m, a slanted side of {s} m and perpendicular height {h} m. What is its area, in m²?"
+    vars: { b: "4..15", h: "2..9", e: "1..3" }
+    let: { s: "h + e" }
+    answer: "{b * h}"
+    feedback:
+      - ["{b * s}", "{s} m is the slanted side. Use the perpendicular height, {h} m, at a right angle to the base."]
+    explain: "Use the height at a right angle to the base, not the slant: {b} × {h} = {b * h} m²."
+  - q: "A parallelogram has area {A} cm² and base {b} cm. What is its perpendicular height, in cm?"
+    vars: { b: "3..12", h: "2..10" }
+    let: { A: "b * h" }
+    answer: "{h}"
+    feedback:
+      - ["{A - b}", "Area = base × height, so divide: {A} ÷ {b}."]
+    explain: "{A} = {b} × height, so height = {A} ÷ {b} = {h} cm."
+  - q: "A parallelogram has base {b} m and perpendicular height {h} m. What is its area, in m²?"
+    vars: { b: "2..12 by 0.5", h: "2..8" }
+    where: "b != round(b)"
+    answer: "{b * h}"
+    explain: "{b} × {h} = {b * h} m²."

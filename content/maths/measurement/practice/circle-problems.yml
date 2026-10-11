@@ -1,0 +1,49 @@
+# Practice for "Circle problems".
+templates:
+  - q: "A circle has an area of {A} cm². Find its radius, in cm, to 1 decimal place."
+    vars: { r: "2..12 by 0.5" }
+    let: { A: "rd(3.14159265 * r * r, 1)" }
+    where: "r != round(r) or r < 5"
+    answer: "{r}"
+    tolerance: 0.1
+    feedback:
+      - ["{rd(A / 3.14159265, 1)}", "That is r². Take the square root."]
+    explain: "r² = {A} ÷ π = {A / 3.14159265|2}, so r = √{A / 3.14159265|2} ≈ {r|f1} cm."
+  - q: "Find the area of a semicircle of radius {r} cm, in cm², to 1 decimal place."
+    vars: { r: "2..15 by 0.5" }
+    answer: "{rd(3.14159265 * r * r / 2, 1)}"
+    tolerance: 0.2
+    feedback:
+      - ["{rd(3.14159265 * r * r, 1)}", "That is the whole circle. Halve it."]
+    explain: "Half of π × {r}²: π × {r * r} ÷ 2 ≈ {rd(3.14159265 * r * r / 2, 1)|f1} cm²."
+  - q: "A running track's field is a {L} m by {W} m rectangle with a semicircle on each {W} m end. What is its area, in m², to the nearest whole number?"
+    vars: { L: [80, 90, 100, 110, 120], W: [40, 50, 60, 70] }
+    answer: "{round(L * W + 3.14159265 * (W / 2) ^ 2)}"
+    tolerance: 3
+    feedback:
+      - ["{round(L * W + 2 * 3.14159265 * (W / 2) ^ 2)}", "Two semicircles make one whole circle, not two."]
+      - ["{round(L * W + 3.14159265 * W * W)}", "The semicircles' radius is half of {W}: {W / 2} m."]
+    explain: "Rectangle {L} × {W} = {L * W}. Two semicircles make a circle of radius {W / 2}: π × {W / 2}² ≈ {3.14159265 * (W / 2) ^ 2|1}. Total ≈ {round(L * W + 3.14159265 * (W / 2) ^ 2)} m²."
+  - q: "A quarter circle has radius {r} cm. What is its area, in cm², to 1 decimal place?"
+    vars: { r: "2..20" }
+    answer: "{rd(3.14159265 * r * r / 4, 1)}"
+    tolerance: 0.2
+    feedback:
+      - ["{rd(3.14159265 * r * r / 2, 1)}", "That is a semicircle. A quarter is half of that."]
+    explain: "π × {r}² ÷ 4 = π × {r * r} ÷ 4 ≈ {rd(3.14159265 * r * r / 4, 1)|f1} cm²."
+  - q: "A ring is the space between circles of radius {R} cm and {r} cm. What is its area, in cm², to 1 decimal place?"
+    vars: { R: "5..15", r: "2..10" }
+    where: "r < R - 1"
+    answer: "{rd(3.14159265 * (R * R - r * r), 1)}"
+    tolerance: 0.4
+    feedback:
+      - ["{rd(3.14159265 * (R - r) ^ 2, 1)}", "Take the small circle's area from the big one's: π × {R * R} − π × {r * r}, not π × ({R} − {r})²."]
+    explain: "Big circle π × {R * R}, minus small circle π × {r * r}: π × {R * R - r * r} ≈ {rd(3.14159265 * (R * R - r * r), 1)|f1} cm²."
+  - q: "What is the perimeter of a semicircle of diameter {d} cm (the curve and the straight edge), to 1 decimal place?"
+    vars: { d: "4..30" }
+    answer: "{rd(3.14159265 * d / 2 + d, 1)}"
+    tolerance: 0.1
+    feedback:
+      - ["{rd(3.14159265 * d / 2, 1)}", "That is just the curve. Add the straight edge, the diameter {d} cm."]
+      - ["{rd(3.14159265 * d + d, 1)}", "The curve is half the circumference: ½ × π × {d}."]
+    explain: "Curve ½ × π × {d} ≈ {3.14159265 * d / 2|2}, plus the diameter {d}: ≈ {rd(3.14159265 * d / 2 + d, 1)|f1} cm."

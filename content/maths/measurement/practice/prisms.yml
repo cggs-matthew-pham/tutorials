@@ -1,0 +1,24 @@
+# Practice for "Prisms and capacity".
+templates:
+  - q: "A prism's cross-section is a triangle with base {b} cm and height {h} cm. The prism is {L} cm long. What is its volume, in cm³?"
+    vars: { b: [3, 4, 5, 6, 8, 10], h: [2, 4, 6, 3, 5], L: "3..15" }
+    answer: "{b * h / 2 * L}"
+    feedback:
+      - ["{b * h * L}", "Halve first: the triangle is ½ × {b} × {h} = {b * h / 2} cm²."]
+    explain: "Cross-section ½ × {b} × {h} = {b * h / 2} cm², × {L} = {b * h / 2 * L} cm³."
+  - q: "A container holds {c} cm³. How many litres is that?"
+    vars: { c: "250..6000 by 50" }
+    answer: "{c / 1000}"
+    feedback:
+      - ["{c / 100}", "1000 cm³ is 1 litre: divide by 1000."]
+    explain: "1000 cm³ = 1 L, so {c} cm³ = {c / 1000} L."
+  - q: "A drink carton is {a} cm by {b} cm by {h} cm. How many millilitres does it hold?"
+    vars: { a: [5, 6, 7, 8], b: [4, 5, 6], h: [10, 12, 15, 18, 20] }
+    answer: "{a * b * h}"
+    explain: "{a} × {b} × {h} = {a * b * h} cm³, and 1 cm³ holds 1 mL: {a * b * h} mL."
+  - q: "A prism's cross-section is a parallelogram with base {b} cm and height {h} cm. The prism is {L} cm long. What is its volume, in cm³?"
+    vars: { b: "3..9", h: "2..6", L: "3..12" }
+    answer: "{b * h * L}"
+    feedback:
+      - ["{b * h * L / 2}", "A parallelogram is not halved: its area is base × height."]
+    explain: "Cross-section {b} × {h} = {b * h} cm², × {L} = {b * h * L} cm³."

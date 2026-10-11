@@ -1,0 +1,34 @@
+# Practice for "Area problems".
+templates:
+  - q: "A room is {l} m long and {w} cm wide. What is its area, in m²?"
+    vars: { l: "3..8", w: [250, 300, 350, 400, 450, 500, 550] }
+    answer: "{l * w / 100}"
+    feedback:
+      - ["{l * w}", "Change {w} cm to metres first: {w / 100} m."]
+    explain: "{w} cm = {w / 100} m, so the area is {l} × {w / 100} = {l * w / 100} m²."
+  - q: "A garden {l} m by {w} m has a {a} m by {b} m shed in one corner. What area of garden is left, in m²?"
+    vars: { l: "6..15", w: "4..10", a: "2..4", b: "2..3" }
+    where: "a < w and b < w"
+    answer: "{l * w - a * b}"
+    feedback:
+      - ["{l * w}", "Take the shed away: {a} × {b} = {a * b} m²."]
+    explain: "{l} × {w} = {l * w}, minus the shed {a} × {b} = {a * b}: {l * w - a * b} m²."
+  - q: "A house's end wall is a rectangle {w} m wide and {h} m high with a triangle of roof on top (base {w} m, height {t} m). What is the area of the whole wall, in m²?"
+    vars: { w: [4, 5, 6, 7, 8, 10], h: "3..5", t: "2..4" }
+    answer: "{w * h + w * t / 2}"
+    feedback:
+      - ["{w * h + w * t}", "Halve the triangle: ½ × {w} × {t} = {w * t / 2}."]
+    explain: "Rectangle {w} × {h} = {w * h}, triangle ½ × {w} × {t} = {w * t / 2}, total {w * h + w * t / 2} m²."
+  - q: "A wall {w} m wide and {h} m high is painted. One litre of paint covers {c} m². How many whole litres must you buy?"
+    vars: { w: "3..8", h: [2.4, 2.5, 2.7, 3], c: [4, 5, 6, 8] }
+    where: "w * h / c != round(w * h / c)"
+    answer: "{ceil(w * h / c)}"
+    feedback:
+      - ["{floor(w * h / c)}", "That falls short: {w * h} m² needs a bit more. Round up to whole litres."]
+    explain: "Area {w} × {h} = {w * h} m². {w * h} ÷ {c} = {w * h / c|2} litres, so buy {ceil(w * h / c)}."
+  - q: "How many square centimetres are in {m} m²?"
+    vars: { m: [1, 2, 3, 0.5, 1.5, 4, 2.5, 6, 0.25, 10] }
+    answer: "{m * 10000}"
+    feedback:
+      - ["{m * 100}", "1 m² is 100 cm by 100 cm: 10 000 cm², not 100."]
+    explain: "1 m² = 100 cm × 100 cm = 10 000 cm², so {m} m² = {m * 10000|n} cm²."

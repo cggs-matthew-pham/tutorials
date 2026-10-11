@@ -1,0 +1,16 @@
+# Practice for "Irregular shapes".
+templates:
+  - q: "A shape covers {f} full squares and part of {p} more. Each square is {s} m². Estimate its area in m²."
+    vars: { f: "10..60", p: [4, 6, 8, 10, 12, 14, 16, 20], s: [1, 1, 4, 0.25, 100] }
+    answer: "{(f + p / 2) * s}"
+    feedback:
+      - ["{f * s}", "Add the part squares too, counted as halves: {p} ÷ 2 = {p / 2}."]
+      - ["{(f + p) * s}", "Part squares are only partly covered: count each as a half."]
+      - ["{f + p / 2}", "That is the number of squares. Multiply by the area of one, {s} m²."]
+    explain: "{f} + {p} ÷ 2 = {f + p / 2} squares, × {s} m² = {(f + p / 2) * s} m²."
+  - q: "On a grid of {g} m squares, a lake covers {f} full squares and part of {p} more. Estimate its area in m²."
+    vars: { g: [0.5, 2, 5, 10], f: "20..50", p: [6, 8, 10, 12, 16, 20] }
+    answer: "{(f + p / 2) * g * g}"
+    feedback:
+      - ["{(f + p / 2) * g}", "Each square is {g} m by {g} m, so its area is {g * g} m², not {g}."]
+    explain: "Each square is {g} × {g} = {g * g} m². {f} + {p / 2} = {f + p / 2} squares, so about {(f + p / 2) * g * g} m²."
