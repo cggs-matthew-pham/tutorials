@@ -1,0 +1,33 @@
+summary: "A self-test on the scale of the universe, the CMB and matter proportions, and how the lines of evidence fit together (AC9S10U03, nodes 1, 4 and 5, taught in class; node 5 a hinge)."
+time: 16
+timing: "Node 1 6 min · Node 4 5 min · Node 5 5 min"
+goals:
+  - "I can order the parts of the universe by scale and use light-years and AU."
+  - "I can say what the CMB and the hydrogen-helium mix show."
+  - "I can say why several independent lines of evidence strengthen a theory."
+before: |
+  A Quick check: a few questions on what students should know for AC9S10U03 nodes 1, 4 and 5, which you teach in class. It has no board, no clip and no new teaching, and it is optional, so it never holds up course completion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+  
+  Use it as a self-test after your teaching, a starter, or revision. The big bang and redshift lessons are on screen (nodes 2 and 3). A scale activity (a class-sized solar system, or a number line) and a discussion of dark matter work better in the room.
+running:
+  - "Node 1: have students place objects on a scale line before the questions."
+  - "Node 5: ask which line of evidence they would show a sceptic first, and why."
+struggle: "Holding the sizes in mind. When a student mixes light-years and kilometres, ask what the distance would look like in each."
+stuck:
+  - see: "A student says a light-year is a length of time."
+    ask: "What does light do in a year?"
+    fix: "It travels. The light-year is the distance it covers."
+  - see: "A student says the big bang was an explosion in space."
+    ask: "Where was the space?"
+    fix: "Space itself expanded. There was no outside to explode into."
+stretch: "How long does light from the Sun take to reach Earth (about 8 minutes)? Use it to place one AU on a scale in light-minutes."
+support: "Give the scale list on cards to order, with a unit sheet (AU, light-year)."
+leads: |
+  Back in class: a model of the expanding universe (dots on a balloon); discussion of what is still unknown.
+exit:
+  q: "Name two lines of evidence for the big bang and what each shows."
+  a: "Redshift: the universe is expanding. CMB: it was hot and dense early. (Or hydrogen and helium proportions.)"
+explain: |
+  The universe is organised from planets and stars up to galaxies. Distances use **astronomical units** (inside the solar system) and **light-years** (between stars).
+  
+  Three **independent** lines of evidence support the big bang: **redshift** (expansion), the **cosmic microwave background** (a hot early universe) and **matter proportions** (hydrogen and helium). Their agreement makes the theory strong, though questions such as dark matter remain open.

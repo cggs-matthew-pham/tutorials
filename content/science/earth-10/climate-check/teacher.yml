@@ -1,0 +1,33 @@
+summary: "A self-test on human causes of the energy imbalance, indicators of warming, and mitigation and adaptation (AC9S10U04, nodes 4 to 6, taught in class; nodes 4 and 5 hinges)."
+time: 16
+timing: "Node 4 5 min · Node 5 6 min · Node 6 5 min"
+goals:
+  - "I can link human activities to the energy imbalance."
+  - "I can name indicators of climate change and explain one."
+  - "I can tell mitigation from adaptation."
+before: |
+  A Quick check: a few questions on what students should know for AC9S10U04 nodes 4, 5 and 6, which you teach in class. It has no board, no clip and no new teaching, and it is optional, so it never holds up course completion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+  
+  Use it as a self-test after your teaching, a starter, or revision. Sunlight, energy balance and the greenhouse effect are on screen (nodes 1 to 3). Climate data graphs, local impacts and the evaluation of strategies are for class. Responses involve values as well as science; present the evidence and options, and let students argue their positions.
+running:
+  - "Node 4: ask students to explain the imbalance using the in and out arrows before choosing an option."
+  - "Node 6: ask for one mitigation and one adaptation for a local issue (bushfire, drought)."
+struggle: "Linking each indicator back to energy. When a student just names an indicator, ask where the extra energy goes."
+stuck:
+  - see: "A student says one cold day shows warming is not happening."
+    ask: "Is that weather or climate?"
+    fix: "Weather. Climate is the long-term average trend."
+  - see: "A student says adaptation and mitigation are the same."
+    ask: "Does a sea wall change the greenhouse gases?"
+    fix: "No. Mitigation changes the cause; adaptation limits the harm."
+stretch: "Choose a strategy (carbon capture, electric vehicles, mangrove restoration) and evaluate it: what does it change in the energy balance, and what are its limits?"
+support: "Give the energy diagram with in and out arrows and ask where each strategy acts."
+leads: |
+  Back in class: analyse a real temperature or sea-ice graph; debate or evaluate a response strategy using the model.
+exit:
+  q: "Give one mitigation and one adaptation, and say how they differ."
+  a: "Mitigation reduces the cause (e.g. renewable energy). Adaptation limits the harm (e.g. sea walls)."
+explain: |
+  Human activities (burning fossil fuels, clearing land, farming) add **greenhouse gases**, which trap more outgoing radiation, so Earth takes in more energy than it sends out. The imbalance shows up as **indicators**: warming air and oceans, melting ice, rising seas.
+  
+  **Mitigation** reduces the cause; **adaptation** reduces the harm of change already happening.

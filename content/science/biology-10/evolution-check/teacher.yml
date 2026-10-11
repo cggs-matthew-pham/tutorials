@@ -1,0 +1,33 @@
+summary: "A self-test on the lines of evidence for evolution, speciation and extinction, and evolution in present populations (AC9S10U02, nodes 3, 4 and 5, taught in class; node 3 a hinge)."
+time: 16
+timing: "Node 3 5 min · Node 4 5 min · Node 5 6 min"
+goals:
+  - "I can give three kinds of evidence for evolution."
+  - "I can explain how a new species can form and why one goes extinct."
+  - "I can use natural selection to explain antibiotic resistance."
+before: |
+  A Quick check: a few questions on what students should know for AC9S10U02 nodes 3, 4 and 5, which you teach in class. It has no board, no clip and no new teaching, and it is optional, so it never holds up course completion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+  
+  Use it as a self-test after your teaching, a starter, or revision. Variation and natural selection are on screen (nodes 1 and 2). Evidence and the extended examples are for class; fossils, models and case studies work best in hand. Check your school's approach to teaching evolution and present it as the scientific theory with its evidence.
+running:
+  - "Node 3: ask for a third line of evidence out loud after the sort."
+  - "Node 5: ask students to retell the resistance story in their own words."
+struggle: "Using selection, not need or effort. When a student says bacteria adapt to survive, ask whether individual bacteria change or whether some were already different."
+stuck:
+  - see: "A student says giraffes grew long necks by stretching."
+    ask: "Are stretched necks passed on to offspring?"
+    fix: "No. Those born with longer necks survived and reproduced more."
+  - see: "A student says extinct species were weak."
+    ask: "What changed?"
+    fix: "The environment changed faster than the species could adapt."
+stretch: "Choose a current example (cane toads, finches, rock pocket mice). What is the selection pressure, and what has changed in the population?"
+support: "Give a story sequence on cards to order: variation, pressure, survival, reproduction, change."
+leads: |
+  Back in class: a selection simulation; a case study on antibiotic resistance and why courses should be completed.
+exit:
+  q: "Explain in two sentences how bacteria become resistant to an antibiotic."
+  a: "Some bacteria already have resistance by chance. The antibiotic kills the others, so the resistant ones reproduce and become common."
+explain: |
+  Several independent kinds of evidence (fossils, anatomy, DNA, distribution) support evolution by natural selection. **Isolation** and different pressures can make new species; **extinction** happens when change outpaces adaptation.
+  
+  Evolution is observable now: a selection pressure such as an antibiotic favours individuals with a helpful trait, and the **population** changes over generations.

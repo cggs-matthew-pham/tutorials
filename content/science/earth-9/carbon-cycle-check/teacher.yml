@@ -1,0 +1,31 @@
+summary: "A self-test on the whole carbon cycle: flows between spheres, what drives each, and the effect of combustion (AC9S9U03, node 5, taught in class)."
+time: 10
+timing: "About 10 min"
+goals:
+  - "I can name the main carbon flows between spheres."
+  - "I can sort flows as biological, geological or human-driven."
+  - "I can explain how burning fossil fuels changed the balance."
+before: |
+  A Quick check: a few questions on what students should know for AC9S9U03 node 5, which you teach in class. It has no board, no clip and no new teaching, and it is optional, so it never holds up course completion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+  
+  Use it as a self-test after your teaching, a starter, or revision. The four lessons on screen cover spheres, stores, living things and fossil fuels; this node is the student drawing or annotating the whole diagram. The questions check the vocabulary before or after.
+running:
+  - "Ask students to sketch the diagram first, then do the questions."
+  - "The sort is a good basis for colour-coding arrows on the diagram."
+struggle: "Labelling the direction of each arrow. When a student draws an arrow the wrong way, ask which sphere the carbon starts in."
+stuck:
+  - see: "A student says burning fuels destroys carbon."
+    ask: "Where does the carbon go?"
+    fix: "Into the air as carbon dioxide; carbon is moved, not destroyed."
+  - see: "A student says human flows are tiny next to natural ones."
+    ask: "Do natural flows balance each other?"
+    fix: "Mostly yes. The human flow is extra and not balanced."
+stretch: "Annotate a carbon cycle diagram with the approximate size of each flow. Which human flow is biggest?"
+support: "Give a diagram with the arrows drawn and the processes on cards to place."
+leads: |
+  Back in class: draw the full cycle with colour for biological, geological and human flows; link to Year 10 climate.
+exit:
+  q: "Name one biological, one geological and one human-driven carbon flow."
+  a: "For example photosynthesis, a volcanic eruption, burning petrol."
+explain: |
+  Carbon moves between four spheres. **Biological** flows (photosynthesis, respiration, decomposition) nearly balance. **Geological** flows (volcanoes, burial) are slow. **Human** flows, mainly burning fossil fuels and clearing land, add extra carbon dioxide that is not balanced.

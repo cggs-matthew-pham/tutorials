@@ -1,0 +1,33 @@
+summary: "A self-test on tracing complete negative feedback loops and locating the failure in a disorder (AC9S9U01, nodes 6 and 7, both hinge nodes taught in class)."
+time: 14
+timing: "Node 6 7 min · Node 7 7 min"
+goals:
+  - "I can name the parts of a feedback loop in an example."
+  - "I can say the set point for body temperature and blood glucose."
+  - "I can say which part of a loop fails in a disorder and what follows."
+before: |
+  A Quick check: a few questions on what students should know for AC9S9U01 nodes 6 and 7, which you teach in class. It has no board, no clip and no new teaching, and it is optional, so it never holds up course completion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+  
+  Use it as a self-test after your teaching, a starter, or revision. The Feedback lesson on screen does body temperature; blood glucose and the disorders are for class. Name the parts of the loop in your own words consistently so students can transfer them.
+running:
+  - "Node 6: draw the loop on the board for temperature, then ask students to draw glucose before the questions."
+  - "Node 7: ask where the loop could break before showing the options."
+struggle: "Naming which part fails, not just that something is wrong. When a student says the body cannot control glucose, ask which step stops."
+stuck:
+  - see: "A student says insulin is the receptor."
+    ask: "What does a receptor do?"
+    fix: "It detects the change. Insulin is a signal that triggers the response."
+  - see: "A student says negative feedback means the response is bad."
+    ask: "What does negative mean here?"
+    fix: "The response reverses the change, which keeps the body steady."
+stretch: "Choose another loop (water balance, blood pressure). Name its set point, receptor, control centre and effector, then say what happens if one part fails."
+support: "Give the loop as four labelled boxes with arrows to fill in."
+leads: |
+  Back in class: case studies of feedback disorders; a graph of blood glucose in a healthy person and a person with diabetes.
+exit:
+  q: "Name the parts of a negative feedback loop for body temperature."
+  a: "Receptor (skin and blood sensors), control centre (hypothalamus), effector (sweat glands, muscles, skin blood vessels), return towards 37 °C."
+explain: |
+  A **negative feedback loop** has a **receptor** that detects a change, a **control centre** that processes it, and an **effector** that responds to bring the value back to its **set point**.
+  
+  If one part fails, the loop cannot hold the value steady: a disorder is a failure in one component.

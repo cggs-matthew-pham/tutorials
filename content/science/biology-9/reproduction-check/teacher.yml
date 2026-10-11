@@ -1,0 +1,33 @@
+summary: "A self-test on reproductive organs and on asexual and sexual strategies and their trade-offs (AC9S9U02, nodes 2, 4 and 5, taught in class; node 4 a hinge)."
+time: 16
+timing: "Node 2 6 min · Node 4 5 min · Node 5 5 min"
+goals:
+  - "I can name reproductive structures and what they do."
+  - "I can describe two kinds of asexual reproduction."
+  - "I can compare sexual and asexual reproduction and say when each helps."
+before: |
+  A Quick check: a few questions on what students should know for AC9S9U02 nodes 2, 4 and 5, which you teach in class. It has no board, no clip and no new teaching, and it is optional, so it never holds up course completion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+  
+  Use it as a self-test after your teaching, a starter, or revision. The Gametes and Reproduction lessons on screen cover gametes and why sexual reproduction makes variation; structures and strategies are for class. Reproductive systems are taught under your school's own program and guidelines; the questions use only structure and function.
+running:
+  - "Node 2: use a flower dissection or labelled diagram before the sort."
+  - "Node 5: ask for a named context (a bare paddock, a new disease) before the answer."
+struggle: "Comparing on more than one point. When a student says asexual is better, ask better for what, and when."
+stuck:
+  - see: "A student says pollination and fertilisation are the same thing."
+    ask: "What moves in pollination, and what joins in fertilisation?"
+    fix: "Pollination moves pollen; fertilisation is gametes joining later."
+  - see: "A student says asexual reproduction is always bad."
+    ask: "When would copies of a successful parent be an advantage?"
+    fix: "In a stable place, or when spreading quickly."
+stretch: "Choose an organism that uses both strategies. When does it use each, and why?"
+support: "Give a two-column table (sexual, asexual) with rows for variation, speed, cost and best conditions."
+leads: |
+  Back in class: flower dissection; growing plants from cuttings or runners; compare with seed growth.
+exit:
+  q: "Give one advantage and one disadvantage of asexual reproduction."
+  a: "Advantage: fast with one parent. Disadvantage: no variation, so one change or disease can harm all."
+explain: |
+  Plants and animals have structures that **make** gametes, **carry** them together and **receive** them. In a flower, pollen moves from the anther to the stigma (pollination) before fertilisation.
+  
+  **Asexual** reproduction needs one parent and makes clones: fast, but with no variation. **Sexual** reproduction makes variation, which helps when conditions change.

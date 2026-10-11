@@ -6,7 +6,7 @@ The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › S
 
 Matthew asked for very brief basic checks of what students should know where a node stays class-taught. Format (no shared tool change): one optional, check-only lesson per progression descriptor, a few `question`, `sort` and `reflect` checks per node, no board, clip or picture, `optional: true` so completion is unaffected, `node:` as a list so the curriculum map shows the node as covered. Teacher notes say the node is taught in class and the lesson is a self-test. Built: `biology-7/classification-check` (7U01 n4, n5), `biology-7/foodweb-check` (7U02 n3, n5), `chemistry/choose-technique-check` (7U06 n5), `earth-8/boundaries-check` (8U03 n3 to n6), `earth-8/rocks-check` (8U04 n1, n3 to n5). Validate clean, pages load, marking checked headless.
 
-Next: Year 9 and 10 Quick checks (9U01 n6-n7, 9U02 n2 and n4-n5, 9U03 n5, 10U01 n2 and n5-n6, 10U02 n3-n5, 10U03 n1 and n4-n5, 10U04 n4-n6), then the older `assumes:` nodes if still uncovered.
+Years 9 and 10 (same day): `biology-9/feedback-check` (9U01 n6, n7), `biology-9/reproduction-check` (9U02 n2, n4, n5), `earth-9/carbon-cycle-check` (9U03 n5), `biology-10/genetics-check` (10U01 n2, n5, n6), `biology-10/evolution-check` (10U02 n3 to n5), `earth-10/universe-check` (10U03 n1, n4, n5) and `earth-10/climate-check` (10U04 n4 to n6). Every science node in Years 7 to 10 now has a tutorial or a Quick check; only the integration and Human endeavour/Inquiry strands stay with class work.
 
 ## Done: waves, charge and the class-task nodes (11 Oct 2026, science chat)
 

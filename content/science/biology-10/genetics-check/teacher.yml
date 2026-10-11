@@ -1,0 +1,33 @@
+summary: "A self-test on mitosis, how fertilisation and meiosis give variation, and sex-linked inheritance (AC9S10U01, nodes 2, 5 and 6, taught in class; node 6 a hinge)."
+time: 16
+timing: "Node 2 4 min · Node 5 6 min · Node 6 6 min"
+goals:
+  - "I can say what mitosis produces and why."
+  - "I can explain why siblings differ."
+  - "I can predict an X-linked trait with a Punnett square."
+before: |
+  A Quick check: a few questions on what students should know for AC9S10U01 nodes 2, 5 and 6, which you teach in class. It has no board, no clip and no new teaching, and it is optional, so it never holds up course completion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+  
+  Use it as a self-test after your teaching, a starter, or revision. DNA, meiosis and Punnett squares are on screen (nodes 1, 3 and 4). The notation here is XN for the normal allele and Xn for the condition allele; use whichever your class uses, as long as it is consistent.
+running:
+  - "Node 2: sort first, then ask students to draw a cell dividing both ways."
+  - "Node 6: have students draw the Punnett square before they read the options."
+struggle: "Keeping the sex chromosomes and the alleles apart in one square. When a student gets lost, ask which letters are chromosomes and which are alleles."
+stuck:
+  - see: "A student says mitosis makes gametes."
+    ask: "What is the chromosome number in a gamete?"
+    fix: "Half. Mitosis keeps it the same, so gametes come from meiosis."
+  - see: "A student says a carrier mother has the condition."
+    ask: "Does she have a second, normal X?"
+    fix: "Yes, which masks it, so she is a carrier, not affected."
+stretch: "Trace a trait such as red-green colour blindness through three generations of a family tree."
+support: "Give the Punnett square grid with the parent gametes already written in."
+leads: |
+  Back in class: family pedigree analysis; a mitosis stages practical or models.
+exit:
+  q: "Why is an X-linked recessive condition more common in males?"
+  a: "Males have only one X, so one recessive allele is enough; females need two."
+explain: |
+  **Mitosis** makes two genetically identical cells with the same chromosome number, for growth and repair. **Fertilisation** joins one gamete from each parent; random shuffling in meiosis and random meeting of gametes make siblings different.
+  
+  Sex is set by **X and Y**. A recessive allele on the X shows more often in males because they have only one X.
