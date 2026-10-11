@@ -1,0 +1,34 @@
+# Boards for "Find the bottleneck".
+
+# region: run
+widget: hardware
+device: old
+pick: none
+jobs: tabs, game, download
+# endregion
+
+# region: explain
+widget: hardware
+device: old
+jobs: game
+# endregion
+
+# region: explain-pic
+widget: hardware
+device: old
+pick: none
+jobs: game
+# endregion
+
+# region: modify
+widget: hardware
+device: old
+jobs: tabs, download, ai
+# endregion
+
+# region: make
+widget: hardware
+device: laptop
+jobs: video
+target: 60
+# endregion

@@ -1,0 +1,50 @@
+summary: Students open what each row of a spec sheet measures (processor, RAM, storage, network, graphics), compare a phone, a laptop and a server, and set a spec sheet to match an advert (AC9TDI8K01 node 1).
+time: 35
+timing: "Predict and Try 6 min · Worked example 9 min · Vary 8 min · Practise and Make 12 min"
+goals:
+  - I can name the main specs on a spec sheet.
+  - I can say what each spec measures, in plain words.
+  - I can explain why a phone, a laptop and a server have different specs.
+struggle: "Everyday language calls both RAM and storage \"memory\". Hold the line: working space (RAM) versus what it keeps (storage), every time it comes up."
+before: |
+  Try the boards yourself.
+
+  The one idea: each spec measures a different thing. Lesson 2 needs this exact vocabulary to find a bottleneck, so a student who still mixes up RAM and storage at the exit ticket needs a second go before lesson 2 (this is a hinge).
+
+  Hands-on: bring an old desktop or laptop to open, or show a teardown photo, and point at each part. Students can find their own device's specs under Settings › About (phones show storage clearly; RAM is often hidden).
+
+  The kitchen comparison (chefs, bench, pantry, delivery van, helpers) is on the board; use it consistently. Numbers on the board are simplified and round; real prices change.
+running:
+  - "Predict: students who chose storage hold Sam's misconception."
+  - "Try: ask which rows are about \"how much\" and which about \"how fast\"."
+  - "Worked example: model reading each line aloud: part, number, what it measures."
+  - "Vary: ask why a server needs so much RAM if nobody sits at it."
+  - "Make: ask which line of the advert was hardest to place, and why."
+stuck:
+  - see: "A student adds RAM and storage together (Sam's mistake)."
+    ask: "Which one empties when you switch off?"
+    fix: "RAM; they are different parts for different jobs."
+  - see: "A student reads GB as speed."
+    ask: "Is a bigger pantry a faster chef?"
+    fix: "GB is an amount; GHz and Mb/s are speeds."
+stretch: "Look up the specs of a games console and a Chromebook. Which spec is very different, and why does that suit what each is for?"
+support: "A card with five rows: part, unit, what it measures, kitchen picture."
+leads: |
+  Next: Find the bottleneck (which spec slows a job down).
+
+  Links: Data representation (bits and bytes: a GB is about a billion bytes; Mb/s is millions of bits); Networks (bandwidth).
+exit:
+  q: "Name three specs and say what each one measures."
+  a: "For example: RAM, how much it can work on at once; storage, how much it keeps with the power off; processor GHz, how fast each core works; network Mb/s, how fast data arrives."
+explain: |
+  A **spec sheet** lists how much of each part a computer has.
+
+  - **Processor**: how fast it works (GHz) and how many things at once (cores).
+  - **RAM**: how much it can work on at once. It empties when the power goes off.
+  - **Storage**: how much it keeps (GB, TB) and how fast it reads it (SSD fast, HDD slow).
+  - **Network**: how much data can arrive each second (Mb/s).
+  - **Graphics card**: many small processors doing simple sums at once (games, AI).
+
+  RAM and storage are both sometimes called "memory", but they are different parts.
+sources:
+  - { title: "Digital Technologies Hub: Digital systems (hardware specifications; Years 7–8 sample unit Hardware, networks and cyber threats)", url: "https://www.digitaltechnologieshub.edu.au/teach-and-assess/classroom-resources/topics/digital-systems/", checked: 2026-10-12 }

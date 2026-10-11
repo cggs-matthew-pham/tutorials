@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The old laptop takes 90 seconds to load a game level.
+The storage takes 80 of those seconds: it is the bottleneck.
+A 2 TB hard disk is bigger than the 1 TB one, so it will load faster.
+So Sam buys the 2 TB hard disk.
+# endregion

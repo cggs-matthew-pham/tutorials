@@ -1,0 +1,41 @@
+# Boards for "What the specs mean".
+
+# region: run
+widget: hardware
+devices: phone, laptop, server
+device: laptop
+pick: none
+jobs: none
+explain: on
+# endregion
+
+# region: explain
+widget: hardware
+device: laptop
+pick: none
+jobs: none
+explain: on
+# endregion
+
+# region: explain-pic
+widget: hardware
+devices: phone, laptop, server
+device: laptop
+pick: none
+jobs: none
+# endregion
+
+# region: modify
+widget: hardware
+devices: phone, laptop, server
+device: phone
+pick: none
+jobs: none
+explain: on
+# endregion
+
+# region: make
+widget: hardware
+device: laptop
+jobs: none
+# endregion

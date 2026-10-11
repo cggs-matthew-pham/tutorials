@@ -552,3 +552,31 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .ardstatus { margin: 2px 0 0; font: 600 14px system-ui, sans-serif; color: var(--muted); min-height: 1.3em; }
 .cksvg .ardlab { font: 700 13px system-ui, sans-serif; fill: rgba(255,255,255,.92); }
 .cksvg .ardread { font: 700 13px ui-monospace, Menlo, Consolas, monospace; fill: var(--ink); }
+/* hardware: a spec sheet and jobs with time bars */
+.hwwrap { height: 100%; overflow: auto; padding: 10px 12px; font: 14px/1.35 system-ui, sans-serif; display: flex; flex-direction: column; gap: 10px; }
+.hwbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.hwlab { font: 600 13px/1.2 system-ui, sans-serif; color: var(--muted); }
+.hwbar button, .hwrun, .hwtog, .hwq, .hwstep button { font: 600 13px/1.1 system-ui, sans-serif; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; }
+.hwbar button[aria-pressed=true] { background: var(--accent); border-color: transparent; color: #fff; }
+.hwcols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; align-items: start; }
+.hwsheet, .hwjobs { display: flex; flex-direction: column; gap: 6px; padding: 8px 10px; border: 2px solid var(--line); border-radius: 10px; background: var(--card); }
+.hwhead { font: 700 13px/1.2 system-ui, sans-serif; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.hwrow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 5px 6px; border-radius: 8px; border: 1px solid transparent; }
+.hwrow.slow, .hwbarrow.slow { border-color: #b42318; }
+.hwname { font-weight: 600; min-width: 8.5em; }
+.hwval { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.hwstep { display: inline-flex; align-items: center; gap: 4px; }
+.hwstep button { width: 28px; padding: 5px 0; } .hwstep button:disabled { opacity: .35; cursor: default; }
+.hwstep output { font: 600 14px/1 ui-monospace, Menlo, Consolas, monospace; min-width: 5.6em; text-align: center; }
+.hwq { margin-left: auto; font-weight: 500; }
+.hwmeans { flex-basis: 100%; margin: 2px 0 0; padding: 6px 8px; border-left: 3px solid var(--accent); background: var(--bg); }
+.hwkitchen { color: var(--muted); font-style: italic; }
+.hwcost { font-weight: 700; padding-top: 4px; border-top: 1px solid var(--line); } .hwcost.over { color: #b42318; }
+.hwrun { align-self: flex-start; background: var(--accent); border-color: transparent; color: #fff; }
+.hwone { margin: 0; font-weight: 600; }
+.hwres { display: flex; flex-direction: column; gap: 4px; } .hwres.stale .hwbarrow, .hwres.stale .hwtot { opacity: .45; }
+.hwbarrow { display: grid; grid-template-columns: 8.5em 1fr 4.5em; gap: 8px; align-items: center; padding: 2px 4px; border-radius: 6px; border: 1px solid transparent; }
+.hwbn { font-size: 13px; } .hwsec { font: 600 13px/1 ui-monospace, Menlo, Consolas, monospace; text-align: right; }
+.hwtrack { height: 14px; border-radius: 7px; background: var(--bg); border: 1px solid var(--line); overflow: hidden; }
+.hwfill { display: block; height: 100%; background: var(--left); transition: width .4s; } .hwbarrow.slow .hwfill { background: #b42318; }
+.hwtot { margin: 4px 0 0; font-weight: 700; } .hwstale { margin: 0; color: #b42318; font-weight: 600; } .hwhint { margin: 0; color: var(--muted); }

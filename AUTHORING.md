@@ -759,6 +759,17 @@ Vary, Practise, Make).
     built-in copy where `crypto.subtle` is missing, as in clips), `salt:` shows an "Add each user's salt" switch, `leak
     name: 12-hex` lines list stored hashes (a matching row lights); values `n`, `m`, `d` (digits changed), `s`, `w`
     (words). `mode: keys`: Bob locks with Alice's padlock, his own or none (`lock:`), Send; values `l`, `k`, `v`, `f`.
+  - `widget: hardware` (first used by `systems/hardware/`): a spec sheet (processor cores 2–32 and 2–4 GHz, RAM 4–128 GB,
+    storage 128 GB–4 TB SSD or HDD, network 50 Mb/s–10 Gb/s, graphics card) and jobs to run (`jobs: tabs, video, game,
+    download, ai, photos`, `job:`; `jobs: none` for a spec sheet only). Run shows each part's seconds as bars, the longest
+    in red (the bottleneck). Simple model, times add up: processor work ÷ (cores the job can use × GHz), RAM shortfall
+    swapped to storage, storage MB ÷ 100 (HDD) or 2000 (SSD) MB/s, network MB × 8 ÷ Mb/s, AI on the graphics card if
+    present. `device: phone | laptop | server | old` or a line `device A: 8 3 8 ssd 1024 50 0` (cores, GHz, RAM, type,
+    size, Mb/s, graphics; one letter shows as "Option A"); `devices:` buttons; `pick: none` or a list of cpu, ram,
+    storage, network, gpu; `explain: on` adds "What does it measure?" per row; `budget:`, `target:`. Values `t` (seconds;
+    0 before a run), `u` (1 if that run matches the specs shown: use it in every time check), `b` (bottleneck 1–5), `c`
+    cost, `k`, `g` (GHz × 10), `r`, `s` (SSD), `z`, `n`, `h`, `j` (job 1–6), `f` (fits), `x` runs, `y` jobs run, `w`
+    devices run, `v` device shown, `m` parts changed from the start, `p` rows explained.
   - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
     between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
     `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b

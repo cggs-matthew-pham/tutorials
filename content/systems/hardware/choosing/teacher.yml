@@ -1,0 +1,49 @@
+summary: Students compare two computers on different jobs, follow four steps to a justified choice, and build the cheapest computer that meets a media-lab brief within a budget (AC9TDI8K01 node 3).
+time: 45
+timing: "Predict and Try 7 min · Worked example 10 min · Vary 8 min · Practise 8 min · Make 12 min"
+goals:
+  - I can choose hardware for a job and justify it with specs.
+  - I can explain a trade-off between two specs (more RAM or a faster processor).
+  - I can stay within a budget by spending on the bottleneck.
+struggle: "The Make has no single obvious answer and the budget pushes back. Let students run, overspend and adjust; the four steps are the scaffold, not the teacher."
+before: |
+  Try the boards yourself.
+
+  The one idea: choose for the job. Scaffold the reasoning with the four steps (what the job needs, compare on that, weigh the trade-offs, justify) on the board all lesson.
+
+  Prices on the board are made up but in proportion, and the cheapest Make answer is 8 cores at 3.0 GHz, 16 GB RAM and a 1 TB SSD ($780, 53 s); 8 cores at 4.0 GHz is $900 and 41 s. Real prices change; the Digital Technologies Hub suggests comparing specs in an online computer store, which works well as an extension.
+
+  The same Option A versus B comparison gives different winners for different jobs; that is the point of Vary.
+running:
+  - "Predict: students who chose B hold Sam's misconception; Try settles it."
+  - "Try: ask why B's extra RAM did nothing for the export."
+  - "Worked example: model the four steps aloud, then ask where the $60 for RAM went."
+  - "Vary: ask why the game load is a tie."
+  - "Make: collect the cheapest working builds on the board and compare the justifications."
+stuck:
+  - see: "A student picks the option with the bigger numbers (Sam's mistake)."
+    ask: "Which part is this job's slowest?"
+    fix: "Compare the options on that part."
+  - see: "A student is over budget and stuck."
+    ask: "Which parts did you upgrade that aren't on the red bar?"
+    fix: "Take the money back from those."
+stretch: "A school can rent time on a cloud server instead of buying 30 media-lab computers. When would that be the better choice?"
+support: "The four steps as a card with blanks: The job needs ___. Option ___ is better at that. The trade-off is ___. I choose ___ because ___."
+leads: |
+  Next in Digital systems: Networks (bandwidth and packets) or Security and privacy (Years 9–10).
+
+  Links: Engineering › Physical computing (choosing a board for a project).
+exit:
+  q: "Two laptops cost the same. One has more RAM, the other a faster processor. Which would you choose for a student who keeps many tabs open, and why?"
+  a: "The one with more RAM: many tabs need working space, and too little RAM swaps to storage. The faster processor wouldn't fix that."
+explain: |
+  There's no best computer, only the best one for a job.
+
+  1. **What does the job need?** (cores, RAM, storage speed, network, graphics)
+  2. **Compare the options on that.**
+  3. **Weigh the trade-offs**: what each option is short of, and what it has that the job can't use.
+  4. **Justify**: "I chose ___ because the job's bottleneck is ___."
+
+  Spend the budget on the bottleneck, not on the biggest numbers.
+sources:
+  - { title: "Digital Technologies Hub: Digital systems (hardware specifications; compare specifications in an online store)", url: "https://www.digitaltechnologieshub.edu.au/teach-and-assess/classroom-resources/topics/digital-systems/", checked: 2026-10-12 }

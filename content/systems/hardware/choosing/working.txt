@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Option B has 32 GB of RAM; Option A has 8 GB.
+32 is the bigger number.
+So Option B is better for every job.
+Sam buys Option B for video editing.
+# endregion

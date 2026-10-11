@@ -1,0 +1,50 @@
+summary: Students run jobs on an old laptop, see how long each part takes, find each job's bottleneck and upgrade only that part (AC9TDI8K01 node 2).
+time: 40
+timing: "Predict and Try 7 min · Worked example 10 min · Vary 12 min · Practise and Make 11 min"
+goals:
+  - I can explain how a spec affects how fast a job runs.
+  - I can find the bottleneck for a job.
+  - I can say which upgrade will help, and why others won't.
+struggle: "Students reach for \"a faster processor\" for everything. Let them try it on the download (Vary task 4) and see almost nothing change, rather than telling them."
+before: |
+  Try the boards yourself.
+
+  The one idea: the slowest part decides. This is the hinge for lesson 3: without it, choosing hardware becomes picking the biggest numbers.
+
+  The model is simplified on purpose and says so: times add up part by part, the work amounts are made up but in proportion, a hard disk reads about 100 MB/s and an SSD about 2000 MB/s, and when RAM is too small the computer swaps to storage. Real computers overlap these steps and use caches, so real timings are messier; the idea that the slowest part dominates holds.
+
+  Hands-on: open Task Manager (Windows) or Activity Monitor (macOS) while a big download or video export runs, and look at which graph is at the top.
+running:
+  - "Predict: students who chose the processor will meet the 85 s answer in the worked example."
+  - "Try: ask what is different about the three red bars."
+  - "Worked example: before the SSD line, ask which part an upgrade should target."
+  - "Vary: after task 4, ask why 32 cores didn't help."
+  - "Make: ask who used 16 cores and whether that was better than 8 (the export can only use 8)."
+stuck:
+  - see: "A student buys a bigger hard disk to speed it up (Sam's mistake)."
+    ask: "Does a bigger pantry make the chef walk faster?"
+    fix: "Size is how much; SSD versus HDD is how fast."
+  - see: "A student upgrades everything."
+    ask: "Which bar got shorter, and which ones didn't change?"
+    fix: "Only the bottleneck's upgrade made a real difference."
+stretch: "After you fix one bottleneck, another part becomes the slowest. Fix the game load until the processor is the bottleneck, then keep going: when does it stop being worth it?"
+support: "A three-step card: run it, find the longest bar, change only that part."
+leads: |
+  Next: Choose the hardware (a job, a budget and trade-offs).
+
+  Links: Networks (bandwidth versus latency: a video call needs both).
+exit:
+  q: "A laptop with 8 GB of RAM gets slow with many tabs open. Name the bottleneck and the best upgrade, and say why a faster processor won't fix it."
+  a: "RAM is the bottleneck: it runs out and swaps to storage. More RAM stops the swapping. A faster processor only speeds the part that wasn't slow."
+explain: |
+  A job uses several parts, and the slowest one, the **bottleneck**, decides how long you wait.
+
+  - Many tabs or apps at once: **RAM** (too little, and it swaps to storage).
+  - Loading and starting up: **storage speed** (an SSD, not a bigger disk).
+  - Downloads and video calls: the **network**.
+  - Exporting video: the **processor** (cores and GHz).
+  - Training AI: a **graphics card**.
+
+  Upgrade the bottleneck; upgrading anything else barely helps.
+sources:
+  - { title: "Digital Technologies Hub: Digital systems (hardware specifications)", url: "https://www.digitaltechnologieshub.edu.au/teach-and-assess/classroom-resources/topics/digital-systems/", checked: 2026-10-12 }

@@ -34,15 +34,18 @@ Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 
 
 `systems/security` (Years 9–10, AC9TDI10K01, after Networks): What the operating system does (n1: apps, OS, drivers, app permissions), Names and addresses (n2: DNS, IP, router tables, private and public addresses, a lookalike domain), Who are you, and what may you do? (n3: authentication, MFA, authorisation, least privilege), Hashes and keys (n4: stored hashes, salt, public and private keys), and Capture the flag: secure the portal (n5, the challenge unit: four `flag` puzzles, one per lesson, then fix the permissions with MFA and sort weaknesses into fixes). Defensive framing throughout; all addresses from the documentation ranges; practice accounts only. New `security` widget, five modes, with a built-in SHA-256 for clips (the clip stage is not a secure context). Misconceptions `apps-talk-to-hardware`, `lookalike-domain`, `signed-in-means-allowed`, `hash-reversible`.
 
+## Done (12 Oct 2026): Inside a computer
+
+`systems/hardware` (Years 7–8, AC9TDI8K01, Hardware and logic pathway): What the specs mean (n1: spec sheet rows with what each measures and a kitchen comparison; phone, laptop, server), Find the bottleneck (n2: run jobs on an old laptop, time bars per part, upgrade the slowest), Choose the hardware (n3: Option A vs B on different jobs, four steps to a justified choice, the cheapest media-lab build within $900 and 60 s). New `hardware` widget. Misconceptions `ram-is-storage`, `storage-size-is-speed`, `biggest-spec-best`. The pathway's planned "Logic gates" card became "From gates to a processor" (adders, a tiny processor), since gates are taught in Data representation.
+
 ## Next
 
-1. Hardware (8K01: specifications and performance; choosing hardware for a job).
-2. Concept links: Secret messages should `assumes:` character codes (needs the cross-language concept change, item 4).
-3. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
-4. Cross-pathway concepts: the concept lint is per language (`CONCEPTS[lesson.language]`), so theory concepts (`bit`, `char-code`, `rgb`) cannot yet be `assumes:` in MakeCode or Python lessons. Needs a small change in `tools/concepts.mjs` (a shared concept list checked across languages, and `systems` in `prerequisites()`'s subject list). Check `roadmap/shared.md` first.
-5. Computers and the command line: five lessons on a browser `shell` board, then a teacher-led Raspberry Pi unit (environments and lessons in the Project doc digital-systems-plan).
-6. More security and CTF: Rules of the game, guessing passwords, encoding is not encryption, what a page gives away; cross-pathway flags and a capstone CTF; picoCTF (Carnegie Mellon) as the linked extension (check its account and age terms).
-7. Shapes as numbers (optional, 8K03): vector vs raster, meshes as lists of vertices; Engineering › 3D and animation builds on it.
+1. Concept links: Secret messages should `assumes:` character codes (needs the cross-language concept change, item 3).
+2. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
+3. Cross-pathway concepts: the concept lint is per language (`CONCEPTS[lesson.language]`), so theory concepts (`bit`, `char-code`, `rgb`) cannot yet be `assumes:` in MakeCode or Python lessons. Needs a small change in `tools/concepts.mjs` (a shared concept list checked across languages, and `systems` in `prerequisites()`'s subject list). Check `roadmap/shared.md` first.
+4. Computers and the command line: five lessons on a browser `shell` board, then a teacher-led Raspberry Pi unit (environments and lessons in the Project doc digital-systems-plan).
+5. More security and CTF: Rules of the game, guessing passwords, encoding is not encryption, what a page gives away; cross-pathway flags and a capstone CTF; picoCTF (Carnegie Mellon) as the linked extension (check its account and age terms).
+6. Shapes as numbers (optional, 8K03): vector vs raster, meshes as lists of vertices; Engineering › 3D and animation builds on it.
 
 ## Open questions
 

@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The phone's spec sheet says 8 GB RAM and 256 GB storage.
+RAM and storage are both memory, so the phone has 264 GB of memory.
+So it can have 264 GB of apps running at once.
+That is why it never slows down.
+# endregion

@@ -251,5 +251,8 @@
   "cpp-assign-in-if": {"home": "engineering/arduino/decisions", "text": "A single = in an if is thought to compare; in C++ it sets the variable (and the if then uses that value), so == is needed to compare."},
   "cpp-plus-joins-text": {"home": "engineering/arduino/serial", "text": "\"words\" + a number is thought to join them, as in Python; in C++ it moves along the text, so print the words and the number separately."},
   "pwm-lower-voltage": {"home": "engineering/arduino/pwm", "text": "analogWrite is thought to give the pin a lower voltage; the pin switches fully on and off very fast, and the value sets how much of the time it is on."},
-  "analog-range-mismatch": {"home": "engineering/arduino/pwm", "text": "A reading is passed straight to an output with a different range; analogRead gives 0 to 1023 but analogWrite takes 0 to 255, so scale it (divide by 4)."}
+  "analog-range-mismatch": {"home": "engineering/arduino/pwm", "text": "A reading is passed straight to an output with a different range; analogRead gives 0 to 1023 but analogWrite takes 0 to 255, so scale it (divide by 4)."},
+  "ram-is-storage": {"home": "systems/hardware/specs", "text": "RAM and storage are thought to be one \"memory\" (8 GB RAM + 256 GB storage = 264 GB of memory); RAM is the working space that empties when the power goes off, storage is what the computer keeps."},
+  "storage-size-is-speed": {"home": "systems/hardware/bottleneck", "text": "A bigger drive is thought to be a faster one; size (GB, TB) is how much it holds, and its type (SSD or HDD) decides how fast it reads."},
+  "biggest-spec-best": {"home": "systems/hardware/choosing", "text": "The option with the biggest numbers is thought to be best for every job; a spec only helps when that part is the job's bottleneck."}
 }

@@ -1,0 +1,44 @@
+# Boards for "Choose the hardware".
+
+# region: run
+widget: hardware
+device A: 8 3 8 ssd 1024 50 0
+device B: 4 3 32 ssd 1024 50 0
+device: A
+pick: none
+jobs: video
+# endregion
+
+# region: explain
+widget: hardware
+device A: 8 3 8 ssd 1024 50 0
+device B: 4 3 32 ssd 1024 50 0
+device: A
+jobs: video
+# endregion
+
+# region: explain-pic
+widget: hardware
+device A: 8 3 8 ssd 1024 50 0
+device B: 4 3 32 ssd 1024 50 0
+device: A
+pick: none
+jobs: video
+# endregion
+
+# region: modify
+widget: hardware
+device A: 8 3 8 ssd 1024 50 0
+device B: 4 3 32 ssd 1024 50 0
+device: A
+pick: none
+jobs: tabs, game, download
+# endregion
+
+# region: make
+widget: hardware
+device: old
+jobs: video
+budget: 900
+target: 60
+# endregion
