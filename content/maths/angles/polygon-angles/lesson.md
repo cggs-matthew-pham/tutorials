@@ -128,7 +128,7 @@ tasks:
     check: { type: board, text: "Drag the pentagon into a lopsided shape (keep every corner pointing out). Split it: what is the total?", when: "n = 5 and k = 3", explain: "Still 3 triangles, so still 540°." }
   - starter: "geo.yml#dart"
     hint: ["Drag one corner towards the middle of the shape, past the line joining its neighbours.", "Look at the angle at that corner: it is more than 180°."]
-    check: { type: board, text: "Edge case: drag one corner in so it points into the shape. What is the total now?", when: "n = 4 and v = 0", explain: "Still 360°: the corner that points in has an angle of more than 180°, and the other three shrink to make up for it." }
+    check: { type: board, text: "Edge case: drag one corner in so it points into the shape. What is the total now?", when: "n = 4 and v = 0", explain: "Still 360°: the corner that points in has a reflex angle (more than 180°), and the other three shrink to make up for it. A shape with a corner like this is concave; one with all corners pointing out is convex." }
   - starter: "geo.yml#choose"
     hint: "Use More sides. How many triangles does each new side add?"
     check: { type: board, text: "Make a polygon whose angles add to $1080°$.", when: "s = 1080", explain: "8 sides: 6 triangles, 6 × 180° = 1080°." }

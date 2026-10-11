@@ -17,7 +17,7 @@ running:
   - "Investigate: if many students miss the quick check, do the quarters (0.25, 0.5, 0.75) together first. Then model the worked example live: draw a line from −2 to 1, mark the quarters, and count aloud from zero for −3/4 and −1 1/4. Reveal the prepared lines afterwards to compare."
   - "Modify: before the line from −2 to 5, ask: where is zero on this line?"
   - "Practise: in the ordering question, students can write every number as a decimal first."
-  - "Make: ask for different answers. Then ask: is there a number between −0.3 and −0.25 too?"
+  - "Make: the board lands on −0.25; ask for other answers on paper (−0.21, −0.275). Then ask: is there a number between −0.3 and −0.25 too?"
 stuck:
   - see: "A student puts −1.5 between −1 and 0 (Jo's mistake)."
     ask: "Is −1.5 °C colder or warmer than −1 °C?"

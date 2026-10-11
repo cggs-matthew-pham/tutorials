@@ -101,10 +101,14 @@ AC9M8A02 n1: *Lines and regions* (Linear relations, Lines unit, order 8; Solving
 
 AC9M8N04 n2: Number Foundations' Fractions unit, lesson 7 (sign first, then size; efficient order and the distributive split, with two reasoning-check strategy tasks). Two cards. Number unit and course summaries updated.
 
+## Done: review fixes and the teachers' page (11 Oct 2026)
+
+An independent read of all 19 lessons found no wrong mathematics; fixed one bug-task line (Max, line 4), one feedback message, unclear working and wording, and added the terms numerator, denominator, reflex, convex, concave, "sum of the two interior opposite angles" and "inequality sign". The parallel board now reports the picked pair (`u`, `v`), so checks can ask for a specific pair. New page *For maths teachers* (`content/maths-teachers.md`, linked from the home page): what is here, how a lesson runs, the teacher guides, a ten-minute tour, and the feedback form. The site is for maths teachers to try when it suits them.
+
 ## Still to do
 
 - **Publish and listen:** the nineteen new clips (Number Foundations 7, Angles 6, Algebra 5, Linear relations 1) record with the real voice on the next manual publish.
-- **Try with classes:** all nineteen new lessons, the form checks and the working check, and whether students use the sliders or drag.
+- **Teacher feedback:** maths teachers try the site when it suits them (the For maths teachers page and the feedback form); act on what comes back.
 - **Watch in class:** whether students write real working in the reasoning box or skip to the marked parts; whether the self-check ticks are honest.
 - **Next nodes:** every node on the pasted progression pages now has a lesson except AC9M7A06 (formulas with digital tools: class work with a spreadsheet, left out on purpose). More pages are needed to go on (for example Year 8 measurement or statistics).
 - **Form-check coverage:** simplest and decimal are built; ratio and inequalities are not; add them when a lesson needs one.

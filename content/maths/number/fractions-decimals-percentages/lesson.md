@@ -81,10 +81,10 @@ tasks:
       type: bug
       code: "working.txt#max"
       text: "Max writes $0.5$ as a percentage. Click the line where his working goes wrong."
-      answer: 3
+      answer: 4
       fault: logic
       misconception: decimal-percent-place
-      explain: "Line 3: 0.5 is 5 tenths, which is 50 hundredths. Out of 100: 50%. Multiply a decimal by 100 for the percentage."
+      explain: "Line 4: 0.5 is 5 tenths, which is 50 hundredths. Out of 100: 50%. Multiply a decimal by 100 for the percentage."
   - check:
       type: answer
       q: "Write $16\\%$ as a fraction in its simplest form."

@@ -1,12 +1,12 @@
 ---
 title: Maths
 map: true
-summary: Interactive maths lessons. Predict, try it on a board, study a worked example, change one thing at a time, practise, then make your own. Four pathways follow the curriculum's strands; start with whichever your class is working on.
+summary: Interactive maths lessons. Predict, try it on a board, study a worked example, change one thing at a time, practise, then make your own. Four pathways follow the curriculum's strands; start with whichever your class is working on. Teachers will find a ten-minute tour on the page For maths teachers, linked from the home page.
 pathways:
   - id: algebra
     title: Algebra
     summary: From patterns and expressions to solving equations, then graphs of linear relations.
-    about: "Start with **Algebra Foundations**: patterns, expressions and equations, solved three ways (try and check, backtracking, the balance method) and always checked. **Linear relations** then turns patterns and rules into tables and straight-line graphs, reads graphs of real data, and solves and models with lines. It uses negative numbers from Number Foundations."
+    about: "Start with **Algebra Foundations**: patterns, expressions and equations, solved three ways (try and check, backtracking, the balance method) and always checked, then (Year 8) brackets, formulas, harder equations and inequalities. **Linear relations** then turns patterns and rules into tables and straight-line graphs, reads graphs of real data, and solves and models with lines. It uses negative numbers from Number Foundations."
     courses:
       - { path: maths/algebra, stage: foundations }
       - { path: maths/linear-relations, id: linear-relations, stage: foundations, after: [maths/algebra, number-foundations] }

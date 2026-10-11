@@ -30,7 +30,7 @@ stuck:
 stretch: "In a diagram, a = 3x and f = 2x + 30 with parallel lines (a and f are not a named pair: use a straight line first). Find x. (b = 180 − 3x = f, so x = 30.)"
 support: "Use the Run board to check each answer: set the given angle, pick the pair and read the size."
 leads: |
-  Next: angle sums of triangles and polygons (the next unit). Unknown angles with reasons across all these facts (AC9M7M04 node 3, AC9M7M05 node 3) are planned.
+  Next: angle sums of triangles and polygons (the next unit). Then Reasoning with angles (AC9M7M04 node 3) and Unknown angles in shapes (AC9M7M05 node 3) chain these facts with reasons.
 
   Where it leads: geometric proof in Years 8 to 10 (congruent triangles, properties of quadrilaterals).
 exit:

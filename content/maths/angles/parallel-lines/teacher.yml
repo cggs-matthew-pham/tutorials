@@ -27,7 +27,7 @@ stuck:
   - see: "A student cannot find pairs when the diagram is turned."
     ask: "Where are the parallel lines? Which angles are between them?"
     fix: "Shade the band between the parallel lines first; alternate and co-interior angles are inside it."
-stretch: "Draw a diagram with three parallel lines and one transversal. How many corresponding pairs are there? (Each angle at the top crossing has two partners: 12 pairs.)"
+stretch: "Draw a diagram with three parallel lines and one transversal. How many corresponding pairs are there? (Each of the 4 positions gives a pair for each two of the three lines (top and middle, middle and bottom, top and bottom): 4 × 3 = 12 pairs.)"
 support: "Use the board with names on (the Run board): pick pairs and read the names before trying the boards without them."
 leads: |
   Next: finding angles with parallel lines (node 2), which adds the rules: corresponding and alternate equal, co-interior add to 180°.

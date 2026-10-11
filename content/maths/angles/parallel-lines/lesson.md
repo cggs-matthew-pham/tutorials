@@ -210,7 +210,7 @@ stage: make
 insight: "Finding a pair between the lines that adds to 180° reverses the lesson: from what the angles do back to where they are."
 try: { playground: board, starter: "lines.yml#make", height: 560 }
 hint: ["Look only between the parallel lines: c, d, e and f.", "Which two of those add to 180°? Check with the sizes."]
-check: { type: board, text: "Pick two angles between the parallel lines, at different crossings, that add to $180^\\circ$.", when: "r = 3", explain: "c and e, or d and f: co-interior angles. (At t = 90° every pair adds to 180°, but co-interior pairs always do.)" }
+check: { type: board, text: "Pick two angles between the parallel lines, at different crossings, that add to $180^\\circ$.", when: "u >= 3 and u <= 4 and v >= 5 and v <= 6 and s = 180", explain: "c and e, or d and f: co-interior angles. (At t = 90° the alternate pairs c and f, d and e add to 180° too, but co-interior pairs always do.)" }
 ```
 
 Find a pair, then turn the crossing line. Do they still add to $180^\circ$?

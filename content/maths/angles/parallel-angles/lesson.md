@@ -152,7 +152,7 @@ tasks:
       explain: "e = 140° (corresponding to a), then g = 180° − 140° = 40° (a straight line). Or: b = 40° (a straight line), f = 40° (corresponding), g = 40° (vertically opposite)."
   - starter: "lines.yml#make"
     hint: ["h = 180° − t, so t = 50°.", "b is corresponding to f, and f is on a straight line with h."]
-    check: { type: board, text: "Turn the crossing line until $h = 130^\\circ$. Work out $b$ first, then pick $h$ and $b$ to check.", when: "h = 130 and m = 2", explain: "f = 50° (a straight line with h), so b = 50° (corresponding)." }
+    check: { type: board, text: "Turn the crossing line until $h = 130^\\circ$. Work out $b$ first, then pick $h$ and $b$ to check.", when: "h = 130 and u = 2 and v = 8", explain: "f = 50° (a straight line with h), so b = 50° (corresponding)." }
   - picture: { ref: lines.yml#tilt-pic, caption: "The lower line is tilted: the lines are not parallel. $c = 60^\\circ$." }
     check:
       type: question

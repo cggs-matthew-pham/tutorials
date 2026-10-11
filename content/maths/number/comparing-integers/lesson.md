@@ -139,9 +139,9 @@ tasks:
   - check:
       type: question
       q: "Edge case: $-10$ is further from zero than $-1$. Which is greater?"
-      options: ["$-1$", "$-10$, because it is further from zero", "They are equal: both are one digit and a zero apart"]
+      options: ["$-1$", "$-10$, because it is further from zero", "They are equal: both are negative"]
       answer: 0
-      feedback: [null, "Further from zero tells you the size without the sign. Further left on the line is less.", "Find both on the line: they are 9 places apart."]
+      feedback: [null, "Further from zero tells you the size without the sign. Further left on the line is less.", "Both being negative does not make them equal: they are 9 places apart on the line."]
       explain: "−1 > −10. −10 is further from zero, but it is further left, so it is less."
 ```
 

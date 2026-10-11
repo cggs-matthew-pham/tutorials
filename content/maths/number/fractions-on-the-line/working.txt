@@ -2,7 +2,7 @@
 
 # region: jo
 Place −1.5 on the number line.
-−1.5 is −1 and 0.5.
+−1.5 is one and a half below zero.
 Start at −1.
 Move half a unit to the right, because 0.5 is positive.
 So −1.5 is halfway between −1 and 0.

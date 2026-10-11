@@ -10,7 +10,7 @@ before: |
 
   The method is to draw lines from one corner only (the board's Split into triangles). Students who split from a point in the middle get n triangles and must take off the full turn of 360° round that point: that is Ben's mistake, planted after the method.
 
-  The board only splits shapes whose corners all point out. A corner that points in is the edge case in Modify: the angle sum is still (n − 2) × 180°, with one angle over 180°.
+  The board only splits convex shapes (every corner points out). A concave shape (a corner that points in, with a reflex angle) is the edge case in Modify: the angle sum is still (n − 2) × 180°.
 running:
   - "Predict: take a show of hands. Students who chose 180° are treating every shape like a triangle; '4 × 90°' students may pick 360° for the wrong reason. Ask: does a lopsided quadrilateral still add to 360°?"
   - "Run: ask students to drag the corners into a very lopsided quadrilateral and read both totals: the measured one and 2 × 180°."

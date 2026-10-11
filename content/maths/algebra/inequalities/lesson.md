@@ -4,7 +4,7 @@ unit: solving
 node: AC9M8A02 n3
 assumes: [AC9M8A02 n1]   # graphing inequalities: Linear relations, Lines and regions; the boards here draw the lines
 title: Inequalities
-summary: "Solve an inequality like an equation, doing the same to both sides, but when you multiply or divide by a negative, reverse the sign. Show the answer on a number line: open circle for < and >, closed for ≤ and ≥. Check with a value."
+summary: "Solve an inequality like an equation, doing the same to both sides, but when you multiply or divide by a negative, reverse the inequality sign. Show the answer on a number line: open circle for < and >, closed for ≤ and ≥. Check with a value."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }
 hook: "You need more than 50 points to pass, and a ride needs riders at least 120 cm tall. Not one answer: a whole range of them."
@@ -21,7 +21,7 @@ explainClip:
   clip:
     - caption: { text: "−2x > 6. The line y = −2x is above y = 6 on the left of x = −3.", say: "Minus two x is more than six on the left of minus three." }
     - wait: 1200
-    - caption: { text: "So x < −3. Dividing by −2 reversed > into <.", say: "So x is less than minus three. Dividing by minus two turned the sign round." }
+    - caption: { text: "So x < −3. Dividing by −2 reversed > into <.", say: "So x is less than minus three. Dividing by minus two turned the inequality sign round." }
     - wait: 1200
     - caption: { text: "Check x = −4: −2 × (−4) = 8, and 8 > 6. ✓", say: "Check: minus four gives eight, and eight is more than six." }
     - wait: 1400
@@ -63,7 +63,7 @@ Where are all the points that work: left or right of $x = -3$?
 
 ```step
 stage: investigate
-insight: "Adding, subtracting, and multiplying or dividing by a positive keep the sign; multiplying or dividing by a negative reverses it, because it flips the order on the number line. Mia keeps the sign after dividing by −2."
+insight: "Adding, subtracting, and multiplying or dividing by a positive keep the inequality sign; multiplying or dividing by a negative reverses it, because it flips the order on the number line. Mia keeps the inequality sign after dividing by −2."
 try: { playground: board, starter: "boards.yml#ray", height: 380 }
 tasks:
   - starter: "boards.yml#ray"
@@ -76,7 +76,7 @@ tasks:
       answer: 3
       fault: logic
       misconception: inequality-reverse
-      explain: "Line 3: dividing by −2 reverses the sign, so x < −3. Her check on line 4 fails, which is the clue: x = 0 should work if x > −3 were right."
+      explain: "Line 3: dividing by −2 reverses the inequality sign, so x < −3. Her check on line 4 fails, which is the clue: x = 0 should work if x > −3 were right."
   - check:
       type: question
       q: "Which is the solution of $-3x \\le 12$?"
@@ -95,7 +95,7 @@ Here is how to solve and show an inequality.
 3x < 15 :: Add 4 to both sides: the sign stays.
 x < 5 :: Divide by 3 (positive): the sign stays.
 \text{open circle at } 5,\ \text{shaded left} :: On a number line: an open circle at 5 ($<$: 5 is not included; $\le$ would be closed), shaded left.
--2x > 6 \;\Rightarrow\; x < -3 :: Divide by $-2$ (negative): **reverse** the sign. $2 < 3$ but $-2 > -3$: a negative flips the order.
+-2x > 6 \;\Rightarrow\; x < -3 :: Divide by $-2$ (negative): **reverse** the inequality sign. $2 < 3$ but $-2 > -3$: a negative flips the order.
 x = -4:\; 8 > 6\; \checkmark :: Check a value from the solution in the first inequality.
 ```
 
@@ -111,7 +111,7 @@ Read Mia's working. Her check is a clue.
 
 ```step
 stage: modify
-insight: "One change at a time: a closed circle, a negative x term, a fraction, then a range between two values, and the edge case: why the sign reverses."
+insight: "One change at a time: a closed circle, a negative x term, a fraction, then a range between two values, and the edge case: why the inequality sign reverses."
 try: { playground: board, starter: "boards.yml#ray", height: 380 }
 tasks:
   - starter: "boards.yml#ray"
@@ -122,7 +122,7 @@ tasks:
       q: "Solve $5 - x > 2$."
       options: ["$x < 3$", "$x > 3$", "$x > -3$"]
       answer: 0
-      feedback: [null, "−x > −3: dividing by −1 reverses the sign.", "Take 5 from both sides: −x > −3."]
+      feedback: [null, "−x > −3: dividing by −1 reverses the inequality sign.", "Take 5 from both sides: −x > −3."]
       explain: "−x > −3, then divide by −1 and reverse: x < 3. Check x = 0: 5 > 2. ✓"
   - starter: "boards.yml#ray"
     hint: ["Add 1: x/2 < 4.", "Multiply by 2 (positive): x < 8."]
@@ -141,7 +141,7 @@ tasks:
       options: ["$-2 > -5$", "$-2 < -5$", "$-2 = -5$"]
       answer: 0
       feedback: [null, "On a number line, −2 is to the right of −5, so −2 is more.", "They are not equal."]
-      explain: "Multiplying by −1 reflects every number about 0, so the order flips: 2 < 5 but −2 > −5. That is why the sign reverses."
+      explain: "Multiplying by −1 reflects every number about 0, so the order flips: 2 < 5 but −2 > −5. That is why the inequality sign reverses."
 ```
 
 ### A closed circle
@@ -174,7 +174,7 @@ tasks:
       q: "Solve $-5x < 20$."
       options: ["$x > -4$", "$x < -4$", "$x > 4$"]
       answer: 0
-      feedback: [null, "Dividing by −5 reverses the sign.", "20 ÷ (−5) = −4."]
+      feedback: [null, "Dividing by −5 reverses the inequality sign.", "20 ÷ (−5) = −4."]
       explain: "Divide by −5 and reverse: x > −4. Check x = 0: 0 < 20. ✓"
   - picture: { ref: boards.yml#pic-less-5, caption: "A solution on a number line." }
     check:

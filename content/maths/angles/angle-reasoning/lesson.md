@@ -56,7 +56,7 @@ $b$ and $h$ are not one of the pairs. Which angle could you find first?
 stage: run
 insight: "Setting b to 70° and comparing h shows the two-step answer, and turning the line shows h is always 180° minus b: the chain works for every angle."
 try: { playground: board, starter: "lines.yml#run", height: 560 }
-check: { type: board, text: "Turn the crossing line until $b = 70^\\circ$, then pick $b$ and $h$. Was your prediction right?", when: "b = 70 and m = 2" }
+check: { type: board, text: "Turn the crossing line until $b = 70^\\circ$, then pick $b$ and $h$. Was your prediction right?", when: "b = 70 and u = 2 and v = 8" }
 ```
 
 Then turn the crossing line. Is $h$ always $180^\circ - b$? Which two rules make that true?

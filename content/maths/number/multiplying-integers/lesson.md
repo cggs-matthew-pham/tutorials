@@ -88,7 +88,7 @@ tasks:
       q: "Which is $-12 \\div 3$?"
       options: ["$-4$", "$4$", "$-9$"]
       answer: 0
-      feedback: [null, "Check: 3 × 4 = 12, not −12.", "Dividing, not subtracting."]
+      feedback: [null, "Check: 3 × 4 = 12, not −12.", "Dividing, not adding."]
       explain: "−12 ÷ 3 = −4, because 3 × (−4) = −12. Different signs give a negative."
   - check:
       type: bug

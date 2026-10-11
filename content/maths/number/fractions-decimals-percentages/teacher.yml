@@ -27,7 +27,7 @@ stuck:
   - see: "A student cannot simplify a percentage as a fraction."
     ask: "What do 16 and 100 have in common?"
     fix: "Over 100, then divide by the highest common factor."
-stretch: "Which fractions with a bottom number up to 12 give decimals that stop, and which recur? What do the stopping ones have in common? (Bottoms made of 2s and 5s.)"
+stretch: "Which fractions with a bottom number up to 12 give decimals that stop, and which recur? What do the stopping ones have in common? (In simplest form, bottoms made only of 2s and 5s.)"
 support: "Use the hundred grid for every conversion; for eighths, allow half squares."
 leads: |
   Next: Fractions and decimals on the line (node 3).

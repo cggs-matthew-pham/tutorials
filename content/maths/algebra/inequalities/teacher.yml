@@ -1,14 +1,14 @@
-summary: Students solve one-variable inequalities like equations, reversing the sign when multiplying or dividing by a negative, show solutions on a number line with open or closed circles, and check graphically and by substitution (AC9M8A02, node 3).
+summary: Students solve one-variable inequalities like equations, reversing the inequality sign when multiplying or dividing by a negative, show solutions on a number line with open or closed circles, and check graphically and by substitution (AC9M8A02, node 3).
 time: 45
 timing: "Predict and Run 8 min · Investigate 12 min · Modify 13 min · Practise and Make 12 min"
 goals:
-  - I can solve an inequality, reversing the sign when I multiply or divide by a negative.
+  - I can solve an inequality, reversing the inequality sign when I multiply or divide by a negative.
   - I can show a solution on a number line with the right circle (open or closed) and direction.
   - I can check a solution by substituting a value, or with a graph.
 before: |
   Do the Investigate board yourself first. Students need Solving harder equations, and Lines and regions (Linear relations) for the graph.
 
-  The one idea: inequalities solve like equations, except that multiplying or dividing by a negative reverses the sign, because it flips the order on the number line (2 < 5 but −2 > −5). The common mistake is keeping the sign; it is planted in the Predict and in Mia's working, whose own check fails.
+  The one idea: inequalities solve like equations, except that multiplying or dividing by a negative reverses the inequality sign, because it flips the order on the number line (2 < 5 but −2 > −5). The common mistake is keeping the inequality sign; it is planted in the Predict and in Mia's working, whose own check fails.
 
   Students show answers on the number line board (move P, choose the circle and the direction), so the board marks the solution, not the way it is written.
 running:
@@ -37,6 +37,6 @@ exit:
   q: "Solve 7 − 2x ≥ 1 and show it on a number line."
   a: "−2x ≥ −6, x ≤ 3 (reversed): closed circle at 3, shaded left. Check x = 0: 7 ≥ 1."
 explain: |
-  Solve an **inequality** like an equation, doing the same to both sides. Adding, subtracting, and multiplying or dividing by a **positive** keep the sign. Multiplying or dividing by a **negative** reverses it: $-2x > 6$ gives $x < -3$ (because $2 < 5$ but $-2 > -5$).
+  Solve an **inequality** like an equation, doing the same to both sides. Adding, subtracting, and multiplying or dividing by a **positive** keep the inequality sign. Multiplying or dividing by a **negative** reverses it: $-2x > 6$ gives $x < -3$ (because $2 < 5$ but $-2 > -5$).
 
   On a number line: an **open** circle for $<$ and $>$ (the end is not included), **closed** for $\le$ and $\ge$, shaded towards the solutions. Check by trying a value: $x = -4$ gives $8 > 6$. ✓

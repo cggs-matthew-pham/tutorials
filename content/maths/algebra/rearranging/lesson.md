@@ -121,7 +121,7 @@ Write each step on its own line. The checker marks the first line that does not 
 
 ```step
 stage: modify
-insight: "One change at a time: a context checked on the board, one step, a minus sign, undoing a divide, a fraction in the formula, then the edge case of a negative subject."
+insight: "One change at a time: a context checked on the board, one step, a minus sign, undoing a divide, a fraction in the formula, then the edge case of a subject that is subtracted."
 try: { playground: board, starter: "formula.yml#vary", height: 520 }
 tasks:
   - starter: "formula.yml#vary"
@@ -185,7 +185,7 @@ No board from here: undo the steps, then check with numbers.
 
 ### A fraction
 
-### A negative subject
+### The subject is subtracted
 
 ## Practise: rearrange and check
 

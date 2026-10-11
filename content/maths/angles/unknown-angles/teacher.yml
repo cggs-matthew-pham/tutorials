@@ -1,10 +1,10 @@
-summary: Students find unknown angles in triangles, quadrilaterals and pentagons in steps, with a reason for each (angle sum, straight line, isosceles), and explain why an exterior angle equals the two opposite angles; working is their own, the answer and a key reason are marked (AC9M7M05, node 3).
+summary: Students find unknown angles in triangles, quadrilaterals and pentagons in steps, with a reason for each (angle sum, straight line, isosceles), and explain why an exterior angle equals the sum of the two interior opposite angles; working is their own, the answer and a key reason are marked (AC9M7M05, node 3).
 time: 45
 timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
 goals:
   - I can find an unknown angle in a triangle or polygon using its angle sum.
   - I can combine angle sums with straight-line and parallel-line angles, giving a reason for each step.
-  - I can explain why an exterior angle of a triangle equals the two opposite angles added.
+  - I can explain why an exterior angle of a triangle equals the sum of the two interior opposite angles.
 before: |
   Do the first reasoning task yourself, then compare with its model. Students need Angles in a triangle, Angles in a polygon and Reasoning with angles.
 

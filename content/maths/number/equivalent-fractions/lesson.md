@@ -31,7 +31,7 @@ explainClip:
     - caption: { text: "× 2 on the top and the bottom.", say: "Times two on the top and the bottom." }
     - wait: 1200
 ---
-A fraction names an amount: $\tfrac{2}{3}$ is 2 of 3 equal parts. The same amount can be cut into more parts, or fewer, and named by a different fraction. Fractions that name the same amount are **equivalent**.
+A fraction names an amount: $\tfrac{2}{3}$ is 2 of 3 equal parts. The top number is the **numerator** (how many parts) and the bottom number the **denominator** (how many equal parts in the whole); this lesson calls them the top and the bottom. The same amount can be cut into more parts, or fewer, and named by a different fraction. Fractions that name the same amount are **equivalent**.
 
 In this lesson you find equivalent fractions on fraction bars, then write a fraction in its **simplest form**.
 

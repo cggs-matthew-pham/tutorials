@@ -113,6 +113,7 @@ Pathway pages open on a trail map for students, with a "List for teachers" toggl
 - What is a waypoint: a course, a unit, or a progression node? Science "courses" are year-level sets of concept tutorials (a side tool, not a whole course), so a map may not fit at all.
 - Cross-subject links (the winch needs maths ratio and science forces) could be portal nodes, as Code does across pathways.
 - Taglines for every maths and science course.
+- Home page (`content/index.md`): a "Maths teachers: start here" link after the maths paragraph, to the new plain page `/maths-teachers/`.
 
 ## Done (11 Oct 2026): curriculum map for maths (preview for maths teachers)
 

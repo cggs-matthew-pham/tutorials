@@ -11,7 +11,8 @@
 // at the lower crossing e, f, g, h in the same places.
 // state: { scope: { vars: { t, w, a..h (sizes in degrees), m (angles picked), r (the picked pair: 1 corresponding,
 //   2 alternate, 3 co-interior, 4 vertically opposite, 5 on a straight line, 6 alternate outside the lines, 0 other),
-//   s (sum of the picked sizes), p (1 when the lines are parallel) } } }
+//   s (sum of the picked sizes), p (1 when the lines are parallel), u and v (the picked angles as numbers, a = 1 to
+//   h = 8, smaller first) } } }
 // Checks: "r = 2" (picked two alternate angles), "t = 70", "f = 110".
 (function (B) {
   'use strict';
@@ -193,6 +194,8 @@
     B.say(spec.show === 'shown' ? L.map(function (n) { return n + ' ' + deg(sz[n]); }).join(', ') + '.' : '');
     B.save({ vars: { t: vars.t, w: vars.w }, sel: sel.slice() });
     var scope = { t: vars.t, w: vars.w, m: sel.length, r: r, s: sel.reduce(function (acc, n) { return acc + sz[n]; }, 0), p: par ? 1 : 0 };
+    var idx = sel.map(function (n) { return L.indexOf(n) + 1; }).sort(function (x, y) { return x - y; });
+    scope.u = idx[0] || 0; scope.v = idx[1] || 0;   // the picked angles as numbers, a = 1 to h = 8, smaller first
     L.forEach(function (n) { scope[n] = Math.round(sz[n] * 1e6) / 1e6; });
     B.post({ scope: { vars: scope, points: {} } }, work + (note ? ' ' + note : ''));
   }

@@ -143,10 +143,10 @@ tasks:
     check: { type: answer, q: "Work out $2 - 5$. Set the board to check.", answer: "-3", feedback: [["3", "That is 5 − 2. Start at 2, then move left 5."], ["7", "Subtracting a positive moves left."]], explain: "From 2, left 5: 1, 0, −1, −2, −3." }
   - starter: "sum.yml#subtract"
     hint: ["Adding −6 would move left. Subtracting goes the other way.", "From −4, right 6."]
-    check: { type: answer, q: "Work out $-4 - (-6)$. Set the board to check.", answer: "2", feedback: [["-10", "That moved left. Subtracting a negative moves right."], ["-2", "From −4, right 6 goes past zero."]], explain: "Subtracting −6 moves right 6: from −4 to 2." }
+    check: { type: answer, q: "Work out $-4 - (-6)$. Set the board to check.", answer: "2", feedback: [["-10", "That moved left. Subtracting a negative moves right."], ["-2", "The answer is positive: from −4, right 6 ends right of zero."]], explain: "Subtracting −6 moves right 6: from −4 to 2." }
   - starter: "sum.yml#subtract"
     hint: "Where does subtracting a number from itself always land?"
-    check: { type: answer, q: "Edge case: work out $-5 - (-5)$.", answer: "0", feedback: [["-10", "Subtracting −5 moves right 5, not left."], ["10", "Start at −5, not at 0."]], explain: "From −5, right 5 lands on 0: any number minus itself is 0." }
+    check: { type: answer, q: "Edge case: work out $-5 - (-5)$.", answer: "0", feedback: [["-10", "Subtracting −5 moves right 5, not left."], ["10", "Start at −5, not at 5."]], explain: "From −5, right 5 lands on 0: any number minus itself is 0." }
 ```
 
 ### Adding across zero
@@ -194,7 +194,7 @@ tasks:
       answer: "4"
       feedback:
         - ["-8", "That moved left. Subtracting a negative moves right."]
-        - ["-4", "From −2, right 6 goes past zero."]
+        - ["-4", "The answer is positive: from −2, right 6 ends right of zero."]
       explain: "Subtracting −6 moves right 6: from −2 to 4."
   - check:
       type: answer

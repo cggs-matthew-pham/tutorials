@@ -4,7 +4,7 @@ unit: angle-sums
 node: AC9M7M05 n3
 uses: [AC9M7M04 n3]   # chains of reasons with parallel-line angles (Reasoning with angles)
 title: Unknown angles in shapes
-summary: "Find unknown angles in triangles and polygons in steps, with a reason for each: the angle sum of the shape, angles on a straight line, equal angles in an isosceles triangle. An exterior angle of a triangle equals the two opposite angles added."
+summary: "Find unknown angles in triangles and polygons in steps, with a reason for each: the angle sum of the shape, angles on a straight line, equal angles in an isosceles triangle. An exterior angle of a triangle equals the sum of the two interior opposite angles."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }
 hook: "A roof truss, a kite, a bridge brace: builders work out the angle they cannot measure from the ones they can. Every step needs a reason."
@@ -119,7 +119,7 @@ Here is the routine: know, choose the rule, say why.
 a = 59^\circ,\; b = 45^\circ :: Know: the given angles.
 c = 180^\circ - 59^\circ - 45^\circ = 76^\circ :: Choose: $a$, $b$, $c$ are a triangle's angles. Why: angles in a triangle add to $180^\circ$.
 x = 180^\circ - 76^\circ = 104^\circ :: Choose: $c$ and $x$ sit on one straight line. Why: angles on a straight line add to $180^\circ$.
-x = 59^\circ + 45^\circ :: A shortcut you can now explain: an exterior angle equals the two opposite angles added.
+x = 59^\circ + 45^\circ :: A shortcut you can now explain: an exterior angle equals the sum of the two interior opposite angles.
 ```
 
 Now find $x$ yourself, your own way.
@@ -172,7 +172,7 @@ tasks:
       answer: "150"
       feedback:
         - ["30", "That is b. One more step to x."]
-      explain: "b = 30°, x = 150°. Or straight away: x = a + c = 63° + 87° = 150° (the exterior angle equals the two opposite angles)."
+      explain: "b = 30°, x = 150°. Or straight away: x = a + c = 63° + 87° = 150° (the exterior angle equals the sum of the two interior opposite angles)."
   - picture: { ref: shapes.yml#quad2, caption: "A quadrilateral with a right angle at $B$: $a = 68^\\circ$, $d = 102^\\circ$." }
     check:
       type: answer

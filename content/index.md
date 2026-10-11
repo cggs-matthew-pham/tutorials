@@ -23,7 +23,7 @@ about: |
 
   **Coding** lessons follow **PRIMM**, developed by Sue Sentance and colleagues: students *predict* what a short program will do, *run* it, *investigate* how it works, *modify* it, then *make* their own. Now that AI can write code, being able to read a program and tell whether it's right matters more than ever.
 
-  **Maths** lessons centre on a worked example: students predict, try the idea on an interactive model, study a worked example, change one thing at a time to see the structure, practise, then make their own problem.
+  **Maths** lessons centre on a worked example: students predict, try the idea on an interactive model, study a worked example, change one thing at a time to see the structure, practise, then make their own problem. Maths teachers: [start here →](maths-teachers/)
 
   **Science** lessons follow the **5E** model: they *engage* students by drawing out what they already think, let them *explore* it in a simulation, *explain* the idea, *elaborate* it in new contexts, then *evaluate* what they've learned. They sit beside practical work, never instead of it.
 

@@ -37,6 +37,6 @@ exit:
   q: "Write 20/32 in its simplest form, and give one other fraction equal to it."
   a: "5/8 (÷ 4). For example 10/16 or 15/24."
 explain: |
-  Fractions are **equivalent** when they name the same amount. Multiply or divide the top and the bottom by the **same** number: $\tfrac{2}{3} = \tfrac{2 \times 4}{3 \times 4} = \tfrac{8}{12}$. (Adding the same number to both changes the amount.)
+  Fractions are **equivalent** when they name the same amount. Multiply or divide the top and the bottom (the numerator and the denominator) by the **same** number: $\tfrac{2}{3} = \tfrac{2 \times 4}{3 \times 4} = \tfrac{8}{12}$. (Adding the same number to both changes the amount.)
 
   A fraction is in **simplest form** when the top and the bottom share no factor but 1. Divide both by their highest common factor: $\tfrac{12}{18} = \tfrac{2}{3}$ (÷ 6).
