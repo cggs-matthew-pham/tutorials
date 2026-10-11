@@ -35,6 +35,15 @@ export function curriculumMapHtml(subject, cur, lessons, up, esc) {
   const short = (c) => c.replace(/^AC9[A-Z]/, '');
   const nodeLessons = (d, n) => [...(perNode.get(`${d.code} n${n.n}`) || []), ...(perCode.get(d.code) || [])];
   const hasLessons = (d) => d.nodes.some((n) => nodeLessons(d, n).length);
+  // Within a cell, anything a descriptor builds on (in the same cell) comes above it; otherwise code order.
+  const inOrder = (cell) => {
+    const left = [...cell].sort((a, b) => a.code.localeCompare(b.code, 'en', { numeric: true })), out = [];
+    while (left.length) {
+      const i = left.findIndex((d) => !d.prior.some((p) => left.some((x) => x.code === p)));
+      out.push(...left.splice(i < 0 ? 0 : i, 1));
+    }
+    return out;
+  };
   const years = [[0, 'Before Year 7'], [7, 'Year 7'], [8, 'Year 8'], [9, 'Year 9'], [10, 'Year 10']];
   const tile = (d) => {
     const dots = d.nodes.map((n) => `<i class="${nodeLessons(d, n).length ? 'dl' : 'dn'}" data-n="${n.n}"></i>`).join('');
@@ -49,7 +58,7 @@ export function curriculumMapHtml(subject, cur, lessons, up, esc) {
     const main = mine.filter((d) => d.year >= 7), withL = main.filter(hasLessons).length;
     grid += `<h3 class="cms" style="grid-row:${r + 2}">${esc(s)}<small>${main.length} descriptors${withL ? ` · ${withL} with lessons` : ''}</small></h3>`;
     years.forEach(([y, t], i) => {
-      const cell = mine.filter((d) => (y ? d.year === y : d.year < 7));
+      const cell = inOrder(mine.filter((d) => (y ? d.year === y : d.year < 7)));
       grid += `<div class="cmcell${y ? '' : ' before'}" data-year="${esc(t)}" style="grid-row:${r + 2};grid-column:${i + 2}">${cell.map(tile).join('')}</div>`;
     });
   });
