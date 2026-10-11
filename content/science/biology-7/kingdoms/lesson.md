@@ -121,7 +121,6 @@ In your book: choose five organisms, one from each kingdom, and write the observ
 
 ```step
 stage: modify
-tier: typical
 insight: "A boundary case shows that the kingdom model is a human tool with limits, not a fact of nature."
 check:
   type: question

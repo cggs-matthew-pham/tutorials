@@ -100,7 +100,6 @@ In your book: explain the difference between a pure substance and a mixture usin
 
 ```step
 stage: modify
-tier: typical
 insight: "Homogeneous mixtures are where students most often mistake a mixture for a pure substance."
 try: { playground: science, starter: "boards.yml#abc", height: 420 }
 check:

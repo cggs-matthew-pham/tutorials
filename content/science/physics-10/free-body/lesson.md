@@ -61,7 +61,7 @@ Up and down already balance; work on the forces across.
 
 ### The lift
 
-g is 10 N/kg here.
+g is 9.8 N/kg here.
 
 ## Explain: reading a free body diagram
 

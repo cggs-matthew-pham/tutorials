@@ -75,7 +75,7 @@ tasks:
         - ["Push or pull", "Something in contact pushing or pulling"]
   - check:
       type: question
-      q: "The trolley's weight is 50 N and the support is 50 N. How should their arrows look?"
+      q: "The trolley's weight is 49 N and the support is 49 N. How should their arrows look?"
       options: ["The same length, pointing in opposite directions", "Weight longer, because it is heavier", "Both pointing down"]
       answer: 0
       feedback: [null, "Equal forces get equal arrows.", "The ground pushes up: support always points away from the surface."]
@@ -101,11 +101,11 @@ insight: "Repeated diagrams with immediate feedback build precision: correct dir
 try: { playground: board, starter: "boards.yml#book", height: 560 }
 tasks:
   - starter: "boards.yml#book"
-    check: { type: board, text: "A 2 kg book rests on a table (its weight is 20 N). Set the table's push so the diagram is right.", when: "N = 20" }
+    check: { type: board, text: "A 5 kg pile of books rests on a table (its weight is 5 × 9.8 = 49 N). Set the table's push so the diagram is right.", when: "N = 49" }
   - starter: "boards.yml#tug"
     check: { type: board, text: "In a tug of war, Team A pulls with 300 N and Team B with 300 N. Set both pulls.", when: "L = 300 and R = 300" }
   - starter: "boards.yml#skydiver"
-    check: { type: board, text: "A skydiver (weight 800 N) has reached a steady speed: air resistance now equals her weight. Set it.", when: "A = 800" }
+    check: { type: board, text: "A 50 kg skydiver (weight 490 N) has reached a steady speed: air resistance now equals her weight. Set it.", when: "A = 490" }
 ```
 
 ### A book on a table

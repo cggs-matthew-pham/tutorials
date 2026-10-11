@@ -5,9 +5,9 @@ title: What moves the plates in 5 minutes
 
 **Layers:** a thin solid **crust** (about 35 km under continents, 7 km under oceans), a thick solid **mantle** that flows very slowly, a liquid **outer core** and a solid **inner core** (iron and nickel). Temperature and pressure rise with depth. The **lithosphere** is the crust plus the rigid top of the mantle; below it the **asthenosphere** is solid but soft enough to flow.
 
-Earth's outer shell, the **lithosphere** (the crust and the top of the mantle), is broken into large rigid pieces called **tectonic plates**. They move a few centimetres a year, about as fast as fingernails grow. Australia moves about 7 cm north each year.
+Earth's outer shell, the **lithosphere** (the crust and the top of the mantle), is broken into large rigid pieces called **tectonic plates**. They move a few centimetres a year, up to about twice as fast as fingernails grow. Australia moves about 7 cm north each year.
 
-The plates sit on the hot **mantle**. The mantle is solid rock, but it is so hot that over millions of years it flows very slowly, like extremely thick putty. Heat from the core warms the bottom of the mantle; hot rock is less dense, so it rises; near the top it cools, becomes denser and sinks. This loop is a **convection current**, and it drags the plates along. Where currents rise, plates move apart; where they sink, plates move together.
+The plates sit on the hot **mantle**. The mantle is solid rock, but it is so hot that over millions of years it flows very slowly, like extremely thick putty. Heat from the core warms the bottom of the mantle, and radioactive elements in the mantle rock heat it from within (about half of Earth's inner heat comes from radioactive decay); hot rock is less dense, so it rises; near the top it cools, becomes denser and sinks. This loop is a **convection current**, and it drags the plates along. Where currents rise, plates move apart; where they sink, plates move together.
 
 Scientists now think two pulls also matter: old, cold plate sinking into the mantle at subduction zones drags the rest of the plate (**slab pull**), and plates slide away from high mid-ocean ridges (**ridge push**). Both are part of the same convection system.
 

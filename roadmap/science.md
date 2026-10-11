@@ -2,6 +2,16 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: Matthew's decisions on the audit notes (12 Oct 2026, science chat)
+
+- **Struggle notes:** branch `science-struggle-live` merged; every science lesson now has `struggle:` (17 more clips re-record).
+- **Punnett:** the explain board and clip use pea flower colour (Pp × Pp), as the rest of the lesson does; eye colour is gone.
+- **Plates:** convection is driven by Earth's inner heat, from the core below and from radioactive decay in the mantle rock (lesson, sort, teacher notes, primer; the primer's fingernail comparison too). The board's "Heat from the core" label stays: the core does heat the bottom.
+- **g = 9.8 everywhere:** every board that set g = 10 (Years 7 and 10) now uses 9.8, with masses chosen for whole-number weights and reachable slider steps: a 5 kg pile of books (49 N), a 50 kg skydiver (490 N), a 100 kg skydiver with gear (980 N), the 500 kg lift (4900 N, steps of 100). Text and teacher notes updated.
+- **Heating curve to scale:** water's curve now follows the energy each part needs at steady heating (1 kg: 42, 334, 418, 2260 and 30 kJ), so boiling is about seven times as long as melting, with a new question on why. The cooling curve uses stearic acid (freezes at 69 °C); teacher notes say candle wax is a mixture and freezes over a range. The heating-curve explain clip re-records.
+- **Core path:** the steps holding a criterion only at typical width are now core (half-life uses, plant gametes, a hard-to-classify organism, the other hemisphere, even and uneven mixtures, meiosis and mitosis), with timings updated; collision theory gains a core match on all four rate factors instead of untiering its 8-minute concentration step.
+- Antibiotics framing: noted by Matthew, unchanged.
+
 ## Done: every science tutorial checked against its criteria (11 Oct 2026, science chat)
 
 The same audit as the Quick checks, over the other 97 science lessons (7 parallel read-only reviews, every proposal checked before applying): 172 edits in 73 lessons, plus a few follow-ups.

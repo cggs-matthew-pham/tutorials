@@ -93,7 +93,6 @@ In your book: draw a cell with two pairs of chromosomes and all four gametes it 
 
 ```step
 stage: modify
-tier: typical
 insight: "Contrasting meiosis with ordinary cell division stops students mixing them up."
 check:
   type: sort

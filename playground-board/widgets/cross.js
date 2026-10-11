@@ -5,7 +5,7 @@
 //              from one random allele of each gene from each parent; "Asexual reproduction" copies parent 1.
 //   meiosis:   a cell with three pairs of chromosomes (one of each pair from each parent); "Make a gamete" separates
 //              the pairs at random, one chromosome from each pair.
-//   punnett:   gene: B | brown eyes | b | blue eyes     (dominant allele and trait, then recessive)
+//   punnett:   gene: P | purple flowers | p | white flowers     (dominant allele and trait, then recessive)
 //              parents: Bb x Bb                        (or "choose" for menus)
 //              students fill the gametes and the grid by clicking, then breed 100 offspring.
 // state: { scope: { vars } }

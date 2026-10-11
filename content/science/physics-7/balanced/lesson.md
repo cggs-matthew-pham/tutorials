@@ -106,7 +106,7 @@ tier: typical
 insight: "A vertical case with motion (falling at a steady speed) tests whether students apply 'balanced means no change in motion' beyond the board's horizontal case."
 try: { playground: board, starter: "boards.yml#skydiver", height: 560 }
 tasks:
-  - check: { type: board, text: "A 70 kg skydiver (weight 700 N) falls at a steady speed. Set the air resistance.", when: "A = 700" }
+  - check: { type: board, text: "A skydiver and her gear, 100 kg (weight 980 N), fall at a steady speed. Set the air resistance.", when: "A = 980" }
   - check:
       type: question
       q: "Her forces are balanced. Is she still falling?"

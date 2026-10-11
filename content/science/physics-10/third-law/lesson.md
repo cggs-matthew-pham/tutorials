@@ -77,7 +77,7 @@ tasks:
       explain: "Swap the two objects and reverse the direction: that's the partner."
   - check:
       type: question
-      q: "A book rests on a table. Its weight is 20 N down; the table pushes it up with 20 N. Are these a third-law pair?"
+      q: "A pile of books rests on a table. Its weight is 49 N down; the table pushes it up with 49 N. Are these a third-law pair?"
       options: ["No: both act on the book. The partner of the book's weight is the book pulling the Earth up", "Yes: they are equal and opposite", "Yes: they cancel out"]
       answer: 0
       feedback: [null, "Equal and opposite on the same object means balanced, not a third-law pair.", "Third-law pairs act on different objects, so they can't cancel."]

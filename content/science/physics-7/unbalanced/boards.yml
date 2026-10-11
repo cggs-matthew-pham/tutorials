@@ -38,6 +38,6 @@ time: 8
 widget: forces
 object: Puck
 mass: 1
-g: 10
+g: 9.8
 force P: left, 2, Push
 # endregion

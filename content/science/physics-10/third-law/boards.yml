@@ -13,11 +13,11 @@ time: 6
 
 # region: book
 widget: forces
-object: Book
-mass: 2
-g: 10
+object: Books
+mass: 5
+g: 9.8
 force W: down, weight, Earth pulling the book (weight)
-force N: up, 0, Table pushing the book up, adjust 0-40 by 5
+force N: up, 0, Table pushing the book up, adjust 0-80
 # endregion
 
 # region: explain

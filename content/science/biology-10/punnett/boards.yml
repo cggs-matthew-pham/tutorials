@@ -24,6 +24,6 @@ parents: choose
 # region: explain
 widget: cross
 mode: punnett
-gene: B | brown eyes | b | blue eyes
-parents: Bb x Bb
+gene: P | purple flowers | p | white flowers
+parents: Pp x Pp
 # endregion

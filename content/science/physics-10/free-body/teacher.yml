@@ -27,7 +27,7 @@ stuck:
   - see: "A student thinks the cruising plane needs more thrust than drag."
     ask: "Is its speed changing?"
     fix: "No, so the net force is zero: thrust equals drag."
-stretch: "A 60 kg person stands in a lift accelerating upwards at 1 m/s². How hard does the floor push on them? (Net force needed = 60 N up, so the floor pushes 600 + 60 = 660 N, with g = 10 N/kg.)"
+stretch: "A 60 kg person stands in a lift accelerating upwards at 1 m/s². How hard does the floor push on them? (Net force needed = 60 × 1 = 60 N up, so the floor pushes 60 × 9.8 + 60 = 648 N.)"
 support: "Give a diagram template: a box with four arrow stubs (up, down, left, right) to label, and a two-row table for each direction's net force."
 leads: |
   Next: problems using all three laws (node 7) and real applications (node 8) are class tasks.

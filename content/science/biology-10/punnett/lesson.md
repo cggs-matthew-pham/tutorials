@@ -16,7 +16,7 @@ explainClip:
   caption: "A Punnett square"
   say: "A Punnett square shows every combination of the parents' gametes."
   clip:
-    - caption: { text: "Each Bb parent makes two kinds of gamete: B or b.", say: "Each Bb parent makes two kinds of gamete: B or b." }
+    - caption: { text: "Each Pp pea plant makes two kinds of gamete: P or p.", say: "Each P p pea plant makes two kinds of gamete: P or p." }
     - wait: 3280
     - click: { selector: "[aria-label=\"Parent 1 gamete 1\"]" }
     - click: { selector: "[aria-label=\"Parent 1 gamete 2\"]" }
@@ -34,7 +34,7 @@ explainClip:
     - click: { selector: "[aria-label=\"Offspring 2, 2\"]" }
     - click: { selector: "[aria-label=\"Offspring 2, 2\"]" }
     - click: { selector: "[aria-label=\"Offspring 2, 2\"]" }
-    - caption: { text: "1 BB : 2 Bb : 1 bb. Each child has a 3 in 4 chance of brown eyes.", say: "One BB, two Bb, one bb: a three in four chance of brown eyes." }
+    - caption: { text: "1 PP : 2 Pp : 1 pp. Each offspring has a 3 in 4 chance of purple flowers.", say: "One P P, two P p, one p p: three in four will be purple." }
 hook: "Two purple-flowered pea plants can have white-flowered offspring. Gregor Mendel counted thousands of them in the 1860s and found the same ratio every time."
 ---
 Gametes get one of each pair at random. This lesson: following one gene from parents to offspring.

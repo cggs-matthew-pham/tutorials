@@ -97,7 +97,6 @@ In your book: draw a torch shining straight down and at a slant onto paper. Use 
 
 ```step
 stage: practise
-tier: typical
 insight: "Seeing opposite seasons on the same date in London and Canberra is the strongest evidence for the tilt explanation."
 try: { playground: board, starter: "boards.yml#hemispheres", height: 640 }
 tasks:

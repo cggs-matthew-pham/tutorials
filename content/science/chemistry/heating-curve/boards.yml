@@ -7,10 +7,10 @@ widget: heat
 # region: curve
 widget: graph
 axes: Time heating (min), Temperature (°C)
-x: 0, 20
+x: 0, 80
 y: -20, 120
-grid: 2, 20
-series Water: 0,-20; 2,0; 6,0; 11,100; 19,100; 20,115
+grid: 10, 20
+series Water: 0,-20; 1,0; 9,0; 19,100; 73,100; 74,115
 cursor R: 1
 # endregion
 
@@ -20,7 +20,7 @@ axes: Time cooling (min), Temperature (°C)
 x: 0, 20
 y: 0, 100
 grid: 2, 20
-series Wax: 0,90; 4,52; 12,52; 20,25
+series Stearic: 0,90; 4,69; 12,69; 20,30
 cursor R: 1
 # endregion
 

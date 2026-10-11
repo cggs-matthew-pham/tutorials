@@ -95,7 +95,6 @@ In your book: draw a sperm and an egg, label three features, and write what each
 
 ```step
 stage: modify
-tier: typical
 insight: "Seeing pollen's tough wall (no tail) shows plant gametes solve the same problem, getting the male nucleus to the egg, another way."
 try: { playground: board, starter: "boards.yml#pollen", height: 520 }
 tasks:

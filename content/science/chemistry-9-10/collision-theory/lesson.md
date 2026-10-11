@@ -89,6 +89,15 @@ tasks:
       answer: 0
       feedback: [null, "Then you can't tell which change made it faster: change only one thing.", "Runs vary, as they did on the board: repeat each temperature and compare averages."]
       explain: "Change one factor, measure the rate (time until the fizzing stops, or gas made each minute) and keep everything else the same. Repeats show how much the results vary."
+  - check:
+      type: match
+      q: "Each change speeds up a reaction. Match it to the reason, in collision terms."
+      pairs:
+        - ["Higher temperature", "Particles move faster: they collide more often and more of the collisions have enough energy"]
+        - ["Higher concentration", "More reacting particles in the same space, so they collide more often"]
+        - ["Larger surface area (smaller pieces)", "More particles of the solid are exposed, so more collisions can happen at once"]
+        - ["A catalyst", "It lowers the activation energy, so a larger share of collisions succeed"]
+      explain: "Every factor works through collisions: either more of them each second, or a bigger share with enough energy."
   - check: { type: reflect, text: "I explained, using collisions and activation energy, why heating makes a reaction faster." }
 ```
 
@@ -99,6 +108,8 @@ tasks:
 ### The bigger effect
 
 ### A fair test
+
+### Four factors
 
 ### In your own words
 

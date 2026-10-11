@@ -4,7 +4,7 @@
 widget: forces
 object: Sled
 mass: 20
-g: 10
+g: 9.8
 force W: down, weight, Weight
 force N: up, support, Snow pushing up
 force P: right, 60, Rope pulling, adjust 0-120 by 10
@@ -15,9 +15,9 @@ friction: 40
 widget: forces
 object: Lift
 mass: 500
-g: 10
+g: 9.8
 force W: down, weight, Weight
-force T: up, 3000, Cable pulling up, adjust 0-8000 by 500
+force T: up, 3000, Cable pulling up, adjust 0-8000 by 100
 # endregion
 
 # region: plane
@@ -34,7 +34,7 @@ force D: left, 1500, Drag, adjust 0-4000 by 250
 widget: forces
 object: Sled
 mass: 20
-g: 10
+g: 9.8
 force W: down, weight, Weight
 force N: up, support, Snow pushing up
 force P: right, 60, Rope pulling, adjust 0-120 by 20

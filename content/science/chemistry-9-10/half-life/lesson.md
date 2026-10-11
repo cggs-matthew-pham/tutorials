@@ -121,7 +121,6 @@ In your book: sketch the graph from the board and mark one half-life on it. Then
 
 ```step
 stage: modify
-tier: typical
 insight: "Matching a short half-life to medical imaging gives half-life a purpose: the isotope must last long enough to take the picture, then fade quickly."
 try: { playground: board, starter: "boards.yml#fluorine", height: 760 }
 tasks:

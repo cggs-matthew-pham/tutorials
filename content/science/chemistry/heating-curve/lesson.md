@@ -61,7 +61,7 @@ stage: investigate
 insight: "Reading a real heating curve, sorting the changes by energy in or out, then explaining a flat part of the curve with particles, is the node's success criterion."
 try: { playground: board, starter: "boards.yml#curve", height: 560 }
 tasks:
-  - check: { type: board, text: "This is a heating curve for water. Move the cursor R along the whole curve, to 20 minutes. Where is the line flat?", when: "x(R) = 20" }
+  - check: { type: board, text: "This is a heating curve for 1 kg of ice, heated steadily until it is steam. Move the cursor R along the whole curve, to 74 minutes. Where is the line flat?", when: "x(R) = 74" }
   - check:
       type: sort
       q: "Does the substance take energy in, or give energy out?"
@@ -73,7 +73,7 @@ tasks:
         - ["Condensing (gas to liquid)", "Energy out", "Steam on your skin burns badly because it gives out energy as it condenses."]
   - check:
       type: question
-      q: "On the heating curve, the line is flat from 2 to 6 minutes. What is happening?"
+      q: "On the heating curve, the line is flat from 1 to 9 minutes. What is happening?"
       options: ["The ice is melting: energy goes into freeing the particles from their fixed places, so the temperature doesn't rise", "Nothing: the stove was turned off", "The water is boiling"]
       answer: 0
       feedback: [null, "The heat was on the whole time.", "Boiling is the second flat part, at 100 °C."]
@@ -83,6 +83,13 @@ tasks:
       q: "At what temperature (°C) is the second flat part of water's heating curve?"
       answer: 100
       explain: "100 °C: water's boiling point (at sea level). The first flat part, at 0 °C, is its melting point."
+  - check:
+      type: question
+      q: "The curve is drawn to scale: the stove gives the same energy every minute. Why is the flat part at 100 °C about seven times longer than the one at 0 °C?"
+      options: ["Boiling pulls the particles completely apart, which takes far more energy than loosening them from their fixed places", "The stove gives less energy once the water is hot", "Steam is lighter than ice, so it takes longer to make"]
+      answer: 0
+      feedback: [null, "The stove is steady the whole time; the same energy goes in every minute.", "Weight isn't the reason: it is how much energy it takes to separate the particles."]
+      explain: "Melting only frees the particles to slide past each other. Boiling has to pull them far apart against their attraction, so it needs about seven times as much energy (2260 kJ for each kilogram, against 334 kJ to melt it)."
   - check:
       type: question
       q: "What does adding energy do to the particles in a solid, before it melts?"
@@ -104,13 +111,15 @@ tasks:
 
 ### The heating curve
 
-Move **R** with its slider or by clicking the graph.
+Move **R** with its slider or by clicking the graph. The curve is to scale: the stove gives the same energy every minute, so each part's length shows how much energy it takes.
 
 ### In or out
 
 ### The flat part
 
 ### The second flat part
+
+### Why boiling takes longer
 
 ### Before melting
 
@@ -128,17 +137,17 @@ tier: typical
 insight: "Reading a cooling curve applies the same idea in reverse: a flat part while the substance freezes and gives out energy."
 try: { playground: board, starter: "boards.yml#cooling", height: 560 }
 tasks:
-  - check: { type: board, text: "Melted candle wax is cooling. Move R to where the wax starts to freeze (the line goes flat).", when: "x(R) = 4" }
+  - check: { type: board, text: "Melted stearic acid (a waxy substance used in candles) is cooling. Move R to where it starts to freeze (the line goes flat).", when: "x(R) = 4" }
   - check:
       type: question
-      q: "Why does the wax's temperature stay at 52 °C for 8 minutes while it freezes?"
+      q: "Why does the stearic acid's temperature stay at 69 °C for 8 minutes while it freezes?"
       options: ["As particles settle into fixed places they give out energy, which keeps the temperature steady", "The room warms the wax", "The thermometer stopped working"]
       answer: 0
-      feedback: [null, "The room is cooler than the wax; it can't keep it warm.", "The flat part is real: it is the freezing point."]
+      feedback: [null, "The room is cooler than the stearic acid; it can't keep it warm.", "The flat part is real: it is the freezing point."]
       explain: "Freezing gives energy out. Until every particle has settled, that energy balances what is lost to the room."
 ```
 
-### Freezing wax
+### Freezing stearic acid
 
 ### Why it stays flat
 

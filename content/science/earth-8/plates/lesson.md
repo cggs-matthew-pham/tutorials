@@ -3,7 +3,7 @@ order: 3
 node: AC9S8U03 n2
 unit: plates
 title: What moves the plates?
-summary: The lithosphere is broken into rigid plates that move a few centimetres a year. Slow convection currents in the hot mantle, driven by heat from the core, carry them.
+summary: "The lithosphere is broken into rigid plates that move a few centimetres a year. Slow convection currents in the hot mantle carry them, driven by Earth's inner heat: from the core below and from radioactive elements in the mantle rock itself."
 language: science
 voice: { name: bf_emma, speed: 1.05 }
 app:
@@ -36,7 +36,7 @@ check:
   type: predict
   q: "Earth's surface is broken into huge plates that move a few centimetres a year. What do you predict moves them?"
   options: ["Ocean currents and waves", "The pull of the Moon", "Slow currents in the hot rock below them", "Earthquakes pushing them along"]
-  actual: "Slow currents in the hot mantle below: heat from the core makes the rock rise, spread under the plates, cool and sink, carrying the plates with it."
+  actual: "Slow currents in the hot mantle below: heated rock rises, spreads under the plates, cools and sinks, carrying the plates with it. The heat comes from the core below and from radioactive elements in the mantle rock."
 ```
 
 ## Explore: a model of the mantle
@@ -77,7 +77,8 @@ tasks:
       items:
         - ["Rigid pieces that move a few centimetres a year", "Lithosphere (the plates)"]
         - ["Hot solid rock that flows very slowly", "Mantle", "Solid, yet it flows over millions of years."]
-        - ["The source of the heat", "Core"]
+        - ["Heats the mantle from below", "Core"]
+        - ["Also heated from within, by radioactive elements in its rock", "Mantle"]
         - ["Where the convection currents are", "Mantle"]
         - ["The crust and the top of the mantle", "Lithosphere (the plates)"]
   - check:
@@ -99,7 +100,7 @@ tasks:
       q: "Australia moves about 7 cm north each year. How many kilometres is that in a million years? (100,000 cm = 1 km)"
       answer: 70
       explain: "7 cm × 1,000,000 = 7,000,000 cm = 70 km. Slow, but over 50 million years that is 3,500 km."
-  - check: { type: reflect, text: "I explained, step by step, how heat from the core ends up moving a plate." }
+  - check: { type: reflect, text: "I explained, step by step, how Earth's inner heat ends up moving a plate." }
 ```
 
 ### The layers
@@ -112,7 +113,7 @@ tasks:
 
 ### In your own words
 
-In your book: explain how heat from the core makes a plate move. Use "heated", "less dense", "rises", "cools", "sinks" and "current".
+In your book: explain how Earth's inner heat makes a plate move. Use "heated", "less dense", "rises", "cools", "sinks" and "current".
 
 ## Elaborate: the same idea in water
 
@@ -175,6 +176,6 @@ Write one sentence: "At first I thought… Now I think… because…"
 **Revision summary**
 
 - The **lithosphere** (crust and top of the mantle) is broken into rigid **tectonic plates**, moving a few centimetres a year.
-- Heat from the **core** drives **convection currents** in the **mantle**: hot rock is less dense and rises, spreads, cools and sinks.
+- Earth's inner heat (from the **core** below, and from radioactive elements in the mantle rock) drives **convection currents** in the **mantle**: hot rock is less dense and rises, spreads, cools and sinks.
 - The currents carry the plates: apart above rising rock, together above sinking rock.
 - The mantle is solid rock that flows extremely slowly, not liquid magma.
