@@ -4,7 +4,7 @@ The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › S
 
 ## Done: coach prompts on science recap pages (12 Oct 2026, science chat)
 
-`coach: true` on all 15 science courses: each recap card has a "Still stuck? Copy a coach prompt" box, hidden unless the teacher shares the recap link with `?coach=1`; the teacher guide shows each lesson's full prompt. Prompts are one move each (node, criteria, misconceptions from `stuck:`, one step back), Socratic, no answers (roadmap/shared.md › coach prompt; UTS cognitive offloading paper). Tested: hidden without the flag, shown and copied with it, guide section present. School context: CGGS is trialling Microsoft 365 Copilot with Study and Learn; test a prompt there before sharing the link with students.
+`coach: true` on all 15 science courses: each recap card has a "Still stuck? Copy a coach prompt" box, hidden unless the teacher shares the recap link with `?coach=1`; the teacher guide shows each lesson's full prompt. Prompts are one move each (node, criteria, misconceptions from `stuck:`, one step back), with the coaching rules adapted from the Waypoints Kit's `coach.md` (modes, no giveaways, a reflective question after help, the AI may be wrong), made self-contained because the Kit's read-this-URL prompt needs a browsing AI and still points at the suspended account (roadmap/shared.md › coach prompt; UTS cognitive offloading paper). Tested: hidden without the flag, shown and copied with it, guide section present. School context: CGGS is trialling Microsoft 365 Copilot with Study and Learn; test a prompt there before sharing the link with students.
 
 ## Done: Human endeavour and Inquiry woven and tagged (12 Oct 2026, science chat)
 
