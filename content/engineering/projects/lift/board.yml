@@ -1,0 +1,10 @@
+# Gear choice for the lift (the winch brief).
+
+# region: develop
+widget: gears
+choose: on
+driver: 8
+driven: 40
+load: 450
+limit: 15
+# endregion

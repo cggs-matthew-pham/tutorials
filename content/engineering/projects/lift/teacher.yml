@@ -1,0 +1,33 @@
+summary: "A Years 9–10 design project: a motor-driven lift where the gear ratio is chosen against the brief on the gears board, driven both ways through a motor driver, and the measured lift time compared with the model's prediction."
+time: 250
+timing: "About 4 to 6 lessons (around 250 minutes). Inquire part lesson · Develop 1 · Create 2–3 · Test and evaluate 1"
+goals:
+  - "I can choose a gear ratio against a brief."
+  - "I can drive a motor both ways through a driver."
+  - "I can compare a model's prediction with a measurement and explain the gap."
+struggle: "The gap between predicted and measured time feels like failure. Make it the point: engineers explain gaps."
+before: |
+  Builds on Mechanisms › Gear up the winch and Power and motors. LEGO Technic or Meccano gears are the quickest real build; printed gears need the CAD pathway. A limit switch (a microswitch on a pin with INPUT_PULLUP) is the tidy stop; a timed stop is fine for a first version.
+
+  If you assess with MYP Design, the steps line up with the criteria:
+    - **A Inquiring and analysing:** the brief, its criteria and constraints, and research into parts (Inquire).
+    - **B Developing ideas:** a design specification, the circuit and code plan, and the test table written before building (Develop).
+    - **C Creating the solution:** building it (in the simulator, then for real), following the plan and justifying changes (Create).
+    - **D Evaluating:** testing against the specification, recording failures, improvements and impact (Test, Evaluate).
+    Otherwise, use the same four headings as a simple rubric: each step's reflect checks are the evidence list.
+running:
+  - "Develop: ask what the model leaves out."
+  - "Test: five lifts, mean time, compared with the prediction."
+stuck:
+  - see: "The lift stalls."
+    ask: "What does the model say about margin with friction?"
+    fix: "Choose the pair with more strength in hand."
+stretch: "A compound gear train (two pairs) for a heavier load, and the constraint written as an inequality."
+support: "The winch worked example beside the board, and a driver wiring diagram."
+leads: |
+  Other Years 9–10 projects: Two-motor drive base, Automated sorter.
+exit:
+  q: "Why might a real lift be slower than the gear model predicts?"
+  a: "The model ignores friction at each gear mesh and the motor slowing under load."
+explain: |
+  Choose a **gear ratio** against the brief (strength and time), drive the motor both ways through a **driver**, then **measure** and compare with the model's prediction. The model ignores friction, so explain the gap and the margin you chose.

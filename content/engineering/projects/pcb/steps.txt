@@ -1,0 +1,10 @@
+# PCB design steps, for the ordering task. Display only.
+
+# region: pcb
+Draw the schematic from the working circuit.
+Give every part a footprint that matches the real part.
+Place the parts on the board outline.
+Route the tracks.
+Run the design rule check and fix every error.
+Export the Gerber files.
+# endregion

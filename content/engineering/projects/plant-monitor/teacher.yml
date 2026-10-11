@@ -1,0 +1,36 @@
+summary: "A Years 8–9 design project: a plant monitor with a soil sensor, an alarm at a threshold and a display, planned with a test table, prototyped on the board, built in Tinkercad and optionally on hardware, tested and evaluated against the brief."
+time: 180
+timing: "About 3 to 4 lessons (around 180 minutes). Inquire 1 lesson part · Develop 1 lesson · Create 1–2 lessons · Test and evaluate 1 lesson"
+goals:
+  - "I can turn a brief into criteria and constraints."
+  - "I can plan and run tests that check a threshold."
+  - "I can evaluate my design against each criterion with evidence."
+struggle: "Students build first and plan never. Hold the test table as the ticket to start building."
+before: |
+  Builds on Arduino › A small system (the same alarm logic and boundary tests). Real soil sensors read differently in different soils: calibrate the threshold with real dry and wet soil, and say so in the evaluation. Resistive soil probes corrode if powered all the time; powering the sensor from a pin only while reading is a good extension.
+
+  If you assess with MYP Design, the steps line up with the criteria:
+    - **A Inquiring and analysing:** the brief, its criteria and constraints, and research into parts (Inquire).
+    - **B Developing ideas:** a design specification, the circuit and code plan, and the test table written before building (Develop).
+    - **C Creating the solution:** building it (in the simulator, then for real), following the plan and justifying changes (Create).
+    - **D Evaluating:** testing against the specification, recording failures, improvements and impact (Test, Evaluate).
+    Otherwise, use the same four headings as a simple rubric: each step's reflect checks are the evidence list.
+running:
+  - "Inquire: ask which criterion will be hardest to test."
+  - "Develop: no wiring until the test table is written."
+  - "Evaluate: insist on a test result for every criterion."
+stuck:
+  - see: "The alarm triggers at the wrong time."
+    ask: "What does the sensor read in dry soil, and in wet?"
+    fix: "Print the readings and recalibrate the threshold."
+stretch: "Add a second threshold (very dry: steady on) or a buzzer, and stop the alarm flickering near 300."
+support: "A partly filled test table and the A small system sketch as a starting point."
+leads: |
+  Other Years 8–9 projects: Parking assistant, Reaction game.
+exit:
+  q: "Name one criterion of your monitor and the test that shows whether it is met."
+  a: "For example: blinks at 300 or below; test at readings 299, 300 and 301."
+explain: |
+  A design brief has **criteria** (what the design must do, which you can test) and **constraints** (the limits you work within). Plan the tests before you build, prototype the logic, build it, run every test and record the results, then evaluate each criterion with the test that shows it.
+sources:
+  - { title: "SparkFun soil moisture sensor hookup guide (link)", url: "https://learn.sparkfun.com/tutorials/soil-moisture-sensor-hookup-guide", checked: 2026-10-12 }

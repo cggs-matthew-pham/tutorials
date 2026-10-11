@@ -35,6 +35,17 @@ export const STAGE_INFO_SCIENCE = {
   make: ['Elaborate', 'Use the same idea in a new context.'],
   info: ['Evaluate', 'Look back at your first ideas and what changed.'],
 };
+/** Design projects (shape: design) use design-cycle words on the same stages: predict = Inquire, investigate = Develop,
+ * make = Create, modify = Test, practise = Evaluate. Steps go in that order. */
+export const STAGE_INFO_DESIGN = {
+  predict: ['Inquire', 'Read the brief: who it is for, what it must do (criteria) and the limits (constraints).'],
+  run: ['Explore', 'Try the idea on the board before you plan.'],
+  investigate: ['Develop', 'Plan before you build: parts, circuit, code and the tests you will run.'],
+  make: ['Create', 'Build it, first in the simulator, then for real if you have the kit. Expect a few tries; that is normal.'],
+  modify: ['Test', 'Run your tests and record what happened, including what failed.'],
+  practise: ['Evaluate', 'Judge it against each criterion, and say what you would change.'],
+  info: ['Info', ''],
+};
 const TIER_LABEL = { typical: 'Typical', wider: 'Wider' };
 export const STAGE_PREFIX = /^(Predict|Run|Investigate|Modify|Practise|Make|Info):\s*/i;
 
@@ -624,7 +635,7 @@ export function lessonPageHtml(lesson, deps) {
   const stagesUsed = [...new Set(lesson.steps.map((s) => s.config.stage).filter((s) => s !== 'info' || isSci))];
   const tierAttr = (c) => (c.tier ? ` data-tier="${esc(c.tier)}"` : '');
   const nav = lesson.steps.map((s) => `<a href="#${s.id}" style="--c:var(--${s.config.stage})"${tierAttr(s.config)}><i></i>${heading(s.title)}${s.tasks.length ? '<span class="cnt"></span>' : ''}</a>`).join('');
-  const SI = lesson.language === 'maths' ? STAGE_INFO_MATHS : isSci ? STAGE_INFO_SCIENCE : STAGE_INFO;
+  const SI = lesson.shape === 'design' ? STAGE_INFO_DESIGN : lesson.language === 'maths' ? STAGE_INFO_MATHS : isSci ? STAGE_INFO_SCIENCE : STAGE_INFO;
   // Width tiers: steps marked typical or wider are extra contexts. A teacher sets the starting width with ?width=;
   // students can widen but not narrow. Tiered checks are not needed to finish the lesson.
   const tiered = lesson.steps.some((s) => s.config.tier);

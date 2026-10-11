@@ -1,0 +1,24 @@
+# Prototype board for the plant monitor: the knob stands in for the soil sensor.
+
+# region: develop
+widget: arduino
+led: 13
+knob: A0
+level: 50
+test: 0, blink
+test: 299, blink
+test: 300, blink
+test: 301, off
+test: 1023, off
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: // decide what the LED does here
+code: delay(100);
+code: }
+# endregion

@@ -1,0 +1,37 @@
+summary: "A Years 9–10 design project: a two-motor drive base for a line or obstacle course, with a battery chosen against the brief, steering planned, built in a simulator then for real, and tested on a timed course."
+time: 300
+timing: "About 5 to 8 lessons (around 300 minutes). Inquire 1 · Develop 1–2 · Create 2–4 · Test and evaluate 1"
+goals:
+  - "I can choose a battery and motors against a brief."
+  - "I can plan a robot's steering from its sensors."
+  - "I can test a robot on a course and evaluate it with data."
+struggle: "Mechanical problems (loose wheels, a dragging chassis) look like code problems. Test the base driving straight before adding sensors."
+before: |
+  Needs Power and motors (drivers, shared ground, batteries); LiPos only after the LiPo safety sign-off and if your risk assessment allows. Pairs with Mechanisms (gearing), CAD (a printed chassis) and the robotics simulator. The micro:bit Cutebot (Code › Robotics challenges) is a ready-made alternative base for classes without kits.
+
+  If you assess with MYP Design, the steps line up with the criteria:
+    - **A Inquiring and analysing:** the brief, its criteria and constraints, and research into parts (Inquire).
+    - **B Developing ideas:** a design specification, the circuit and code plan, and the test table written before building (Develop).
+    - **C Creating the solution:** building it (in the simulator, then for real), following the plan and justifying changes (Create).
+    - **D Evaluating:** testing against the specification, recording failures, improvements and impact (Test, Evaluate).
+    Otherwise, use the same four headings as a simple rubric: each step's reflect checks are the evidence list.
+running:
+  - "Develop: the battery choice must be justified against all three numbers."
+  - "Create: drive straight first, then add one sensor."
+  - "Test: three timed runs, results in a table."
+stuck:
+  - see: "The robot turns the wrong way."
+    ask: "Which motor slows when the sensor sees the line?"
+    fix: "Swap the turn logic, or swap a motor's wires."
+  - see: "It resets when it starts."
+    ask: "Where do the motors get their power?"
+    fix: "Their own battery, grounds joined."
+stretch: "Proportional steering: slow the inside wheel by an amount that depends on how far off the line it is."
+support: "A driver wiring diagram and a two-sensor line-follower sketch to Modify."
+leads: |
+  Other Years 9–10 projects: Automated sorter, Lift.
+exit:
+  q: "Name the three numbers you checked to choose your battery."
+  a: "Voltage (in the driver's range), run time (capacity × 80% ÷ current) and weight."
+explain: |
+  A drive base is a whole system: two motors through a **driver**, a **battery** chosen against voltage, run time and weight, **steering** from the sensors, and a chassis. Plan each part, build in a simulator then for real, run timed course tests, and evaluate each criterion with the data.

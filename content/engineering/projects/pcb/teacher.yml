@@ -1,0 +1,36 @@
+summary: "A stretch project: design a PCB for a working project in KiCad or EasyEDA (schematic, footprints, layout, design rule check, Gerber files), optionally ordered and assembled."
+time: 250
+timing: "About 4 to 6 lessons (around 250 minutes). Inquire and Develop 1 · Create 2–4 · Test and evaluate 1"
+goals:
+  - "I can draw a schematic from a working circuit."
+  - "I can lay out and check a board."
+  - "I can prepare a design for manufacture."
+struggle: "Footprints that don't match the real part (pin spacing, hole size) are the classic first-board failure. Check each one against the part in hand."
+before: |
+  Teacher-run: tool skills come from KiCad's or EasyEDA's own tutorials (link them); this page structures the project. Ordering boards needs a budget and a manufacturer's student-friendly service; plan a few weeks of lead time. Through-hole parts are easiest to solder for a first board.
+
+  If you assess with MYP Design, the steps line up with the criteria:
+    - **A Inquiring and analysing:** the brief, its criteria and constraints, and research into parts (Inquire).
+    - **B Developing ideas:** a design specification, the circuit and code plan, and the test table written before building (Develop).
+    - **C Creating the solution:** building it (in the simulator, then for real), following the plan and justifying changes (Create).
+    - **D Evaluating:** testing against the specification, recording failures, improvements and impact (Test, Evaluate).
+    Otherwise, use the same four headings as a simple rubric: each step's reflect checks are the evidence list.
+running:
+  - "Develop: schematic checked against the breadboard before layout starts."
+  - "Create: run the DRC early and often."
+stuck:
+  - see: "The DRC shows unconnected nets."
+    ask: "Which pins does the schematic join that the layout doesn't?"
+    fix: "Route the missing tracks, or fix the schematic."
+stretch: "A two-layer board with a ground plane."
+support: "A finished example board for an LED and resistor to copy the steps from."
+leads: |
+  Back to the Engineering capstones, or CAD and fabrication for an enclosure.
+exit:
+  q: "Name two things a design rule check catches, and one it can't."
+  a: "It catches tracks too close or too thin and unconnected nets; it can't tell whether the circuit meets the brief."
+explain: |
+  A **PCB** turns a working circuit into a product. Draw the **schematic**, give every part a **footprint** that matches the real part, lay out and route the **board**, run the **design rule check** until it is clean, and export the **Gerber** files.
+sources:
+  - { title: "KiCad (free, open source; link)", url: "https://www.kicad.org/", checked: 2026-10-12 }
+  - { title: "EasyEDA (free, in the browser; link)", url: "https://easyeda.com/", checked: 2026-10-12 }

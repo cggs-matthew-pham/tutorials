@@ -1,0 +1,33 @@
+summary: "A stretch project: move a working breadboard project onto protoboard or stripboard, with a planned layout, a soldering safety briefing, and the original test table re-run."
+time: 120
+timing: "About 2 to 3 lessons (around 120 minutes). Inquire and Develop 1 · Create 1 · Test and evaluate part lesson"
+goals:
+  - "I can plan a protoboard layout from a circuit diagram."
+  - "I can solder safely and check my joints."
+  - "I can show the permanent version works the same as the breadboard one."
+struggle: "Students want to start soldering. The layout drawing is the ticket to the iron."
+before: |
+  Teacher-led and equipment-dependent: soldering stations with stands and fume extraction, safety glasses, lead-free solder, and your school's soldering risk assessment. Give the safety briefing in person before anyone uses an iron; this page does not replace it.
+
+  If you assess with MYP Design, the steps line up with the criteria:
+    - **A Inquiring and analysing:** the brief, its criteria and constraints, and research into parts (Inquire).
+    - **B Developing ideas:** a design specification, the circuit and code plan, and the test table written before building (Develop).
+    - **C Creating the solution:** building it (in the simulator, then for real), following the plan and justifying changes (Create).
+    - **D Evaluating:** testing against the specification, recording failures, improvements and impact (Test, Evaluate).
+    Otherwise, use the same four headings as a simple rubric: each step's reflect checks are the evidence list.
+running:
+  - "Develop: partner checks the layout against the diagram."
+  - "Create: inspect the first three joints together."
+stuck:
+  - see: "Two neighbouring joints are joined by solder."
+    ask: "Is there a bridge?"
+    fix: "Remove it with solder wick, then re-check."
+stretch: "Make it a shield: headers that plug straight onto the Uno."
+support: "A printed hole grid and a worked layout for an LED and resistor."
+leads: |
+  Next stretch: Design a PCB.
+exit:
+  q: "Why plan a protoboard layout before soldering?"
+  a: "Parts can't be moved easily once soldered, so the layout must match the circuit first."
+explain: |
+  Moving a project onto **protoboard** makes it permanent. Plan the layout on a grid first (with **track cuts** on stripboard), solder only after the safety briefing, check every joint, then run the **same test table** as the breadboard version.

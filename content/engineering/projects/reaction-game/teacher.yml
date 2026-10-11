@@ -1,0 +1,33 @@
+summary: "A Years 8–9 design project: a fair reaction timer with a random wait, a button and millis(), planned as an ordered loop with a false-start test, built in Tinkercad and optionally on hardware, tested and evaluated."
+time: 150
+timing: "About 3 lessons (around 150 minutes). Inquire part lesson · Develop 1 · Create 1 · Test and evaluate 1"
+goals:
+  - "I can plan a program as an ordered loop."
+  - "I can time an event with millis()."
+  - "I can test a design for unfair or unexpected use."
+struggle: "The false start is the hard part: it needs the button checked during the wait, not delay(). Let students meet the problem with delay() first."
+before: |
+  random(2000, 5001) and millis() are new: give them as a recipe card. A first version with delay() for the wait cannot catch false starts; that limitation is a good Evaluate point and a reason for the millis() version.
+
+  If you assess with MYP Design, the steps line up with the criteria:
+    - **A Inquiring and analysing:** the brief, its criteria and constraints, and research into parts (Inquire).
+    - **B Developing ideas:** a design specification, the circuit and code plan, and the test table written before building (Develop).
+    - **C Creating the solution:** building it (in the simulator, then for real), following the plan and justifying changes (Create).
+    - **D Evaluating:** testing against the specification, recording failures, improvements and impact (Test, Evaluate).
+    Otherwise, use the same four headings as a simple rubric: each step's reflect checks are the evidence list.
+running:
+  - "Develop: ask how the game could know about a press during the wait."
+  - "Test: the class tries to cheat it."
+stuck:
+  - see: "False starts are never caught."
+    ask: "Is the button read while the game is waiting?"
+    fix: "Wait in a loop that checks millis() and the button, not one long delay()."
+stretch: "Keep the best time of the session, and show a two-player result."
+support: "A recipe card for random and millis, and the loop with the false-start check given."
+leads: |
+  Other Years 8–9 projects: Smart plant monitor, Parking assistant.
+exit:
+  q: "Why can't a reaction game use a single delay() for its random wait?"
+  a: "Nothing is read during a delay, so a press before the light (a false start) can't be caught."
+explain: |
+  A fair reaction game waits a **random** time, lights the LED, records **millis()**, and subtracts it from the time of the press. It must also catch a **false start**, which means reading the button during the wait. Plan the loop in order, build it, try to cheat it, and evaluate each criterion with its test.

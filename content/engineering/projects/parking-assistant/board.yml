@@ -1,0 +1,25 @@
+# Prototype board for the parking assistant: the knob reading stands in for the distance in cm.
+
+# region: develop
+widget: arduino
+led: 13
+knob: A0
+level: 20
+test: 10, on
+test: 29, on
+test: 30, blink
+test: 100, blink
+test: 101, off
+test: 500, off
+code: int cm = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: cm = analogRead(A0);
+code: // three bands here
+code: delay(100);
+code: }
+# endregion

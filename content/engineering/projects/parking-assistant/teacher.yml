@@ -1,0 +1,35 @@
+summary: "A Years 8–9 design project: a parking assistant with an ultrasonic sensor and three warning bands, planned with band-edge tests, prototyped on the board, built in Tinkercad and optionally on hardware, tested with a ruler and evaluated."
+time: 180
+timing: "About 3 to 4 lessons (around 180 minutes). Inquire part lesson · Develop 1 · Create 1–2 · Test and evaluate 1"
+goals:
+  - "I can plan tests for every edge of a set of bands."
+  - "I can read a distance sensor and act on it."
+  - "I can evaluate my design against each criterion with evidence."
+struggle: "Real ultrasonic readings jump around; students blame their code. Print the readings first."
+before: |
+  The sensor code (pulseIn and ÷ 58) is new: give it as a recipe card. HC-SR04 sensors are unreliable on soft or angled surfaces and under about 2 cm; good evaluations mention it. Builds on Arduino › A small system.
+
+  If you assess with MYP Design, the steps line up with the criteria:
+    - **A Inquiring and analysing:** the brief, its criteria and constraints, and research into parts (Inquire).
+    - **B Developing ideas:** a design specification, the circuit and code plan, and the test table written before building (Develop).
+    - **C Creating the solution:** building it (in the simulator, then for real), following the plan and justifying changes (Create).
+    - **D Evaluating:** testing against the specification, recording failures, improvements and impact (Test, Evaluate).
+    Otherwise, use the same four headings as a simple rubric: each step's reflect checks are the evidence list.
+running:
+  - "Develop: ask how many edges three bands have."
+  - "Test: rulers out; record the real distance and what the device did."
+stuck:
+  - see: "The readings jump around."
+    ask: "What does the sensor read when nothing moves?"
+    fix: "Average three readings, or aim at a flat, hard surface."
+stretch: "Beep faster as it gets closer, with the delay worked out from the distance (map)."
+support: "A recipe card for reading the HC-SR04, and the band table half filled."
+leads: |
+  Other Years 8–9 projects: Smart plant monitor, Reaction game.
+exit:
+  q: "Give the four test distances that check your band edges."
+  a: "29, 30, 100 and 101 cm."
+explain: |
+  Three warning **bands** have edges at 30 and 100 cm, and each edge needs a test **just inside and just outside** it. Prototype the bands, build, test with a ruler, and evaluate each criterion with its test.
+sources:
+  - { title: "SparkFun HC-SR04 ultrasonic sensor guide (link)", url: "https://learn.sparkfun.com/tutorials/ultrasonic-distance-sensor-hc-sr04-hookup-guide", checked: 2026-10-12 }

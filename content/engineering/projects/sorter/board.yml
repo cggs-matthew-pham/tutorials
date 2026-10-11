@@ -1,0 +1,23 @@
+# Prototype board for the sorter: the knob is the light reading; the LED stands in for the flap (on = bin B).
+
+# region: develop
+widget: arduino
+led: 13
+knob: A0
+level: 50
+test: 100, off
+test: 399, off
+test: 400, on
+test: 900, on
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: // flap to bin B (LED on) or bin A (LED off)
+code: delay(100);
+code: }
+# endregion

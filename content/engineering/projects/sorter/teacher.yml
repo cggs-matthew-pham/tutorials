@@ -1,0 +1,33 @@
+summary: "A Years 9–10 design project: an automated sorter where a light sensor (or a trained model) decides and a servo flap acts, prototyped on the board, built, and measured for accuracy on a 20-item test set."
+time: 250
+timing: "About 4 to 6 lessons (around 250 minutes). Inquire part lesson · Develop 1 · Create 2–3 · Test and evaluate 1"
+goals:
+  - "I can turn a sensor reading into a decision and an action."
+  - "I can measure accuracy on a test set."
+  - "I can explain why a design that passes its code tests may still sort badly."
+struggle: "Students treat 100% on their own five items as proof. Hold the 20-item test set back until Test."
+before: |
+  Real light readings depend on room light and how the item passes the sensor; a shade or an LED lighting the item helps. The Servo library is a recipe until the class has met libraries. Links: Code › Train a recycling sorter (Teachable Machine) for the stretch route.
+
+  If you assess with MYP Design, the steps line up with the criteria:
+    - **A Inquiring and analysing:** the brief, its criteria and constraints, and research into parts (Inquire).
+    - **B Developing ideas:** a design specification, the circuit and code plan, and the test table written before building (Develop).
+    - **C Creating the solution:** building it (in the simulator, then for real), following the plan and justifying changes (Create).
+    - **D Evaluating:** testing against the specification, recording failures, improvements and impact (Test, Evaluate).
+    Otherwise, use the same four headings as a simple rubric: each step's reflect checks are the evidence list.
+running:
+  - "Develop: the code tests and the accuracy test answer different questions; ask which is which."
+  - "Test: someone else chooses the 20 items."
+stuck:
+  - see: "Accuracy is poor."
+    ask: "What do the misses have in common?"
+    fix: "Calibrate the threshold with real items, or shield the sensor from room light."
+stretch: "The Teachable Machine route: compare its accuracy with the light sensor's on the same 20 items."
+support: "A servo recipe card and a results table for the 20 items."
+leads: |
+  Other Years 9–10 projects: Two-motor drive base, Lift.
+exit:
+  q: "Your sorter scores 18 of 20. Does it meet a 90% criterion?"
+  a: "Yes: 18 ÷ 20 = 90%, exactly the criterion."
+explain: |
+  A sorter turns a **sensor reading** into a **decision** and an **action** (a servo flap). Passing the code tests shows the logic is right; **accuracy on a test set** of real items shows whether the machine sorts well. Plan, build, measure and evaluate.

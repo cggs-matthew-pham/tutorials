@@ -39,6 +39,13 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 - New `motor` widget (`mode: pin | hbridge | ground | battery`). Battery figures are typical, not exact (teacher notes say so). Every board check tested headless; four clips record. Ports 8513–8516.
 - Physical computing is now complete as planned (circuits, Arduino blocks to C++, real hardware, power). Still open: the plan's two-motor drive-base Make as a teacher project; Uno USB ids in `B.serial`.
 
+## Done (12 Oct 2026): Capstone projects
+
+- Course `engineering/projects` (Physical computing, extensions, after Arduino), all lessons optional, three units: Years 8–9 (Smart plant monitor, Parking assistant, Reaction game), Years 9–10 (Two-motor drive base, Automated sorter, Lift), Stretch (Off the breadboard, Design a PCB). Students pick one per band.
+- Each is a design-cycle lesson (`shape: design`, new: Inquire, Develop, Create, Test, Evaluate on the existing stages): a brief sorted into criteria and constraints, a Develop step that prototypes the logic on a board where it can (arduino `test:` cases, the motor battery chooser, the gears board) plus a planned test table, reflect evidence for Create and Test, and an evidence question plus a written evaluation. Teacher notes map the steps to MYP Design A–D.
+- The drive base, sorter and lift link Power and motors, Mechanisms, the classifier (Code) and CAD; the stretch unit stands in for the Design your own board pathway until it has its own course.
+- Shared change: `lesson-core.mjs` reads `shape:`; `lesson-view.mjs` has `STAGE_INFO_DESIGN` (logged in roadmap/shared.md). Deck slides still title the Inquire step "Predict" (teach.mjs unchanged).
+
 ## Next
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.

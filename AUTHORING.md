@@ -364,6 +364,10 @@ unlocks: [pencolor]                  # fires when every task is done
 - The sticky step pill shows progress, for example "Modify 2/3". Pills are ordered but never locked.
 - Works on any stage (Investigate questions, Modify ladders, Make milestones).
 
+### Design projects (`shape: design`)
+
+`shape: design` in a lesson's frontmatter shows the stages in design-cycle words, for teacher-led projects that follow a brief (first used by `engineering/projects/`): `predict` = **Inquire** (the brief: criteria and constraints), `investigate` = **Develop** (plan, test table, prototype), `make` = **Create**, `modify` = **Test**, `practise` = **Evaluate**, written in that order. Checks work as usual (a board can prototype the logic in Develop); most Create and Test evidence is `reflect`. Teacher notes map the steps to an assessment rubric (MYP Design A–D in the Engineering projects).
+
 ### `insight:` (what the step is for)
 
 A step or a task can have `insight: "..."`: one sentence on what students should come to see. It is shown to teachers only, in **For teachers › What each step is for**.

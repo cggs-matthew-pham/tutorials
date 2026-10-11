@@ -1,0 +1,11 @@
+# Battery choice for the drive base (motor widget, battery mode).
+
+# region: battery
+widget: motor
+mode: battery
+battery: pp3
+draw: 900
+need: 30
+grams: 150
+derate: on
+# endregion
