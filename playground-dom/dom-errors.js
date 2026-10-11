@@ -16,6 +16,9 @@ export function hint(message, code = '', line = null) {
     h = `\`${x[1]}\` is not a selector. Use \`#id\`, \`.class\` or a tag name such as \`h1\`.`;
   } else if (/Illegal invocation|is not a function/.test(m) && /addEventListener\s*\(\s*['"]\w+['"]\s*,\s*\w+\s*\(/.test(code)) {
     h = 'The function after the event name must not have `()`: `addEventListener("click", name)` gives the browser the function to call later; `name()` runs it straight away.';
+  } else if (/Cannot read properties of undefined/.test(m) && /(^|[^\w.])(?<!await\s)(fetch\s*\(|\w+\.json\s*\(\s*\))/m.test(code.replace(/await\s+/g, 'await '))) {
+    // fetch: a promise used as if it were the data (fetch(...) or response.json() without await).
+    h = '`fetch(…)` and `response.json()` each give a promise: a value that arrives later. Put `await` in front of each one, inside an `async function`.';
   } else if (/Assignment to constant variable/.test(m) && /\bref\s*\(/.test(code)) {
     // Vue: a ref made with const, changed in the script as if it were its value (score++ instead of score.value++).
     h = 'In the script, a ref keeps its value in `.value`: for example `score.value++`, not `score++`. The page unwraps refs for you; the script does not.';

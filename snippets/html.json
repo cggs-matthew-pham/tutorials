@@ -573,6 +573,31 @@
      "matches": "\\$(state|derived)\\s*\\("
     }
    ]
+  },
+  {
+   "name": "Fetch and JSON",
+   "items": [
+    {
+     "label": "fetch JSON",
+     "code": "const response = await fetch(\"‹weather.json›\");\nconst data = await response.json();\n",
+     "hint": "Asks for a file or web address, waits for the reply, then turns it into data (objects and arrays). Both lines need await, inside an async function.",
+     "matches": "\\bfetch\\s*\\(",
+     "example": "<p id=\"out\">Loading…</p>\n<script>\n  async function load() {\n    const response = await fetch(\"weather.json\");\n    const data = await response.json();\n    document.querySelector(\"#out\").textContent = \"Days: \" + data.daily.time.length;\n  }\n  load();\n</script>\n",
+     "shows": "Loading… becomes Days: 7 once the file has arrived"
+    },
+    {
+     "label": "async function",
+     "code": "async function ‹load›() {\n  ‹… await …›\n}\n‹load›();\n",
+     "hint": "A function that may wait for slow things with await. Call it like any function; the rest of the page keeps going while it waits.",
+     "matches": "\\basync\\s+function\\b"
+    },
+    {
+     "label": "try and catch",
+     "code": "try {\n  ‹what might fail›\n} catch (error) {\n  ‹plan B›\n}\n",
+     "hint": "Runs the lines in try; if one fails (no network, a blocked site), jumps to catch instead of stopping with an error.",
+     "matches": "\\btry\\s*\\{"
+    }
+   ]
   }
  ]
 }

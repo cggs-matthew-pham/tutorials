@@ -1,0 +1,49 @@
+summary: "Students predict that a page shows Loading before fetched data arrives, order the lines that load JSON, find a missing await, add rain to the forecast, load the live forecast with a saved copy as plan B, and find the week's hottest day."
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 15 min"
+goals:
+  - I can load JSON data with fetch and show it on the page.
+  - I can explain why fetch needs await inside an async function.
+  - I can fall back to a saved copy with try and catch when the network fails.
+before: |
+  An optional lesson at the end of the DOM course. `fetch("weather.json")` asks for a file (or a web address) and gives back a **promise**, a value that arrives later. `await` waits for it, and only works inside an `async function`. The reply is text; `await response.json()` turns it into JavaScript objects and arrays. Forgetting the second `await` is the planted bug: `data` is then a promise, so `data.daily` is undefined.
+
+  `weather.json` is a saved week of Canberra temperatures from Open-Meteo, the same file as Data detective's weather lesson in Python (dates are when it was saved). The live task asks Open-Meteo, a free service with no account or key. `try … catch` loads the saved copy when the live request fails, which is also what happens if the school network blocks the site, so check it before class with the Check your school page.
+
+  Weather data by Open-Meteo.com, licensed CC BY 4.0: the credit line stays on the page.
+running:
+  - "Predict: ask what the page could show while the data is on its way."
+  - "Run: point out that the list code is the DOM list lesson's, unchanged."
+  - "Investigate: before the bug, ask students to say what each await waits for."
+  - "Modify: for the live task, turn the Wi-Fi off (or use a wrong URL) to see plan B work."
+  - "Make: ask what the loop must remember as it goes (the best day so far)."
+struggle: "The order of events is the hard part: the rest of the page runs before the data arrives. Ask \"has the data arrived yet at this line?\" rather than fixing their awaits for them."
+stuck:
+  - see: "Red error: Cannot read properties of undefined."
+    ask: "Is there an await before fetch and before response.json()?"
+    fix: "Both need await, inside an async function."
+  - see: "await is only valid in async functions."
+    ask: "Does the function have async in front?"
+    fix: "async function load() { … }"
+  - see: "The live forecast never shows, only the saved one."
+    ask: "Is the network or the site blocked here?"
+    fix: "That is plan B working; try at home, or check the URL is exactly the one given."
+stretch: "Show the forecast as bars with widths from the temperatures; add a Refresh button that calls load() again; load a different town by changing the latitude and longitude in the URL."
+support: "Give the try and catch written out; students change only what the status line says."
+leads: "Apps with Vue: a fetch in a setup function that sets a ref. Data detective does the same in Python with requests. Class idea: list apps on a phone that fetch data, and what each would show with no connection."
+exit:
+  q: "Why does const data = response.json(); without await give an error later?"
+  a: "response.json() gives a promise, not the data; without await the next line uses the promise before the data has arrived."
+explain: |
+  1. The page says Loading while it waits.
+  2. `fetch` asks for the file; `await` waits for the reply.
+  3. `response.json()` turns the reply into data; `await` waits again.
+  4. Then show part of it on the page.
+  5. Loading first, then the data, once it has arrived.
+solutions:
+  step-4#t1: page.html#sol-rain
+  step-4#t2: page.html#sol-live
+  step-5: page.html#sol-make
+sources:
+  - { title: "Open-Meteo: Weather Forecast API", url: "https://open-meteo.com/en/docs", checked: 2026-10-12 }
+  - { title: "Open-Meteo: Terms and licence (CC BY 4.0)", url: "https://open-meteo.com/en/licence", checked: 2026-10-12 }

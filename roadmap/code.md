@@ -72,6 +72,7 @@ Lesson counts include optional lessons. "Pictures" are drawn by `render-pictures
   - Not done: clips for the moving sketches (animated sketches show a still), a class trial.
 - **The DOM and the browser console** (`code/dom`, 8 incl. optional The real browser console): built 11 Oct.
   - Its own `playground-dom/` (Run, console panel, DOM hints; reports as `html`), clips and expected pictures.
+  - Optional lesson 9, Data from the web: fetch (built 12 Oct): `fetch`, `await`, `.json()`, and `try`/`catch` falling back to the saved `weather.json` (Data detective's file, now also in `media/html/`) when Open-Meteo can't be reached. Reference page added (`code/dom/reference`).
   - Not done: a class trial, saving between visits (by design).
 
 - **Apps with Vue** (`code/vue`, 7 incl. optional Same app, three frameworks): built 12 Oct.
@@ -155,7 +156,7 @@ The plan keeps "build it yourself, then meet the real tool": students hand-build
    - The point: components, state, derived values and events are the same ideas in all three, and only the syntax and update rules differ.
    - React's update rule (`setState`, and replacing values rather than changing them) is named as the thing that catches people out.
    - Angular is left out: it needs TypeScript and a command-line toolchain. AngularJS is dead (support ended in 2021).
-4. **`fetch` and APIs in JavaScript** (an optional DOM lesson). Load JSON, show it on the page, and fall back to a saved copy when the network fails, as Data detective does in Python.
+4. **`fetch` and APIs in JavaScript** (built 12 Oct as `code/dom/dom-fetch`; an optional DOM lesson). Load JSON, show it on the page, and fall back to a saved copy when the network fails, as Data detective does in Python.
 
 **Parked: Node.js.** It does not run in a browser. StackBlitz's WebContainers is proprietary, heavy, and needs security headers GitHub Pages cannot set. Local installs or online editors need accounts. Flask already teaches servers and APIs, and schools generally prefer Python. Revisit only if a school wants a JavaScript-only path.
 
@@ -169,6 +170,7 @@ The plan keeps "build it yourself, then meet the real tool": students hand-build
 
 ## Log
 
+- 12 Oct: Data from the web: fetch (optional DOM lesson 9). The four web proposals are all built.
 - 12 Oct: Apps with Vue (6 lessons + optional Same app, three frameworks); the DOM playground loads local libraries with CORS and gives Vue hints; `check-html` also walks the DOM and Vue courses.
 - 12 Oct: Pages with Bootstrap (3 lessons), with a nod to Bulma, Tailwind, daisyUI and Pico (Matthew's request); `vendor/web/` and the shared changes in `shared.md`.
 - 12 Oct: `struggle:` notes for all 63 MakeCode lessons; every code lesson now has one (`npm run effort` is clean for code).

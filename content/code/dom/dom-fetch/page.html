@@ -1,0 +1,198 @@
+<!-- region: predict -->
+<h1>Canberra this week</h1>
+<p id="out">Loading…</p>
+
+<script>
+  async function load() {
+    const response = await fetch("weather.json");
+    const data = await response.json();
+    document.querySelector("#out").textContent = "Top on the first day: " + data.daily.temperature_2m_max[0] + " °C";
+  }
+  load();
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<h1>Canberra this week</h1>
+<p id="status">Loading…</p>
+<ul id="days"></ul>
+<p><small>Weather data by Open-Meteo.com (CC BY 4.0)</small></p>
+
+<script>
+  async function load() {
+    const response = await fetch("weather.json");
+    const data = await response.json();
+    const days = data.daily;
+    for (let i = 0; i < days.time.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = days.time[i] + ": " + days.temperature_2m_min[i] + " to " + days.temperature_2m_max[i] + " °C";
+      document.querySelector("#days").append(li);
+    }
+    document.querySelector("#status").textContent = "The saved forecast";
+  }
+  load();
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<p id="out">Loading…</p>
+
+<script>
+  async function load() {
+    const response = await fetch("weather.json");
+    const data = response.json();
+    document.querySelector("#out").textContent = data.daily.time.length + " days";
+  }
+  load();
+</script>
+<!-- endregion -->
+
+<!-- region: parsons -->
+  async function load() {
+    const response = await fetch("weather.json");
+    const data = await response.json();
+    document.querySelector("#out").textContent = data.daily.time[0];
+  }
+  load();
+<!-- endregion -->
+
+<!-- region: sol-rain -->
+<h1>Canberra this week</h1>
+<p id="status">Loading…</p>
+<ul id="days"></ul>
+<p><small>Weather data by Open-Meteo.com (CC BY 4.0)</small></p>
+
+<script>
+  async function load() {
+    const response = await fetch("weather.json");
+    const data = await response.json();
+    const days = data.daily;
+    for (let i = 0; i < days.time.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = days.time[i] + ": " + days.temperature_2m_min[i] + " to " + days.temperature_2m_max[i] + " °C, rain " + days.precipitation_sum[i] + " mm";
+      document.querySelector("#days").append(li);
+    }
+    document.querySelector("#status").textContent = "The saved forecast";
+  }
+  load();
+</script>
+<!-- endregion -->
+
+<!-- region: live -->
+<h1>Canberra this week</h1>
+<p id="status">Loading…</p>
+<ul id="days"></ul>
+<p><small>Weather data by Open-Meteo.com (CC BY 4.0)</small></p>
+
+<script>
+  const URL = "https://api.open-meteo.com/v1/forecast?latitude=-35.28&longitude=149.13&timezone=Australia%2FSydney&daily=temperature_2m_max,temperature_2m_min,precipitation_sum";
+
+  async function load() {
+    // Try the live forecast from URL first. If that fails, catch the error
+    // and load the saved copy, weather.json, instead.
+    const response = await fetch("weather.json");
+    const data = await response.json();
+    const days = data.daily;
+    for (let i = 0; i < days.time.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = days.time[i] + ": " + days.temperature_2m_min[i] + " to " + days.temperature_2m_max[i] + " °C";
+      document.querySelector("#days").append(li);
+    }
+    document.querySelector("#status").textContent = "The saved forecast";
+  }
+  load();
+</script>
+<!-- endregion -->
+
+<!-- region: sol-live -->
+<h1>Canberra this week</h1>
+<p id="status">Loading…</p>
+<ul id="days"></ul>
+<p><small>Weather data by Open-Meteo.com (CC BY 4.0)</small></p>
+
+<script>
+  const URL = "https://api.open-meteo.com/v1/forecast?latitude=-35.28&longitude=149.13&timezone=Australia%2FSydney&daily=temperature_2m_max,temperature_2m_min,precipitation_sum";
+
+  async function load() {
+    let data;
+    let note;
+    try {
+      const response = await fetch(URL);
+      data = await response.json();
+      note = "Live forecast from Open-Meteo";
+    } catch (error) {
+      const response = await fetch("weather.json");
+      data = await response.json();
+      note = "No connection: using the saved forecast";
+    }
+    const days = data.daily;
+    for (let i = 0; i < days.time.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = days.time[i] + ": " + days.temperature_2m_min[i] + " to " + days.temperature_2m_max[i] + " °C";
+      document.querySelector("#days").append(li);
+    }
+    document.querySelector("#status").textContent = note;
+  }
+  load();
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<h1>Canberra this week</h1>
+<p id="status">Loading…</p>
+<ul id="days"></ul>
+<p><small>Weather data by Open-Meteo.com (CC BY 4.0)</small></p>
+
+<script>
+  async function load() {
+    const response = await fetch("weather.json");
+    const data = await response.json();
+    const days = data.daily;
+    for (let i = 0; i < days.time.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = days.time[i] + ": " + days.temperature_2m_min[i] + " to " + days.temperature_2m_max[i] + " °C";
+      document.querySelector("#days").append(li);
+    }
+    document.querySelector("#status").textContent = "The saved forecast";
+  }
+  load();
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<h1>Canberra this week</h1>
+<p id="status">Loading…</p>
+<ul id="days"></ul>
+<p><small>Weather data by Open-Meteo.com (CC BY 4.0)</small></p>
+
+<script>
+  async function load() {
+    const response = await fetch("weather.json");
+    const data = await response.json();
+    const days = data.daily;
+    for (let i = 0; i < days.time.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = days.time[i] + ": " + days.temperature_2m_min[i] + " to " + days.temperature_2m_max[i] + " °C";
+      document.querySelector("#days").append(li);
+    }
+    let best = 0;
+    for (let i = 1; i < days.time.length; i++) {
+      if (days.temperature_2m_max[i] > days.temperature_2m_max[best]) {
+        best = i;
+      }
+    }
+    document.querySelector("#status").textContent = "Hottest: " + days.time[best] + ", " + days.temperature_2m_max[best] + " °C";
+  }
+  load();
+</script>
+<!-- endregion -->
+
+<!-- region: explain-start -->
+<p id="out">Loading…</p>
+
+<script>
+  async function load() {
+  }
+  load();
+</script>
+<!-- endregion -->
