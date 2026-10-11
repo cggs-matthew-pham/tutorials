@@ -1,0 +1,43 @@
+summary: "Students play a click-to-catch game, learn that mousePressed runs on its own and that touching means a small distance, fix a catch that scores for every miss, add lives with a game over and a restart key, and make a power-up ball."
+time: 60
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 20 min"
+goals:
+  - I can make a game with a score that changes when the player clicks.
+  - I can use dist to tell when two things touch.
+  - I can add lives and a game over to a game.
+before: |
+  Read the unit primer first. This is the Python Catch the turtle challenge in JavaScript, and it completes the course. Everything has been taught except events and joining text: `mousePressed()` and `keyPressed()` are functions p5 calls for you. Click coordinates are the sketch's `mouseX` and `mouseY`. The common slip is `>` where `<` belongs, so the bug task is a logic error with no red line: students must read the condition and play. The game needs the sketch to be clicked first for keys to work. This lesson marks "Challenge complete".
+running:
+  - "Predict: draw a 3-4-5 triangle on the board."
+  - "Run: let students play for a minute and call out their scores."
+  - "Investigate: for the bug, ask 'when is the distance big?'"
+  - "Modify: ask where lives are taken away, and where the check for zero lives belongs."
+  - "Make: pairs list the power-up's property and the two lines that change before coding."
+stuck:
+  - see: "Every click scores, even misses."
+    ask: Is the distance supposed to be bigger or smaller than 20 for a catch?
+    fix: Use dist(...) < 20.
+  - see: "Pressing R does nothing."
+    ask: Has the sketch been clicked first, and is lives zero?
+    fix: Click the picture, play until GAME OVER, then press R.
+  - see: "Lives go below zero or the game keeps moving after GAME OVER."
+    ask: Is the movement inside if (lives > 0)?
+    fix: Wrap the loop in if (lives > 0) { ... } else { ... }.
+  - see: "The power-up looks the same as the others."
+    ask: Where is its fill chosen?
+    fix: Choose fill with an if on the property before drawing the circle.
+stretch: Make the balls get faster as the score rises, or add a high score kept in a variable.
+support: Give the lives code and ask only for the restart key, or give the gold ball and ask for a second power-up.
+leads: "Optional next lesson: moving art with sin, cos and map."
+exit:
+  q: "Why is the catch test dist(...) < 20 and not > 20?"
+  a: "Two things touch when the distance between them is small."
+explain: |
+  1. `mousePressed()` is an event function: p5 runs it for each click.
+  2. `dist(mouseX, mouseY, ball.x, ball.y) < 20` is true when the click is near the ball.
+  3. A catch changes `score` and calls `restart(ball)`; missing the ball loses a life.
+solutions:
+  step-4#t1: sketch.js#sol-lives
+  step-4#t2: sketch.js#sol-restart
+  step-5: sketch.js#sol-make
+struggle: "Close means a small distance. Play the buggy version and say what is happening before reading the code."

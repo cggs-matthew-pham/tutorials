@@ -24,7 +24,7 @@ export function voiceSpec(v) {
 export const captionText = (v) => (v && typeof v === 'object' ? String(v.text ?? '') : String(v ?? ''));
 export const captionSay = (v) => (v && typeof v === 'object' && v.say !== undefined ? String(v.say) : captionText(v));
 // board: interactive diagrams (balance, machine, graph…); maths is its old name and still works.
-export const PLAYGROUND_KINDS = ['turtle', 'python', 'microstudio', 'html', 'board', 'maths', 'microbit', 'arcade', 'science'];
+export const PLAYGROUND_KINDS = ['turtle', 'python', 'microstudio', 'p5', 'html', 'board', 'maths', 'microbit', 'arcade', 'science'];
 const isBoard = (pg) => ['board', 'maths', 'science'].includes(pg);
 /** What a board check can expect from a board's report: the board (balance, machine), and the science board (done: the widget's task is finished). Newer boards use when: conditions. */
 export const BOARD_KEYS = ['balanced', 'solved', 'x'];
@@ -76,6 +76,8 @@ export const CODE_RULES = ['defs', 'calls', 'loops', 'returns', 'params', 'impor
 /** Code rules the HTML playground can check (HTML has no functions or loops). */
 export const HTML_RULES = ['contains', 'tags'];
 /** Code rules the MakeCode playgrounds can check (read from main.ts, the JavaScript the blocks compile to). */
+/** Code rules the p5.js playground can check (JavaScript read from the student's text). */
+export const P5_RULES = ['contains', 'defs', 'params', 'calls', 'loops', 'returns', 'uses'];
 export const MAKECODE_RULES = ['contains', 'inside', 'count', 'defs', 'calls', 'params'];
 
 /**
@@ -93,6 +95,28 @@ export function evalRules(rules, text, kind) {
     (rules.tags || []).forEach((t) => out.push({ label: `Use <${t}>`, ok: new RegExp('<' + String(t).toLowerCase() + '[\\s>/]').test(src) }));
     const flatH = src.replace(/\s+/g, '');
     (rules.contains || []).forEach((frag) => out.push({ label: `Your code has ${frag}`, ok: flatH.includes(String(frag).toLowerCase().replace(/\s+/g, '')) }));
+    return out;
+  }
+  // kind 'p5': JavaScript for p5.js. Comments are // and /* */ (quotes respected). defs/params/calls read the student's own
+  // functions (`function name(a, b)`); p5's own hooks (setup, draw, mousePressed...) are not counted as theirs.
+  if (kind === 'p5') {
+    const HOOKS = ['setup', 'draw', 'preload', 'mousePressed', 'mouseReleased', 'mouseClicked', 'mouseMoved', 'mouseDragged', 'doubleClicked', 'mouseWheel', 'keyPressed', 'keyReleased', 'keyTyped', 'windowResized', 'touchStarted', 'touchEnded', 'touchMoved'];
+    const noJs = (l) => { let q = null; for (let i = 0; i < l.length; i++) { const c = l[i]; if (q) { if (c === '\\') i++; else if (c === q) q = null; } else if (c === '"' || c === "'" || c === '`') q = c; else if (c === '/' && l[i + 1] === '/') return l.slice(0, i); } return l; };
+    const lines = String(text).replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(noJs);
+    const src = lines.join('\n');
+    const fdefs = []; src.replace(/\bfunction\s+([A-Za-z_$][\w$]*)\s*\(([^)]*)\)/g, (m, n, ps) => { if (!HOOKS.includes(n)) fdefs.push({ name: n, params: ps.split(',').filter((x) => x.trim()).length }); return m; });
+    const esc$ = (n) => String(n).replace(/\$/g, '\\$');
+    const fcalls = (n) => (src.match(new RegExp('(^|[^\\w$.])' + esc$(n) + '\\s*\\(', 'g')) || []).length - (src.match(new RegExp('function\\s+' + esc$(n) + '\\s*\\(', 'g')) || []).length;
+    const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+    const out = [];
+    if (rules.defs) out.push({ label: `Write at least ${plural(rules.defs, 'function')} of your own`, ok: fdefs.length >= rules.defs });
+    if (rules.params) out.push({ label: `Write a function with at least ${plural(rules.params, 'parameter')}`, ok: fdefs.some((d) => d.params >= rules.params) });
+    if (rules.calls) out.push({ label: rules.calls === 1 ? 'Call your function' : `Call one of your functions at least ${rules.calls} times`, ok: Math.max(0, ...fdefs.map((d) => fcalls(d.name))) >= rules.calls });
+    if (rules.loops) out.push({ label: rules.loops === 1 ? 'Use a loop' : `Use at least ${rules.loops} loops`, ok: lines.filter((l) => /\b(for|while)\s*\(/.test(l)).length >= rules.loops });
+    if (rules.returns) out.push({ label: 'Use return to give a value back', ok: lines.filter((l) => /\breturn\b/.test(l)).length >= rules.returns });
+    (rules.uses || []).forEach((n) => out.push({ label: `Use ${n}`, ok: new RegExp('(^|[^\\w$])' + esc$(n) + '([^\\w$]|$)').test(src) }));
+    const flatP = src.replace(/\s+/g, '');
+    (rules.contains || []).forEach((frag) => out.push({ label: `Your code has ${frag}`, ok: flatP.includes(String(frag).replace(/\s+/g, '')) }));
     return out;
   }
   // kind 'microbit' / 'arcade': MakeCode JavaScript (main.ts). Comments are // and /* */; everything is compared with
@@ -159,7 +183,7 @@ export const snippetId = (label) => String(label).toLowerCase().replace(/[^a-z0-
 
 /** Which playground (and so which snippet list) a step's unlocks refer to. */
 // The Python playground (Pyodide) shares the turtle playground's Python snippets, unlocks and code rules.
-export const unlockKind = (lesson, step) => (['python', 'microstudio'].includes(step.config.try?.playground) ? 'turtle' : step.config.try?.playground) || (lesson.language === 'html' ? 'html' : lesson.language === 'science' ? 'science' : 'turtle');
+export const unlockKind = (lesson, step) => (['python', 'microstudio'].includes(step.config.try?.playground) ? 'turtle' : step.config.try?.playground) || (lesson.language === 'html' ? 'html' : lesson.language === 'javascript' ? 'p5' : lesson.language === 'science' ? 'science' : 'turtle');
 
 export const DEFAULT_PACING = {
   typeCps: 55,        // characters per second when code is "typed" into the stage's code panel
@@ -375,11 +399,11 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
         if (r.count !== undefined && !(r.count && typeof r.count === 'object' && !Array.isArray(r.count) && Object.keys(r.count).length && Object.values(r.count).every((n) => Number.isInteger(n) && n > 0))) err(where, 'code rule count must map a code fragment to a whole number, such as { "basic.show": 3 }');
         if (!Object.keys(r).length) err(where, 'check (code) needs at least one rule');
       }
-      const pk = c.try ? ({ python: 'turtle' }[c.try.playground] || c.try.playground || (lesson.language === 'html' ? 'html' : 'turtle')) : null;
-      if (!pk || !['turtle', 'html', ...MAKECODE_KINDS].includes(pk)) err(where, 'a code check needs a playground on the step (try: { starter: ... })');
+      const pk = c.try ? ({ python: 'turtle' }[c.try.playground] || c.try.playground || (lesson.language === 'html' ? 'html' : lesson.language === 'javascript' ? 'p5' : 'turtle')) : null;
+      if (!pk || !['turtle', 'html', 'p5', ...MAKECODE_KINDS].includes(pk)) err(where, 'a code check needs a playground on the step (try: { starter: ... })');
       else if (r && typeof r === 'object') {
-        const allowedR = pk === 'html' ? HTML_RULES : MAKECODE_KINDS.includes(pk) ? MAKECODE_RULES : CODE_RULES.filter((x) => !['tags', 'inside', 'count'].includes(x));
-        const pname = pk === 'html' ? 'HTML' : MAKECODE_KINDS.includes(pk) ? 'MakeCode' : 'turtle';
+        const allowedR = pk === 'html' ? HTML_RULES : pk === 'p5' ? P5_RULES : MAKECODE_KINDS.includes(pk) ? MAKECODE_RULES : CODE_RULES.filter((x) => !['tags', 'inside', 'count'].includes(x));
+        const pname = pk === 'html' ? 'HTML' : pk === 'p5' ? 'p5.js' : MAKECODE_KINDS.includes(pk) ? 'MakeCode' : 'turtle';
         for (const key of Object.keys(r)) if (CODE_RULES.includes(key) && !allowedR.includes(key)) err(where, `code rule ${key} does not work in the ${pname} playground (use ${allowedR.join(', ')})`);
         if (r.tags !== undefined && !(Array.isArray(r.tags) && r.tags.every((t) => /^[a-z][a-z0-9]*$/i.test(String(t))))) err(where, 'code rule tags must be a list of tag names without brackets, such as [ul, li]');
       }

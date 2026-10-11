@@ -1,0 +1,43 @@
+summary: Students keep one star's place and speed in an object, read and change properties with a dot, make a list of objects with push and random, move them with a for-of loop, find a speed missing its star., and add a property and a second list of their own.
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 20 min"
+goals:
+  - I can make an object with properties and read one with a dot.
+  - I can keep many objects in an array and visit each with a for-of loop.
+  - I can add my own property to an object.
+before: |
+  Read the unit primer first. This is the Python Objects with turtles unit in JavaScript, without classes: one object per thing, a list of objects, a loop. `{ x: 20, y: 30 }` is an object; `star.y` reads and changes a property. `for (let star of stars)` is the easy loop: no counter, and `star` is the object itself, so `star.y = ...` changes the real star. The classic slip is writing `speed` instead of `star.speed`; the playground's hint for "x is not defined" suggests spelling, so say the dot aloud when you meet it. The Predict uses console.log so students compare a printed number: the Output box sits under the sketch. This lesson uses random and push from the last one without re-teaching them.
+running:
+  - "Predict: write the object on the board and cross out the old y when it changes."
+  - "Run: ask where in the code each star's speed lives."
+  - "Investigate: for the bug, ask 'whose speed is it?' and point at the star."
+  - "Modify: students ask each other what a size property changes, then test."
+  - "Make: choose a second kind of thing and list its properties before writing code."
+stuck:
+  - see: "A red line: speed is not defined."
+    ask: Whose speed is it?
+    fix: Write star.speed.
+  - see: Only one star appears, or they all move together.
+    ask: Do the stars have different x values and speeds?
+    fix: Make x depend on i in the setup loop, and use random for speed.
+  - see: "A red line: Cannot read properties of undefined."
+    ask: Is the loop reading a property of something that is not in the list?
+    fix: Check the list name in the loop is the list you pushed to.
+  - see: The new list's objects are never drawn.
+    ask: Does draw() have a loop over that list?
+    fix: Add a for (let item of list) loop in draw() for it.
+stretch: Make the stars twinkle by changing their size a little every frame, or give each one a colour property chosen with random.
+support: Give students the cloud objects and loop already written, and ask only for the stars' size property.
+leads: "Next lesson: functions with parameters, so restarting a star, or drawing a flower, is code with a name."
+exit:
+  q: "What does star.speed mean inside the loop?"
+  a: "The speed property of the star the loop is currently on."
+explain: |
+  1. An object holds named values: `{ x: 20, y: 30, speed: 2 }`.
+  2. A property is read with a dot: `star.y`, and changed the same way.
+  3. `for (let star of stars)` does the braces once for each object in the list.
+solutions:
+  step-4#t1: sketch.js#sol-more
+  step-4#t2: sketch.js#sol-size
+  step-5: sketch.js#sol-make
+struggle: "The dot: star.speed, not speed. Say it as 'this star's speed'."

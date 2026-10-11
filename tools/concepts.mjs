@@ -222,6 +222,34 @@ export const CONCEPTS = {
     { id: 'js-event', label: 'JavaScript events (addEventListener)', re: /addEventListener\s*\(/ },
     { id: 'js-query', label: 'JavaScript finding an element (querySelector, getElementById)', re: /querySelector(All)?\s*\(|getElementById\s*\(/ },
   ],
+  /** JavaScript for p5.js (content/code/p5). Code has comments removed and string contents emptied. p5's own hooks
+   *  (setup, draw, mousePressed...) are not "a function of your own". */
+  javascript: [
+    { id: 'setup', label: 'function setup()', re: /\bfunction\s+setup\s*\(/ },
+    { id: 'draw-loop', label: 'function draw() (runs again and again)', re: /\bfunction\s+draw\s*\(/ },
+    { id: 'variable', label: 'making a variable (let x = 5)', re: /\b(let|const|var)\s+\w+\s*=/ },
+    { id: 'variable-update', label: 'change a variable from itself (x = x + 1, +=)', re: /\b(\w+)\s*=\s*\1\s*[-+*\/%]|[-+*\/]=|\+\+|--/ },
+    { id: 'arithmetic', label: 'calculating (+ - * /)', re: /[\w)\]]\s*[-+*\/%]\s*[\w(]/ },
+    { id: 'text-join', label: 'join text ("Score: " + score)', re: /""\s*\+|\+\s*""/ },
+    { id: 'if', label: 'if', re: /\bif\s*\(/ },
+    { id: 'else', label: 'else', re: /\belse\b/ },
+    { id: 'compare', label: 'comparing (>, <, ===)', re: /===|!==|[<>]/ },
+    { id: 'and-or', label: '&& and ||', re: /&&|\|\|/ },
+    { id: 'for-count', label: 'a counting loop (for (let i = 0; i < 6; i++))', re: /\bfor\s*\(\s*let\s+\w+\s*=/ },
+    { id: 'for-of', label: 'a loop over a list (for (let x of list))', re: /\bfor\s*\(\s*(let|const)\s+\w+\s+of\b/ },
+    { id: 'array', label: 'an array ([1, 2, 3])', re: /=\s*\[/ },
+    { id: 'array-index', label: 'a place in an array (list[i])', re: /\w\[[^\]]+\]/ },
+    { id: 'length', label: '.length', re: /\.length\b/ },
+    { id: 'push', label: '.push()', re: /\.push\s*\(/ },
+    { id: 'object', label: 'an object ({ x: 5, y: 8 })', re: /[=(,]\s*\{\s*\w+\s*:/ },
+    { id: 'property', label: 'a property (star.y)', re: /\b[A-Za-z_]\w*\.(?!length\b)[A-Za-z_]\w*\b(?![\w(])/ },
+    { id: 'random', label: 'random()', re: /\brandom\s*\(/ },
+    { id: 'function', label: 'a function of your own', re: /\bfunction\s+(?!setup\b|draw\b|preload\b|mouse|key|window|touch|double)\w+\s*\(/ },
+    { id: 'param', label: 'a function with parameters', re: /\bfunction\s+(?!setup\b|draw\b|preload\b|mouse|key|window|touch|double)\w+\s*\(\s*\w/ },
+    { id: 'return', label: 'return', re: /\breturn\b/ },
+    { id: 'event', label: 'events (mousePressed, keyPressed)', re: /\bfunction\s+(mouse|key|touch|double)\w*\s*\(/ },
+    { id: 'math', label: 'sin, cos, map', re: /\b(sin|cos|map|noise|radians)\s*\(/ },
+  ],
 };
 
 export const conceptIds = (language) => new Set((CONCEPTS[language] || []).map((c) => c.id));
@@ -240,7 +268,7 @@ export function visibleCode(lesson, read) {
   const sections = [['frontmatter', fm], ...raw.slice(fm.length).split(/^## /m).slice(1).map((s) => [s.slice(0, s.indexOf('\n')).trim(), s])];
   return sections.map(([where, text]) => {
     const refs = [...text.matchAll(/([\w.-]+\.(?:ts|py|js|html|css))#([\w-]+)/g)].filter((m) => !m[2].startsWith('sol-'));
-    const fenced = [...text.matchAll(/```(?:makecode|blocks|ts|typescript|python|py|html|css)\n([\s\S]*?)```/g)].map((m) => m[1]);
+    const fenced = [...text.matchAll(/```(?:makecode|blocks|ts|typescript|python|py|js|javascript|html|css)\n([\s\S]*?)```/g)].map((m) => m[1]);
     const chunks = [...new Set(refs.map((m) => m[0]))].map((r) => read(lesson.dir, r) || '').concat(fenced);
     if (lesson.language === 'html') { const s = splitHtml(chunks); return [where, s.code, s.raw]; }
     const joined = chunks.join('\n');

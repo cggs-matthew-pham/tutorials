@@ -1,0 +1,40 @@
+summary: "Students place circles on a ring with sin and cos, make the ring turn with frameCount, colour it with map, add trails and a spiral, and make a moving pattern of their own."
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 10 min · Make 15 min"
+goals:
+  - I can use sin and cos to place things on a circle.
+  - I can use map to turn one range of numbers into another.
+  - I can make a moving pattern from a loop.
+before: |
+  Optional enrichment after the challenge. Students need no trigonometry beyond "sin and cos give the x and y of a point going round a circle"; angles here are in radians (frameCount * 0.02), apart from the Predict, which converts degrees with radians(). Skip the explanation of radians unless asked. map is the most useful new tool: it turns any range into any other.
+running:
+  - "Predict: sketch a clock face and the 12 circles on it."
+  - "Run: ask what would change if the 0.02 was 0.05."
+  - "Investigate: ask which number makes it turn."
+  - "Modify: let students guess the effect of the fourth number in background before trying."
+  - "Make: encourage waves, orbits and flowers; share the best."
+stuck:
+  - see: "The circles all sit in one place."
+    ask: Does the angle depend on i?
+    fix: Add i * 0.5 to the angle.
+  - see: "Everything is in the top left corner."
+    ask: Is the middle added (150 + ...)?
+    fix: Add 150 to x and to y.
+  - see: "The trails are too strong or do not show."
+    ask: What is the fourth number in background?
+    fix: Lower it for longer trails, raise it for shorter.
+stretch: Make the circles change size with sin, or draw two rings turning opposite ways.
+support: Give the Run sketch and ask for one change, such as colours or speed.
+leads: "From here, students can start their own sketches or explore p5.js's reference."
+exit:
+  q: "What does map(i, 0, 11, 255, 120) do?"
+  a: "It turns i from the range 0 to 11 into a number from 255 down to 120."
+explain: |
+  1. `cos` and `sin` of an angle give the x and y of a point going round a circle.
+  2. `frameCount` grows every frame, so adding it to the angle makes everything turn.
+  3. `map` turns one range of numbers into another, such as i into a colour.
+solutions:
+  step-4#t1: sketch.js#sol-trail
+  step-4#t2: sketch.js#sol-spiral
+  step-5: sketch.js#sol-make
+struggle: "Seeing why a loop with i makes different circles. Print i or draw just one circle first."

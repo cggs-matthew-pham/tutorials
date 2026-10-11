@@ -1,0 +1,43 @@
+summary: Students keep numbers in an array, count places from 0, draw a bar for each with a for loop, build the array with push and random, find why bars hang from the top, and make a chart of their own.
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 15 min"
+goals:
+  - I can keep many values in an array and read one by its place number.
+  - I can use a for loop to do something for every value in an array.
+  - I can add to an array with push, and use random numbers.
+before: |
+  Read the unit primer first. This revisits the Python lists lesson in JavaScript: places count from 0, `length` says how many, and `push` is `append`. The new difficulty is the counting loop `for (let i = 0; i < heights.length; i++)`: three parts in one line, which students copy until it makes sense; the lesson's text reads it aloud, and the trace table follows `i` and `heights[i]` together. The second idea is that `rect` hangs from its **top-left**, and y counts down, so a bar that stands on the bottom has its top at `200 - height`: that is the Predict and the bug task. Random numbers make every Run different, so the Predict uses a fixed array.
+running:
+  - "Predict: draw the canvas on the board and mark the bottom of the first bar."
+  - "Run: press Run again several times and ask what stays the same (the code) and what changes (the numbers)."
+  - "Investigate: fill the trace together, writing each i on the board."
+  - "Modify: ask which two numbers must change for 20 bars to fit (the count and the spacing)."
+  - "Make: encourage real data (sleep, steps, scores), and ask students to say what each bar means."
+stuck:
+  - see: Nothing is drawn.
+    ask: Is the loop inside draw(), and is the array filled in setup()?
+    fix: "The array must have values before draw() uses them: push in setup(), loop in draw()."
+  - see: "A red line: Cannot read properties of undefined."
+    ask: Does the loop go past the end of the array?
+    fix: Use i < heights.length, not <=. The last place is length - 1.
+  - see: The bars hang from the top.
+    ask: Which way does y count, and where is the top of a bar?
+    fix: The top is at 200 - heights[i]; the height stays heights[i].
+  - see: Only one bar shows.
+    ask: Are all the bars at the same x?
+    fix: Make x depend on i, for example i * 30 + 5.
+stretch: Add a second array of names, and draw each name under its bar with text(). Or sort the data first with heights.sort().
+support: Give students the loop and the rect line, and ask them only to change the numbers and colours.
+leads: "Next lesson: objects, so one list holds stars with their own position, speed and size."
+exit:
+  q: "In heights[i], what is i, and where does it start?"
+  a: "i is the place number of the value in the array, and the first place is 0."
+explain: |
+  1. An array holds many values: `heights[2]` is the value at place 2, counting from 0.
+  2. `for (let i = 0; i < heights.length; i++)` runs its braces once for every place.
+  3. Inside the loop `heights[i]` is the current value, so one rect line draws every bar.
+solutions:
+  step-4#t1: sketch.js#sol-more
+  step-4#t2: sketch.js#sol-colour
+  step-5: sketch.js#sol-make
+struggle: "The three-part for line. Have students say it aloud: start at 0, keep going while less than the length, add 1 each time."

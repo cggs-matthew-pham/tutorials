@@ -1,0 +1,43 @@
+summary: "Students turn ten lines that draw a flower into a function with parameters, call it with different values, find a call whose capitals do not match, draw a garden with a loop, write a function that returns true or false, and make a drawing function of their own."
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 15 min"
+goals:
+  - I can write a function and call it more than once.
+  - I can use parameters to make each call different.
+  - I can write a function that returns an answer and use it in an if.
+before: |
+  Read the unit primer first. This is the Python functions, parameters and returns units in one lesson, in JavaScript, so go gently on the third idea: the Modify task on isNear is the first time students write `return`. Predict is the key idea (a definition draws nothing). Names must match exactly; the playground hint for "is not defined" mentions capitals. Parameters take values in order, so a call with the arguments swapped moves the flower, not the size.
+running:
+  - "Predict: ask 'does writing the recipe cook the meal?'"
+  - "Run: ask students to say each call aloud as 'a flower at x, y, this big'."
+  - "Investigate: for the bug, read the call and the definition aloud next to each other."
+  - "Modify: for isNear, ask what the function answers when the mouse is far away."
+  - "Make: choose the drawing and list its parameters first."
+stuck:
+  - see: "A red line: drawflower is not defined."
+    ask: Does the call spell the name exactly like the definition?
+    fix: Match the capitals.
+  - see: "The flower is in the wrong place or the wrong size."
+    ask: Are the values in the same order as the parameters?
+    fix: Put the arguments in the order x, y, size.
+  - see: "isNear seems to do nothing."
+    ask: Does the function use return, and is it used inside an if?
+    fix: Add return before the comparison, and call it in the if brackets.
+  - see: "Nothing is drawn."
+    ask: Is the function called anywhere?
+    fix: Add a call in setup() or draw().
+stretch: Give the flower a colour parameter, or make drawFlower return the width it used.
+support: Give the definition of the drawing function and ask only for the three calls.
+leads: "Next lesson: the final challenge puts lists, objects, decisions and functions together in a click-to-catch game."
+exit:
+  q: "What is the difference between defining a function and calling it?"
+  a: "Defining writes the recipe and draws nothing; calling uses it with values and does the work."
+explain: |
+  1. `function drawFlower(x, y, size) { ... }` defines the recipe and draws nothing.
+  2. `drawFlower(70, 100, 20);` calls it, filling in x, y and size in order.
+  3. `return` hands an answer back, so a call can sit inside an if.
+solutions:
+  step-4#t1: sketch.js#sol-many
+  step-4#t2: sketch.js#sol-touch
+  step-5: sketch.js#sol-make
+struggle: "Names must match exactly, and parameters fill in order. Read the call and the definition aloud side by side."

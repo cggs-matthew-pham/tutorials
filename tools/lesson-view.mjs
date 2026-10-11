@@ -760,6 +760,7 @@ export const PLAYGROUNDS = {
   turtle: { dir: '_playground', title: 'Python turtle playground' },
   python: { dir: '_playground-py', title: 'Python playground' },
   microstudio: { dir: '_playground-microstudio', title: 'Example game (play only)', height: 400 },
+  p5: { dir: '_playground-p5', title: 'p5.js playground' },
   html: { dir: '_playground-html', title: 'HTML and CSS playground' },
   board: { dir: '_playground-board', title: 'Board' },
   maths: { dir: '_playground-board', title: 'Board' },

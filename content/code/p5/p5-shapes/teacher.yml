@@ -1,0 +1,43 @@
+summary: Students meet p5.js on its own playground, draw circles, rectangles, triangles and lines on a canvas, learn that (0, 0) is the top left and y counts down, fix a fill that comes after its shape, and draw a picture of their own.
+time: 50
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 10 min · Make 20 min"
+goals:
+  - I can draw shapes at places on a canvas with p5.js.
+  - I can say where (0, 0) is and which way y counts.
+  - I can colour shapes with fill, and know it affects shapes drawn after it.
+before: |
+  Read the unit primer first. The playground is our own p5.js editor (p5.js is served from this site, so it works with no network beyond the school's own). Run starts the sketch, Stop ends it, and errors show the line and a hint. Students do not need to understand `function setup() { ... }` yet: it is a recipe for this lesson and the next explains it as the place that runs once. The hard part is that y counts **down** from the top-left: turtle and maths graphs count up. Expect "where did my shape go?" until students get this. Curly brackets, brackets and semicolons are copied as written; the hint under a red error says which is missing.
+running:
+  - "Predict: draw a 300 by 200 rectangle on the board and mark (0, 0) at the top left."
+  - "Run: ask each student to point at the line that made the pink rectangle."
+  - "Investigate: for the bug, say aloud what each line does in order: fill comes after the circle."
+  - "Modify: encourage small changes and re-running often: Ctrl+Enter runs the sketch."
+  - "Make: ask for 5 shapes and 3 colours, then swap screens and describe each other's picture."
+stuck:
+  - see: "A red line saying a name is not defined."
+    ask: Is the command spelled exactly as in the example, with the same capital letters?
+    fix: "circle, not Circle; rect, not Rect."
+  - see: Nothing is drawn.
+    ask: Is the shape inside function setup() { ... }, between the curly brackets?
+    fix: Move the line inside the braces, before the closing }.
+  - see: The shape is in the wrong corner.
+    ask: Which way does y count, up or down?
+    fix: y counts down from the top, so a bigger y is lower on the canvas.
+  - see: The new shape is hidden.
+    ask: Was a bigger shape drawn after it in the same place?
+    fix: Draw it later in the code, so it lands on top.
+stretch: Make the picture with only rect and circle commands that use arithmetic, such as circle(100 + 50, 100, 40), or draw a flag from a real country.
+support: Give students the finished picture's code and ask them to change colours and sizes first, then add one shape.
+leads: "Next lesson: variables and draw(), so the picture changes while it runs."
+exit:
+  q: "Which corner is (0, 0), and which way does y count?"
+  a: "The top left; y counts downward."
+explain: |
+  1. `createCanvas(300, 200)` makes the drawing area.
+  2. A shape command gives its place and size: `circle(150, 100, 80)` is middle 150 across, 100 down, 80 wide.
+  3. `fill(r, g, b)` colours the shapes drawn after it. Later shapes are drawn on top.
+solutions:
+  step-4#t1: sketch.js#sol-corner
+  step-4#t2: sketch.js#sol-oval
+  step-5: sketch.js#sol-make
+struggle: "y counts down from the top-left. Ask students to predict which way a shape moves before they change a number."

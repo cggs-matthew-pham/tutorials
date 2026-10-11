@@ -93,6 +93,17 @@ export function buildMicrostudioPlayground(out = 'dist') {
   return dest;
 }
 
+/** The p5.js playground: our editor and sandbox page plus vendored p5.js (vendor/p5, LGPL-2.1, unmodified), so sketches load nothing from a CDN. */
+export function buildP5Playground(out = 'dist') {
+  const dest = join(out, '_playground-p5');
+  rmSync(dest, { recursive: true, force: true });
+  cpSync(join(root, 'playground-p5'), dest, { recursive: true });
+  mkdirSync(join(dest, 'vendor'), { recursive: true });
+  for (const f of ['p5.min.js', 'LICENSE-p5.txt']) copyFileSync(join(root, 'vendor', 'p5', f), join(dest, 'vendor', f));
+  stampPlayground(dest);
+  return dest;
+}
+
 /** The HTML & CSS playground has no dependencies: it is copied as is. */
 export function buildHtmlPlayground(out = 'dist') {
   const dest = join(out, '_playground-html');
@@ -195,6 +206,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const out = process.argv.includes('--out') ? process.argv[process.argv.indexOf('--out') + 1] : 'dist';
   console.log('Playground built into ' + buildPlayground(out));
   console.log('HTML playground built into ' + buildHtmlPlayground(out));
+  console.log('p5.js playground built into ' + buildP5Playground(out));
   console.log('Board built into ' + await buildMathsPlayground(out));
   console.log('MakeCode playground built into ' + buildMakecodePlayground(out));
   console.log('Explain stage built into ' + buildExplainStage(out));

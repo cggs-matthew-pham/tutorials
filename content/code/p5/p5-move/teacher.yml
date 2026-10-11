@@ -1,0 +1,43 @@
+summary: Students meet draw() (about 60 times a second) and variables that keep their value between frames, follow a circle's x frame by frame, see why background belongs in draw, fix a variable made inside draw, then move things down and at different speeds.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can use a variable to make a shape move.
+  - I can explain what setup() and draw() do, and when each runs.
+  - I can make two things move at different speeds.
+before: |
+  Read the unit primer first. The big idea is that `draw()` runs by itself, again and again; students never call it. A variable made at the top (outside functions) keeps its value between frames, and `x = x + 2` reads as "make x two bigger", not as a maths equation. Students who did Python Foundations will recognise `x = x + 1` from the variables lesson; the new part is that the loop is built in. The `let` in the bug task is the classic mistake: a variable made inside draw() starts again every frame. `%` (remainder) appears only in the Make step's text. The playground's number in the corner is `text(x, 10, 20)`.
+running:
+  - "Predict: ask a student to act as p5, saying 'frame' and stepping a classmate two steps right each time."
+  - "Run: change the 2 to a 5 and ask why it is faster."
+  - "Investigate: fill the trace together before students do: x is drawn first, then changed."
+  - "Modify: ask which variable moves which circle before they run it."
+  - "Make: choose the two ideas as a pair, then each makes one."
+stuck:
+  - see: The circle does not move.
+    ask: Is the variable changed inside draw(), and made outside it?
+    fix: "let x = 0; goes at the top, outside every function; x = x + 2; goes inside draw()."
+  - see: A red line saying x is not defined.
+    ask: Where is let x = 0;?
+    fix: "Put it at the top of the sketch, above setup()."
+  - see: A smear instead of a moving circle.
+    ask: Is background(...) the first line in draw()?
+    fix: Move it to the first line of draw().
+  - see: Both circles move together.
+    ask: Do they use the same variable?
+    fix: Make a second variable for the second circle.
+stretch: Make a circle that moves in both directions at once (x and y), or one that grows and shrinks.
+support: Give students the sketch with let y = 0; already made, and ask for the draw() changes only.
+leads: "Next lesson: if, so circles can bounce, and the mouse."
+exit:
+  q: "Why is let x = 0; at the top and not inside draw()?"
+  a: "Inside draw() it would be made again every frame and go back to 0; at the top it keeps its value."
+explain: |
+  1. `draw()` runs about 60 times a second, all by itself.
+  2. A variable made at the top keeps its value between frames.
+  3. Each frame changes it a little (`x = x + 2`) and draws with it, so the shape moves.
+solutions:
+  step-4#t1: sketch.js#sol-down
+  step-4#t2: sketch.js#sol-two
+  step-5: sketch.js#sol-make
+struggle: "Seeing that draw() repeats, so a variable made inside it starts again. The trace table and the let-in-draw bug are for that."

@@ -138,5 +138,12 @@
   "regular-sides-only": {"home": "maths/angles/polygons", "text": "A polygon with equal sides is called regular even when its angles differ (a rhombus); regular needs equal sides and equal angles."},
   "pyth-no-squares": {"home": "maths/measurement/pythagoras", "text": "The two shorter sides are added to give the hypotenuse (6 + 8 = 14); it is their squares that add (36 + 64 = 100), so c = √100 = 10."},
   "pyth-add-for-leg": {"home": "maths/measurement/finding-a-side", "text": "A shorter side is found by adding the squares (b² = 10² + 6²), which gives a side longer than the hypotenuse; for a shorter side, subtract: b² = 10² − 6²."},
-  "c-not-longest": {"home": "maths/measurement/right-or-not", "text": "The theorem is tested with any side as c (5² + 13² against 12²); c must be the longest side, so test 5² + 12² against 13²."}
+  "c-not-longest": {"home": "maths/measurement/right-or-not", "text": "The theorem is tested with any side as c (5² + 13² against 12²); c must be the longest side, so test 5² + 12² against 13²."},
+  "function-case": {"home": "code/p5/p5-functions", "text": "A function's name can be typed with any capitals; in fact drawFlower and drawflower are different names, so the call must match the definition exactly."},
+  "near-is-small": {"home": "code/p5/p5-game", "text": "A touch is when the distance is big; in fact two things touch when the distance between them is small, so the test is dist(...) < 20, not > 20."},
+  "fill-after": {"home": "code/p5/p5-shapes", "text": "fill colours the shapes already on the canvas; in fact it only colours shapes drawn after it, so fill above the shape, not below."},
+  "let-in-draw": {"home": "code/p5/p5-move", "text": "A variable made with let inside draw() keeps its value from one frame to the next; in fact it is made again, at its starting value, every frame, so the shape never moves."},
+  "assign-in-if": {"home": "code/p5/p5-decide", "text": "A single = in an if asks whether two things are equal; in fact it sets the variable to the value (and is then always true), and === asks."},
+  "y-from-top": {"home": "code/p5/p5-lists", "text": "A bar's y is its bottom edge, so y = its height stands it on the bottom; in fact y is the top edge and counts down, so a bar standing on the bottom has its top at the canvas height minus its height."},
+  "property-prefix": {"home": "code/p5/p5-objects", "text": "Inside the loop, speed on its own is the star's speed; in fact it is a name p5 does not know, and the star's speed is star.speed."}
 }

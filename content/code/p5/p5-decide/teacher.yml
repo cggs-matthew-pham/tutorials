@@ -1,0 +1,43 @@
+summary: Students use if and else to bounce a circle off the edges and change its colour, learn the difference between = (set) and === (ask), use mouseX in a condition, and build a bouncing ball with a paddle that follows the mouse.
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 15 min"
+goals:
+  - I can use if and else to change what happens in a sketch.
+  - I can compare values with >, < and ===, and join questions with || and &&.
+  - I can make a shape bounce and follow the mouse.
+before: |
+  Read the unit primer first. This lesson revisits the turtle course's decisions lesson in JavaScript: the same idea, new spellings (`if (x > 300) { ... }` with brackets and braces; `||` and `&&` for or and and). The hard part is `=` versus `===`: one sets, three asks. The bug task is that slip. `speed = -speed` turns a direction round and is the engine of every bounce. Students often write `x === 300` for the edge, which can be jumped over by a step bigger than 1; the lesson suggests `>` and `<`. The Make step is a small Pong: the paddle's collision check is the hardest line, so offer the finished `sol-make` idea only after students have tried the first three parts.
+running:
+  - "Predict: draw the canvas and the path of the circle on the board with the right edge crossed."
+  - "Run: ask what else changes when the circle turns round (the colour)."
+  - "Investigate: for the bug, ask which line SETS a number and which line ASKS about one."
+  - "Modify: each student tests with the mouse on both halves before ticking."
+  - "Make: build in four steps: walls, paddle, bounce off paddle, reset at the bottom."
+stuck:
+  - see: The circle sticks at an edge or jumps.
+    ask: Is the if using one = or three ===?
+    fix: Use > or < to ask about the edge. A single = sets the variable.
+  - see: "A red line: Unexpected token."
+    ask: Does each if have its ( ) and its { }, and does each { have a }?
+    fix: Count the brackets and braces on the line the hint names.
+  - see: The ball passes through the paddle.
+    ask: Is the check on the ball's x and its y, and is dy turned round?
+    fix: Check ballY is near the paddle's row and ballX is between its edges, then dy = -dy.
+  - see: Nothing happens when the mouse moves.
+    ask: Did you click the sketch first, and is mouseX used in draw()?
+    fix: mouseX only changes while the pointer is over the canvas.
+stretch: Add a score that goes up on each paddle hit, and make the ball a little faster each time.
+support: Give students the wall checks written and ask only for the paddle.
+leads: "Next lesson: lists and loops, so one piece of code handles many things."
+exit:
+  q: "What is the difference between = and === ?"
+  a: "One = sets a variable to a value; three === asks whether two values are equal."
+explain: |
+  1. `if (question) { ... }` runs the code only when the question is true; `else` is for when it is not.
+  2. Compare with `>`, `<` and `===`; join questions with `||` (or) and `&&` (and).
+  3. `speed = -speed` turns a movement round, so the circle bounces.
+solutions:
+  step-4#t1: sketch.js#sol-mouse
+  step-4#t2: sketch.js#sol-corners
+  step-5: sketch.js#sol-make
+struggle: "= versus === in an if, and the long condition for the paddle. Read conditions aloud in words before typing them."

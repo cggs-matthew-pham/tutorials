@@ -25,7 +25,7 @@ pathways:
     about: "Start with **HTML & CSS**: how a page is built from tags and styled with rules. The extensions bring in JavaScript, first drawing and animating with p5.js (the same ideas as turtle), then changing a real page when people click and type."
     courses:
       - { path: code/html, stage: foundations }
-      - { title: Drawing and animation with p5.js, tagline: "Draw and animate with JavaScript.", stage: extensions, summary: "JavaScript on a canvas: the same ideas as turtle, in a new language." }
+      - { path: code/p5, stage: extensions, after: [code/html] }
       - { title: "The DOM and the browser console", tagline: "Make a web page react when people click and type.", stage: extensions, summary: "JavaScript that changes a real page when people click and type." }
       - { path: code/flask, stage: extensions, after: [code/html, code/console] }
   - id: makecode
