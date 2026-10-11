@@ -41,3 +41,4 @@ solutions:
   step-4#t1: functions.ts#sol-three
   step-4#t2: functions.ts#sol-param
   step-5: functions.ts#sol-make
+struggle: "Making a function does nothing until it is called. When a press does nothing, ask which block calls the function."

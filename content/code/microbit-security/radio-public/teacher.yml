@@ -32,3 +32,4 @@ explain: |
 solutions:
   step-4: radio.ts#sol-two
   step-5: radio.ts#sol-make
+struggle: "A group number is a channel, not a lock. Ask who else can hear the message before they assume it is private."

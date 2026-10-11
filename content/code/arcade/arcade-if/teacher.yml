@@ -45,3 +45,4 @@ solutions:
   step-4#t1: if.ts#sol-left
   step-4#t2: if.ts#sol-laps
   step-5: if.ts#sol-make
+struggle: "An if in on start is asked once; in on game update it's asked every frame. When the if never acts, ask which block it is inside."

@@ -41,3 +41,4 @@ explain: |
 solutions:
   step-4#t2: buttons.ts#sol-both
   step-5: buttons.ts#sol-make
+struggle: "An event block runs only when its event happens. When a press does nothing, ask which block the picture is inside."

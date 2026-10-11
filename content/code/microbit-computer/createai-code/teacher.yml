@@ -42,3 +42,4 @@ solutions:
   step-4#t1: ml.ts#sol-running
   step-4#t2: ml.ts#sol-unknown
   step-5: ml.ts#sol-make
+struggle: "Start and stop events, and a sensible response to unknown. Ask what the program should do when the model isn't sure."

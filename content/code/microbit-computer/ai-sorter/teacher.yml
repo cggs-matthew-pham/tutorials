@@ -52,3 +52,4 @@ explain: |
   - **Accuracy** = correct ÷ total, on photos the model has never seen.
   - Look at each **group** to see where it fails, and what the failures share.
   - To fix it, **change the data**: more variety, balanced classes, a class for "none of these".
+struggle: "Accepting that a model trained on one desk fails on a messy bench. Ask what the test photos have that the training photos don't, before adding more data."

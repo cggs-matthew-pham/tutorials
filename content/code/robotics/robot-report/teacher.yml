@@ -45,3 +45,4 @@ solutions:
   step-4#t1: report.ts#sol-clear
   step-4#t2: report.ts#sol-count
   step-5: report.ts#sol-make
+struggle: "An alert in forever is sent every time round unless a flag remembers it. Ask what stops the robot sending again."

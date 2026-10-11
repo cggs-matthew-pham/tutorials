@@ -34,3 +34,4 @@ explain: |
   A **flag** is the answer to a puzzle, typed in a fixed form, `WP{...}`. Here the three tools of the course each solve one puzzle.
 solutions:
   step-4: toolkit.ts#sol-make
+struggle: "Choosing the right tool for each puzzle. Ask which weakness the puzzle shows before they reach for code."

@@ -46,3 +46,4 @@ solutions:
   step-4#t1: projectiles.ts#sol-hit
   step-4#t2: projectiles.ts#sol-crash
   step-5: projectiles.ts#sol-make
+struggle: "The overlap must name Projectile, and score changes belong inside the loop. Ask which two kinds touch when a shot hits."

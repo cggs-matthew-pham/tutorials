@@ -42,3 +42,4 @@ solutions:
   step-4#t1: sensors.ts#sol-temperature
   step-4#t2: sensors.ts#sol-buttons
   step-5: sensors.ts#sol-make
+struggle: "A sensor is read once in on start and many times in forever. When the number never changes, ask where the sensor block is."

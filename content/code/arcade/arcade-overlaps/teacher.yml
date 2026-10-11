@@ -43,3 +43,4 @@ solutions:
   step-4#t1: overlaps.ts#sol-random
   step-4#t2: overlaps.ts#sol-worth
   step-5: overlaps.ts#sol-make
+struggle: "Kinds decide which overlap runs, and sprite versus otherSprite. When a touch does nothing, ask them to read out the kinds of both sprites and the kinds the event names."

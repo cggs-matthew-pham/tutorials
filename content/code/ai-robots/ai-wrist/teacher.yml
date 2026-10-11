@@ -42,3 +42,4 @@ solutions:
   step-5#t1: wrist.ts#sol-unknown
   step-5#t2: wrist.ts#sol-arrows
   step-6: wrist.ts#sol-make
+struggle: "Two programs on two micro:bits that must agree on the radio group and the words. Ask them to read both sides aloud before changing either."

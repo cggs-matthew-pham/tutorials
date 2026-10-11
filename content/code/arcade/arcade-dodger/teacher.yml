@@ -45,3 +45,4 @@ solutions:
   step-4: dodger.ts#sol-m1
   step-5: dodger.ts#sol-m2
   step-6: dodger.ts#sol-m3
+struggle: "Combining a timer, velocity and overlaps in one game. Point them to the milestone they're on and ask them to get that part playing first."

@@ -43,3 +43,4 @@ solutions:
   step-4#t1: moving.ts#sol-across
   step-4#t2: moving.ts#sol-dash
   step-5: moving.ts#sol-make
+struggle: "Position versus velocity: one sets where a sprite is, the other how it keeps moving. Ask which one the engine changes every frame."

@@ -41,3 +41,4 @@ solutions:
   step-5#t1: commands.ts#sol-heart
   step-5#t2: commands.ts#sol-reply
   step-6: commands.ts#sol-make
+struggle: "The micro:bit acts only on the exact words it checks for. When a word does nothing, ask them to compare it letter by letter with the program."

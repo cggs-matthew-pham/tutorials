@@ -44,3 +44,4 @@ solutions:
   step-5#t1: robot.ts#sol-back
   step-5#t2: robot.ts#sol-show
   step-6: robot.ts#sol-make
+struggle: "Keeping the class names, the words sent and the robot's checks identical. When the robot ignores a gesture, ask them to read the label the board sends and the word the robot checks for."

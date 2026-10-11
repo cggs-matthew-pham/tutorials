@@ -44,3 +44,4 @@ solutions:
   step-4#t1: remote.ts#sol-show
   step-4#t2: remote.ts#sol-back
   step-5: remote.ts#sol-make
+struggle: "Both sides must agree on the code and the radio group. Ask which robot they're watching and what number was sent last."

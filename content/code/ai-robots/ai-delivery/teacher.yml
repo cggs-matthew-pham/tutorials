@@ -44,3 +44,4 @@ solutions:
   step-4: robot.ts#sol-m1
   step-5: robot.ts#sol-m2
   step-7: robot.ts#sol-m3
+struggle: "Putting the sensor check first so it overrules the model. When the robot pushes boxes, ask which question in the chain is asked first."

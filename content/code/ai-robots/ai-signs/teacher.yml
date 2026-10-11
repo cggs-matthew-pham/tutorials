@@ -44,3 +44,4 @@ solutions:
   step-5#t1: robot.ts#sol-stop
   step-5#t2: robot.ts#sol-twice
   step-6: robot.ts#sol-make
+struggle: "Accepting that some mistakes matter more, so the thresholds differ. Ask which wrong answer would be worst, and set that label's threshold first."

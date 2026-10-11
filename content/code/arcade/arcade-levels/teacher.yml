@@ -47,3 +47,4 @@ solutions:
   step-4#t1: levels.ts#sol-colours
   step-4#t2: levels.ts#sol-bonus
   step-5: levels.ts#sol-make
+struggle: "The level-up if runs every frame, and list places start at 0. When levels race up, ask how often that block runs."

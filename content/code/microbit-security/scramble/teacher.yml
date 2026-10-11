@@ -32,3 +32,4 @@ explain: |
 solutions:
   step-4: scramble.ts#sol-unscramble
   step-5: scramble.ts#sol-make
+struggle: "A method everyone knows hides nothing. Ask what a listener who knows the method would need to read the message."

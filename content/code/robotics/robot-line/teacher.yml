@@ -46,3 +46,4 @@ solutions:
   step-4#t1: line.ts#sol-fast
   step-4#t2: line.ts#sol-lost
   step-5: line.ts#sol-make
+struggle: "Steering towards the sensor that still sees the line. Ask which side the line is on when only the left sensor sees it."

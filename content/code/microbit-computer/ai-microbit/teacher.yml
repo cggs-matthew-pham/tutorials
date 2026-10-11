@@ -46,3 +46,4 @@ solutions:
   step-5#t2: sorter.ts#sol-reply
   step-6: sorter.ts#sol-bridge
   step-7: sorter.ts#sol-make
+struggle: "Seeing that the model sends only a word. When the micro:bit does nothing, ask whether the board shows the label leaving and the word matches exactly."

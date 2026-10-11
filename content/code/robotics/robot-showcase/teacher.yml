@@ -46,3 +46,4 @@ solutions:
   step-4: show.ts#sol-m1
   step-5: show.ts#sol-m2
   step-6: show.ts#sol-m3
+struggle: "Keeping moves, cues and choices as separate layers. When a move never happens, ask which cue calls it and whether that branch checks the right number."

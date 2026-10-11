@@ -47,3 +47,4 @@ explain: |
 solutions:
   step-4#t1: gravity.ts#sol-ground
   step-5: gravity.ts#sol-make
+struggle: "Gravity as acceleration, and a jump only from the ground. Ask what vy does over a few frames, and where the player must be to jump."

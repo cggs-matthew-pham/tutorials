@@ -44,3 +44,4 @@ solutions:
   step-4#t1: conductor.ts#sol-phrase
   step-4#t2: conductor.ts#sol-lights
   step-5: conductor.ts#sol-make
+struggle: "Timing cues by playing each phrase until done. When moves happen at once, ask whether the music plays until done or in the background."

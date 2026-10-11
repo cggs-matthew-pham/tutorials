@@ -48,3 +48,4 @@ solutions:
   step-4#t1: functions.ts#sol-random
   step-4#t2: functions.ts#sol-score
   step-5: functions.ts#sol-make
+struggle: "Making a function does nothing until it is called. When nothing appears, ask which block calls the function."

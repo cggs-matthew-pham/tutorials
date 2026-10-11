@@ -40,3 +40,4 @@ solutions:
   step-4: reaction.ts#sol-m1
   step-5: reaction.ts#sol-m2
   step-6: reaction.ts#sol-m3
+struggle: "A time is a variable set at one moment and compared later, plus a flag to stop early presses. Ask when start is set and when waiting becomes true."

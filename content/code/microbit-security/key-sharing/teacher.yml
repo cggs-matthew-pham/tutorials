@@ -35,3 +35,4 @@ explain: |
 solutions:
   step-4: keys.ts#sol-lock
   step-5: keys.ts#sol-make
+struggle: "Following a key exchange where the shared key never travels. Ask them to trace on paper what each micro:bit sends and what it keeps private."

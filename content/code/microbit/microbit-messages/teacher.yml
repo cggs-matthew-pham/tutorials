@@ -38,3 +38,4 @@ solutions:
   step-4#t1: messages.ts#sol-word
   step-4#t2: messages.ts#sol-reply
   step-5: messages.ts#sol-make
+struggle: "Both sides must share the same list in the same order. When the wrong word shows, ask them to compare the two lists item by item."

@@ -44,3 +44,4 @@ solutions:
   step-4: patrol.ts#sol-m1
   step-5: patrol.ts#sol-m2
   step-6: patrol.ts#sol-m3
+struggle: "Each side has its own job, and radio handlers only set the mode. Ask which part of the program drives the motors."

@@ -46,3 +46,4 @@ solutions:
   step-5#t1: robot.ts#sol-quick
   step-5#t2: robot.ts#sol-unsure
   step-6: robot.ts#sol-make
+struggle: "Deciding what the robot does when the model isn't sure, and the watchdog timing. Ask what should happen when nothing has been heard for a while, before they build it."

@@ -55,3 +55,4 @@ solutions:
   step-3#t1: own.ts#sol-m1
   step-3#t2: own.ts#sol-m2
   step-3#t3: own.ts#sol-m3
+struggle: "Scoping their own game and playtesting early. Ask whether someone can play it yet, before more sprites are drawn."

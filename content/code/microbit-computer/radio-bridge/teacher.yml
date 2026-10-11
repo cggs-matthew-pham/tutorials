@@ -43,3 +43,4 @@ solutions:
   step-5#t1: bridge.ts#sol-light
   step-5#t2: bridge.ts#sol-beep
   step-6: bridge.ts#sol-make
+struggle: "Three parts in a chain: far micro:bit, bridge, computer. When nothing arrives, ask them to check each link in turn, starting with the radio group."

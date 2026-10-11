@@ -44,3 +44,4 @@ explain: |
   4. **Report**: scores by group, what you changed, and what it still gets wrong.
 solutions:
   step-4: build.ts#sol-build
+struggle: "Making the test set before training and keeping it separate. When the score is 100% at once, ask whether any test photos were also training photos."

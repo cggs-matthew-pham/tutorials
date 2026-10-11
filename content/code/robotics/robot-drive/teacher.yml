@@ -44,3 +44,4 @@ solutions:
   step-4#t1: drive.ts#sol-back
   step-4#t2: drive.ts#sol-curve
   step-5: drive.ts#sol-make
+struggle: "A time on a motor block is not a stop. When the robot keeps spinning, ask what the last block tells the motors."

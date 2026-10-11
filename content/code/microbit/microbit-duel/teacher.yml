@@ -40,3 +40,4 @@ solutions:
   step-4: duel.ts#sol-m1
   step-5: duel.ts#sol-m2
   step-6: duel.ts#sol-m3
+struggle: "Keeping two micro:bits in step with a code of messages. Ask them to trace one round on paper: who sends what, and who checks it."

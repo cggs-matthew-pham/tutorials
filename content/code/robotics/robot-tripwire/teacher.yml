@@ -42,3 +42,4 @@ solutions:
   step-4: tripwire.ts#sol-m1
   step-5: tripwire.ts#sol-m2
   step-6: tripwire.ts#sol-m3
+struggle: "Firing once per pass with arm and disarm, and the trick in forever. Ask when the tripwire is armed and where the trick's moves are."

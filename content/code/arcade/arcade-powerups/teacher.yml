@@ -46,3 +46,4 @@ solutions:
   step-4: powerups.ts#sol-m1
   step-5: powerups.ts#sol-m2
   step-6: powerups.ts#sol-m3
+struggle: "A true/false variable switched on and off at the right moments. Ask where the shield is set to true and false, and when each block runs."

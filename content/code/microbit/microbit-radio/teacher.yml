@@ -39,3 +39,4 @@ explain: |
 solutions:
   step-4#t1: radio.ts#sol-two
   step-5: radio.ts#sol-make
+struggle: "Two micro:bits, one group, and a micro:bit never hears itself. When nothing arrives, ask which one is sending and which group each is in."

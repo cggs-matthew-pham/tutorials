@@ -40,3 +40,4 @@ solutions:
   step-4#t1: lists.ts#sol-more
   step-4#t2: lists.ts#sol-length
   step-5: lists.ts#sol-make
+struggle: "Places start at 0, so the last place is length − 1. When one item never comes up, ask which places random can choose."

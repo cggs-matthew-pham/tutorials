@@ -43,3 +43,4 @@ solutions:
   step-4#t1: lives.ts#sol-faster
   step-4#t2: lives.ts#sol-heart
   step-5: lives.ts#sol-make
+struggle: "An overlap runs every frame while sprites touch, so one hit takes every life. Ask what happens to the enemy after it touches the player."

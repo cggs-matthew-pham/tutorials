@@ -47,3 +47,4 @@ solutions:
   step-4#t1: stop.ts#sol-distance
   step-4#t2: stop.ts#sol-sign
   step-5: stop.ts#sol-make
+struggle: "The robot only knows the distance when the program reads it, many times a second. Ask where the sensor is read and how often."

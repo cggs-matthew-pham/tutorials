@@ -49,3 +49,4 @@ solutions:
   step-4#t1: chase.ts#sol-y
   step-4#t2: chase.ts#sol-caught
   step-5: chase.ts#sol-make
+struggle: "Choosing the sign of vx from two positions. Ask them to say in words which side the player is on before choosing positive or negative."

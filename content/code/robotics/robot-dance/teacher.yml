@@ -42,3 +42,4 @@ solutions:
   step-4#t1: dance.ts#sol-spin
   step-4#t2: dance.ts#sol-routine
   step-5: dance.ts#sol-make
+struggle: "Making a function doesn't move the robot; calling it does. When nothing happens, ask where the call block is."

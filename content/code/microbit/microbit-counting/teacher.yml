@@ -42,3 +42,4 @@ solutions:
   step-4#t1: counting.ts#sol-by-two
   step-4#t2: counting.ts#sol-down
   step-5: counting.ts#sol-make
+struggle: "set replaces a value and change adds to it, and a set in forever wipes the count. Ask where the set block is and how often it runs."

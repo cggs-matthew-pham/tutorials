@@ -34,3 +34,4 @@ explain: |
 solutions:
   step-4: caesar.ts#sol-decrypt
   step-5: caesar.ts#sol-make
+struggle: "Wrapping round the alphabet with % 26, and undoing a shift. Ask them to shift one letter by hand, including one near Z, before testing."

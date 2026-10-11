@@ -34,3 +34,4 @@ explain: |
 solutions:
   step-4: lock.ts#sol-count
   step-5: lock.ts#sol-make
+struggle: "Why a fixed password fails once heard, and a fresh challenge doesn't. Ask what a listener could reuse, and whether the answer ever repeats."

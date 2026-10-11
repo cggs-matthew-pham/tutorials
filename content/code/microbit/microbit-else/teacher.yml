@@ -40,3 +40,4 @@ solutions:
   step-4#t1: else.ts#sol-nightlight
   step-4#t2: else.ts#sol-forward
   step-5: else.ts#sol-make
+struggle: "The first true question wins, so the order decides the ranges. Ask them to try one value at a time and say which question is true first."

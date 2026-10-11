@@ -43,3 +43,4 @@ solutions:
   step-4#t1: if.ts#sol-threshold
   step-4#t2: if.ts#sol-hot
   step-5: if.ts#sol-make
+struggle: "An if does nothing when false, so turning something off needs its own question. Ask them to read the question aloud for a dark room and a bright one."

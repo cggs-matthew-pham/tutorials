@@ -38,3 +38,4 @@ explain: |
   - CreateAI learns the patterns in your **samples** (about a second each).
   - It knows only its examples: test with other people and add what they do differently.
   - The model then runs **on the micro:bit** (a V2), with no computer.
+struggle: "Collecting enough varied samples per action. When everything is recognised as one action, ask how many samples each has and how different they are."

@@ -42,3 +42,4 @@ solutions:
   step-5#t1: send.ts#sol-temp
   step-5#t2: send.ts#sol-fast
   step-6: send.ts#sol-make
+struggle: "The text format links the micro:bit and the board. When nothing shows, ask whether the program is running and the write block is inside forever."

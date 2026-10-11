@@ -20,7 +20,6 @@ The code chat's file: current status, what is open and the decisions that still 
 
 **Code chat can do next**
 - The lists and `if` revisit: lists inside functions, and an `if` inside a function that decides (see Proposed).
-- Effort audit: the MakeCode courses (63 lessons) still have no `struggle:` notes (`npm run effort`).
 - MakeCode toolbox filters per step (`importproject` takes `filters`).
 
 ## Courses
@@ -138,6 +137,7 @@ Risks: we depend on Microsoft's hosted editor and its unversioned message API. F
 
 ## Log
 
+- 12 Oct: `struggle:` notes for all 63 MakeCode lessons; every code lesson now has one (`npm run effort` is clean for code).
 - 12 Oct: effort audit for Python Foundations, the console bridge, Objects, Deeper Python 1 to 5 and HTML & CSS (40 `struggle:` notes; 17 first hints now point at the idea, with the code as the next hint); two overflowing deck slides fixed (Robotics Drive, Python Variables).
 - 12 Oct: voiceover for the 19 clips in p5.js, DOM and Games (`af_heart` at 1.1; `say:` lines read code aloud). Timed with the test voice: 24 to 32 s.
 - 12 Oct: Games with microStudio gets a Playground, Reference and three clips; this file is rewritten (history archived).

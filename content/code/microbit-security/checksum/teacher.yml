@@ -34,3 +34,4 @@ explain: |
 solutions:
   step-4: checksum.ts#sol-keyed
   step-5: checksum.ts#sol-make
+struggle: "A plain checksum catches accidents but not deliberate changes. Ask what an attacker would need to make a changed message pass."

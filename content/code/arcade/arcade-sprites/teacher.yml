@@ -39,3 +39,4 @@ explain: |
 solutions:
   step-4#t2: sprites.ts#sol-third
   step-5: sprites.ts#sol-make
+struggle: "y counts down from the top on a game screen, the opposite of maths graphs. Ask them to predict where a sprite will go before placing it."

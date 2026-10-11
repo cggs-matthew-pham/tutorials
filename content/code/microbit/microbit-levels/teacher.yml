@@ -40,3 +40,4 @@ solutions:
   step-4: levels.ts#sol-m1
   step-5: levels.ts#sol-m2
   step-6: levels.ts#sol-m3
+struggle: "Which check comes first in the A button, and a list of targets by level. Ask them to say the order of the questions before testing."

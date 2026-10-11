@@ -32,3 +32,4 @@ explain: |
 solutions:
   step-4: xor.ts#sol-keys
   step-5#t1: xor.ts#sol-make
+struggle: "XOR undoes itself with the same key, and a wrong key gives a wrong answer, not an error. Ask them to compare the keys on both micro:bits first."

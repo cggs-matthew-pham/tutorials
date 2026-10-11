@@ -40,3 +40,4 @@ solutions:
   step-4#t1: leds.ts#sol-picture
   step-4#t2: leds.ts#sol-pause
   step-5: leds.ts#sol-make
+struggle: "on start runs once and forever repeats. When the heart doesn't beat, ask which block the pictures are inside."

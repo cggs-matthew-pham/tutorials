@@ -44,3 +44,4 @@ solutions:
   step-4#t1: avoid.ts#sol-back
   step-4#t2: avoid.ts#sol-lights
   step-5: avoid.ts#sol-make
+struggle: "if … else chooses a move every time round, with no plan. Ask them to read the question aloud and say when it is true."

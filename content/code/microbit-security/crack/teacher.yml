@@ -33,3 +33,4 @@ explain: |
   A **Caesar cipher** has only 25 possible keys, so trying them all breaks it. Strength comes from having an enormous number of keys.
 solutions:
   step-4: crack.ts#sol-count
+struggle: "Trying every key systematically and spotting readable text. Ask how many keys there are and how they'll know which one is right."

@@ -44,3 +44,4 @@ solutions:
   step-4#t1: modes.ts#sol-show
   step-4#t2: modes.ts#sol-explore
   step-5: modes.ts#sol-make
+struggle: "Buttons only change the mode; forever does the job. When a mode never runs, ask them to compare the word in the button with the word in forever."

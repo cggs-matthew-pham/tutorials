@@ -40,3 +40,4 @@ solutions:
   step-4: tournament.ts#sol-m1
   step-5: tournament.ts#sol-m2
   step-6: tournament.ts#sol-m3
+struggle: "Each micro:bit keeps itself at place 0, so the two scoreboards are mirrored. Ask which place a win and a loss each add to."
