@@ -239,6 +239,8 @@ const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Pyth
   'code/dom': { kind: 'dom', dir: '_playground-dom', label: 'DOM and console', id: 'free/dom', code: '<h1 id="title">Hello</h1>\n<button id="go">Click me</button>\n\n<script>\n  const go = document.querySelector("#go");\n  go.addEventListener("click", function () {\n    document.querySelector("#title").textContent = "Clicked!";\n    console.log("clicked");\n  });\n</script>\n' },
   // Bootstrap: the HTML playground, starting from a page that links Bootstrap's stylesheet (vendor/web, served beside the page).
   'code/bootstrap': { kind: 'html', dir: '_playground-html', label: 'HTML and Bootstrap', id: 'free/bootstrap', code: '<link rel="stylesheet" href="bootstrap.min.css">\n\n<div class="container mt-3">\n  <h1>Hello</h1>\n  <button class="btn btn-primary">Click me</button>\n</div>\n' },
+  // Your site, for real: the HTML playground, for any page a student brings.
+  'code/site': { kind: 'html', dir: '_playground-html', label: 'HTML', id: 'free/site', code: '<h1>My page</h1>\n<p>Paste a page you have made here.</p>\n' },
   // Vue: the DOM playground, starting from a small Vue app (vue.js is served beside the page).
   'code/vue': { kind: 'dom', dir: '_playground-dom', label: 'Vue', id: 'free/vue', code: '<div id="app">\n  <p>Clicks: {{ count }}</p>\n  <button @click="count++">Click me</button>\n</div>\n\n<script src="vue.js"></script>\n<script>\n  const { createApp, ref } = Vue;\n  createApp({\n    setup() {\n      const count = ref(0);\n      return { count };\n    }\n  }).mount("#app");\n</script>\n' },
   // Games with microStudio: the game player with an editor beside it (edit.html), for trying ideas when microstudio.dev is not open.
@@ -262,6 +264,7 @@ const REFS = [{ file: 'turtle', path: 'code/python/reference' }, { file: 'html',
   { file: 'turtle', path: 'code/data/reference', groups: ['Data', 'Text and collections', 'Code structure'], title: 'Data detective reference', summary: 'Reading, counting, charting, cleaning and testing data in Python, then pandas and Gradio.' },
   { file: 'html', path: 'code/bootstrap/reference', groups: ['Bootstrap', 'Other CSS frameworks'], title: 'Bootstrap reference', summary: "Bootstrap's class names for buttons, the navbar, cards, the grid, forms and spacing, with what each one does." },
   { file: 'html', path: 'code/vue/reference', groups: ['Vue', 'Frameworks'], title: 'Vue reference', summary: 'Vue apps, data, lists, events, computed values and components, and the same ideas in Preact and Svelte.' },
+  { file: 'html', path: 'code/site/reference', groups: ['A page for everyone, online', 'Forms'], title: 'Your site reference', summary: 'Alt text, headings, labels, a whole page and relative paths: what a page needs before it goes online.' },
   { file: 'html', path: 'code/dom/reference', groups: ['JavaScript (recipes)', 'Fetch and JSON'], title: 'DOM and JavaScript reference', summary: 'Finding and changing elements, events, and loading data with fetch.' },
   { file: 'turtle', path: 'code/objects/reference', title: 'Python turtle and objects reference', summary: 'Turtle commands, and the objects, dictionaries and classes from Objects with turtles.' }, ...MATHS_CARDS.map((m) => ({ file: m.file, path: `${m.course}/reference` }))];
 

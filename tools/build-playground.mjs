@@ -125,6 +125,7 @@ export function buildDomPlayground(out = 'dist') {
   rmSync(dest, { recursive: true, force: true });
   cpSync(join(root, 'playground-dom'), dest, { recursive: true });
   copyFileSync(join(root, 'playground-p5', 'p5-errors.js'), join(dest, 'p5-errors.js'));
+  copyFileSync(join(root, 'playground-html', 'download.js'), join(dest, 'download.js')); // the Download button, shared with the HTML playground
   stampPlayground(dest);
   addPageFiles(dest);
   return dest;

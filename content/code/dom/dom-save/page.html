@@ -1,0 +1,204 @@
+<!-- region: predict -->
+<p>Visits: <span id="count">0</span></p>
+
+<script>
+  let visits = Number(localStorage.getItem("visits"));
+  visits = visits + 1;
+  localStorage.setItem("visits", visits);
+  document.querySelector("#count").textContent = visits;
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<h1>Books I have read</h1>
+<input id="title" placeholder="A book">
+<button id="add">Add</button>
+<ul id="books"></ul>
+<button id="clear">Start again</button>
+
+<script>
+  const list = document.querySelector("#books");
+  let books = [];
+  const saved = localStorage.getItem("books");
+  if (saved !== null) {
+    books = JSON.parse(saved);
+  }
+
+  function show() {
+    list.textContent = "";
+    for (const title of books) {
+      const li = document.createElement("li");
+      li.textContent = title;
+      list.append(li);
+    }
+  }
+
+  document.querySelector("#add").addEventListener("click", function () {
+    const box = document.querySelector("#title");
+    books.push(box.value);
+    localStorage.setItem("books", JSON.stringify(books));
+    box.value = "";
+    show();
+  });
+  document.querySelector("#clear").addEventListener("click", function () {
+    books = [];
+    show();
+  });
+  show();
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<ul id="books"></ul>
+<script>
+  let books = [];
+  const saved = localStorage.getItem("books");
+  if (saved !== null) {
+    books = JSON.parse(saved);
+  }
+  books.push("Book " + (books.length + 1));
+  localStorage.setItem("books", books);
+  document.querySelector("#books").textContent = books.length + " books";
+</script>
+<!-- endregion -->
+
+<!-- region: sol-clear -->
+<h1>Books I have read</h1>
+<input id="title" placeholder="A book">
+<button id="add">Add</button>
+<ul id="books"></ul>
+<button id="clear">Start again</button>
+
+<script>
+  const list = document.querySelector("#books");
+  let books = [];
+  const saved = localStorage.getItem("books");
+  if (saved !== null) {
+    books = JSON.parse(saved);
+  }
+
+  function show() {
+    list.textContent = "";
+    for (const title of books) {
+      const li = document.createElement("li");
+      li.textContent = title;
+      list.append(li);
+    }
+  }
+
+  document.querySelector("#add").addEventListener("click", function () {
+    const box = document.querySelector("#title");
+    books.push(box.value);
+    localStorage.setItem("books", JSON.stringify(books));
+    box.value = "";
+    show();
+  });
+  document.querySelector("#clear").addEventListener("click", function () {
+    books = [];
+    localStorage.removeItem("books");
+    show();
+  });
+  show();
+</script>
+<!-- endregion -->
+
+<!-- region: sol-name -->
+<h1>Books I have read</h1>
+<input id="title" placeholder="A book">
+<button id="add">Add</button>
+<ul id="books"></ul>
+<button id="clear">Start again</button>
+<p>Reader: <input id="reader"></p>
+
+<script>
+  const list = document.querySelector("#books");
+  let books = [];
+  const saved = localStorage.getItem("books");
+  if (saved !== null) {
+    books = JSON.parse(saved);
+  }
+
+  function show() {
+    list.textContent = "";
+    for (const title of books) {
+      const li = document.createElement("li");
+      li.textContent = title;
+      list.append(li);
+    }
+  }
+
+  document.querySelector("#add").addEventListener("click", function () {
+    const box = document.querySelector("#title");
+    books.push(box.value);
+    localStorage.setItem("books", JSON.stringify(books));
+    box.value = "";
+    show();
+  });
+  document.querySelector("#clear").addEventListener("click", function () {
+    books = [];
+    show();
+  });
+  const reader = document.querySelector("#reader");
+  if (localStorage.getItem("reader") !== null) {
+    reader.value = localStorage.getItem("reader");
+  }
+  reader.addEventListener("input", function () {
+    localStorage.setItem("reader", reader.value);
+  });
+  show();
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<p>Clicks: <span id="count">0</span> · Best: <span id="best">0</span></p>
+<button id="click">Click me</button>
+<button id="new">New game</button>
+
+<script>
+  // Save the best score, so it is still there after Run (or a visit next week).
+  let clicks = 0;
+  let best = 0;
+  const countEl = document.querySelector("#count");
+  const bestEl = document.querySelector("#best");
+  document.querySelector("#click").addEventListener("click", function () {
+    clicks = clicks + 1;
+    countEl.textContent = clicks;
+    if (clicks > best) {
+      best = clicks;
+      bestEl.textContent = best;
+    }
+  });
+  document.querySelector("#new").addEventListener("click", function () {
+    clicks = 0;
+    countEl.textContent = clicks;
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<p>Clicks: <span id="count">0</span> · Best: <span id="best">0</span></p>
+<button id="click">Click me</button>
+<button id="new">New game</button>
+
+<script>
+  // Save the best score, so it is still there after Run (or a visit next week).
+  let clicks = 0;
+  let best = Number(localStorage.getItem("best"));
+  const countEl = document.querySelector("#count");
+  const bestEl = document.querySelector("#best");
+  bestEl.textContent = best;
+  document.querySelector("#click").addEventListener("click", function () {
+    clicks = clicks + 1;
+    countEl.textContent = clicks;
+    if (clicks > best) {
+      best = clicks;
+      bestEl.textContent = best;
+      localStorage.setItem("best", best);
+    }
+  });
+  document.querySelector("#new").addEventListener("click", function () {
+    clicks = 0;
+    countEl.textContent = clicks;
+  });
+</script>
+<!-- endregion -->

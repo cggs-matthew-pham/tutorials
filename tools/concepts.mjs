@@ -248,6 +248,7 @@ export const CONCEPTS = {
     { id: 'async-await', label: 'async and await (waiting for something slow)', re: /\basync\s+function\b|\bawait\b/ },
     { id: 'json-data', label: 'JSON (response.json(), JSON.parse)', re: /\.json\s*\(\s*\)|\bJSON\.(parse|stringify)\b/ },
     { id: 'try-catch', label: 'try and catch (a plan B when something fails)', re: /\btry\s*\{/ },
+    { id: 'local-storage', label: 'saving between visits (localStorage)', re: /\blocalStorage\./ },
   ],
   /** JavaScript for p5.js (content/code/p5). Code has comments removed and string contents emptied. p5's own hooks
    *  (setup, draw, mousePressed...) are not "a function of your own". */

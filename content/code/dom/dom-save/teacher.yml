@@ -1,0 +1,47 @@
+summary: "Students predict a visit counter after three runs, save a reading list as JSON so it survives Run, find a list saved without JSON.stringify, make Start again forget the saved copy, remember a name, and keep a best score."
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can save data with localStorage so it is still there next visit.
+  - I can save a list as JSON text and load it back.
+  - I can explain that saved data stays in one browser.
+before: |
+  An optional lesson at the end of the DOM course, and the "saving" step for every route through the Web pathway. `localStorage` is a small store each browser keeps per website: `setItem(name, text)`, `getItem(name)` (null when nothing is saved) and `removeItem(name)`. It keeps **text only**, so lists and objects go through `JSON.stringify` and `JSON.parse` (met in the fetch lesson). The planted bug saves a list without stringify: the first run looks fine, the second fails, because the bad text is still saved. The playground's hint says to clear it.
+
+  The pattern for any app: **load once when the page opens, save every time the data changes**. In the playground, each Run is a new visit; the playground keeps each step's saved data for this browser (the preview page cannot use the real store, so a stand-in behaves the same way). On a real site it is the browser's own localStorage, per site and per browser: nothing is shared between computers or people, and clearing browsing data deletes it. Don't save anything private.
+
+  **For Vue students** (the to-do app): load the list in `setup` (`const tasks = ref(JSON.parse(localStorage.getItem("tasks")) || [])`), then `watch(tasks, (t) => localStorage.setItem("tasks", JSON.stringify(t)), { deep: true })`. Preact and Svelte have their own versions (`useEffect`, `$effect`).
+running:
+  - "Predict: ask what happens to variables when a page closes."
+  - "Run: after Start again and Run, ask where the books came back from."
+  - "Investigate: draw two boxes on the board, the page's list and the saved text, and an arrow each way."
+  - "Modify: ask where in the code the saved data changes, and whether each place saves."
+  - "Make: ask when the best score must be loaded and when saved."
+struggle: "Students forget that saving is separate from the page: they change the list and expect it saved. Ask \"which line saves it?\" after every change they make."
+stuck:
+  - see: "Red error: is not valid JSON."
+    ask: "Was the list saved with JSON.stringify?"
+    fix: "Save with JSON.stringify; the bad copy is still saved, so remove it once (localStorage.removeItem) and run again."
+  - see: "The data is gone after Run."
+    ask: "Does the code save it when it changes, and load it at the start?"
+    fix: "setItem after every change; getItem when the page opens."
+  - see: "A saved number adds like text (1 + 1 = 11)."
+    ask: "What does getItem give back?"
+    fix: "Text: turn it into a number with Number(...)."
+stretch: "Save the to-do app from Apps with Vue (see the note above). Save a whole object (name and score) as one JSON item."
+support: "Give the load and save lines on the board; students choose where each goes."
+leads: "Next on the Web pathway: Your site, for real (accessibility, then putting the page online). Sharing saved data between people needs a server: Web apps with Flask."
+exit:
+  q: "Why must a list be saved with JSON.stringify?"
+  a: "localStorage keeps only text; JSON.stringify turns the list into text that JSON.parse can turn back into a list."
+explain: |
+  1. The page reads a saved number, adds one and saves it again.
+  2. On the first visit nothing was saved, so it starts at 1.
+  3. Each Run is a new visit: the variable starts over, the saved number does not.
+  4. Save lists as JSON text: `JSON.stringify` to save, `JSON.parse` to load.
+solutions:
+  step-4#t1: page.html#sol-clear
+  step-4#t2: page.html#sol-name
+  step-5: page.html#sol-make
+sources:
+  - { title: "MDN: Window.localStorage", url: "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage", checked: 2026-10-12 }

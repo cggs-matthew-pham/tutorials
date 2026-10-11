@@ -22,13 +22,14 @@ pathways:
     title: Web
     summary: Build pages, then make them draw, move and react.
     fit: "Start here to build your own web pages, then make them draw, move and react."
-    about: "Start with **HTML & CSS**: how a page is built from tags and styled with rules. The extensions bring in JavaScript, first drawing and animating with p5.js (the same ideas as turtle), then changing a real page when people click and type. **Pages with Bootstrap** rebuilds the club page from ready-made parts (with a look at Bulma, Tailwind, daisyUI and Pico). **Apps with Vue** follows the DOM course: the page keeps up with the data by itself, ending in a to-do app and the same app in Vue, Preact and Svelte."
+    about: "Start with **HTML & CSS**: how a page is built from tags and styled with rules. The extensions bring in JavaScript, first drawing and animating with p5.js (the same ideas as turtle), then changing a real page when people click and type. **Pages with Bootstrap** rebuilds the club page from ready-made parts (with a look at Bulma, Tailwind, daisyUI and Pico). **Apps with Vue** follows the DOM course: the page keeps up with the data by itself, ending in a to-do app and the same app in Vue, Preact and Svelte. Every route ends with **Your site, for real**: make your page work for everyone, then put it online."
     courses:
       - { path: code/html, stage: foundations }
       - { path: code/bootstrap, stage: extensions, after: [code/html] }
       - { path: code/p5, stage: extensions, after: [code/html] }
       - { path: code/dom, stage: extensions, after: [code/p5] }
       - { path: code/vue, stage: extensions, after: [code/dom] }
+      - { path: code/site, stage: extensions, after: [code/html] }
       - { path: code/flask, stage: extensions, after: [code/html, code/console] }
   - id: makecode
     title: MakeCode

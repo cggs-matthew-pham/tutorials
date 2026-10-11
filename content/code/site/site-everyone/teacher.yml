@@ -1,0 +1,48 @@
+summary: "Students predict what a screen reader says for a picture with no alt and a \"click here\" link, move through an accessible page with the keyboard, match problems to fixes, find headings chosen for size, fix pictures and labels, then check their own page and test it with a classmate."
+time: 55
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 10 min · Make (check and classmate test) 25 min"
+goals:
+  - I can check a page for alt text, headings, labels, link text, contrast and keyboard use.
+  - I can fix a page so a screen reader and a keyboard can use it.
+  - I can test my page with a real person and fix what they find.
+before: |
+  The lesson works on any page, from any route through the Web pathway: Bootstrap and Vue pages end up as ordinary tags in the browser, so the same checks apply. Nothing new is taught about HTML: alt, headings, labels and links all appear in HTML & CSS; this lesson is about **why** they matter and **checking** for them.
+
+  The checklist follows the most common failures in automated checks of real home pages (missing alt text, missing form labels, low contrast and empty or vague links top the WebAIM Million survey every year). Contrast is hard to judge by eye: in Chrome or Edge, right-click the page, Inspect, and the colour picker shows a contrast ratio (4.5 or more for normal text). Screen readers: Narrator (Windows, Ctrl + Windows + Enter) or VoiceOver (Mac, Command + F5) let students hear their page; turn them off the same way.
+
+  The classmate test is the important part: a five-minute test with one person finds more problems than a checklist. Students give one task and watch without helping.
+running:
+  - "Predict: if you can, play a screen reader reading a page with no alt (Narrator or VoiceOver)."
+  - "Run: everyone presses Tab through the preview. Ask what the outline around each part is for."
+  - "Investigate: for the bug, ask how a screen reader user moves around a page (by headings)."
+  - "Modify: ask students to say each alt text aloud: does it say what the picture shows?"
+  - "Make: pair students. The tester only tries; the maker only watches and notes, then fixes."
+struggle: "Students think a page that looks right is right. Ask \"how would someone who can't see it, or can't use a mouse, do this?\" and let them try with only Tab and Enter."
+stuck:
+  - see: "Clicking the label does not put the cursor in the box."
+    ask: "Do for and id match exactly, capitals included?"
+    fix: "Use the same word in both: for=\"name\" and id=\"name\"."
+  - see: "Tab skips a button or link."
+    ask: "Is it a real button or a tag (a, input) that can take focus, or a div made to look like one?"
+    fix: "Use button or a; a clickable div is invisible to the keyboard."
+  - see: "Long alt text that repeats the caption."
+    ask: "What would you say to a friend on the phone about this picture?"
+    fix: "A short description; alt=\"\" if the picture is only decoration."
+stretch: "Run Chrome's Lighthouse accessibility check (Inspect, Lighthouse) on a real website and on your page. Listen to your page with Narrator or VoiceOver."
+support: "Give students the six points as a printed tick sheet for their own page."
+leads: "Next lesson: put the page online. For Digital Technologies, this lesson covers designing the user experience and testing it with users (Years 9 and 10, AC9TDI10P07). Class idea: everyone tests a classmate's page with only the keyboard."
+exit:
+  q: "Name two changes that make a page work for a screen reader without changing how it looks."
+  a: "For example: alt text on pictures, labels joined to boxes, headings in order, link text that says where it goes."
+explain: |
+  1. The page looks fine, but a screen reader finds a picture with no words.
+  2. `alt` describes the picture for anyone who can't see it.
+  3. The box has no name: a `label`, joined by `for` and `id`, gives it one.
+  4. It looks almost the same, and now everyone can use it.
+sources:
+  - { title: "WebAIM: The WebAIM Million (accessibility of the top million home pages)", url: "https://webaim.org/projects/million/", checked: 2026-10-12 }
+  - { title: "W3C WAI: Easy checks, a first review of web accessibility", url: "https://www.w3.org/WAI/test-evaluate/preliminary/", checked: 2026-10-12 }
+  - { title: "ABS: 5.5 million Australians have disability (Survey of Disability, Ageing and Carers, 2022)", url: "https://www.abs.gov.au/media-centre/media-releases/55-million-australians-have-disability", checked: 2026-10-12 }
+solutions:
+  step-4#t1: page.html#sol-alt
+  step-4#t2: page.html#sol-labels

@@ -7,7 +7,11 @@ export function hint(message, code = '', line = null) {
   const m = String(message || '').replace(/^Uncaught\s+/, '').replace(/^(\w*Error):\s*/, '$1: ');
   const lines = String(code).split('\n');
   let x, h = null;
-  if ((x = m.match(/Cannot (?:read|set) propert(?:y|ies) of null(?: \((?:reading|setting) '([^']+)'\))?/))) {
+  if (/is not valid JSON|Unexpected (?:token|end of JSON)[^]*JSON/.test(m) && /JSON\.parse/.test(code)) {
+    // JSON.parse was given text that is not JSON: often a list saved with setItem without JSON.stringify.
+    h = 'The text given to `JSON.parse` is not JSON. Save lists and objects with `JSON.stringify(…)` and load them with `JSON.parse(…)`; something saved the wrong way stays saved, so clear it (`localStorage.removeItem(…)`) and try again.';
+    return { hint: h, line: null };   // the browser's line for this error is not the JSON.parse line
+  } else if ((x = m.match(/Cannot (?:read|set) propert(?:y|ies) of null(?: \((?:reading|setting) '([^']+)'\))?/))) {
     const late = /<script/i.test(code) && code.search(/<script/i) < code.search(/<(body|h1|p|button|div|ul|input)\b/i);
     h = 'The page has nothing matching that name, so the result is `null` and it has no `' + (x[1] || 'property') + '`. Check the selector spelling (`#` for an id, `.` for a class)' + (late ? ', and move the `<script>` below the element: the script runs as soon as the browser reaches it.' : ', and that the element has that id or class.');
   } else if ((x = m.match(/(\w+) is not defined/)) && /^[a-z]\w*$/.test(x[1]) && new RegExp('(?:getElementById|querySelector)\\([\'"][#.]?' + x[1] + '[\'"]\\)').test(code)) {

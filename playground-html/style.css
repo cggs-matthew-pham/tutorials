@@ -30,3 +30,12 @@ html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink);
   .pg { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) minmax(0, 1fr); }
   .editor-pane { border-right: 0; border-bottom: 1px solid var(--line); }
 }
+
+/* Download: what goes beside index.html */
+#reset + .btn { margin-left: 0; }
+.dl { font-size: 13px; padding: 8px 10px; margin-top: 6px; border: 1px solid var(--line); border-radius: 8px; }
+.dl p { margin: 0 0 4px; }
+.dl ul { margin: 4px 0 8px 18px; padding: 0; }
+.dl a { color: var(--accent); }
+.bar { flex-wrap: wrap; row-gap: 6px; }
+.bar .btn { white-space: nowrap; }

@@ -72,6 +72,7 @@ Lesson counts include optional lessons. "Pictures" are drawn by `render-pictures
   - Not done: clips for the moving sketches (animated sketches show a still), a class trial.
 - **The DOM and the browser console** (`code/dom`, 8 incl. optional The real browser console): built 11 Oct.
   - Its own `playground-dom/` (Run, console panel, DOM hints; reports as `html`), clips and expected pictures.
+  - Optional lesson 10, Saving between visits (built 12 Oct): `localStorage`, lists as JSON; the DOM playground keeps each step's saved data (a stand-in, since the sandboxed preview has none).
   - Optional lesson 9, Data from the web: fetch (built 12 Oct): `fetch`, `await`, `.json()`, and `try`/`catch` falling back to the saved `weather.json` (Data detective's file, now also in `media/html/`) when Open-Meteo can't be reached. Reference page added (`code/dom/reference`).
   - Not done: a class trial, saving between visits (by design).
 
@@ -80,6 +81,11 @@ Lesson counts include optional lessons. "Pictures" are drawn by `render-pictures
   - Composition API (`ref`, `computed`) in the global build, on the DOM playground. Vue's development build, for its warnings. Svelte components sit in a hidden `<textarea data-svelte>`, compiled by `svelte.js` (vendor/web).
   - Reference (Vue and Frameworks groups in `snippets/html.json`), pictures, voiced clips; `check-html` walks it and the DOM course.
   - Not done: a class trial; `:key` and `emit` are teacher-note stretches only.
+
+- **Your site, for real** (`code/site`, 2): built 12 Oct. After HTML & CSS, so every route ends there; works on any page.
+  - Pages for everyone (alt, heading outline, labels, link text, contrast, keyboard, then a classmate test) and Put it online (a site is a folder, relative paths, Download, publish with the teacher: GitHub Pages, Netlify Drop or the school's site; the publish step is `tier: typical`).
+  - Download button in the HTML and DOM playgrounds (`playground-html/download.js`).
+  - Not done: a class trial; a built-in accessibility checker (Lighthouse is in the teacher notes).
 
 ### MakeCode pathway
 
@@ -158,7 +164,7 @@ The plan keeps "build it yourself, then meet the real tool": students hand-build
    - Angular is left out: it needs TypeScript and a command-line toolchain. AngularJS is dead (support ended in 2021).
 4. **`fetch` and APIs in JavaScript** (built 12 Oct as `code/dom/dom-fetch`; an optional DOM lesson). Load JSON, show it on the page, and fall back to a saved copy when the network fails, as Data detective does in Python.
 
-## Proposed (12 Oct 2026, Matthew agreed; building now): the end of the Web pathway, with or without a framework
+## Built (12 Oct 2026, Matthew agreed): the end of the Web pathway, with or without a framework
 
 Every route through the Web pathway (hand-built pages, Bootstrap, the DOM, Vue) ends in the same optional steps. They teach no new framework and work on whatever page the student already has.
 
@@ -180,6 +186,7 @@ Every route through the Web pathway (hand-built pages, Bootstrap, the DOM, Vue) 
 
 ## Log
 
+- 12 Oct: Saving between visits (DOM lesson 10), Your site, for real (2 lessons), and a Download button in the HTML and DOM playgrounds.
 - 12 Oct: Data from the web: fetch (optional DOM lesson 9). The four web proposals are all built.
 - 12 Oct: Apps with Vue (6 lessons + optional Same app, three frameworks); the DOM playground loads local libraries with CORS and gives Vue hints; `check-html` also walks the DOM and Vue courses.
 - 12 Oct: Pages with Bootstrap (3 lessons), with a nod to Bulma, Tailwind, daisyUI and Pico (Matthew's request); `vendor/web/` and the shared changes in `shared.md`.

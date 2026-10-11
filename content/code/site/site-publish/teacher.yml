@@ -1,0 +1,50 @@
+summary: "Students predict that a downloaded page loses its pictures, download a page and its files into one folder and open it from their computer, match paths to where they look, sort what is safe to publish, find a path from one computer, fix three paths, and publish their own page."
+time: 55
+timing: "Predict and Run 15 min · Investigate 10 min · Modify 5 min · Make (publish) 25 min"
+goals:
+  - I can download a page and every file it uses into one folder.
+  - I can make every path in a page relative, so it works online.
+  - I can publish a page and check it from another device.
+before: |
+  A website is a folder: `index.html` (the name hosts show first) and the files it uses, side by side. The playground's **Download** button saves the page as `index.html`, wrapped in a full HTML page if the student's code has no `<!DOCTYPE>`, and lists the files it uses from beside it (pictures, `bootstrap.min.css`, `vue.js`, `weather.json`), each with its own download link. Opening `index.html` by double-clicking tests nearly everything; a page that uses `fetch` needs a host (browsers block `fetch` from a file on the computer).
+
+  **Publishing is teacher-led**, because every host needs an account. Choose one before the lesson and check your school's rules on accounts, age and what students may publish:
+  - **GitHub Pages:** free, needs a GitHub account (13 or older); upload the folder to a repository and turn on Pages. Good for students who go on to code.
+  - **Netlify Drop:** drag the folder onto app.netlify.com/drop; a free account keeps the site online.
+  - **Your school's own website or learning platform**, if it can host a folder of files; often the simplest for younger students, with no new accounts.
+  - **No accounts at all:** students can still finish (the publish step is a "typical" step); the downloaded folder on a USB stick or shared drive is a working site.
+
+  Privacy: the sort task covers what stays off a public page. Check that no page names a student or the school, and that photos follow the school's consent rules.
+running:
+  - "Predict: have everyone download only index.html first and open it, before the Run step, so the broken picture is their own."
+  - "Run: check each student's folder: index.html plus every listed file, all side by side."
+  - "Investigate: for the sort, ask \"could a stranger use this to find you?\""
+  - "Modify: point at the preview: the broken pictures are what Sam's visitors would see."
+  - "Make: publish together with the host you chose; open each address on another device."
+struggle: "Things work on the student's computer and not online, and they can't see why. Ask \"where is this file, and where does the path look?\" before checking anything for them."
+stuck:
+  - see: "Pictures are broken when index.html is opened from the computer."
+    ask: "Is the picture file in the same folder as index.html, with exactly the same name?"
+    fix: "Download it into that folder; names must match, capitals included."
+  - see: "A Bootstrap or Vue page looks plain or does nothing once downloaded."
+    ask: "Is bootstrap.min.css (or vue.js) in the folder?"
+    fix: "Download the library from the list the Download button shows."
+  - see: "The fetch lesson's page says Loading for ever on the computer."
+    ask: "Was it opened by double-clicking?"
+    fix: "fetch needs a host: test it once it is published."
+stretch: "Make a second page (about.html) and link the two with relative links. Add the page's language and a description in the head. Run Lighthouse on the published page."
+support: "Prepare one folder for the class (the run page and its pictures) so everyone publishes the same site first, then their own."
+leads: "Web apps with Flask: sites that run code on a server, for logins and shared data. Class idea: a shared class gallery page linking every student's published page."
+exit:
+  q: "Why does src=\"C:/Users/ada/Desktop/trophy.svg\" break online, and what should it be?"
+  a: "It points at a folder on Ada's computer, which the web can't reach; put trophy.svg beside the page and write src=\"trophy.svg\"."
+explain: |
+  1. This page uses three pictures from beside it.
+  2. Download saves the page as `index.html`, the name a website's first page has.
+  3. It lists every file the page uses: each goes in the same folder.
+  4. Open `index.html` from that folder. If it works there, it works online.
+solutions:
+  step-4: page.html#sol-fix
+sources:
+  - { title: "GitHub Docs: Creating a GitHub Pages site", url: "https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site", checked: 2026-10-12 }
+  - { title: "Netlify Docs: Netlify Drop", url: "https://docs.netlify.com/site-deploys/create-deploys/#netlify-drop", checked: 2026-10-12 }

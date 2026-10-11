@@ -1,4 +1,5 @@
 import { mountSnippets } from './snippets.js';
+import { mountDownload } from './download.js';
 
 // HTML & CSS playground: type HTML, see the page update. The preview is a sandboxed iframe
 // (scripts may run, but it is a separate origin and cannot reach this page or the site).
@@ -48,7 +49,9 @@ walk(c,d+1)})}
 document.addEventListener('DOMContentLoaded',function(){walk(document.body,0)})})()<\/script>`;
 // Every preview: pictures are found in the course's media folder (src="trophy.svg"), and links behave like a
 // real page's without replacing the student's page: web addresses open in a new tab, #name scrolls to that part.
-const PAGE = `<base href="${new URL('media/', location.href).href}"><script>document.addEventListener('click',function(e){
+// The sandboxed preview has no localStorage: a stand-in in memory lets pages that save (Saving between visits) still draw.
+const PAGE = `<base href="${new URL('media/', location.href).href}"><script>(function(){var d={},st={getItem:function(k){k=String(k);return Object.prototype.hasOwnProperty.call(d,k)?d[k]:null},setItem:function(k,v){d[String(k)]=String(v)},removeItem:function(k){delete d[String(k)]},clear:function(){d={}},key:function(i){return Object.keys(d)[i]||null}};Object.defineProperty(st,'length',{get:function(){return Object.keys(d).length}});try{localStorage}catch(e){try{Object.defineProperty(window,'localStorage',{value:st,configurable:true})}catch(e2){}}})();
+document.addEventListener('click',function(e){
 var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');e.preventDefault();
 if(h.charAt(0)==='#'){var t=document.getElementById(h.slice(1))||document.getElementsByName(h.slice(1))[0];if(t)t.scrollIntoView();}
 else if(/^https?:/i.test(h))window.open(h,'_blank','noopener');});
@@ -130,6 +133,7 @@ codeEl.addEventListener('keydown', (e) => {
   }
 });
 $('reset').addEventListener('click', () => { codeEl.value = starter; write(null); render(); });
+mountDownload($('download'), $('dl'), () => codeEl.value);
 
 render();
 

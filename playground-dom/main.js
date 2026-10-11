@@ -1,14 +1,22 @@
 import { hint } from './dom-errors.js';
+import { mountDownload } from './download.js';
 
 // Web page and JavaScript playground: type a page (HTML with a <script>), press Run, see the page react, with a console
 // for console.log and errors. The page runs in a sandboxed iframe (scripts only: its own origin, no forms, no top
-// navigation), so it cannot reach this page or the site. No saving to localStorage inside it (the sandbox has none).
+// navigation), so it cannot reach this page or the site. The sandbox has no localStorage of its own, so the shim gives the
+// page a stand-in that this playground keeps (per ?id, in its own localStorage): saved data survives Run and a reload,
+// as on a real site. ?store=0 starts with nothing saved and keeps saved data only until the page is closed.
 //   ?code=<starter page>   ?id=<key for saving this student's edits, and for reporting runs to the lesson page>   ?zoom=
 const params = new URLSearchParams(location.search);
 const starter = params.get('code') ?? '<h1 id="title">Hello!</h1>\n<script>\n  console.log("Hello from the console");\n<\/script>\n';
 const id = params.get('id');
 const storeKey = id ? `wp-dom-playground:${id}` : null;
 const zoom = Math.min(3, Math.max(1, Number(params.get('zoom')) || 1));
+const pageStoreKey = params.get('store') === '0' ? null : `wp-dom-store:${id || 'free'}`;
+// Kept in memory too, so saved data still lasts from Run to Run where this page has no storage (a clip, a locked-down browser).
+let pageStore = null;
+const readStore = () => { if (pageStore) return pageStore; try { pageStore = JSON.parse((pageStoreKey && localStorage.getItem(pageStoreKey)) || '{}') || {}; } catch { pageStore = {}; } return pageStore; };
+const writeStore = (data) => { pageStore = data; try { if (pageStoreKey) localStorage.setItem(pageStoreKey, JSON.stringify(data)); } catch { /* storage unavailable */ } };
 // Like the HTML playground: enlarge the code and the page inside the preview, not the playground itself
 // (a zoomed outer page puts clicks into the preview in the wrong place).
 const ZOOM = zoom > 1 ? `<style>html{zoom:${zoom}}</style>` : '';
@@ -49,6 +57,10 @@ window.addEventListener('unhandledrejection',function(e){say({t:'error',message:
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');if(!h)return;e.preventDefault();if(h.charAt(0)==='#'){var t=h.length>1&&document.getElementById(decodeURIComponent(h.slice(1)));if(t)t.scrollIntoView()}else window.open(a.href,'_blank','noopener')},true);
 document.addEventListener('submit',function(e){e.preventDefault();say({t:'log',k:'warn',text:'A form was submitted. Nothing is sent from here: use a button and an event instead.'})},true);
 window.addEventListener('load',function(){say({t:'loaded'})});
+var d=window.__wpStore||{};function keep(){say({t:'store',data:d})}
+var st={getItem:function(k){k=String(k);return Object.prototype.hasOwnProperty.call(d,k)?d[k]:null},setItem:function(k,v){d[String(k)]=String(v);keep()},removeItem:function(k){delete d[String(k)];keep()},clear:function(){d={};keep()},key:function(i){var a=Object.keys(d);return i<a.length?a[i]:null}};
+Object.defineProperty(st,'length',{get:function(){return Object.keys(d).length}});
+try{Object.defineProperty(window,'localStorage',{value:st,configurable:true})}catch(e){}
 })();`.replace(/\n/g, '');
 // Pictures and libraries are found in this playground's media folder (src="trophy.svg", <script src="vue.js">), as files
 // next to a real page; fetch("weather.json") reads a file there too.
@@ -59,7 +71,8 @@ const BASE = `<base href="${new URL('media/', location.href).href}">`;
 const corsLocal = (code) => code.replace(/<script(\s)(?=[^>]*\bsrc\s*=\s*["'](?![a-z]+:|\/\/))(?![^>]*\bcrossorigin\b)/gi, '<script crossorigin$1');
 function pageDoc(code) {
   code = corsLocal(code);
-  const tag = `${BASE}<script>${SHIM}<\/script>${ZOOM}`;
+  const saved = JSON.stringify(readStore()).replace(/</g, '\\u003c');
+  const tag = `${BASE}<script>window.__wpStore=${saved};${SHIM}<\/script>${ZOOM}`;
   const dt = code.match(/^\s*<!doctype[^>]*>/i);
   return dt ? dt[0] + tag + code.slice(dt[0].length) : '<!doctype html>' + tag + code;
 }
@@ -92,6 +105,7 @@ function snapshot() {
 window.addEventListener('message', (e) => {
   const m = e.data;
   if (e.source === previewEl.contentWindow && m && m.wpDom) {
+    if (m.t === 'store') { if (m.data && typeof m.data === 'object') writeStore(m.data); return; }
     if (m.t === 'log') {
       state.output += (m.k === 'warn' || m.k === 'error' ? m.k + ': ' : '') + m.text + '\n';
       const s = document.createElement('span'); if (m.k !== 'log' && m.k !== 'info') s.className = m.k; s.textContent = m.text + '\n'; outEl.append(s); outEl.scrollTop = outEl.scrollHeight;
@@ -116,6 +130,7 @@ function run() {
 }
 
 runBtn.addEventListener('click', run);
+mountDownload($('download'), $('dl'), () => codeEl.value);
 $('reset').addEventListener('click', () => { codeEl.value = starter; write(null); problemEl.hidden = true; });
 codeEl.addEventListener('input', () => write(codeEl.value));
 codeEl.addEventListener('keydown', (e) => {

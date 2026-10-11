@@ -598,6 +598,35 @@
      "matches": "\\btry\\s*\\{"
     }
    ]
+  },
+  {
+   "name": "A page for everyone, online",
+   "items": [
+    {
+     "label": "alt text",
+     "code": "<img src=\"‹trophy.svg›\" alt=\"‹A gold trophy›\">\n",
+     "hint": "Says what a picture shows, for anyone who can't see it (screen readers read it aloud). Use alt=\"\" for a picture that is only decoration.",
+     "matches": "\\balt\\s*="
+    },
+    {
+     "label": "heading outline",
+     "code": "<h1>‹Page title›</h1>\n<h2>‹A part of the page›</h2>\n<h3>‹A part of that part›</h3>\n",
+     "hint": "Headings are the page's outline: one h1, then h2 for each part, h3 inside those. Never pick a level for its size; set the size with CSS.",
+     "matches": "<h2\\b"
+    },
+    {
+     "label": "whole page",
+     "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>‹My page›</title>\n</head>\n<body>\n  ‹the page›\n</body>\n</html>\n",
+     "hint": "What a page file needs around its content: the language, the text encoding, a phone-friendly width and a title for the tab. The Download button adds it for you.",
+     "matches": "<!doctype"
+    },
+    {
+     "label": "relative path",
+     "code": "<img src=\"‹trophy.svg›\" alt=\"‹…›\">\n<link rel=\"stylesheet\" href=\"‹style.css›\">\n",
+     "hint": "A file name with no folder means \"beside this page\"; images/trophy.svg means \"in the images folder beside this page\". Never a path from your own computer (C:/Users/…).",
+     "matches": "src\\s*=\\s*\"[^\"/:]+\\.(svg|png|jpe?g|gif)\""
+    }
+   ]
   }
  ]
 }

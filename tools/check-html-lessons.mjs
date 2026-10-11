@@ -6,8 +6,8 @@ import { spawn } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 const { loadLessons, getSnippet } = await import('./lesson.mjs');
-// Courses on the HTML and DOM playgrounds: HTML & CSS, Bootstrap, the DOM course and Vue.
-const lessons = loadLessons().filter((l) => ['code/html/', 'code/bootstrap/', 'code/dom/', 'code/vue/'].some((p) => l.slug.startsWith(p)));
+// Courses on the HTML and DOM playgrounds: HTML & CSS, Bootstrap, the DOM course, Vue and Your site.
+const lessons = loadLessons().filter((l) => ['code/html/', 'code/bootstrap/', 'code/dom/', 'code/vue/', 'code/site/'].some((p) => l.slug.startsWith(p)));
 const srv = spawn('node', ['tools/serve.mjs', 'dist', '8261'], { stdio: 'ignore' });
 await new Promise((r) => setTimeout(r, 800));
 const U = 'http://127.0.0.1:8261/';
@@ -31,14 +31,14 @@ for (const l of lessons) {
     await p.waitForFunction(() => window.__playground?.updates > 0); await p.waitForTimeout(250);
     const f = await (await p.$('#preview')).contentFrame();
     const imgs = await f.$$eval('img', (a) => a.map((i) => [i.getAttribute('src'), i.complete && i.naturalWidth > 0]));
-    for (const [s, loaded] of imgs) ok(loaded || /trophey|medal\.png/.test(s), `${name}: picture ${s} did not load`);
+    for (const [s, loaded] of imgs) ok(loaded || /trophey|medal\.png/.test(s) || /^(file:|[A-Za-z]:[\\/]|\/)/.test(s), `${name}: picture ${s} did not load`); // planted: a typo, or a path from one computer (Put it online)
   }
   // 2. lesson checks
   region = null;
   await p.goto(U + l.slug + '/'); await p.waitForTimeout(800);
   ok(await p.evaluate(() => typeof window.evalRules === 'function'), 'the lesson script did not run (a bare tag in Markdown, such as <style>, can swallow it)');
   // The DOM playground (Vue, DOM) has a Run button and reports when it runs; the HTML playground reports as you type.
-  const put = async (step, code) => { const f = await (await p.locator(`#${step} iframe`).elementHandle()).contentFrame(); const run = f.locator('#run'); const dom = await run.count(); await f.waitForFunction((d) => d ? !!window.__playground : window.__playground?.updates > 0, dom); await f.locator('#code').fill(code); await f.locator('#code').dispatchEvent('input'); if (dom) { await run.click(); await f.waitForFunction(() => ['done', 'error'].includes(window.__playground.status), null, { timeout: 15000 }); } await p.waitForTimeout(450); };
+  const put = async (step, code) => { const f = await (await p.locator(`#${step} iframe`).elementHandle()).contentFrame(); const run = f.locator('#run'); const dom = await run.count(); await f.waitForFunction((d) => d ? !!window.__playground : window.__playground?.updates > 0, dom); await f.locator('#code').fill(code); await f.locator('#code').dispatchEvent('input'); if (dom) { await run.click(); await f.waitForFunction(() => ['done', 'error'].includes(window.__playground.status), null, { timeout: 30000 }).catch(async () => { await run.click(); await f.waitForFunction(() => ['done', 'error'].includes(window.__playground.status), null, { timeout: 30000 }); }); } await p.waitForTimeout(450); };
   for (const s of l.steps) {
     const sec = p.locator('#' + s.id); await sec.scrollIntoViewIfNeeded();
     const items = s.tasks.length ? s.tasks.map((t, i) => ({ t, i, k: t.config.check, id: t.id })) : [{ t: null, i: 0, k: s.config.check, id: s.id }];

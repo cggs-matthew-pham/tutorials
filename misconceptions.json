@@ -233,5 +233,8 @@
   "encrypt-at-router": {"home": "systems/networks/internet-journey", "text": "Data is thought to be encrypted by the router or the network; it is encrypted on the device (HTTPS) before it leaves, or the first hop would expose it."},
   "bigger-gear-faster": {"home": "engineering/mechanisms/winch", "text": "A bigger gear is thought to turn faster; a bigger driven gear turns slower, because more of its teeth must be pushed past for each turn."},
   "gear-ratio-upside-down": {"home": "engineering/mechanisms/winch", "text": "The gear ratio is worked out as driver ÷ driven; it is driven ÷ driver, so swapping the gears makes the output faster and weaker, not stronger."},
-  "gear-one-effect": {"home": "engineering/mechanisms/winch", "text": "A gear ratio is thought to change only the speed or only the force; it changes both, by the same factor in opposite directions."}
+  "gear-one-effect": {"home": "engineering/mechanisms/winch", "text": "A gear ratio is thought to change only the speed or only the force; it changes both, by the same factor in opposite directions."},
+  "storage-text-only": {"home": "code/dom/dom-save", "text": "localStorage keeps a list as a list; in fact it keeps only text, so save a list with JSON.stringify and load it with JSON.parse."},
+  "heading-for-size": {"home": "code/site/site-everyone", "text": "A heading level is chosen by how big it looks (an h4 because it is small); in fact headings are the page's outline, read out by screen readers in order, so go h1, h2, h3 and set the size with CSS."},
+  "path-from-my-computer": {"home": "code/site/site-publish", "text": "A path that works on my computer (C:\\Users\\…\\trophy.svg or /Users/…) works on the web; in fact the site only has its own folder, so use a relative path such as trophy.svg."}
 }
