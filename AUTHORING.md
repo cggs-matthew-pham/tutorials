@@ -613,6 +613,26 @@ Vary, Practise, Make).
     appears when both trees are finished, with the HCF and LCM. `grown: on` starts finished (each number split by its
     middle factor pair), for pictures and cards. Values: `n`, `k` (primes so far), `c` (1 when finished), `N`, `K`, `C`
     for the second, `h` (HCF) and `l` (LCM) once both are finished. Checks: `"c = 1"`, `"c = 1 and C = 1"`.
+  - `widget: area` (first used by `maths/measurement/parallelograms`): `shape: parallelogram | triangle | rectangle` on
+    a grid of unit squares, with the base and the perpendicular height (dashed, with a right-angle mark) labelled.
+    Sliders or fixed values `b` (base), `h` (height) and `s` (where the top sits: a parallelogram's top-left corner or a
+    triangle's apex, measured along from the base's left end; default 2, or b ÷ 2 for a triangle). The top can also be
+    dragged along its line (`drag: off` stops it). When the top is past an end, the base is extended (dashed) to meet
+    the height. `cut: on` adds **Cut and move** (a parallelogram rearranged into a rectangle) or **Add a turned copy**
+    (a triangle doubled into a parallelogram); `cut: shown` starts that way. `slant: on` also labels the left slanted
+    side. `units: cm`. Values: `b`, `h`, `s`, `a` (area), `l` (slanted side, 2 dp), `c` (1 while cut or copied), `o` (1
+    when the height falls outside the base). Checks: `"c = 1"`, `"s = 0"`, `"b = 8 and a = 24"`, `"o = 1"`, `"a = 18 and s^2 > 0"`.
+  - `widget: prism` (first used by `maths/measurement/volume-layers`): a right prism drawn in 3D, `base: rectangle`
+    (unit cubes, the top layer orange) or `base: triangle` (a right triangle with legs `l` and `w`, the right angle at
+    the front, layer lines on the faces). Sliders or fixed values `l`, `w` and `h` (layers; 0 allowed), whole numbers up
+    to 12. `units: cm`; `capacity: on` adds mL or L. Values: `l`, `w`, `h`, `A` (base area), `v` (volume), `c` (mL, with
+    cm). Checks: `"h = 5"`, `"v = 24 and h = 2"`, `"v = 1000"`.
+  - `widget: circle` (first used by `maths/measurement/parts-of-a-circle`): a circle of radius `r` (`slider r: 1, 6, 2`,
+    a step of 0.5 is fine, or `r: 3`) with its centre, radius, diameter, a chord and the circumference named
+    (`show: none` gives just r = and d =). `roll: on` adds **Roll it out**: the circle rolls one turn along a line, the
+    circumference is laid flat beside three diameters and a bit, and each size goes into a table of d, C and C ÷ d;
+    `roll: shown` starts rolled (pictures). `units: cm`. Values: `r`, `d`, `c` (2 dp), `q` (C ÷ d), `o` (1 once this size
+    is rolled), `n` (sizes in the table). Checks: `"d = 10"`, `"n >= 3"`, `"r = 2.5 and o = 1"`, `"c > 24.5 and c < 25.5"`.
   - `widget: data` (first used by `maths/data`): a dot plot of `values: 4, 7, 7, 8` on `range: 0, 20` (default: around
     the data), with the mean (▲), median (dashed) and range (arrow) marked and written underneath (`show: mean, median,
     mode, range` or `none`). `edit: on`: students click the line to add a value (landing on `step:`, default 1), click a

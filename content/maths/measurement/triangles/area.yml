@@ -1,0 +1,67 @@
+# Area boards for "Area of triangles". s is where the apex sits along the top line, from the left end of the base.
+
+# region: run
+widget: area
+shape: triangle
+b: 6
+h: 4
+slider s: -2, 8, 2
+cut: on
+units: cm
+# endregion
+
+# region: explain
+widget: area
+shape: triangle
+b: 6
+h: 4
+slider s: 0, 6, 2
+cut: on
+units: cm
+# endregion
+
+# region: explain-pic
+widget: area
+shape: triangle
+b: 6
+h: 4
+s: 2
+cut: shown
+units: cm
+# endregion
+
+# region: obtuse-pic
+widget: area
+shape: triangle
+b: 4
+h: 4
+s: 7
+units: cm
+# endregion
+
+# region: outside
+widget: area
+shape: triangle
+b: 4
+h: 4
+slider s: -3, 8, 2
+units: cm
+# endregion
+
+# region: twelve
+widget: area
+shape: triangle
+slider b: 1, 10, 6
+slider h: 1, 8, 2
+s: 1
+units: cm
+# endregion
+
+# region: make
+widget: area
+shape: triangle
+slider b: 1, 10, 4
+slider h: 1, 6, 2
+slider s: -2, 8, 1
+units: cm
+# endregion

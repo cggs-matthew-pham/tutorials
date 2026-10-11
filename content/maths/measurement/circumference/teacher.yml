@@ -1,0 +1,43 @@
+summary: Students use C = πd and C = 2πr to find circumferences, check against circles rolled out on the board, go backwards with d = C ÷ π, and design a trundle wheel (AC9M7M03, node 3).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can find a circle's circumference from its diameter or radius.
+  - I can find a diameter or radius from a circumference.
+  - I can give an exact answer in terms of π.
+struggle: "Going backwards from a circumference to a radius takes two steps (divide by π, then halve). Ask students to write which length they have and which they want before they press any calculator keys."
+before: |
+  Do the Run board yourself first. Students need π as C ÷ d (previous lesson), d = 2r, and dividing decimals (a calculator is fine).
+
+  The one idea: C = πd, because that is what π means. The common mistake is using the radius in place of the diameter (Mei's mistake, a spiral of Parts of a circle). Rearranging to d = C ÷ π uses the inverse-operations idea from Algebra.
+running:
+  - "Predict: students who chose 15.7 used the radius as the diameter."
+  - "Run: ask students to predict before rolling, then compare."
+  - "Investigate: share two routes for the wheel: C = π × 60, or C = 2 × π × 30."
+  - "Modify: for the semicircle, ask students to trace the whole outline with a finger."
+  - "Make: build a cardboard trundle wheel if there is time."
+stuck:
+  - see: "A student multiplies π by the radius (Mei's mistake)."
+    ask: "Is the given length across the whole circle or half way?"
+    fix: "Double the radius to get the diameter, or use C = 2πr."
+  - see: "A student multiplies by π when going backwards."
+    ask: "Should the diameter be bigger or smaller than the circumference?"
+    fix: "Smaller: divide by π."
+  - see: "A student forgets units or mixes cm and m."
+    ask: "What unit is your answer in? What does the question want?"
+    fix: "Convert at the end: 100 cm = 1 m."
+stretch: "The Earth's equator is about 40 000 km. Estimate the Earth's diameter. If a rope round the equator were made 1 m longer, how high above the ground would it float?"
+support: "Keep C = πd and d = 2r on the board; use 3.14 on a calculator (the π key gives answers a little different from 3.14)."
+leads: |
+  This completes AC9M7M03.
+
+  Where it leads: the area of a circle and composite shapes with circles (Year 8), arc length (Year 10), and Pythagoras (AC9M8M06, next in this pathway).
+exit:
+  q: "Find the circumference of a circle with radius 4 cm. A circle has circumference 12.56 cm: find its diameter. (π ≈ 3.14)"
+  a: "2 × 3.14 × 4 = 25.12 cm. 12.56 ÷ 3.14 = 4 cm."
+explain: |
+  Because $C \div d = \pi$, the circumference is
+
+  $$C = \pi d = 2\pi r$$
+
+  Use the diameter (or double the radius). Going backwards, divide by π: $d = C \div \pi$. An exact answer keeps π: a circle with diameter 10 cm has $C = 10\pi$ cm, about 31.4 cm.

@@ -5,6 +5,7 @@ goals:
   - I can find the HCF and LCM of two numbers from their prime factorisations.
   - I can explain why the method works.
   - I can decide whether a problem needs the HCF or the LCM.
+struggle: "Deciding whether a problem needs the HCF or the LCM. Ask whether the answer should be smaller than the numbers (sharing) or bigger (lining up again) before any calculation."
 before: |
   Do the Run board yourself first. Students need prime factorisation with exponents (previous lesson).
 

@@ -1,0 +1,32 @@
+# Circle boards for "Circumference".
+
+# region: run
+widget: circle
+slider r: 0.5, 4, 1, 0.5
+roll: on
+show: none
+units: cm
+# endregion
+
+# region: explain
+widget: circle
+slider r: 1, 4, 2
+show: none
+units: cm
+# endregion
+
+# region: explain-pic
+widget: circle
+r: 2.5
+roll: shown
+show: none
+units: cm
+# endregion
+
+# region: twentyfive
+widget: circle
+slider r: 0.5, 5, 1, 0.5
+roll: on
+show: none
+units: cm
+# endregion

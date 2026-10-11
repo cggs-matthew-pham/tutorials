@@ -1,0 +1,59 @@
+# Area boards for "Area of parallelograms". b is the base, h the perpendicular height, s where the top-left corner sits.
+
+# region: run
+widget: area
+shape: parallelogram
+b: 6
+h: 4
+s: 2
+cut: on
+units: cm
+# endregion
+
+# region: explain
+widget: area
+shape: parallelogram
+b: 6
+h: 4
+slider s: 0, 4, 2
+cut: on
+units: cm
+# endregion
+
+# region: explain-pic
+widget: area
+shape: parallelogram
+b: 6
+h: 4
+s: 2
+cut: shown
+units: cm
+# endregion
+
+# region: straighten
+widget: area
+shape: parallelogram
+b: 6
+h: 4
+slider s: -2, 5, 3
+units: cm
+# endregion
+
+# region: twentyfour
+widget: area
+shape: parallelogram
+slider b: 1, 10, 5
+slider h: 1, 6, 2
+s: 2
+units: cm
+# endregion
+
+# region: make
+widget: area
+shape: parallelogram
+slider b: 1, 10, 4
+slider h: 1, 6, 2
+slider s: -2, 5, 0
+slant: on
+units: cm
+# endregion

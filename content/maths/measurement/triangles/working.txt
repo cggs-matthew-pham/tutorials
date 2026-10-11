@@ -1,0 +1,8 @@
+# Omar's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: omar
+A triangle has base 8 cm and perpendicular height 5 cm.
+Area = base × height
+= 8 × 5
+= 40 cm²
+# endregion

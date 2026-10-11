@@ -1,0 +1,102 @@
+{
+  "title": "Maths reference: Area, volume and circles",
+  "summary": "The words and formulas from Area, volume and circles, each with an example and, where it helps, a picture of the board.",
+  "language": "maths",
+  "course": "maths/measurement",
+  "_about": "Maths cards for maths/measurement (see snippets/maths.json for the format).",
+  "groups": [
+    {
+      "name": "Area",
+      "items": [
+        {
+          "label": "perpendicular height",
+          "unit": "area",
+          "code": "h \\text{ at } 90^\\circ \\text{ to } b",
+          "hint": "The distance from the base to the opposite side or corner, at a right angle (∟) to the base. A slanted side is longer, and is not the height."
+        },
+        {
+          "label": "area of a parallelogram",
+          "unit": "area",
+          "code": "A = b \\times h",
+          "hint": "Cut the triangle off one end and move it: a rectangle with the same base and height.",
+          "board": "widget: area\nshape: parallelogram\nb: 6\nh: 4\ns: 2\ncut: shown\nunits: cm",
+          "shows": "A parallelogram cut and rearranged into a 6 by 4 rectangle"
+        },
+        {
+          "label": "area of a triangle",
+          "unit": "area",
+          "code": "A = \\tfrac{1}{2} \\times b \\times h",
+          "hint": "Two copies make a parallelogram with the same base and height; the triangle is half.",
+          "board": "widget: area\nshape: triangle\nb: 6\nh: 4\ns: 2\ncut: shown\nunits: cm",
+          "shows": "A triangle and its turned copy make a parallelogram"
+        },
+        {
+          "label": "composite area",
+          "unit": "area",
+          "code": "24 + 9 = 33 \\text{ m}^2",
+          "hint": "Split the shape into rectangles and triangles and add the parts, or subtract a missing part from a bigger shape. Put every length in the same unit first."
+        },
+        {
+          "label": "square units",
+          "unit": "area",
+          "code": "1 \\text{ m}^2 = 10\\,000 \\text{ cm}^2",
+          "hint": "Area counts squares: cm², m². A 1 m square is 100 cm by 100 cm."
+        }
+      ]
+    },
+    {
+      "name": "Volume",
+      "items": [
+        {
+          "label": "volume of a prism",
+          "unit": "volume",
+          "code": "V = A \\times h",
+          "hint": "Each layer is the base (the cross-section); the height counts the layers. For a box, $V = l \\times w \\times h$.",
+          "board": "widget: prism\nl: 4\nw: 3\nh: 5\nunits: cm",
+          "shows": "A 4 by 3 by 5 box in layers of 12 cubes"
+        },
+        {
+          "label": "cross-section",
+          "unit": "volume",
+          "code": "V = \\tfrac{1}{2} \\times 6 \\times 4 \\times 10 = 120 \\text{ cm}^3",
+          "hint": "The shape that is the same all the way along a prism, like a slice of bread. A triangular prism's cross-section is a triangle: halve first.",
+          "board": "widget: prism\nbase: triangle\nl: 4\nw: 3\nh: 5\nunits: cm",
+          "shows": "A triangular prism, half of a 4 by 3 box, 5 layers high"
+        },
+        {
+          "label": "capacity",
+          "unit": "volume",
+          "code": "1 \\text{ cm}^3 = 1 \\text{ mL} \\qquad 1000 \\text{ cm}^3 = 1 \\text{ L}",
+          "hint": "How much a container holds. A 10 cm cube holds 1 litre."
+        }
+      ]
+    },
+    {
+      "name": "Circles",
+      "items": [
+        {
+          "label": "radius and diameter",
+          "unit": "circles",
+          "code": "d = 2r \\qquad r = d \\div 2",
+          "hint": "The radius goes from the centre to the edge; the diameter right across through the centre. A chord joins any two points; the diameter is the longest.",
+          "board": "widget: circle\nr: 3\nunits: cm",
+          "shows": "A circle with its centre, radius, diameter, a chord and the circumference"
+        },
+        {
+          "label": "pi",
+          "unit": "circles",
+          "code": "\\pi = \\frac{C}{d} = 3.14159\\ldots",
+          "hint": "The circumference divided by the diameter: the same for every circle. 3.14 and 22/7 are approximations.",
+          "board": "widget: circle\nr: 1.5\nroll: shown\nshow: none\nunits: cm",
+          "shows": "A circle rolled out flat: just over 3 diameters"
+        },
+        {
+          "label": "circumference",
+          "unit": "circles",
+          "code": "C = \\pi d = 2\\pi r",
+          "hint": "Use the diameter, or double the radius. Backwards: $d = C \\div \\pi$. Exact answers keep π: $10\\pi$ cm."
+        }
+      ]
+    }
+  ]
+}

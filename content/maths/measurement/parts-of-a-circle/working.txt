@@ -1,0 +1,8 @@
+# Jay's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: jay
+A round table is 120 cm across, measured through the centre.
+The distance across through the centre is the radius.
+So the radius is 120 cm.
+A chair at the edge is 120 cm from the centre.
+# endregion

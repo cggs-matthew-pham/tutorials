@@ -1,0 +1,8 @@
+# Mei's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mei
+A wheel has radius 30 cm. How far does it roll in one turn?
+C = π × d
+= 3.14 × 30
+= 94.2 cm
+# endregion

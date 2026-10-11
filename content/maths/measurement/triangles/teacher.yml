@@ -1,0 +1,43 @@
+summary: Students double a triangle with a turned copy to make a parallelogram, see why A = ½bh, find heights that fall outside obtuse triangles, and work backwards from an area (AC9M7M01, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can explain why a triangle's area is half of base × height.
+  - I can find the area of any triangle, including one whose height falls outside it.
+  - I can find a missing base or height from an area.
+struggle: "Working backwards from an area to a height (doubling before dividing). Ask students to write ½ × 8 × h = 20 and undo one step at a time, rather than giving them the rule."
+before: |
+  Do the Run board yourself first. Students need the parallelogram area (previous lesson).
+
+  The one idea: two copies of a triangle make a parallelogram with the same base and height, so the triangle is half. The common mistake is forgetting the half (Omar's mistake). Obtuse triangles have a height outside the shape, onto the base extended.
+running:
+  - "Predict: students who chose 24 found the parallelogram."
+  - "Run: ask what shape the two copies make, and why it has the same height."
+  - "Investigate: on the obtuse picture, ask students to trace the height from the top to the dashed extension."
+  - "Modify: for the right-angled triangle, ask which two sides are at the right angle."
+  - "Make: collect base and height pairs; all multiply to 30."
+stuck:
+  - see: "A student forgets to halve (Omar's mistake)."
+    ask: "What shape has area base × height?"
+    fix: "Two triangles make that parallelogram; one triangle is half."
+  - see: "A student says an obtuse triangle has no height."
+    ask: "Where would a plumb line from the top land?"
+    fix: "Extend the base; the height meets it at a right angle."
+  - see: "A student uses the sloping side of a right-angled triangle."
+    ask: "Which two sides meet at the right angle?"
+    fix: "Those two are a base and its height."
+stretch: "Draw four different triangles on squared paper with area 12 cm², including one with its height outside."
+support: "Use the board for every triangle, and cut paper triangles in half pairs."
+leads: |
+  Next: Area problems (node 2): choosing the base and height, units, and shapes made of rectangles and triangles.
+
+  Where it leads: area of trapeziums (Year 8), and the cross-section of triangular prisms (Volume).
+exit:
+  q: "A triangle has base 9 cm and height 6 cm. Find its area. A triangle with area 24 cm² has base 8 cm: find its height."
+  a: "½ × 9 × 6 = 27 cm². ½ × 8 × h = 24, so h = 6 cm."
+explain: |
+  Two copies of a triangle, one turned round, make a parallelogram with the same base and height. So the triangle's area is **half** of base × height:
+
+  $$A = \tfrac{1}{2} \times b \times h$$
+
+  The height is perpendicular to the base. If the top leans past the end of the base, extend the base: the height meets it outside the triangle. Moving the top along a line parallel to the base keeps the area.

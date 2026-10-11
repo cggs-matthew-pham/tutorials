@@ -1,0 +1,41 @@
+# Prism boards for "Volume in layers". l and w are the base; h is how many layers of cubes.
+
+# region: run
+widget: prism
+l: 4
+w: 3
+slider h: 0, 6, 0
+units: cm
+# endregion
+
+# region: explain
+widget: prism
+l: 4
+w: 3
+slider h: 0, 6, 1
+units: cm
+# endregion
+
+# region: explain-pic
+widget: prism
+l: 4
+w: 3
+h: 5
+units: cm
+# endregion
+
+# region: build
+widget: prism
+slider l: 1, 6, 1
+slider w: 1, 6, 1
+slider h: 1, 6, 1
+units: cm
+# endregion
+
+# region: make
+widget: prism
+slider l: 1, 6, 1
+slider w: 1, 6, 1
+slider h: 1, 6, 1
+units: cm
+# endregion

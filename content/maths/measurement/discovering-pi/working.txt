@@ -1,0 +1,7 @@
+# Kai's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kai
+I measured a plate: circumference 78.5 cm, diameter 25 cm.
+78.5 ÷ 25 = 3.14
+So π is exactly 3.14.
+# endregion

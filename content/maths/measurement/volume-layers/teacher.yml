@@ -1,0 +1,43 @@
+summary: Students build rectangular prisms from layers of unit cubes, see that each layer is the base area, and use V = A × h with cubic units, including working backwards to a missing length (AC9M7M02, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can explain why the volume of a box is the area of its base times its height.
+  - I can find the volume of a box in cm³ or m³.
+  - I can find a missing length from a volume.
+struggle: "Seeing the box as full, not a shell of faces. Ask students to describe the hidden middle layer before they calculate, instead of counting for them."
+before: |
+  Do the Run board yourself first. Students need the area of a rectangle (Area unit) and multiplying decimals.
+
+  The one idea: a prism fills up in layers, each a copy of the base, so V = A × h. The common mistake is counting only the outside (Finn's mistake), or adding the faces (a surface area). Cubic units (cm³) are new.
+running:
+  - "Predict: students who chose 94 counted the outside squares; 12 is one layer."
+  - "Run: ask how many cubes are hidden in the middle."
+  - "Investigate: link V = A × h to area: the base is an area, the height counts layers."
+  - "Modify: for the missing height, ask how many layers of 20 make 60."
+  - "Make: collect boxes with volume 36 and sort them by height."
+stuck:
+  - see: "A student counts only the cubes or squares they can see (Finn's mistake)."
+    ask: "What is under the top layer?"
+    fix: "Every layer is full: count one layer, then the layers."
+  - see: "A student adds the three lengths."
+    ask: "How many cubes in one layer?"
+    fix: "Multiply length × width for a layer, then × height."
+  - see: "A student writes cm² for a volume."
+    ask: "Are we counting squares or cubes?"
+    fix: "Cubes: cm³."
+stretch: "Find every box made of 24 unit cubes (whole-number sides). Which has the least outside surface?"
+support: "Build with real cubes; use the board's layers for every question."
+leads: |
+  Next: Prisms (node 2): triangular prisms and capacity.
+
+  Where it leads: volume of cylinders (Year 9: the circle's area times the height), and surface area.
+exit:
+  q: "A box is 5 cm by 4 cm by 3 cm. Find its volume. A box with base 6 cm² has volume 42 cm³: how high is it?"
+  a: "5 × 4 × 3 = 60 cm³. 42 ÷ 6 = 7 cm."
+explain: |
+  **Volume** counts unit cubes (cm³, m³). A prism fills up in layers: each layer covers the base, so it has as many cubes as the base has squares. The number of layers is the height:
+
+  $$V = A \times h$$
+
+  For a box, $A = l \times w$, so $V = l \times w \times h$. The cubes fill the inside, not just the outside you can see.

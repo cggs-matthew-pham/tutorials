@@ -1,0 +1,33 @@
+# Circle boards for "Discovering pi". Roll it out lays the circumference flat beside diameters, and adds a table row.
+
+# region: run
+widget: circle
+slider r: 0.5, 3, 1, 0.5
+roll: on
+show: none
+units: cm
+# endregion
+
+# region: explain
+widget: circle
+r: 1.5
+roll: on
+show: none
+units: cm
+# endregion
+
+# region: explain-pic
+widget: circle
+r: 1.5
+roll: shown
+show: none
+units: cm
+# endregion
+
+# region: unit
+widget: circle
+slider r: 0.5, 3, 2, 0.5
+roll: on
+show: none
+units: cm
+# endregion

@@ -5,6 +5,7 @@ goals:
   - I can use a factor tree to write a number as a product of primes.
   - I can write the prime factorisation with exponents and check it by expanding.
   - I can explain why different trees for a number give the same primes.
+struggle: "Knowing when a tree is finished. Ask students to check each end of a branch for factors other than 1 and itself, rather than circling the primes for them."
 before: |
   Do the Run board yourself first, twice, with different first splits. Students need factor pairs, primes (Year 6) and exponent notation (previous lesson).
 

@@ -1,0 +1,8 @@
+# Ruby's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ruby
+A parallelogram has base 7 cm, slanted side 5 cm and height 4 cm.
+Area = base × height
+= 7 × 5
+= 35 cm²
+# endregion

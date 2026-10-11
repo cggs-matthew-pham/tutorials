@@ -1,0 +1,43 @@
+summary: Students name the parts of a circle (centre, radius, diameter, chord, circumference), use d = 2r in both directions, and reason about the biggest circle that fits a rectangle (AC9M7M03, node 1).
+time: 35
+timing: "Predict and Run 6 min · Investigate 10 min · Modify 8 min · Practise and Make 11 min"
+goals:
+  - I can name the parts of a circle.
+  - I can find the diameter from the radius, and the radius from the diameter.
+  - I can explain why the diameter is the longest chord.
+struggle: "Keeping radius and diameter apart in word problems. Ask students to sketch the circle and mark the given length on it before they double or halve."
+before: |
+  Do the Run board yourself first. Students meet these words informally in primary school; this lesson makes them exact.
+
+  The one idea: the radius is centre to edge; the diameter is two radii right across; d = 2r. The common mistake is mixing them up in context (Jay's mistake). Circumference is named here and found in the next two lessons.
+running:
+  - "Predict: students who chose 2.5 halved the radius."
+  - "Run: ask what stays true as the circle grows."
+  - "Investigate: draw a chord near the edge and one through the centre; compare lengths."
+  - "Modify: for diameter 7, ask why the radius is not a whole number."
+  - "Make: let students sketch the lid before answering."
+stuck:
+  - see: "A student calls the diameter the radius (Jay's mistake)."
+    ask: "Does it stop at the centre or go right across?"
+    fix: "Centre to edge is the radius; edge to edge through the centre is the diameter."
+  - see: "A student doubles when they should halve."
+    ask: "Is the diameter bigger or smaller than the radius?"
+    fix: "The diameter is bigger: double the radius; halve the diameter."
+  - see: "A student thinks the circumference is a chord."
+    ask: "Is it straight or curved?"
+    fix: "The circumference is the curved distance round."
+stretch: "How many 3 cm radius coasters fit, in a grid, on a 30 cm by 24 cm tray?"
+support: "Use a paper circle folded in half (the fold is a diameter) and in quarters (the centre)."
+leads: |
+  Next: Discovering π (node 2): how the circumference compares to the diameter.
+
+  Where it leads: circle theorems (Year 10), and the area of a circle (Year 8).
+exit:
+  q: "A circular pond has diameter 9 m. Find its radius. What is a chord?"
+  a: "4.5 m. A straight line joining two points on the circle."
+explain: |
+  A **circle** is all the points the same distance (the **radius**, $r$) from its **centre**.
+
+  - The **diameter** ($d$) goes right across through the centre: $d = 2r$, and $r = d \div 2$.
+  - A **chord** joins any two points; the diameter is the longest chord.
+  - The **circumference** ($C$) is the distance all the way round.

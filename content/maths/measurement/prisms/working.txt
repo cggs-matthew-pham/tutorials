@@ -1,0 +1,8 @@
+# Lena's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: lena
+A tent is a triangular prism 3 m long. Its triangle end has base 2 m and height 1.5 m.
+Area of the triangle end = 2 × 1.5 = 3 m²
+Volume = 3 × 3
+= 9 m³
+# endregion

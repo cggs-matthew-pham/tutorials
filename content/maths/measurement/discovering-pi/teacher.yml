@@ -1,0 +1,43 @@
+summary: Students roll circles of different sizes out flat, divide the circumference by the diameter each time, and discover the constant π ≈ 3.14, with its approximations and a quick estimate C ≈ 3d (AC9M7M03, node 2).
+time: 40
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - "I can explain what π means: how many diameters fit round a circle."
+  - I can estimate a circumference from a diameter.
+  - I can say why 3.14 and 22/7 are close to π but not exact.
+struggle: "Believing the ratio is the same for every circle before seeing it. Ask students to predict C ÷ d for a much bigger circle before they roll it, and let the table decide."
+before: |
+  Do the Run board yourself first, then try it with real objects: string round tins and plates, measured against their diameters. The board is the clean version; the hands-on measurement shows why measured values wobble around 3.14.
+
+  The one idea: C ÷ d is the same for every circle, and that number is π. The common mistake is thinking π is exactly 3.14 or 22/7 (Kai's mistake).
+running:
+  - "Predict: take estimates; most say 20 or 30."
+  - "Run: ask students to read down the C ÷ d column aloud."
+  - "Investigate: collect real measurements from tins and plates; their ratios cluster near 3.1 or 3.2."
+  - "Modify: diameter 1 gives π itself: link to the definition."
+  - "Make: insist on a prediction before rolling."
+stuck:
+  - see: "A student thinks π is exactly 3.14 (Kai's mistake)."
+    ask: "Is any ruler measurement exact?"
+    fix: "π = 3.14159… never ends; 3.14 is rounded."
+  - see: "A student divides d by C."
+    ask: "How many diameters fit round: is the answer more or less than 1?"
+    fix: "C ÷ d, about 3."
+  - see: "A student thinks bigger circles have bigger π."
+    ask: "If the diameter doubles, what happens to the circumference?"
+    fix: "Both double, so the ratio stays the same."
+stretch: "Find out how Archimedes trapped π between 3 10/71 and 3 1/7 using polygons inside and outside a circle."
+support: "Use string and tins; keep the table of C, d and C ÷ d on the board."
+leads: |
+  Next: Circumference (node 3): C = πd and C = 2πr, and finding d from C.
+
+  Where it leads: the area of a circle (Year 8), and π as an irrational number (Year 9).
+exit:
+  q: "What is π? Estimate the circumference of a circle with diameter 20 cm."
+  a: "π is the circumference divided by the diameter, the same for every circle, about 3.14. C ≈ 3.14 × 20 = 62.8 cm."
+explain: |
+  Roll a circle out flat for one turn and its circumference is a bit more than 3 diameters. For **every** circle, the circumference divided by the diameter is the same number, **π**:
+
+  $$\pi = \frac{C}{d} = 3.14159\ldots$$
+
+  π's digits never end and never settle into a repeating pattern; 3.14 and $\tfrac{22}{7}$ are approximations. A quick estimate: the circumference is a bit more than 3 diameters.

@@ -1,0 +1,26 @@
+# Circle boards for "Parts of a circle".
+
+# region: run
+widget: circle
+slider r: 1, 6, 2
+units: cm
+# endregion
+
+# region: explain
+widget: circle
+slider r: 1, 6, 2
+units: cm
+# endregion
+
+# region: explain-pic
+widget: circle
+r: 3
+units: cm
+# endregion
+
+# region: halves
+widget: circle
+slider r: 1, 6, 2, 0.5
+show: none
+units: cm
+# endregion

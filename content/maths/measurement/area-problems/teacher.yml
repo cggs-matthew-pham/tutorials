@@ -1,0 +1,45 @@
+summary: Students solve area problems by choosing the base and perpendicular height, converting to one unit, and splitting composite shapes into rectangles and triangles (adding or subtracting parts), with reasoning they own (AC9M7M01, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can pick the right base and height when a shape has extra lengths.
+  - I can change lengths to the same unit before finding an area.
+  - I can find the area of a shape made of rectangles and triangles.
+struggle: "Planning a composite area before calculating. Ask students to sketch the parts and label each with its own lengths first; resist giving the split."
+before: |
+  Do the Run board yourself first. Students need the parallelogram and triangle formulas (previous lessons) and converting cm and m.
+
+  The one idea: choose, convert, split. The common mistake is multiplying lengths in different units (Ivy's mistake); extra information (slanted sides) is planted in several tasks. 1 m² = 10 000 cm² surprises most students.
+
+  The house-wall task is a reasoning check: the working is never marked, only the final area and the reason for the roof step.
+running:
+  - "Predict: students who chose 1000 m² did not convert."
+  - "Run: ask how the half-metre row shows on the grid."
+  - "Investigate: ask two students to share different splits of the house wall."
+  - "Modify: for 1 m², draw a 1 m square and ask how many 1 cm squares fit along one side."
+  - "Make: compare designs, then cost them."
+stuck:
+  - see: "A student multiplies cm by m (Ivy's mistake)."
+    ask: "What unit is each length in?"
+    fix: "Change both to metres (or both to cm) first."
+  - see: "A student uses every number given."
+    ask: "Which lengths meet at a right angle?"
+    fix: "Use the base and its height; ignore slanted sides."
+  - see: "A student cannot start a composite shape."
+    ask: "Can you see a rectangle and a triangle in it?"
+    fix: "Sketch the parts, find each area, then add (or subtract a missing part)."
+stretch: "Find the area of the letter L, T or H drawn on squared paper in two different ways (adding parts, and subtracting from a rectangle)."
+support: "Use squared paper; convert all lengths to the smaller unit and write them on the sketch."
+leads: |
+  Next: Volume (AC9M7M02): the area of the base times the height.
+
+  Where it leads: area of trapeziums, circles and composite shapes with circles (Year 8), and surface area (Year 9).
+exit:
+  q: "A shape is a 7 m by 4 m rectangle with a triangle on top (base 7 m, height 2 m). Find its area."
+  a: "28 + ½ × 7 × 2 = 28 + 7 = 35 m²."
+explain: |
+  Area problems have three moves:
+
+  - **Choose** the base and the height at a right angle to it; a slanted side is extra information.
+  - **Convert** every length to the same unit first (250 cm = 2.5 m). Area is in square units, and 1 m² = 10 000 cm².
+  - **Split** a shape into rectangles and triangles and add the parts, or subtract a missing part from a bigger shape.

@@ -1,0 +1,8 @@
+# Ivy's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ivy
+A rug is 50 cm wide and 2 m long. Find its area.
+Area = length × width
+= 50 × 2
+= 100 m²
+# endregion

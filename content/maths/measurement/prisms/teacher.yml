@@ -1,0 +1,43 @@
+summary: Students build triangular prisms in layers, find volume as cross-section area × length for any right prism, and link volume to capacity (1 cm³ = 1 mL, 1000 cm³ = 1 L) (AC9M7M02, node 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can find the cross-section of a prism.
+  - I can find the volume of a triangular prism.
+  - I can change between cm³, mL and litres.
+struggle: "Spotting the cross-section of a prism lying on its side. Ask students to imagine slicing it like bread and describe the slice, rather than pointing to the face for them."
+before: |
+  Do the Run board yourself first. Students need V = A × h for boxes (previous lesson) and triangle area (Area unit).
+
+  The one idea: every right prism is its cross-section repeated along its length, so V = cross-section area × length. The common mistake is forgetting the triangle's half (Lena's mistake, a spiral of the triangles lesson). Capacity conversions (mL, L) are new.
+running:
+  - "Predict: students who chose 60 found the box, not the prism."
+  - "Run: ask what the dashed rectangle on the floor shows."
+  - "Investigate: hold up a triangular box or a tent picture and ask what a slice looks like."
+  - "Modify: for the edge case, turn a real prism over."
+  - "Make: ask why l × w × h must be 48."
+stuck:
+  - see: "A student multiplies the three lengths of a triangular prism (Lena's mistake)."
+    ask: "What shape is the slice? What is its area?"
+    fix: "Halve for the triangle, then multiply by the length."
+  - see: "A student calls the face it stands on the cross-section."
+    ask: "If you slice it like bread, what shape is each slice?"
+    fix: "The cross-section is the slice that repeats."
+  - see: "A student divides by 100 for litres."
+    ask: "How many mL in a litre?"
+    fix: "1000 mL = 1 L, and 1 cm³ = 1 mL."
+stretch: "A swimming pool is a prism whose cross-section is a trapezium (shallow to deep end). Estimate how many litres it holds."
+support: "Use real prisms and slices of play dough; write the cross-section area first, every time."
+leads: |
+  Next: Circles (AC9M7M03).
+
+  Where it leads: volume of cylinders (Year 9), where the cross-section is a circle, and surface area of prisms.
+exit:
+  q: "A prism's triangle end has base 5 cm and height 4 cm; it is 6 cm long. Find its volume and its capacity in mL."
+  a: "½ × 5 × 4 = 10 cm², × 6 = 60 cm³ = 60 mL."
+explain: |
+  A **right prism** has the same cross-section all the way along. Its volume is that slice's area times the length:
+
+  $$V = A \times h$$
+
+  For a triangular prism, the cross-section is a triangle: halve first ($\tfrac{1}{2} \times 6 \times 4 = 12$ cm², then $\times 10 = 120$ cm³). **Capacity:** 1 cm³ holds 1 mL, and 1000 cm³ = 1 L.

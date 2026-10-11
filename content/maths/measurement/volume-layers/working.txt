@@ -1,0 +1,8 @@
+# Finn's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: finn
+A box is 4 cubes long, 3 cubes wide and 2 cubes high. How many cubes fill it?
+I count the squares I can see: top 12, front 8, side 6.
+12 + 8 + 6 = 26
+So 26 cubes fill the box.
+# endregion

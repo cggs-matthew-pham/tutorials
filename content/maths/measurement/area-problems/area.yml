@@ -1,0 +1,47 @@
+# Area boards for "Area problems".
+
+# region: run
+widget: area
+shape: rectangle
+slider b: 1, 6, 1
+slider h: 0.5, 4, 0.5, 0.5
+units: m
+# endregion
+
+# region: explain
+widget: area
+shape: triangle
+b: 10
+h: 4
+slider s: 0, 10, 3
+slant: on
+units: cm
+# endregion
+
+# region: explain-pic
+widget: area
+shape: triangle
+b: 10
+h: 4
+s: 3
+slant: on
+units: cm
+# endregion
+
+# region: sail
+widget: area
+shape: triangle
+slider b: 1, 8, 2
+slider h: 1, 8, 2
+s: 0
+units: m
+# endregion
+
+# region: make
+widget: area
+shape: triangle
+slider b: 1, 10, 2
+slider h: 1, 8, 1
+s: 0
+units: m
+# endregion
