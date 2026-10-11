@@ -1,0 +1,45 @@
+summary: Students use rates both ways (total = rate × amount, amount = total ÷ rate) for petrol, speed, water and exchange rates, letting the units decide multiply or divide (AC9M8M05, node 2).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can use a rate to find a total or an amount.
+  - I can use distance, speed and time in any order.
+  - I can check an answer with its units and its size.
+struggle: "Choosing to multiply or divide. Ask students to write the units into the calculation (km ÷ km/h = h) before they press a key."
+before: |
+  Do the Run board yourself first. Students need rates and unit rates (previous lesson).
+
+  The one idea: a rate works both ways; the units decide whether to multiply or divide. The common mistake is multiplying distance by speed to find a time (Leo's mistake).
+
+  The exchange rate in the lesson (0.65 US dollars per Australian dollar) is a round example, not today's rate.
+
+  Wider: plan holiday spending with a current exchange rate (and its fees); compare two phone plans.
+running:
+  - "Predict: ask what 40 ÷ 2.05 would mean."
+  - "Run: ask how much one more litre adds."
+  - "Investigate: ask Leo whether 9000 hours makes sense."
+  - "Modify: ask why the gap grows by the same amount each hour."
+  - "Make: ask what the model leaves out."
+stuck:
+  - see: "A student multiplies to find a time."
+    ask: "What units does your answer have?"
+    fix: "km ÷ km/h gives hours: divide."
+  - see: "A student writes 2.5 hours as 2 h 50 min."
+    ask: "What is half an hour in minutes?"
+    fix: "0.5 h = 30 min."
+  - see: "A student converts money the wrong way."
+    ask: "Should you get more or fewer US dollars than Australian dollars?"
+    fix: "Check the size: 1 AUD buys less than 1 USD here."
+stretch: "Plan a trip budget overseas: look up today's exchange rate, convert three prices, and include a 3% card fee."
+support: "A card: total = rate × amount; amount = total ÷ rate; units in every line."
+leads: |
+  This completes AC9M8M05.
+
+  Where it leads: rate models (next lessons), gradient as a rate (Linear relations), and speed in science.
+exit:
+  q: "A plane flies 2100 km at 700 km/h. How long does it take?"
+  a: "2100 ÷ 700 = 3 hours."
+explain: |
+  Use a rate both ways: **total = rate × amount** and **amount = total ÷ rate**. For speed, distance = speed × time and time = distance ÷ speed.
+
+  Write the units at each step (km ÷ km/h = h); they tell you whether to multiply or divide. Then check the size makes sense.

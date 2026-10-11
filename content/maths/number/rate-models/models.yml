@@ -1,0 +1,46 @@
+# Boards for "Ratio and rate models".
+
+# region: run
+widget: rate
+top: m², area
+bottom: L, paint
+rate: 12
+slider x: 0, 8, 1, 0.5
+# endregion
+
+# region: explain
+widget: ratio
+mode: share
+a: 1
+b: 4
+labels: cordial, water
+slider total: 1, 10, 2, 1
+units: L
+# endregion
+
+# region: explain-pic
+widget: ratio
+mode: share
+a: 1
+b: 4
+labels: cordial, water
+total: 2
+units: L
+# endregion
+
+# region: share
+widget: ratio
+mode: share
+slider a: 1, 9, 1
+slider b: 1, 9, 1
+slider total: 40, 400, 120, 40
+units: $
+# endregion
+
+# region: fence
+widget: rate
+top: m², area
+bottom: L, paint
+rate: 12
+slider x: 0, 8, 1, 0.5
+# endregion

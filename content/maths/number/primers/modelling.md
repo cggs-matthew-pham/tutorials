@@ -22,6 +22,10 @@ Modelling is where Number meets the real world: shopping, savings, building, map
 
 A percentage change is a multiplier: up p% is × (1 + p/100), down p% is × (1 − p/100), and one change after another multiplies the multipliers (up 20% then down 20% is × 0.96). Income tax is a model in brackets: each part of the income is taxed at its own rate, so the marginal rate (on the last dollar) is higher than the effective rate (tax ÷ income). The common slips: taking a second percentage of the original amount, and taxing the whole income at the top rate.
 
+## Year 8: ratio and rate models
+
+Model a problem by saying what is needed (with units), choosing a ratio (same kind of quantity) or a rate (different units), solving, and interpreting the answer in the situation (round paint tins up). Every model makes assumptions (steady speed, no fees, no starting charge); when it disagrees with real life, name the assumption and refine the model, for example fare = $4.20 + $2.10 × km. The common slips: rounding the wrong way for the situation, and blaming correct arithmetic for a model's mismatch.
+
 ## The words
 
 **model**, **formulate**, **interpret**, **justify**, **representation**, **profit**, **markup**, **discount**, **scale**.

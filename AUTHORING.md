@@ -388,7 +388,7 @@ All except `code` are static and need no running code. Write the check under `ch
 |---|---|---|
 | `reflect` | `text` | ticks a box |
 | `question` | `q`, `options`, `answer` (0-based), `explain` | picks one option |
-| `number` | `q`, `answer`, optional `tolerance`, `explain` | types a number |
+| `number` | `q`, `answer`, optional `tolerance`, `feedback` (`[["wrong number", "message"]]`, matched within the tolerance), `explain` | types a number |
 | `flag` | `q`, `hash`, `explain` | types a capture-the-flag answer. Only a hash is stored: make it with `node tools/flag-hash.mjs "WP{answer}"` (SHA-256 of `wp-flag:` + the lower-cased, trimmed answer). The page checks with `crypto.subtle`, so view-source does not give the flag away; the repository is public, so the answer goes in the lesson's teacher notes |
 | `match` | `q`, `pairs: [[left, right], ...]`, `explain` | picks each right-hand item from a list (shuffled for them) |
 | `trace` | `text`, `table`, `explain` | fills the blanks of a table |
@@ -716,6 +716,11 @@ Vary, Practise, Make).
     in %, as bars with multipliers; values `q a b x y`, `m` overall multiplier, `c` overall % change) or `mode: tax` (`slider i:`
     income, `brackets: 18200: 0; 45000: 15; 135000: 30; 190000: 37; 45`; values `i`, `t` tax, `e` effective %, `r` marginal %,
     `n` after tax). `units: $` (default).
+  - `widget: rate` (first used by `maths/number/rates`): a double number line, `top: km, distance` over `bottom: h, time`, with
+    `rate: 60` or `slider r:`, `slider x:` (the bottom amount; the line runs to its max), the unit rate dashed. `compare: 75, Car B`
+    (and `name: Car A`) adds a second line; `base: 4.2` adds a fixed starting amount (top = base + rate × x); `money: top` writes
+    dollars (automatic when a unit is `$`). km over h also gives the rate in m/s. Values `r`, `x`, `y` (base + r × x), `c`
+    (the compared amount), `q`, `b`, `m` (m/s). Checks: `"r = 75 and x = 2"`, `"y = 460"`, `"m = 25"`.
   - Board variables in `when:` must be single letters: the evaluator reads a longer name such as `sb` as s × b.
   - `widget: data` (first used by `maths/data`): a dot plot of `values: 4, 7, 7, 8` on `range: 0, 20` (default: around
     the data), with the mean (▲), median (dashed) and range (arrow) marked and written underneath (`show: mean, median,

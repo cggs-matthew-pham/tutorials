@@ -1,0 +1,45 @@
+summary: Students compare simple models with real outcomes (taxi fares, trip times, exchange rates), name the assumption that failed, and refine the model with a starting charge, stops or fees (AC9M8M07, node 2).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can name an assumption a model makes.
+  - I can explain how an assumption makes a model's answer differ from real life.
+  - I can refine a model and say when a simple one is good enough.
+struggle: "Separating the maths from the model. When an answer is 'wrong', ask students to check the arithmetic first, then ask what the model took to be true."
+before: |
+  Do the Run board yourself first. Students need rate models (previous lesson).
+
+  The one idea: when a model and real life disagree, look for the assumption that did not hold, then refine. The common mistake is blaming correct arithmetic (Sam's mistake).
+
+  The board's starting charge (`base`) shows a refined model: a fixed amount plus a rate. The taxi fare, plumber's prices and exchange rate are round examples, not real tariffs.
+
+  Wider: compare a simple tax model (one rate for everyone) with the bracket model from Money models; constant versus changing exchange rates.
+running:
+  - "Predict: ask whether 5 × 2.10 is right."
+  - "Run: ask what the fare is for 0 km."
+  - "Investigate: ask Sam to check 300 ÷ 100."
+  - "Modify: ask when the simple trip model is fine."
+  - "Make: ask for an assumption about the plumber's time."
+stuck:
+  - see: "A student says the maths is wrong."
+    ask: "Is the calculation right? What did the model assume?"
+    fix: "Check the arithmetic, then name the assumption."
+  - see: "A student forgets the fixed charge when working backwards."
+    ask: "What do you pay before the meter starts?"
+    fix: "Take the fixed part off first, then divide by the rate."
+  - see: "A student cannot name an assumption."
+    ask: "What would have to be true for the answer to be exact?"
+    fix: "That is the assumption."
+stretch: "Find a real taxi or rideshare fare structure for your city and build its model. What does it still leave out (waiting time, surge pricing)?"
+support: "A frame: The model assumes … In real life … So the answer … A better model would …"
+leads: |
+  This completes AC9M8M07.
+
+  Where it leads: linear models with a starting value (Linear relations: y = mx + c), and modelling in Years 9 and 10.
+exit:
+  q: "A model says 4 kg of apples at $3.50 per kg cost $14. The shop charges $12.60 for 4 kg. Name a possible assumption that failed."
+  a: "A fixed price per kg: the shop may give a discount for buying more (a bulk price)."
+explain: |
+  Every **model** makes **assumptions** (steady speed, no fees, no starting charge). When the model and real life differ, check the arithmetic, then name the assumption that did not hold.
+
+  **Refine** the model by adding what was left out, such as a starting charge: fare = $4.20 + $2.10 × km. A simple model is good enough when its error does not change the decision.

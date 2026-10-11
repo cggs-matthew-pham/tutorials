@@ -1,0 +1,45 @@
+summary: Students match rates to distances and times on a double number line, tell rates from ratios, find unit rates and convert between rate units such as km/h and m/s (AC9M8M05, node 1).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can write a rate with its two units.
+  - I can find a unit rate by dividing in the right order.
+  - I can convert a speed between km/h and m/s, and tell a rate from a ratio.
+struggle: "Dividing in the right order. Ask students to say the rate in words ('dollars per kilogram') before they divide: the 'per' quantity goes second."
+before: |
+  Do the Run board yourself first. Students need ratios (Number Foundations, Ratios).
+
+  The one idea: a rate is "this much per one of that", with two different units; divide the first by the second. The common mistake is dividing the wrong way round (Mia's mistake).
+
+  The board's double number line lines up the two quantities; the dashed line marks the unit rate, and the notes give km/h in m/s.
+
+  Wider: compare several units for the same speed (km/h, m/s, knots); rates in First Nations land management, such as how fast a cool burn spreads in different conditions (teach with local knowledge where you can).
+running:
+  - "Predict: ask what '1 hour's worth' is."
+  - "Run: ask what happens to the distance when the time doubles."
+  - "Investigate: ask Mia to say her rate in words."
+  - "Modify: ask why the cheaper bag is not the better buy."
+  - "Make: ask for the speed both ways."
+stuck:
+  - see: "A student divides the wrong way."
+    ask: "What is it per? That goes second."
+    fix: "Dollars per kilogram = dollars ÷ kilograms."
+  - see: "A student drops the units."
+    ask: "60 what, per what?"
+    fix: "A rate always has two units."
+  - see: "A student multiplies by 3.6 to get m/s."
+    ask: "Is a metre per second faster or slower than a kilometre per hour?"
+    fix: "m/s is the smaller number: divide by 3.6."
+stretch: "Express the same speed in km/h, m/s and knots (1 knot = 1.852 km/h). Which unit do ships use, and why?"
+support: "A card: 'rate = first quantity ÷ second quantity, units: first per second'."
+leads: |
+  This starts AC9M8M05.
+
+  Where it leads: using rates to solve problems (next lesson), rate models, and gradient as a rate (Linear relations).
+exit:
+  q: "A cyclist rides 45 km in 1.5 hours. Find her speed in km/h and m/s."
+  a: "45 ÷ 1.5 = 30 km/h; 30 ÷ 3.6 ≈ 8.3 m/s."
+explain: |
+  A **rate** compares two quantities with **different units** (km per hour, $ per kg); a **ratio** compares the same kind of quantity.
+
+  The **unit rate** is the amount for one of the second quantity: divide the first by the second, and keep both units. To convert km/h to m/s, divide by 3.6.

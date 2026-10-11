@@ -1,0 +1,7 @@
+# Ana's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ana
+Ana needs 2.4 L of paint for her wall.
+The paint is sold in 1 L tins.
+2.4 rounds to 2, so she buys 2 tins.
+# endregion

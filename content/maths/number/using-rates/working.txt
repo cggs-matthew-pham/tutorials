@@ -1,0 +1,7 @@
+# Leo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leo
+Leo drives 150 km at 60 km/h. How long does it take?
+Time = distance × speed = 150 × 60.
+So it takes 9000 hours.
+# endregion

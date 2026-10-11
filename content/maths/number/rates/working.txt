@@ -1,0 +1,7 @@
+# Mia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mia
+Mia buys 3 kg of apples for $12.
+To find the price in dollars per kilogram, she divides 3 by 12: 0.25.
+So the apples cost $0.25 per kg.
+# endregion

@@ -1,0 +1,7 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam's model: time = 300 km ÷ 100 km/h = 3 hours.
+The real trip took 3.5 hours.
+So the calculation 300 ÷ 100 must be wrong.
+# endregion

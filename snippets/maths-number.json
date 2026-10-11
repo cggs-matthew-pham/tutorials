@@ -147,6 +147,26 @@
           "unit": "modelling",
           "code": "\\text{each part of the income} \\times \\text{its bracket's rate}",
           "hint": "The marginal rate is the rate on the last dollar; the effective rate is total tax ÷ income."
+        },
+        {
+          "label": "rate",
+          "unit": "rates",
+          "code": "\\text{unit rate} = \\text{first quantity} \\div \\text{second quantity}",
+          "hint": "A rate compares quantities with different units (km per h, $ per kg); a ratio compares the same kind. 1 km/h = 1000 m ÷ 3600 s: divide by 3.6 for m/s.",
+          "board": "widget: rate\ntop: km, distance\nbottom: h, time\nrate: 60\nx: 2.5",
+          "shows": "At 60 km per hour, 2.5 hours matches 150 km"
+        },
+        {
+          "label": "using a rate",
+          "unit": "rates",
+          "code": "\\text{total} = \\text{rate} \\times \\text{amount} \\qquad \\text{amount} = \\text{total} \\div \\text{rate}",
+          "hint": "Write the units in: km ÷ km/h = h. Then check the size makes sense."
+        },
+        {
+          "label": "model assumptions",
+          "unit": "modelling",
+          "code": "\\text{fare} = 4.20 + 2.10 \\times \\text{km}",
+          "hint": "Every model assumes something (steady speed, no fees, no starting charge). When it disagrees with real life, name the assumption and refine the model."
         }
       ]
     },

@@ -186,5 +186,9 @@
   "root-as-half": {"home": "maths/real-numbers/irrationals-on-the-line", "text": "A square root is found by halving (√50 about 25); it is the number that times itself gives 50, so √50 is just over 7."},
   "index-multiply-base": {"home": "maths/real-numbers/index-laws", "text": "The bases are multiplied as well as the indices added (3² × 3⁴ = 9⁶); the base stays the same: 3⁶."},
   "index-different-bases": {"home": "maths/real-numbers/using-index-laws", "text": "The index laws are used on powers of different bases (2³ × 3² = 6⁵); they only join powers of the same base."},
-  "tax-whole-income": {"home": "maths/number/money-models", "text": "The whole income is taxed at the rate of its top bracket; each part of the income is taxed at its own bracket's rate."}
+  "tax-whole-income": {"home": "maths/number/money-models", "text": "The whole income is taxed at the rate of its top bracket; each part of the income is taxed at its own bracket's rate."},
+  "rate-inverted": {"home": "maths/number/rates", "text": "A unit rate is found by dividing the wrong way (3 kg for $12 gives 3 ÷ 12 = $0.25 per kg); dollars per kilogram is dollars ÷ kilograms: $4 per kg."},
+  "rate-multiply-divide": {"home": "maths/number/using-rates", "text": "Distance is multiplied by speed to find a time (150 × 60); the units show time = distance ÷ speed: 150 ÷ 60 = 2.5 h."},
+  "model-round-down": {"home": "maths/number/rate-models", "text": "A model's answer is rounded to the nearest whole number when the situation needs rounding up (2.4 L of paint as 2 tins); 2 tins are not enough, so buy 3."},
+  "model-blame-maths": {"home": "maths/number/checking-models", "text": "A model's mismatch with real life is blamed on correct arithmetic; the cause is an assumption that did not hold, such as a steady speed with no stops."}
 }

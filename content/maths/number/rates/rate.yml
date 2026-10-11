@@ -1,0 +1,33 @@
+# Double number lines for "Rates".
+
+# region: run
+widget: rate
+top: km, distance
+bottom: h, time
+slider r: 20, 120, 50, 5
+slider x: 0, 6, 1, 0.5
+# endregion
+
+# region: explain
+widget: rate
+top: km, distance
+bottom: h, time
+rate: 60
+slider x: 0, 6, 1, 0.5
+# endregion
+
+# region: explain-pic
+widget: rate
+top: km, distance
+bottom: h, time
+rate: 60
+x: 2.5
+# endregion
+
+# region: free
+widget: rate
+top: km, distance
+bottom: h, time
+slider r: 20, 120, 60, 5
+slider x: 0, 6, 1, 0.5
+# endregion

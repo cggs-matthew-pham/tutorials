@@ -1,0 +1,36 @@
+# Boards for "Checking a model".
+
+# region: run
+widget: rate
+top: $, fare
+bottom: km, distance
+rate: 2.1
+base: 4.2
+slider x: 0, 20, 1, 1
+# endregion
+
+# region: explain
+widget: rate
+top: $, fare
+bottom: km, distance
+rate: 2.1
+slider x: 0, 20, 5, 1
+# endregion
+
+# region: explain-pic
+widget: rate
+top: $, fare
+bottom: km, distance
+rate: 2.1
+base: 4.2
+x: 5
+# endregion
+
+# region: plumber
+widget: rate
+top: $, cost
+bottom: h, time
+rate: 95
+base: 80
+slider x: 0, 8, 1, 0.5
+# endregion

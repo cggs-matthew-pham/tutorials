@@ -425,6 +425,7 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
       if (!str(k.q)) err(where, 'check (number) needs q');
       if (typeof k.answer !== 'number' || !Number.isFinite(k.answer)) err(where, 'check (number) needs answer: a number');
       if (k.tolerance !== undefined && !(typeof k.tolerance === 'number' && k.tolerance >= 0)) err(where, 'check (number) tolerance must be 0 or more');
+      if (k.feedback !== undefined && !(Array.isArray(k.feedback) && k.feedback.every((f) => Array.isArray(f) && f.length === 2 && Number.isFinite(Number(f[0])) && String(f[0]).trim() !== '' && str(f[1])))) err(where, 'check (number) feedback must be a list of ["a wrong number", "what to say"]');
     }
     else if (k.type === 'flag') {
       // A typed secret (capture-the-flag): only the SHA-256 of "wp-flag:" + the lowercased, trimmed answer is stored. tools/flag-hash.mjs makes it.

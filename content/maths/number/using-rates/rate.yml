@@ -1,0 +1,51 @@
+# Double number lines for "Using rates".
+
+# region: run
+widget: rate
+top: $, cost
+bottom: L, petrol
+rate: 2.05
+slider x: 0, 60, 10, 5
+# endregion
+
+# region: explain
+widget: rate
+top: km, distance
+bottom: h, time
+rate: 70
+slider x: 0, 5, 1, 0.5
+# endregion
+
+# region: explain-pic
+widget: rate
+top: km, distance
+bottom: h, time
+rate: 70
+x: 3
+# endregion
+
+# region: race
+widget: rate
+top: km, distance
+bottom: h, time
+rate: 60
+name: Car A
+compare: 75, Car B
+slider x: 0, 6, 1, 0.5
+# endregion
+
+# region: shower
+widget: rate
+top: L, water
+bottom: min, time
+rate: 9
+slider x: 0, 15, 2, 1
+# endregion
+
+# region: trip
+widget: rate
+top: km, distance
+bottom: h, time
+slider r: 40, 120, 60, 5
+slider x: 0, 6, 1, 0.5
+# endregion

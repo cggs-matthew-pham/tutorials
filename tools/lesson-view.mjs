@@ -361,7 +361,7 @@ function win(){pass();if(box.dataset.explain)msg.textContent=box.dataset.explain
 function bad(t){msg.className='msg no';msg.textContent=t}
 var btn=box.querySelector('button');
 if(ty==='number'&&btn){btn.addEventListener('click',function(){var v=parseFloat(box.querySelector('input').value);if(isNaN(v))return bad('Type a number first.');
-if(Math.abs(v-Number(box.dataset.answer))<=Number(box.dataset.tol||0))win();else bad(box.dataset.subj==='maths'?'Not quite. Check your working and try another number.':'Not quite. Look at the code again and try another number.')})}
+if(Math.abs(v-Number(box.dataset.answer))<=Number(box.dataset.tol||0))return win();var nf=JSON.parse(box.dataset.feedback||'[]');for(var q=0;q<nf.length;q++){if(Math.abs(v-nf[q][0])<=Math.max(Number(box.dataset.tol||0),1e-9))return bad('Not quite. '+nf[q][1])}bad(box.dataset.subj==='maths'?'Not quite. Check your working and try another number.':'Not quite. Look at the code again and try another number.')})}
 if(ty==='flag'&&btn){btn.addEventListener('click',function(){var t=box.querySelector('input').value.trim().toLowerCase();if(!t)return bad('Type the flag first.');
 if(!(window.crypto&&crypto.subtle))return bad('This needs a secure page (https).');
 crypto.subtle.digest('SHA-256',new TextEncoder().encode('wp-flag:'+t)).then(function(b){var h=[].map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('');if(h===box.dataset.hash)win();else bad('Not the flag. Check it is exactly what the puzzle gives, including the WP{ } part.')})})}
@@ -547,7 +547,8 @@ export function checkHtml(lesson, step, names = {}, snippet = null, task = null,
     return `<div class="check" ${base} data-expect="${esc(JSON.stringify(k.expect || {}))}"${k.when !== undefined ? ` data-when="${esc(String(k.when))}"` : ''}><p class="check-q">${tx(k.text)}</p><p class="msg" aria-live="polite">Use the board. This ticks when you get there.</p></div>`;
   }
   if (k.type === 'number') {
-    return `<div class="check" ${base} data-answer="${k.answer}" data-tol="${k.tolerance || 0}"><p class="check-q">${tx(k.q)}</p><label class="numrow"><input type="number" step="any" aria-label="Your answer"></label><button type="button">Check answer</button>${msg}</div>`;
+    const nfb = (k.feedback || []).filter((f) => Array.isArray(f) && Number.isFinite(Number(f[0]))).map(([a, m]) => [Number(a), plain(m)]);
+    return `<div class="check" ${base} data-answer="${k.answer}" data-tol="${k.tolerance || 0}"${nfb.length ? ` data-feedback="${esc(JSON.stringify(nfb))}"` : ''}><p class="check-q">${tx(k.q)}</p><label class="numrow"><input type="number" step="any" aria-label="Your answer"></label><button type="button">Check answer</button>${msg}</div>`;
   }
   if (k.type === 'flag') {
     return `<div class="check" ${base} data-hash="${esc(k.hash)}" data-explain="${esc(k.explain || '')}"><p class="check-q">${tx(k.q)}</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="The flag" placeholder="WP{...}"></label><button type="button">Submit flag</button>${msg}</div>`;
