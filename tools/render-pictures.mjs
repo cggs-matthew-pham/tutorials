@@ -71,17 +71,24 @@ async function pictures({ name, dir, base, jobs, viewport, draw, legacy = [] }) 
   if (SEED && todo.length && !FORCE) {
     const url = `${SEED}/${relative(OUT, dir).split('\\').join('/')}`;
     const live = await fetch(`${url}/pictures.json`, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
+    // 16 downloads at a time (one at a time took about a minute for the whole set).
+    const got = new Array(todo.length).fill(false);
+    let next = 0;
+    const worker = async () => {
+      while (next < todo.length) {
+        const n = next++, j = todo[n];
+        const h = live[j.id]?.hash;
+        got[n] = !!h && (h === hashOf(j) || legacy.some((b) => h === legacyOf(b, j))) && await fetch(`${url}/${j.id}.png`).then(async (r) => {
+          if (!r.ok) return false;
+          mkdirSync(dirname(join(dir, `${j.id}.png`)), { recursive: true });
+          writeFileSync(join(dir, `${j.id}.png`), Buffer.from(await r.arrayBuffer()));
+          return true;
+        }).catch(() => false);
+      }
+    };
+    await Promise.all(Array.from({ length: Math.min(16, todo.length) }, worker));
     const left = [];
-    for (const j of todo) {
-      const h = live[j.id]?.hash;
-      const ok = h && (h === hashOf(j) || legacy.some((b) => h === legacyOf(b, j))) && await fetch(`${url}/${j.id}.png`).then(async (r) => {
-        if (!r.ok) return false;
-        mkdirSync(dirname(join(dir, `${j.id}.png`)), { recursive: true });
-        writeFileSync(join(dir, `${j.id}.png`), Buffer.from(await r.arrayBuffer()));
-        return true;
-      }).catch(() => false);
-      if (ok) { manifest[j.id] = { ...live[j.id], hash: hashOf(j) }; seeded++; } else left.push(j);
-    }
+    todo.forEach((j, n) => { if (got[n]) { manifest[j.id] = { ...live[j.id], hash: hashOf(j) }; seeded++; } else left.push(j); });
     todo = left;
   }
   stale += todo.length;
