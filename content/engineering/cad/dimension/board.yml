@@ -1,0 +1,42 @@
+# Boards for "Design to a dimension": a box seen from above, for an Arduino Uno (68.6 × 53.4 mm).
+
+# region: run
+widget: fab
+mode: box
+width: 60
+depth: 50
+wall: 2
+object: none
+# endregion
+
+# region: explain
+widget: fab
+mode: box
+width: 60
+depth: 50
+wall: 2
+# endregion
+
+# region: explain-pic
+widget: fab
+mode: box
+width: 75
+depth: 59.5
+wall: 2
+# endregion
+
+# region: vary
+widget: fab
+mode: box
+width: 60
+depth: 50
+wall: 2
+# endregion
+
+# region: make
+widget: fab
+mode: box
+width: 80
+depth: 65
+wall: 1.5
+# endregion

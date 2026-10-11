@@ -1,0 +1,41 @@
+# Boards for "Laser cutting and kerf": a slot for a board. The cut slot is the drawn width plus the kerf.
+
+# region: run
+widget: fab
+mode: kerf
+board: 3
+slot: 3
+kerf: 0.2
+# endregion
+
+# region: explain
+widget: fab
+mode: kerf
+board: 3
+slot: 3
+kerf: 0.2
+# endregion
+
+# region: explain-pic
+widget: fab
+mode: kerf
+board: 3
+slot: 2.9
+kerf: 0.2
+# endregion
+
+# region: vary
+widget: fab
+mode: kerf
+board: 3
+slot: 3
+kerf: 0.1
+# endregion
+
+# region: make
+widget: fab
+mode: kerf
+board: 6
+slot: 6
+kerf: 0.25
+# endregion

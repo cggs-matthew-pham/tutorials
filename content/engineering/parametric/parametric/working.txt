@@ -1,0 +1,8 @@
+# Sam's design notes for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam measures the Uno: 68.6 mm wide.
+Sam types the case's outside width as 74.6 mm.
+The project switches to a board 75 mm wide.
+Sam redraws the whole case from scratch.
+# endregion

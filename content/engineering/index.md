@@ -25,9 +25,10 @@ pathways:
     title: CAD and fabrication
     summary: Design parts to size in Tinkercad and Onshape, then 3D print or laser cut them.
     fit: "Start here to design a part that fits, then print it."
+    about: "Tinkercad 3D (same class accounts as Tinkercad Circuits) for the first course, Onshape (free for education, in the browser) for parametric design. Each lesson's board models the idea (sizes, clearances, orientation, slicer settings, kerf) so it can be checked; a step in each lesson does it for real in Tinkercad, a slicer or on the school's printer or laser cutter. Calibrate the fit lessons to your own printer."
     courses:
-      - { title: Design and print, id: cad, stage: foundations, summary: "Dimensions, tolerances, designing for the printer and slicer trade-offs.", tagline: "Design a part that fits." }
-      - { title: Parametric design, id: parametric, stage: extensions, after: [cad], summary: "Onshape: dimensions as variables, and laser-cut joints.", tagline: "Change one number, update the model." }
+      - { path: engineering/cad, id: cad, stage: foundations, tagline: "Design a part that fits." }
+      - { path: engineering/parametric, id: parametric, stage: extensions, after: [cad], tagline: "Change one number, update the model." }
   - id: boards
     title: Design your own board
     summary: From breadboard to protoboard and soldering, then a schematic and a PCB.

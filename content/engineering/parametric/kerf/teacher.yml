@@ -1,0 +1,25 @@
+summary: An optional lesson. Students see a 3 mm slot cut wider than 3 mm, draw slots narrower for a press fit, work the drawn size back from the board and the kerf, cut a test comb on the school laser, and find a fit for a different board and kerf.
+time: 35
+timing: "Predict and Try 5 min · Worked example 8 min · Vary 4 min · Test comb (teacher-led) · Practise and Make 8 min"
+goals:
+  - I can explain what kerf is and how it changes a cut.
+  - I can draw a slot for a press fit.
+struggle: "The kerf is too small to see. Cut a 10 mm square, measure it with calipers, and pass it round."
+before: |
+  Laser cutter use is supervised, with approved materials only (no PVC or vinyl: chlorine gas). Kerf depends on the machine, focus, power and material: measure yours. The board treats kerf as making slots wider by the full kerf (each edge loses half).
+running:
+  - "Predict: pass round a loose test joint."
+  - "Test comb: the teacher runs the cutter."
+stuck:
+  - see: "A student adds the kerf to the drawn slot."
+    ask: "Does the laser make the slot bigger or smaller than drawn?"
+    fix: "Bigger, so draw it smaller."
+stretch: "Make the slot width a variable in your parametric model: #board - #kerf + #fit."
+support: "A card: drawn = board + clearance − kerf."
+leads: |
+  Back to Capstone projects (an enclosure or a chassis), or Design and print.
+exit:
+  q: "Why does a laser-cut slot come out wider than drawn?"
+  a: "The beam burns away a strip of material (the kerf), so each edge of the slot moves out."
+explain: |
+  A laser burns away a thin strip as it cuts: the **kerf**. A cut **slot** comes out wider than drawn (by the kerf) and a cut-out **part** a little smaller. For a snug **press fit**, draw slots narrower than the board: drawn = board + clearance − kerf.

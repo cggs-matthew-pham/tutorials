@@ -1,0 +1,8 @@
+# Sam's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The lid's peg is 10 mm across.
+So the hole in the box should be 10 mm across too.
+Same size means a perfect fit.
+Sam prints both and the peg won't go in.
+# endregion

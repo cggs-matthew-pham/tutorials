@@ -1,0 +1,25 @@
+summary: Students turn an L-bracket through four print orientations, find the one that needs supports and the one with layers along the load, apply both questions to a hook and other shapes, see Sam's bracket snap across its layers, check orientations in the school's slicer, and justify an orientation for a part of their own.
+time: 40
+timing: "Predict and Try 6 min · Worked example 8 min · Slicer 10 min · Practise and Make 10 min"
+goals:
+  - I can tell when a part needs supports.
+  - I can choose a print orientation so the load runs along the layers.
+struggle: "Layer direction is invisible on screen. Snap two printed test bars (one printed flat, one upright) in front of the class."
+before: |
+  The 45° rule is a rule of thumb; bridges (short spans between two supports) print without supports too. The board's four orientations are drawn for one bracket; the slicer shows the real supports and time.
+running:
+  - "Predict: have two printed bars ready to snap after the reveal."
+  - "Slicer: show layer preview colouring."
+stuck:
+  - see: "A student chooses the way that looks most like the finished object."
+    ask: "Which way does the load pull, and which way do the layers run?"
+    fix: "Turn it so they run the same way."
+stretch: "Why do some parts get split into two pieces for printing and glued?"
+support: "A card with the two questions: what overhangs? which way does the load pull?"
+leads: |
+  Next: Slicer trade-offs.
+exit:
+  q: "Give two reasons to choose a print orientation."
+  a: "To avoid overhangs that need supports, and so the load runs along the layers rather than across them."
+explain: |
+  A printer builds in **layers**. An **overhang** more than about 45° from vertical needs **supports**, and a printed part is **weakest across its layer lines**. Choose the way up that needs no supports and runs the layers **along the load**.

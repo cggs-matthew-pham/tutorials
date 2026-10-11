@@ -1,0 +1,44 @@
+# Boards for "Parts that fit". Model: holes print 0.2 mm smaller, pegs 0.1 mm bigger (calibrate to your printer).
+# Fits: under 0 won't go in, 0–0.15 press fit, 0.15–0.4 sliding fit, over 0.4 loose.
+
+# region: run
+widget: fab
+mode: fit
+peg: 10
+hole: 10
+# endregion
+
+# region: explain
+widget: fab
+mode: fit
+peg: 10
+hole: 10
+# endregion
+
+# region: explain-pic
+widget: fab
+mode: fit
+peg: 10
+hole: 10.6
+# endregion
+
+# region: vary-press
+widget: fab
+mode: fit
+peg: 10
+hole: 10
+# endregion
+
+# region: vary-six
+widget: fab
+mode: fit
+peg: 6
+hole: 6
+# endregion
+
+# region: make
+widget: fab
+mode: fit
+peg: 8
+hole: 8
+# endregion

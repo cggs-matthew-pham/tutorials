@@ -1,0 +1,8 @@
+# Sam's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam prints the shelf bracket foot down, arm up.
+It needs no supports, and it looks perfect.
+The plastic is the same all the way through, so it is equally strong every way.
+So it will hold the shelf.
+# endregion

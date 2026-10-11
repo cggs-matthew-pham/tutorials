@@ -46,11 +46,16 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 - The drive base, sorter and lift link Power and motors, Mechanisms, the classifier (Code) and CAD; the stretch unit stands in for the Design your own board pathway until it has its own course.
 - Shared change: `lesson-core.mjs` reads `shape:`; `lesson-view.mjs` has `STAGE_INFO_DESIGN` (logged in roadmap/shared.md). Deck slides still title the Inquire step "Predict" (teach.mjs unchanged).
 
+## Done (12 Oct 2026): CAD and fabrication
+
+- Course `engineering/cad` (Design and print, foundations): 1. Design to a dimension (two walls; part + gap + wall; a Tinkercad case), 2. Parts that fit (printers shrink holes and grow pegs; sliding and press fits; a tolerance test card), 3. Design for the printer (supports over 45°, weak across layers; the slicer's layer preview), 4. Slicer trade-offs (layers double the time; walls beat infill). Course `engineering/parametric` (extensions, after cad): 1. Parametric design (driving vs driven dimensions; Onshape variables), 2. Laser cutting and kerf (optional; slot = drawn + kerf; a test comb). Primers `size.md`, `print.md`. Misconceptions `wall-one-side`, `same-size-fits`, `print-strength-equal`, `more-infill-better`, `edit-means-redraw`, `cut-on-the-line`.
+- New `fab` widget (six modes; stated models, calibrate fits to the school's printer and cutter). Every board check tested headless; six clips record. Ports 8522–8527.
+
 ## Next
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.
 2. Mechanisms: compound gear trains (Years 9–10, with efficiency per mesh and the constraint as an inequality), levers, pulleys.
-3. CAD lessons 1–2 (dimensions, tolerance) with answer checks, or Mechanisms lesson 2 (compound gears / levers). Optional: let `B.serial` accept an Uno's USB ids so a real board's output can be checked.
+3. Mechanisms lesson 2 (compound gears, levers or pulleys), 3D and animation (keyframes widget), or a teacher deck fix so `shape: design` slides say Inquire, not Predict. Optional: let `B.serial` accept an Uno's USB ids.
 4. `tools/concepts.mjs` `prerequisites()` reads `code, maths, science, systems`: add `engineering` if an Engineering lesson ever uses the concept lint (its lessons are `language: maths`, which the lint skips).
 
 ## Open questions

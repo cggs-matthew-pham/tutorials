@@ -265,5 +265,11 @@
   "code-runs-motor": {"home": "engineering/power/pin-limit", "text": "If the code is right, a motor on a pin is thought to run; a pin gives about 20 mA and a motor needs hundreds, so it needs its own supply switched by a transistor or driver."},
   "one-signal-speed-direction": {"home": "engineering/power/hbridge", "text": "Speed and direction are thought to come from one signal; in an H-bridge two inputs set the direction and a separate PWM signal sets the speed."},
   "separate-supplies-no-ground": {"home": "engineering/power/ground", "text": "Two separate supplies are thought to need no connection; the grounds must be joined so the driver can read the board's signals against the same 0 V."},
-  "mah-is-strength": {"home": "engineering/power/battery", "text": "A battery's mAh is thought to be its power or strength; it is how much charge it holds, which sets how long it lasts at a given current, while the voltage is set separately."}
+  "mah-is-strength": {"home": "engineering/power/battery", "text": "A battery's mAh is thought to be its power or strength; it is how much charge it holds, which sets how long it lasts at a given current, while the voltage is set separately."},
+  "wall-one-side": {"home": "engineering/cad/dimension", "text": "A box's inside width is thought to be the outside minus one wall; there is a wall on each side, so it is the outside minus two walls."},
+  "same-size-fits": {"home": "engineering/cad/fit", "text": "A peg and a hole drawn the same size are thought to fit; printed holes come out smaller and pegs bigger, so a fit needs a planned clearance."},
+  "print-strength-equal": {"home": "engineering/cad/orient", "text": "A printed part is thought to be equally strong every way; layers bond less well than the plastic along a layer, so parts are weaker across their layer lines."},
+  "more-infill-better": {"home": "engineering/cad/slicer", "text": "More infill is thought to always be better; it costs time and plastic for little strength, while extra walls add more strength for less."},
+  "edit-means-redraw": {"home": "engineering/parametric/parametric", "text": "Changing a design is thought to mean redrawing it; in a parametric model the dimensions are linked, so changing one updates everything that depends on it."},
+  "cut-on-the-line": {"home": "engineering/parametric/kerf", "text": "A laser is thought to cut exactly on the line; the beam burns away a width (the kerf), so cut slots come out wider and parts smaller than drawn."}
 }

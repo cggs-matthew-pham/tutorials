@@ -1,0 +1,8 @@
+# Sam's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam's bracket must be strong.
+More plastic inside means more strength.
+So Sam sets infill to 100%.
+The print takes three hours, and Sam misses the end of the lesson.
+# endregion

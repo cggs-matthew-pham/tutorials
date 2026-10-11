@@ -1,0 +1,24 @@
+# Boards for "Slicer trade-offs": a 40 × 40 × 20 mm block. A simple model: time grows with plastic and 1 ÷ layer
+# height; strength grows with walls (a lot) and infill (a little).
+
+# region: run
+widget: fab
+mode: slicer
+# endregion
+
+# region: explain
+widget: fab
+mode: slicer
+# endregion
+
+# region: explain-pic
+widget: fab
+mode: slicer
+# endregion
+
+# region: make
+widget: fab
+mode: slicer
+infill: 50
+walls: 2
+# endregion

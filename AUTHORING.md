@@ -769,6 +769,15 @@ Vary, Practise, Make).
     motor; values `g`, `p`, `m`, `r` (Uno resets), `t` (started). `mode: battery`: six typical packs (`battery: aa4 |
     nimh4 | nimh6 | pp3 | lipo2 | lipo2b`), `draw:` (mA), `need:` (minutes), `volts: 6, 9`, `grams:`, `derate: on` (use
     80%); values `v`, `c`, `i`, `t` (minutes), `q` (grams), `p` (meets every criterion), `u` (usable %). Ready selector `.mtsvg`.
+  - `widget: fab` (first used by `engineering/cad/` and `engineering/parametric/`): sizes in mm. `mode: box` (top view;
+    `width`, `depth`, `wall`, `object: 68.6, 53.4` or `none`; values `w`, `d`, `t`, `a`, `b` inside, `g` smallest gap),
+    `mode: fit` (peg in a printed hole; `peg`, `hole`, `shrink: 0.2`, `grow: 0.1`; values `p`, `h`, `c` clearance, `f` 0
+    won't go in, 1 press, 2 sliding, 3 loose), `mode: orient` (an L-bracket four ways round; Try the next way round;
+    values `o`, `s` supports, `k` layers along the load), `mode: slicer` (a 40 × 40 × 20 block; `layer`, `infill`,
+    `walls`; values `l`, `i`, `w`, `t` minutes, `g` grams, `s` strength, `q` finish), `mode: param` (outside = part +
+    2 × (clearance + wall); `part`, `clearance`, `wall`; values `u`, `c`, `t`, `o`, `n`), `mode: kerf` (laser slot =
+    drawn + kerf; `board`, `slot`, `kerf`; values `d`, `k`, `c`, `f`). Sliders are labelled for tests ("Hole drawn
+    (mm)"). Ready selector `.fbsvg`.
   - `widget: security` (first used by `systems/security/`): five modes. `mode: os`: apps (Video call, Notes, Game) ask
     the OS, which uses a driver per device; Swap webcam, Swap storage, Install/Remove driver (webcam B; `driver: on`), and
     a Game camera permission; values `c`, `s`, `d`, `o` (last request worked), `g`, `q`. `mode: dns`: an address bar

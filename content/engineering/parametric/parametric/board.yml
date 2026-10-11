@@ -1,0 +1,30 @@
+# Boards for "Parametric design": outside = part + 2 × (clearance + wall), worked out from the part.
+
+# region: run
+widget: fab
+mode: param
+part: 68.6
+clearance: 1
+wall: 2
+# endregion
+
+# region: explain
+widget: fab
+mode: param
+part: 68.6
+clearance: 1
+wall: 2
+# endregion
+
+# region: explain-pic
+widget: fab
+mode: param
+# endregion
+
+# region: make
+widget: fab
+mode: param
+part: 60
+clearance: 1
+wall: 2
+# endregion

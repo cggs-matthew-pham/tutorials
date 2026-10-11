@@ -1,0 +1,17 @@
+# Boards for "Design for the printer": an L-bracket that will hold up a shelf, printed four ways round.
+
+# region: run
+widget: fab
+mode: orient
+# endregion
+
+# region: explain
+widget: fab
+mode: orient
+# endregion
+
+# region: explain-pic
+widget: fab
+mode: orient
+orientation: 1
+# endregion

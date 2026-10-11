@@ -1,0 +1,25 @@
+summary: Students halve the layer height and see the time double, compare infill and walls on time and strength, see Sam's 100% infill take three hours, slice a real part one setting at a time, sort parts by the setting that matters, and meet a strength-and-time brief.
+time: 40
+timing: "Predict and Try 6 min · Worked example 8 min · Real slicer 12 min · Practise and Make 10 min"
+goals:
+  - I can predict how layer height, infill and walls change a print.
+  - I can choose settings for what a part needs.
+struggle: "Students max every setting. Keep asking what the part needs, and what each setting costs."
+before: |
+  The board is a simple model of a 40 × 40 × 20 mm block (PLA, 1.24 g/cm³): time grows with plastic and with 1 ÷ layer height; strength grows mostly with walls. Real numbers depend on the printer, speed and part shape; the slicer step replaces them with yours. Printer time is the bottleneck: set a maximum print time per student.
+running:
+  - "Predict: ask why thinner layers would take longer."
+  - "Worked example: let students test each option on the board first."
+stuck:
+  - see: "A student's settings take hours."
+    ask: "Which setting is buying strength, and which is just adding plastic?"
+    fix: "More walls, less infill."
+stretch: "Infill patterns (grid, gyroid): find out what each is good for."
+support: "A three-row table: setting, what it buys, what it costs."
+leads: |
+  Next: Parametric design (Years 9–10), or a Capstone project's enclosure.
+exit:
+  q: "Your part must be strong and printed quickly. Which two settings do you change, and how?"
+  a: "More walls and lower infill (keep normal layer height)."
+explain: |
+  The **slicer** trades time and plastic for finish and strength. Halving the **layer height** doubles the time and buys a smoother finish. **Infill** past about 20–30% costs a lot for little strength; extra **walls** add more strength for less.

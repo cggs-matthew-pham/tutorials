@@ -1,0 +1,30 @@
+summary: Students find a box's inside size from its outside and walls, design a case for an Uno from the part outwards (part, gap, wall), meet Sam's one-wall slip, change the wall thickness, build the case in Tinkercad 3D by typed dimensions, and find the smallest case that fits.
+time: 40
+timing: "Predict and Try 6 min · Worked example 8 min · Vary 6 min · Tinkercad 12 min · Practise and Make 8 min"
+goals:
+  - I can work out a box's inside from its outside and walls.
+  - I can design a case from the part outwards.
+  - I can set exact sizes in Tinkercad.
+struggle: "Students drag shapes to 'about right'. Make typing dimensions the rule."
+before: |
+  The board is a 2D top view; heights work the same way (a floor and a lid instead of side walls). Measure the real part with calipers if you have them: published sizes don't include sockets that stick out (the Uno's USB and power sockets do). Tinkercad: the same class code as Circuits.
+running:
+  - "Predict: draw a box on the board and point at both walls."
+  - "Worked example: write it outwards, live."
+  - "Tinkercad: ask why the hole box is placed 2 mm in and up."
+stuck:
+  - see: "A student's case is 2 mm too small."
+    ask: "How many walls does a box have across its width?"
+    fix: "Two: subtract (or add) both."
+stretch: "Add holes in the case wall for the Uno's USB and power sockets, measured from the board's edge."
+support: "A drawn cross-section with part, gap and wall labelled on both sides."
+leads: |
+  Next: Parts that fit (clearance and tolerance).
+exit:
+  q: "A part is 50 mm wide. With a 1 mm gap and 3 mm walls, how wide is the case outside?"
+  a: "50 + 2 × 1 + 2 × 3 = 58 mm."
+explain: |
+  A box has a **wall on every side**, so its inside is the outside **minus two walls**. To fit something inside, start from the part: its size, plus a **gap** each side, plus a **wall** each side, gives the outside. Round up, never down.
+sources:
+  - { title: "Tinkercad 3D lessons (link)", url: "https://www.tinkercad.com/learn", checked: 2026-10-12 }
+  - { title: "Arduino Uno Rev3 dimensions (68.6 × 53.4 mm; link)", url: "https://docs.arduino.cc/hardware/uno-rev3/", checked: 2026-10-12 }

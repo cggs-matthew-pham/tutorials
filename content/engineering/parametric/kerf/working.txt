@@ -1,0 +1,8 @@
+# Sam's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The plywood is 3 mm thick.
+The laser cuts exactly along the lines I draw.
+So a 3 mm slot fits 3 mm plywood perfectly.
+Sam's box wobbles and needs glue at every joint.
+# endregion

@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The box is 60 mm wide on the outside.
+The walls are 2 mm thick.
+So the inside is 60 − 2 = 58 mm wide.
+A 57 mm part will fit with 1 mm to spare.
+# endregion

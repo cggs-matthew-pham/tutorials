@@ -1,0 +1,27 @@
+summary: Students see that a same-size peg and hole won't fit once printed, open the hole up to a sliding fit, work out a hole size from the peg, the printer's effect and the clearance wanted, design a press fit and a different peg size, print a tolerance test card, and design a lid peg's hole.
+time: 40
+timing: "Predict and Try 5 min · Worked example 10 min · Vary 6 min · Test card (print runs while you continue) · Practise and Make 10 min"
+goals:
+  - I can explain why same-size parts don't fit when printed.
+  - I can work out a hole size for a sliding or press fit.
+  - I can calibrate a design to our printer with a test card.
+struggle: "The two printer corrections (hole −0.2, peg +0.1) blur. Write them as two lines every time."
+before: |
+  The board's printer effect (holes −0.2 mm, pegs +0.1 mm) is typical of a 0.4 mm nozzle FDM printer, not exact. Print a tolerance test card on each school printer once and pin up the results: that replaces the board's numbers. Small holes print proportionally worse than large ones; vertical holes worse than horizontal.
+running:
+  - "Predict: pass round a printed peg and hole drawn the same size, if you have one."
+  - "Worked example: two corrections, two lines."
+  - "Test card: start the print early in the lesson."
+stuck:
+  - see: "A student adds only the clearance."
+    ask: "What does the printer do to the hole, and to the peg?"
+    fix: "Add 0.2 for the hole and 0.1 for the peg too."
+stretch: "Design a snap-fit lid: a small ridge on the peg and a groove in the hole."
+support: "A card: hole drawn = peg + 0.1 + clearance + 0.2."
+leads: |
+  Next: Design for the printer (which way up).
+exit:
+  q: "Why won't a 10 mm printed peg go in a 10 mm printed hole?"
+  a: "The printer makes holes smaller and pegs bigger, so the printed hole is smaller than the printed peg."
+explain: |
+  Drawn the same size, a printed peg won't go in its hole: printers make **holes smaller** (about 0.2 mm) and **pegs bigger** (about 0.1 mm). Plan a **clearance**: about 0.2–0.4 mm for a **sliding fit**, less for a **press fit**. Every printer differs, so calibrate with a **test card**.
