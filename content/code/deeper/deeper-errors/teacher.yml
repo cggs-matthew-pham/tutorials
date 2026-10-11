@@ -37,3 +37,4 @@ solutions:
   step-4#t1: errors.py#sol-range
   step-4#t2: errors.py#sol-quit
   step-5: errors.py#sol-calculator
+struggle: "Catching the error that actually happens. Ask them to read the error's name in the message and match it to the except, rather than catching everything."

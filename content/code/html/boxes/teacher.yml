@@ -50,3 +50,4 @@ solutions:
   step-4#t4: page.html#sol-background
   step-5: page.html#sol-make
   step-6: page.html#sol-newsletter
+struggle: "Working out that padding and border add to the width. Ask for the sum on paper first (200 + 20 + 20 + 5 + 5), then check it with Box model."

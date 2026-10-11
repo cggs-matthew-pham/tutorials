@@ -50,3 +50,4 @@ solutions:
   step-4#t4: page.html#sol-item-link
   step-5: page.html#sol-make
   step-6: page.html#sol-notice
+struggle: "Keeping every li inside its list, and the address hidden inside href. Turn on Boxes and ask which box each item sits in."

@@ -37,3 +37,4 @@ solutions:
   step-4#t1: loops.py#sol-hundred
   step-4#t2: loops.py#sol-limit
   step-5: loops.py#sol-counter
+struggle: "A while loop that never stops. Ask which line changes what the question tests, and have them trace two rounds on paper before changing anything."

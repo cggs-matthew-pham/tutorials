@@ -152,7 +152,9 @@ tasks:
   - hint: "The middle part becomes `<main>`, the last part `<footer>`."
     check: { type: code, text: "Name the main content and the footer.", rules: { tags: [main, footer] } }
     expected: page.html#sol-main
-  - hint: "Which box holds the cards? Give it `display: flex;` and a `gap`."
+  - hint:
+      - "Which box holds the cards? Flexbox goes on that one, the parent, not on each card."
+      - "Which box holds the cards? Give it `display: flex;` and a `gap`."
     check: { type: code, text: "Put the cards in a row.", rules: { contains: [".cards {", "display: flex;"] } }
     expected: page.html#sol-cards
 ```

@@ -38,3 +38,4 @@ explain: |
 solutions:
   step-4: panel.py#solution
   step-5: panel.py#sol-theme
+struggle: "Controls stored as lists that must stay the same length. Ask them to count each list's items when an IndexError appears."

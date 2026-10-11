@@ -41,3 +41,4 @@ solutions:
   step-5#t1: returns.py#sol-house
   step-5#t2: returns.py#sol-street
   step-6: returns.py#sol-vary
+struggle: "return versus print: both show a number, but only return hands it back. Let the NoneType error happen, then ask what the function gives back."

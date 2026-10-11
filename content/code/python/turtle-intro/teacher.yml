@@ -45,3 +45,4 @@ solutions:
   step-5#t2: square.py#sol-roof
   step-5#t3: square.py#sol-colour
   step-7: square.py#sol-tiles
+struggle: "Working out the turn angle for a shape. Ask how far the turtle turns in total and how many turns there are, instead of giving the number."

@@ -157,15 +157,19 @@ tasks:
     check: { type: code, text: "Add an email box with a linked label.", rules: { contains: ["for=\"email\"", "id=\"email\"", "type=\"email\""] } }
     expected: page.html#sol-email
   - hint:
+      - "A drop-down is a select box with one option per choice. Its label links to it the same way as the other fields."
       - "A `<label for=\"house\">`, then `<select id=\"house\">` with an `<option>` for each house."
     check: { type: code, text: "Add a house drop-down with a linked label.", rules: { tags: [select, option], contains: ["for=\"house\"", "id=\"house\""] } }
     expected: page.html#sol-house
   - hint:
+      - "To style the whole form as a card, CSS needs a way to pick the form. What did you use to pick one element in Rules and selectors?"
       - "Give the form a class: `<form class=\"signup\">`."
       - "Then a `.signup` rule with a width, padding and a border."
     check: { type: code, text: "Style the form as a card.", rules: { contains: ["class=\"signup\"", ".signup {", "padding:"] } }
     expected: page.html#sol-card
-  - hint: "A `label` rule with `display: block;` and a little `margin-top`."
+  - hint:
+      - "Labels sit in a line with their boxes because they are inline. Which display value puts each one on its own line?"
+      - "A `label` rule with `display: block;` and a little `margin-top`."
     check: { type: code, text: "Put each label on its own line.", rules: { contains: ["label {", "display: block;"] } }
     expected: page.html#sol-labels
 ```

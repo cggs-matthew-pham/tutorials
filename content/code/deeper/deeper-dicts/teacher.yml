@@ -37,3 +37,4 @@ solutions:
   step-4#t1: rooms.py#sol-attic
   step-4#t2: rooms.py#sol-moves
   step-5: rooms.py#sol-count
+struggle: "A dictionary of dictionaries: two lookups in one line. Have them say each step aloud (which room, then which way) before writing rooms[here][way]."

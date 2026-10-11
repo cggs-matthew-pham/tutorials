@@ -37,3 +37,4 @@ solutions:
   step-4#t1: text.py#sol-quit
   step-4#t2: text.py#sol-verbs
   step-5: text.py#sol-initials
+struggle: "Seeing why Yes and yes differ, and what split() gives back. Have them print the tidied text and the list of words before they fix the comparison."

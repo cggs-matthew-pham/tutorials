@@ -40,3 +40,4 @@ solutions:
   step-4: catch.py#sol-catch
   step-5: catch.py#sol-blink
   step-6: catch.py#solution
+struggle: "Every variable a function changes needs global, and % wraps the path. When the score doesn't change, ask which variables the function changes."

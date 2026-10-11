@@ -142,6 +142,7 @@ insight: "Laying out a real page with Grid: two columns for the page, then three
 try: { playground: html, starter: "page.html#modify", height: 500 }
 tasks:
   - hint:
+      - "Grid goes on the parent too. Which box holds the nav and the main?"
       - "The `.page` box holds the nav and the main: give it `display: grid;`."
       - "Then `grid-template-columns: 160px 1fr;`"
     check: { type: code, text: "Make the menu and the main content two columns.", rules: { contains: [".page {", "display: grid;", "grid-template-columns:"] } }
@@ -149,7 +150,9 @@ tasks:
   - hint: "`gap: 16px;` in the `.page` rule."
     check: { type: code, text: "Put space between the columns.", rules: { contains: ["gap:"] } }
     expected: page.html#sol-gap
-  - hint: "A `.cards` rule: `display: grid;`, `grid-template-columns: repeat(3, 1fr);` and a gap."
+  - hint:
+      - "The cards' parent becomes the grid, and the columns rule says how many columns and how wide."
+      - "A `.cards` rule: `display: grid;`, `grid-template-columns: repeat(3, 1fr);` and a gap."
     check: { type: code, text: "Lay the six cards out in three columns.", rules: { contains: [".cards {", "repeat(3, 1fr)"] } }
     expected: page.html#sol-cards
 ```
@@ -172,6 +175,7 @@ Lay the six cards out in three equal columns, with a gap.
 stage: make
 try: { playground: html, starter: "page.html#make", height: 440 }
 hint:
+  - "Plan the parts first: one parent box holding two or more parts, then a rule that makes the parent a grid."
   - "A `<div class=\"page\">` holding two parts, such as a `<main>` and a side box."
   - "A `.page` rule with `display: grid;`, `grid-template-columns` and a `gap`."
 check:

@@ -41,3 +41,4 @@ solutions:
   step-4#t2: events.py#sol-square
   step-5: events.py#sol-steer
   step-6: events.py#sol-counter
+struggle: "Handing a function over (no brackets) instead of calling it. When the error appears, ask whether the line runs the function now or hands it over for later."

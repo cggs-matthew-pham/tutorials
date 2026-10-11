@@ -49,3 +49,4 @@ solutions:
   step-4#t4: page.html#sol-gallery
   step-5: page.html#sol-make
   step-6: page.html#sol-club
+struggle: "display: flex goes on the parent, not the items. When the row doesn't appear, ask which box holds the items before saying anything else."

@@ -19,8 +19,8 @@ stage: predict
 code: drive.ts#predict
 check:
   type: predict
-  q: "The robot drives forward for 1 second, then turns for half a second. What happens after that?"
-  options: ["It stops, because the program has finished", "It keeps spinning, because nothing told the motors to stop", "It drives forward again", "It turns back the way it came"]
+  q: "The robot drives forward for 1 second, then turns for half a second. What happens next?"
+  options: ["It stops: the program has finished", "It keeps spinning: nothing told the motors to stop", "It drives forward again", "It turns back the way it came"]
   actual: "It keeps spinning. 'for 500 ms' means wait half a second before the next block, not stop. With no next block, the motors keep going as they were."
 ```
 

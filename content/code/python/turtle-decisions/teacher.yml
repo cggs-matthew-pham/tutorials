@@ -40,3 +40,4 @@ solutions:
   step-4#t2: decisions.py#sol-third
   step-5: decisions.py#sol-make
   step-6: decisions.py#sol-light
+struggle: "Writing a condition: == to compare, the colon, and what i % 2 means. Ask them to work out the condition for i = 0, 1, 2 before running."

@@ -198,6 +198,7 @@ Give the cards a background colour, and notice where it stops.
 stage: make
 try: { playground: html, starter: "page.html#make", height: 460, boxmodel: true }
 hint:
+  - "A card is one box that holds the heading, the picture and the line of text. Build the box first, then style it."
   - "Start with a `<div class=\"card\">` holding an `<h2>`, an `<img>` and a `<p>`."
   - "Then a `<style>` block with a .card rule: padding, border, margin, width and a background colour."
 check:

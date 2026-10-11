@@ -106,7 +106,7 @@ tasks:
       explain: "Read the line from the right. Python works out size + 5, which is 25, then stores 25 back in size. The = means store, not 'is equal to'."
   - check:
       type: trace
-      text: "A loop starts with size = 10 and ends every pass with size = size + 10. Fill in the size the line uses on each pass."
+      text: "Fill in the size that forward(size) uses on each pass."
       table: |
         | pass | size used by forward(size) |
         | 1 | 10 |

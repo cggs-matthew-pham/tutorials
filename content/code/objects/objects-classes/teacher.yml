@@ -37,3 +37,4 @@ solutions:
   step-4#t1: stars.py#sol-colour
   step-4#t2: stars.py#sol-points
   step-5: stars.py#sol-rock
+struggle: "self: why values need it to stay with each star. Ask them to point to where each value is stored, and whether it has self. in front."

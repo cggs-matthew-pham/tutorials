@@ -149,13 +149,17 @@ stage: modify
 insight: "Building a menu and a gallery one Flexbox property at a time, always on the parent."
 try: { playground: html, starter: "page.html#modify", height: 480 }
 tasks:
-  - hint: "Add `display: flex;` to the `.menu` rule."
+  - hint:
+      - "Flexbox goes on the parent, the box that holds the items. Which rule is that?"
+      - "Add `display: flex;` to the `.menu` rule."
     check: { type: code, text: "Put the menu in a row.", rules: { contains: [".menu {", "display: flex;"] } }
     expected: page.html#sol-row
   - hint: "`gap: 24px;` goes in the same rule."
     check: { type: code, text: "Space the menu items 24px apart.", rules: { contains: ["gap: 24px;"] } }
     expected: page.html#sol-gap
-  - hint: "`justify-content: center;` in the `.menu` rule."
+  - hint:
+      - "Centring the items is another job for the parent's rule. Look for the Flexbox property that spreads items along the row."
+      - "`justify-content: center;` in the `.menu` rule."
     check: { type: code, text: "Centre the menu.", rules: { contains: ["justify-content: center;"] } }
     expected: page.html#sol-centre
   - hint:
@@ -187,6 +191,7 @@ Make the six pictures a gallery: a row, `340px` wide, that wraps onto new lines.
 stage: make
 try: { playground: html, starter: "page.html#make", height: 460 }
 hint:
+  - "A gallery is a parent box with the pictures inside it. Build the box, then make it a wrapping row."
   - "Start with a `<div class=\"gallery\">` holding your pictures, each with alt."
   - "Then a `.gallery` rule: `display: flex;`, `flex-wrap: wrap;`, a `gap` and a `width`."
 check:

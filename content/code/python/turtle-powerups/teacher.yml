@@ -41,3 +41,4 @@ solutions:
   step-4#t2: powerups.py#sol-gold
   step-4#t3: powerups.py#solution
   step-5: powerups.py#sol-own
+struggle: "Separating the rules from the display, and the check before buying. Ask what must be true before the player can buy, before they write the if."

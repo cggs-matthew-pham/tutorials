@@ -37,3 +37,4 @@ solutions:
   step-4#t1: menu.py#sol-sandwich
   step-4#t2: menu.py#sol-cancel
   step-5#t1: menu.py#sol-app
+struggle: "Writing expected outputs before running, and comparing a choice with \"1\" rather than 1. Ask what they expect for each input first; don't run it for them."

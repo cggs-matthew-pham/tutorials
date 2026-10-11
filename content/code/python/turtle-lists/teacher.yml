@@ -40,3 +40,4 @@ solutions:
   step-4#t2: lists.py#sol-first
   step-5: lists.py#sol-chart
   step-6: lists.py#sol-scores
+struggle: "Places start at 0, so the last place is one less than the length. Ask how many items there are and what the last place number is."

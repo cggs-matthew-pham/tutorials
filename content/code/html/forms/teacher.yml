@@ -50,3 +50,4 @@ solutions:
   step-4#t4: page.html#sol-labels
   step-5: page.html#sol-make
   step-6: page.html#sol-fix
+struggle: "A form that does nothing, and labels linked by matching for and id. Let them click each label to test it, and ask which pair doesn't match."

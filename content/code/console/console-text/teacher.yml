@@ -37,3 +37,4 @@ solutions:
   step-4#t1: text.py#sol-animal
   step-4#t2: text.py#sol-letters
   step-5: text.py#sol-story
+struggle: "Joining a number onto text, and seeing that input() always gives text. When the TypeError appears, ask which part is a number before pointing at str()."

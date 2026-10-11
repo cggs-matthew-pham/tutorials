@@ -164,6 +164,7 @@ tasks:
     check: { type: code, text: "Add a rule that makes the paragraphs 20px.", rules: { contains: ["p {", "font-size: 20px;"] } }
     expected: page.html#sol-size
   - hint:
+      - "A class needs two parts that match: a name on the paragraph in the HTML, and a rule for that name in the CSS."
       - "In the HTML: `<p class=\"reminder\">`. In the CSS: .reminder { ... }."
       - "The dot goes in the CSS only."
     check: { type: code, text: "Give the second paragraph the class reminder and a lightyellow background.", rules: { contains: ["class=\"reminder\"", ".reminder {", "background-color:"] } }

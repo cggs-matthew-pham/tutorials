@@ -37,3 +37,4 @@ solutions:
   step-4#t1: stars.py#sol-flash
   step-4#t2: stars.py#sol-level
   step-5: stars.py#sol-rock
+struggle: "Remembering self in a method's def and inside it. Let the TypeError happen, then ask what Python hands to a method first."

@@ -50,3 +50,4 @@ solutions:
   step-4#t4: page.html#sol-group
   step-5: page.html#sol-make
   step-6: page.html#sol-notice
+struggle: "A selector that matches nothing fails silently. Ask them to find the element the rule should pick and compare the two letter by letter, dot and capitals included."

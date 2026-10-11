@@ -39,3 +39,4 @@ solutions:
   step-4#t1: levels.py#sol-levels
   step-4#t2: levels.py#solution
   step-5: levels.py#sol-best
+struggle: "A state variable deciding which screen runs. Ask them to say which state the game is in after each click, and check the spelling is the same everywhere."

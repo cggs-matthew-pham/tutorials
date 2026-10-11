@@ -20,9 +20,8 @@ The code chat's file: current status, what is open and the decisions that still 
 
 **Code chat can do next**
 - The lists and `if` revisit: lists inside functions, and an `if` inside a function that decides (see Proposed).
-- Effort audit (`npm run effort`): give `struggle:` notes to the code chat's earlier courses (Python Foundations, the console bridge, Objects, Deeper Python 1 to 5) and fix the first hints that give the answer away.
+- Effort audit: the MakeCode courses (63 lessons) still have no `struggle:` notes (`npm run effort`).
 - MakeCode toolbox filters per step (`importproject` takes `filters`).
-- Deck overflow seen in `check-decks`: Robotics `robot-drive` slide 4 (709px; the limit is 690) and Python Variables slide 12 (715px).
 
 ## Courses
 
@@ -33,7 +32,7 @@ Lesson counts include optional lessons. "Pictures" are drawn by `render-pictures
 - **Python Foundations with Turtle** (`code/python`, 14 lessons): built.
   - Lessons, in order: intro, variables, decisions, lists, functions, parameters, returns, modules, events, build a button, then the challenge (Catch the turtle and Power-ups, plus optional Control panel and Game levels).
   - Has teacher layer, voice and concept tags.
-  - Still to do: the lists and `if` revisit, and `struggle:` notes.
+  - Still to do: the lists and `if` revisit.
 - **Console bridge** (`code/console`, 4 lessons): built 11 Oct.
   - Console mode in the turtle playground with inline `input()`; Playground and Reference pages.
   - The last foundations course: every extension comes after it.
@@ -139,6 +138,7 @@ Risks: we depend on Microsoft's hosted editor and its unversioned message API. F
 
 ## Log
 
+- 12 Oct: effort audit for Python Foundations, the console bridge, Objects, Deeper Python 1 to 5 and HTML & CSS (40 `struggle:` notes; 17 first hints now point at the idea, with the code as the next hint); two overflowing deck slides fixed (Robotics Drive, Python Variables).
 - 12 Oct: voiceover for the 19 clips in p5.js, DOM and Games (`af_heart` at 1.1; `say:` lines read code aloud). Timed with the test voice: 24 to 32 s.
 - 12 Oct: Games with microStudio gets a Playground, Reference and three clips; this file is rewritten (history archived).
 - 11 Oct: DOM course; p5.js course with Reference, pictures and clips; Data detective, Web apps with Flask, Apps with Gradio, Machine learning, Deeper Python, Objects, the console bridge, the Python playground, Check your school.

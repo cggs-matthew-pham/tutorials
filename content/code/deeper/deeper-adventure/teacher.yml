@@ -37,3 +37,4 @@ solutions:
   step-4: adventure.py#sol-m1
   step-5: adventure.py#sol-m2
   step-6#t1: adventure.py#sol-m3
+struggle: "Holding several parts in mind: the loop, the parser, the rooms and the bag. Point them back to the milestone list and have them test one command at a time."

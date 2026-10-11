@@ -37,3 +37,4 @@ solutions:
   step-4#t1: numbers.py#sol-ten
   step-4#t2: numbers.py#sol-sum
   step-5: numbers.py#sol-tickets
+struggle: "Telling text that looks like a number from a number. Ask what type input() gave back, and let them try int() on a word to see why isdigit() comes first."

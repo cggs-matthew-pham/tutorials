@@ -49,3 +49,4 @@ solutions:
   step-4#t3: page.html#sol-cell-link
   step-5: page.html#sol-make
   step-6: page.html#sol-canteen
+struggle: "Building a table row by row with the same number of cells in each. Have them count the cells per row before they look at the page."

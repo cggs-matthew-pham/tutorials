@@ -40,3 +40,4 @@ solutions:
   step-4#t2: variables.py#sol-colour
   step-5: variables.py#sol-spiral
   step-6: variables.py#sol-plan
+struggle: "Following a value through a variable, especially size = size + 5. Have them trace the first three values on paper before running it."

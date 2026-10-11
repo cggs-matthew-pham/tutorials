@@ -49,3 +49,4 @@ solutions:
   step-4#t3: page.html#sol-reset
   step-5: page.html#sol-make
   step-6: page.html#sol-club
+struggle: "The recipe has unfamiliar punctuation, so small slips break it silently. Ask them to compare the id in querySelector with the button's id, quotes and brackets included."

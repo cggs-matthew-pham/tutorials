@@ -42,3 +42,4 @@ solutions:
   step-5: buttons.py#sol-make
   step-6: buttons.py#sol-panel
   step-7: buttons.py#sol-toolkit
+struggle: "The hit test: four comparisons joined with and. Have them work out each comparison for one click on paper before fixing the code."

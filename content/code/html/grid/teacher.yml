@@ -48,3 +48,4 @@ solutions:
   step-4#t3: page.html#sol-cards
   step-5: page.html#sol-make
   step-6: page.html#sol-photos
+struggle: "Reading grid-template-columns and what 1fr means. Ask them to predict each column's width before looking, then check with the page."

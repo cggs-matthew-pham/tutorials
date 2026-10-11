@@ -37,3 +37,4 @@ solutions:
   step-4#t1: stars.py#sol-blue
   step-4#t2: stars.py#sol-four
   step-5: stars.py#sol-rock
+struggle: "Seeing that every command needs the turtle's name and a dot. When the wrong turtle moves, ask whose name is in front of that line."

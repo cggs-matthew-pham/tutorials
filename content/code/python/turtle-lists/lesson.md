@@ -140,6 +140,7 @@ Replace the first colour and notice what moves.
 stage: make
 try: { starter: "lists.py#make", height: 440 }
 hint:
+  - "One bar for each number in the list: a for loop over the list does that, and each time round h is the next height."
   - "Use `for h in heights:` and draw one bar each time round."
   - "A bar is a rectangle: forward(20), left(90), forward(h), left(90), forward(20), left(90), forward(h), left(90). Then move on before the next bar."
 ```

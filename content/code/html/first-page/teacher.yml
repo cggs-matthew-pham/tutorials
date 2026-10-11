@@ -49,3 +49,4 @@ solutions:
   step-4#t3: page.html#sol-em
   step-5: page.html#sol-make
   step-6: page.html#sol-newsletter
+struggle: "Seeing that line breaks in the code do nothing and that tags close in reverse order. Let the Predict surprise land, and ask where each tag ends rather than fixing it."

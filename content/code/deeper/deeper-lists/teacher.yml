@@ -37,3 +37,4 @@ solutions:
   step-4#t1: bag.py#sol-count
   step-4#t2: bag.py#sol-full
   step-5: bag.py#sol-shopping
+struggle: "Checking with in before remove(). Let the ValueError happen first, then ask what the program should say when the thing isn't in the bag."

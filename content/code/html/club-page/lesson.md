@@ -62,12 +62,14 @@ tasks:
     expected: page.html#sol-m1
   - starter: "page.html#sol-m1"
     hint:
+      - "Follow the outline in the comments: each comment becomes one section, and each section gets its own class."
       - "Replace the first comment with a `<section class=\"hero\">` (a heading, a line of text and a link) and a `<section class=\"cards\" id=\"groups\">` holding three `<div class=\"card\">`."
       - "Then rules for `.hero`, `.cards` (`display: flex;` and a `gap`) and `.card` (width, padding, border)."
     check: { type: code, text: "Add a hero and three cards in a row.", rules: { contains: ["class=\"hero\"", "class=\"cards\"", ".cards {", "class=\"card\""] } }
     expected: page.html#sol-m2
   - starter: "page.html#sol-m2"
     hint:
+      - "The goals list four parts: results, join, footer and linked labels. Do one at a time and check the page after each."
       - "Results: a `<section id=\"results\">` with a heading and a table. Join: a `<section id=\"join\">` with a form."
       - "Click every label to check it is linked. The footer goes after `</main>`."
     check: { type: code, text: "Add a results table, a sign-up form with linked labels, and a footer.", rules: { tags: [table, th, td, form, label, input, button, footer], contains: ["for=\""] } }

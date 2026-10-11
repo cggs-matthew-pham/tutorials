@@ -142,10 +142,13 @@ tasks:
   - hint: "Change only the words between the quotes after `textContent =`."
     check: { type: reflect, text: "I changed the message to my own words, and clicking shows them." }
     expected: page.html#sol-message
-  - hint: "Add a line inside the function, under the textContent line: `document.querySelector('#message').style.color = 'green';`"
+  - hint:
+      - "The colour should change when the button is clicked, so the new line goes inside the function, beside the text change."
+      - "Add a line inside the function, under the textContent line: `document.querySelector('#message').style.color = 'green';`"
     check: { type: code, text: "Make the message turn a colour too.", rules: { contains: [".style.color"] } }
     expected: page.html#sol-colour
   - hint:
+      - "Reset needs two things: a second button with its own id, and a second recipe that listens to it."
       - "Add `<button id=\"reset\">Reset</button>` after the Start button."
       - "Copy the whole recipe, change `#go` to `#reset`, and set the words back to Ready?."
     check: { type: code, text: "Add a Reset button that puts the message back.", rules: { contains: ["id=\"reset\"", "querySelector('#reset')"] } }
