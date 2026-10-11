@@ -26,15 +26,18 @@
         var s = { kind: n.soon ? 'soon' : 'todo', next: null };
         var p = n.path && (sum || []).filter(function (x) { return x.href === n.path + '/'; })[0];
         if (p) {
-          var req = p.lessons.filter(function (l) { return l.checks && !l.optional; });
+          var ls = n.unit ? p.lessons.filter(function (l) { return l.unit === n.unit; }) : p.lessons;
+          n.hrefs = ls.map(function (l) { return l.href; });
+          var req = ls.filter(function (l) { return l.checks && !l.optional; });
           var done = req.filter(function (l) { return l.complete; }).length;
           s.next = req.filter(function (l) { return !l.complete; })[0] || null;
-          s.kind = req.length && done === req.length ? 'done' : p.lessons.some(function (l) { return l.done; }) ? 'going' : 'todo';
+          s.kind = req.length && done === req.length ? 'done' : ls.some(function (l) { return l.done; }) ? 'going' : 'todo';
           s.done = done; s.total = req.length;
         }
         st[pw.id + '|' + n.id] = s;
         var open = s.kind === 'going' || s.kind === 'todo';
-        if (!here && n.path && open && lastPath.indexOf('/' + n.path + '/') >= 0) here = { pw: pw, n: n, s: s };
+        var hit = n.unit ? (n.hrefs || []).some(function (h) { return lastPath.indexOf('/' + h) >= 0; }) : lastPath.indexOf('/' + n.path + '/') >= 0;
+        if (!here && n.path && open && hit) here = { pw: pw, n: n, s: s };
         if (!going && s.kind === 'going') going = { pw: pw, n: n, s: s };
       });
     });
@@ -57,7 +60,7 @@
       var prog = card.querySelector('.thprog');
       if (done || started) {
         prog.hidden = false;
-        prog.textContent = done + ' of ' + built.length + ' courses done' + (started ? ' · ' + started + ' in progress' : '');
+        prog.textContent = done + ' of ' + built.length + (built.some(function (n) { return n.unit; }) ? ' topics done' : ' courses done') + (started ? ' · ' + started + ' in progress' : '');
       }
       if (here && here.pw === pw) card.querySelector('.thgo').textContent = 'Continue the ' + pw.title + ' trail →';
     });

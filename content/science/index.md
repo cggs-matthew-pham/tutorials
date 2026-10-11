@@ -1,7 +1,7 @@
 ---
 title: Science
 map: true
-trail: true
+trail: units
 summary: Short concept tutorials for introducing an idea or revising it, built around particle simulations. Each one is a mini 5E cycle (Engage, Explore, Explain, Elaborate, Evaluate) for one idea in the curriculum. They sit beside practical work and class discussion, never instead of it.
 pathways:
   - id: chemistry
@@ -30,7 +30,7 @@ pathways:
     courses:
       - { path: science/physics-7, stage: foundations, tagline: "Forces as arrows, balanced or not." }
       - { path: science/physics-8, stage: foundations, after: [science/physics-7], tagline: "Energy on the move: kinetic, stored and transferred." }
-      - { path: science/physics-9, stage: extensions, after: [science/physics-8, science/chemistry], tagline: "Heat transfer, and why energy is never lost." }
+      - { path: science/physics-9, stage: extensions, after: [science/physics-8, science/chemistry#particles], tagline: "Heat transfer, and why energy is never lost." }
       - { path: science/physics-10, stage: extensions, after: [science/physics-9], tagline: "Newton's laws and F = ma." }
   - id: earth-space
     title: Earth and space

@@ -33,7 +33,7 @@
     return m.paths.map(function (path) {
       var lessons = path.lessons.map(function (l) {
         var got = l.checks.filter(function (k) { return done[k]; }).length;
-        return { title: l.title, order: l.order, href: l.href, checks: l.checks.length, done: got, complete: l.checks.length > 0 && got === l.checks.length, optional: !!l.optional };
+        return { title: l.title, order: l.order, href: l.href, checks: l.checks.length, done: got, complete: l.checks.length > 0 && got === l.checks.length, optional: !!l.optional, unit: l.unit || null };
       });
       var snips = (path.snippets || []).map(function (s) { return { id: s.id, label: s.label, lesson: s.lesson, step: s.step, got: !!(p.all || unlocked[path.kind + ':' + s.id]) }; });
       return { title: path.title, href: path.href, kind: path.kind, lessons: lessons, snippets: snips };

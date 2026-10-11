@@ -319,7 +319,7 @@ for (const path of [...new Set(lessons.map((l) => l.slug.split('/').slice(0, -1)
   const claims = (kind && claimsByKind[kind]) || {};
   manifest.paths.push({
     title: dirNode(path).title, href: `${path}/`, kind,
-    lessons: ls.map((l) => ({ title: l.title, order: l.order, href: `${l.slug}/`, checks: checkKeys(l), optional: l.optional })),
+    lessons: ls.map((l) => ({ title: l.title, order: l.order, href: `${l.slug}/`, checks: checkKeys(l), optional: l.optional, unit: l.unit || null })),
     snippets: Object.entries(claims).map(([id, c]) => ({ id, label: snippetNames[kind]?.[id] || id, lesson: c.lesson, step: c.step })),
   });
 }
@@ -383,7 +383,7 @@ for (const node of dirs.values()) {
     const groups = units.map((u) => ({ ...u, lessons: courseLessons.filter((l) => l.unit === u.id) })).filter((g) => g.lessons.length);
     const loose = courseLessons.filter((l) => !units.some((u) => u.id === l.unit));
     if (loose.length) groups.push({ id: '', title: units.length ? 'More lessons' : '', lessons: loose });
-    const rows = groups.map((g) => `<section class="unit"${g.id ? ` data-unit="${esc(g.id)}"` : ''}>` +
+    const rows = groups.map((g) => `<section class="unit"${g.id ? ` id="unit-${esc(g.id)}" data-unit="${esc(g.id)}"` : ''}>` +
       (g.title ? `<div class="uhead"><h2>${esc(g.title)}</h2><span class="ustat"></span>${g.summary ? `<p>${esc(g.summary)}</p>` : ''}</div>` : '') +
       `<div class="urows">${g.lessons.map(row).join('')}</div></section>`).join('');
     const challenge = node.meta?.challenge ? `<span class="badge" id="badge" data-unit="${esc(node.meta.challenge)}" hidden>★ Challenge complete</span>` : '';
@@ -403,7 +403,8 @@ for (const node of dirs.values()) {
   if (pathways.length) {
     // after: courses to do first, by path (built) or id (planned), shown on the card.
     const all = pathways.flatMap((pw) => pw.courses || []);
-    const nameOf = (ref) => { const c = all.find((x) => x.path === ref || x.id === ref); if (!c) throw new Error(`${node.path}/index.md: "after: ${ref}" names no course`); return c.path ? dirs.get(c.path)?.title || c.path : c.title; };
+    // after: may name one unit of a course as <course>#<unit> (science trails); the list names the course and unit.
+    const nameOf = (ref) => { const [cr, ur] = ref.split('#'); const c = all.find((x) => x.path === cr || x.id === cr); if (!c) throw new Error(`${node.path}/index.md: "after: ${ref}" names no course`); const t = c.path ? dirs.get(c.path)?.title || c.path : c.title; const u = ur && (dirs.get(c.path)?.meta?.units || []).find((x) => x.id === ur); return u ? `${t} (${u.title})` : t; };
     const after = (c) => (Array.isArray(c.after) && c.after.length ? `<small class="pafter">After: ${esc(c.after.map(nameOf).join(' and '))}</small>` : '');
     // up: from the page being written back to the site root, so course links work from any depth.
     const card = (c, up) => {
@@ -437,8 +438,11 @@ for (const node of dirs.values()) {
     const mapLink = cur ? `<a class="pcard pmap" href="map/"><b>Curriculum map</b><span>Every Years 7–10 descriptor by strand and year: how they connect, and which have lessons.</span></a>` : '';
     // trail: true: the subject page opens on trailheads (Continue, then a card per pathway with a picture of its
     // trail and a "Start here" line from the pathway's fit:), with today's list as "List for teachers".
-    const lessonCount = (path) => lessons.filter((l) => l.slug.split('/').slice(0, -1).join('/') === path && !l.optional).length;
-    const heads = node.meta?.trail === true ? trailheadsHtml(pathways, pathways.map((pw) => layoutTrail(pw, pathways, dirs, lessonCount)), esc) : '';
+    // trail: units makes each unit a stop (science: one standard per unit); trail: true keeps one stop per course.
+    const lessonCount = (path, unit) => lessons.filter((l) => l.slug.split('/').slice(0, -1).join('/') === path && !l.optional && (unit == null || l.unit === unit)).length;
+    const trailOn = node.meta?.trail === true || node.meta?.trail === 'units';
+    const trailOpts = { stops: node.meta?.trail === 'units' ? 'units' : 'courses' };
+    const heads = trailOn ? trailheadsHtml(pathways, pathways.map((pw) => layoutTrail(pw, pathways, dirs, lessonCount, trailOpts)), esc) : '';
     const viewToggle = `<script>(function(){var d=document.documentElement;d.classList.add('js-on');try{if(localStorage.getItem('wp-pathview')!=='list')d.classList.add('trail-on')}catch(e){d.classList.add('trail-on')}})()</script>` +
       `<div class="ptoggle" role="group" aria-label="View"><button type="button" data-view="map">Trails</button><button type="button" data-view="list">List for teachers</button></div>`;
     writeFileSync(join(outDir, 'index.html'), page(node.title,
@@ -454,11 +458,11 @@ for (const node of dirs.values()) {
       const others = pathways.filter((x) => x !== pw).map((x) => `<a href="../${esc(x.id)}/">${esc(x.title)}</a>`).join(' · ');
       mkdirSync(join(OUT, pp), { recursive: true });
       // trail: true in the subject's index.md turns the map on (Code for now; maths and science later).
-      const useTrail = node.meta?.trail === true;
+      const useTrail = trailOn;
       if (useTrail) for (const c of pw.courses || []) if (!(c.tagline || (c.path && dirs.get(c.path)?.meta?.tagline))) console.warn(`  ! ${node.path}/index.md: pathway ${pw.id}: ${c.path || c.id || c.title} has no tagline (the line students see on the trail map)`);
       // Trail map (students, the default) and list (teachers: about, what each course covers). The choice
       // is remembered per browser; without JavaScript the list shows. tools/trail.mjs, site/trail.js.
-      const trail = useTrail && trailHtml(layoutTrail(pw, pathways, dirs, (path) => lessons.filter((l) => l.slug.split('/').slice(0, -1).join('/') === path && !l.optional).length), pup, esc);
+      const trail = useTrail && trailHtml(layoutTrail(pw, pathways, dirs, lessonCount, trailOpts), pup, esc);
       const view = `<script>(function(){var d=document.documentElement;d.classList.add('js-on');try{if(localStorage.getItem('wp-pathview')!=='list')d.classList.add('trail-on')}catch(e){d.classList.add('trail-on')}})()</script>` +
         `<div class="ptoggle" role="group" aria-label="View"><button type="button" data-view="map">Trail map</button><button type="button" data-view="list">List for teachers</button></div>`;
       writeFileSync(join(OUT, pp, 'index.html'), page(`${pw.title}: ${node.title}`,

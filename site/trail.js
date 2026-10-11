@@ -33,18 +33,21 @@
       if (!n.path) return;
       var p = (sum || []).filter(function (x) { return x.href === n.path + '/'; })[0];
       if (!p) return;
-      var req = p.lessons.filter(function (l) { return l.checks && !l.optional; });
+      var ls = n.unit ? p.lessons.filter(function (l) { return l.unit === n.unit; }) : p.lessons;
+      n.hrefs = ls.map(function (l) { return l.href; });
+      var req = ls.filter(function (l) { return l.checks && !l.optional; });
       var s = status[n.id];
       s.total = req.length;
       s.done = req.filter(function (l) { return l.complete; }).length;
-      var started = p.lessons.some(function (l) { return l.done; });
+      var started = ls.some(function (l) { return l.done; });
       var nx = req.filter(function (l) { return !l.complete; })[0];
       s.next = nx ? root + nx.href : null;
       s.kind = s.total && s.done === s.total ? 'done' : started ? 'going' : 'todo';
     });
     var open = function (n) { return status[n.id].kind === 'going' || status[n.id].kind === 'todo'; };
     var lastPath = last && last.href ? String(last.href) : '';
-    here = nodes.filter(function (n) { return n.path && lastPath.indexOf('/' + n.path + '/') >= 0 && open(n); })[0] ||
+    var hit = function (n) { return n.unit ? (n.hrefs || []).some(function (h) { return lastPath.indexOf('/' + h) >= 0; }) : lastPath.indexOf('/' + n.path + '/') >= 0; };
+    here = nodes.filter(function (n) { return n.path && hit(n) && open(n); })[0] ||
       nodes.filter(function (n) { return status[n.id].kind === 'going'; })[0] || null;
     hereWord = 'You are here';
     if (!here) {

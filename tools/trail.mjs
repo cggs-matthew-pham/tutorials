@@ -4,7 +4,7 @@
 // node linking to that pathway. Built here; site/trail.js adds this browser's progress, the card and the lines.
 
 // One id per course: its path when built, else its id, else its title.
-const idOf = (c) => c.path || c.id || c.title;
+const idOf = (c) => (c.unit ? c.id : c.path || c.id || c.title);
 
 // Pack nodes with target rows into whole rows 1..R, keeping their order, as close to the targets as they fit.
 function pack(items, R) {
@@ -32,7 +32,46 @@ function start(c, R) {
  * Lay out one pathway. dirs: built course folders (title, summary, meta). lessonCount(path): required lessons.
  * Returns { nodes, cols, rows, fcols } where each node has col, row, parents (ids) and what the page shows.
  */
-export function layoutTrail(pw, pathways, dirs, lessonCount) {
+export function layoutTrail(pw, pathways, dirs, lessonCount, opts = {}) {
+  // opts.stops === 'units' (a subject's `trail: units`): each unit of a course is a stop, named by the unit
+  // (one curriculum standard each in science), with the course's year as a small label.
+  if (opts.stops === 'units') return layoutTrailUnits(pw, pathways, dirs, lessonCount);
+  return layoutCourses(pw, pathways, dirs, lessonCount);
+}
+
+// Courses split into their units, then laid out with the course layout (units chain within a course; a course's
+// first unit follows the last unit of each course it comes after; another pathway's course stays one portal).
+function layoutTrailUnits(pw, pathways, dirs, lessonCount) {
+  const all = pathways.flatMap((p) => p.courses || []);
+  const refId = (r) => (r.includes('#') ? r : idOf(all.find((x) => x.id === r || x.path === r) || { id: r }));
+  const here = new Set((pw.courses || []).map(idOf));
+  const unitsOf = (c) => {
+    const d = c.path ? dirs.get(c.path) : null;
+    const us = (Array.isArray(d?.meta?.units) ? d.meta.units : []).filter((u) => lessonCount(c.path, u.id) > 0);
+    return us.length ? us : null;
+  };
+  const lastOf = (ref) => { const c = all.find((x) => idOf(x) === ref); const us = c && unitsOf(c); return us ? `${ref}#${us[us.length - 1].id}` : ref; };
+  const courses = [];
+  const foundations = (pw.courses || []).filter((c) => (c.stage || 'foundations') === 'foundations').map(idOf);
+  for (const c of pw.courses || []) {
+    const us = unitsOf(c);
+    const after = (Array.isArray(c.after) ? c.after : []).map(refId);
+    const first = (after.length ? after : (c.stage === 'extensions' ? foundations : [])).map((r) => (here.has(r) ? lastOf(r) : r));
+    if (!us) { courses.push({ ...c, after: first }); continue; }
+    const d = dirs.get(c.path);
+    const year = (d.title.match(/^(Years? [0-9]+(?: and [0-9]+)?)/) || [])[1] || d.title;
+    us.forEach((u, i) => courses.push({
+      id: `${idOf(c)}#${u.id}`, path: c.path, unit: u.id, group: year, stage: c.stage,
+      title: u.title, tagline: String(u.summary || '').replace(/\s*\((?:AC9|Year)[^)]*\)\s*\.?$/, '.').replace(/\.\.$/, '.'),
+      after: i ? [`${idOf(c)}#${us[i - 1].id}`] : first, lessons: lessonCount(c.path, u.id),
+    }));
+  }
+  const pw2 = { ...pw, courses };
+  const others = pathways.map((p) => (p === pw ? pw2 : p));
+  return layoutCourses(pw2, others, dirs, lessonCount);
+}
+
+function layoutCourses(pw, pathways, dirs, lessonCount) {
   const courses = pw.courses || [];
   const here = new Map(courses.map((c) => [idOf(c), c]));
   const foundations = courses.filter((c) => (c.stage || 'foundations') === 'foundations').map(idOf);
@@ -40,13 +79,13 @@ export function layoutTrail(pw, pathways, dirs, lessonCount) {
   for (const c of courses) {
     const d = c.path ? dirs.get(c.path) : null;
     // after: may name a course by its id as well as its path (maths does); use the one id per course.
-    const after = (Array.isArray(c.after) ? c.after : []).map((r) => idOf(pathways.flatMap((p) => p.courses || []).find((x) => x.id === r) || { id: r }));
+    const after = (Array.isArray(c.after) ? c.after : []).map((r) => (r.includes('#') ? r : idOf(pathways.flatMap((p) => p.courses || []).find((x) => x.id === r) || { id: r })));
     // An extension that names nothing to do first follows the pathway's foundations.
     const parents = after.length ? after : (c.stage === 'extensions' ? foundations : []);
     nodes.set(idOf(c), {
-      id: idOf(c), path: c.path || null, title: d ? d.title : c.title,
+      id: idOf(c), path: c.path || null, title: c.unit ? c.title : d ? d.title : c.title, unit: c.unit || null, group: c.group || null,
       tagline: c.tagline || d?.meta?.tagline || d?.summary || c.summary || '',
-      stage: c.stage || 'foundations', soon: !c.path, lessons: c.path ? lessonCount(c.path) : 0,
+      stage: c.stage || 'foundations', soon: !c.path, lessons: c.unit ? c.lessons : c.path ? lessonCount(c.path) : 0,
       parents: parents.slice(), portal: false,
     });
   }
@@ -54,10 +93,13 @@ export function layoutTrail(pw, pathways, dirs, lessonCount) {
   for (const n of [...nodes.values()]) {
     for (const ref of n.parents) {
       if (here.has(ref) || nodes.has(`portal:${ref}`)) continue;
-      const owner = pathways.find((p) => (p.courses || []).some((c) => idOf(c) === ref));
+      const [cref, uref] = ref.split('#');
+      const owner = pathways.find((p) => (p.courses || []).some((c) => idOf(c) === cref));
       if (!owner) throw new Error(`pathway ${pw.id}: "after: ${ref}" names no course`);
-      const c = owner.courses.find((x) => idOf(x) === ref);
-      nodes.set(`portal:${ref}`, { id: `portal:${ref}`, path: null, title: c.path ? dirs.get(c.path)?.title || c.title : c.title, tagline: c.tagline || dirs.get(c.path)?.meta?.tagline || '', pathway: owner.title, pathwayId: owner.id, portal: true, parents: [] });
+      const c = owner.courses.find((x) => idOf(x) === cref);
+      const unit = uref ? (dirs.get(c.path)?.meta?.units || []).find((u) => u.id === uref) : null;
+      if (uref && !unit) throw new Error(`pathway ${pw.id}: "after: ${ref}" names no unit of ${cref}`);
+      nodes.set(`portal:${ref}`, { id: `portal:${ref}`, path: null, title: unit ? unit.title : c.path ? dirs.get(c.path)?.title || c.title : c.title, tagline: unit ? String(unit.summary || '').replace(/\s*\((?:AC9|Year)[^)]*\)\s*\.?$/, '.') : c.tagline || dirs.get(c.path)?.meta?.tagline || '', pathway: owner.title, pathwayId: owner.id, portal: true, parents: [] });
     }
     n.parents = n.parents.map((r) => (here.has(r) ? r : `portal:${r}`));
   }
@@ -117,19 +159,20 @@ export function trailHtml(layout, up, esc) {
   const short = (t) => t.replace(/^Python Foundations with Turtle$/, 'Turtle').replace(/:.*$/, '');
   const nodeHtml = (n) => {
     const after = n.parents.length ? `<small class="tafter">After ${esc(n.parents.map((p) => short(byId.get(p).title)).join(' and '))}</small>` : '';
-    const href = n.portal ? `../${esc(n.pathwayId)}/` : n.path ? `${esc(up + n.path)}/` : '';
+    const href = n.portal ? `../${esc(n.pathwayId)}/` : n.path ? `${esc(up + n.path)}/${n.unit ? `#unit-${esc(n.unit)}` : ''}` : '';
     const tag = href ? 'a' : 'button';
-    const meta = n.portal ? `${n.pathway} pathway` : n.soon ? 'Coming later' : `${n.lessons} ${n.lessons === 1 ? 'lesson' : 'lessons'}`;
+    const meta = n.portal ? `${n.pathway} pathway` : n.soon ? 'Coming later' : `${n.group ? `${n.group} · ` : ''}${n.lessons} ${n.lessons === 1 ? 'lesson' : 'lessons'}`;
     const kind = n.portal ? 'is-portal' : n.soon ? 'is-soon' : 'is-todo';
     const inner = n.portal ? '↗' : n.soon ? '' : String(n.lessons);
     return `<${tag} class="tnode ${kind}" data-id="${esc(n.id)}"${href ? ` href="${href}"` : ' type="button"'} style="grid-column:${n.col + 1};grid-row:${n.row};--c:${n.col}">` +
       `<span class="tdot" aria-hidden="true"><span class="tin">${esc(inner)}</span></span>` +
       `<span class="tlab"><span class="there" hidden></span><b>${esc(n.title)}</b><small class="tmeta">${esc(meta)}</small>${after}<span class="tline">${esc(n.tagline)}</span></span></${tag}>`;
   };
-  const data = nodes.map((n) => ({ id: n.id, path: n.path, title: n.title, tagline: n.tagline, stage: n.stage, soon: !!n.soon, portal: n.portal, pathway: n.pathway || null, lessons: n.lessons || 0, parents: n.parents }));
+  const data = nodes.map((n) => ({ id: n.id, path: n.path, unit: n.unit || null, group: n.group || null, title: n.title, tagline: n.tagline, stage: n.stage, soon: !!n.soon, portal: n.portal, pathway: n.pathway || null, lessons: n.lessons || 0, parents: n.parents }));
+  const narrow = nodes.some((n) => n.unit);
   return `<section class="trail tbreak" aria-label="Trail map">` +
     `<div class="tcard" id="tcard" aria-live="polite"></div>` +
-    `<div class="tscroll"><div class="tmap" id="tmap" style="--cols:${cols};--rows:${rows};--fz:${(100 * fcols / cols).toFixed(2)}%">` +
+    `<div class="tscroll"><div class="tmap${narrow ? ' tunits' : ''}" id="tmap" style="--cols:${cols};--rows:${rows};--fz:${(100 * fcols / cols).toFixed(2)}%">` +
     `<svg class="tlines" aria-hidden="true"></svg>` +
     zone('tzf', 'Foundations', 0, fcols) +
     nodes.filter((n) => n.col < fcols).map(nodeHtml).join('') +
@@ -160,6 +203,7 @@ export const TRAIL_CSS = `
 .tmap{--zf:color-mix(in srgb,var(--run) 11%,var(--bg));--ze:color-mix(in srgb,var(--modify) 9%,var(--bg));position:relative;display:grid;
 grid-template-columns:repeat(var(--cols),minmax(220px,1fr));grid-template-rows:repeat(var(--rows),minmax(128px,auto)) auto;
 min-width:calc(var(--cols) * 220px);padding:18px 8px 0;border-radius:20px;background:linear-gradient(90deg,var(--zf) 0 var(--fz),var(--ze) var(--fz) 100%)}
+.tmap.tunits{grid-template-columns:repeat(var(--cols),minmax(132px,1fr));min-width:calc(var(--cols) * 132px)}.tunits .tlab{max-width:128px}.tunits .tlab b{font-size:14px}.tunits .tmeta{font-size:12.5px}
 .tlines{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .tlines path{fill:none;stroke-linecap:round}
 .tlines .walked{stroke:var(--ink);stroke-width:5}.tlines .open{stroke:var(--muted);stroke-width:3.5;stroke-dasharray:1 9}
@@ -190,6 +234,7 @@ min-width:calc(var(--cols) * 220px);padding:18px 8px 0;border-radius:20px;backgr
 .tdot{width:46px;height:46px;font-size:14px}
 .tlab{max-width:none}.tline{display:block;font-size:14px;color:var(--ink);margin-top:3px}.tafter{display:block;font-size:13px;color:var(--muted)}
 .tzone{padding:12px 4px 2px;align-self:stretch}
+.tmap.tunits{min-width:0}.tunits .tnode{margin-left:calc(min(var(--c),2) * 14px)}.tunits .tafter{display:none}.tunits .tlab{max-width:none;flex:1;min-width:0}.tunits .tlab b{font-size:15px}.tunits .tnode{align-self:stretch;max-width:calc(100% - min(var(--c),2) * 14px)}
 .tcard .tgo{justify-content:flex-start}
 }
 `;
@@ -217,7 +262,7 @@ export function trailheadsHtml(pathways, layouts, esc) {
     `<span class="thpic">${trailThumb(layouts[i], esc)}</span>` +
     (pw.fit ? `<p class="thfit">${esc(pw.fit)}</p>` : '') +
     `<span class="thprog" hidden></span><span class="thgo">Open the ${esc(pw.title)} trail →</span></a>`).join('');
-  const data = pathways.map((pw, i) => ({ id: pw.id, title: pw.title, nodes: layouts[i].nodes.filter((n) => !n.portal).map((n) => ({ id: n.id, path: n.path, title: n.title, soon: !!n.soon })) }));
+  const data = pathways.map((pw, i) => ({ id: pw.id, title: pw.title, nodes: layouts[i].nodes.filter((n) => !n.portal).map((n) => ({ id: n.id, path: n.path, unit: n.unit || null, title: n.title, soon: !!n.soon })) }));
   return `<div class="tbreak"><a class="thcont" id="thcont" hidden></a><div class="theads">${cards}</div></div>` +
     `<script type="application/json" id="trailheads-data">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
 }
