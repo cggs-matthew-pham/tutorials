@@ -1,0 +1,28 @@
+# Practice for "Substituting into formulas".
+templates:
+  - q: "Work out {a}x + {b} when x = {x}."
+    vars: { a: "2..9", b: "1..20", x: "2..12" }
+    where: "a * (x < 10 ? 10 : 100) + x + b != a * (x + b)"
+    answer: "{a * x + b}"
+    feedback:
+      - ["{a * (x < 10 ? 10 : 100) + x + b}", "{a}x means {a} × x, not the digits {a} and {x} side by side."]
+      - ["{a * (x + b)}", "Multiply first: {a} × {x}, then add {b}."]
+    explain: "{a} × {x} + {b} = {a * x} + {b} = {a * x + b}."
+  - q: "The area of a rectangle is A = lw. Find A when l = {l} and w = {w}."
+    vars: { l: "3..15", w: "2..12" }
+    answer: "{l * w}"
+    feedback:
+      - ["{l + w}", "lw means l × w: multiply."]
+    explain: "A = {l} × {w} = {l * w}."
+  - q: "Work out {a}(x + {b}) when x = {x}."
+    vars: { a: "2..9", b: "1..9", x: "1..10" }
+    answer: "{a * (x + b)}"
+    feedback:
+      - ["{a * x + b}", "The {a} multiplies the whole bracket: work out {x} + {b} first."]
+    explain: "Brackets first: {x} + {b} = {x + b}. Then {a} × {x + b} = {a * (x + b)}."
+  - q: "The volume of a box is V = lwh. Find V when l = {l}, w = {w} and h = {h}."
+    vars: { l: "2..10", w: "2..6", h: "2..5" }
+    answer: "{l * w * h}"
+    feedback:
+      - ["{l + w + h}", "lwh means l × w × h: multiply all three."]
+    explain: "V = {l} × {w} × {h} = {l * w} × {h} = {l * w * h}."

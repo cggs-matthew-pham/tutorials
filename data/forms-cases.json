@@ -539,6 +539,45 @@
           "equivalent"
         ]
       ]
+    },
+    {
+      "form": "factorised",
+      "expected": "5(4x + y - 4)",
+      "task": "Factorise 20x + 5y - 20 (two terms share a factor the third does not)",
+      "answers": [
+        [
+          "5(4x + y - 4)",
+          true
+        ],
+        [
+          "5(4x+y-4)",
+          true
+        ],
+        [
+          "(4x + y - 4)5",
+          true
+        ],
+        [
+          "20x + 5y - 20",
+          false,
+          "product"
+        ]
+      ]
+    },
+    {
+      "form": "factorised",
+      "expected": "3(2x + y + 2)",
+      "task": "Factorise 6x + 3y + 6",
+      "answers": [
+        [
+          "3(2x + y + 2)",
+          true
+        ],
+        [
+          "3(2x + 2 + y)",
+          true
+        ]
+      ]
     }
   ],
   "workings": [

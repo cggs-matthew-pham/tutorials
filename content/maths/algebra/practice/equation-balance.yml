@@ -1,0 +1,30 @@
+# Practice for "Equations as a balance".
+templates:
+  - q: "Which value of x makes {a}x + {b} = {c} true?"
+    vars: { a: "2..9", x: "1..10", b: "1..15" }
+    let: { c: "a * x + b" }
+    answer: "{x}"
+    feedback:
+      - ["{c - b}", "That is {a}x. What number times {a} gives {c - b}?"]
+    explain: "{a} × {x} + {b} = {a * x} + {b} = {c}, so x = {x}."
+  - q: "Find x: x + {a} = {b}."
+    vars: { a: "2..30", b: "10..60" }
+    where: "b > a"
+    answer: "{b - a}"
+    feedback:
+      - ["{a + b}", "x and {a} make {b}, so x is less than {b}."]
+    explain: "x = {b} − {a} = {b - a}. Check: {b - a} + {a} = {b}."
+  - q: "Is x = {t} a solution of {a}x − {b} = {c}? Work out the left side, {a}x − {b}, when x = {t}."
+    vars: { a: "2..9", t: "2..10", b: "1..12", s: [-1, 0, 0, 1] }
+    let: { c: "a * (t + s) - b" }
+    where: "a * t > b and c > 0"
+    answer: "{a * t - b}"
+    feedback:
+      - ["{a * (t < 10 ? 10 : 100) + t - b}", "{a}x means {a} × x, not the digits side by side."]
+    explain: "{a} × {t} − {b} = {a * t - b}. The right side is {c}, so {s = 0 ? 'x = ' + t + ' is a solution' : 'x = ' + t + ' is not a solution'}."
+  - q: "Find x: x/{a} = {b}."
+    vars: { a: "2..9", b: "2..12" }
+    answer: "{a * b}"
+    feedback:
+      - ["{b / a}", "x is divided by {a} to give {b}, so x is bigger than {b}: multiply."]
+    explain: "x = {b} × {a} = {a * b}. Check: {a * b} ÷ {a} = {b}."

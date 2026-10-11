@@ -1,0 +1,24 @@
+# Practice for "Factorising".
+templates:
+  - q: "Factorise {k * b}x {k * c|s} fully."
+    vars: { k: "2..9", b: "1..7", c: [-9, -7, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 7, 9] }
+    where: "gcd(b, c) = 1"
+    answer: "{k}({b|c}x {c|s})"
+    form: factorised
+    explain: "The HCF of {k * b} and {abs(k * c)} is {k}: {k * b}x ÷ {k} = {b|c}x and {k * c} ÷ {k} = {c}. So {k}({b|c}x {c|s}). Check by expanding."
+  - q: "Factorise x^2 {a|s}x fully."
+    vars: { a: [-9, -8, -7, -6, -5, -4, -3, -2, 2, 3, 4, 5, 6, 7, 8, 9] }
+    answer: "x(x {a|s})"
+    form: factorised
+    explain: "Both terms have a factor x: x^2 = x × x and {a|c}x = {a} × x. So x(x {a|s}). Check: x × x {a|s} × x = x^2 {a|s}x."
+  - q: "Factorise {a}x^2 + {a * b}x fully."
+    vars: { a: "2..6", b: "1..9" }
+    answer: "{a}x(x + {b})"
+    form: factorised
+    explain: "The HCF of {a}x^2 and {a * b}x is {a}x: {a}x^2 ÷ {a}x = x and {a * b}x ÷ {a}x = {b}. So {a}x(x + {b})."
+  - q: "Factorise {k * a}x + {k * b}y {k * c|s} fully."
+    vars: { k: "2..6", a: "1..4", b: "1..5", c: [-5, -4, -3, -2, -1, 1, 2, 3, 4, 5] }
+    where: "gcd(gcd(a, b), abs(c)) = 1"
+    answer: "{k}({a|c}x + {b|c}y {c|s})"
+    form: factorised
+    explain: "The HCF of {k * a}, {k * b} and {abs(k * c)} is {k}, so {k}({a|c}x + {b|c}y {c|s}). Check by expanding."

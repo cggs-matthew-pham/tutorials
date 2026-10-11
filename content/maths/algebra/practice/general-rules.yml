@@ -1,0 +1,31 @@
+# Practice for "An expression for any case".
+templates:
+  - q: "A gym costs {f} dollars to join plus {r} dollars a visit. Let v be the number of visits. Write an expression for the total cost."
+    vars: { f: [20, 25, 30, 40, 50, 60], r: [4, 5, 6, 8, 10, 12] }
+    answer: "{r}v + {f}"
+    feedback:
+      - ["{f}v + {r}", "The {f} dollars is paid once. Which amount is paid for every visit?"]
+      - ["{f + r}v", "Don't combine them: only the {r} is paid for each visit."]
+    explain: "{r}v + {f}: {r} dollars for each of v visits, plus {f} once. Check with v = 10: {r * 10} + {f} = {r * 10 + f}."
+  - q: "A hall costs {f} dollars to hire plus {r} dollars per guest. What is the cost for {g} guests, in dollars?"
+    vars: { f: [50, 60, 80, 100, 120], r: [4, 5, 6, 8, 10, 15], g: [10, 15, 20, 25, 30, 40, 50] }
+    answer: "{r * g + f}"
+    feedback:
+      - ["{(r + f) * g}", "The hire is paid once, not for each guest."]
+      - ["{r * g}", "That is the guests. Add the {f} dollar hire."]
+    explain: "{r}g + {f} with g = {g}: {r} × {g} + {f} = {r * g} + {f} = {r * g + f} dollars."
+  - q: "Pens cost {p} dollars each, and a coupon takes {d} dollars off the total. Let n be the number of pens. Write an expression for the cost."
+    vars: { p: [2, 3, 4, 5], d: [1, 2, 3, 5] }
+    where: "p != d"
+    answer: "{p}n - {d}"
+    feedback:
+      - ["{d} - {p}n", "Start from the pens' cost, {p}n, then take the coupon off."]
+      - ["{p - d}n", "The coupon comes off the total once, not off each pen."]
+    explain: "{p}n − {d}: {p} dollars for each of n pens, minus {d} once. Check with n = 10: {p * 10} − {d} = {p * 10 - d}."
+  - q: "Chairs are put in {k} equal rows. Let c be the number of chairs. Write an expression for the number of chairs in each row."
+    vars: { k: "3..12" }
+    answer: "c/{k}"
+    feedback:
+      - ["{k}c", "Sharing c chairs into {k} rows divides: c ÷ {k}."]
+      - ["{k}/c", "c is shared out, so c goes on top: c/{k}."]
+    explain: "c ÷ {k} = c/{k}. Check with c = {k * 5}: {k * 5} chairs in {k} rows is 5 per row."

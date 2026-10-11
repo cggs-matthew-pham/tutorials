@@ -437,13 +437,15 @@ function practiceSkills(node, courseLessons) {
 function writePractice(node, skills) {
   const units = Array.isArray(node.meta?.units) ? node.meta.units : [];
   const pp = `${node.path}/practice`;
+  // Expanded, factorised and simplified answers are judged by the form checker (Numbas), loaded only where used.
+  const forms = skills.some((s) => s.templates.some((t) => ['expanded', 'factorised', 'simplified'].includes(t.form)));
   mkdirSync(join(OUT, pp), { recursive: true });
   const data = JSON.stringify({ title: node.title, course: node.path, skills }).replace(/</g, '\\u003c');
   writeFileSync(join(OUT, pp, 'index.html'), page(`Practice: ${node.title}`,
     `<style>${PRACTICE_CSS}</style><header class="top"><a class="crumb" href="../">← ${esc(node.title)}</a><h1>${esc(node.title)}: practice</h1>` +
     `<p class="lede">New numbers every time. Get 3 right in a row to mark a skill as practised.</p></header>` +
     practiceBody(node.title, units, skills, esc) + `<script type="application/json" id="wpp-data">${data}</script>`,
-    `<script>${MATH_JS}${PRACTICE_JS}${PRACTICE_UI_JS}</script>`, navFor(pp, 'course', node.path)));
+    `<script>${MATH_JS}${PRACTICE_JS}${PRACTICE_UI_JS}</script>` + (forms ? `<script src="${'../'.repeat(pp.split('/').length)}_numbas/numbas-jme.min.js?v=${NUMBAS_VERSION()}" defer></script><script>${FORMS_JS}</script>` : ''), navFor(pp, 'course', node.path)));
 }
 
 function writeRecap(node, courseLessons) {

@@ -64,7 +64,24 @@ export function makeForms(Numbas) {
     terms.forEach(function (t) { var l = letters(t); common = common === null ? l : Object.keys(common).reduce(function (c, k) { if (l[k]) c[k] = 1; return c; }, {}); });
     return terms.length > 1 && common && Object.keys(common).length > 0;
   }
-  function fullyOut(s) { return simp(s, 'unitFactor') === simp(s, 'unitFactor,collectIntegerFactors') && !commonLetters(s); }
+  // The whole-number factor of each term (2x + y + 2 has 2, 1 and 2): the bracket is fully out when they share none.
+  // (Numbas's collectIntegerFactors also groups any two terms that share a factor, so it can't be used for this.)
+  function coefficient(t) {
+    var o = t.tok.type === 'op' && t.tok.name;
+    if (t.tok.type === 'number' || t.tok.type === 'integer') { var v = Number(t.tok.value); return isFinite(v) && Math.round(v) === v ? Math.abs(v) : null; }
+    if (t.tok.type === 'name') return 1;
+    if (o === '-u') return coefficient(t.args[0]);
+    if (o === '*') { var a = coefficient(t.args[0]), b = coefficient(t.args[1]); return a === null || b === null ? null : a * b; }
+    if (o === '^' && t.args[0].tok.type === 'name') return 1;
+    return null;
+  }
+  function fullyOut(s) {
+    var terms = [], walk = function (t) { var o = t.tok.type === 'op' && t.tok.name; if (o === '+' || o === '-') { walk(t.args[0]); walk(t.args[1]); } else terms.push(t); };
+    walk(jme.compile(s));
+    var cs = terms.map(coefficient);
+    if (cs.indexOf(null) >= 0) return simp(s, 'unitFactor') === simp(s, 'unitFactor,collectIntegerFactors') && !commonLetters(s);
+    return cs.reduce(gcd) === 1 && !commonLetters(s);
+  }
   function form(s, f) {
     if (f === 'expanded') { if (brackets(s)) return 'brackets'; return uncollected(s); }
     if (f === 'simplified') return uncollected(s);

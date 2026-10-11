@@ -1,0 +1,32 @@
+# Practice for "Changing the subject". Type the answer as x = ..., using / for divide.
+templates:
+  - q: "Make x the subject of y = {a}x + {b}."
+    vars: { a: "2..9", b: "1..15" }
+    answer: "x = (y - {b})/{a}"
+    form: subject x
+    feedback:
+      - ["x = y/{a} - {b}", "Undo + {b} first (it was done last), then divide the whole of y − {b} by {a}."]
+      - ["x = (y + {b})/{a}", "Undo + {b} by taking {b} away."]
+    explain: "Take {b} from both sides: y − {b} = {a}x. Divide by {a}: x = (y − {b})/{a}. Check: y = {a * 2 + b} gives x = 2, and {a} × 2 + {b} = {a * 2 + b}."
+  - q: "Make x the subject of y = {a}x − {b}."
+    vars: { a: "2..9", b: "1..15" }
+    answer: "x = (y + {b})/{a}"
+    form: subject x
+    feedback:
+      - ["x = (y - {b})/{a}", "Undo − {b} by adding {b} to both sides."]
+      - ["x = y/{a} + {b}", "Add {b} first, then divide the whole of y + {b} by {a}."]
+    explain: "Add {b} to both sides: y + {b} = {a}x. Divide by {a}: x = (y + {b})/{a}."
+  - q: "Make x the subject of y = (x + {b})/{a}."
+    vars: { a: "2..9", b: "1..12" }
+    answer: "x = {a}y - {b}"
+    form: subject x
+    feedback:
+      - ["x = {a}(y - {b})", "Undo ÷ {a} first (it was done last): multiply by {a}, then take away {b}."]
+    explain: "Multiply both sides by {a}: {a}y = x + {b}. Take {b}: x = {a}y − {b}."
+  - q: "A formula is v = u + {a}t. Make t the subject."
+    vars: { a: "2..10" }
+    answer: "t = (v - u)/{a}"
+    form: subject t
+    feedback:
+      - ["t = v/{a} - u", "Take u from both sides first, then divide the whole of v − u by {a}."]
+    explain: "Take u from both sides: v − u = {a}t. Divide by {a}: t = (v − u)/{a}."

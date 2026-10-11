@@ -181,7 +181,7 @@ else console.log('✓ error tasks: every planted error names its fault and an on
   const YAML = (await import('yaml')).default;
   const { existsSync } = await import('node:fs');
   const courses = [...new Set(lessons.map((l) => l.slug.split('/').slice(0, -1).join('/')))];
-  let files = 0, n = 0, w = 0;
+  let files = 0, n = 0, w = 0, WPF = null;
   for (const c of courses) {
     const dir = pjoin(CONTENT_ROOT, c, 'practice');
     if (!existsSync(dir)) continue;
@@ -190,7 +190,8 @@ else console.log('✓ error tasks: every planted error names its fault and an on
       const where = `${c}/practice/${f}`, name = f.replace(/\.yml$/, '');
       if (!bySlug[`${c}/${name}`]) { n++; console.error(`✗ ${where}: there is no lesson ${c}/${name}`); continue; }
       let d; try { d = YAML.parse(readFileSync(pjoin(dir, f), 'utf8')); } catch (e) { n++; console.error(`✗ ${where}: ${e.message}`); continue; }
-      const r = checkPractice(d, where, MATH);
+      if (!WPF && /"form":"(expanded|factorised|simplified)"/.test(JSON.stringify(d))) WPF = await (await import('./maths-forms.mjs')).loadForms();
+      const r = checkPractice(d, where, MATH, 300, WPF);
       r.errors.forEach((e) => console.error('✗ ' + e)); r.warnings.forEach((e) => console.warn('⚠ ' + e));
       n += r.errors.length; w += r.warnings.length;
     }

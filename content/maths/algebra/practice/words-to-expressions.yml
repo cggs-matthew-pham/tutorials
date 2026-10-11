@@ -1,0 +1,36 @@
+# Practice for "Words into expressions".
+templates:
+  - q: "Write an expression for \"{a} less than n\"."
+    vars: { a: "2..15" }
+    answer: "n - {a}"
+    feedback:
+      - ["{a} - n", "{a} less than n means start with n and take {a} away. Try n = 20: {a} less than 20 is {20 - a}."]
+    explain: "n − {a}. Check with n = 20: {a} less than 20 is {20 - a}, and 20 − {a} = {20 - a}."
+  - q: "Write an expression for \"{a} more than {b} times n\"."
+    vars: { a: "1..12", b: "2..9" }
+    where: "a != b"
+    answer: "{b}n + {a}"
+    feedback:
+      - ["{a}n + {b}", "{b} times n is {b}n; then add {a}."]
+      - ["{b}(n + {a})", "There is no bracket: n is multiplied by {b} first, then {a} is added to that."]
+    explain: "{b} times n is {b}n, and {a} more is {b}n + {a}. Check with n = 1: {b} × 1 + {a} = {b + a}."
+  - q: "Write an expression for \"n divided by {a}\"."
+    vars: { a: "2..12" }
+    answer: "n/{a}"
+    feedback:
+      - ["{a}/n", "n is the number being divided, so it goes on top: n/{a}."]
+      - ["{a}n", "That multiplies. Divided by {a} is n ÷ {a}."]
+    explain: "n ÷ {a} = n/{a}. Check with n = {a * 5}: {a * 5} ÷ {a} = 5."
+  - q: "Write an expression for \"{a} times n, take away {b}\"."
+    vars: { a: "2..9", b: "1..12" }
+    where: "a != b"
+    answer: "{a}n - {b}"
+    feedback:
+      - ["{b} - {a}n", "Start with {a}n, then take {b} away from it."]
+    explain: "{a} times n is {a}n; take away {b}: {a}n − {b}. Check with n = 10: {a * 10} − {b} = {a * 10 - b}."
+  - q: "Write an expression for \"subtract n from {a}\"."
+    vars: { a: "5..30" }
+    answer: "{a} - n"
+    feedback:
+      - ["n - {a}", "Subtract n from {a} means start with {a} and take n away."]
+    explain: "{a} − n. Check with n = 2: subtract 2 from {a} gives {a - 2}, and {a} − 2 = {a - 2}."

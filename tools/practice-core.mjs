@@ -62,6 +62,8 @@ export function makePractice() {
     if (filter === 'm' && Math.round(a) !== a) t = a.toFixed(2);
     if (filter && /^f\d$/.test(filter)) t = a.toFixed(Number(filter[1]));
     if (filter === 's') return (neg ? '− ' : '+ ') + t;
+    if (filter === 'c') return (neg ? '−' : '') + (t === '1' ? '' : t);
+    if (filter === 'sc') return (neg ? '− ' : '+ ') + (t === '1' ? '' : t);
     var full = (neg ? '−' : '') + t;
     if (filter === 'p' && neg) return '(' + full + ')';
     return full;
@@ -100,10 +102,44 @@ export function makePractice() {
     }
     return null;
   }
+  // Inequalities: "x > 3", "x <= -2" (also ≤ ≥, and the letter on the right: "3 < x"), as { x, op, n }; null if not one.
+  var FLIP = { '<': '>', '>': '<', '<=': '>=', '>=': '<=' };
+  function ineq(s, WPM) {
+    s = String(s).replace(/[−–]/g, '-').replace(/≤|⩽|≦|=</g, '<=').replace(/≥|⩾|≧|=>/g, '>=').trim();
+    var m = /^([a-zA-Z])\s*(<=|>=|<|>)\s*(.+)$/.exec(s), r = /^(.+?)\s*(<=|>=|<|>)\s*([a-zA-Z])$/.exec(s), o;
+    try { if (m) o = { x: m[1], op: m[2], n: WPM.evaluate(m[3], {}) }; else if (r) o = { x: r[3], op: FLIP[r[2]], n: WPM.evaluate(r[1], {}) }; } catch (e) { return null; }
+    return o && isFinite(o.n) ? o : null;
+  }
+  var ALG = { expanded: 1, factorised: 1, simplified: 1 };
   // Mark a typed answer against a generated question. WPM is the maths checker (tools/math-expr.mjs).
   // form: simplest (a whole number or a fraction in lowest terms), decimal, or whole. An answer with ":" is a ratio,
   // marked part by part (so 4 : 6 is not 2 : 3).
-  function mark(g, raw, WPM) {
+  function mark(g, raw, WPM, WPF) {
+    raw = String(raw).replace(/²/g, '^2').replace(/³/g, '^3');
+    var ie = ineq(g.answer, WPM);
+    if (ie) {
+      if (!String(raw).trim()) return { ok: false, msg: 'Type your answer first.' };
+      var a = ineq(raw, WPM);
+      if (!a) return { ok: false, keep: true, msg: 'Write it as an inequality, such as ' + ie.x + ' > 3 or ' + ie.x + ' ≤ −2.' };
+      if (a.x !== ie.x) return { ok: false, keep: true, msg: 'Use the letter ' + ie.x + '.' };
+      if (a.op === ie.op && Math.abs(a.n - ie.n) < 1e-9) return { ok: true };
+      var fi = g.feedback.filter(function (f) { var o = ineq(f[0], WPM); return o && o.op === a.op && Math.abs(o.n - a.n) < 1e-9; })[0];
+      if (fi) return { ok: false, msg: 'Not quite. ' + fi[1] };
+      return { ok: false, msg: Math.abs(a.n - ie.n) < 1e-9 ? 'The number is right. Check the inequality sign.' : 'Not quite. Check your working and try again.' };
+    }
+    var sub = /^subject ([a-zA-Z])$/.exec(g.form);
+    if (sub) {
+      var L = sub[1], parts = String(raw).replace(/[−–]/g, '-').split('='), rhs = g.answer.split('=')[1];
+      if (!String(raw).trim()) return { ok: false, msg: 'Type your answer first.' };
+      if (parts.length === 2 && parts[1].trim().toLowerCase() === L.toLowerCase()) parts = [parts[1], parts[0]];
+      if (parts.length !== 2 || parts[0].trim().toLowerCase() !== L.toLowerCase()) return { ok: false, keep: true, msg: 'Write it as ' + L + ' = …' };
+      if (!/[A-Z]/.test(g.answer)) parts[1] = parts[1].toLowerCase();   // Y for y: letters are compared as written
+      var eqv;
+      try { eqv = WPM.equivalent(parts[1], rhs); } catch (e) { return { ok: false, keep: true, msg: e.message }; }
+      if (!eqv) { var fs = feedback(g, parts[1], WPM, true); return { ok: false, msg: fs || 'Not quite: check each step of your rearranging.' }; }
+      if (WPM.vars(parts[1]).indexOf(L) >= 0) return { ok: false, keep: true, msg: 'Keep ' + L + ' only on the left.' };
+      return { ok: true };
+    }
     var v = WPM.splitAnswer(String(raw).trim()).value.trim().replace(/[−–]/g, '-').replace(/^(-?)\s*\$\s*/, '$1').replace(/^-\s+/, '-').replace(/(\d),(?=\d{3}(\D|$))/g, '$1');
     if (!v) return { ok: false, msg: 'Type your answer first.' };
     // Numeric answers: drop units or words after the number ("36 litres", "30 km/h", "−1°C", "12 dollars", "45%").
@@ -114,35 +150,46 @@ export function makePractice() {
     var num = function (t) { return WPM.evaluate(t, {}); };
     if (g.answer.indexOf(':') >= 0) {
       var a = g.answer.split(':'), b = v.split(':');
-      if (b.length !== a.length) return { ok: false, msg: 'Write it as a ratio, such as 2 : 3.' };
-      for (var i = 0; i < a.length; i++) { var x; try { x = num(b[i]); } catch (e) { return { ok: false, msg: 'Write each part of the ratio as a number.' }; } if (Math.abs(x - num(a[i])) > 1e-9) return { ok: false, msg: feedback(g, v, WPM) || 'Not quite. Check each part of the ratio.' }; }
+      if (b.length !== a.length) return { ok: false, keep: true, msg: 'Write it as a ratio, such as 2 : 3.' };
+      for (var i = 0; i < a.length; i++) { var x; try { x = num(b[i]); } catch (e) { return { ok: false, keep: true, msg: 'Write each part of the ratio as a number.' }; } if (Math.abs(x - num(a[i])) > 1e-9) return { ok: false, msg: feedback(g, v, WPM) || 'Not quite. Check each part of the ratio.' }; }
       return { ok: true };
     }
+    if (/[a-z]/i.test(g.answer)) {
+      if (!/[A-Z]/.test(g.answer)) v = v.toLowerCase();
+      try { var want = WPM.vars(g.answer).sort(), got = WPM.vars(v); if (got.some(function (x) { return want.indexOf(x) < 0; })) return { ok: false, keep: true, msg: 'Use the letter' + (want.length > 1 ? 's ' + want.slice(0, -1).join(', ') + ' and ' + want[want.length - 1] : ' ' + want[0]) + '.' }; } catch (e) { /* read below */ }
+    }
     var same;
-    try { same = g.tolerance ? Math.abs(num(v) - num(g.answer)) <= g.tolerance + 1e-9 : WPM.equivalent(v, g.answer); } catch (e) { return { ok: false, msg: e.message }; }
+    try { same = g.tolerance ? Math.abs(num(v) - num(g.answer)) <= g.tolerance + 1e-9 : WPM.equivalent(v, g.answer); } catch (e) { return { ok: false, keep: true, msg: e.message }; }
     if (same) {
-      if (g.form === 'simplest' && !mixedOk) { var m = /^\s*(-?\d+)\s*(?:\/\s*(\d+)\s*)?$/.exec(v); if (!m || (m[2] && (FN.gcd(Number(m[1]), Number(m[2])) !== 1 || m[2] === '1'))) return { ok: false, msg: 'Right value, but write it in simplest form (a whole number, or a fraction with no common factor).' }; }
-      if (g.form === 'decimal' && !/^\s*-?\d*\.?\d+\s*$/.test(v)) return { ok: false, msg: 'Right value, but write it as a decimal.' };
-      if (g.form === 'whole' && !/^\s*-?\d+\s*$/.test(v)) return { ok: false, msg: 'Write it as a whole number.' };
+      if (ALG[g.form]) {
+        if (!WPF) return { ok: false, keep: true, msg: 'The checker is still loading. Try again in a moment.' };
+        var r = WPF.check(v, g.answer, g.form);
+        if (!r.ok && r.equivalent) return { ok: false, keep: true, msg: 'Equal to the answer, but not finished. ' + r.why };
+        return r.unsure ? { ok: true, note: r.why } : { ok: true };
+      }
+      if (g.form === 'simplest' && !mixedOk) { var m = /^\s*(-?\d+)\s*(?:\/\s*(\d+)\s*)?$/.exec(v); if (!m || (m[2] && (FN.gcd(Number(m[1]), Number(m[2])) !== 1 || m[2] === '1'))) return { ok: false, keep: true, msg: 'Right value, but write it in simplest form (a whole number, or a fraction with no common factor).' }; }
+      if (g.form === 'decimal' && !/^\s*-?\d*\.?\d+\s*$/.test(v)) return { ok: false, keep: true, msg: 'Right value, but write it as a decimal.' };
+      if (g.form === 'whole' && !/^\s*-?\d+\s*$/.test(v)) return { ok: false, keep: true, msg: 'Write it as a whole number.' };
       return { ok: true };
     }
     return { ok: false, msg: feedback(g, v, WPM) || 'Not quite. Check your working and try again.' };
   }
-  function feedback(g, v, WPM) {
+  function feedback(g, v, WPM, rhsOnly) {
     for (var i = 0; i < g.feedback.length; i++) {
       var f = g.feedback[i];
+      if (rhsOnly) { try { var fr = f[0].split('=').pop(); if (!WPM.equivalent(fr, g.answer.split('=')[1]) && WPM.equivalent(v, fr)) return 'Not quite. ' + f[1]; } catch (e) { /* not comparable */ } continue; }
       try { if (f[0].indexOf(':') >= 0 ? f[0].replace(/\s/g, '') === v.replace(/\s/g, '') && f[0].replace(/\s/g, '') !== g.answer.replace(/\s/g, '') : (!WPM.equivalent(f[0], g.answer) && WPM.equivalent(v, f[0]))) return 'Not quite. ' + f[1]; } catch (e) { /* not comparable */ }
     }
     return '';
   }
-  return { generate: generate, fill: fill, compile: compile, choices: choices, names: names, rng: mulberry, mark: mark };
+  return { generate: generate, fill: fill, compile: compile, choices: choices, names: names, rng: mulberry, mark: mark, ineq: ineq, sup: sup };
 }
 
 export const PRACTICE = makePractice();
 export const PRACTICE_JS = `var WPP=(${makePractice.toString()})();`;
 
 /** Problems with one lesson's practice file, found by generating many questions. WPM is the maths checker (MATH). */
-export function checkPractice(data, where, WPM, n = 300) {
+export function checkPractice(data, where, WPM, n = 300, WPF = null) {
   const errors = [], warnings = [];
   if (!data || !Array.isArray(data.templates) || !data.templates.length) return { errors: [`${where}: needs templates: a list of at least one`], warnings };
   data.templates.forEach((t, i) => {
@@ -160,9 +207,14 @@ export function checkPractice(data, where, WPM, n = 300) {
         if (!g) continue;
         made++; seen.add(g.q);
         if (/\{|\}|NaN|Infinity|undefined/.test(g.q + g.answer + g.explain)) { errors.push(`${w}: a question came out as "${g.q}" with answer "${g.answer}"`); break; }
-        for (const part of g.answer.split(':')) { let a; try { a = WPM.evaluate(part, {}); } catch (e) { a = null; } if (a === null || !Number.isFinite(a)) { errors.push(`${w}: the answer "${g.answer}" is not a number for "${g.q}"`); break; } }
+        const sub = /^subject ([a-zA-Z])$/.exec(g.form), algebra = sub || /[a-zA-Z]/.test(g.answer);
+        if (g.form && !['simplest', 'decimal', 'whole', 'expanded', 'factorised', 'simplified'].includes(g.form) && !sub) { errors.push(`${w}: form "${g.form}" is not one of simplest, decimal, whole, expanded, factorised, simplified or subject x`); break; }
+        if (['expanded', 'factorised', 'simplified'].includes(g.form) && !WPF) { errors.push(`${w}: form ${g.form} needs the form checker (Numbas)`); break; }
+        if (sub && !new RegExp('^\\s*' + sub[1] + '\\s*=').test(g.answer)) { errors.push(`${w}: with form "subject ${sub[1]}" the answer starts "${sub[1]} =", not "${g.answer}"`); break; }
+        if (algebra) { try { if (!PRACTICE.ineq(g.answer, WPM)) WPM.parse(sub ? g.answer.split('=')[1] : g.answer); } catch (e) { errors.push(`${w}: the answer "${g.answer}" cannot be read (${e.message}) for "${g.q}"`); break; } }
+        else for (const part of g.answer.split(':')) { let a; try { a = WPM.evaluate(part, {}); } catch (e) { a = null; } if (a === null || !Number.isFinite(a)) { errors.push(`${w}: the answer "${g.answer}" is not a number for "${g.q}"`); break; } }
         if (errors.length) break;
-        const self = PRACTICE.mark(g, g.answer.replace(/:/g, ' : '), WPM);
+        const self = PRACTICE.mark(g, g.answer.replace(/:/g, ' : '), WPM, WPF);
         if (!self.ok) { errors.push(`${w}: its own answer "${g.answer}" is marked wrong for "${g.q}" (${self.msg})`); break; }
         for (const [fa] of g.feedback) { try { if (fa.includes(':') ? fa.replace(/\s/g, '') === g.answer.replace(/\s/g, '') : WPM.equivalent(fa, g.answer)) clash++; } catch (e) { /* not comparable */ } }
       }

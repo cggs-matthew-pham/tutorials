@@ -1,0 +1,40 @@
+# Practice for "Inequalities". Answers like x > 3 or x <= -2 (≤ and ≥ can be typed as <= and >=).
+templates:
+  - q: "Solve {a}x + {b} > {c}. (Type <= or >= for ≤ or ≥.)"
+    vars: { a: "2..8", k: "-5..9", b: "1..15" }
+    let: { c: "a * k + b" }
+    answer: "x > {k}"
+    feedback:
+      - ["x < {k}", "You only reverse the sign when you multiply or divide by a negative. Here you divide by {a}, which is positive."]
+    explain: "Take {b} from both sides: {a}x > {c - b}. Divide by {a}: x > {k}. Check x = {k + 1}: {a * (k + 1) + b} > {c}. ✓"
+  - q: "Solve −{a}x ≤ {c}. (Type <= or >= for ≤ or ≥.)"
+    vars: { a: "2..6", k: [-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6] }
+    let: { c: "-a * k" }
+    answer: "x ≥ {k}"
+    feedback:
+      - ["x ≤ {k}", "Dividing by −{a}, a negative, reverses the inequality sign."]
+      - ["x ≥ {-k}", "{c} ÷ (−{a}) is {k}: check the sign of the number."]
+    explain: "Divide both sides by −{a} and reverse the sign: x ≥ {k}. Check x = {k + 1}: −{a} × {k + 1|p} = {-a * (k + 1)} ≤ {c}. ✓"
+  - q: "Solve {b} − {a|c}x < {c}. (Type <= or >= for ≤ or ≥.)"
+    vars: { a: "1..5", k: "-4..8", b: "5..20" }
+    let: { c: "b - a * k" }
+    answer: "x > {k}"
+    feedback:
+      - ["x < {k}", "−{a|c}x < {c - b}: dividing by −{a}, a negative, reverses the sign."]
+    explain: "Take {b} from both sides: −{a|c}x < {c - b}. Divide by −{a} and reverse: x > {k}. Check x = {k + 1}: {b} − {a * (k + 1)|p} = {b - a * (k + 1)} < {c}. ✓"
+  - q: "Solve {a}x − {b} ≥ {c|c}x {d|s}. (Type <= or >= for ≤ or ≥.)"
+    vars: { a: "3..9", c: "1..4", k: "-3..8", b: "1..12" }
+    where: "a - c > 1 and d != 0"
+    let: { d: "(a - c) * k - b" }
+    answer: "x ≥ {k}"
+    feedback:
+      - ["x ≤ {k}", "Take {c|c}x from both sides: {a - c|c}x − {b} ≥ {d}. Dividing by {a - c}, a positive, keeps the sign."]
+    explain: "Take {c|c}x: {a - c|c}x − {b} ≥ {d}. Add {b}: {a - c|c}x ≥ {d + b}. Divide by {a - c}: x ≥ {k}."
+  - q: "How many integers x have {lo} < x ≤ {hi}?"
+    vars: { lo: "-6..4", w: "2..9" }
+    let: { hi: "lo + w" }
+    answer: "{w}"
+    feedback:
+      - ["{w + 1}", "{lo} is left out: < means not equal (an open circle)."]
+      - ["{w - 1}", "{hi} is in: ≤ includes it (a closed circle)."]
+    explain: "From {lo + 1} up to {hi}: {w} integers. {lo} is left out (open circle) and {hi} is in (closed)."

@@ -1,0 +1,33 @@
+# Practice for "The balance method".
+templates:
+  - q: "Solve {a}x + {b} = {c}."
+    vars: { a: "2..9", x: "2..12", b: "1..20" }
+    let: { c: "a * x + b" }
+    answer: "{x}"
+    feedback:
+      - ["{c - b}", "That is {a}x. Divide both sides by {a} too."]
+    explain: "Take {b} from both sides: {a}x = {c - b}. Divide both sides by {a}: x = {x}. Check: {a} × {x} + {b} = {c}."
+  - q: "Solve {a}x = {b|c}x + {c}."
+    vars: { a: "4..12", b: "1..8", x: "2..10" }
+    where: "a - b > 1"
+    let: { c: "(a - b) * x" }
+    answer: "{x}"
+    feedback:
+      - ["{c / a}", "Take {b|c}x from both sides first, so x is on one side only."]
+    explain: "Take {b|c}x from both sides: {a - b|c}x = {c}. Divide by {a - b}: x = {x}. Check: {a * x} = {b * x} + {c}."
+  - q: "Solve {a}x + {b} = {c|c}x + {d}."
+    vars: { a: "4..9", c: "1..5", x: "1..9", b: "1..15" }
+    where: "a > c"
+    let: { d: "(a - c) * x + b" }
+    answer: "{x}"
+    feedback:
+      - ["{(d - b) / (a + c)}", "Take {c|c}x from both sides (don't add it): {a - c|c}x + {b} = {d}."]
+    explain: "Take {c|c}x from both sides: {a - c|c}x + {b} = {d}. Take {b}: {a - c|c}x = {d - b}. Divide: x = {x}. Check: both sides are {a * x + b}."
+  - q: "Solve {a}x − {b} = {c}."
+    vars: { a: "2..9", x: "2..12", b: "1..20" }
+    let: { c: "a * x - b" }
+    where: "c > 0"
+    answer: "{x}"
+    feedback:
+      - ["{(c - b) / a}", "Add {b} to both sides to undo − {b}, not take it away."]
+    explain: "Add {b} to both sides: {a}x = {c + b}. Divide both sides by {a}: x = {x}. Check: {a} × {x} − {b} = {c}."

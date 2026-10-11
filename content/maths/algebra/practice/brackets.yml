@@ -1,0 +1,31 @@
+# Practice for "When brackets are needed".
+templates:
+  - q: "Write an expression for \"add {a} to n, then multiply the result by {b}\"."
+    vars: { a: "1..9", b: "2..9" }
+    where: "a != b"
+    answer: "{b}(n + {a})"
+    feedback:
+      - ["{b}n + {a}", "That multiplies only n. The {b} should multiply the whole of n + {a}: use brackets."]
+      - ["n + {a * b}", "The whole of n + {a} is multiplied by {b}, so n is multiplied too."]
+    explain: "{b}(n + {a}). Check with n = 1: 1 + {a} = {1 + a}, then × {b} = {b * (1 + a)}."
+  - q: "Write an expression for \"subtract {a} from n, then divide the result by {b}\"."
+    vars: { a: "1..9", b: "2..6" }
+    where: "a != b"
+    answer: "(n - {a})/{b}"
+    feedback:
+      - ["n - {a}/{b}", "Only {a} is divided there. The whole of n − {a} is divided by {b}: (n − {a})/{b}."]
+      - ["n/{b} - {a}", "That divides first. Subtract first, then divide the result: (n − {a})/{b}."]
+    explain: "(n − {a})/{b}: the brackets (or a long fraction bar) keep n − {a} together. Check with n = {a + b * 3}: {a + b * 3} − {a} = {b * 3}, ÷ {b} = 3."
+  - q: "Work out {b}({x} + {a})."
+    vars: { a: "1..9", b: "2..9", x: "1..9" }
+    answer: "{b * (x + a)}"
+    feedback:
+      - ["{b * x + a}", "Brackets first: {x} + {a} = {x + a}, then × {b}."]
+    explain: "{x} + {a} = {x + a}, then {b} × {x + a} = {b * (x + a)}."
+  - q: "Write an expression for \"multiply n by {b}, then add {a}\"."
+    vars: { a: "1..9", b: "2..9" }
+    where: "a != b"
+    answer: "{b}n + {a}"
+    feedback:
+      - ["{b}(n + {a})", "Here n is multiplied first and {a} is added afterwards, so no bracket is needed."]
+    explain: "{b}n + {a}: multiplying comes first anyway, so no brackets. Check with n = 1: {b} + {a} = {a + b}."

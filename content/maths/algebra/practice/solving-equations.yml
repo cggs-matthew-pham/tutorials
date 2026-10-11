@@ -1,0 +1,31 @@
+# Practice for "Solving harder equations".
+templates:
+  - q: "Solve {a}x {b|s} = {c}x {d|s}."
+    vars: { a: "2..9", c: "2..9", x: "-6..9", b: [-12, -9, -7, -5, -3, -1, 1, 2, 4, 6, 8, 11] }
+    where: "a > c and d != 0"
+    let: { d: "(a - c) * x + b" }
+    answer: "{x}"
+    feedback:
+      - ["{-x}", "Check the signs when you move the numbers: substitute your answer into both sides."]
+    explain: "Take {c}x from both sides: {a - c|c}x {b|s} = {d}. {b < 0 ? 'Add ' + (-b) : 'Take ' + b}: {a - c|c}x = {d - b}. So x = {x}. Check: both sides are {a * x + b}."
+  - q: "Solve {a}(x {b|s}) = {c}."
+    vars: { a: "2..6", x: "-5..9", b: [-7, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6] }
+    let: { c: "a * (x + b)" }
+    where: "c != 0"
+    answer: "{x}"
+    feedback:
+      - ["{(c - b) / a}", "Expand first: the {a} multiplies {b|p} too, so {a}x {a * b|s} = {c}."]
+    explain: "Expand: {a}x {a * b|s} = {c}. {a * b < 0 ? 'Add ' + (-a * b) : 'Take ' + a * b}: {a}x = {c - a * b}. Divide by {a}: x = {x}. Check: {a}({x} {b|s}) = {c}."
+  - q: "Solve {a}(x {b|s}) = {c|c}x {d|s}."
+    vars: { a: "3..6", c: "1..2", x: "-4..8", b: [-5, -3, -2, -1, 1, 2, 3, 4] }
+    let: { d: "(a - c) * x + a * b" }
+    where: "d != 0"
+    answer: "{x}"
+    explain: "Expand: {a}x {a * b|s} = {c|c}x {d|s}. Take {c|c}x from both sides: {a - c|c}x {a * b|s} = {d}. Then {a - c|c}x = {d - a * b}, so x = {x}. Check: both sides are {a * (x + b)}."
+  - q: "Solve x/{a} {b|s} = {c}."
+    vars: { a: "2..6", y: "-4..9", b: [-6, -4, -3, -2, 1, 2, 3, 5, 7] }
+    let: { c: "y + b", x: "a * y" }
+    answer: "{x}"
+    feedback:
+      - ["{c * a - b}", "Undo the {b|s} first, then multiply by {a}."]
+    explain: "{b < 0 ? 'Add ' + (-b) : 'Take ' + b} on both sides: x/{a} = {y}. Multiply by {a}: x = {x}. Check: {x} ÷ {a} {b|s} = {c}."

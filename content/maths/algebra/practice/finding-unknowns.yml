@@ -1,0 +1,37 @@
+# Practice for "Finding an unknown".
+templates:
+  - q: "A plumber charges C = {a}h + {b} dollars for h hours. A job cost {c} dollars. How many hours, h?"
+    vars: { a: [20, 25, 30, 40, 45, 50, 60], b: [20, 30, 40, 50, 60], h: "1..8" }
+    let: { c: "a * h + b" }
+    answer: "{h}"
+    feedback:
+      - ["{c / a}", "Take off the {b} call-out fee first, then divide by {a}."]
+    explain: "{c} = {a}h + {b}, so {a}h = {c - b} and h = {c - b} ÷ {a} = {h}. Check: {a} × {h} + {b} = {c}."
+  - q: "A rectangle has area A = {A} cm² and length l = {l} cm. Using A = lw, find its width w."
+    vars: { l: "3..12", w: "2..11" }
+    let: { A: "l * w" }
+    answer: "{w}"
+    feedback:
+      - ["{A - l}", "lw means l × w. Undo × {l} by dividing."]
+    explain: "{A} = {l}w, so w = {A} ÷ {l} = {w}. Check: {l} × {w} = {A}."
+  - q: "A rectangle has perimeter P = {P} cm and length l = {l} cm. Using P = 2l + 2w, find its width w."
+    vars: { l: "4..15", w: "1..10" }
+    where: "w < l"
+    let: { P: "2 * l + 2 * w" }
+    answer: "{w}"
+    feedback:
+      - ["{P - 2 * l}", "That is 2w, two widths. Halve it for one width."]
+      - ["{P - l}", "There are two lengths: take 2 × {l} = {2 * l} from {P}."]
+    explain: "{P} = 2 × {l} + 2w = {2 * l} + 2w, so 2w = {P - 2 * l} and w = {w}. Check: 2 × {l} + 2 × {w} = {P}."
+  - q: "Tickets cost T = {a}n + {b} dollars for n tickets (a booking fee of {b} dollars). An order cost {c} dollars. How many tickets?"
+    vars: { a: [8, 9, 12, 15, 18, 20], b: [3, 4, 5, 6], n: "2..9" }
+    let: { c: "a * n + b" }
+    answer: "{n}"
+    explain: "{c} − {b} = {c - b}, then {c - b} ÷ {a} = {n}. Check: {a} × {n} + {b} = {c}."
+  - q: "A box has volume V = lwh. V = {V}, l = {l} and w = {w}. Find h."
+    vars: { l: "2..8", w: "2..6", h: "2..9" }
+    let: { V: "l * w * h" }
+    answer: "{h}"
+    feedback:
+      - ["{V - l * w}", "lwh means l × w × h: {V} = {l * w}h, so divide."]
+    explain: "{V} = {l} × {w} × h = {l * w}h, so h = {V} ÷ {l * w} = {h}."

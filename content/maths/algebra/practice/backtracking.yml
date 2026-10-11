@@ -1,0 +1,31 @@
+# Practice for "Solving by backtracking".
+templates:
+  - q: "I think of a number. I multiply it by {a}, then add {b}, and I get {c}. What was my number?"
+    vars: { a: "2..9", x: "2..12", b: "1..15" }
+    let: { c: "a * x + b" }
+    answer: "{x}"
+    feedback:
+      - ["{c / a - b}", "Undo the last step first: take away {b}, then divide by {a}."]
+    explain: "Backtrack: {c} − {b} = {c - b}, then {c - b} ÷ {a} = {x}. Check: {a} × {x} + {b} = {c}."
+  - q: "Solve {a}x − {b} = {c}."
+    vars: { a: "2..9", x: "2..12", b: "1..15" }
+    let: { c: "a * x - b" }
+    where: "c > 0"
+    answer: "{x}"
+    feedback:
+      - ["{(c - b) / a}", "Undo − {b} by adding {b}, not taking it away."]
+    explain: "Undo − {b}: {c} + {b} = {c + b}. Undo × {a}: {c + b} ÷ {a} = {x}. Check: {a} × {x} − {b} = {c}."
+  - q: "Solve x/{a} + {b} = {c}."
+    vars: { a: "2..6", y: "2..10", b: "1..9" }
+    let: { c: "y + b", x: "a * y" }
+    answer: "{x}"
+    feedback:
+      - ["{c * a - b}", "Undo the last step first: take {b} away, then multiply by {a}."]
+    explain: "Undo + {b}: {c} − {b} = {y}. Undo ÷ {a}: {y} × {a} = {x}. Check: {x} ÷ {a} + {b} = {c}."
+  - q: "Solve (x + {b}) × {a} = {c}."
+    vars: { a: "2..6", x: "1..12", b: "1..9" }
+    let: { c: "a * (x + b)" }
+    answer: "{x}"
+    feedback:
+      - ["{c - b}", "Undo the × {a} first (it was done last), then take {b} away."]
+    explain: "Undo × {a}: {c} ÷ {a} = {x + b}. Undo + {b}: {x + b} − {b} = {x}. Check: ({x} + {b}) × {a} = {c}."

@@ -1,0 +1,30 @@
+# Practice for "Letters that vary".
+templates:
+  - q: "A taxi charges C = {a}k + {b} dollars for a trip of k km. Which number in the formula is paid once, whatever the distance?"
+    vars: { a: [2, 3, 4, 5], b: [4, 5, 6, 8, 10, 12] }
+    where: "a != b"
+    answer: "{b}"
+    feedback:
+      - ["{a}", "{a} dollars is paid for each km: it is multiplied by k. Which number is added on once?"]
+    explain: "{b} is a constant added once: the flag fall. {a} is a constant too, but it is paid for every km. C and k are the variables."
+  - q: "In the equation {a}x + {b} = {c}, x is an unknown: one number makes it true. What is it?"
+    vars: { a: "2..9", x: "1..10", b: "1..12" }
+    let: { c: "a * x + b" }
+    answer: "{x}"
+    feedback:
+      - ["{c - b}", "That is {a}x. x is the number that is multiplied by {a}."]
+    explain: "{a} × {x} + {b} = {c}, so x = {x}. In an equation the letter stands for one particular number."
+  - q: "P = 2l + 2w is the perimeter of a rectangle. For one rectangle, l = {l} cm and w = {w} cm. What is P, in cm?"
+    vars: { l: "3..15", w: "1..9" }
+    where: "w < l"
+    answer: "{2 * l + 2 * w}"
+    feedback:
+      - ["{l + w}", "That is one length and one width. A rectangle has two of each: 2l + 2w."]
+      - ["{l * w}", "That is the area. The perimeter goes all the way round: 2l + 2w."]
+    explain: "P = 2 × {l} + 2 × {w} = {2 * l} + {2 * w} = {2 * l + 2 * w} cm. l and w changed for this rectangle; the 2s never do."
+  - q: "A phone plan costs C = {a}g + {b} dollars a month, where g is the number of GB used. In a month when g = {g}, what is C?"
+    vars: { a: [2, 3, 4, 5, 6], b: [10, 15, 20, 25, 30], g: "1..12" }
+    answer: "{a * g + b}"
+    feedback:
+      - ["{(a + b) * g}", "Only the {a} dollars is paid for each GB; the {b} is paid once."]
+    explain: "C = {a} × {g} + {b} = {a * g} + {b} = {a * g + b} dollars. g and C change from month to month; {a} and {b} are constants."
