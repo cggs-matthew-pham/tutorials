@@ -156,7 +156,14 @@ Maths and science have recap pages (`recap: true`, roadmap/shared.md). For code,
    This is the step after Make and the challenge units, with less support. It stays apart from "large projects belong to the teacher": these are small, self-paced briefs, and bigger ideas stay in For teachers. Python and Web first. MakeCode's Showcase, Patrol and Tripwire already work much like open briefs.
 3. **Coach prompts: off for code.** An AI is likely to write the solution. If wanted later, use a stricter prompt (no code, ask a question back) and test it in Copilot first.
 
-To decide: where the Projects page lives (pathway or course), how a brief is written (a `projects.yml` per pathway, or Markdown), and whether project progress counts towards anything.
+**Where projects live (agreed 12 Oct).** Each brief is written in a course (`content/code/<course>/projects.yml`) and shown in three places:
+- a Projects chip on the course page, beside Playground, Reference and Recap
+- a side branch on the pathway trail just after that course, which never blocks the main route
+- gathered for the whole pathway in its "List for teachers" view, and listed in the course's teacher guide beside its primers
+
+A brief that needs two courses belongs to the later one. Why not a pathway page alone: the "You'll use" chips link to course recap cards, and one long page would mix briefs for students at very different points.
+
+Still to decide: how a brief is written (a `projects.yml` per pathway, or Markdown), and whether project progress counts towards anything.
 
 ## Proposed (12 Oct 2026, Matthew agreed the direction; not built): Web pathway after the DOM
 
