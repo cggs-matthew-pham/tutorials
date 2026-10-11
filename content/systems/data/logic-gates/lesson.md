@@ -8,8 +8,8 @@ language: maths
 voice: { name: bf_emma, speed: 1.05 }
 hook: "A computer chip holds billions of tiny switches and nothing else. How can switches add up numbers?"
 app:
-  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8326
-  url: http://127.0.0.1:8326/index.html
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8467
+  url: http://127.0.0.1:8467/index.html
   readySelector: ".lgswitch"
   layout: full
 explainPicture: { ref: gates.yml#explain-pic, caption: "Two switches side by side (OR): the lamp lights when A or B is on, or both." }

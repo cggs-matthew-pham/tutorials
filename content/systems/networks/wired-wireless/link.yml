@@ -1,0 +1,40 @@
+# Boards for "Wired or wireless".
+
+# region: run
+widget: network
+mode: link
+link: wired
+file: 50
+# endregion
+
+# region: explain
+widget: network
+mode: link
+link: wired
+file: 50
+# endregion
+
+# region: explain-pic
+widget: network
+mode: link
+link: wifi
+distance: 12
+walls: 1
+file: 50
+# endregion
+
+# region: modify
+widget: network
+mode: link
+link: wired
+file: 50
+# endregion
+
+# region: make
+widget: network
+mode: link
+link: wifi
+distance: 30
+walls: 2
+file: 50
+# endregion

@@ -1,0 +1,40 @@
+summary: Students compare cable, Wi-Fi and mobile links on a board to describe bandwidth, latency and reliability, work out file times, and match links to jobs such as gaming, streaming and file transfer (AC9TDI8K02 node 1).
+time: 40
+timing: "Predict and Try 6 min · Worked example 12 min · Vary 10 min · Practise and Make 12 min"
+goals:
+  - I can describe bandwidth, latency and reliability.
+  - I can compare wired and wireless links.
+  - I can choose a link for a job and say why.
+struggle: "Bandwidth and latency get treated as one 'speed'. Use the road picture: bandwidth is how many lanes, latency is how long the trip takes."
+before: |
+  Try the board yourself: switch link types and move the sliders.
+
+  The model is simplified and says so: cable 1000 Mb/s, 1 ms, nothing lost; Wi-Fi up to 300 Mb/s, losing speed with distance and walls; mobile 50 Mb/s, 40 ms. Real numbers vary a lot with equipment; the comparisons are what matter.
+
+  Hands-on: run a speed test on a school laptop on Wi-Fi and on a cable (if a port is available) and compare download speed and ping.
+running:
+  - "Predict: students who chose \"about the same\" may have fast home Wi-Fi; ask what the walls do."
+  - "Try: have students write down all three numbers for cable, then for Wi-Fi."
+  - "Worked example: ask why speeds are in megabits but files are in megabytes."
+  - "Vary: ask which is worse, 40 m or three walls."
+  - "Make: compare setups: who kept the most walls?"
+stuck:
+  - see: "A student says a faster plan fixes lag (Sam's mistake)."
+    ask: "Is lag about how much data, or how long each packet takes?"
+    fix: "Lag is latency; bandwidth is how much data a second."
+  - see: "A student divides megabytes by megabits."
+    ask: "Are the units the same?"
+    fix: "Multiply megabytes by 8 first."
+stretch: "Why do some country towns rely on satellite or mobile internet? What does that mean for latency and for school video calls?"
+support: "A card with the three words and a job for each: bandwidth (streaming), latency (gaming), reliability (everything)."
+leads: |
+  Next: Packets (how a message actually travels, and what happens to lost packets).
+
+  Where it leads: the internet journey lesson uses both wired and wireless links in one trip.
+exit:
+  q: "Name two properties that differ between wired and wireless links. Which link would you choose for online exams, and why?"
+  a: "Any two of bandwidth, latency, reliability. A cable: it is the most reliable, so the exam is least likely to drop out."
+explain: |
+  A link between computers can be **wired** (cable, fibre) or **wireless** (Wi-Fi, mobile). Three properties describe it: **bandwidth** (how much data each second), **latency** (the delay for each packet) and **reliability** (how many packets get lost). Cables usually win on all three; Wi-Fi gets worse with distance and walls; mobile data has a longer delay.
+
+  The right link depends on the job: games need low latency, streaming needs bandwidth, and everything needs reliability.

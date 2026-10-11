@@ -1,0 +1,40 @@
+summary: Students follow an online purchase from laptop to shop on a board and its step log, connecting wired and wireless links, packets, TCP and HTTPS encryption into one end-to-end account, then put the journey in order themselves (AC9TDI8K02 node 5).
+time: 40
+timing: "Predict and Try 8 min · Worked example 10 min · Vary 10 min · Practise and Make 12 min"
+goals:
+  - I can describe the journey of data across the internet.
+  - I can say where packets, a protocol and encryption each play a part.
+  - I can point out which parts of the trip are wired and which are wireless.
+struggle: "Holding the whole chain at once. Use the board's log as the scaffold and have students say which earlier lesson each line comes from."
+before: |
+  Try the board yourself and read the log.
+
+  The integration node: everything from this course in one scenario (the kit's example is an online purchase). The board simplifies: one home Wi-Fi hop, one fibre hop, two routes; real trips cross many networks, and HTTPS uses a key agreed when the page loads (Secret messages lesson 6 shows how keys can be agreed in public).
+
+  Years 9–10 (AC9TDI10K01) takes this further: addresses, domain names, routing, and public key encryption.
+running:
+  - "Predict: students who chose the router hold Sam's misconception; ask what Eve on the Wi-Fi would see."
+  - "Try: pause after each log line and name the lesson it comes from."
+  - "Worked example: ask where most of the internet's cables are (including under the sea)."
+  - "Vary: link each experience (slow page, gap) to its cause."
+  - "Make: ask why the extra line is wrong."
+stuck:
+  - see: "A student puts encryption at the router (Sam's mistake)."
+    ask: "What travels over the Wi-Fi if the router encrypts?"
+    fix: "Plain text, readable by anyone nearby. Encrypt on the device."
+  - see: "A student thinks the whole internet is wireless."
+    ask: "How does data get between countries?"
+    fix: "Mostly fibre, including undersea cables; wireless is usually just the first hop."
+stretch: "Look up a map of undersea internet cables. Which ones connect Australia to the rest of the world?"
+support: "Give the eight journey steps on cards to order before the board."
+leads: |
+  This closes the Networks course.
+
+  Next (Years 9–10): Security and privacy (addresses and routing, passwords and hashing, public key encryption). Code links: Secret messages.
+exit:
+  q: "Describe the journey of a password from your phone to a website in four steps, naming where encryption, packets and TCP each come in."
+  a: "Encrypted on the phone (HTTPS); split into packets; sent over wireless then wired links through routers, with TCP resending lost packets; put back in order and decrypted by the website."
+explain: |
+  Buying something online uses everything at once. Your browser **encrypts** the data (HTTPS) on your device; it is split into numbered **packets**; the packets cross **Wi-Fi** (wireless) to your router, then **cables and fibre** (wired); **routers** pass them on by different routes; **TCP** has any lost packet sent again; and the shop puts them back in order and **decrypts** them.
+
+  Nobody on the way can read the card number, and nothing is lost, even though the trip crosses equipment owned by many different people.

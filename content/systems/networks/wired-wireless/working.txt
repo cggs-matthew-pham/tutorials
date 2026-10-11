@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+My online game lags: my moves show up late.
+Lag is the delay (latency) before each packet arrives.
+More bandwidth means each packet arrives sooner.
+So a faster internet plan will fix the lag.
+# endregion

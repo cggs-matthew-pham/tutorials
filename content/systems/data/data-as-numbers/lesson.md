@@ -8,8 +8,8 @@ language: maths
 voice: { name: bf_emma, speed: 1.05 }
 hook: "A message, a photo and a song all end up in the same computer memory. What is actually stored there?"
 app:
-  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8322
-  url: http://127.0.0.1:8322/index.html
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8466
+  url: http://127.0.0.1:8466/index.html
   readySelector: ".dcell"
   layout: full
 explainPicture: { ref: numbers.yml#explain-pic, caption: "72, 105, 33 read three ways: as text they spell Hi!, as grey shades they are three greys, as sound they are three levels below the middle line." }

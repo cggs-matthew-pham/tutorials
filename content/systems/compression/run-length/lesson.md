@@ -8,8 +8,8 @@ language: maths
 voice: { name: bf_emma, speed: 1.05 }
 hook: "A fax machine sent whole pages down a phone line in the 1980s, as numbers. How do you send a page with far fewer numbers than it has dots?"
 app:
-  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8328
-  url: http://127.0.0.1:8328/index.html
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8461
+  url: http://127.0.0.1:8461/index.html
   readySelector: ".pxcell"
   layout: full
 explainPicture: { ref: rle.yml#explain-pic, caption: "Four rows and their codes: 3, 4, 1; 0, 8 (it starts black); 8; and a checkerboard row, 1, 1, 1, 1, 1, 1, 1, 1, which saves nothing. 14 numbers instead of 32." }

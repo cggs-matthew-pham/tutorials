@@ -8,8 +8,8 @@ language: maths
 voice: { name: bf_emma, speed: 1.05 }
 hook: "A song is a wobbling wave of air. How does a computer turn that into numbers, and why are music files so big?"
 app:
-  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8325
-  url: http://127.0.0.1:8325/index.html
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8468
+  url: http://127.0.0.1:8468/index.html
   readySelector: ".smsvg"
   layout: full
 explainPicture: { ref: sound.yml#explain-pic, caption: "A wave sampled 8 times each wave, each sample rounded to one of 8 levels. The dots are the stored numbers; the steps are what plays back." }

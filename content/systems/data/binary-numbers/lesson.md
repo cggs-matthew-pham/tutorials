@@ -8,8 +8,8 @@ language: maths
 voice: { name: bf_emma, speed: 1.05 }
 hook: "A computer has no digits from 2 to 9, only switches that are off or on. So how does it store the number 22?"
 app:
-  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8320
-  url: http://127.0.0.1:8320/index.html
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8462
+  url: http://127.0.0.1:8462/index.html
   readySelector: ".bcard"
   layout: full
 explainPicture: { ref: cards.yml#explain-pic, caption: "10110 in binary: the 16, 4 and 2 cards are face up, so the number is 16 + 4 + 2 = 22." }

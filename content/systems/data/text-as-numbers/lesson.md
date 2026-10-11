@@ -8,8 +8,8 @@ language: maths
 voice: { name: bf_emma, speed: 1.05 }
 hook: "Every message you send is stored as a list of numbers. What list is your name?"
 app:
-  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8323
-  url: http://127.0.0.1:8323/index.html
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8469
+  url: http://127.0.0.1:8469/index.html
   readySelector: ".dcell"
   layout: full
 explainPicture: { ref: text.yml#explain-pic, caption: "Hi 7! stored as text: H 72, i 105, a space 32, the digit 7 as 55, and ! 33. Every character has a code, even the space and the digit." }

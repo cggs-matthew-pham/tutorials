@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The message is split into 4 numbered packets.
+Packet 2 is lost at a busy router.
+So the whole message must be sent again from the start.
+That is why a download starts again when one packet is lost.
+# endregion

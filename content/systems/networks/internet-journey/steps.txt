@@ -1,0 +1,19 @@
+# The journey of a purchase, in order (Make). Plain text: students put the lines in order.
+
+# region: order
+You press Buy, and your browser encrypts the card number (HTTPS).
+The encrypted data is split into numbered packets.
+The packets cross the Wi-Fi to your home router.
+They travel by cable and fibre to your internet provider.
+Routers pass each packet on, by different routes.
+The shop's computer confirms each packet; a lost one is sent again (TCP).
+The packets are put back in order by number.
+The shop decrypts the card number with its key.
+# endregion
+
+# region: sam
+I type my card number and press Buy.
+My laptop splits it into packets.
+My home router encrypts the packets.
+The packets travel across the internet to the shop.
+# endregion

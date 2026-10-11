@@ -1,0 +1,33 @@
+# Boards for "Across the internet": laptop, Wi-Fi, home router, fibre, provider, two routes, the shop.
+
+# region: run
+widget: network
+mode: journey
+message: CARD 4111 2222
+https: on
+drop: 2
+# endregion
+
+# region: explain
+widget: network
+mode: journey
+message: CARD 4111 2222
+https: on
+drop: 2
+# endregion
+
+# region: explain-pic
+widget: network
+mode: journey
+message: CARD 4111 2222
+https: on
+drop: 0
+# endregion
+
+# region: modify
+widget: network
+mode: journey
+message: CARD 4111 2222
+https: on
+drop: 2
+# endregion

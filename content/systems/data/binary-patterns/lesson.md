@@ -8,8 +8,8 @@ language: maths
 voice: { name: bf_emma, speed: 1.05 }
 hook: "Colour values in a program stop at 255, and old game scores wrapped round to 0. Both come from the same rule about bits."
 app:
-  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8321
-  url: http://127.0.0.1:8321/index.html
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8463
+  url: http://127.0.0.1:8463/index.html
   readySelector: ".bcard"
   layout: full
 explainPicture: { ref: cards.yml#explain-pic, caption: "Four cards all face up: 1111 = 8 + 4 + 2 + 1 = 15, the largest number four bits can hold. With 0, that is 16 patterns." }

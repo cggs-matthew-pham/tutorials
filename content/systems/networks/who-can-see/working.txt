@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+I am on the café's free Wi-Fi.
+The website has no padlock, so nothing is encrypted.
+My message only goes to the bank, so only the bank sees it.
+So it is safe to type my password here.
+# endregion

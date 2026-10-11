@@ -26,9 +26,13 @@ Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 
 - New course `systems/compression` (Making data smaller, Years 9–10, after Data representation): Run-length encoding (10K03 n1 and n2; `pixels` with `mode: bw` and `rle: on`, draw-from-codes Make) and Lossy or lossless (n3; `pixels` with `lossy: on` and a tolerance slider). Misconceptions `or-means-not-both`, `char-one-bit`, `rle-start-white`, `lossy-recoverable`.
 - `tools/concepts.mjs` `prerequisites()` reads the systems subject too, so `after:` between Digital systems courses counts.
 
+## Done (12 Oct 2026): Networks course
+
+`systems/networks` (Years 7–8, AC9TDI8K02): Wired or wireless (n1), Packets (n2, TCP resending a lost packet, broken links and rerouting), Who can see your data? (n3 and n4: an eavesdropper on café Wi-Fi, encryption with a shift key, weak keys 0 and 10), Across the internet (n5: the whole purchase with a step log; Make is a Parsons ordering with one wrong step). New `network` widget, four modes. One home per idea: Secret messages (Code) stays the home of building, cracking and sharing ciphers; these lessons are what encryption is for, with a light encrypt-decrypt cycle so the node is covered for students who skip MakeCode. Misconceptions `bandwidth-is-latency`, `resend-whole-message`, `packets-private`, `encrypt-at-router`. Clip ports moved to 8460–8499 (the maths chat had reused 8320–8333).
+
 ## Next
 
-1. Networks (8K02: wired and wireless, packets and protocols, why secure data, simple encryption, the internet) and Security (10K01). Check overlap with Secret messages first (8K02 n4 is mostly there).
+1. Security and privacy (Years 9–10, AC9TDI10K01: the operating system, addresses and routing, access control, public key and hashing). Overlaps Secret messages' key exchange and challenge-response; check first.
 2. Concept links: Secret messages should `assumes:` character codes (needs the cross-language concept change, item 4).
 3. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
 4. Cross-pathway concepts: the concept lint is per language (`CONCEPTS[lesson.language]`), so theory concepts (`bit`, `char-code`, `rgb`) cannot yet be `assumes:` in MakeCode or Python lessons. Needs a small change in `tools/concepts.mjs` (a shared concept list checked across languages, and `systems` in `prerequisites()`'s subject list). Check `roadmap/shared.md` first.

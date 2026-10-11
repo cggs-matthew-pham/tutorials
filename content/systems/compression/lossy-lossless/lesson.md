@@ -8,8 +8,8 @@ language: maths
 voice: { name: bf_emma, speed: 1.05 }
 hook: "A song streamed on your phone is about a tenth of the size of the same song on a CD. What did they throw away, and why can't you hear it?"
 app:
-  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8329
-  url: http://127.0.0.1:8329/index.html
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8460
+  url: http://127.0.0.1:8460/index.html
   readySelector: ".pxcell"
   layout: full
 explainPicture: { ref: photo.yml#explain-pic, caption: "A grey picture stored with run-length codes, count × shade. At tolerance 0 it is lossless: 28 numbers instead of 48, and every pixel comes back exactly." }

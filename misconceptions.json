@@ -220,5 +220,9 @@
   "vue-derived-once": {"home": "code/vue/vue-computed", "text": "A total worked out from data in setup stays up to date; in fact a plain calculation runs once, so a value that depends on data belongs in computed()."},
   "vue-prop-colon": {"home": "code/vue/vue-components", "text": "score=\"p.score\" passes the value of p.score; in fact without the colon it passes the words p.score, so use :score to pass a value."},
   "react-mutate": {"home": "code/vue/vue-compare", "text": "In React or Preact, changing an array and passing it back to setItems updates the page; in fact it compares the old and new arrays, sees the same one and skips the update, so pass a new array ([...items, name])."},
-  "fetch-no-await": {"home": "code/dom/dom-fetch", "text": "fetch and response.json() give the data straight away; in fact each gives a promise (a value that arrives later), so await each one before using it."}
+  "fetch-no-await": {"home": "code/dom/dom-fetch", "text": "fetch and response.json() give the data straight away; in fact each gives a promise (a value that arrives later), so await each one before using it."},
+  "bandwidth-is-latency": {"home": "systems/networks/wired-wireless", "text": "More bandwidth is thought to make each packet arrive sooner, so a faster plan fixes lag; bandwidth is how much data a second, latency is the delay for each packet."},
+  "resend-whole-message": {"home": "systems/networks/packets", "text": "A lost packet is thought to mean resending the whole message; with TCP only the packet that was never acknowledged is sent again."},
+  "packets-private": {"home": "systems/networks/who-can-see", "text": "A message is thought to be seen only by its receiver; its packets pass through Wi-Fi, routers and networks others control, and anyone there can copy plain text."},
+  "encrypt-at-router": {"home": "systems/networks/internet-journey", "text": "Data is thought to be encrypted by the router or the network; it is encrypted on the device (HTTPS) before it leaves, or the first hop would expose it."}
 }

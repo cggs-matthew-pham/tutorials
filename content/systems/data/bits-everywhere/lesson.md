@@ -8,8 +8,8 @@ language: maths
 voice: { name: bf_emma, speed: 1.05 }
 hook: "You now know how text, pictures and sound become numbers, and how numbers become bits. What does the letter A actually look like inside the computer?"
 app:
-  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8327
-  url: http://127.0.0.1:8327/index.html
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8464
+  url: http://127.0.0.1:8464/index.html
   readySelector: ".bcard"
   layout: full
 explainPicture: { ref: cards.yml#explain-pic, caption: "The letter A: code 65, which on 8 bits (one byte) is 01000001: the 64 card and the 1 card." }

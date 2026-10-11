@@ -1,0 +1,40 @@
+summary: Students send a PIN past an eavesdropper on café Wi-Fi, first in plain text and then encrypted with a shift key, to explain why data must be encrypted in transit and show that encryption is reversible with the key (AC9TDI8K02 nodes 3 and 4).
+time: 40
+timing: "Predict and Try 6 min · Worked example 12 min · Vary 10 min · Practise and Make 12 min"
+goals:
+  - I can explain why data needs encrypting when it is sent.
+  - I can encrypt and decrypt a short message with a key.
+  - I can say what makes a key weak.
+struggle: "The shared-path idea: students picture a private tube to the bank. Trace the packets on the board: whose equipment is each one?"
+before: |
+  Try the boards yourself.
+
+  The kit's chain for node 3: packets leave your device → travel through routers you don't control → anyone along the path can read them → so encryption is necessary. Node 4 (simple encryption) is here as a shift cipher on letters and digits, with the encrypt-decrypt cycle; the Code pathway's Secret messages course is the deeper home of ciphers (Caesar, XOR, cracking, key sharing). For students who have done it, this lesson is the why; for those who haven't, it is a first taste.
+
+  Defensive framing: the eavesdropper shows why protection matters; no attack techniques are taught.
+running:
+  - "Predict: students who chose \"only the bank\" hold Sam's misconception; trace the path after the Try."
+  - "Try: ask whose Wi-Fi it is, and who else could be on it."
+  - "Worked example: have students encrypt their initials with key 3."
+  - "Vary: the key 10 task surprises: ask why the digits came through unchanged."
+  - "Make: ask what a strong key would need (many possibilities)."
+stuck:
+  - see: "A student says only the receiver sees the message (Sam's mistake)."
+    ask: "Which pieces of equipment does the packet pass through?"
+    fix: "Every one of them could copy it."
+  - see: "A student shifts the wrong way to decrypt."
+    ask: "Which way did encryption move the letters?"
+    fix: "Decrypt by moving back by the same key."
+stretch: "XOR encryption (Secret messages lesson 5) works on the bits directly. Why does that suit computers better than shifting letters?"
+support: "An alphabet strip and a 0–9 strip to count along."
+leads: |
+  Next: Across the internet (the whole journey, with HTTPS).
+
+  Code links: Secret messages (Caesar, cracking, XOR, key exchange) is where students build and break ciphers.
+exit:
+  q: "Why should a password be encrypted before it is sent? Encrypt CAB with key 2."
+  a: "Packets pass through equipment other people control, so anyone on the path could copy plain text. CAB → ECD."
+explain: |
+  Packets pass through Wi-Fi, routers and networks you don't control, and anyone along the way can copy them. So private data must be **encrypted** on your device before it leaves: scrambled using a **key**. Only someone with the key can **decrypt** it, by reversing the steps.
+
+  Encryption must be reversible, or the receiver couldn't read it either. A weak key (one of only a few, or one that changes nothing) can be broken by trying them all.

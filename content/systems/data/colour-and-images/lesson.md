@@ -8,8 +8,8 @@ language: maths
 voice: { name: bf_emma, speed: 1.05 }
 hook: "Look very closely at a screen and you'll see tiny dots of only three colours. How do three colours make every colour, and how are they stored?"
 app:
-  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8324
-  url: http://127.0.0.1:8324/index.html
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8465
+  url: http://127.0.0.1:8465/index.html
   readySelector: ".pxcell"
   layout: full
 explainPicture: { ref: pixels.yml#explain-pic, caption: "A 4 by 4 image: each pixel is three numbers for red, green and blue. Yellow is 255, 255, 0 and blue is 0, 0, 255. 16 pixels × 3 = 48 numbers." }

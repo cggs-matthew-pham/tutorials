@@ -702,6 +702,18 @@ Vary, Practise, Make).
     `waves: 2`, `sliders: rate, levels` (or `none`), `wave: off`, `play: on` (Web Audio: the original tone and the one
     rebuilt from the numbers). Values: `s` (samples a wave), `l` (levels), `n` (numbers stored), `e` (average % off the
     wave). Checks: `"s = 16 and n = 32"`, `"l = 256 and e < 10 and s < 11"`.
+  - `widget: network` (first used by `systems/networks/`): four modes. `mode: link`: a laptop and a cable, Wi-Fi or
+    mobile link (buttons Cable, Wi-Fi, Mobile; `link:`, `file:` MB, Wi-Fi `distance:` and `walls:` sliders) with speed
+    (Mb/s), delay (ms), packets lost (%) and the file's time, from a simple stated model; values `w` (1 cable, 2 Wi-Fi,
+    3 mobile), `b`, `l`, `p`, `s` (seconds), `d`, `k` (walls). `mode: packets`: a message (`message:`, `size:` characters
+    a packet, `sizes: on` slider) sent as numbered packets through six routers; busy router C is slow and loses packet
+    `drop:` once; links can be clicked to break (aria-label "Link C (busy) to E, working…"); `tcp: off`, `choose: on`
+    adds a TCP switch; values `n`, `a` (arrived), `o` (out of order), `r` (resent), `k` (complete), `x` (broken links),
+    `u` (no route), `t` (TCP), `f` (sends). `mode: snoop`: past a café Wi-Fi where Eve copies packets; Encrypt button and
+    Key slider (a shift of letters and digits); values `e`, `s` (key), `v` (Eve could read it), `z` (key leaves digits
+    unchanged), `k`, `f`. `mode: journey`: laptop, Wi-Fi, home router, fibre, provider, two routes, shop, with a step log;
+    HTTPS button; values `h`, `k`, `r`, `v`, `f`. A Send press counts as using the board. Ready selector for clips:
+    `.nwbox` (a horizontal link has no height, so `.nwlink` never counts as visible).
   - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
     between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
     `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b
