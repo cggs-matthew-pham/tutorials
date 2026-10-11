@@ -1,0 +1,36 @@
+# Boards for "What comes out of a decaying nucleus?".
+
+# region: radon
+widget: atom
+mode: decay
+isotope: radon-222
+# endregion
+
+# region: shield
+widget: atom
+mode: shield
+# endregion
+
+# region: iodine
+widget: atom
+mode: decay
+isotope: iodine-131
+# endregion
+
+# region: americium
+widget: atom
+mode: decay
+isotope: americium-241
+# endregion
+
+# region: explain
+widget: atom
+mode: decay
+isotope: uranium-238
+# endregion
+
+# region: explain-pic
+widget: atom
+mode: shield
+fired: alpha, beta, gamma
+# endregion

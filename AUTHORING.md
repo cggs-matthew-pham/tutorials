@@ -725,6 +725,13 @@ Vary, Practise, Make).
     `p`, `n`, `e`, `z`, `a`, `q` charge, `o` outer electrons, `s` shells, `t`. `mode: table`: elements 1 to 20 by
     group and period (buttons labelled with the element's name); clicking one shows its shells with the outer shell
     orange and a note on its group. `find: Li, Na, K` (default all 20). Values: `n` found, `k`, `z`, `o`, `g` group.
+    `mode: decay` (9U06 n3): one nucleus, `isotope: radon-222` (or `Rn-222`; any element up to americium; default
+    uranium-238), and buttons Alpha decay, Beta decay, Gamma ray: each shows what leaves and the new atomic and mass
+    numbers, says whether that is how the isotope really decays (about 25 common ones, including the uranium-238 and
+    radon-222 chains) and stops at a stable isotope. Values: `z`, `a`, `x` alphas, `y` betas, `w` gammas, `r` real
+    decays in a row from the start, `s` 1 once stable. `mode: shield`: fire alpha, beta and gamma at paper,
+    aluminium and lead (`fired: alpha, beta, gamma` starts with all three shown, for a picture). Values: `x`, `y`,
+    `w` 1 once fired, `f` kinds fired.
   - `widget: equation` (AC9S9U07 n4): `equation: CH4 + O2 -> CO2 + H2O` (symbols and subscripts, no brackets, 2 to 5
     substances, at most 9 atoms each). + and − change only the coefficients (aria-labels "CH4: more" and so on, 1 to
     6); each molecule is drawn, with an atom tally per element. `start: 1, 2, 1, 2`. Values: `b` 1 while balanced,

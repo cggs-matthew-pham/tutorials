@@ -1,0 +1,44 @@
+summary: Students describe alpha, beta and gamma decay by what leaves the nucleus, explain how alpha and beta decay change the atomic and mass numbers, and compare how far each gets (AC9S9U06, node 3, a hinge node).
+time: 27
+timing: "Engage and Explore 8 min · Explain 12 min · Evaluate 3 min · Typical adds 5 min, Wider about 5 min"
+goals:
+  - I can describe what is given out in alpha, beta and gamma decay.
+  - I can explain how alpha and beta decay change the atomic number and mass number.
+  - I can compare how far alpha, beta and gamma get through materials.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace a teacher demonstration with sealed sources and a Geiger counter (or a video of one). Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The hinge: students often run the three kinds together (gamma "turns it into a new element"; beta electrons "come from the shells"), or cannot track the numbers. The prediction asks for the product of one alpha decay before students meet the rule; the usual slips are changing only the mass number, or moving the wrong way in the table.
+
+  Board notes: the decay board takes any isotope up to uranium (`isotope: radon-222`). It knows how about 25 common isotopes really decay (the uranium-238 and radon-222 chains, carbon-14, iodine-131, cobalt-60, caesium-137, americium-241 and others) and says so; for the rest it says it has no data. Students can still press any button: a "wrong" decay is a good discussion ("In nature C-14 decays by beta, not alpha"). The nucleus shows at most 60 particles, in the right proportion of protons to neutrons; it is not to scale. Beta here is beta-minus only (no positrons). The shield board is schematic: real ranges depend on energy.
+running:
+  - "Engage: tally the predictions. Radon-220 means 'only the mass changed'; radium-226 means the numbers went the wrong way."
+  - "Explore: ask which button changed the element's name, and which changed only the energy."
+  - "Explain: the sort and the two number checks are the node's success criteria; the 'why' question links stopping power to damage."
+  - "In your own words: the table plus the radon equation is the evidence."
+stuck:
+  - see: "A student says gamma decay makes a new element."
+    ask: "What leaves in gamma: protons, neutrons or neither?"
+    fix: "Neither: only energy. Same protons, same element, same mass number."
+  - see: "A student says the beta electron came from the electron shells."
+    ask: "Which number changes in beta decay?"
+    fix: "The atomic number goes up by 1: a neutron in the nucleus became a proton, and the electron made with it shot out. The shells are not involved."
+  - see: "A student subtracts 2 from the mass number in alpha decay."
+    ask: "How many particles are in an alpha particle?"
+    fix: "Four: 2 protons and 2 neutrons. Mass number down 4, atomic number down 2."
+  - see: "A student thinks alpha is the least dangerous in every situation."
+    ask: "What stops alpha, and is there any of that inside your lungs?"
+    fix: "Alpha is stopped quickly because it hits atoms hard; inside the body it gives all that energy to nearby cells. Danger depends on where the source is."
+stretch: "Uranium-238 decays by alpha, then beta, then beta. Write each new nucleus. (Thorium-234, protactinium-234, uranium-234: after three decays it is uranium again, but lighter.)"
+support: "Give the table to fill in: 'Alpha: leaves … · atomic number … · mass number … · stopped by …', and the same for beta and gamma."
+leads: |
+  Next: half-life (node 4, not yet a tutorial). Node 5, decay chains, is a class task: the decay board with `isotope: uranium-238` lets students follow the real chain to lead-206 (the board says when each step is the real one and when it reaches a stable isotope).
+
+  In class: a teacher demonstration or video of sealed sources, absorbers and a Geiger counter; a card sort of uses (smoke alarm, thyroid treatment, medical imaging, thickness gauges for paper and foil, checking welds in aircraft).
+exit:
+  q: "Cobalt-60 (27 protons) decays by beta decay and gives out gamma rays. What is it now, and which of the radiation would get through 1 cm of aluminium?"
+  a: "Nickel-60 (28 protons, mass number still 60). Only the gamma rays get through the aluminium."
+explain: |
+  An unstable nucleus decays by giving out **alpha** (2 protons and 2 neutrons), **beta** (a fast electron made when a neutron turns into a proton) or **gamma** (energy only).
+
+  Alpha: atomic number −2, mass number −4. Beta: atomic number +1, mass number the same. Gamma: no change. Alpha is stopped by paper, beta by a few millimetres of aluminium, and gamma is only reduced by thick lead.

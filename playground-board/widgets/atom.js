@@ -11,10 +11,19 @@
 //   table   Elements 1 to 20 by group (1, 2, 13 to 18) and period. Click one to see its shells, outer shell
 //           highlighted, its group and what that means for how it reacts.
 //             find: Li, Na, K     (the elements to look at; default all 20)
+//   decay   One nucleus (any element up to americium, 95) and three buttons: Alpha, Beta, Gamma. Each shows what leaves the
+//           nucleus and the new atomic and mass numbers; the board says whether that is how the isotope really decays
+//           (for the common ones it knows) and when it has reached a stable isotope.
+//             isotope: radon-222  (or "Rn-222", "C 14"; default uranium-238)
+//   shield  A source and three barriers (paper, aluminium, lead): fire alpha, beta or gamma and see how far each gets.
+//             fired: alpha, beta, gamma   (already fired at the start, for a picture)
 // state: { scope: { vars } }
 //   build   p protons, n neutrons, e electrons, z atomic number, a mass number, q charge, o outer electrons,
 //           s shells used, t 1 while the target is built
 //   table   n elements in find looked at, k elements to find, z atomic number now, o its outer electrons, g its group
+//   decay   z, a now; x alpha decays, y beta decays, w gamma emissions; r real decays in a row from the start (each the
+//           way that isotope really decays); s 1 once a stable isotope is reached
+//   shield  x, y, w 1 once alpha, beta, gamma have been fired; f kinds fired
 (function (B) {
   'use strict';
   var spec = null, st = null, bd = null;
@@ -66,6 +75,8 @@
 
   // ---------- drawing ----------
   function build() {
+    if (st.mode === 'decay') return buildDecay();
+    if (st.mode === 'shield') return buildShield();
     var c = cols();
     bd = B.jsx({ boundingbox: [-7, 6.6, 7, -6.4], keepAspectRatio: true });
     var R0 = 1.25, RS = [2.3, 3.3, 4.3, 5.3];
@@ -111,6 +122,8 @@
   function paint() {
     var panel = B.el('gpanel'); panel.replaceChildren();
     if (st.mode === 'table') return paintTable(panel);
+    if (st.mode === 'decay') return paintDecay(panel);
+    if (st.mode === 'shield') return paintShield(panel);
     if (spec.targetObj) {
       var t = spec.targetObj, card = el('div', 'cinfo');
       card.appendChild(el('b', '', 'Build: ' + EL[t.z][1].toLowerCase() + '-' + t.a + (t.q ? ' ion (' + EL[t.z][0] + (Math.abs(t.q) > 1 ? Math.abs(t.q) : '') + (t.q > 0 ? '+' : '−') + ')' : ', a neutral atom') + '.'));
@@ -158,6 +171,23 @@
   }
   function report() {
     var vars, msg, ok = false;
+    if (st.mode === 'decay') {
+      vars = { z: st.z, a: st.a, x: st.x, y: st.y, w: st.w, r: Math.max(0, st.realRun), s: st.stable ? 1 : 0 };
+      msg = st.hist.length ? isoName(st.z, st.a) + ' after ' + st.hist.length + ' step' + (st.hist.length === 1 ? '' : 's') + (st.stable ? ': stable.' : '.') : 'Choose a kind of decay.';
+      B.save({ st: { iso: spec.isotope || '', z: st.z, a: st.a, x: st.x, y: st.y, w: st.w, realRun: st.realRun, hist: st.hist, stable: st.stable } });
+      B.say(msg, st.stable);
+      B.post({ scope: { vars: vars, points: {} } }, msg);
+      return;
+    }
+    if (st.mode === 'shield') {
+      var f = (st.fx || 0) + (st.fy || 0) + (st.fw || 0);
+      vars = { x: st.fx || 0, y: st.fy || 0, w: st.fw || 0, f: f };
+      msg = f >= 3 ? 'You fired all three: alpha stopped by paper, beta by aluminium, gamma weakened by lead.' : 'Fired ' + f + ' of 3 kinds.';
+      B.save({ st: { fx: st.fx || 0, fy: st.fy || 0, fw: st.fw || 0, lastShield: st.lastShield || '' } });
+      B.say(msg, f >= 3);
+      B.post({ scope: { vars: vars, points: {} } }, msg);
+      return;
+    }
     if (st.mode === 'table') {
       var n = spec.findZ.filter(function (z) { return st.seen[z]; }).length, k = spec.findZ.length, sh = shells(st.z);
       vars = { n: n, k: k, z: st.z, o: sh[sh.length - 1], g: EL[st.z][2] };
@@ -175,12 +205,149 @@
     B.post({ scope: { vars: vars, points: {} } }, msg);
   }
 
+  // ---------- decay and shield ----------
+  var SYM = ' H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am'.split(' ');
+  var NAME = ' Hydrogen Helium Lithium Beryllium Boron Carbon Nitrogen Oxygen Fluorine Neon Sodium Magnesium Aluminium Silicon Phosphorus Sulfur Chlorine Argon Potassium Calcium Scandium Titanium Vanadium Chromium Manganese Iron Cobalt Nickel Copper Zinc Gallium Germanium Arsenic Selenium Bromine Krypton Rubidium Strontium Yttrium Zirconium Niobium Molybdenum Technetium Ruthenium Rhodium Palladium Silver Cadmium Indium Tin Antimony Tellurium Iodine Xenon Caesium Barium Lanthanum Cerium Praseodymium Neodymium Promethium Samarium Europium Gadolinium Terbium Dysprosium Holmium Erbium Thulium Ytterbium Lutetium Hafnium Tantalum Tungsten Rhenium Osmium Iridium Platinum Gold Mercury Thallium Lead Bismuth Polonium Astatine Radon Francium Radium Actinium Thorium Protactinium Uranium Neptunium Plutonium Americium'.split(' ');
+  // How common isotopes really decay (a alpha, b beta), and stable end points. Gamma usually comes with alpha or beta.
+  var REAL = { 'U-238': 'a', 'Th-234': 'b', 'Pa-234': 'b', 'U-234': 'a', 'Th-230': 'a', 'Ra-226': 'a', 'Rn-222': 'a', 'Po-218': 'a', 'Pb-214': 'b', 'Bi-214': 'b', 'Po-214': 'a', 'Pb-210': 'b', 'Bi-210': 'b', 'Po-210': 'a',
+    'C-14': 'b', 'H-3': 'b', 'K-40': 'b', 'Co-60': 'b', 'Sr-90': 'b', 'Y-90': 'b', 'I-131': 'b', 'Cs-137': 'b', 'Am-241': 'a', 'Pu-239': 'a', 'Rn-220': 'a', 'Ra-224': 'a' };
+  var STABLE = { 'Pb-206': 1, 'N-14': 1, 'He-3': 1, 'Ca-40': 1, 'Ni-60': 1, 'Zr-90': 1, 'Xe-131': 1, 'Ba-137': 1, 'C-12': 1, 'O-16': 1, 'Pb-208': 1 };
+  var KIND = { a: 'alpha', b: 'beta', g: 'gamma' };
+  function iso(z, a) { return (SYM[z] || ('Element ' + z)) + '-' + a; }
+  function isoName(z, a) { return (NAME[z] || ('Element ' + z)) + '-' + a; }
+  function parseIsotope(v) {
+    var m = /^\s*([A-Za-z]+)\s*[- ]\s*(\d+)\s*$/.exec(v || 'uranium-238');
+    if (!m) throw new Error('isotope: write an element and a mass number, such as "radon-222" or "C-14".');
+    var t = m[1].toLowerCase(), z = 0;
+    for (var i = 1; i < SYM.length; i++) if (SYM[i].toLowerCase() === t || NAME[i].toLowerCase() === t) { z = i; break; }
+    if (!z) throw new Error('isotope: "' + m[1] + '" is not an element from hydrogen to americium.');
+    var a = Number(m[2]); if (a < z) throw new Error('isotope: the mass number cannot be smaller than the atomic number.');
+    return { z: z, a: a };
+  }
+  var anim = null;
+  function animate() {
+    if (!anim) return;
+    var t = (performance.now() - anim.t0) / anim.dur;
+    if (t >= 1) { anim.t = 1; bd.update(); var done = anim.done; anim = null; if (done) done(); return; }
+    anim.t = t; bd.update(); requestAnimationFrame(animate);
+  }
+  function emitShape(kind, at) {
+    // A particle drawn at at() = [x, y, visible, fade]: alpha a cluster of 4, beta a dot, gamma a wavy line.
+    var c = cols();
+    if (kind === 'a') [[-0.17, 0.17, 'p'], [0.17, 0.17, 'n'], [-0.17, -0.17, 'n'], [0.17, -0.17, 'p']].forEach(function (o) {
+      bd.create('point', [function () { return at()[0] + o[0]; }, function () { return at()[1] + o[1]; }], { name: '', size: 6, strokeColor: 'rgba(0,0,0,0.3)', fillColor: o[2] === 'p' ? c.pro : c.neu, fixed: true, highlight: false, showInfobox: false, withLabel: false, visible: function () { return at()[2]; } });
+    });
+    if (kind === 'b') bd.create('point', [function () { return at()[0]; }, function () { return at()[1]; }], { name: '', size: 5, strokeColor: '#ffffff', strokeWidth: 1.5, fillColor: c.ele, fixed: true, highlight: false, showInfobox: false, withLabel: false, visible: function () { return at()[2]; } });
+    if (kind === 'g') {
+      var cv = bd.create('curve', [[0], [0]], { strokeColor: '#c9a227', strokeWidth: 2.5, fixed: true, highlight: false, visible: function () { return at()[2]; } });
+      cv.updateDataArray = function () { var p = at(), x1 = p[0], x0 = p[4] !== undefined ? p[4] : x1 - 2.4, X = [], Y = []; var M = Math.max(60, Math.ceil(Math.abs(x1 - x0) * 30)); for (var i = 0; i <= M; i++) { var x = x0 + (x1 - x0) * i / M; X.push(x); Y.push(p[1] + (p[5] !== undefined && x > p[5] ? 0.16 : 0.35) * Math.sin(x * 6)); } this.dataX = X; this.dataY = Y; };
+    }
+  }
+  function buildDecay() {
+    var c = cols();
+    bd = B.jsx({ boundingbox: [-10, 6, 10, -6], keepAspectRatio: true });
+    var NX = -4.5, R = function () { return 0.9 + 0.13 * Math.sqrt(st.a); };
+    bd.create('circle', [[NX, 0], function () { return R(); }], { strokeColor: c.ring, strokeWidth: 1, fillColor: c.nuc, fixed: true, highlight: false });
+    var GA = Math.PI * (3 - Math.sqrt(5)), N = 60;
+    for (var k = 0; k < N; k++) (function (k) {
+      var pos = function () { var r = (R() - 0.25) * Math.sqrt((k + 0.5) / N), a = k * GA; return [NX + r * Math.cos(a), r * Math.sin(a)]; };
+      bd.create('point', [function () { return pos()[0]; }, function () { return pos()[1]; }], { name: '', size: 5, strokeColor: 'rgba(0,0,0,0.25)', fillColor: function () { return k / Math.min(N, st.a) < st.z / st.a ? c.pro : c.neu; }, fixed: true, highlight: false, showInfobox: false, withLabel: false, visible: function () { return k < Math.min(N, st.a); } });
+    })(k);
+    bd.create('text', [NX, function () { return -R() - 0.7; }, function () { return isoName(st.z, st.a); }], { anchorX: 'middle', anchorY: 'middle', fontSize: 16, strokeColor: c.ink, fixed: true, highlight: false, display: 'internal', cssStyle: 'font-weight:700' });
+    bd.create('text', [NX, function () { return -R() - 1.5; }, function () { return st.z + ' protons · ' + (st.a - st.z) + ' neutrons'; }], { anchorX: 'middle', anchorY: 'middle', fontSize: 13, strokeColor: c.muted, fixed: true, highlight: false, display: 'internal' });
+    ['a', 'b', 'g'].forEach(function (kind) {
+      emitShape(kind, function () { var last = st.hist[st.hist.length - 1], on = anim ? anim.kind === kind : !!last && last[0] === kind; var t = anim && on ? anim.t : 1; var x = NX + R() + 0.3 + t * 11; return [x, 0, on, 0, kind === 'g' ? Math.max(NX + R(), x - 3) : undefined]; });
+    });
+    bd.create('text', [3.5, 1.4, function () { var last = st.hist[st.hist.length - 1], k = anim ? anim.kind : last && last[0]; return k ? { a: 'α particle: 2 protons + 2 neutrons', b: 'β particle: a fast electron from the nucleus', g: 'γ ray: energy, no particles' }[k] : ''; }], { anchorX: 'middle', anchorY: 'middle', fontSize: 13, strokeColor: c.ink, fixed: true, highlight: false, display: 'internal' });
+    bd.create('text', [9.8, -5.7, 'Not to scale; at most 60 particles drawn'], { anchorX: 'right', anchorY: 'bottom', fontSize: 11, strokeColor: c.muted, fixed: true, highlight: false, display: 'internal' });
+    bd.update();
+  }
+  function decay(kind) {
+    if (anim || st.stable) return;
+    var before = iso(st.z, st.a), real = REAL[before];
+    B.moved = true;
+    anim = { kind: kind, t0: performance.now(), dur: 1100, t: 0, done: function () {
+      if (kind === 'a') { st.z -= 2; st.a -= 4; st.x++; }
+      else if (kind === 'b') { st.z += 1; st.y++; }
+      else st.w++;
+      if (kind !== 'g') { st.realRun = st.realRun >= 0 && real === kind ? st.realRun + 1 : -1; }
+      st.hist.push([kind, before, iso(st.z, st.a), real]);
+      if (STABLE[iso(st.z, st.a)]) st.stable = true;
+      bd.update(); paint(); report();
+    } };
+    requestAnimationFrame(animate);
+  }
+  function paintDecay(panel) {
+    var bar = el('div', 'fbar');
+    [['a', 'Alpha decay'], ['b', 'Beta decay'], ['g', 'Gamma ray']].forEach(function (b) {
+      var btn = el('button', 'go', b[1]); btn.type = 'button'; btn.disabled = !!st.stable;
+      btn.addEventListener('click', function () { decay(b[0]); }); bar.appendChild(btn);
+    });
+    var rs = el('button', 'quiet', 'Start again'); rs.type = 'button'; rs.addEventListener('click', B.restart); bar.appendChild(rs);
+    panel.appendChild(bar);
+    var info = el('div', 'cinfo'), now = iso(st.z, st.a), last = st.hist[st.hist.length - 1];
+    if (last) {
+      var k = last[0];
+      info.appendChild(el('b', '', k === 'a' ? 'Alpha: 2 protons and 2 neutrons left. Atomic number −2, mass number −4: ' + last[1] + ' became ' + last[2] + '.' : k === 'b' ? 'Beta: a neutron turned into a proton and an electron, and the electron left. Atomic number +1, mass number unchanged: ' + last[1] + ' became ' + last[2] + '.' : 'Gamma: energy left the nucleus. No protons or neutrons changed: still ' + last[2] + '.'));
+      if (k !== 'g') info.appendChild(el('span', '', ' ' + (last[3] ? (last[3] === k ? 'That is how ' + last[1] + ' really decays.' : 'In nature ' + last[1] + ' decays by ' + KIND[last[3]] + ', not ' + KIND[k] + '.') : 'This model has no data on how ' + last[1] + ' decays.')));
+    } else info.appendChild(el('b', '', isoName(st.z, st.a) + ' (atomic number ' + st.z + ', mass number ' + st.a + ').'));
+    info.appendChild(el('i', '', st.stable ? ' ' + now + ' is stable: it does not decay.' : REAL[now] ? ' ' + now + ' is unstable.' : ''));
+    panel.appendChild(info);
+    if (st.hist.length) {
+      var chain = el('p', 'fsum'); chain.textContent = [st.hist[0][1]].concat(st.hist.map(function (h) { return { a: 'α', b: 'β', g: 'γ' }[h[0]] + ' → ' + h[2]; })).join(' ');
+      panel.appendChild(chain);
+    }
+  }
+  function buildShield() {
+    var c = cols();
+    bd = B.jsx({ boundingbox: [-10, 5, 10, -5], keepAspectRatio: false });
+    var BAR = [[-2.5, 'Paper', '#efe6d0', 0.25], [2.0, 'Aluminium (a few mm)', '#b9c2cf', 0.4], [6.3, 'Lead (several cm)', '#5f6672', 0.9]];
+    bd.create('point', [-8.5, 0], { name: '', size: 12, strokeColor: '#c9a227', strokeWidth: 3, fillColor: c.nuc, fixed: true, highlight: false, showInfobox: false, withLabel: false });
+    bd.create('text', [-8.5, 1.3, 'Source'], { anchorX: 'middle', anchorY: 'middle', fontSize: 13, strokeColor: c.ink, fixed: true, highlight: false, display: 'internal' });
+    BAR.forEach(function (b) {
+      bd.create('polygon', [[b[0] - b[3] / 2, -3], [b[0] + b[3] / 2, -3], [b[0] + b[3] / 2, 3], [b[0] - b[3] / 2, 3]], { fillColor: b[2], fillOpacity: 1, borders: { strokeColor: 'rgba(0,0,0,0.3)', strokeWidth: 1 }, vertices: { visible: false }, fixed: true, highlight: false });
+      bd.create('text', [b[0], -3.6, b[1]], { anchorX: 'middle', anchorY: 'middle', fontSize: 12, strokeColor: c.ink, fixed: true, highlight: false, display: 'internal' });
+    });
+    var STOP = { a: -2.5 - 0.45, b: 2.0 - 0.45, g: 9.5 }, YS = { a: 1.6, b: 0, g: -1.6 };
+    ['a', 'b', 'g'].forEach(function (kind) {
+      emitShape(kind, function () {
+        var on = anim && anim.kind === kind, t = on ? anim.t : 1, x = -8 + t * (STOP[kind] + 8);
+        return [Math.min(x, STOP[kind]), YS[kind], on || !!st[{ a: 'fx', b: 'fy', g: 'fw' }[kind]], 0, kind === 'g' ? (on ? Math.max(-8, x - 3) : -8) : undefined, 6.75];
+      });
+    });
+    bd.create('text', [0, 4.2, function () { return anim ? { a: 'Alpha: stopped by a sheet of paper (or a few cm of air)', b: 'Beta: passes paper, stopped by a few mm of aluminium', g: 'Gamma: reduced by thick lead, never stopped completely' }[anim.kind] : st.lastShield || (st.fx && st.fy && st.fw ? 'Alpha stopped by paper, beta by aluminium; gamma weakened by lead' : 'Fire each kind of radiation at the barriers.'); }], { anchorX: 'middle', anchorY: 'middle', fontSize: 14, strokeColor: c.ink, fixed: true, highlight: false, display: 'internal', cssStyle: 'font-weight:600' });
+    bd.update();
+  }
+  function fire(kind) {
+    if (anim) return;
+    B.moved = true;
+    anim = { kind: kind, t0: performance.now(), dur: 1400, t: 0, done: function () {
+      st[{ a: 'fx', b: 'fy', g: 'fw' }[kind]] = 1;
+      st.lastShield = { a: 'Alpha was stopped by the paper.', b: 'Beta got through the paper and was stopped by the aluminium.', g: 'Gamma got through all three, weakened by the lead.' }[kind];
+      bd.update(); paint(); report();
+    } };
+    requestAnimationFrame(animate);
+  }
+  function paintShield(panel) {
+    var bar = el('div', 'fbar');
+    [['a', 'Fire alpha'], ['b', 'Fire beta'], ['g', 'Fire gamma']].forEach(function (b) {
+      var btn = el('button', 'go', b[1]); btn.type = 'button'; btn.addEventListener('click', function () { fire(b[0]); }); bar.appendChild(btn);
+    });
+    panel.appendChild(bar);
+    var info = el('div', 'cinfo');
+    info.appendChild(el('span', '', 'Alpha particles are big and slow (helium nuclei); beta particles are small, fast electrons; gamma rays are energy with no mass and no charge. The bigger the particle, the sooner it is stopped.'));
+    panel.appendChild(info);
+  }
+
   B.widget('atom', {
     sections: ['board', 'gpanel'],
-    label: function (s) { return s.mode === 'table' ? 'A Bohr model of an element chosen from the first 20' : 'A Bohr model of an atom: protons and neutrons in the nucleus, electrons in shells'; },
+    label: function (s) { return s.mode === 'decay' ? 'A radioactive nucleus and what leaves it when it decays' : s.mode === 'shield' ? 'Alpha, beta and gamma radiation fired at paper, aluminium and lead' : s.mode === 'table' ? 'A Bohr model of an element chosen from the first 20' : 'A Bohr model of an atom: protons and neutrons in the nucleus, electrons in shells'; },
     parse: function (s) {
       s.mode = s.mode || 'build';
-      if (['build', 'table'].indexOf(s.mode) < 0) throw new Error('mode: use build or table.');
+      if (['build', 'table', 'decay', 'shield'].indexOf(s.mode) < 0) throw new Error('mode: use build, table, decay or shield.');
+      s.isoObj = s.mode === 'decay' ? parseIsotope(s.isotope) : null;
+      s.firedK = (s.fired || '').split(',').map(function (t) { return t.trim().toLowerCase(); }).filter(Boolean).map(function (t) {
+        var k = { alpha: 'fx', beta: 'fy', gamma: 'fw' }[t]; if (!k) throw new Error('fired: use alpha, beta and gamma.'); return k; });
       if (s.start) {
         var v = s.start.split(',').map(function (t) { return Number(t.trim()); });
         if (v.length !== 3 || v.some(function (x) { return !(x >= 0) || x !== Math.round(x); })) throw new Error('start: write protons, neutrons, electrons, such as "6, 6, 6".');
@@ -195,7 +362,11 @@
     start: function (fresh) {
       spec = B.spec; var sv = fresh ? null : B.saved(), k = (sv && sv.st) || {};
       st = { mode: spec.mode, oneRing: spec.oneRing, p: spec.startV[0], n: spec.startV[1], e: spec.startV[2], z: spec.findZ[0], seen: {} };
-      Object.assign(st, k);
+      anim = null;
+      if (spec.mode === 'decay') { st.z = spec.isoObj.z; st.a = spec.isoObj.a; st.x = 0; st.y = 0; st.w = 0; st.realRun = 0; st.hist = []; st.stable = !!STABLE[iso(st.z, st.a)];
+        if (k.hist && k.iso === (spec.isotope || '')) { delete k.iso; Object.assign(st, k); } }
+      else Object.assign(st, k);
+      if (spec.mode === 'shield') spec.firedK.forEach(function (f) { st[f] = 1; });
       build(); paint(); report();
     },
     redraw: function () { build(); },

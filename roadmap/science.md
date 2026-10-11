@@ -2,6 +2,12 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: alpha, beta and gamma (11 Oct 2026, science chat)
+
+What comes out of a decaying nucleus? (`chemistry-9-10/decay`, 9U06 n3, the last hinge in the pasted pages; unit Inside the atom, order 2, later lessons moved down one). The atom board gains `mode: decay` (any isotope up to americium; Alpha, Beta and Gamma buttons; knows how about 25 common isotopes really decay and when a stable one is reached) and `mode: shield` (paper, aluminium, lead). Explore: radon-222 to polonium-218, then the shield board; Explain: a sort of what leaves, what changes and what stops it, two number checks (U-238 alpha, C-14 beta), gamma, a detector question and why alpha stops soonest; Typical: iodine-131 treatment and gamma imaging; Wider: the americium smoke alarm and radon in homes. Voiced explain clip (uranium-238: alpha, beta, gamma; port 8260, next free 8261) and a shield picture. 17 checks pass headless; decks fit.
+
+Decided (Matthew, 11 Oct): non-hinge nodes can have tutorials too; the hinge-only rule above no longer limits what we build. Integration nodes stay class tasks unless he says otherwise. Queue (proposed, not started): 9U06 n2 isotopes, n4 half-life (a decay simulation), 10U06 n3 periodic trends, then non-hinge nodes in the Year 7 and 8 units already built.
+
 ## Done: atoms, the periodic table and balancing equations (11 Oct 2026, science chat)
 
 From the progression pages Matthew pasted (now in `data/progressions/science/`). Two new shared-board widgets, `atom` (Bohr model; build mode and a first-20 table) and `equation` (coefficients only, molecules drawn, atom tally, smallest whole numbers). Four lessons in `chemistry-9-10/`, one per hinge node: What's inside an atom? (9U06 n1, new unit Inside the atom), How do you balance an equation? (9U07 n4, with a Practise step: methane, ammonia, magnesium), How are the electrons arranged? (10U06 n1) and Why do elements in a group behave alike? (10U06 n2), the last two in a new unit, Atoms and the periodic table. Rearranging atoms moves to order 2 and Collision theory to 6. Primers for the two new units. Each lesson has a voiced explain clip and picture (ports 8256–8259; next free 8260). Every check passes in a headless run; decks fit.

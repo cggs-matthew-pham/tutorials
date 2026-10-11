@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 unit: equations
 title: How do you balance an equation?
 summary: A balanced equation has the same number of each kind of atom on both sides, because atoms are only rearranged. You balance it by changing the coefficients in front of formulas, never the formulas themselves.
