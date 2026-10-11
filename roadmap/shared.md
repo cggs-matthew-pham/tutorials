@@ -151,6 +151,10 @@ Pathway pages open on a trail map for students, with a "List for teachers" toggl
 
 With `trail: true`, `/code/` opens on trailheads: a Continue card (the course of the last lesson opened, else one in progress, linking to its next unfinished lesson), then one card per pathway with its summary, a small picture of its trail (dots and lines from the same layout as the pathway map, marked done, in progress and "you are here"), a "Start here…" line (new `fit:` on each pathway in `code/index.md`), "n of m courses done", and a link to its trail. "List for teachers" holds the old page and shares the `wp-pathview` choice with the pathway pages. Shared files: `tools/build-site.mjs` (subject page), `tools/trail.mjs` (`trailThumb`, `trailheadsHtml`, `TRAILHEADS_CSS`); new `site/trailheads.js`. Maths and science pages are unchanged until they set `trail: true` (their pathways would need `fit:` and course taglines).
 
+## Done (11 Oct 2026): science trails
+
+`/science/` now opens on trailheads and each science pathway page on a trail map, like Code (`trail: true`, `fit:` per pathway, a `tagline:` per course in `content/science/index.md`). Each pathway runs Year 7 → 8 → 9 → 10 through `after:`; Year 9 Physics also follows Year 7 Chemistry (heat transfer uses the particle model), shown as a portal. The curriculum map stays for teachers and curious students: on a subject with trails its card now sits below the trailheads instead of above them (`tools/build-site.mjs`, one line; Maths unchanged). Tested headless at 1280 and 390 px, no page errors, no sideways scroll. Maths could follow the same way (needs `after:` across Number and Algebra, `fit:` and taglines).
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).

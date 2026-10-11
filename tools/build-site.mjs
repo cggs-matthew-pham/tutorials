@@ -440,8 +440,9 @@ for (const node of dirs.values()) {
       `<div class="ptoggle" role="group" aria-label="View"><button type="button" data-view="map">Trails</button><button type="button" data-view="list">List for teachers</button></div>`;
     writeFileSync(join(outDir, 'index.html'), page(node.title,
       (heads ? `<style>${TRAIL_CSS}${TRAILHEADS_CSS}</style>` : '') +
-      `<header class="top">${crumb}<h1>${esc(node.title)}</h1>${node.summary ? `<p class="lede">${esc(node.summary)}</p>` : ''}</header>${mapLink}` +
-      (heads ? `${viewToggle}<div class="pview-map">${heads}</div><div class="pview-list">${body}</div>` : body) + create,
+      `<header class="top">${crumb}<h1>${esc(node.title)}</h1>${node.summary ? `<p class="lede">${esc(node.summary)}</p>` : ''}</header>${heads ? '' : mapLink}` +
+      // With trails, students start on the trailheads; the curriculum map card follows them (both views).
+      (heads ? `${viewToggle}<div class="pview-map">${heads}</div><div class="pview-list">${body}</div>${mapLink}` : body) + create,
       `<script src="${up}progress.js" data-root="${up}" defer></script>` + (heads ? `<script src="${up}trailheads.js" data-root="${up}" defer></script>` : ''), navFor(node.path, 'home')));
     // One page per pathway: <subject>/paths/<id>/, with its courses in order and the planned ones as placeholders.
     for (const pw of pathways) {
