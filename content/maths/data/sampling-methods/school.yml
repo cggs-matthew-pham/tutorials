@@ -1,0 +1,39 @@
+# The school of 200 students for "Ways to choose a sample".
+
+# region: run
+widget: sample
+measure: sleep
+method: choose
+n: 20
+# endregion
+
+# region: explain
+widget: sample
+measure: sleep
+method: choose
+n: 20
+seed: 8
+# endregion
+
+# region: explain-pic
+widget: sample
+measure: sleep
+method: stratified
+n: 20
+seed: 8
+start: 1
+# endregion
+
+# region: systematic
+widget: sample
+measure: sleep
+method: systematic
+n: 20
+# endregion
+
+# region: compare
+widget: sample
+measure: sleep
+method: choose
+n: 20
+# endregion

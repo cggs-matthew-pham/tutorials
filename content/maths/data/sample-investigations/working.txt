@@ -1,0 +1,7 @@
+# Zara's conclusion for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: zara
+Zara takes a random sample of 40 students at her school and asks about phone use after lights out.
+Her sample's median is 45 minutes, and the range is 120 minutes.
+She concludes that teenagers across Australia use their phones for about 45 minutes after lights out.
+# endregion

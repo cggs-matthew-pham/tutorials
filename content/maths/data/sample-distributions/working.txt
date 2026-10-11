@@ -1,0 +1,7 @@
+# Leo's report for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leo
+Leo takes a random sample of 30 students and finds their mean sleep is 8.9 hours.
+He reports: "The mean sleep of all 200 students is exactly 8.9 hours."
+He adds that the sample was chosen at random from the school roll.
+# endregion

@@ -1,0 +1,45 @@
+summary: Students take samples of a simulated school, describe each sample's shape, centre and spread, compare two samples, and report an estimate with its method and size (AC9M8ST02, node 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can describe a sample's shape, centre and spread.
+  - I can compare two samples by their centres and spreads.
+  - I can write a report that gives an estimate for the population and says how the sample was chosen.
+struggle: "Writing 'about' and saying how the sample was chosen. Ask: is this every student, or a sample? How was it picked?"
+before: |
+  Do the Run board yourself first. Students need mean, median, range and dot plots (Year 7) and sampling methods (last lesson).
+
+  The one idea: a report describes the sample (shape, centre, spread) and then estimates the population, naming the method and size. The common mistake is reporting a sample's mean as the population's exact value (Leo's mistake).
+
+  The board plots the sample's values (rounded to 0.2 h) and gives the mean, median and range; the dashed line is the school's mean, for checking afterwards. Primary data: collected by the student; secondary: by others (ABS, studies).
+
+  Wider: find a secondary source (ABS or a health survey) on teenagers' sleep and compare it with the school sample.
+running:
+  - "Predict: ask why the values might bunch up."
+  - "Run: ask what the median tells you that the range doesn't."
+  - "Investigate: ask Leo how many students he measured."
+  - "Modify: ask how far apart the two medians are."
+  - "Make: ask what word your estimate needs ('about')."
+stuck:
+  - see: "A student reports only the mean."
+    ask: "How spread out are the values? What shape?"
+    fix: "Shape, centre and spread, every time."
+  - see: "A student writes the sample's mean as exact for the school."
+    ask: "Did you measure every student?"
+    fix: "Write 'about', and give the method and size."
+  - see: "A student can't describe the shape."
+    ask: "Where do most dots sit? Is one side longer?"
+    fix: "Symmetric, or skewed towards the long tail; mention clusters, gaps and outliers."
+stretch: "Take five samples of 40 and write each mean. How much do they vary? (Next lesson investigates this.)"
+support: "A report frame: 'In a [method] sample of [n], the values were mostly [..]. The median was [..] and the range [..]. So the school's students probably [..].'"
+leads: |
+  This completes AC9M8ST02.
+
+  Where it leads: how samples vary (next), and full investigations with samples.
+exit:
+  q: "A random sample of 25 students spends a median of 40 minutes on homework a night (range 0 to 120). Write one sentence about the school."
+  a: "Students at the school probably spend about 40 minutes on homework a night, though some spend much more, based on a random sample of 25."
+explain: |
+  To **report** on a sample: describe its **shape** (symmetric or skewed, clusters, outliers), **centre** (mean, median) and **spread** (range). Then give an **estimate** for the population, with the sampling method and size, using words like "about".
+
+  **Primary** data you collect yourself; **secondary** data someone else collected. Either way, say where it came from.

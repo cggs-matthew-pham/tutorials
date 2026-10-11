@@ -1,0 +1,39 @@
+# The school with its population hidden, for "Investigating with samples".
+
+# region: run
+widget: sample
+measure: sleep
+method: choose
+slider n: 10, 100, 20, 10
+population: hidden
+plot: values
+# endregion
+
+# region: explain
+widget: sample
+measure: sleep
+method: random
+n: 40
+population: hidden
+plot: values
+seed: 9
+# endregion
+
+# region: explain-pic
+widget: sample
+measure: sleep
+method: random
+n: 40
+population: hidden
+plot: values
+seed: 9
+start: 1
+# endregion
+
+# region: bigger
+widget: sample
+measure: sport
+method: random
+slider n: 10, 100, 20, 10
+population: hidden
+# endregion

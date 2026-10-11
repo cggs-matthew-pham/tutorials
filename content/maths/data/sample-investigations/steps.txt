@@ -1,0 +1,9 @@
+# The stages of an investigation to put in order for "Investigating with samples". Plain text: students order the lines.
+
+# region: plan
+Write a question about a population: "How long do Year 8s at our school spend on homework?"
+Plan a fair sample: 40 Year 8s chosen at random from the roll, with their permission.
+Collect the data anonymously, in the same way for everyone.
+Display the data and describe its shape, centre and spread.
+Make an inference about the population, and say how sure you can be.
+# endregion

@@ -5,4 +5,5 @@ order: 5
 units:
   - { id: statistics, title: Data, summary: "Counting and measuring, mean, median, mode and range, stem-and-leaf plots, and comparing two data sets." }
   - { id: chance, title: Chance, summary: "Sample spaces and probabilities, then experiments: what happens in 10 trials, and in 1000. Year 8: complements, Venn diagrams, two-way tables, grids and trees, and, or, not, and simulations." }
+  - { id: samples, title: Samples, summary: "Year 8: census, sample, experiment and observation; bias; ways to choose a sample; describing a sample; how samples vary; and investigations that infer about a population." }
 ---

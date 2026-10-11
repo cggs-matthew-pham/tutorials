@@ -1,0 +1,45 @@
+summary: Students estimate a hidden population value from samples, then plan an ethical sample investigation and state an inference with its uncertainty (AC9M8ST04, nodes 1 and 2).
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 12 min · Practise and Make 13 min (the investigation itself is a class task)"
+goals:
+  - I can plan an investigation with a fair, ethical sample.
+  - I can make an inference about a population from a sample.
+  - I can say how sure I am, and why.
+struggle: "Saying how sure you are without overclaiming. Ask: who exactly does this sample speak for, and how close might it be?"
+before: |
+  Do the Run board yourself first. Students need sampling methods, describing samples and sampling variation (the last three lessons), and the Year 7 investigation cycle.
+
+  The one idea: an inference estimates the population that was sampled, with its uncertainty stated (size and method). The common mistake is inferring beyond the population (Zara's one school to all Australian teenagers).
+
+  The board hides the school's value until Show the population, so students commit to an estimate first. Ethics: consent, anonymity, no harm, and neutral questions; school approval for real surveys.
+
+  The full investigation (collecting real data) is a class task: the Make step plans it. Use a class sample of a short anonymous form on a non-sensitive topic.
+running:
+  - "Predict: ask what 'give or take' would mean here."
+  - "Run: ask for the estimate before the reveal."
+  - "Investigate: ask Zara who her sample can speak for."
+  - "Modify: ask why the bigger sample's estimate is safer."
+  - "Make: ask how you will protect the people who answer."
+stuck:
+  - see: "A student writes an exact value for the population."
+    ask: "Did you measure everyone?"
+    fix: "Use 'about' or 'probably', and give the sample."
+  - see: "A student generalises to a bigger group."
+    ask: "Who could have been chosen for this sample?"
+    fix: "Only that population: the school, the year, the club."
+  - see: "A student forgets ethics in the plan."
+    ask: "How will people agree to take part, and stay anonymous?"
+    fix: "Add consent, anonymity and a neutral question to the plan."
+stretch: "Run your investigation twice with two different random samples. How different are the results, and what does that say about your uncertainty?"
+support: "A five-stage plan template: question, sample, collect (ethically), display and describe, infer with uncertainty."
+leads: |
+  This completes AC9M8ST04 and Year 8 Statistics.
+
+  Where it leads: Year 9 and 10 statistics (comparing samples, scatterplots, evaluating claims in the media).
+exit:
+  q: "A random sample of 50 students at your school shows a median of 2 hours of screen time on school nights. Write an inference with its uncertainty."
+  a: "Students at our school probably have about 2 hours of screen time on school nights, from a random sample of 50; another sample might give a slightly different value."
+explain: |
+  An **investigation with samples** asks a question about a **population**, plans a **fair and ethical** sample (random, consent, anonymous, neutral questions), collects and describes the data, then makes an **inference**.
+
+  A good inference is about the population sampled, gives an **estimate** ("about"), and states the **uncertainty**: the sample's size and method, and that another sample might differ a little.

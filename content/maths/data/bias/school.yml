@@ -1,0 +1,32 @@
+# The school of 200 students for "Bias in collecting data". Convenience samples come from the Year 7 rows.
+
+# region: run
+widget: sample
+measure: sport
+method: choose
+n: 20
+# endregion
+
+# region: explain
+widget: sample
+measure: sport
+method: choose
+n: 20
+seed: 6
+# endregion
+
+# region: explain-pic
+widget: sample
+measure: sport
+method: convenience
+n: 20
+seed: 6
+start: 1
+# endregion
+
+# region: bigger
+widget: sample
+measure: sport
+method: convenience
+slider n: 10, 100, 20, 10
+# endregion

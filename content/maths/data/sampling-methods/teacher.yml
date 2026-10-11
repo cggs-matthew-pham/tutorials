@@ -1,0 +1,43 @@
+summary: Students take simple random, systematic, stratified and convenience samples of a simulated school, compare them, and choose methods for real situations (AC9M8ST02, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can describe simple random, systematic, stratified and convenience sampling.
+  - I can work out a systematic step and a stratified share.
+  - I can choose a sampling method and say why it is fair.
+struggle: "Random isn't the same as 'picked without thinking'. Ask: did every student have the same chance, and who decided?"
+before: |
+  Do the Run board yourself first. Students need census, sample and bias (last two lessons).
+
+  The one idea: random methods (simple random, systematic from a random start, stratified) give every member a chance; convenience and quota let a person choose, so they can be biased. The common mistake is calling a hand-picked sample random (Ava's mistake).
+
+  The board lists the school by year group, so a systematic sample spreads through all years; a stratified sample guarantees 5 per year; a convenience sample is the front rows (Year 7).
+
+  Quota sampling (typical width in the curriculum's progression) is in the lesson's table and one Modify question. Wider: random number generators (=RANDBETWEEN(1,200)) to choose a real sample from a class list.
+running:
+  - "Predict: ask what could make a random sample uneven."
+  - "Run: ask how many came from each year with each method."
+  - "Investigate: ask Ava who chose the students."
+  - "Modify: ask when a systematic sample goes wrong."
+  - "Make: ask where each method's results sit."
+stuck:
+  - see: "A student thinks random means 'whoever I happen to pick'."
+    ask: "Did every student have the same chance? Who decided?"
+    fix: "Random needs a chance process: a hat, dice, a random number generator."
+  - see: "A student divides the wrong way for the systematic step."
+    ask: "How many students for each one chosen?"
+    fix: "k = population ÷ sample size."
+  - see: "A student gives every stratum the same number when the groups differ in size."
+    ask: "What fraction of the population is this group?"
+    fix: "In proportion: the group's share of the sample matches its share of the population."
+stretch: "Take a real stratified sample of 12 from your class list (by a group of your choice) using a random number generator. Write each step."
+support: "The four methods table as a card, with the board's picture for each."
+leads: |
+  This starts AC9M8ST02.
+
+  Where it leads: describing a sample's distribution (next), sampling variation, and investigations.
+exit:
+  q: "A school has 400 Year 9 and 200 Year 10 students. Describe how to take a stratified sample of 30."
+  a: "In proportion: 20 Year 9s and 10 Year 10s, each chosen at random from its year's list."
+explain: |
+  **Simple random**: every member has the same chance. **Systematic**: every kth member of a list from a random start (k = population ÷ sample size). **Stratified**: split into groups and choose at random within each, in proportion, so each group gets its fair share. **Convenience**: whoever is easiest, often biased. **Quota**: fixed shares, but the collector chooses, so it can be biased too.

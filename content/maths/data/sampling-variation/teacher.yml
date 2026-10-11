@@ -1,0 +1,45 @@
+summary: Students take many random samples of a simulated school, see their results vary, and find that bigger samples vary less, for proportions and means (AC9M8ST03, nodes 1 and 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can explain why two fair samples give different results.
+  - I can describe how the spread of sample results changes with sample size.
+  - I can choose a sample size that is big enough for a job.
+struggle: "Seeing variation as normal, not an error. Ask: could both samples have been chosen fairly?"
+before: |
+  Do the Run board yourself first. Students need sampling methods and describing a sample (last two lessons), and relative frequency from Chance.
+
+  The one idea: random samples differ by chance (sampling variation), and bigger samples differ less. The common mistake is deciding one of two different samples must be wrong (Mia and Jack).
+
+  The board plots each sample's result under the school, with the school's value dashed. Changing n clears the results so each spread belongs to one size. With 200 in the school, samples of 150 hardly vary (they hold most of the school).
+
+  Wider: polls' margin of error (about ±3% for 1000 people), and ensemble weather forecasts.
+running:
+  - "Predict: ask what could make two fair samples differ."
+  - "Run: ask where the results sit compared with the dashed line."
+  - "Investigate: ask whether Mia or Jack chose unfairly."
+  - "Modify: ask what happened to the spread when n grew."
+  - "Make: ask why not always take the biggest sample."
+stuck:
+  - see: "A student thinks a different result means a mistake."
+    ask: "Did the two samples hold the same students?"
+    fix: "Different students, different results: sampling variation."
+  - see: "A student thinks bigger samples are always closer."
+    ask: "Is every big sample closer, or are they closer on the whole?"
+    fix: "Bigger samples vary less on the whole; any one can still be a little off."
+  - see: "A student confuses variation with bias."
+    ask: "Do the results scatter around the dashed line, or sit to one side?"
+    fix: "Variation scatters around the truth; bias pushes to one side."
+stretch: "Record the range of 10 sample results for n = 10, 20, 40, 80 and 150. Plot range against n. What pattern do you see?"
+support: "A table to record n and the lowest and highest of 10 results, for three sizes."
+leads: |
+  This covers AC9M8ST03.
+
+  Where it leads: investigations with samples, where the uncertainty is reported (next lesson), and Year 9 and 10 statistics.
+exit:
+  q: "Two random samples of 10 students give 0.4 and 0.7 for the proportion who walk to school. Is one wrong? What would you do?"
+  a: "Not necessarily: small samples vary a lot. Take bigger samples (or more of them) for a more reliable estimate."
+explain: |
+  **Sampling variation**: random samples from the same population give different results, because each holds different members. It isn't a mistake.
+
+  **Bigger samples vary less**, so their results are more reliable. Fair samples scatter around the population's value; bias pushes them all to one side.

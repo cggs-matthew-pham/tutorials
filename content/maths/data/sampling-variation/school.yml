@@ -1,0 +1,32 @@
+# Many random samples from the school, for "How samples vary".
+
+# region: run
+widget: sample
+measure: sport
+method: random
+slider n: 5, 150, 20, 5
+# endregion
+
+# region: explain
+widget: sample
+measure: sport
+method: random
+slider n: 10, 100, 10, 90
+seed: 5
+# endregion
+
+# region: explain-pic
+widget: sample
+measure: sport
+method: random
+n: 20
+seed: 5
+start: 20
+# endregion
+
+# region: sleep
+widget: sample
+measure: sleep
+method: random
+slider n: 5, 150, 10, 5
+# endregion

@@ -1,0 +1,7 @@
+# The radio station's poll for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: radio
+A radio station asks listeners to phone in: "Should the speed limit be raised?"
+1200 people call, and 80% of them say yes.
+With so many people, the result must show what most drivers think.
+# endregion

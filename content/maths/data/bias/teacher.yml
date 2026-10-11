@@ -1,0 +1,45 @@
+summary: Students see a convenience sample miss the population on a simulated school, then name and fix sampling, response and measurement bias in real plans (AC9M8ST01, node 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can spot bias in the way data is collected.
+  - I can say which way a bias pushes the result.
+  - I can change a plan to make it fairer.
+struggle: "Saying which way the bias pushes. Ask: compared with everyone, would this group answer higher or lower?"
+before: |
+  Do the Run board yourself first. Students need census and sample (last lesson).
+
+  The one idea: bias comes from who is asked (sampling), how they are asked (response) or how it is measured (measurement), and it pushes the result one way. The common mistake is thinking a big sample cancels bias (the radio phone-in).
+
+  The board's convenience sample is the students nearest the door: the Year 7 rows. Year 7s play more sport and sleep more, so the result is pushed up.
+
+  Wider: the 1936 Literary Digest poll (over 2 million replies, wrong winner) is the classic large biased sample.
+running:
+  - "Predict: ask who is in the library at lunch."
+  - "Run: ask which year groups the convenience sample holds."
+  - "Investigate: ask who chooses to phone a radio station."
+  - "Modify: ask whether growing the sample changed who is in it."
+  - "Make: ask for one fix for each bias."
+stuck:
+  - see: "A student says the sample is fine because it is big."
+    ask: "Who is in it? Would more of the same people change that?"
+    fix: "Size reduces chance error, not bias."
+  - see: "A student can name bias but not its direction."
+    ask: "Would this group answer higher or lower than everyone?"
+    fix: "Say the direction: 'too high because...'."
+  - see: "A student calls any small sample biased."
+    ask: "Was anyone more likely to be chosen than others?"
+    fix: "Small random samples vary, but they aren't biased; biased means pushed one way."
+stretch: "Research the 1936 Literary Digest poll. How could 2.4 million replies get the winner wrong?"
+support: "A card with the three kinds of bias and a question to ask for each: who? how asked? how measured?"
+leads: |
+  This completes AC9M8ST01.
+
+  Where it leads: sampling methods (next), and investigations with samples.
+exit:
+  q: "A gym surveys its members on how often people exercise. Name the bias and which way it pushes the result."
+  a: "Sampling bias: gym members exercise more than most people, so the result is too high."
+explain: |
+  **Bias** is anything in how data is collected that pushes the result one way. **Sampling bias**: the sample isn't like the population (only people at a gym). **Response bias**: the question or setting pushes answers (leading questions, no privacy). **Measurement bias**: the tool or method is off.
+
+  A bigger sample doesn't fix bias. Random choice, neutral questions, anonymous answers and checked tools do.

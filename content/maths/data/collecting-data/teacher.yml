@@ -1,0 +1,45 @@
+summary: Students compare a census and samples on a simulated school, and choose between census, sample, experiment and observation for real questions (AC9M8ST01, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can say the difference between a census and a sample.
+  - I can tell an experiment from an observation.
+  - I can choose a way to collect data and explain why it is practical.
+struggle: "Weighing cost against accuracy. Ask: what would it take to measure everyone, and is it worth it?"
+before: |
+  Do the Run board yourself first. Students need statistical questions and investigations from Year 7.
+
+  The one idea: a census is exact but often slow, costly or impossible; a sample estimates; an experiment changes something on purpose; an observation watches. The common mistake is thinking a census is always best (Noah's battery test destroys what it measures).
+
+  The board is a made-up school of 200 students (the same every time): sleep falls and sport drops with year level, which matters in the next lessons on bias and sampling methods.
+
+  Wider: the ABS census and the monthly Labour Force Survey (a sample of about 50 000 people) as a real pair.
+running:
+  - "Predict: ask what 'close' would mean for a mean of about 9 hours."
+  - "Run: ask what the census cost compared with the sample."
+  - "Investigate: ask Noah what the factory sells afterwards."
+  - "Modify: ask what changed when the sample grew."
+  - "Make: ask what you would give up by not measuring everyone."
+stuck:
+  - see: "A student says a sample is always worse."
+    ask: "What would a census of every battery leave?"
+    fix: "Samples are chosen for cost, time, or when measuring destroys."
+  - see: "A student calls any survey an experiment."
+    ask: "Did anyone change something on purpose?"
+    fix: "Experiment: change one thing and compare. Survey or observation: measure as things are."
+  - see: "A student forgets to name the population."
+    ask: "Who exactly is the question about?"
+    fix: "Write the population first: 'all Year 8 students at this school'."
+stretch: "Find out how the ABS chooses the homes in the Labour Force Survey, and why it doesn't ask the same homes forever."
+support: "The four techniques on a card, each with a picture example."
+leads: |
+  This starts AC9M8ST01.
+
+  Where it leads: bias in data collection (next), sampling methods, and investigations with samples.
+exit:
+  q: "A cereal company wants to check the weight of its boxes. Census or sample? Why?"
+  a: "A sample: weighing every box costs time; checking a random sample of boxes each hour is enough to spot problems."
+explain: |
+  The **population** is everyone the question is about. A **census** measures all of them (exact, but often slow and costly); a **sample** measures some (quicker and cheaper, an estimate).
+
+  An **experiment** changes something on purpose and measures the effect; an **observation** watches without changing anything. Choose the technique that fits the question, the cost and the time.

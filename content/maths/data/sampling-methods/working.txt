@@ -1,0 +1,7 @@
+# Ava's sample for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ava
+Ava wants a random sample of 20 Year 8 students.
+She walks around at lunch and picks 20 students she doesn't know, so friendship doesn't affect her choice.
+That makes it a simple random sample.
+# endregion

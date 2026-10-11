@@ -1,0 +1,7 @@
+# Noah's plan for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: noah
+Noah wants to know how long the batteries from a factory last.
+A census gives the exact answer, so he decides to test every battery until it runs flat.
+Then he will know exactly how long the factory's batteries last.
+# endregion

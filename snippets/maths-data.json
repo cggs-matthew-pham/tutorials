@@ -136,6 +136,55 @@
           "shows": "Two dice with a total of 10 or more chosen (6 of 36), ready to simulate"
         }
       ]
+    },
+    {
+      "name": "Samples",
+      "items": [
+        {
+          "label": "census and sample",
+          "unit": "samples",
+          "code": "\\text{census: everyone} \\quad \\text{sample: some}",
+          "hint": "A census is exact but slow and costly; a sample estimates. An experiment changes something on purpose; an observation watches.",
+          "board": "widget: sample\nmeasure: sleep\nmethod: random\nn: 20\nseed: 4\nstart: 1",
+          "shows": "A random sample of 20 from a school of 200"
+        },
+        {
+          "label": "bias",
+          "unit": "samples",
+          "code": "\\text{who? how asked? how measured?}",
+          "hint": "Bias pushes a result one way: sampling bias (who is asked), response bias (how they are asked), measurement bias (the tool). A bigger sample doesn't fix it.",
+          "board": "widget: sample\nmeasure: sport\nmethod: convenience\nn: 20\nseed: 6\nstart: 1",
+          "shows": "A convenience sample: all from Year 7, pushed high"
+        },
+        {
+          "label": "sampling methods",
+          "unit": "samples",
+          "code": "k = \\dfrac{\\text{population}}{\\text{sample size}}",
+          "hint": "Simple random: same chance for all. Systematic: every kth from a random start. Stratified: at random within each group, in proportion. Convenience and quota: someone chooses, so they can be biased."
+        },
+        {
+          "label": "describing a sample",
+          "unit": "samples",
+          "code": "\\text{shape, centre, spread} \\to \\text{about } \\ldots",
+          "hint": "Describe the shape (symmetric or skewed), the centre (mean, median) and the spread (range), then estimate the population with the method and size. Primary data you collect; secondary data others collected.",
+          "board": "widget: sample\nmeasure: sleep\nmethod: random\nn: 40\nplot: values\nseed: 11\nstart: 1",
+          "shows": "A random sample of 40 students' sleep as a dot plot"
+        },
+        {
+          "label": "sampling variation",
+          "unit": "samples",
+          "code": "\\text{bigger samples vary less}",
+          "hint": "Fair samples from one population give different results by chance. Their results scatter around the population's value, closer for bigger samples.",
+          "board": "widget: sample\nmeasure: sport\nmethod: random\nn: 20\nseed: 5\nstart: 20",
+          "shows": "20 samples of 20: results scattered around the school's value"
+        },
+        {
+          "label": "inference",
+          "unit": "samples",
+          "code": "\\text{about } \\ldots \\text{, from a random sample of } n",
+          "hint": "Infer only about the population sampled, give an estimate, and say how sure you are (size and method). Collect data with consent and anonymity."
+        }
+      ]
     }
   ]
 }

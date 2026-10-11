@@ -1,0 +1,7 @@
+# Mia and Jack's samples for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mj
+Mia and Jack each take a random sample of 20 students from the same school.
+In Mia's sample, 12 of 20 play sport (0.6). In Jack's, 9 of 20 do (0.45).
+The results are different, so one of them must have made a mistake.
+# endregion

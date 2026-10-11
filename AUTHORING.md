@@ -810,6 +810,15 @@ Vary, Practise, Make).
     b, a and b, a or b, not a, not b, a only, b only, neither, all; join with +) chooses at the start. `blank: table` or
     `blank: venn` turns the four counts into boxes to fill from the other picture. Values `x`, `y`, `z`, `w` (A only, both,
     B only, neither chosen), `n`, `t`, `p`, `k` (every box right). Checks: `"x = 1 and y = 1 and z = 1 and w = 0"`, `"k = 1"`.
+  - `widget: sample` (first used by `maths/data/collecting-data`): a made-up school of 200 students (four year groups of
+    50, the same every time; sleep falls and sport drops with year level) and samples from it. `measure: sport | sleep`,
+    `method: random | systematic | stratified | convenience | census | choose` (buttons "Use simple random sampling" ...;
+    convenience is the front rows, Year 7), `slider n:` or `n:`, `population: hidden` (a Show the population button),
+    `plot: results | values` (each sample's result, or this sample's values), `seed:`, `start:` (samples already taken, for
+    pictures). Buttons Take a sample, Take 10 samples. Changing n or method clears the results. Values `n`, `s` (samples
+    with these settings), `p`, `m`, `d`, `w` (this sample's proportion, mean, median and range of sleep), `q`, `a` (the
+    population's proportion and mean), `e`, `r` (range of results), `k` (1 random, 2 systematic, 3 stratified, 4
+    convenience, 5 census), `v` (population shown). Checks: `"k = 3 and s >= 1"`, `"n >= 100 and s >= 10"`, `"s >= 10 and r <= 0.15"`, `"v = 1"`.
   - Board variables in `when:` must be single letters: the evaluator reads a longer name such as `sb` as s × b.
   - `widget: data` (first used by `maths/data`): a dot plot of `values: 4, 7, 7, 8` on `range: 0, 20` (default: around
     the data), with the mean (▲), median (dashed) and range (arrow) marked and written underneath (`show: mean, median,
