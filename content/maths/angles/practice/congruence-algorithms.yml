@@ -1,0 +1,21 @@
+# Practice for "Algorithms for congruence". Choices: where does the algorithm end?
+templates:
+  - q: "Two triangles: {d}. What should a correct congruence algorithm say?"
+    cases:
+      - { d: "both have sides {p} cm, {q} cm and {r} cm", k: "Congruent (SSS)", w1: "Congruent (SAS)", w2: "Similar, not congruent (AA)" }
+      - { d: "both have sides {p} cm and {q} cm, with a {s}° angle between them", k: "Congruent (SAS)", w1: "Congruent (SSS)", w2: "Neither, or not enough to tell" }
+      - { d: "both have angles {s}° and {t}°, and the side between them is {p} cm", k: "Congruent (ASA or AAS)", w1: "Similar, not congruent (AA)", w2: "Congruent (SAS)" }
+      - { d: "both have angles {s}° and {t}°; the side between them is {p} cm in one and {2 * p} cm in the other", k: "Similar, not congruent (AA)", w1: "Congruent (ASA or AAS)", w2: "Neither, or not enough to tell" }
+      - { d: "both have a right angle, a {r + 4} cm hypotenuse and a {p} cm side", k: "Congruent (RHS)", w1: "Congruent (SAS)", w2: "Neither, or not enough to tell" }
+      - { d: "both have sides {sa} cm and {sb} cm, and a {sc}° angle opposite the {sa} cm side (not between them)", k: "Neither, or not enough to tell", w1: "Congruent (SAS)", w2: "Congruent (ASA or AAS)" }
+      - { d: "both have angles {s}°, {t}° and {180 - s - t}°, with no sides given", k: "Similar, not congruent (AA)", w1: "Congruent (ASA or AAS)", w2: "Neither, or not enough to tell" }
+    vars: { p: "3..8", q: "4..9", r: "5..10", s: "30..70 by 5", t: "40..80 by 5", j: "0..3" }
+    let: { sa: "j = 0 ? 8 : j = 1 ? 7 : j = 2 ? 9 : 5", sb: "j = 0 ? 11 : j = 1 ? 10 : j = 2 ? 12 : 7", sc: "j = 0 ? 40 : j = 1 ? 35 : j = 2 ? 45 : 30" }
+    where: "p < q and q < r and p + q > r and s + t < 160"
+    choices: ["{k}", "{w1}", "{w2}"]
+    explain: "{k == 'Congruent (SSS)' ? 'Three pairs of equal sides fix the triangle: SSS.' : k == 'Congruent (SAS)' ? 'Two sides and the angle between them fix it: SAS.' : k == 'Congruent (ASA or AAS)' ? 'Two angles and a matching side fix it: ASA or AAS. (Congruent triangles are similar too, but congruent says more.)' : k == 'Similar, not congruent (AA)' ? 'Equal angles give the same shape, but no matching side is equal, so the size can differ: similar, not congruent.' : k == 'Congruent (RHS)' ? 'A right angle, the hypotenuse and one other side fix it: RHS.' : 'An angle that is not between the two sides (SSA) can allow two different triangles: not enough to tell.'}"
+  - q: "An algorithm says 'Are all three pairs of angles equal? Yes: congruent.' Two triangles both have angles {s}°, {t}° and {180 - s - t}°, but one is {k} times as big. What is wrong?"
+    vars: { s: "30..70 by 5", t: "40..80 by 5", k: [2, 3, 4] }
+    where: "s + t < 160"
+    choices: ["Equal angles give the same shape, not the same size", ["Equal angles always mean the same size", "One is {k} times as big, so they are not the same size."], ["Two equal angles are not enough to fix the shape", "Two angles fix the third, and so the shape, but not the size."]]
+    explain: "AAA gives similar triangles. Congruence needs a matching side too (ASA or AAS)."

@@ -14,3 +14,18 @@ templates:
     feedback:
       - ["{a}", "First b: on a straight line with a, so 180 − {a}."]
     explain: "b = 180 − {a} = {180 - a}° (straight line). c is {w = 0 ? 'corresponding' : 'alternate'} to b, so c = {180 - a}°."
+  - q: "The lines are parallel. Angle {G} = {sg}°. What is angle {X}, in degrees?"
+    vars: { t: "35..145 by 5", gi: "0..7", xi: "0..7" }
+    where: "t != 90 and gi != xi"
+    let: { G: "gi = 0 ? 'a' : gi = 1 ? 'b' : gi = 2 ? 'c' : gi = 3 ? 'd' : gi = 4 ? 'e' : gi = 5 ? 'f' : gi = 6 ? 'g' : 'h'", X: "xi = 0 ? 'a' : xi = 1 ? 'b' : xi = 2 ? 'c' : xi = 3 ? 'd' : xi = 4 ? 'e' : xi = 5 ? 'f' : xi = 6 ? 'g' : 'h'", tg: "gi = 1 or gi = 2 or gi = 5 or gi = 6", tx: "xi = 1 or xi = 2 or xi = 5 or xi = 6", sg: "tg ? t : 180 - t", sx: "tx ? t : 180 - t" }
+    board: |
+      widget: parallel
+      t: {t}
+      angles: given {G}
+      names: off
+      pair: {G}, {X}
+    height: 330
+    answer: "{sx}"
+    feedback:
+      - ["{180 - sx}", "{X} and {G} are {tg == tx ? 'equal' : 'not equal: they add to 180°'}. Look at where each one sits."]
+    explain: "{tg == tx ? X + ' = ' + G + ' (equal angles at parallel lines): ' + sx + '°.' : X + ' and ' + G + ' add to 180°: 180 − ' + sg + ' = ' + sx + '°.'} The acute angles are all equal, and so are the obtuse ones."

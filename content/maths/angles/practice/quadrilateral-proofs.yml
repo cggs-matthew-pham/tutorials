@@ -1,0 +1,30 @@
+# Practice for "Proving quadrilateral properties". Choices.
+templates:
+  - q: "{d} Which test shows the two triangles are congruent?"
+    cases:
+      - { d: "Kite ABCD has AB = AD and CB = CD. The diagonal AC splits it into triangles ABC and ADC.", k: "SSS", w1: "SAS", w2: "RHS", e: "AB = AD, CB = CD, and AC is in both triangles: three pairs of sides, SSS." }
+      - { d: "In parallelogram ABCD, the diagonal AC makes triangles ABC and CDA, with AB = CD and BC = DA.", k: "SSS", w1: "RHS", w2: "SAS", e: "AB = CD, BC = DA, and AC is in both: SSS. So angle B = angle D." }
+      - { d: "Rectangle ABCD: triangles ABC and BAD share AB, with BC = AD and right angles at B and A.", k: "SAS", w1: "SSS", w2: "AAS", e: "AB is shared, BC = AD, and the right angles sit between those sides: SAS. So the diagonals AC and BD are equal." }
+      - { d: "Rhombus ABCD's diagonals cross at M. Triangles AMB and AMD have AB = AD, BM = DM and AM shared.", k: "SSS", w1: "SAS", w2: "ASA", e: "AB = AD (a rhombus), BM = DM (the diagonals cut each other in half) and AM is shared: SSS. So the angles at M are equal, and they make a straight line: 90° each." }
+      - { d: "Parallelogram ABCD's diagonals cross at M. Triangles AMB and CMD have AB = CD, alternate angles ABM = CDM and BAM = DCM.", k: "ASA", w1: "SSS", w2: "RHS", e: "Two angles and the side between them (AB = CD): ASA. So AM = CM and BM = DM: the diagonals cut each other in half." }
+    choices: ["{k}", "{w1}", "{w2}"]
+    explain: "{e}"
+  - q: "Which quadrilateral's diagonals {d}?"
+    cases:
+      - { d: "always cut each other in half, but are not always equal", k: "A parallelogram", w1: "A rectangle", w2: "A square", w3: "A kite" }
+      - { d: "are always equal and cut each other in half, but do not always cross at 90°", k: "A rectangle", w1: "A rhombus", w2: "A kite", w3: "A trapezium" }
+      - { d: "always cross at 90° and cut each other in half, but are not always equal", k: "A rhombus", w1: "A rectangle", w2: "A kite", w3: "A parallelogram" }
+      - { d: "always cross at 90°, but only one cuts the other in half", k: "A kite", w1: "A rhombus", w2: "A square", w3: "A rectangle" }
+      - { d: "are equal, cut each other in half and cross at 90°", k: "A square", w1: "A rhombus", w2: "A rectangle", w3: "A kite" }
+    choices: ["{k}", "{w1}", "{w2}", "{w3}"]
+    explain: "Parallelogram: bisect each other. Rectangle: also equal. Rhombus: bisect each other at 90°. Square: all three. Kite: cross at 90°, one cuts the other in half."
+  - q: "{n} wants to show that {claim}. Which is a proof?"
+    cases:
+      - { claim: "every rectangle's diagonals are equal", k: "Triangles ABC and BAD are congruent (SAS), so AC = BD", w1: "One rectangle's diagonals measure 10 cm each", w2: "Three rectangles all had equal diagonals" }
+      - { claim: "a rhombus's diagonals cross at 90°", k: "The four small triangles are congruent (SSS), so the four angles at the centre are equal and add to 360°", w1: "One rhombus's diagonals measured 90°", w2: "The diagonals look like a plus sign" }
+      - { claim: "opposite angles of a parallelogram are equal", k: "The diagonal makes two congruent triangles (SSS), so angle B = angle D", w1: "One parallelogram's opposite angles measured 70° and 70°", w2: "Four parallelograms all had equal opposite angles" }
+      - { claim: "a kite's diagonals cross at 90°", k: "Triangles ABC and ADC are congruent (SSS), so AC cuts angle A in half, and then the angles at the centre are equal", w1: "One kite's diagonals measured 90°", w2: "Two kites drawn on grid paper both looked right-angled" }
+    vars: { i: "0..3" }
+    let: { n: "i = 0 ? 'Ana' : i = 1 ? 'Ben' : i = 2 ? 'Mia' : 'Jai'" }
+    choices: ["{k}", ["{w1}", "Measuring one shape is an example, not a proof."], ["{w2}", "More examples are evidence, not a proof: a proof gives reasons that hold for every shape."]]
+    explain: "A proof gives reasons, such as congruent triangles, that hold for every shape of the kind. Measurements show it for the shapes measured."

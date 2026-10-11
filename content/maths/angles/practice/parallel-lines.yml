@@ -1,0 +1,43 @@
+# Practice for "Angles at parallel lines". The board draws the lines and marks two angles.
+templates:
+  - q: "The two marked angles are {p}. What kind of pair are they?"
+    cases:
+      - { p: "a and e", pp: "a, e", k: "Corresponding", w1: "Alternate", w2: "Co-interior", w3: "Vertically opposite" }
+      - { p: "b and f", pp: "b, f", k: "Corresponding", w1: "Alternate", w2: "Co-interior", w3: "On a straight line" }
+      - { p: "c and g", pp: "c, g", k: "Corresponding", w1: "Alternate", w2: "Co-interior", w3: "Vertically opposite" }
+      - { p: "d and h", pp: "d, h", k: "Corresponding", w1: "Alternate", w2: "Co-interior", w3: "On a straight line" }
+      - { p: "c and f", pp: "c, f", k: "Alternate", w1: "Corresponding", w2: "Co-interior", w3: "Vertically opposite" }
+      - { p: "d and e", pp: "d, e", k: "Alternate", w1: "Corresponding", w2: "Co-interior", w3: "On a straight line" }
+      - { p: "c and e", pp: "c, e", k: "Co-interior", w1: "Corresponding", w2: "Alternate", w3: "On a straight line" }
+      - { p: "d and f", pp: "d, f", k: "Co-interior", w1: "Corresponding", w2: "Alternate", w3: "Vertically opposite" }
+      - { p: "a and d", pp: "a, d", k: "Vertically opposite", w1: "On a straight line", w2: "Alternate", w3: "Co-interior" }
+      - { p: "f and g", pp: "f, g", k: "Vertically opposite", w1: "On a straight line", w2: "Alternate", w3: "Corresponding" }
+      - { p: "e and f", pp: "e, f", k: "On a straight line", w1: "Vertically opposite", w2: "Alternate", w3: "Co-interior" }
+      - { p: "b and d", pp: "b, d", k: "On a straight line", w1: "Vertically opposite", w2: "Co-interior", w3: "Corresponding" }
+    vars: { t: "40..140 by 5" }
+    where: "t != 90"
+    board: |
+      widget: parallel
+      t: {t}
+      angles: hidden
+      names: off
+      pair: {pp}
+    height: 330
+    choices: ["{k}", "{w1}", "{w2}", "{w3}"]
+    explain: "{k == 'Corresponding' ? 'Same place at each crossing: corresponding (equal).' : k == 'Alternate' ? 'Between the lines, on opposite sides of the crossing line: alternate (equal).' : k == 'Co-interior' ? 'Between the lines, on the same side: co-interior (they add to 180°).' : k == 'Vertically opposite' ? 'Opposite each other at one crossing: vertically opposite (equal).' : 'Next to each other on one line: on a straight line (they add to 180°).'}"
+  - q: "Click two angles that are {k}."
+    cases:
+      - { k: "corresponding", r: 1 }
+      - { k: "alternate", r: 2 }
+      - { k: "co-interior", r: 3 }
+      - { k: "vertically opposite", r: 4 }
+    vars: { t: "40..140 by 5" }
+    where: "t != 90"
+    board: |
+      widget: parallel
+      t: {t}
+      angles: hidden
+      names: off
+    height: 330
+    when: "r = {r}"
+    explain: "{r == 1 ? 'Corresponding: the same place at each crossing, such as a and e.' : r == 2 ? 'Alternate: between the lines, on opposite sides of the crossing line, such as c and f.' : r == 3 ? 'Co-interior: between the lines, on the same side, such as c and e.' : 'Vertically opposite: opposite each other at one crossing, such as a and d.'}"

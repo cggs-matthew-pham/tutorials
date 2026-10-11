@@ -461,7 +461,7 @@ function writePractice(node, skills) {
   // Expanded, factorised and simplified answers are judged by the form checker (Numbas), loaded only where used.
   const forms = skills.some((s) => s.templates.some((t) => ['expanded', 'factorised', 'simplified'].includes(t.form)));
   mkdirSync(join(OUT, pp), { recursive: true });
-  const data = JSON.stringify({ title: node.title, course: node.path, skills }).replace(/</g, '\\u003c');
+  const data = JSON.stringify({ title: node.title, course: node.path, skills, board: `${'../'.repeat(pp.split('/').length)}_playground-board/index.html?v=${VERSIONS['_playground-board']}` }).replace(/</g, '\\u003c');
   writeFileSync(join(OUT, pp, 'index.html'), page(`Practice: ${node.title}`,
     `<style>${PRACTICE_CSS}</style><header class="top"><a class="crumb" href="../">← ${esc(node.title)}</a><h1>${esc(node.title)}: practice</h1>` +
     `<p class="lede">New numbers every time. Get 3 right in a row to mark a skill as practised.</p></header>` +

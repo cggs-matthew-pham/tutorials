@@ -71,7 +71,7 @@ export function makePractice() {
   // Powers in question and explanation text: 2^3 → 2³, 2^p → 2ᵖ (answers keep ^, which the checker reads).
   var SUP = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '-': '⁻', a: 'ᵃ', b: 'ᵇ', n: 'ⁿ', p: 'ᵖ', x: 'ˣ', m: 'ᵐ' };
   function sup(t) { return String(t).replace(/\^(-?\d+|[abnpxm]\b)/g, function (_, e) { return e.split('').map(function (c) { return SUP[c] || c; }).join(''); }); }
-  function names(tpl) { return Object.keys(tpl.vars || {}).concat(Object.keys(tpl.let || {})); }
+  function names(tpl) { return Object.keys((tpl.cases && tpl.cases[0]) || {}).concat(Object.keys(tpl.vars || {}), Object.keys(tpl.let || {})); }
   function fill(text, v, nm) {
     return String(text).replace(/\{([^{}|]+)(?:\|([a-z0-9]{1,2}))?\}/g, function (_, e, f) { return show(compile(e, nm)(v), f); });
   }
@@ -91,11 +91,17 @@ export function makePractice() {
     Object.keys(tpl.vars || {}).forEach(function (k) { opts[k] = choices(tpl.vars[k], 'vars.' + k); });
     for (var tries = 0; tries < 400; tries++) {
       var v = {};
+      // A scenario bank: one case (a map of words and numbers) is picked, and its keys are values like any other.
+      if (tpl.cases) Object.assign(v, tpl.cases[Math.floor(rnd() * tpl.cases.length)]);
       Object.keys(opts).forEach(function (k) { v[k] = opts[k][Math.floor(rnd() * opts[k].length)]; });
       Object.keys(tpl.let || {}).forEach(function (k) { v[k] = clean(compile(tpl.let[k], nm)(v)); });
+      // Case text can use values too: "sides {p} cm and {q} cm".
+      if (tpl.cases) Object.keys(tpl.cases[0]).forEach(function (k) { if (typeof v[k] === 'string' && v[k].indexOf('{') >= 0) v[k] = fill(v[k], v, nm); });
       if (tpl.where && !compile(tpl.where, nm)(v)) continue;
+      var ch = tpl.choices ? tpl.choices.map(function (c) { var a = Array.isArray(c) ? c : [c, '']; return { t: sup(fill(a[0], v, nm)), fb: a[1] ? sup(fill(a[1], v, nm)) : '' }; }) : null;
       return {
-        q: sup(fill(tpl.q, v, nm)), answer: fill(tpl.answer, v, nm).replace(/−/g, '-'), tolerance: tpl.tolerance || 0, form: tpl.form || '',
+        choices: ch, board: tpl.board ? fill(tpl.board, v, nm) : '', height: tpl.height || 0, when: tpl.when ? fill(tpl.when, v, nm) : '',
+        q: sup(fill(tpl.q, v, nm)), answer: tpl.answer !== undefined ? fill(tpl.answer, v, nm).replace(/−/g, '-') : ch ? ch[0].t : '', tolerance: tpl.tolerance || 0, form: tpl.form || '',
         feedback: (tpl.feedback || []).map(function (f) { return [fill(f[0], v, nm).replace(/−/g, '-'), fill(f[1], v, nm)]; }),
         explain: tpl.explain ? sup(fill(tpl.explain, v, nm)) : '', show: tpl.show ? sup(fill(tpl.show, v, nm)) : '', vars: v,
       };
@@ -208,6 +214,12 @@ export function makePractice() {
     if (!fbm && g.answer.indexOf('/') > 0 && /^\s*-?\d*\.\d+\s*$/.test(v) && av !== null && Math.abs(Number(v) - av) < 0.006) return { ok: false, keep: true, msg: 'Close: give it exactly, as a fraction.' };
     return { ok: false, msg: fbm || 'Not quite. Check your working and try again.' };
   }
+  // Multiple choice: the first choice (as written in the template) is right; the page shows them shuffled.
+  function markChoice(g, text) {
+    if (text === g.choices[0].t) return { ok: true };
+    var c = g.choices.filter(function (x) { return x.t === text; })[0];
+    return { ok: false, msg: 'Not quite. ' + (c && c.fb ? c.fb : 'Read the question again and think about why.') };
+  }
   function feedback(g, v, WPM, rhsOnly) {
     for (var i = 0; i < g.feedback.length; i++) {
       var f = g.feedback[i];
@@ -216,20 +228,33 @@ export function makePractice() {
     }
     return '';
   }
-  return { generate: generate, fill: fill, compile: compile, choices: choices, names: names, rng: mulberry, mark: mark, ineq: ineq, sup: sup };
+  return { generate: generate, fill: fill, compile: compile, choices: choices, names: names, rng: mulberry, mark: mark, markChoice: markChoice, ineq: ineq, sup: sup };
 }
 
 export const PRACTICE = makePractice();
 export const PRACTICE_JS = `var WPP=(${makePractice.toString()})();`;
 
 /** Problems with one lesson's practice file, found by generating many questions. WPM is the maths checker (MATH). */
-export function checkPractice(data, where, WPM, n = 300, WPF = null) {
+export function checkPractice(data, where, WPM, n = 300, WPF = null, widgets = null) {
   const errors = [], warnings = [];
   if (!data || !Array.isArray(data.templates) || !data.templates.length) return { errors: [`${where}: needs templates: a list of at least one`], warnings };
   data.templates.forEach((t, i) => {
     const w = `${where} template ${i + 1}`;
-    for (const k of ['q', 'answer']) if (typeof t[k] !== 'string' || !t[k].trim()) errors.push(`${w}: needs ${k} (text)`);
-    for (const k of Object.keys(t)) if (!['q', 'vars', 'let', 'where', 'answer', 'show', 'tolerance', 'form', 'feedback', 'explain'].includes(k)) errors.push(`${w}: unknown field ${k}`);
+    if (typeof t.q !== 'string' || !t.q.trim()) errors.push(`${w}: needs q (text)`);
+    if (!t.choices && !t.when && (typeof t.answer !== 'string' || !t.answer.trim())) errors.push(`${w}: needs answer (text), choices or when`);
+    for (const k of Object.keys(t)) if (!['q', 'vars', 'let', 'where', 'answer', 'show', 'tolerance', 'form', 'feedback', 'explain', 'cases', 'choices', 'board', 'height', 'when'].includes(k)) errors.push(`${w}: unknown field ${k}`);
+    if (t.cases !== undefined) {
+      if (!Array.isArray(t.cases) || !t.cases.length || !t.cases.every((c) => c && typeof c === 'object' && !Array.isArray(c))) errors.push(`${w}: cases is a list of maps (one scenario each)`);
+      else { const k0 = Object.keys(t.cases[0]).sort().join(','); t.cases.forEach((c, j) => { if (Object.keys(c).sort().join(',') !== k0) errors.push(`${w}: case ${j + 1} has keys ${Object.keys(c).join(', ')}, but case 1 has ${k0}`); }); }
+    }
+    if (t.choices !== undefined && !(Array.isArray(t.choices) && t.choices.length >= 2 && t.choices.every((c) => typeof c === 'string' || (Array.isArray(c) && c.length === 2)))) errors.push(`${w}: choices is a list of at least 2: the right one first, each "text" or [text, feedback]`);
+    if (t.choices && t.answer !== undefined) errors.push(`${w}: with choices, the first choice is the answer: leave out answer`);
+    if (t.when && !t.board) errors.push(`${w}: when needs a board to answer on`);
+    if (t.board !== undefined) {
+      const wd = /^\s*widget:\s*(\w+)/m.exec(String(t.board));
+      if (!wd) errors.push(`${w}: board needs a "widget: name" line`);
+      else if (widgets && !widgets.includes(wd[1])) errors.push(`${w}: board widget "${wd[1]}" does not exist`);
+    }
     if (t.feedback !== undefined && !(Array.isArray(t.feedback) && t.feedback.every((f) => Array.isArray(f) && f.length === 2))) errors.push(`${w}: feedback is a list of [wrong answer, message] pairs`);
     if (!t.explain) warnings.push(`${w}: no explain (students see it after answering)`);
     if (errors.length) return;
@@ -239,8 +264,13 @@ export function checkPractice(data, where, WPM, n = 300, WPF = null) {
       for (let k = 0; k < n; k++) {
         const g = PRACTICE.generate(t, rnd);
         if (!g) continue;
-        made++; seen.add(g.q);
-        if (/\{|\}|NaN|Infinity|undefined/.test(g.q + g.answer + g.explain)) { errors.push(`${w}: a question came out as "${g.q}" with answer "${g.answer}"`); break; }
+        made++; seen.add(g.q + g.board + (g.choices ? g.choices[0].t : ''));
+        if (/\{|\}|NaN|Infinity|undefined/.test(g.q + g.answer + g.explain + g.board + g.when + (g.choices ? g.choices.map((c) => c.t + c.fb).join('') : ''))) { errors.push(`${w}: a question came out as "${g.q}" with answer "${g.answer}"`); break; }
+        if (g.choices || g.when) {
+          if (g.choices && new Set(g.choices.map((c) => c.t)).size !== g.choices.length) { errors.push(`${w}: two choices are the same for "${g.q}": ${g.choices.map((c) => c.t).join(' | ')}`); break; }
+          if (g.when) { try { WPM.checkCondition(g.when); } catch (e) { errors.push(`${w}: when "${g.when}" cannot be read: ${e.message}`); break; } }
+          continue;
+        }
         const sub = /^subject ([a-zA-Z])$/.exec(g.form), algebra = sub || /[a-zA-Z]/.test(g.answer);
         if (g.form && !['simplest', 'decimal', 'whole', 'expanded', 'factorised', 'simplified'].includes(g.form) && !sub) { errors.push(`${w}: form "${g.form}" is not one of simplest, decimal, whole, expanded, factorised, simplified or subject x`); break; }
         if (['expanded', 'factorised', 'simplified'].includes(g.form) && !WPF) { errors.push(`${w}: form ${g.form} needs the form checker (Numbas)`); break; }
@@ -256,7 +286,7 @@ export function checkPractice(data, where, WPM, n = 300, WPF = null) {
     } catch (e) { errors.push(`${w}: ${e.message}`); return; }
     const before = errors.length;
     if (made < n * 0.5 && !errors.some((e) => e.startsWith(w))) errors.push(`${w}: only ${made} of ${n} tries found numbers that fit "where"; loosen it or the ranges`);
-    else if (seen.size < 6) warnings.push(`${w}: only ${seen.size} different questions; widen the ranges`);
+    else if (seen.size < (t.choices && !t.vars ? 3 : 6)) warnings.push(`${w}: only ${seen.size} different questions; ${t.choices ? 'add cases' : 'widen the ranges'}`);
     // A feedback answer that sometimes equals the right one is skipped for those questions (rounding down when no rounding
     // up is needed, say). Warn only when it is nearly always skipped, so it hardly ever helps.
     if (clash > made * 0.9) warnings.push(`${w}: a feedback answer equals the right answer in ${clash} of ${made} questions, so it almost never shows`);

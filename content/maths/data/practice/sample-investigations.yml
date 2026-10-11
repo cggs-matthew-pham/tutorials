@@ -1,0 +1,14 @@
+# Practice for "Investigating with samples". A bank of choices.
+templates:
+  - q: "{q}"
+    cases:
+      - { q: "A random sample of 40 students has a mean sleep of 8.8 hours. What can you say about all the students at the school?", k: "Their mean is probably close to 8.8 hours", w1: "Their mean is exactly 8.8 hours", w2: "Nothing: a sample can't tell you", e: "A random sample gives an estimate: about 8.8 hours. A bigger sample would give a closer estimate." }
+      - { q: "Two students estimate the school's mean sleep, from random samples of 15 and of 60. Whose estimate is more reliable?", k: "The sample of 60", w1: "The sample of 15", w2: "They are equally reliable", e: "Both are fair, but bigger samples vary less, so the estimate from 60 is likely closer." }
+      - { q: "A random sample of 30 Year 10s at one school finds most want a later start. What can be inferred?", k: "Most Year 10s at that school probably want a later start", w1: "Most students in Australia want a later start", w2: "Every Year 10 at that school wants a later start", e: "Infer only about the population sampled (Year 10 at that school), and say 'probably'." }
+      - { q: "A survey about bullying asks students to write their name on the form. What is the main problem?", k: "It isn't anonymous, so students may not answer honestly", w1: "Writing names makes the survey too slow", w2: "Writing names turns the sample into a census", e: "On personal topics, anonymity protects people and makes answers more honest." }
+      - { q: "Which is the most important ethical step in a survey about students' sleep?", k: "Students agree to take part and their answers stay anonymous", w1: "Every student must answer", w2: "Teachers read the answers aloud", e: "Ethical data collection asks permission, keeps answers private and does no harm." }
+      - { q: "Which sentence states the uncertainty best?", k: "From a random sample of 40, our students probably sleep about 8.8 hours", w1: "Our students sleep exactly 8.8 hours", w2: "We are certain our students sleep 8.8 hours", e: "Name the sample, and use 'about' or 'probably'." }
+      - { q: "A random sample of 50 Year 8s finds a mean of 2.1 hours of homework a week. A second random sample of 50 finds 2.4 hours. What is the best explanation?", k: "Random samples differ by chance", w1: "One of the samples must be biased", w2: "Someone made a mistake in the maths", e: "Sampling variation: fair samples hold different students, so their results differ a little." }
+      - { q: "An investigation wants the mean screen time of Year 7s. Which plan is best?", k: "A random sample of Year 7s, with anonymous answers", w1: "Everyone at the gaming club, with their names", w2: "The first 10 Year 7s to reply online", e: "Random and anonymous: every student has a chance, and answers are honest." }
+    choices: ["{k}", "{w1}", "{w2}"]
+    explain: "{e}"

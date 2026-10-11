@@ -1,0 +1,28 @@
+# Practice for "Bias in collecting data". A bank of situations.
+templates:
+  - q: "{s} What kind of bias is this?"
+    cases:
+      - { s: "To find the town's favourite sport, a survey asks people leaving a football match.", k: "Who is asked (sampling bias)" }
+      - { s: "A survey asks: 'Don't you agree that litter is a disgrace?'", k: "How they are asked (response bias)" }
+      - { s: "Parcels are weighed on scales that read 200 g too heavy.", k: "How it is measured (measurement bias)" }
+      - { s: "Students are asked, in front of their teacher, how much homework they really do.", k: "How they are asked (response bias)" }
+      - { s: "An online poll counts only the people who chose to reply.", k: "Who is asked (sampling bias)" }
+      - { s: "To find how much screen time teenagers have, a researcher surveys students at a gaming expo.", k: "Who is asked (sampling bias)" }
+      - { s: "Heights are measured with a tape that has its first 2 cm cut off.", k: "How it is measured (measurement bias)" }
+      - { s: "A survey asks: 'Would you support a skate park, which would keep teenagers off the streets?'", k: "How they are asked (response bias)" }
+      - { s: "To find what Year 7s eat for lunch, only students in the canteen queue are asked.", k: "Who is asked (sampling bias)" }
+      - { s: "Reaction times are measured with a stopwatch started late each time.", k: "How it is measured (measurement bias)" }
+      - { s: "A phone survey at 11 am on weekdays asks about working hours.", k: "Who is asked (sampling bias)" }
+      - { s: "A survey about cheating on tests asks students to write their name on the form.", k: "How they are asked (response bias)" }
+    choices: ["{k}", "{k == 'Who is asked (sampling bias)' ? 'How they are asked (response bias)' : 'Who is asked (sampling bias)'}", "{k == 'How it is measured (measurement bias)' ? 'How they are asked (response bias)' : 'How it is measured (measurement bias)'}"]
+    explain: "{k == 'Who is asked (sampling bias)' ? 'The people asked are not like the whole population, so the sample leans one way.' : k == 'How they are asked (response bias)' ? 'The question or the setting pushes people towards an answer.' : 'The tool or the method gives values that are off in one direction.'}"
+  - q: "{s} Would a bigger sample, chosen the same way, fix the problem?"
+    cases:
+      - { s: "A survey about the library is done in the library at lunch.", k: "No: it would still only ask library users", w: "Yes: more people make it fair", e: "Bigger samples vary less, but bias pushes every result the same way. Ask a random sample of the whole school." }
+      - { s: "A poll about a new bike path asks only cyclists.", k: "No: it would still only ask cyclists", w: "Yes: more people make it fair", e: "A bigger sample of cyclists is still only cyclists. The method must change, not the size." }
+      - { s: "A survey asks: 'Don't you agree that school starts too early?'", k: "No: the question would still push people to agree", w: "Yes: more people make it fair", e: "A leading question leans every answer. Reword it neutrally." }
+      - { s: "Heights are measured with a tape that reads 2 cm too long.", k: "No: every height would still be 2 cm too long", w: "Yes: more people make it fair", e: "Measurement bias is in the tool. Fix the tape." }
+      - { s: "A random sample of 5 students from the whole school gives a mean sleep far from the other samples.", k: "Yes: a bigger random sample varies less", w: "No: the sample is biased", e: "A random sample isn't biased; a small one just varies a lot. A bigger random sample gives a closer estimate." }
+      - { s: "10 names drawn at random from the whole school list give a proportion who walk to school very different from a second draw of 10.", k: "Yes: a bigger random sample varies less", w: "No: the sample is biased", e: "Different random samples differ by chance (sampling variation), not bias. Bigger samples vary less." }
+    choices: ["{k}", "{w}"]
+    explain: "{e}"

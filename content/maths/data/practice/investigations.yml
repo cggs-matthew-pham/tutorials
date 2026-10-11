@@ -1,0 +1,15 @@
+# Practice for "Statistical investigations". A bank of choices.
+templates:
+  - q: "{q}"
+    cases:
+      - { q: "Which question can be answered by measuring a number for each student?", k: "How many hours do Year 7s sleep on school nights?", w1: "Is sleep important?", w2: "Should school start later?", e: "A statistical question has an answer in data: one number for each person, which varies." }
+      - { q: "Which question can be answered by measuring a number for each student?", k: "How long does it take Year 8s to travel to school?", w1: "Is the bus better than the car?", w2: "Should everyone walk to school?", e: "A statistical question has an answer in data: one number for each person, which varies." }
+      - { q: "Which is the fairest way to choose 20 students from Year 7?", k: "Pick 20 names at random from the class lists", w1: "Ask the first 20 students at the canteen", w2: "Ask the 20 who volunteer first", e: "A random choice from the whole list gives every student the same chance. Canteen queues and volunteers choose themselves." }
+      - { q: "Which is the fairest way to choose 30 students from Year 9?", k: "Draw 30 student numbers at random", w1: "Ask your 30 closest classmates", w2: "Ask 30 students at the sports carnival", e: "A random draw from the whole year gives everyone the same chance; friends and carnival-goers are not typical." }
+      - { q: "One student reports 2 hours of sleep on a school night, far below the rest. What should the investigator do first?", k: "Check the value, then report the results with and without it", w1: "Delete it and say nothing", w2: "Keep it and say nothing", e: "An outlier might be a mistake or a real value. Check it, and be open about how it changes the results." }
+      - { q: "A claim says 'Year 7 students get 9 hours of sleep'. A random sample's median is 8 hours. What can you say?", k: "The sample is evidence against the claim, for the students it represents", w1: "The claim is false for every Year 7 student", w2: "The sample tells us nothing about the claim", e: "A sample can count against a claim, but say who was measured and how sure you are." }
+      - { q: "A random sample's median sleep is 9 hours, the same as a claim of '9 hours'. What can you say?", k: "The sample is consistent with the claim", w1: "The sample proves the claim for every student", w2: "The sample is evidence against the claim", e: "Agreeing with a claim supports it; it doesn't prove it for everyone." }
+      - { q: "Hours of sleep is measured on a clock. What kind of data is it?", k: "Numerical and continuous", w1: "Numerical and discrete", w2: "Categorical", e: "Time is measured, so any value in a range can occur: continuous." }
+      - { q: "The number of siblings each student has. What kind of data is it?", k: "Numerical and discrete", w1: "Numerical and continuous", w2: "Categorical", e: "Siblings are counted: discrete." }
+    choices: ["{k}", "{w1}", "{w2}"]
+    explain: "{e}"

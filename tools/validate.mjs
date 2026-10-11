@@ -182,6 +182,7 @@ else console.log('✓ error tasks: every planted error names its fault and an on
   const { existsSync } = await import('node:fs');
   const courses = [...new Set(lessons.map((l) => l.slug.split('/').slice(0, -1).join('/')))];
   let files = 0, n = 0, w = 0, WPF = null;
+  const boardWidgets = readdirSync('playground-board/widgets').filter((f) => f.endsWith('.js')).flatMap((f) => [...readFileSync(pjoin('playground-board/widgets', f), 'utf8').matchAll(/\.widget\('(\w+)'/g)].map((m) => m[1]));
   for (const c of courses) {
     const dir = pjoin(CONTENT_ROOT, c, 'practice');
     if (!existsSync(dir)) continue;
@@ -191,7 +192,7 @@ else console.log('✓ error tasks: every planted error names its fault and an on
       if (!bySlug[`${c}/${name}`]) { n++; console.error(`✗ ${where}: there is no lesson ${c}/${name}`); continue; }
       let d; try { d = YAML.parse(readFileSync(pjoin(dir, f), 'utf8')); } catch (e) { n++; console.error(`✗ ${where}: ${e.message}`); continue; }
       if (!WPF && /"form":"(expanded|factorised|simplified)"/.test(JSON.stringify(d))) WPF = await (await import('./maths-forms.mjs')).loadForms();
-      const r = checkPractice(d, where, MATH, 300, WPF);
+      const r = checkPractice(d, where, MATH, 300, WPF, boardWidgets);
       r.errors.forEach((e) => console.error('✗ ' + e)); r.warnings.forEach((e) => console.warn('⚠ ' + e));
       n += r.errors.length; w += r.warnings.length;
     }

@@ -1,0 +1,21 @@
+# Practice for "Algorithms for classifying shapes". Choices: what does the algorithm say?
+templates:
+  - q: "The triangle algorithm asks 'Are all three sides equal?' (yes: equilateral), then 'Are two sides equal?' (yes: isosceles, no: scalene). A triangle has sides {a} cm, {b} cm and {c} cm. What does it say?"
+    vars: { a: "3..9", b: "3..9", c: "3..9" }
+    where: "a + b > c and a + c > b and b + c > a"
+    choices: ["{a = b and b = c ? 'Equilateral' : a = b or b = c or a = c ? 'Isosceles' : 'Scalene'}", "{a = b and b = c ? 'Isosceles' : a = b or b = c or a = c ? 'Scalene' : 'Isosceles'}", "{a = b and b = c ? 'Scalene' : a = b or b = c or a = c ? 'Equilateral' : 'Equilateral'}"]
+    explain: "All three equal? {a = b and b = c ? 'Yes: equilateral.' : 'No. Two equal? ' + (a = b or b = c or a = c ? 'Yes: isosceles.' : 'No: scalene.')}"
+  - q: "An algorithm asks only 'Are two sides equal? Yes: isosceles. No: scalene.' A triangle has sides {a} cm, {b} cm and {c} cm. What does it say?"
+    vars: { a: "3..9", u: [0, 0, 1, 2] }
+    let: { b: "u = 2 ? a + 1 : a", c: "u = 0 ? a : a + 2" }
+    choices: ["{u = 2 ? 'Scalene' : 'Isosceles'}", "{u = 2 ? 'Isosceles' : 'Scalene'}", "Equilateral"]
+    explain: "{u = 0 ? 'All three sides are equal, but this algorithm only asks whether two are: it says isosceles and never names an equilateral triangle. Ask the more specific question first.' : u = 1 ? 'Two sides are equal: isosceles.' : 'No two sides are equal: scalene.'}"
+  - q: "The quadrilateral algorithm asks: 'All four sides equal?' Yes: 'Four right angles?' (square, else rhombus). No: 'Two pairs of parallel sides?' No: trapezium. Yes: 'Four right angles?' (rectangle, else parallelogram). {d}. What does it say?"
+    cases:
+      - { d: "Four sides of 5 cm and four right angles", k: "Square", w1: "Rhombus", w2: "Rectangle" }
+      - { d: "Four sides of 6 cm; angles 60° and 120°", k: "Rhombus", w1: "Square", w2: "Parallelogram" }
+      - { d: "Sides 8 cm and 3 cm, four right angles", k: "Rectangle", w1: "Parallelogram", w2: "Square" }
+      - { d: "Sides 7 cm and 4 cm; angles 70° and 110°; both pairs of opposite sides parallel", k: "Parallelogram", w1: "Rectangle", w2: "Trapezium" }
+      - { d: "One pair of parallel sides; the other two sides are not parallel", k: "Trapezium", w1: "Parallelogram", w2: "Rhombus" }
+    choices: ["{k}", "{w1}", "{w2}"]
+    explain: "Follow the questions in order: {k == 'Square' ? 'all four equal (yes), four right angles (yes): square.' : k == 'Rhombus' ? 'all four equal (yes), four right angles (no): rhombus.' : k == 'Rectangle' ? 'all four equal (no), two pairs parallel (yes), four right angles (yes): rectangle.' : k == 'Parallelogram' ? 'all four equal (no), two pairs parallel (yes), four right angles (no): parallelogram.' : 'all four equal (no), two pairs parallel (no): trapezium.'}"

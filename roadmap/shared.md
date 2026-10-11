@@ -211,6 +211,9 @@ The right answer is the first option in most `question` checks: 335 of 353 in ma
 
 Built: `arrangeOptions` in `tools/lesson-core.mjs`, called from `parseLessonText` for every step and task check, so the page, `teach.mjs` (guides, decks, worksheets), `check-html` and the create page all see the same order. Seeded by slug, question and options (FNV hash into mulberry32); options that are all numbers or fractions are sorted; catch-alls (None of them, Neither, You cannot tell, It depends) stay last; `shuffle: false` opts out; `authoredAnswer` keeps the original index. Across 1259 question checks the answer now lands evenly (first option about a third of three-option and a quarter of four-option questions). Clips are unaffected (they record boards and code, not checks). For other chats: a test plan that clicks an option by its authored index must read the parsed `answer` instead (`check-html` already does). Students who already answered keep their ticks (progress is stored by check, not option).
 
+## Done (12 Oct 2026, maths chat): practice choices, scenario banks and the board
+- `practice-core.mjs`: `choices:`, `cases:`, `board:` (+ `height:`) and `when:`; `practice-view.mjs` shows choice buttons and one board iframe per page (`set-code` for each question; `when` is checked against its last `run` message, and needs the student to have moved it). `build-site` passes the board's address (`VERSIONS`). `tools/check-practice.mjs` (`npm run check-practice`): every board setup starts, and every `when` uses reported values and does not hold at the start. Usable by any subject with practice files.
+
 ## Done (12 Oct 2026, maths chat): Practise this skill card on lesson pages
 - `build-site` passes `course.practice` (`../practice/?skill=<lesson>`) when `content/<course>/practice/<lesson>.yml` exists; `lesson-view` draws a `.practicecard` (a `.nextcard`) after Now you can. Any subject that adds practice files gets it; no clips change.
 

@@ -1,0 +1,50 @@
+# Practice for "Reading a graph". The board draws the data; read values off it (they sit on grid lines).
+templates:
+  - q: "The graph shows the temperature over a day. What is the temperature at {x} hours, in °C?"
+    vars: { a: "8..14", b: "-3..0", c: "-2..1", d: "3..6", e: "4..8", f: "2..5", g: "-4..-1", h: "-5..-3", k: "-4..-2", xi: "1..7" }
+    let: { y0: "a", y1: "a + b", y2: "a + b + c", y3: "y2 + d", y4: "y3 + e", y5: "y4 + f", y6: "y5 + g", y7: "y6 + h", y8: "y7 + k", x: "3 * xi" }
+    where: "y8 >= 2 and y5 <= 34"
+    board: |
+      widget: graph
+      axes: Time (h), Temperature (°C)
+      x: 0, 24
+      y: 0, 35
+      grid: 3, 1
+      series Data: 0,{y0}; 3,{y1}; 6,{y2}; 9,{y3}; 12,{y4}; 15,{y5}; 18,{y6}; 21,{y7}; 24,{y8}
+    height: 380
+    answer: "{xi = 1 ? y1 : xi = 2 ? y2 : xi = 3 ? y3 : xi = 4 ? y4 : xi = 5 ? y5 : xi = 6 ? y6 : y7}"
+    feedback:
+      - ["{x}", "That is the time. Go up from {x} on the time axis to the line, then across to the temperature."]
+    explain: "From {x} h on the bottom axis, go up to the line, then across to the temperature axis: {xi = 1 ? y1 : xi = 2 ? y2 : xi = 3 ? y3 : xi = 4 ? y4 : xi = 5 ? y5 : xi = 6 ? y6 : y7} °C."
+  - q: "The graph shows the temperature over a day. At what time (in hours) is it highest?"
+    vars: { H: "20..32", k1: "2..4", pk: "2..6", n0: [0, 1], n1: [0, 1], n2: [0, 1], n3: [0, 1], n4: [0, 1], n5: [0, 1], n6: [0, 1], n7: [0, 1], n8: [0, 1] }
+    let: { y0: "H - k1 * abs(0 - pk) - n0", y1: "H - k1 * abs(1 - pk) - (pk = 1 ? 0 : n1)", y2: "H - k1 * abs(2 - pk) - (pk = 2 ? 0 : n2)", y3: "H - k1 * abs(3 - pk) - (pk = 3 ? 0 : n3)", y4: "H - k1 * abs(4 - pk) - (pk = 4 ? 0 : n4)", y5: "H - k1 * abs(5 - pk) - (pk = 5 ? 0 : n5)", y6: "H - k1 * abs(6 - pk) - (pk = 6 ? 0 : n6)", y7: "H - k1 * abs(7 - pk) - n7", y8: "H - k1 * abs(8 - pk) - n8" }
+    where: "min(y0, y8) >= 2"
+    board: |
+      widget: graph
+      axes: Time (h), Temperature (°C)
+      x: 0, 24
+      y: 0, 35
+      grid: 3, 1
+      series Data: 0,{y0}; 3,{y1}; 6,{y2}; 9,{y3}; 12,{y4}; 15,{y5}; 18,{y6}; 21,{y7}; 24,{y8}
+    height: 380
+    answer: "{3 * pk}"
+    feedback:
+      - ["{H}", "That is the highest temperature. The question asks when: read down to the time axis."]
+    explain: "The highest point is {H} °C; straight down from it the time is {3 * pk} hours."
+  - q: "The graph shows fuel left in a car's tank. How much fuel is left after {d} km, in litres?"
+    vars: { f0: [35, 40, 45, 50, 55, 60], r: [5, 5, 5, 10], di: "1..5" }
+    where: "f0 - 6 * r >= 0"
+    let: { d: "100 * di", L: "f0 - r * di" }
+    board: |
+      widget: graph
+      axes: Distance (km), Fuel (L)
+      x: 0, 600
+      y: 0, 60
+      grid: 100, 5
+      series Fuel: 0,{f0}; 600,{f0 - 6 * r}
+    height: 360
+    answer: "{L}"
+    feedback:
+      - ["{f0 - L}", "That is the fuel used. Read the line's height at {d} km: the fuel left."]
+    explain: "Up from {d} km to the line, across to the fuel axis: {L} L. (It uses {r} L every 100 km.)"

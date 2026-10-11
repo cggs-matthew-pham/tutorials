@@ -1,0 +1,22 @@
+# Practice for "Checking a model". Choices: what does the model leave out?
+templates:
+  - q: "A model says a {d} km taxi ride costs {d} × ${r|m} = ${d * r|m}. Two rides of {d} km both really cost ${d * r + f|m}. What does the model leave out?"
+    vars: { d: "3..12", r: [1.9, 2, 2.1, 2.2, 2.5], f: [3.5, 4, 4.2, 4.5] }
+    choices: ["A starting charge", ["A charge for waiting in traffic", "Waiting would change from ride to ride; both rides cost the same extra."], ["A higher price per km", "A higher rate would add more on a longer ride; here the extra is a fixed ${f|m}."]]
+    explain: "Both rides cost ${f|m} more than the model: a fixed starting charge. Refined model: {f|m} + {r|m} × km."
+  - q: "{q}"
+    cases:
+      - { q: "A model says a 300 km trip takes 300 ÷ 100 = 3 hours. What does it assume?", k: "A steady 100 km/h, with no stops", w1: "A straight road", w2: "A full tank of petrol", e: "Distance ÷ speed assumes one steady speed. Stops, traffic and towns make the real trip longer." }
+      - { q: "A money model says 500 Australian dollars buys 500 × 0.65 = 325 US dollars. At the airport you get 305. What assumption failed?", k: "That there are no fees", w1: "That 500 × 0.65 = 325", w2: "That you multiply by the rate", e: "The sum and the method are right; the model assumed no fees. The counter takes 20 US dollars." }
+      - { q: "A phone model says cost = $0.10 per MB. Every bill is $20 more than the model says. What is more likely?", k: "The model leaves out a $20 monthly fee", w1: "The sum in the model is wrong", w2: "The price per MB changes each month", e: "The same extra every month is a fixed fee the model left out: cost = 20 + 0.10 × MB." }
+      - { q: "A model says paint for a 12 m² wall is 12 ÷ 6 = 2 L (6 m² per litre). The painter uses 4 L. What does the model leave out?", k: "A second coat", w1: "That 12 ÷ 6 = 2", w2: "The colour of the paint", e: "Two coats double the paint: 4 L. The model assumed one coat." }
+      - { q: "When is the simple trip model (300 ÷ 100 = 3 hours) good enough?", k: "For a rough plan, such as which day to travel", w1: "For a train timetable to the minute", w2: "For a race result", e: "A simple model is fine when a rough answer is all you need; refine it when precision matters." }
+    choices: ["{k}", "{w1}", "{w2}"]
+    explain: "{e}"
+  - q: "The trip model is {D} km at {v} km/h, plus {s} stops of {m} minutes. How many hours does the trip take?"
+    vars: { v: [80, 100], k: "2..5", s: "1..3", m: [15, 30] }
+    let: { D: "v * k" }
+    answer: "{k + s * m / 60}"
+    feedback:
+      - ["{k}", "That is driving time only. Add the stops: {s} × {m} minutes."]
+    explain: "Driving {D} ÷ {v} = {k} h, plus stops {s} × {m} = {s * m} minutes = {s * m / 60} h: {k + s * m / 60} hours."

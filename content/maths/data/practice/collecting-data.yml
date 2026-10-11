@@ -1,0 +1,25 @@
+# Practice for "Census, sample, experiment or observation". A bank of situations.
+templates:
+  - q: "{s} Which technique is this?"
+    cases:
+      - { s: "Every Australian household fills in a form.", k: "Census" }
+      - { s: "1000 voters are asked how they will vote before an election.", k: "Sample" }
+      - { s: "Plants get different amounts of fertiliser so their growth can be compared.", k: "Experiment" }
+      - { s: "Birds visiting a feeder are counted each hour.", k: "Observation" }
+      - { s: "To find the class's mean height, every student in a class of 25 is measured.", k: "Census" }
+      - { s: "Some students revise with music and some without, chosen at random, then all sit the same test.", k: "Experiment" }
+      - { s: "Cars using a road are counted each morning for a week.", k: "Observation" }
+      - { s: "50 students chosen at random from 800 are asked how long they sleep.", k: "Sample" }
+      - { s: "A factory tests 20 light bulbs from each batch of 5000.", k: "Sample" }
+      - { s: "Paper planes with different wing sizes are thrown and their distances measured.", k: "Experiment" }
+    choices: ["{k}", "{k == 'Census' ? 'Sample' : 'Census'}", "{k == 'Census' or k == 'Sample' ? 'Experiment' : 'Sample'}", "{k == 'Observation' ? 'Experiment' : 'Observation'}"]
+    explain: "{k == 'Census' ? 'Census: data from everyone in the population.' : k == 'Sample' ? 'Sample: data from some of the population, used to estimate for all.' : k == 'Experiment' ? 'Experiment: something is changed on purpose to see its effect.' : 'Observation: watching and counting without changing anything.'}"
+  - q: "{s} Why use a sample, not a census?"
+    cases:
+      - { s: "A newspaper wants to know what its city of 500 000 people thinks of a new bridge.", k: "Asking everyone would take too long and cost too much", w: "Testing would destroy what is tested" }
+      - { s: "A factory wants to know how long its matches burn.", k: "Testing would destroy what is tested", w: "Asking everyone would take too long and cost too much" }
+      - { s: "A council wants to know what residents think of the new park, by Friday.", k: "Asking everyone would take too long and cost too much", w: "Testing would destroy what is tested" }
+      - { s: "A farmer wants to know the sugar level of her grapes.", k: "Testing would destroy what is tested", w: "Asking everyone would take too long and cost too much" }
+      - { s: "A light bulb maker wants to know how many hours its bulbs last.", k: "Testing would destroy what is tested", w: "Asking everyone would take too long and cost too much" }
+    choices: ["{k}", "{w}", ["A sample is always more accurate than a census", "A fair census is exact; a sample estimates."]]
+    explain: "A sample saves time and money, and it is the only choice when testing destroys what is tested."

@@ -1,0 +1,42 @@
+# Practice for "Describing a relationship". The board draws a journey; describe one section.
+templates:
+  - q: "The graph shows a cyclist's distance from home. What is the cyclist doing between {p} and {p + 1} hours?"
+    cases:
+      - { s1: 1, s2: 0, s3: -1 }
+      - { s1: 1, s2: 1, s3: 0 }
+      - { s1: 1, s2: 0, s3: 1 }
+      - { s1: 0, s2: 1, s3: -1 }
+      - { s1: 1, s2: -1, s3: 0 }
+    vars: { v: [10, 15, 20, 25], p: "0..2" }
+    let: { d1: "s1 * v", d2: "d1 + s2 * v", d3: "d2 + s3 * v", s: "p = 0 ? s1 : p = 1 ? s2 : s3" }
+    where: "d2 >= 0 and d3 >= 0"
+    board: |
+      widget: graph
+      axes: Time (h), Distance from home (km)
+      x: 0, 3
+      y: 0, 60
+      grid: 1, 10
+      series Data: 0,0; 1,{d1}; 2,{d2}; 3,{d3}
+    height: 360
+    choices: ["{s > 0 ? 'Riding away from home' : s = 0 ? 'Stopped' : 'Riding back towards home'}", "{s > 0 ? 'Stopped' : s = 0 ? 'Riding away from home' : 'Stopped'}", "{s > 0 ? 'Riding back towards home' : s = 0 ? 'Riding back towards home' : 'Riding away from home'}"]
+    explain: "From {p} to {p + 1} h the line {s > 0 ? 'goes up: the distance from home increases' : s = 0 ? 'is flat: the distance stays the same' : 'goes down: the distance from home decreases'}."
+  - q: "The graph shows the water in a tank. Between {p} and {p + 2} minutes, what happens to the amount of water?"
+    cases:
+      - { s1: 1, s2: 0, s3: -1 }
+      - { s1: -1, s2: 0, s3: 1 }
+      - { s1: 0, s2: 1, s3: -1 }
+      - { s1: 1, s2: -1, s3: 0 }
+      - { s1: -1, s2: 1, s3: 0 }
+      - { s1: 0, s2: -1, s3: 1 }
+    vars: { v: [10, 20], p: [0, 2, 4] }
+    let: { w1: "30 + s1 * v", w2: "w1 + s2 * v", w3: "w2 + s3 * v", s: "p = 0 ? s1 : p = 2 ? s2 : s3" }
+    board: |
+      widget: graph
+      axes: Time (min), Water (L)
+      x: 0, 6
+      y: 0, 60
+      grid: 1, 10
+      series Data: 0,30; 2,{w1}; 4,{w2}; 6,{w3}
+    height: 360
+    choices: ["{s > 0 ? 'It increases' : s = 0 ? 'It stays constant' : 'It decreases'}", "{s > 0 ? 'It decreases' : s = 0 ? 'It increases' : 'It stays constant'}", "{s > 0 ? 'It stays constant' : s = 0 ? 'It decreases' : 'It increases'}"]
+    explain: "From {p} to {p + 2} min the line {s > 0 ? 'goes up: the water increases' : s = 0 ? 'is flat: the water stays constant' : 'goes down: the water decreases'}."

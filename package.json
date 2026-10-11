@@ -19,7 +19,8 @@
     "all": "npm run validate && npm run render && npm run build",
     "check-decks": "node tools/check-decks.mjs",
     "check-html": "node tools/check-html-lessons.mjs",
-    "check-makecode": "node tools/check-makecode.mjs"
+    "check-makecode": "node tools/check-makecode.mjs",
+    "check-practice": "node tools/check-practice.mjs"
   },
   "engines": {
     "node": ">=20"
