@@ -1,0 +1,40 @@
+summary: Students sign in against a stored hash, see one letter change the whole hash, add a salt, and send a message locked with a public padlock past an eavesdropper, to explain how hashing protects stored passwords and public key encryption protects data in transit (AC9TDI10K01 node 4).
+time: 45
+timing: "Predict and Try 6 min · Worked example 13 min · Vary 12 min · Practise and Make 14 min"
+goals:
+  - I can explain how sites check passwords without storing them.
+  - I can explain what a salt adds.
+  - I can explain how a public key and a private key work together.
+struggle: "Hashing is one-way and the public key only locks: both run against intuition. Use the padlock and the meat grinder (you can't un-mince) as anchors."
+before: |
+  Try the boards yourself. The hash is real SHA-256 (shown short); the passwords in the lesson are practice ones. Tell students never to type a real password into any board.
+
+  The kit's typical width: public key cryptography (as in TLS/HTTPS) secures data in transit; hashing secures stored passwords; they address different threats. Simplifications: the padlock is an analogy; HTTPS uses public keys to agree a shared key, then faster encryption for the rest.
+
+  Links: Secret messages' key sharing (agreeing a key in public) is the other half of how HTTPS starts.
+running:
+  - "Predict: students who chose \"your password\" assume sites keep it."
+  - "Try: count how many digits changed for one letter."
+  - "Worked example: ask why the same password must always give the same hash."
+  - "Vary: ask why two identical hashes in a stolen list would be a giveaway without salt."
+  - "Make: remind students not to type a real password; it is a made-up passphrase."
+stuck:
+  - see: "A student says the site turns the hash back (Sam's mistake)."
+    ask: "Why does the site send a reset link instead of your password?"
+    fix: "It can't reverse the hash."
+  - see: "A student thinks the public key opens the box."
+    ask: "Eve has a padlock too. Can she open the box?"
+    fix: "Public keys only lock; the private key opens."
+stretch: "Why do security experts recommend a password manager? What does it change about using the same password on several sites?"
+support: "Two cards: Stored → hash (one way). Sent → public key locks, private key opens."
+leads: |
+  Next: Capture the flag (use everything from this course to find and fix the weaknesses in a school portal).
+
+  Links: Secret messages (key sharing, challenge and response).
+exit:
+  q: "Why can't attackers read passwords from a list of hashes? Which key locks a message for Alice?"
+  a: "A hash can't be reversed; only guesses can be hashed and compared. Alice's public key; only her private key opens it."
+explain: |
+  Good sites store a **hash** of your password: a one-way scramble, always the same for the same password. At sign-in they hash what you type and compare. A hash can't be turned back, so a stolen list doesn't reveal passwords, though common passwords can still be guessed, which is why long passphrases matter. A **salt** makes the same password hash differently for each person.
+
+  **Public key** encryption is like an open padlock: anyone can lock a message with someone's public key, but only their **private key** opens it. HTTPS uses this to agree a secret with a website.

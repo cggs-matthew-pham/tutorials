@@ -16,10 +16,10 @@ pathways:
     title: Networks and security
     summary: How data moves between computers, and how it is kept safe on the way.
     fit: "Start here to follow a message across the internet and see what keeps it private."
-    about: "**Networks** follows AC9TDI8K02 (Years 7–8): wired and wireless links, packets and TCP, why data needs encrypting, and the whole journey of a message. The Code pathway's **Secret messages** course (MakeCode) builds, cracks and shares ciphers; these lessons show what encryption is for. **Security and privacy** (Years 9–10, AC9TDI10K01) comes later."
+    about: "**Networks** follows AC9TDI8K02 (Years 7–8): wired and wireless links, packets and TCP, why data needs encrypting, and the whole journey of a message. The Code pathway's **Secret messages** course (MakeCode) builds, cracks and shares ciphers; these lessons show what encryption is for. **Security and privacy** (Years 9–10, AC9TDI10K01): the operating system, names and addresses, sign-in and permissions, hashes and keys, then a capture-the-flag finale."
     courses:
       - { path: systems/networks, id: networks, stage: foundations, tagline: "Follow a packet across the internet." }
-      - { title: Security and privacy, id: security, stage: extensions, after: [networks], summary: "What encryption is for, hashing passwords and spotting phishing. The coding course Secret messages builds the ciphers themselves.", tagline: "What keeps your data safe, and what doesn't." }
+      - { path: systems/security, id: security, stage: extensions, after: [networks], tagline: "What keeps your data safe, and what doesn't." }
   - id: hardware
     title: Hardware and logic
     summary: What is inside a computer, and how simple on-off switches add up to logic.

@@ -724,6 +724,19 @@ Vary, Practise, Make).
     `r` (driven ÷ driver), `d`, `g` (teeth), `rpm_w`, `cap_g`, `time_s`, `load_g`, `limit_s`, `turns_m`, `turns_w`, `s`
     (last lift stalled), `l` (last lift worked), `p` (this pair meets both criteria), `n_pass` (pairs that do). Checks:
     `"turns_m >= 1"`, `"s = 1 and load_g > 450"`, `"load_g = 300 and r = 1.5 and l = 1"`, `"n_pass = 1"`. Ready selector `.gearsvg`.
+  - `widget: security` (first used by `systems/security/`): five modes. `mode: os`: apps (Video call, Notes, Game) ask
+    the OS, which uses a driver per device; Swap webcam, Swap storage, Install/Remove driver (webcam B; `driver: on`), and
+    a Game camera permission; values `c`, `s`, `d`, `o` (last request worked), `g`, `q`. `mode: dns`: an address bar
+    (label Address, `#scaddr`; `address:` prefills) and fixed names (school.edu.au 203.0.113.10, library.school.edu.au
+    203.0.113.20, weather.example 192.0.2.44, lookalike schoo1.edu.au 198.51.100.66: example ranges only), steps and a
+    router table; values `f`, `k`, `r` (real school), `l` (lookalike), `x` (row). `mode: access`: sign in (practice
+    accounts Sam maple, Ms Lee orbit, Admin quartz-river-71; MFA code 4096), Read/Change buttons per file, a permissions
+    table (`perms: 210 / 220 / 112`, rows Students/Teachers/Admins, columns Homework/Marks/Settings, 0 none 1 read 2 read +
+    change; `edit: on` makes cells clickable; `mfa: on`); values `a`, `u`, `m`, `o`, `t`, `z` (wider than the least
+    privilege table), `e` (narrower). `mode: hash`: a password box (`#scpw`), its SHA-256 shown short (the browser's, or a
+    built-in copy where `crypto.subtle` is missing, as in clips), `salt:` shows an "Add each user's salt" switch, `leak
+    name: 12-hex` lines list stored hashes (a matching row lights); values `n`, `m`, `d` (digits changed), `s`, `w`
+    (words). `mode: keys`: Bob locks with Alice's padlock, his own or none (`lock:`), Send; values `l`, `k`, `v`, `f`.
   - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
     between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
     `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b

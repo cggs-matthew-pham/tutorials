@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam signs in with the right password.
+So the system knows it really is Sam.
+So Sam is allowed to do anything on the system.
+So Sam can change the class marks.
+# endregion

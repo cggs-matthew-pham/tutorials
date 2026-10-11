@@ -1,0 +1,40 @@
+summary: Students sign in as different users, try to read and change files, switch on multi-factor sign-in and fix a permissions table, to distinguish authentication from authorisation and apply least privilege (AC9TDI10K01 node 3).
+time: 40
+timing: "Predict and Try 6 min · Worked example 10 min · Vary 12 min · Practise and Make 12 min"
+goals:
+  - I can explain the difference between authentication and authorisation.
+  - I can explain why multi-factor sign-in is safer.
+  - I can set permissions so each role has only what it needs.
+struggle: "Students treat \"signed in\" as \"allowed\". Keep asking two questions in order: who are you? what may you do?"
+before: |
+  Try the board yourself. The practice accounts are on the board (Sam: maple, Ms Lee: orbit, Admin: quartz-river-71; MFA code 4096); they are made up and only work here.
+
+  The one idea (the kit's typical width): authentication proves identity, authorisation decides actions; both are needed on a shared system. Least privilege limits the damage from a stolen or misused account.
+
+  Real-world link: the school's own systems (who can see what in the learning management system); avoid showing real accounts.
+running:
+  - "Predict: students who chose \"it works\" hold Sam's misconception."
+  - "Try: ask what was checked first, and what second."
+  - "Worked example: map each line to authentication or authorisation."
+  - "Vary: ask what an attacker would need with MFA on."
+  - "Make: ask why admins don't get to change marks."
+stuck:
+  - see: "A student says Sam can do anything once signed in (Sam's mistake)."
+    ask: "What did the password prove? What decides the rest?"
+    fix: "Signing in proves who; permissions decide what."
+  - see: "A student gives every role everything to make it work."
+    ask: "What does each job actually need?"
+    fix: "Least privilege: only that."
+stretch: "Some systems use roles (teacher, student) and some give permissions to each person. What are the trade-offs for a school?"
+support: "Two questions on the board: Who are you? (authentication) What may you do? (authorisation)."
+leads: |
+  Next: Hashes and keys (how passwords are stored and secrets shared).
+
+  Links: Secret messages' challenge and response is another way to prove who you are.
+exit:
+  q: "Give one example of authentication and one of authorisation. Why use multi-factor sign-in?"
+  a: "Authentication: a password or fingerprint. Authorisation: students may only read marks. MFA means a stolen password alone isn't enough."
+explain: |
+  **Access control** has two parts. **Authentication** proves who you are: a password, and with **multi-factor** sign-in also a code from your phone, so a stolen password alone isn't enough. **Authorisation** decides what you may do, from **permissions** for your role.
+
+  Signing in doesn't mean you can do anything. Give each role only what its job needs (**least privilege**), so a misused or stolen account can do the least harm.

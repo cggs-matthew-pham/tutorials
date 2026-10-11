@@ -236,5 +236,9 @@
   "gear-one-effect": {"home": "engineering/mechanisms/winch", "text": "A gear ratio is thought to change only the speed or only the force; it changes both, by the same factor in opposite directions."},
   "storage-text-only": {"home": "code/dom/dom-save", "text": "localStorage keeps a list as a list; in fact it keeps only text, so save a list with JSON.stringify and load it with JSON.parse."},
   "heading-for-size": {"home": "code/site/site-everyone", "text": "A heading level is chosen by how big it looks (an h4 because it is small); in fact headings are the page's outline, read out by screen readers in order, so go h1, h2, h3 and set the size with CSS."},
-  "path-from-my-computer": {"home": "code/site/site-publish", "text": "A path that works on my computer (C:\\Users\\…\\trophy.svg or /Users/…) works on the web; in fact the site only has its own folder, so use a relative path such as trophy.svg."}
+  "path-from-my-computer": {"home": "code/site/site-publish", "text": "A path that works on my computer (C:\\Users\\…\\trophy.svg or /Users/…) works on the web; in fact the site only has its own folder, so use a relative path such as trophy.svg."},
+  "apps-talk-to-hardware": {"home": "systems/security/operating-system", "text": "Apps are thought to talk to hardware directly, so new hardware needs new apps; apps ask the operating system, which uses a driver for each device."},
+  "lookalike-domain": {"home": "systems/security/addresses", "text": "A name that looks like a known site is trusted (schoo1 for school); DNS looks up the exact name, so a lookalike reaches a different computer."},
+  "signed-in-means-allowed": {"home": "systems/security/access", "text": "Signing in is taken to allow anything; authentication proves who you are, and permissions (authorisation) decide what you may do."},
+  "hash-reversible": {"home": "systems/security/hashes-keys", "text": "A stored password hash is thought to be turned back into the password (to email it, for example); a hash is one way, which is why sites send a reset link instead."}
 }

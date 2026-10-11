@@ -1,0 +1,40 @@
+summary: Students swap webcams and storage under unchanged apps, install a missing driver and grant or refuse an app's camera permission, to explain how the operating system hides hardware from applications and controls access (AC9TDI10K01 node 1).
+time: 35
+timing: "Predict and Try 6 min · Worked example 9 min · Vary 10 min · Practise and Make 10 min"
+goals:
+  - I can explain what the operating system does between apps and hardware.
+  - I can say what a driver is for.
+  - I can explain how the OS controls what apps may use.
+struggle: "The layers are invisible in everyday use. Keep pointing at the three rows on the board and ask \"who is talking to whom?\""
+before: |
+  Try the board yourself.
+
+  The one idea: the OS is a layer of abstraction (apps ask for "a camera"; drivers handle each device) and, because it is in the middle, it is the gatekeeper for access. The access idea returns in lesson 3.
+
+  Hands-on: show Device Manager (Windows) or System Information (macOS) on a school laptop, and a phone's app permission screen.
+running:
+  - "Predict: students who chose \"rewrite the app\" hold Sam's misconception."
+  - "Try: ask what stayed the same and what changed each time."
+  - "Worked example: ask who checks the permission, the app or the OS."
+  - "Vary: ask why the OS refuses before the camera is even touched."
+  - "Make: compare: did anyone give the game camera access, and why not?"
+stuck:
+  - see: "A student says the app talks to the webcam (Sam's mistake)."
+    ask: "Which row does the app's request go to first?"
+    fix: "To the OS, which uses the driver."
+  - see: "A student confuses drivers and apps."
+    ask: "Which one would you see on your home screen?"
+    fix: "Apps; drivers are hidden inside the OS."
+stretch: "Why can a phone app ask for the camera but not read another app's files? Look up what a sandbox is."
+support: "A three-layer diagram card: Apps / Operating system (permissions, drivers) / Hardware."
+leads: |
+  Next: Names and addresses (DNS and IP).
+
+  Where it leads: Who are you, and what may you do? (sign-in and permissions on a shared system).
+exit:
+  q: "Why doesn't a video app need updating when you buy a new webcam? Give one way the OS protects you."
+  a: "It asks the OS, which uses the new webcam's driver. It decides which apps may use the camera, microphone or files."
+explain: |
+  Apps never talk to hardware directly. They ask the **operating system** (OS), and the OS uses a **driver**, a small program for each device, to do it. So one app works with any webcam, drive or network card, as long as the OS has its driver.
+
+  Because every request goes through it, the OS is also the **gatekeeper**: it decides which apps may use the camera, microphone, files or network.

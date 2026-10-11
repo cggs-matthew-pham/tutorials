@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+An email says: reset your school password at schoo1.edu.au.
+The name looks like the school's website.
+So DNS will send me to the school's computer.
+So it is safe to type my password there.
+# endregion

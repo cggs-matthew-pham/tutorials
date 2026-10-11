@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+A new brand of webcam is plugged in.
+The video call app talks straight to the webcam.
+So the app has to be rewritten for the new webcam.
+That is why every app needs an update for new hardware.
+# endregion

@@ -1,0 +1,40 @@
+summary: Students look up names in a DNS board and follow each packet's address through a router table, to explain how domain names and IP addresses get data to the right computer and why a lookalike name is dangerous (AC9TDI10K01 node 2).
+time: 40
+timing: "Predict and Try 6 min · Worked example 12 min · Vary 10 min · Practise and Make 12 min"
+goals:
+  - I can explain what DNS and IP addresses do.
+  - I can describe how a router uses an address.
+  - I can spot a lookalike name.
+struggle: "The difference between a name looking right and being right. Make students read names character by character, aloud."
+before: |
+  Try the board yourself. Every address on it comes from the ranges kept for documentation and examples (192.0.2.x, 198.51.100.x, 203.0.113.x), so none is a real site.
+
+  The one idea: names map to addresses through DNS, packets carry addresses, routers forward by the start of the address. Lookalike names (phishing) reach other computers.
+
+  Hands-on: on a school computer, `nslookup` or `ping` a well-known site to see a real address (check the school network allows it).
+running:
+  - "Predict: students who chose \"DNS fixes typos\" hold Sam's misconception."
+  - "Try: ask whose computer 198.51.100.66 might be."
+  - "Worked example: compare the router table with postcodes."
+  - "Vary: ask why nothing is sent for a name that doesn't exist."
+  - "Make: collect students' rules for checking links."
+stuck:
+  - see: "A student trusts schoo1.edu.au (Sam's mistake)."
+    ask: "Is that the same name, character by character?"
+    fix: "A different name has a different address."
+  - see: "A student thinks the IP address is a person."
+    ask: "How many people use your home's public address?"
+    fix: "It identifies a device or network, not a person."
+stretch: "IPv4 addresses have four numbers from 0 to 255. How many is that, and why did the world run out? (About 4.3 billion; look up IPv6.)"
+support: "Show a name split into parts (library . school . edu . au) and read it right to left."
+leads: |
+  Next: Who are you, and what may you do? (sign-in and permissions).
+
+  Builds on: Networks (packets and routers). Links to Data representation: each part of an IPv4 address is one byte.
+exit:
+  q: "What does DNS do? Why is schoo1.edu.au not the school?"
+  a: "Turns a name into an IP address. It is a different name, so DNS gives a different address: someone else's computer."
+explain: |
+  Devices on the internet find each other by **IP addresses** (such as 203.0.113.10), and every packet carries the address it is going to. **DNS** looks up the address for a name like school.edu.au. **Routers** read the start of each packet's address and use their tables to send it the right way.
+
+  A name that only looks right (schoo1.edu.au) is a different name with a different address: someone else's computer. Check names character by character before typing a password.

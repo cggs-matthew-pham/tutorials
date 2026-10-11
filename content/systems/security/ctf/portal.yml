@@ -1,0 +1,50 @@
+# Boards for "Capture the flag: secure the portal". Flags are in teacher.yml (the repository is public).
+
+# region: run
+widget: security
+mode: dns
+address: schoo1.edu.au
+# endregion
+
+# region: explain
+widget: security
+mode: dns
+# endregion
+
+# region: explain-pic
+widget: security
+mode: access
+perms: 220 / 220 / 112
+# endregion
+
+# region: dns
+widget: security
+mode: dns
+# endregion
+
+# region: audit
+widget: security
+mode: hash
+leak ana: 15b88ee9c2c0
+leak ben: c4bbcb1fbec9
+leak zoe: 6382deaf1f5d
+leak max: a9b45dc47c1e
+# endregion
+
+# region: perms
+widget: security
+mode: access
+perms: 220 / 220 / 112
+# endregion
+
+# region: keys
+widget: security
+mode: keys
+# endregion
+
+# region: fix
+widget: security
+mode: access
+edit: on
+perms: 220 / 220 / 112
+# endregion

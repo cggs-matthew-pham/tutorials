@@ -1,0 +1,33 @@
+# Boards for "Who are you, and what may you do?". Practice accounts: Sam maple, Ms Lee orbit, Admin quartz-river-71.
+# perms: rows Students / Teachers / Admins, columns Homework, Marks, Settings; 0 none, 1 read, 2 read + change.
+
+# region: run
+widget: security
+mode: access
+perms: 210 / 220 / 112
+# endregion
+
+# region: explain
+widget: security
+mode: access
+perms: 210 / 220 / 112
+# endregion
+
+# region: explain-pic
+widget: security
+mode: access
+perms: 210 / 220 / 112
+# endregion
+
+# region: modify
+widget: security
+mode: access
+perms: 210 / 220 / 112
+# endregion
+
+# region: make
+widget: security
+mode: access
+edit: on
+perms: 220 / 221 / 222
+# endregion

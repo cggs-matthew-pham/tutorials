@@ -1,0 +1,36 @@
+# Boards for "Hashes and keys". Stored hashes are the first 12 hex digits of SHA-256 (no salt).
+# sam: maple 49ead2b1066b
+
+# region: run
+widget: security
+mode: hash
+leak sam: 49ead2b1066b
+# endregion
+
+# region: explain
+widget: security
+mode: hash
+leak sam: 49ead2b1066b
+# endregion
+
+# region: explain-pic
+widget: security
+mode: keys
+lock: 1
+# endregion
+
+# region: salt
+widget: security
+mode: hash
+salt: off
+# endregion
+
+# region: keys
+widget: security
+mode: keys
+# endregion
+
+# region: make
+widget: security
+mode: hash
+# endregion

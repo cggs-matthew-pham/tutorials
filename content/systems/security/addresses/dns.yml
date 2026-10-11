@@ -1,0 +1,28 @@
+# Boards for "Names and addresses". All addresses come from the ranges set aside for examples.
+
+# region: run
+widget: security
+mode: dns
+address: school.edu.au
+# endregion
+
+# region: explain
+widget: security
+mode: dns
+# endregion
+
+# region: explain-pic
+widget: security
+mode: dns
+address: school.edu.au
+# endregion
+
+# region: modify
+widget: security
+mode: dns
+# endregion
+
+# region: make
+widget: security
+mode: dns
+# endregion

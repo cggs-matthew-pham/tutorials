@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+I forgot my password, so I click Forgot password.
+The site stores only a hash of my password.
+So it turns the hash back and emails me my password.
+Then I can sign in again.
+# endregion

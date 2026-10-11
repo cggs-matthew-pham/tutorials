@@ -1,0 +1,31 @@
+# Boards for "What the operating system does".
+
+# region: run
+widget: security
+mode: os
+driver: on
+# endregion
+
+# region: explain
+widget: security
+mode: os
+driver: on
+# endregion
+
+# region: explain-pic
+widget: security
+mode: os
+driver: on
+# endregion
+
+# region: modify
+widget: security
+mode: os
+driver: off
+# endregion
+
+# region: make
+widget: security
+mode: os
+driver: off
+# endregion

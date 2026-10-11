@@ -30,13 +30,16 @@ Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 
 
 `systems/networks` (Years 7–8, AC9TDI8K02): Wired or wireless (n1), Packets (n2, TCP resending a lost packet, broken links and rerouting), Who can see your data? (n3 and n4: an eavesdropper on café Wi-Fi, encryption with a shift key, weak keys 0 and 10), Across the internet (n5: the whole purchase with a step log; Make is a Parsons ordering with one wrong step). New `network` widget, four modes. One home per idea: Secret messages (Code) stays the home of building, cracking and sharing ciphers; these lessons are what encryption is for, with a light encrypt-decrypt cycle so the node is covered for students who skip MakeCode. Misconceptions `bandwidth-is-latency`, `resend-whole-message`, `packets-private`, `encrypt-at-router`. Clip ports moved to 8460–8499 (the maths chat had reused 8320–8333).
 
+## Done (12 Oct 2026): Security and privacy course, with a capture the flag
+
+`systems/security` (Years 9–10, AC9TDI10K01, after Networks): What the operating system does (n1: apps, OS, drivers, app permissions), Names and addresses (n2: DNS, IP, router tables, private and public addresses, a lookalike domain), Who are you, and what may you do? (n3: authentication, MFA, authorisation, least privilege), Hashes and keys (n4: stored hashes, salt, public and private keys), and Capture the flag: secure the portal (n5, the challenge unit: four `flag` puzzles, one per lesson, then fix the permissions with MFA and sort weaknesses into fixes). Defensive framing throughout; all addresses from the documentation ranges; practice accounts only. New `security` widget, five modes, with a built-in SHA-256 for clips (the clip stage is not a secure context). Misconceptions `apps-talk-to-hardware`, `lookalike-domain`, `signed-in-means-allowed`, `hash-reversible`.
+
 ## Next
 
-1. Security and privacy (Years 9–10, AC9TDI10K01: the operating system, addresses and routing, access control, public key and hashing). Overlaps Secret messages' key exchange and challenge-response; check first.
+1. Hardware (8K01: specifications and performance; choosing hardware for a job).
 2. Concept links: Secret messages should `assumes:` character codes (needs the cross-language concept change, item 4).
 3. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
 4. Cross-pathway concepts: the concept lint is per language (`CONCEPTS[lesson.language]`), so theory concepts (`bit`, `char-code`, `rgb`) cannot yet be `assumes:` in MakeCode or Python lessons. Needs a small change in `tools/concepts.mjs` (a shared concept list checked across languages, and `systems` in `prerequisites()`'s subject list). Check `roadmap/shared.md` first.
-5. Hardware (8K01: specifications and performance).
 
 ## Open questions
 

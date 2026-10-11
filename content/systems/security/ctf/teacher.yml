@@ -1,0 +1,44 @@
+summary: A capture-the-flag finale. Students test a fictional school portal with the course's boards, capture four flags (a phishing address, a weak password found by auditing hashes, an over-wide permission, the right key), fix the permissions and switch on MFA, then match each weakness to its fix (AC9TDI10K01 node 5).
+time: 50
+timing: "Predict and Try 6 min · Flags 22 min · Fix 8 min · Report 8 min · Discussion 6 min"
+goals:
+  - I can find weaknesses in a system using what I know about addresses, hashes, permissions and keys.
+  - I can fix a system so each role has only what it needs.
+  - I can match a weakness to the fix that stops it.
+struggle: "Students want to guess flags. Insist each flag comes from a board: say which board and what you saw."
+before: |
+  Defensive framing throughout: the portal is fictional and theirs to test; every finding leads to a fix and a report. Talk about permission: testing someone else's system without it is illegal (Criminal Code Act 1995 (Cth), Part 10.7) and against school rules.
+
+  Flags (case does not matter):
+  - Flag 1: WP{203.0.113.10}
+  - Flag 2: WP{zoe} (her password is football)
+  - Flag 3: WP{marks}
+  - Flag 4: WP{alice-public}
+
+  The kit's node 5 asks students to trace data through a networked system and say where each mechanism operates; the report step does that. Secret messages (Code) has its own capture the flag on micro:bits; classes that did it will recognise the format.
+running:
+  - "Predict: have students say what makes testing ethical (permission, reporting)."
+  - "Try: ask what the address tells you about who owns the site."
+  - "Flags: let pairs split the four flags, then explain to each other."
+  - "Fix: ask what zoe should do as well (change her password, use a passphrase)."
+  - "Report: ask which weakness is most serious, and why."
+stuck:
+  - see: "A student guesses flag 2."
+    ask: "Which common passwords have you hashed so far?"
+    fix: "Type each of the five; one lights a row."
+  - see: "A student stuck on flag 4."
+    ask: "Which padlock let Alice open the box and kept Eve out?"
+    fix: "Test all three on the board."
+stretch: "Write a one-page security report for the portal: each finding, how serious it is (low, medium, high), and the fix."
+support: "A checklist card: names and addresses, hashes, permissions, keys, with the board for each."
+leads: |
+  This closes Security and privacy, and the Digital systems Years 9–10 work on 10K01.
+
+  Code links: Secret messages (micro:bit ciphers, key exchange, challenge and response, its own capture the flag).
+exit:
+  q: "Name two weaknesses you found in the portal and the fix for each."
+  a: "Any two: phishing link (check the exact address), weak password (passphrase, salted hashes, MFA), students could change marks (least privilege), unlocked message (receiver's public key, HTTPS)."
+explain: |
+  A **capture the flag** tests a system you are allowed to test. Each weakness found gives a flag; each one leads to a fix: check the exact address before signing in, use long passphrases (stored as salted hashes), give each role only what it needs (least privilege), turn on multi-factor sign-in, and lock messages with the receiver's public key (HTTPS).
+
+  Security teams test their own systems this way so they can fix the holes before attackers find them.
