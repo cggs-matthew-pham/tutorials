@@ -54,6 +54,7 @@ export function buildPlayground(out = 'dist') {
   rmSync(dest, { recursive: true, force: true });
   cpSync(join(root, 'playground'), dest, { recursive: true });
   addSnippets(dest, 'turtle');
+  copyFileSync(join(root, 'tools', 'python-errors.mjs'), join(dest, 'python-errors.mjs')); // friendly errors, shared with _playground-py
   mkdirSync(join(dest, 'vendor'), { recursive: true });
   for (const f of ['skulpt.min.js', 'skulpt-stdlib.js']) {
     const src = join(root, 'node_modules', 'skulpt', 'dist', f);
@@ -74,6 +75,7 @@ export function buildPyPlayground(out = 'dist') {
   rmSync(dest, { recursive: true, force: true });
   cpSync(join(root, 'playground-py'), dest, { recursive: true });
   addSnippets(dest, 'turtle');
+  copyFileSync(join(root, 'tools', 'python-errors.mjs'), join(dest, 'python-errors.mjs'));
   stampPlayground(dest);
   const py = join(out, '_pyodide');
   rmSync(py, { recursive: true, force: true });

@@ -1,6 +1,7 @@
 import { CanvasTurtle, StopError } from './canvas-turtle.js';
 import { mountSnippets } from './snippets.js';
-import { createRunner, friendlyError } from './skulpt-bridge.js';
+import { createRunner } from './skulpt-bridge.js';
+import { explainError } from './python-errors.mjs';
 
 // URL parameters (set by the lesson page):
 //   ?code=<starter code>   ?id=<key for autosaving this student's edits>
@@ -161,11 +162,8 @@ runBtn.addEventListener('click', async () => {
     if (err instanceof StopError || /Stopped/.test(String(err))) {
       setStatus('stopped', 'Stopped');
     } else {
-      const msg = friendlyError(err);
-      window.__playground.error = msg;
-      const span = document.createElement('span'); span.className = 'err'; span.textContent = msg;
-      outEl.append(span);
-      setStatus('error', 'Error: ' + String(err).split('\n')[0]);
+      const r = showError(err);
+      setStatus('error', r?.line ? `Error on line ${r.line}` : 'Error: ' + String(err).split('\n')[0]);
     }
   } finally {
     turtle.draw(); turtle.emit();
@@ -184,6 +182,38 @@ resetBtn.addEventListener('click', () => {
   setStatus('idle', 'Ready');
   window.__playground.output = ''; window.__playground.error = null;
 });
+
+// ---------- errors: a plain-language line first (tools/python-errors.mjs), then Python's own message ----------
+function showError(err) {
+  const raw = String(err);
+  const tb = err?.traceback?.[0], mod = String(tb?.filename || '').match(/(\w+)\.py$/)?.[1];
+  const file = mod && studentMods[mod] !== undefined ? mod : (!tb || /stdin/.test(tb.filename || '') ? 'main' : null);
+  const r = explainError(raw, file === 'main' ? mainText : file ? studentMods[file] : '');
+  if (r && file && file !== 'main') r.hint = r.hint.replace(/^Line (\d+):/, `Line $1 of ${file}.py:`);
+  window.__playground.error = raw + (r ? '\n' + r.hint : '');
+  const box = document.createElement('span'); box.className = 'err';
+  if (outEl.textContent && !outEl.textContent.endsWith('\n')) box.append('\n');
+  if (r) {
+    const hint = document.createElement('span'); hint.className = 'err-hint'; hint.textContent = r.hint; box.append(hint);
+    if (r.line && file) {
+      const go = document.createElement('button'); go.type = 'button'; go.className = 'err-go'; go.textContent = `Show line ${r.line}`;
+      go.addEventListener('click', () => showLine(file, r.line)); box.append(' ', go);
+    }
+    box.append('\n');
+  }
+  const said = document.createElement('span'); said.className = r ? 'err-raw' : ''; said.textContent = (r ? 'Python says: ' : '') + raw; box.append(said);
+  outEl.append(box);
+  return r;
+}
+/** Select a line in the editor (switching to its file), so the student looks at the right place. */
+function showLine(file, n) {
+  if (active !== file) switchTab(file);
+  const lines = codeEl.value.split('\n'); if (n > lines.length) return;
+  const start = lines.slice(0, n - 1).reduce((a, l) => a + l.length + 1, 0);
+  codeEl.focus(); codeEl.setSelectionRange(start, start + lines[n - 1].length);
+  const lh = parseFloat(getComputedStyle(codeEl).lineHeight) || 20;
+  codeEl.scrollTop = Math.max(0, (n - 3) * lh);
+}
 
 // ---------- file tabs: main.py plus the student's own modules ----------
 const tabsEl = $('tabs');

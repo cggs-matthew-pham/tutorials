@@ -33,6 +33,9 @@ html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink);
   border: 1px solid var(--line); font: 13px/1.5 ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap; }
 #output:empty::before { content: "Output appears here"; color: var(--muted); }
 #output .err { color: var(--bad); }
+#output .err-hint { font-weight: 600; }
+#output .err-raw { opacity: .75; font-size: .9em; }
+#output .err-go { font: inherit; font-size: .85em; padding: 1px 8px; border: 1px solid currentColor; border-radius: 6px; background: transparent; color: inherit; cursor: pointer; }
 
 .canvas-pane { background: var(--panel); }
 .canvas-wrap { flex: 1; min-height: 0; position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }

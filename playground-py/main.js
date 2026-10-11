@@ -4,6 +4,7 @@
 //   ?code=<starter>  ?id=<autosave key; its first two parts name the course, whose files the program sees>
 //   ?view=output (buttons and console, no code: clips)  ?autorun=1  ?free=1 (the course's free playground)
 import { mountSnippets } from './snippets.js';
+import { explainError } from './python-errors.mjs';
 
 const params = new URLSearchParams(location.search);
 const starter = params.get('code') ?? 'name = input("What is your name? ")\nprint("Hello, " + name + "!")\n';
@@ -141,19 +142,17 @@ function askInline(prompt) {
   });
 }
 
-// Plain-language hints under Python's own message.
+// Plain-language hints under Python's own message: tools/python-errors.mjs (shared with the turtle playground)
+// first, then the ones only this playground needs (files, JSON).
 const FRIENDLY = [
-  [/NameError: name '(\w+)' is not defined/, (m) => `Python does not know the name ${m[1]}. Check the spelling, and that you created it before this line.`],
-  [/IndentationError/, () => 'Indentation problem: the lines inside an if, a loop or a function must be indented by the same amount.'],
-  [/SyntaxError: (invalid syntax|expected ':')/, () => 'Python could not read this line. Check for a missing colon (:), bracket or quote on this line or the one above.'],
-  [/can only concatenate str \(not "(int|float)"\) to str|unsupported operand type\(s\) for \+: '(int|float)' and 'str'/, () => '+ cannot mix a number and text. To join a number onto text, use str(): "Score: " + str(score). To add a typed number, turn the text into a number with int() first.'],
-  [/invalid literal for int\(\)/, () => 'int() can only turn text made of digits into a number, such as "12". Check what was typed before turning it into a number.'],
   [/FileNotFoundError: .*'([^']+)'/, (m) => `There is no file called ${m[1]} yet. The Files tab shows the files your programs have made.`],
   [/KeyError: (.+)$/m, (m) => `The dictionary has no key ${m[1]}. Keys must match exactly, including capitals.`],
   [/JSONDecodeError/, () => 'The file is not valid JSON. Did the program write it with json.dump()? You can look at it in the Files tab.'],
 ];
 function showError(text) {
   show((outEl.textContent && !outEl.textContent.endsWith('\n') ? '\n' : '') + text + '\n', 'err');
+  const r = explainError(text, mainText, { turtle: false }); // no turtle here
+  if (r) { show(r.hint + '\n', 'hint'); return; }
   for (const [re, fn] of FRIENDLY) { const m = text.match(re); if (m) { show(fn(m) + '\n', 'hint'); break; } }
 }
 

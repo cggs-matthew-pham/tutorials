@@ -11,6 +11,7 @@
     "check-nodes": "node tools/check-progressions.mjs",
     "check-forms": "node tools/check-forms.mjs",
     "check-concepts": "node tools/check-concepts.mjs",
+    "check-python-errors": "node tools/check-python-errors.mjs",
     "build:playground": "node tools/build-playground.mjs",
     "render": "node tools/build-playground.mjs && node tools/render-pictures.mjs && node tools/render.mjs",
     "build": "node tools/build-site.mjs",

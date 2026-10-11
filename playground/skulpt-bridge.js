@@ -200,20 +200,6 @@ var $builtinmodule = function (name) {
 };
 `;
 
-const FRIENDLY = [
-  [/name '(\w+)' is not defined/, (m) => `${m[0]}. Check the spelling, and that you created it before using it.`],
-  [/unexpected indent|expected an indented block/i, () => 'Indentation problem: lines inside a loop or function must be indented by the same amount.'],
-  [/SyntaxError: bad input/, () => 'Python could not read this line. Check for a missing colon (:), bracket or quote on this line or the one above.'],
-  [/cannot concatenate 'str' and '(int|float)'|unsupported operand type\(s\) for \+: '(int|float)' and 'str'/, () => '+ cannot mix a number and text. To join a number onto text, use str(): "Score: " + str(score). To add a typed number, turn the text into a number with int() first.'],
-  [/invalid literal for int\(\)/, () => 'int() can only turn text made of digits into a number, such as "12". Check what was typed before turning it into a number.'],
-];
-
-export function friendlyError(err) {
-  const text = err.toString();
-  for (const [re, fn] of FRIENDLY) { const m = text.match(re); if (m) return `${text}\n${fn(m)}`; }
-  return text;
-}
-
 // onInput(prompt): optional; returns a promise of the typed answer (the console's inline input line), or null to
 // fall back to the browser's prompt box (turtle programs). Time spent waiting for an answer does not count
 // towards the run's time limit.

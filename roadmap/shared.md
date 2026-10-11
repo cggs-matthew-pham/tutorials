@@ -14,7 +14,7 @@ Students expect coding to be fun and easy and read struggle as failure. Response
 
 **To do:**
 1. **Audit existing lessons**, course by course from `npm run effort` (230 without `struggle:`, 18 first hints flagged, mostly HTML/CSS; some are judgement calls). Add difficulty cues to reliably hard tasks while there. Editing `teacher.yml` changes the lesson folder's clip hash, so batch it per course before a publish.
-2. **Friendly Python errors** (separate build, code chat): translate common Skulpt errors (missing colon, indentation, `NameError` typo, text plus number) to "name the slip and the next move". Console mode already has two such hints.
+2. ~~Friendly Python errors~~ **Done 11 Oct**: `tools/python-errors.mjs` in both Python playgrounds, tested by `npm run check-python-errors` and in a headless browser (CLAUDE.md › Playground runtime). Next: watch real student errors in class for slips it misses.
 
 ## Done: home page and plain pages (11 Oct 2026)
 
