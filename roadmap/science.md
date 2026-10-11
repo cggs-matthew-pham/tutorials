@@ -2,6 +2,12 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: Quick checks for class-taught nodes, Years 7 and 8 (11 Oct 2026, science chat)
+
+Matthew asked for very brief basic checks of what students should know where a node stays class-taught. Format (no shared tool change): one optional, check-only lesson per progression descriptor, a few `question`, `sort` and `reflect` checks per node, no board, clip or picture, `optional: true` so completion is unaffected, `node:` as a list so the curriculum map shows the node as covered. Teacher notes say the node is taught in class and the lesson is a self-test. Built: `biology-7/classification-check` (7U01 n4, n5), `biology-7/foodweb-check` (7U02 n3, n5), `chemistry/choose-technique-check` (7U06 n5), `earth-8/boundaries-check` (8U03 n3 to n6), `earth-8/rocks-check` (8U04 n1, n3 to n5). Validate clean, pages load, marking checked headless.
+
+Next: Year 9 and 10 Quick checks (9U01 n6-n7, 9U02 n2 and n4-n5, 9U03 n5, 10U01 n2 and n5-n6, 10U02 n3-n5, 10U03 n1 and n4-n5, 10U04 n4-n6), then the older `assumes:` nodes if still uncovered.
+
 ## Done: waves, charge and the class-task nodes (11 Oct 2026, science chat)
 
 Two new shared-board widgets (Matthew approved): `wave` (`mode: sound | refract | spectrum`) and `charge` (`mode: static | pair | current`), both in AUTHORING › 12; the sound and charge boards draw on a canvas. Year 9 Physics gains a unit, Wave and particle models (AC9S9U04): How does sound travel? (n2, hinge), Where does static charge come from? and How does current flow? (n3), What is the electromagnetic spectrum? and How does light bend? (n4), Wave or particle? (n5, questions only). Lessons now run heat transfer, sound, static charge, current, spectrum, bending light, wave or particle, then conservation, efficiency, Sankey. Clips on ports 8289 to 8293 (next free 8297); pictures for all five; every board check passes headless; decks fit.

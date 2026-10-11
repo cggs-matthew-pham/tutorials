@@ -1,0 +1,33 @@
+summary: "A self-test on divergent, convergent and transform boundaries and the evidence for plate tectonics (AC9S8U03, nodes 3 to 6, taught in class; node 6 a hinge)."
+time: 18
+timing: "Nodes 3 to 5 4 min each · Evidence 6 min"
+goals:
+  - "I can say what forms at each kind of plate boundary."
+  - "I can explain why earthquakes happen at transform boundaries."
+  - "I can give three lines of evidence for plate tectonics."
+before: |
+  A Quick check: a few questions on what students should know for AC9S8U03 nodes 3 to 6, which you teach in class. It has no board, no clip and no new teaching, and it is optional, so it never holds up course completion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+  
+  Use it as a self-test after your teaching, a starter, or revision. The Layers and What moves the plates lessons on screen come first (nodes 1 and 2); these are the boundaries and evidence you teach in class. Students can do one node at a time.
+running:
+  - "Do each boundary as a pair: a question and the \"I can\" line."
+  - "Finish with the Which boundary sort and the evidence sort, then ask for a third line of evidence out loud."
+struggle: "Keeping the three boundaries apart. When a student mixes them up, ask which way the plates are moving relative to each other."
+stuck:
+  - see: "A student says earthquakes move the plates."
+    ask: "Which comes first, the plates moving or the earthquake?"
+    fix: "The plates move and get stuck; the earthquake is the release of stress."
+  - see: "A student says trenches form where plates move apart."
+    ask: "Which way is the plate moving at a trench?"
+    fix: "Together, with one sinking: subduction."
+stretch: "Choose a place (Japan, Iceland, the Andes, the Himalayas). Name its boundary type and two features that show it."
+support: "Give a diagram of the three boundaries with arrows showing plate movement to label."
+leads: |
+  Back in class: model the boundaries with trays or modelling clay; plot recent earthquakes and volcanoes on a world map.
+exit:
+  q: "Name the three kinds of plate boundary and one feature of each."
+  a: "Divergent: mid-ocean ridge. Convergent: trench, volcanic arc or fold mountains. Transform: earthquakes along a fault."
+explain: |
+  Where plates **move apart** (divergent), magma rises and makes new crust, so the seafloor is youngest at the ridge. Where they **collide** (convergent), denser ocean crust sinks (subduction) to make trenches and volcanic arcs; two continents crumple into mountains. Where they **slide past** (transform), stress builds and is released as earthquakes.
+  
+  Evidence: fitting coastlines, matching fossils and rocks, the age pattern of the seafloor, and the lines of earthquakes and volcanoes.

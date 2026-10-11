@@ -1,0 +1,34 @@
+summary: "A self-test on sedimentary and metamorphic rock formation, the rock cycle and rock properties and uses (AC9S8U04, nodes 1, 3, 4 and 5, taught in class; node 4 a hinge)."
+time: 18
+timing: "Four nodes at about 4 to 5 min each"
+goals:
+  - "I can put sedimentary rock formation in order."
+  - "I can say how metamorphic rock forms and give a parent and its product."
+  - "I can trace a rock-cycle pathway and say how plate tectonics drives it."
+  - "I can link a rock property to its use."
+before: |
+  A Quick check: a few questions on what students should know for AC9S8U04 nodes 1, 3, 4 and 5, which you teach in class. It has no board, no clip and no new teaching, and it is optional, so it never holds up course completion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+  
+  Use it as a self-test after your teaching, a starter, or revision. Igneous rocks (node 2) are on screen in the Igneous lesson. A hands-on rock collection is the best way to teach these nodes; the questions check the ideas afterwards. For traditional stone selection, local knowledge and community guidance are richer than anything on screen.
+running:
+  - "Do each node as a pair: the questions, then the \"I can\" line."
+  - "The pathway question is a good prompt to draw the rock cycle diagram on the board and number the processes."
+struggle: "Seeing the cycle as a loop with no fixed order. When a student says rocks go in one fixed order, ask whether a metamorphic rock can melt."
+stuck:
+  - see: "A student says metamorphic rocks are melted rock."
+    ask: "If it melted, what would it be called?"
+    fix: "Magma. Metamorphic rocks change while solid, under heat and pressure."
+  - see: "A student says the rock cycle always goes igneous, sedimentary, metamorphic."
+    ask: "Can an igneous rock be squashed and heated directly?"
+    fix: "Yes. Any rock type can become any other, so there are many pathways."
+stretch: "Choose a building stone near school. What is its type, how did it form, and why is it a good choice?"
+support: "Give a blank rock cycle diagram with the processes on cards to place."
+leads: |
+  Back in class: a rock sample investigation (hardness, grain size, fizzing with acid); a rock cycle role-play or poster.
+exit:
+  q: "Name one rock type, how it forms, and one use that depends on its properties."
+  a: "For example granite: cools slowly underground, hard interlocking crystals, benchtops."
+explain: |
+  **Sedimentary:** weathering, erosion and transport, deposition in layers, then lithification. **Metamorphic:** existing rock changed by heat and pressure **without melting**, often banded. **Igneous:** cooled magma.
+  
+  The **rock cycle** has many pathways, driven by plate tectonics: deep processes take millions of years, surface ones can be fast. A rock's properties come from how it formed, and decide what it is used for.

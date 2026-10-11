@@ -1,0 +1,33 @@
+summary: "A self-test on constructing dichotomous keys and on classification changing over time (AC9S7U01, nodes 4 and 5, both hinge nodes taught in class)."
+time: 12
+timing: "Node 4 6 min · Node 5 6 min"
+goals:
+  - "I can say what makes a good key question."
+  - "I can say how many questions a key for six organisms needs."
+  - "I can give an example of classification changing and the evidence behind it."
+before: |
+  A Quick check: a few questions on what students should know for AC9S7U01 nodes 4 and 5, which you teach in class. It has no board, no clip and no new teaching, and it is optional, so it never holds up course completion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+  
+  Use it as a self-test after your teaching, a starter, or revision. Node 4 is best done with real specimens or cards; the questions only check the basics. For node 5 the reclassification examples are fungi nearer to animals than plants, protists as several lineages, and archaea as a separate domain.
+running:
+  - "Node 4: students first make a key for six objects on the bench, then do the sort."
+  - "Node 5: ask for one reclassification example before they answer; the question lists a real one."
+struggle: "Questions a stranger could answer the same way. When a student writes \"is it big?\", ask whether two people would agree."
+stuck:
+  - see: "A student writes \"is it pretty?\" or \"is it large?\" in a key."
+    ask: "Would two people always answer the same way?"
+    fix: "Use features you can observe and count, such as legs, wings or a shell."
+  - see: "A student thinks scientists changing a classification means they were wrong."
+    ask: "What made them change it?"
+    fix: "New evidence. Science updates with evidence, which is why it can be trusted."
+stretch: "Make a key for the six students nearest you using only features you can see. Swap with a neighbour and mark where it fails."
+support: "Give half-finished keys to complete, and a list of observable features to choose from."
+leads: |
+  Back in class: swap keys for peer testing; discuss the Wider lenses (First Nations classification, microscopes, biosecurity).
+exit:
+  q: "Why must a key question be about something you can observe?"
+  a: "So anyone can answer it the same way and reach the same organism."
+explain: |
+  A good key question has **two answers** and is about a feature you can **observe**. Each question splits a group in two, so a key for 6 organisms needs 5 questions.
+  
+  Classification changes when there is **new evidence** (DNA, better microscopes, new species). That makes science more reliable, not less.

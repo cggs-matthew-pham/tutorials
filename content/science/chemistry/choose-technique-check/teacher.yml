@@ -1,0 +1,33 @@
+summary: "A self-test on choosing and justifying a separation technique for a mixture, and saying why another would fail (AC9S7U06, node 5, a hinge node taught in class)."
+time: 10
+timing: "About 10 min"
+goals:
+  - "I can match a mixture to a separation technique."
+  - "I can put the steps of a separation in a sensible order."
+  - "I can say why one technique would not work on a given mixture."
+before: |
+  A Quick check: a few questions on what students should know for AC9S7U06 node 5, which you teach in class. It has no board, no clip and no new teaching, and it is optional, so it never holds up course completion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+  
+  Use it as a self-test after your teaching, a starter, or revision. The strongest version of this node is on the bench with a mystery mixture. Use these questions to settle the reasoning first, or to review afterwards.
+running:
+  - "Do the match first, then ask a student to justify two of them with a property."
+  - "The order question links to the sand, salt and water practical."
+struggle: "Justifying with a property rather than naming the technique. When a student says \"use a filter\", ask what the filter paper tests."
+stuck:
+  - see: "A student says the filter catches sand because it is heavier."
+    ask: "What does the filter paper actually test, weight or size?"
+    fix: "Size: sand grains do not fit through the holes; dissolved salt does."
+  - see: "A student would evaporate first when sand is present."
+    ask: "Where does the sand go?"
+    fix: "It stays with the salt. Remove the insoluble solid before evaporating."
+stretch: "Design a way to separate salt, sand, iron filings and wood shavings. What is the best order, and why?"
+support: "Give a table with columns: part, property, technique. Students complete it for each part."
+leads: |
+  Back in class: a practical separating an unfamiliar mixture, with a written justification.
+exit:
+  q: "Why does a magnet separate iron filings from sand?"
+  a: "Iron is magnetic and sand is not, so the magnet uses that difference in property."
+explain: |
+  Each technique uses a **difference in a property**: magnetism (magnet), particle size (filtering), boiling point (evaporation, distillation), how far a substance travels (chromatography).
+  
+  Order matters: remove insoluble solids first, then deal with what is dissolved.

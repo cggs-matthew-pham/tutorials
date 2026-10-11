@@ -1,0 +1,33 @@
+summary: "A self-test on abiotic factors and population effects, and the limitations of food web models (AC9S7U02, nodes 3 and 5, taught in class)."
+time: 12
+timing: "Node 3 6 min · Node 5 6 min"
+goals:
+  - "I can sort abiotic and biotic factors."
+  - "I can predict how a change in an abiotic factor spreads through a food web."
+  - "I can say what a food web model leaves out and how that limits a prediction."
+before: |
+  A Quick check: a few questions on what students should know for AC9S7U02 nodes 3 and 5, which you teach in class. It has no board, no clip and no new teaching, and it is optional, so it never holds up course completion. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+  
+  Use it as a self-test after your teaching, a starter, or revision. Node 3 pairs well with the Cascades lesson on screen; students can build the drought story on the food web board first.
+running:
+  - "Node 3: sort first, then ask for the chain of effects out loud before the two questions."
+  - "Node 5: ask what the diagram does not show, then compare with the sort."
+struggle: "Following an effect more than one step along the web. When a student stops at the first population, ask who eats that one."
+stuck:
+  - see: "A student says the drought only affects the grass."
+    ask: "Who eats the grass? Who eats them?"
+    fix: "The effect cascades up: fewer grasshoppers means less food for lizards."
+  - see: "A student says a food web shows how many of each organism there are."
+    ask: "What does an arrow tell you?"
+    fix: "Arrows show who eats whom and the direction of energy, not numbers."
+stretch: "Choose a different abiotic factor (temperature, light, salinity) and trace its effect through a web of your own."
+support: "Give a printed web with arrows to trace with a finger, one step at a time."
+leads: |
+  Back in class: a field or schoolyard ecosystem study; compare predictions with what students observe.
+exit:
+  q: "Give one abiotic factor and say how changing it would affect one population."
+  a: "For example less rainfall means less grass, so fewer grasshoppers. Any reasoned chain is fine."
+explain: |
+  **Abiotic** factors are non-living (sunlight, water, temperature, soil). A change in one usually affects producers first, then the animals that eat them, so the effect **cascades** along the food links.
+  
+  A food web is a **model**. It leaves out numbers, seasons and extra foods, so predictions from it are less certain.
