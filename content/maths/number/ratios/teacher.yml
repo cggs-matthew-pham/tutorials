@@ -1,0 +1,43 @@
+summary: Students build ratios from rows of equal blocks, write part-to-part and part-to-whole ratios in the order asked, and link part to whole to a fraction (AC9M7N08, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - "I can write a ratio of two quantities in a : b form, in the order asked."
+  - I can tell part to part from part to whole.
+  - I can write a part-to-whole ratio as a fraction.
+struggle: "Telling part to part from part to whole. Ask 'is the second number a part, or the whole bag?' every time before writing."
+before: |
+  Do the Run board yourself first. Students need fractions as parts of a whole (Equivalent fractions).
+
+  The one idea: a ratio compares quantities; the order in which they are named is the order of the numbers. The common mistakes are writing part to part when part to whole was asked (Pip), reversing the order, and using the whole (5) as a part.
+
+  Use the same bag all lesson so students see 2 : 3 and 2 : 5 about the same objects.
+running:
+  - "Predict: students who chose 3 : 2 reversed the order; 2 : 5 compared to the whole."
+  - "Run: ask students to say both ratios aloud, e.g. 'three to five' and 'three to eight'."
+  - "Investigate: have students hold up the whole bag and a part to show which is which."
+  - "Modify: ask which ratio matches the fraction 3/8."
+  - "Make: collect ratios; check each adds to 10."
+stuck:
+  - see: "A student writes 4 : 3 for apples to all the fruit (Pip's slip)."
+    ask: "How many pieces of fruit are there altogether?"
+    fix: "The second number is the whole: 4 : 7."
+  - see: "A student writes the ratio the wrong way round."
+    ask: "Which is named first in the question?"
+    fix: "The first thing named is the first number."
+  - see: "A student says 3 : 5 and 3/5 are the same."
+    ask: "What is the whole in each?"
+    fix: "3 : 5 is part to part, 3/8 is part to whole."
+stretch: "A ratio of boys to girls is 3 : 4. What fraction of the group are girls? What if 2 more boys join, no more girls? Is the ratio still 3 : 4?"
+support: "Draw one block for each item and colour them; count before writing."
+leads: |
+  Next: Equivalent ratios, scaling a ratio up and down.
+
+  Where it leads: sharing in a ratio, rates, scale drawings, and proportion in Years 8 and 9.
+exit:
+  q: "A jar has 4 black and 5 white beads. Write the ratio of black to white, and of black to all the beads."
+  a: "4 : 5 and 4 : 9."
+explain: |
+  A **ratio** compares quantities in a stated order. With 2 red and 3 blue counters, **red to blue** is $2 : 3$ (part to part). The whole is $2 + 3 = 5$ counters, so **red to all** is $2 : 5$ (part to whole), which is the fraction $\tfrac{2}{5}$.
+
+  The order matters: $2 : 3$ is not $3 : 2$. The first thing named is the first number.

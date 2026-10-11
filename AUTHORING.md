@@ -647,6 +647,23 @@ Vary, Practise, Make).
     a² + b² = c² and c (exact or ≈ 2 dp); otherwise it compares a² + b² with c². `hide: c` hides c's length and area.
     Values: `a`, `b`, `c` (2 dp), `C` (c²), `s` (a² + b²), `t`, `r` (1 acute, 2 right, 3 obtuse). Checks:
     `"a = 3 and b = 4"`, `"c = 10"`, `"r = 1 and C < 20"`, `"(C - 169) * (C - 289) = 0"` (either of two values).
+  - `widget: placevalue` (first used by `maths/number/expanded-notation`): place value columns, each with its power of 10
+    (10⁰, 10¹, …), a digit 0 to 9 with ▲ and ▼ (drawn also as that many counters) and its value (4 × 1000). `places: 5`
+    (2 to 8), `n: 4052` (the start), `shift: on` adds × 10 and ÷ 10 (every digit moves a column), `names: off` hides the
+    column names. The panel writes the expanded notation. Values: `n`, `z` (digits that are not 0), `t` (the highest
+    power with a digit). Checks: `"n = 4052"`, `"z = 3 and t = 4"`.
+  - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
+    between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
+    `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b
+    (`op: ×` `+` `−` `÷`; sliders `a`, `b`), each rounded to its first digit, the estimate and the exact answer as two
+    bars; values `a`, `b`, `p`, `q` (rounded), `s` (estimate), `v` (exact), `o`; checks `"s = 2000 and v < 2000"`.
+  - `widget: ratio` (first used by `maths/number/ratios`, `equivalent-ratios`, `sharing-in-a-ratio`): `mode: tape` draws a row of
+    blocks per term (`a`, `b`, optional `c`; sliders or fixed) and `slider k:` copies of the ratio, with part to part and
+    part to whole written; `mode: share` draws one bar of a + b (+ c) equal parts for `total` (slider or fixed; `units: $`
+    or kg, L), with one part and each share. `labels: red, blue` names the terms. Up to 48 blocks in a row, 40 parts.
+    Values (single letters): `a b c k`, `p q r` (terms times k), `t` (parts), `g` (common factor), `s` (1 if simplest),
+    `w` (total), `u` (one part), `x y z` (shares). Checks: `"p = 6 and q = 9"`, `"a = 2 and b = 3 and s = 1"`, `"w = 60 and y = 36"`.
+  - Board variables in `when:` must be single letters: the evaluator reads a longer name such as `sb` as s × b.
   - `widget: data` (first used by `maths/data`): a dot plot of `values: 4, 7, 7, 8` on `range: 0, 20` (default: around
     the data), with the mean (▲), median (dashed) and range (arrow) marked and written underneath (`show: mean, median,
     mode, range` or `none`). `edit: on`: students click the line to add a value (landing on `step:`, default 1), click a

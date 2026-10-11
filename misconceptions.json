@@ -145,5 +145,15 @@
   "let-in-draw": {"home": "code/p5/p5-move", "text": "A variable made with let inside draw() keeps its value from one frame to the next; in fact it is made again, at its starting value, every frame, so the shape never moves."},
   "assign-in-if": {"home": "code/p5/p5-decide", "text": "A single = in an if asks whether two things are equal; in fact it sets the variable to the value (and is then always true), and === asks."},
   "y-from-top": {"home": "code/p5/p5-lists", "text": "A bar's y is its bottom edge, so y = its height stands it on the bottom; in fact y is the top edge and counts down, so a bar standing on the bottom has its top at the canvas height minus its height."},
-  "property-prefix": {"home": "code/p5/p5-objects", "text": "Inside the loop, speed on its own is the star's speed; in fact it is a name p5 does not know, and the star's speed is star.speed."}
+  "property-prefix": {"home": "code/p5/p5-objects", "text": "Inside the loop, speed on its own is the star's speed; in fact it is a name p5 does not know, and the star's speed is star.speed."},
+  "power-off-by-one": {"home": "maths/number/expanded-notation", "text": "The exponent for a place value column is counted from 1 at the ones (tens as 10², hundreds as 10³); the ones column is 10⁰, so every power is one too big."},
+  "round-truncate": {"home": "maths/number/rounding", "text": "A decimal is rounded by cutting digits off (3.789 to 2 places as 3.78); look at the next digit, and if it is 5 or more, round up (3.79)."},
+  "round-double": {"home": "maths/number/rounding", "text": "Rounding is done twice, digit by digit (2.349 to 1 place: 2.35 then 2.4); only the digit straight after the place matters, so 2.349 rounds to 2.3."},
+  "est-zero-slip": {"home": "maths/number/estimating", "text": "An estimate is rounded to the wrong size (19.6 × 4.1 as 2 × 4 = 8); round to the leading digit and keep its size: 20 × 4 = 80."},
+  "ratio-part-whole": {"home": "maths/number/ratios", "text": "A ratio of one part to the whole is written as part to part (2 red and 3 blue: red to all the counters written 2 : 3); part to whole is 2 : 5."},
+  "ratio-add-not-multiply": {"home": "maths/number/equivalent-ratios", "text": "An equivalent ratio is made by adding the same number to both terms (2 : 3 = 4 : 5); multiply or divide both terms by the same number: 2 : 3 = 4 : 6."},
+  "share-by-term": {"home": "maths/number/sharing-in-a-ratio", "text": "A total is shared in a ratio by dividing it by each term ($60 in 2 : 3 as 60 ÷ 2 and 60 ÷ 3); add the terms to find the parts, then divide the total by the number of parts."},
+  "model-no-units": {"home": "maths/number/modelling", "text": "A solution is given as a bare number from the calculator; say what it means in the situation, with its units and sensible rounding."},
+  "est-no-compare": {"home": "maths/number/estimating", "text": "The estimate is made but not compared with the calculator's answer by size (10.227 called close to 100); an answer is reasonable only if it is near the estimate."},
+  "percent-wrong-base": {"home": "maths/number/modelling", "text": "A percentage profit or change is found out of the new amount (profit $3 on a $5 cost sold for $8 as 3 ÷ 8 = 37.5%); it is out of the original: 3 ÷ 5 = 60%."}
 }

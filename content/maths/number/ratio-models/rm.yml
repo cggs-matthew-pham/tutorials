@@ -1,0 +1,51 @@
+# Mix bars for "Modelling with ratios".
+
+# region: run
+widget: ratio
+mode: share
+labels: cement, sand
+a: 1
+b: 3
+slider total: 4, 40, 4, 4
+units: L
+# endregion
+
+# region: explain
+widget: ratio
+mode: share
+labels: cement, sand
+a: 1
+b: 3
+slider total: 4, 40, 4, 4
+units: L
+# endregion
+
+# region: explain-pic
+widget: ratio
+mode: share
+labels: cement, sand
+a: 1
+b: 3
+total: 20
+units: L
+# endregion
+
+# region: paint
+widget: ratio
+mode: share
+labels: red, yellow
+a: 2
+b: 3
+slider total: 5, 30, 5, 1
+units: L
+# endregion
+
+# region: make
+widget: ratio
+mode: share
+labels: first, second
+slider a: 1, 4, 1, 1
+slider b: 1, 4, 1, 1
+slider total: 2, 24, 2, 1
+units: L
+# endregion

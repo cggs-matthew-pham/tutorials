@@ -310,3 +310,13 @@ table.ctally tr.cwatch td { font-weight: 700; }
 .entype { font-weight: 600; }
 .enby { color: #b4532a; }
 .enbad { color: #b42318; }
+
+/* placevalue */
+.pvrow { display: flex; gap: 8px; justify-content: center; align-items: flex-start; padding: 14px 8px; flex-wrap: wrap; }
+.pvcol { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 62px; padding: 8px 6px; border: 2px solid var(--line, #e4e1da); border-radius: 10px; background: var(--card, #fff); }
+.pvpow { font-weight: 700; font-size: 20px; color: var(--accent, #c2570a); }
+.pvname { font-size: 12px; color: var(--muted, #5d6675); min-height: 1.2em; text-align: center; }
+.pvdig { font-size: 40px; font-weight: 700; line-height: 1.1; }
+.pvval { font-size: 13px; color: var(--muted, #5d6675); min-height: 1.3em; }
+.pvcol button { min-width: 44px; }
+.pvdots { display: block; }

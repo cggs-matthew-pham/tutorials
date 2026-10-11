@@ -1,0 +1,9 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Write 4052 in expanded notation.
+4 is in the thousands: 4 × 10³
+0 is in the hundreds: nothing to add
+5 is in the tens: 5 × 10²
+2 is in the ones: 2 × 10¹
+# endregion

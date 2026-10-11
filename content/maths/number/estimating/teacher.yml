@@ -1,0 +1,43 @@
+summary: Students estimate by rounding each number to its first digit, compare the estimate with the exact answer, and use it to catch slips such as a misplaced decimal point (AC9M7N05, node 3).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can estimate a calculation by rounding each number to its first digit.
+  - I can compare an estimate with the exact answer and say whether it is reasonable.
+  - I can use an estimate to find a slip, such as a decimal point in the wrong place.
+struggle: "Keeping the size when rounding: 19.6 is about 20, not 2. Ask 'how many zeros should the estimate have?' before computing."
+before: |
+  Do the Run board yourself first. Students need rounding (previous lesson) and multiplying by multiples of 10 (Year 6).
+
+  The one idea: round to the leading digit and keep the size, calculate the easy numbers, and compare with the exact answer. The commonest mistakes are losing the size (Lina rounds 19.6 to 2), losing a zero in the calculation, and trusting a calculator answer because it looks plausible.
+
+  Estimation is only worth teaching if it is used. In class, make students estimate before pressing = for the whole lesson.
+running:
+  - "Predict: students who chose 200 lost a zero; 90 added the numbers."
+  - "Run: ask whether the exact answer is more or less than the estimate, and why."
+  - "Investigate: have students write their estimate before the calculator answer is shown."
+  - "Modify: ask when rounding both numbers up gives an estimate that is too big."
+  - "Make: collect pairs of numbers; check which have an exact answer above and below 2000."
+stuck:
+  - see: "A student rounds 19.6 to 2 (Lina's slip)."
+    ask: "Is 19.6 nearer 2 or 20?"
+    fix: "Round to the first digit and keep its size: 20."
+  - see: "A student computes 5 × 80 = 40."
+    ask: "How many zeros in 5 × 8, and how many in 80?"
+    fix: "Count the zeros: 40 for 5 × 8, then one more for 80, so 400."
+  - see: "A student says any calculator answer must be reasonable."
+    ask: "What if a decimal point was typed in the wrong place?"
+    fix: "Estimate first, then compare."
+stretch: "Round one number up and the other down so that the estimate is closer to the exact answer. When is that a good idea?"
+support: "Round to the nearest ten or hundred, and write the rounded numbers before multiplying."
+leads: |
+  Next: Ratios, where estimating also helps check sharing and scaling.
+
+  Where it leads: estimating in modelling problems (money, measurement), and significant figures in Year 8 and 9.
+exit:
+  q: "Estimate 4.8 × 31. The calculator shows 148.8. Is it reasonable?"
+  a: "5 × 30 = 150, so yes."
+explain: |
+  An **estimate** is a quick, close answer from rounding. Round each number to its **first digit** and keep its size: $38 \times 52 \approx 40 \times 50 = 2000$. If the exact answer is near the estimate it is **reasonable**; if it is out by a factor of ten, check the decimal point.
+
+  Rounding can go up or down, so an estimate can be above or below the exact answer. What matters is that it is close and quick.

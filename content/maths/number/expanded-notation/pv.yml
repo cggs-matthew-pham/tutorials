@@ -1,0 +1,32 @@
+# Place value columns for "Place value and powers of 10".
+
+# region: run
+widget: placevalue
+places: 5
+n: 0
+# endregion
+
+# region: explain
+widget: placevalue
+places: 5
+n: 0
+# endregion
+
+# region: explain-pic
+widget: placevalue
+places: 5
+n: 4052
+# endregion
+
+# region: modify
+widget: placevalue
+places: 6
+n: 0
+shift: on
+# endregion
+
+# region: make
+widget: placevalue
+places: 5
+n: 0
+# endregion

@@ -1,0 +1,9 @@
+# Ana's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ana
+A recipe uses 2 cups of flour for every 3 cups of milk.
+For 6 cups of flour, how much milk?
+Flour went from 2 to 6: that is + 4.
+So milk goes from 3 to 7: 3 + 4.
+Answer: 7 cups of milk.
+# endregion

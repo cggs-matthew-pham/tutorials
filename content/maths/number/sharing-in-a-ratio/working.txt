@@ -1,0 +1,8 @@
+# Dee's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: dee
+Share $60 between Ana and Ben in the ratio 2 : 3.
+Ana: 60 ÷ 2 = $30
+Ben: 60 ÷ 3 = $20
+Check: 30 + 20 = $50, near enough to 60.
+# endregion

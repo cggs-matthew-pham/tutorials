@@ -1,0 +1,52 @@
+# Sharing bars for "Sharing in a ratio".
+
+# region: run
+widget: ratio
+mode: share
+labels: Ana, Ben
+a: 2
+b: 3
+slider total: 10, 200, 10, 10
+units: $
+# endregion
+
+# region: explain
+widget: ratio
+mode: share
+labels: Ana, Ben
+a: 2
+b: 3
+slider total: 10, 200, 10, 10
+units: $
+# endregion
+
+# region: explain-pic
+widget: ratio
+mode: share
+labels: Ana, Ben
+a: 2
+b: 3
+total: 60
+units: $
+# endregion
+
+# region: three
+widget: ratio
+mode: share
+labels: Ali, Bo, Cy
+a: 1
+b: 2
+c: 3
+slider total: 30, 300, 30, 30
+units: $
+# endregion
+
+# region: make
+widget: ratio
+mode: share
+labels: Ana, Ben
+slider a: 1, 5, 1, 1
+slider b: 1, 5, 1, 1
+slider total: 10, 100, 10, 10
+units: $
+# endregion

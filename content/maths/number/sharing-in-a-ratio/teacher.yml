@@ -1,0 +1,43 @@
+summary: Students share a total in a given ratio by cutting it into equal parts (add the parts, find one part, multiply), with two and three people, and work backwards from a share to the total (AC9M7N08, node 3).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can share an amount in a given ratio, with two or three people.
+  - I can find the total number of parts and the value of one part.
+  - I can work backwards from one share to the other share or the total.
+struggle: "Starting by adding the parts, not dividing by one of the numbers. Say 'how many equal parts is the total cut into?' before any dividing."
+before: |
+  Do the Run board yourself first. Students need equivalent ratios (previous lesson) and division.
+
+  The one idea is the three-step routine: add the parts, divide the total by the number of parts to get one part, then multiply by each person's number. Insist on the check that the shares add back to the total. The commonest mistake is dividing the total by each term (Dee, $30 and $20), which is caught by the check.
+
+  Working backwards (Modify) finds one part from the known share first.
+running:
+  - "Predict: students who chose $20 divided by Ben's 3; $30 split equally."
+  - "Run: ask how many equal parts the bar is cut into before they touch the total."
+  - "Investigate: have students say why Dee's shares do not add to $60."
+  - "Modify: for working backwards, ask 'what is one part?' before 'what does Noor get?'"
+  - "Make: collect ratio and total pairs that give $15."
+stuck:
+  - see: "A student divides the total by each term (Dee's slip)."
+    ask: "Do the two shares add to the total?"
+    fix: "Add the parts first: the total is cut into 5 parts, not 2 and 3 parts separately."
+  - see: "A student gives one part as the answer."
+    ask: "How many parts does this person have?"
+    fix: "Multiply one part by the person's number of parts."
+  - see: "A student shares $60 in 2 : 3 and gets $30 and $30."
+    ask: "How many parts does each person have?"
+    fix: "Ana has 2 parts, Ben has 3. Draw the bar."
+stretch: "A profit is shared among three partners in the ratio 2 : 3 : 5. The biggest partner gets $1200 more than the smallest. How much was the profit?"
+support: "Keep the bar on screen and read each bracket aloud: 'Ana has two parts.'"
+leads: |
+  Next: Modelling with money and with measurements, using ratios with percentages and fractions.
+
+  Where it leads: unit rates, scale drawings, similar shapes, proportion and direct variation in Years 8 and 9.
+exit:
+  q: "Share $84 between Sam and Tia in the ratio 3 : 4. How much does Tia get?"
+  a: "3 + 4 = 7 parts. 84 ÷ 7 = 12. Tia has 4 parts: $48."
+explain: |
+  To **share a total in a ratio**: **add the parts** ($2 + 3 = 5$), **find one part** (total ÷ parts: $\$60 \div 5 = \$12$), and **multiply** for each share ($2 \times 12 = 24$, $3 \times 12 = 36$). The shares add back to the total.
+
+  To work backwards, use a known share to find one part: if 3 parts are $24, one part is $8.

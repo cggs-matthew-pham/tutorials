@@ -1,0 +1,8 @@
+# Raj's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: raj
+Mix fertiliser and water in the ratio 1 : 4 to make 2 L.
+Fertiliser = 2 ÷ 4 = 0.5 L
+Water = 2 − 0.5 = 1.5 L
+Answer: 0.5 L of fertiliser.
+# endregion

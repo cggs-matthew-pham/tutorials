@@ -1,0 +1,43 @@
+summary: Students make copies of a ratio on the board to see that multiplying both terms keeps the ratio, find missing terms, and simplify by dividing both terms by a common factor (AC9M7N08, node 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 12 min · Practise and Make 8 min"
+goals:
+  - I can find an equivalent ratio by multiplying or dividing both terms by the same number.
+  - I can write a ratio in simplest form.
+  - I can scale a recipe up using equivalent ratios.
+struggle: "Multiplying both terms, not adding the same amount to both. Ask 'how many copies is that?' before any arithmetic."
+before: |
+  Do the Run board yourself first. Students need equivalent fractions (the same multiplying and dividing) and highest common factors.
+
+  The one idea: equivalent ratios are copies of the pattern: both terms multiplied (or divided) by the same number. The common mistake is additive thinking (Ana: 2 → 6 is +4, so 3 → 7). This lesson is the hinge for sharing in a ratio: students who cannot scale and simplify will struggle next.
+
+  Link to equivalent fractions: 2 : 3 behaves like 2/3 for scaling, but a ratio is not a fraction (part to part).
+running:
+  - "Predict: students who chose 4 : 5 added 2 to both terms."
+  - "Run: ask how many blocks of each colour with 3 copies, then how the numbers are related to 2 and 3."
+  - "Investigate: ask students to draw Ana's recipe as blocks."
+  - "Modify: for the impostor, ask what the multiplier would have to be."
+  - "Make: collect the multipliers used: all give the same ratio."
+stuck:
+  - see: "A student adds the same number to both terms (Ana's slip)."
+    ask: "Draw 2 flour and 3 milk as blocks. What happens to the blocks when you make 3 copies?"
+    fix: "The number of blocks is multiplied, not added to."
+  - see: "A student simplifies one term only."
+    ask: "Did you divide both terms by the same number?"
+    fix: "Divide both by their highest common factor."
+  - see: "A student cannot find the multiplier."
+    ask: "What do you multiply 2 by to get 10?"
+    fix: "Find the multiplier from the term you know, then use it on the other."
+stretch: "A ratio is 2 : 3. Find all ratios equivalent to it with both terms less than 30, and say how you know you found all of them."
+support: "Keep the copy blocks on the board and count the groups."
+leads: |
+  Next: Sharing in a ratio, which uses equivalent ratios to split a total.
+
+  Where it leads: rates and unit rates, scale drawings, similar shapes, and proportion in Years 8 and 9.
+exit:
+  q: "Simplify 24 : 36, and find the missing term: 3 : 5 = 12 : ?"
+  a: "24 : 36 = 2 : 3. 3 → 12 is × 4, so 5 × 4 = 20."
+explain: |
+  Two ratios are **equivalent** when both terms of one are the other's both terms multiplied (or divided) by the same number: $2 : 3 = 4 : 6 = 6 : 9$. Picture it as copies of the same pattern of blocks.
+
+  To **simplify**, divide both terms by their highest common factor: $12 : 18 = 2 : 3$ (÷ 6). Adding the same number to both terms changes the ratio.

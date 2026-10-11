@@ -1,0 +1,31 @@
+# Rounding on a number line for "Rounding decimals".
+
+# region: run
+widget: rounding
+x: 3.746
+slider d: 0, 3, 3
+# endregion
+
+# region: explain
+widget: rounding
+x: 3.746
+slider d: 0, 3, 3
+# endregion
+
+# region: explain-pic
+widget: rounding
+x: 3.746
+d: 2
+# endregion
+
+# region: modify
+widget: rounding
+x: 12.846
+slider d: 0, 3, 3
+# endregion
+
+# region: make
+widget: rounding
+slider x: 4, 5, 4.5, 0.001
+d: 2
+# endregion

@@ -1,0 +1,42 @@
+# Ratio blocks for "What is a ratio?".
+
+# region: run
+widget: ratio
+mode: tape
+labels: red, blue
+slider a: 1, 8, 2, 1
+slider b: 1, 8, 3, 1
+# endregion
+
+# region: explain
+widget: ratio
+mode: tape
+labels: red, blue
+slider a: 1, 8, 2, 1
+slider b: 1, 8, 3, 1
+# endregion
+
+# region: explain-pic
+widget: ratio
+mode: tape
+labels: red, blue
+a: 2
+b: 3
+# endregion
+
+# region: modify
+widget: ratio
+mode: tape
+labels: dogs, cats
+slider a: 1, 8, 2, 1
+slider b: 1, 8, 2, 1
+# endregion
+
+# region: make
+widget: ratio
+mode: tape
+labels: red, blue, green
+slider a: 1, 8, 1, 1
+slider b: 1, 8, 1, 1
+slider c: 1, 8, 1, 1
+# endregion

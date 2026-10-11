@@ -1,0 +1,8 @@
+# Pip's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: pip
+A bowl has 4 apples and 3 pears. Find the ratio of apples to all the fruit.
+There are 4 + 3 = 7 pieces of fruit altogether.
+Apples to all the fruit: 4 : 3
+So 4 of every 7 pieces are apples.
+# endregion

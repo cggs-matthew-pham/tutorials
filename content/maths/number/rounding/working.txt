@@ -1,0 +1,8 @@
+# Kai's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kai
+Round 2.349 to 1 decimal place.
+The 9 rounds the 4 up: 2.349 is about 2.35.
+The 5 rounds the 3 up: 2.35 is about 2.4.
+Answer: 2.4
+# endregion

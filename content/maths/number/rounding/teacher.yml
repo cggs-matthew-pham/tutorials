@@ -1,0 +1,43 @@
+summary: Students round decimals on a number line to a given number of decimal places, then choose how much to round for a context such as time, money, tins of paint and a ruler's accuracy (AC9M7N05, nodes 1 and 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can round a decimal to a number of decimal places.
+  - I can say which digit decides, and why halfway rounds up.
+  - I can choose how much to round for the job, and explain my choice.
+struggle: "Deciding how much to round in context. Ask 'what is this number for, and how accurately could we have measured it?' before any digits are cut."
+before: |
+  Do the Run board yourself first. Students need decimal place value (the place value lesson and Year 6).
+
+  The one idea: rounding picks the nearer of two numbers with the right number of places, and the digit straight after the place shows which. The common mistakes are cutting digits off (3.74), letting later digits push the deciding digit up (Kai's double rounding), and counting places wrongly (rounding to 1 place when 2 was asked).
+
+  Node 2 is judgement: rounding to the cent for money, up for tins of paint, to the ruler's accuracy for measurements. Accept any justified answer in class discussion.
+running:
+  - "Predict: students who chose 3.74 cut the digits off; 3.7 is one place too few."
+  - "Run: slide the decimal places down and ask what the two ends of the line are each time."
+  - "Investigate: ask what Kai's 2.35 and 2.4 would mean if 2.349 were a real length."
+  - "Modify: for the paint, ask what happens if she buys 3 tins."
+  - "Make: collect the smallest and largest numbers that round to 4.57."
+stuck:
+  - see: "A student cuts digits off (3.74)."
+    ask: "Is 3.746 nearer 3.74 or 3.75? Where does it sit on the line?"
+    fix: "Use the number line: the next digit tells which end is nearer."
+  - see: "A student rounds 2.349 to 2.35 and then to 2.4 (Kai's slip)."
+    ask: "Which digit is straight after the tenths?"
+    fix: "Only that digit decides. The 9 is too far along to matter."
+  - see: "A student reports a ruler measurement to 4 decimal places."
+    ask: "Could the ruler show that?"
+    fix: "Match the places to what the instrument can show."
+stretch: "Round at every step of 3.46 + 3.46 to the nearest whole number, then round only at the end. Do you get the same answer? Which should you trust?"
+support: "Keep the number line in view and say which two numbers it is between before choosing."
+leads: |
+  Next: Estimating, using rounded numbers to check an answer.
+
+  Where it leads: significant figures and accuracy in Year 8 and 9, and error in measurement.
+exit:
+  q: "A stick is measured as 83.46 cm with a ruler marked in millimetres. Round it sensibly, and say why."
+  a: "83.5 cm: the ruler shows millimetres, which is 1 decimal place of a centimetre."
+explain: |
+  To round to a number of **decimal places**, find the two numbers with that many places that your number sits between, and take the nearer. Look at the one digit straight after the place: 5 or more rounds up, 4 or less leaves the digit as it is. Halfway rounds up. So 3.746 to 2 places is 3.75.
+
+  How much to round depends on the job: money to the cent, a ruler measurement to what the ruler can show, tins of paint **up** so there is enough. More digits than the instrument measures only gives a false sense of accuracy.

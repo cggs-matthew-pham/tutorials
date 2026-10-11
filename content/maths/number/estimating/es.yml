@@ -1,0 +1,41 @@
+# Estimates for "Estimating to check".
+
+# region: run
+widget: rounding
+mode: estimate
+slider a: 10, 99, 27, 1
+slider b: 10, 99, 63, 1
+op: ×
+# endregion
+
+# region: explain
+widget: rounding
+mode: estimate
+slider a: 10, 99, 38, 1
+b: 52
+op: ×
+# endregion
+
+# region: explain-pic
+widget: rounding
+mode: estimate
+a: 38
+b: 52
+op: ×
+# endregion
+
+# region: plus
+widget: rounding
+mode: estimate
+slider a: 100, 999, 300, 1
+slider b: 100, 999, 600, 1
+op: +
+# endregion
+
+# region: make
+widget: rounding
+mode: estimate
+slider a: 10, 99, 30, 1
+slider b: 10, 99, 60, 1
+op: ×
+# endregion

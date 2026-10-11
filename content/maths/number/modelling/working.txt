@@ -1,0 +1,8 @@
+# Ben's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ben
+A scarf costs $5 to make and sells for $8.
+Profit = 8 − 5 = $3
+Percentage profit = 3 ÷ 8 = 0.375 = 37.5%
+Answer: 37.5% profit.
+# endregion

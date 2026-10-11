@@ -1,0 +1,43 @@
+summary: Students model practical problems with ratios (mixes, scale drawings, models), say what is known and unknown before calculating, solve by finding one part or the scale factor, and answer in the situation's units (AC9M7M06, nodes 1 and 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can say what is known and unknown in a ratio problem before I calculate.
+  - I can solve mixing and scale problems with ratios.
+  - I can give my answer with the right units and check that it makes sense.
+struggle: "Starting to calculate before saying what is known and unknown. Make students write 'Known: … Unknown: …' before touching a number."
+before: |
+  Do the Run board yourself first. Students need sharing in a ratio and unit conversions between mm, cm, m and L, mL.
+
+  The one idea: ratio problems in measurement are the same structure as sharing in a ratio, plus scale (every 1 unit on the drawing is n units in real life). The modelling habit is the point: formulate, solve, interpret. Common mistakes are dividing by one term (Raj), multiplying when scaling down (and dividing when scaling up), and leaving the answer in the wrong unit.
+
+  Let students choose their own context for the Make task. A First Nations context can be added by the teacher: land and resource proportions, with local advice.
+running:
+  - "Predict: students who chose 60 L multiplied the total by 3."
+  - "Run: ask whether the answer is a sensible size before checking the board."
+  - "Investigate: have students say the known, unknown and relationship out loud for the paint."
+  - "Modify: for the map, ask which unit the answer should be in and why."
+  - "Make: share the designs; ask what each mix is for."
+stuck:
+  - see: "A student divides 2 L by 4 for the fertiliser (Raj's slip)."
+    ask: "How many equal parts is the mix cut into?"
+    fix: "Add the parts first: 1 + 4 = 5, then divide."
+  - see: "A student multiplies for a model that should be smaller."
+    ask: "Is the model bigger or smaller than the real thing?"
+    fix: "Decide the direction before calculating: smaller means divide."
+  - see: "A student answers 1000 for the towns on the map."
+    ask: "1000 what?"
+    fix: "Give the units: 1000 m, or 1 km."
+stretch: "A model of a building is 1 : 50. The real building is 12 m tall and its roof is a triangle with area 30 m². What is the model building's height, and the model roof's area? Is the area scaled the same way as the length? (24 cm and 120 cm²: area scales by 50 × 50.)"
+support: "Draw the bar first, label the total and the parts, then calculate."
+leads: |
+  This is the last Number lesson at this level; Year 8 extends to rates, simple interest and proportion.
+
+  Where it leads: similar shapes and scale factors for area and volume in Years 8 and 9, and rates.
+exit:
+  q: "A recipe mixes juice and water 2 : 7. How much juice is in a 900 mL drink?"
+  a: "2 + 7 = 9 parts. 900 ÷ 9 = 100 mL a part. Juice is 200 mL."
+explain: |
+  **Modelling** with ratios: **formulate** (what is known, what is unknown, what relationship?), **solve**, then **interpret** (the answer in the situation's units, and does it make sense?).
+
+  For a mix, add the parts and find one part: a dry mix 1 : 3 in 20 L has 4 parts of 5 L, so 5 L of cement and 15 L of sand. For a scale such as $1 : 50$, each 1 cm on the drawing is 50 cm in real life.

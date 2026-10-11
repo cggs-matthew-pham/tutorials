@@ -1,0 +1,41 @@
+# Percentage bars for "Modelling with money".
+
+# region: run
+widget: percent
+q: 200
+slider p: 0, 50, 0, 10
+mode: decrease
+units: $
+# endregion
+
+# region: explain
+widget: percent
+q: 200
+slider p: 0, 50, 20, 10
+mode: decrease
+units: $
+# endregion
+
+# region: explain-pic
+widget: percent
+q: 200
+p: 30
+mode: decrease
+units: $
+# endregion
+
+# region: game
+widget: percent
+q: 120
+slider p: 0, 50, 0, 5
+mode: decrease
+units: $
+# endregion
+
+# region: make
+widget: percent
+slider q: 50, 200, 100, 10
+slider p: 0, 50, 0, 5
+mode: decrease
+units: $
+# endregion

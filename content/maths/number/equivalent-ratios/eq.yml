@@ -1,0 +1,45 @@
+# Copies of a ratio for "Equivalent and simplest ratios".
+
+# region: run
+widget: ratio
+mode: tape
+labels: flour, milk
+a: 2
+b: 3
+slider k: 1, 8, 1, 1
+# endregion
+
+# region: explain
+widget: ratio
+mode: tape
+labels: flour, milk
+a: 2
+b: 3
+slider k: 1, 8, 1, 1
+# endregion
+
+# region: explain-pic
+widget: ratio
+mode: tape
+labels: flour, milk
+a: 2
+b: 3
+k: 3
+# endregion
+
+# region: modify
+widget: ratio
+mode: tape
+labels: red, blue
+slider a: 1, 8, 4, 1
+slider b: 1, 8, 6, 1
+# endregion
+
+# region: make
+widget: ratio
+mode: tape
+labels: red, blue
+slider a: 1, 6, 3, 1
+slider b: 1, 6, 5, 1
+slider k: 1, 8, 1, 1
+# endregion

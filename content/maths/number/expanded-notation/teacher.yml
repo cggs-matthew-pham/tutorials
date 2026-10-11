@@ -1,0 +1,43 @@
+summary: Students build numbers on place value columns to see that each column is a power of 10, write numbers in expanded notation with exponents, and convert back (AC9M7N03, nodes 1 and 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 12 min · Practise and Make 8 min"
+goals:
+  - I can say which power of 10 each place value column is.
+  - I can write a number in expanded notation using powers of 10.
+  - I can turn expanded notation back into a number.
+struggle: "Starting the exponent count at the ones column as 0, not 1. Have students say 'ones is ten to the nothing' once, and point at the column while they write the exponent."
+before: |
+  Do the Run board yourself first. Students need exponent notation (Powers lesson) and place value for whole numbers (Year 6).
+
+  The one idea: each column is ten times the one to its right, so the exponent is the column's position counting from 0 at the ones. The common mistake is counting from 1 (Sam), so every exponent is one too big. The empty column (a 0 digit) may be left out of expanded notation; writing 0 × 10² is also correct, and this lesson's answers leave it out.
+
+  Two nodes in one lesson: the columns and their powers (Run, Investigate), then expanded notation both ways (Modify, Practise).
+running:
+  - "Predict: students who chose 30 read 10³ as 10 × 3."
+  - "Run: ask where the 0 in 4052 went when we write the expanded notation."
+  - "Investigate: have students predict the value of 10⁰ before the question, from the pattern 1000, 100, 10."
+  - "Modify: ask what × 10 does to every exponent."
+  - "Make: collect numbers and swap: partners write the expanded notation."
+stuck:
+  - see: "A student writes 5 × 10² for the 5 in the tens (Sam's mistake)."
+    ask: "What power of 10 is the ones column?"
+    fix: "Count from 0 at the ones: ones 0, tens 1, hundreds 2."
+  - see: "A student writes 10³ = 30."
+    ask: "How many 10s are multiplied?"
+    fix: "Write 10 × 10 × 10 the long way, then count the zeros."
+  - see: "A student writes 4 × 10³ + 0 × 10² + 5 × 10¹ + 2 × 10⁰ and asks if they can drop the 0 term."
+    ask: "What does 0 × 100 add?"
+    fix: "Nothing, so it can be left out. Both forms are correct."
+stretch: "What would the column to the right of the ones be worth? Continue the pattern 1000, 100, 10, 1, … and write the next two columns as powers of 10 with negative exponents."
+support: "Keep the long form (4 × 1000 + 5 × 10 + 2) beside the powers until the exponent is automatic."
+leads: |
+  Next: Rounding (to a given place) uses the same column names.
+
+  Where it leads: scientific notation in Year 9 and 10, and decimal place value, where the columns continue as 10⁻¹, 10⁻², ….
+exit:
+  q: "Write 7 304 in expanded notation using powers of 10."
+  a: "7 × 10³ + 3 × 10² + 4 × 10⁰. (The 0 in the tens column is left out.)"
+explain: |
+  Every place value column is ten times the one on its right, so each is a **power of 10**: ones $10^0 = 1$, tens $10^1$, hundreds $10^2$, thousands $10^3$. The exponent counts the zeros in the value, and it counts from 0 at the ones column.
+
+  A number in **expanded notation** is the sum of each digit times its power of 10: $4052 = 4 \times 10^3 + 5 \times 10^1 + 2 \times 10^0$. A column holding 0 adds nothing, so it is left out.

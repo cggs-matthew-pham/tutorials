@@ -1,0 +1,8 @@
+# Lina's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: lina
+Estimate 19.6 × 4.1.
+Round each number to its first digit: 19.6 → 2, 4.1 → 4.
+2 × 4 = 8
+So 19.6 × 4.1 is about 8.
+# endregion

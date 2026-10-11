@@ -65,6 +65,74 @@
           "unit": "fractions",
           "code": "-1\\tfrac{1}{2} = -1.5",
           "hint": "A whole number and a fraction. A negative one is both parts below zero: one and a half below zero."
+        },
+        {
+          "label": "power of 10",
+          "unit": "placevalue",
+          "code": "10^3 = 10 \\times 10 \\times 10 = 1000",
+          "hint": "Each place value column is a power of 10. The exponent counts the zeros, and the ones column is $10^0 = 1$."
+        },
+        {
+          "label": "expanded notation",
+          "unit": "placevalue",
+          "code": "4052 = 4 \\times 10^3 + 5 \\times 10^1 + 2 \\times 10^0",
+          "hint": "A number as the sum of each digit times its place value. A column holding 0 adds nothing, so leave it out.",
+          "board": "widget: placevalue\nplaces: 5\nn: 4052",
+          "shows": "4052 on the columns: 4 × 10³ + 5 × 10¹ + 2 × 10⁰"
+        },
+        {
+          "label": "decimal places",
+          "unit": "placevalue",
+          "code": "3.746 \\text{ has 3 decimal places}",
+          "hint": "The number of digits after the decimal point. To 2 decimal places means to the nearest hundredth."
+        },
+        {
+          "label": "estimate",
+          "unit": "placevalue",
+          "code": "38 \\times 52 \\approx 40 \\times 50 = 2000",
+          "hint": "A quick, close answer from rounded numbers. Round to the first digit and keep the size; then compare with the exact answer.",
+          "board": "widget: rounding\nmode: estimate\na: 38\nb: 52\nop: ×",
+          "shows": "38 × 52 ≈ 40 × 50 = 2000; the exact answer is 1976"
+        },
+        {
+          "label": "ratio",
+          "unit": "ratio",
+          "code": "\\text{red} : \\text{blue} = 2 : 3",
+          "hint": "Compares quantities in a stated order. The first thing named is the first number.",
+          "board": "widget: ratio\nmode: tape\nlabels: red, blue\na: 2\nb: 3",
+          "shows": "2 red blocks to 3 blue blocks"
+        },
+        {
+          "label": "part to part, part to whole",
+          "unit": "ratio",
+          "code": "2 : 3 \\text{ (red to blue)} \\qquad 2 : 5 \\text{ (red to all)}",
+          "hint": "Part to whole adds the parts: $2 + 3 = 5$. The part-to-whole ratio $2 : 5$ matches the fraction $\\tfrac{2}{5}$."
+        },
+        {
+          "label": "equivalent ratios",
+          "unit": "ratio",
+          "code": "2 : 3 = 4 : 6 = 6 : 9",
+          "hint": "Multiply or divide both terms by the same number. Adding the same number to both changes the ratio.",
+          "board": "widget: ratio\nmode: tape\nlabels: flour, milk\na: 2\nb: 3\nk: 3",
+          "shows": "Three copies of 2 : 3 make 6 : 9"
+        },
+        {
+          "label": "simplest form of a ratio",
+          "unit": "ratio",
+          "code": "12 : 18 = 2 : 3",
+          "hint": "Divide both terms by their highest common factor (here 6). No number above 1 divides both."
+        },
+        {
+          "label": "scale",
+          "unit": "modelling",
+          "code": "1 : 50 \\Rightarrow 3\\text{ cm} \\to 150\\text{ cm}",
+          "hint": "A ratio of the drawing (or model) to the real thing. Each 1 unit on the drawing is 50 units in real life."
+        },
+        {
+          "label": "known, unknown, relationship",
+          "unit": "modelling",
+          "code": "\\text{known} \\to \\text{unknown}",
+          "hint": "The first step in modelling: say what you know, what you need, and how they are linked. Then calculate."
         }
       ]
     },
@@ -232,6 +300,40 @@
           "unit": "fractions",
           "code": "25 \\times (-3.7) \\times 4 = 100 \\times (-3.7) = -370",
           "hint": "Multiply in any order, pairing friendly numbers; or split a number: $6 \\times (-2.5) = 6 \\times (-2) + 6 \\times (-0.5)$."
+        },
+        {
+          "label": "round to decimal places",
+          "unit": "placevalue",
+          "code": "3.746 \\to 3.75 \\ (2 \\text{ d.p.})",
+          "hint": "Look at the digit straight after the place. 5 or more rounds up; 4 or less leaves the digit. Halfway rounds up.",
+          "board": "widget: rounding\nx: 3.746\nd: 2",
+          "shows": "3.746 is past the halfway mark 3.745, so it rounds to 3.75"
+        },
+        {
+          "label": "estimating",
+          "unit": "placevalue",
+          "code": "19.6 \\times 4.1 \\approx 20 \\times 4 = 80",
+          "hint": "Round each number to its first digit, keep its size, calculate, then compare with the exact answer."
+        },
+        {
+          "label": "share in a ratio",
+          "unit": "ratio",
+          "code": "\\$60 \\text{ in } 2 : 3 \\to \\$60 \\div 5 = \\$12 \\to \\$24, \\$36",
+          "hint": "Add the parts, divide the total by the parts to find one part, then multiply. The shares add back to the total.",
+          "board": "widget: ratio\nmode: share\nlabels: Ana, Ben\na: 2\nb: 3\ntotal: 60\nunits: $",
+          "shows": "$60 in the ratio 2 : 3: five parts of $12, Ana $24 and Ben $36"
+        },
+        {
+          "label": "profit as a percentage",
+          "unit": "modelling",
+          "code": "\\dfrac{\\text{profit}}{\\text{cost}} \\times 100\\%",
+          "hint": "A percentage profit or change is out of the original amount, the cost, not the selling price."
+        },
+        {
+          "label": "percentages in two steps",
+          "unit": "modelling",
+          "code": "200 \\times 0.8 \\times 0.9 = 144",
+          "hint": "Each percentage is of a different amount, so they cannot be added: 20% off then 10% off is not 30% off."
         }
       ]
     }
