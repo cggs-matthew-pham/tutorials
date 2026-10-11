@@ -158,6 +158,16 @@ The plan keeps "build it yourself, then meet the real tool": students hand-build
    - Angular is left out: it needs TypeScript and a command-line toolchain. AngularJS is dead (support ended in 2021).
 4. **`fetch` and APIs in JavaScript** (built 12 Oct as `code/dom/dom-fetch`; an optional DOM lesson). Load JSON, show it on the page, and fall back to a saved copy when the network fails, as Data detective does in Python.
 
+## Proposed (12 Oct 2026, Matthew agreed; building now): the end of the Web pathway, with or without a framework
+
+Every route through the Web pathway (hand-built pages, Bootstrap, the DOM, Vue) ends in the same optional steps. They teach no new framework and work on whatever page the student already has.
+
+1. **Saving between visits** (optional DOM lesson 10, `code/dom/dom-save`). Plain `localStorage`: save a list or score as JSON when it changes, load it when the page opens, and start fresh when nothing is saved. The teacher notes show the Vue version (`watch` the list and save it), for students coming from the to-do app.
+2. **A new course, "Your site, for real"** (`code/site`, extension, `after: [code/html]`, so every route reaches it; 2 lessons, bring your own page):
+   - **Pages for everyone:** headings as the page's outline, `alt` text, labels joined to their boxes, link text that says where it goes, contrast; then a five-minute test with a classmate and fixing the top three problems. Works the same on a hand-built page, a Bootstrap page or a Vue app.
+   - **Put it online:** "you have a website; here is how it goes online". A site is files in a folder: download the page, put its pictures and library files (`vue.js`, `bootstrap.min.css`) beside it, make every path relative, open it from the computer to test, then publish. Publishing itself is teacher-led (accounts): GitHub Pages, Netlify Drop or the school's own server, each in the teacher notes with the account and privacy questions. That step is `tier: typical`, so classes without accounts can complete the course.
+3. **Playground change (code chat's own files):** a **Download** button in the HTML and DOM playgrounds. It saves the page as `index.html` (wrapped in a full HTML page if the code has no `<!DOCTYPE>`) and lists the files the page uses from beside it (pictures, `vue.js`, `bootstrap.min.css`, `weather.json`), each with its own download link. Every HTML and DOM clip already records again at the next publish, so this adds no cost.
+
 **Parked: Node.js.** It does not run in a browser. StackBlitz's WebContainers is proprietary, heavy, and needs security headers GitHub Pages cannot set. Local installs or online editors need accounts. Flask already teaches servers and APIs, and schools generally prefer Python. Revisit only if a school wants a JavaScript-only path.
 
 ## Parked
