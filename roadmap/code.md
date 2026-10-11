@@ -142,6 +142,22 @@ Risks: we depend on Microsoft's hosted editor and its unversioned message API. F
 - Drag-and-drop for match items; keep Parsons answers across reloads.
 - Prepare: confirm its load-by-URL parameter so "Copy address" can become "Open in Prepare".
 
+## Proposed (12 Oct 2026, to discuss): recap and open projects for code
+
+Maths and science have recap pages (`recap: true`, roadmap/shared.md). For code, recalling an idea is not the same as using it, so the plan has two parts that do different jobs:
+
+1. **Recap (cheap).** All 162 code lessons already have `exit:`. Turn on `recap: true` for the foundations courses (Python, HTML & CSS, micro:bit, Arcade) once each exit question has been checked to stand alone, as maths did. Use it at the crossings between courses: Python to Gradio or the console bridge, HTML to Bootstrap or the DOM, micro:bit to Robotics.
+2. **Open projects (the main value).** A Projects page per pathway (`<subject>/paths/<id>/projects/`, or a course flag) with 4 to 6 loose briefs. Each brief has:
+   - a goal and one picture of a possible result (never the code)
+   - "You'll use" chips linking to recap cards, so recap is where a stuck student goes
+   - 2 or 3 milestones students tick themselves, and "make it yours" stretch ideas
+   - no code checks (a reflect check at most)
+
+   This is the step after Make and the challenge units, with less support. It stays apart from "large projects belong to the teacher": these are small, self-paced briefs, and bigger ideas stay in For teachers. Python and Web first. MakeCode's Showcase, Patrol and Tripwire already work much like open briefs.
+3. **Coach prompts: off for code.** An AI is likely to write the solution. If wanted later, use a stricter prompt (no code, ask a question back) and test it in Copilot first.
+
+To decide: where the Projects page lives (pathway or course), how a brief is written (a `projects.yml` per pathway, or Markdown), and whether project progress counts towards anything.
+
 ## Proposed (12 Oct 2026, Matthew agreed the direction; not built): Web pathway after the DOM
 
 The plan keeps "build it yourself, then meet the real tool": students hand-build components (HTML & CSS) and state (DOM lesson 6) before a framework does the same work for them. Everything runs in the browser with no build step, and every library is hosted on our site.
