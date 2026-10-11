@@ -184,6 +184,34 @@ Pathway pages of subjects with `trail: units` (Code too, on this branch) show on
 
 The igneous explain clip recorded without error, but its video fell about 15 s behind the voice and ended before the Very fast run: the cooling board redraws a large canvas of about 300 particles every frame, and the video capture cannot keep up (other science clips are about 2 s out). Capping the canvas at 10 redraws a second halved the lag but did not fix it. For now the igneous lesson has no explain clip (its Explain it to me text stays). Proper fix: make `render.mjs` keep video and voice in step when the page is busy (re-records every clip), then bring the clip back.
 
+## Proposed (12 Oct 2026, code chat; Matthew agreed the idea): a choice of voices for clips
+
+**Why:** students choose the voice they like best for Explain it to me clips. Today each lesson names one voice: code uses Heart (US), maths and science use Emma (UK) at 1.05.
+
+**How:** the video is recorded once and each voice gets its own audio file, so recording time does not grow with the number of voices.
+- **`render.mjs`:**
+  - Already makes every spoken line before it records (`lineFor`, with each line's length).
+  - It would make each line in every voice and time the clip by the longest one. The next caption waits for the slowest voice, so the faster voices have a slightly longer pause after their line.
+  - It would then write a silent `clips/<id>.mp4`, plus `clips/<id>.<voice>.m4a` for each voice, built the same way `muxVoice` builds today's mixed audio.
+  - The `.vtt` transcript stays as it is: the words are the same for every voice.
+- **Lesson page (`clipHtml` in `build-site.mjs`, plus a little script in `lesson-view.mjs`):**
+  - The video stays muted, and a hidden audio element plays the chosen voice in step with it (play, pause, seek, loop, rate).
+  - A small "Voice: Emma · George · Heart" picker sits under voiced clips. The choice is saved per browser (`wp-voice`) and applies to every clip on the site.
+  - Unmuting the video's own button turns the voice on, as now.
+- **Why not one file with several audio tracks:** most browsers can't switch audio tracks inside a video, Chrome included. Separate files work everywhere.
+- **Voices:** Emma (`bf_emma`, UK woman), George (`bm_george`, UK man) and Heart (`af_heart`, US woman); the default is Emma. Kokoro has no Australian voice.
+  - A lesson's `voice:` keeps its speed, and its name sets the voice students hear until they choose one.
+  - `say:` lines are shared by all three voices.
+- **Cost:**
+  - Changing `render.mjs` re-records every voiced clip once at the next publish, about the same time as a normal full re-record.
+  - After that, speech is a few seconds per voice per clip, and three audio files add about 100 to 300 KB per clip.
+  - Lines must still fit the slowest voice in under about 30 s.
+- **Checks:**
+  - `build-site` refuses flite audio files, as it refuses flite clips today.
+  - A clip with a missing voice file falls back to the lesson's default voice.
+  - Test the sync on a phone, where Safari is strict about autoplay.
+- **To agree with the maths and science chats:** Emma as the default, and the three-voice set.
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).
