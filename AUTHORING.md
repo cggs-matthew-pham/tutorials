@@ -656,6 +656,13 @@ Vary, Practise, Make).
     (2 to 8), `n: 4052` (the start), `shift: on` adds × 10 and ÷ 10 (every digit moves a column), `names: off` hides the
     column names. The panel writes the expanded notation. Values: `n`, `z` (digits that are not 0), `t` (the highest
     power with a digit). Checks: `"n = 4052"`, `"z = 3 and t = 4"`.
+  - `widget: bits` (first used by `systems/data/binary-numbers` and `binary-patterns`): binary cards after CS Unplugged,
+    each worth double the one on its right and drawn as that many dots (a number from 64 up); click a card to turn it
+    face up (1) or down (0). `bits: 4` (1 to 8), `n: 11` or `start: 1011` (the starting pattern), `number: off` hides
+    the sum and the number, `count: on` adds − 1 and + 1 (past the largest it overflows to 0), `grow: on` adds Add a card
+    and Take away a card (1 to 8), `lock: on` makes the cards a pattern to read. Values: `n` (the number), `c` (cards
+    face up), `b` (cards), `m` (largest, 2^b − 1), `o` (1 after an overflow). Checks: `"n = 11 and c = 3"`, `"o = 1"`,
+    `"b = 6 and n = 39"`.
   - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
     between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
     `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b

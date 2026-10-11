@@ -1,0 +1,37 @@
+# Binary cards for "How many patterns?".
+
+# region: run
+widget: bits
+bits: 4
+n: 0
+count: on
+# endregion
+
+# region: explain
+widget: bits
+bits: 3
+n: 0
+count: on
+# endregion
+
+# region: explain-pic
+widget: bits
+bits: 4
+start: 1111
+count: on
+# endregion
+
+# region: modify
+widget: bits
+bits: 4
+n: 15
+count: on
+grow: on
+# endregion
+
+# region: make
+widget: bits
+bits: 3
+n: 0
+grow: on
+# endregion

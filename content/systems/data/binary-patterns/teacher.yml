@@ -1,0 +1,45 @@
+summary: Students count up on binary cards to find that n bits make 2ⁿ patterns and hold 0 to 2ⁿ − 1, see a count overflow, and choose how many bits a number needs (AC9TDI8K04).
+time: 40
+timing: "Predict and Try 8 min · Worked example 10 min · Vary 12 min · Practise and Make 10 min"
+goals:
+  - I can work out how many patterns some bits can make.
+  - I can find the biggest number some bits can hold.
+  - I can explain overflow, and choose how many bits a number needs.
+struggle: "Forgetting that one pattern is 0, so saying 4 bits go up to 16. Ask \"what do the cards show when they are all face down?\" every time a largest number comes up."
+before: |
+  Do the Try and Vary boards yourself first. Students need Bits and binary numbers (reading binary) and powers of 2 from maths.
+
+  The one idea: each extra bit doubles the number of patterns, so $n$ bits make $2^n$ patterns, and because one pattern is 0, the largest number is $2^n - 1$. Overflow is what happens when you count past it.
+
+  Real examples worth a minute: colour values 0 to 255 (one byte each); the micro:bit LED brightness 0 to 255; game scores and counters that wrapped round. Students who have done Arcade or micro:bit can look for 255 limits in the blocks.
+running:
+  - "Predict: students who chose 16 counted the patterns but forgot 0; 4 counted the cards."
+  - "Try: ask how many presses it took to get from 0 to 1111, and how many patterns that makes."
+  - "Worked example: pause before line 3 and ask why we multiply, not add."
+  - "Vary: before Add a card, ask students to predict the new card's value and the new biggest number."
+  - "Make: have students say the range first (0 to 39), then the bits."
+stuck:
+  - see: "A student says 4 bits hold 1 to 16 (Sam's mistake)."
+    ask: "What number do the cards show when they are all face down?"
+    fix: "0 is one of the patterns, so the 16 patterns are 0 to 15."
+  - see: "A student says 10 bits make 20 patterns."
+    ask: "What happens to the patterns when you add one card?"
+    fix: "Each card doubles them: 2, 4, 8, 16, …, so multiply."
+  - see: "A student thinks overflow is an error message."
+    ask: "What does + 1 do to 1111 if there is no fifth card?"
+    fix: "Every card flips down: the computer just loses the carry."
+stretch: "How many bits would you need to give every person on Earth (about 8 billion) a different number? (33: 2³² is about 4.3 billion, 2³³ about 8.6 billion.)"
+support: "Keep a doubling table beside the board: bits 1 to 8, patterns 2 to 256, biggest 1 to 255."
+leads: |
+  Next: text as numbers (each character has a code) and colours (three bytes per pixel).
+
+  Where it leads: data sizes (bytes, kilobytes) and, in Years 9–10, compression.
+exit:
+  q: "How many patterns can 6 bits make, and what is the biggest number they can hold?"
+  a: "2⁶ = 64 patterns, so 0 to 63. The biggest is 63."
+explain: |
+  Each bit has two states, so each extra bit **doubles** the number of patterns: $n$ bits make $2^n$ patterns. One pattern is 0 (all bits off), so the biggest number is $2^n - 1$. Four bits hold 0 to 15; eight bits, a **byte**, hold 0 to 255.
+
+  Counting one past the biggest number **overflows**: every bit flips back to 0, because there is no bit left for the carry.
+sources:
+  - { title: "CS Unplugged: Binary numbers (CC BY-SA 4.0)", url: "https://www.csunplugged.org/en/topics/binary-numbers/", checked: 2026-10-12 }

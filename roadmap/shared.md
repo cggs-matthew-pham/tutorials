@@ -298,3 +298,9 @@ One block per playground. Course status is in `code.md`.
   - `PICS.microstudio`, and `refItem` picks pictures by `target: microstudio`.
   - A course whose steps use `playground: microstudio` takes its cheat-sheet cards and pictures from `snippets/microstudio.json`.
 - `tools/render-pictures.mjs`: new section `microstudio` (`_pictures/microstudio/`, the 9 examples). No other section's hash changed.
+
+## Changed by the Digital systems chat (12 Oct 2026)
+
+- New subject folder `content/systems/` (menu "Digital systems"; roadmap in `roadmap/systems.md`). No build changes were needed: subjects are found from the content folders.
+- Board: new widget `playground-board/widgets/bits.js`, registered in `playground-board/index.html`, styles at the end of `style.css`. `core.js` unchanged. Editing the board folder re-records every board clip on the next publish (the clip hash covers the playground).
+- `misconceptions.json`: two entries. AUTHORING › board: `bits` entry.

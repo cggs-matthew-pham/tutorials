@@ -1,0 +1,32 @@
+# Binary cards for "Bits and binary numbers".
+
+# region: run
+widget: bits
+bits: 4
+n: 0
+# endregion
+
+# region: explain
+widget: bits
+bits: 5
+n: 0
+# endregion
+
+# region: explain-pic
+widget: bits
+bits: 5
+start: 10110
+# endregion
+
+# region: modify
+widget: bits
+bits: 5
+n: 0
+# endregion
+
+# region: make
+widget: bits
+bits: 5
+n: 0
+number: off
+# endregion

@@ -1,0 +1,9 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Read 1100 in binary.
+The places are 1, 2, 4, 8.
+The 1s are in the first two places.
+1 + 2 = 3
+So 1100 is 3.
+# endregion

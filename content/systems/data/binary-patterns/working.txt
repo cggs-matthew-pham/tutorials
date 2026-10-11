@@ -1,0 +1,9 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+How many numbers can 4 bits show?
+Each bit is up or down: 2 choices.
+4 bits: 2 × 2 × 2 × 2 = 16 patterns.
+So 4 bits show the numbers 1 to 16.
+The biggest number is 16.
+# endregion

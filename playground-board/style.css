@@ -328,3 +328,18 @@ table.ctally tr.cwatch td { font-weight: 700; }
 /* views */
 .vgrid { display: grid; gap: 4px; justify-content: center; margin: 8px 0; }
 .vcell { min-height: 2.6em; font-size: 18px; font-weight: 700; }
+/* Binary cards (bits) */
+.brow { display: flex; justify-content: center; align-items: center; gap: 8px; padding: 14px 8px; height: 100%; }
+.bcol { flex: 1 1 0; min-width: 0; max-width: 140px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.bval { font: 600 15px/1 ui-monospace, Menlo, Consolas, monospace; color: var(--muted); }
+.bcard { width: 100%; aspect-ratio: 3 / 4; padding: 6%; border-radius: 10px; border: 2px solid var(--line); background: repeating-linear-gradient(45deg, var(--line) 0 6px, transparent 6px 12px), var(--bg); color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+div.bcard { cursor: default; }
+.bcard .bdots { width: 100%; height: 100%; visibility: hidden; }
+.bcard.up { background: var(--card); border-color: var(--accent); }
+.bcard.up .bdots { visibility: visible; }
+.bdots circle { fill: var(--ink); }
+.bdots .bbig { font: 700 34px/1 system-ui, sans-serif; fill: var(--ink); }
+.bcard:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.bdig { font: 700 24px/1 ui-monospace, Menlo, Consolas, monospace; }
+.bwork { margin: 0; font: 600 19px/1.3 ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap; }
+.bbar { flex-wrap: wrap; gap: 6px; }

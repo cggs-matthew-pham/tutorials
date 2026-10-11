@@ -76,6 +76,9 @@ Waypoints tutorials: a static site (GitHub Pages) of markdown lessons with recor
 - Simulation engines beside the particle engine: `atoms.js` (rigid molecules, reactions with an energy threshold; atoms and energy conserved exactly; mass for motion is each atom's mass + 5; widgets `atoms`, `reaction`), `crystals.js` (cooling magma: crystal size, glass; widget `cooling`) and `convection.js` (convection with buoyancy and gravity, conduction in a solid bar; widget `convection`, `preset: mantle`, `mode: solid`). Many-particle boards draw on a canvas layer (`SCI.dots`): SVG points ran at 10 fps. Used by the Years 8–10 lessons. After changing any engine (including `selection.js`) run `node tools/check-engines.mjs` (Node, no browser).
 - Node content comes from waypoints-kit `data/science/y7_science_*.json`; the First Nations steam-distilling line in U06 node 4 is deliberately not claimed (see that lesson's teacher notes).
 
+## Digital systems (roadmap/systems.md)
+- `content/systems/`: the DT Knowledge and understanding strand as its own subject. Lessons use `language: maths` (board checks, answers, worked examples) and the shared board; first widget `bits` (binary cards). No `node:` yet (no DT progression pages). Plan: Project doc digital-systems-plan.
+
 ## Commands
 - `npm run validate`, `npm run render` (clips), `npm run build` (site), `npm run all`. A full `all` takes about 2 minutes.
 - Local browser tests: Chromium at `/opt/pw-browsers/chromium` with `--no-sandbox`, serve `dist/` with a small static http server. Scratch scripts go in `.render-tmp/` (gitignored; `render` deletes it, so `mkdir -p .render-tmp` first).

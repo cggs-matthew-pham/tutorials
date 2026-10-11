@@ -190,5 +190,7 @@
   "rate-inverted": {"home": "maths/number/rates", "text": "A unit rate is found by dividing the wrong way (3 kg for $12 gives 3 ÷ 12 = $0.25 per kg); dollars per kilogram is dollars ÷ kilograms: $4 per kg."},
   "rate-multiply-divide": {"home": "maths/number/using-rates", "text": "Distance is multiplied by speed to find a time (150 × 60); the units show time = distance ÷ speed: 150 ÷ 60 = 2.5 h."},
   "model-round-down": {"home": "maths/number/rate-models", "text": "A model's answer is rounded to the nearest whole number when the situation needs rounding up (2.4 L of paint as 2 tins); 2 tins are not enough, so buy 3."},
-  "model-blame-maths": {"home": "maths/number/checking-models", "text": "A model's mismatch with real life is blamed on correct arithmetic; the cause is an assumption that did not hold, such as a steady speed with no stops."}
+  "model-blame-maths": {"home": "maths/number/checking-models", "text": "A model's mismatch with real life is blamed on correct arithmetic; the cause is an assumption that did not hold, such as a steady speed with no stops."},
+  "binary-place-reversed": {"home": "systems/data/binary-numbers", "text": "Binary places are counted from the left (1, 2, 4, 8), so 1100 is read as 3; the 1 place is on the right, so 1100 is 8 + 4 = 12."},
+  "binary-max-forgets-zero": {"home": "systems/data/binary-patterns", "text": "n bits make 2ⁿ patterns, so the largest number is taken to be 2ⁿ (4 bits up to 16); one pattern is 0, so the largest is 2ⁿ − 1."}
 }

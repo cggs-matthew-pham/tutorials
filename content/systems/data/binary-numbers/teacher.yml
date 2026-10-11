@@ -1,0 +1,46 @@
+summary: Students turn binary cards face up to see that each place is worth double the one on its right, read and write numbers in binary, and say why computers use two states (AC9TDI8K04).
+time: 40
+timing: "Predict and Try 8 min · Worked example 12 min · Vary 10 min · Practise and Make 10 min"
+goals:
+  - I can read a binary number by adding the places that hold a 1.
+  - I can write a number in binary.
+  - I can say why computers store numbers as bits.
+struggle: "Reading binary as an ordinary number (1011 as one thousand and eleven). Have students say binary digit by digit (\"one zero one one\") and point at each card's value as they add."
+before: |
+  Do the Try board yourself first. If you have time, do CS Unplugged's binary cards activity with real cards before the board: five students hold the 16, 8, 4, 2 and 1 cards at the front and turn them over to make numbers. The board is the same model.
+
+  The one idea: each place is worth double the one on its right, and the number is the sum of the places holding a 1. The "why" in AC9TDI8K04 is the last Worked example task: two states are easy to tell apart reliably.
+
+  This lesson uses no code. Students who have done the coding lessons have met bits as micro:bit LEDs (on or off) and as `True` or `False`.
+running:
+  - "Predict: students who chose 1011 read it as a base-10 number; 3 counted the 1s."
+  - "Try: ask which card is worth the most, and why it is on the left (like the thousands column)."
+  - "Worked example: have students say the places aloud from the right before revealing line 2."
+  - "Vary: before 7 to 8, ask students to predict how many cards will change."
+  - "Make: collect answers and the stretch (7, 00111): what is the difference?"
+stuck:
+  - see: "A student writes 1011 = one thousand and eleven."
+    ask: "Which cards are face up, and what are they worth?"
+    fix: "Point at each 1 and say its card's value, then add."
+  - see: "A student reads 1100 as 3 (Sam's mistake)."
+    ask: "Which end is the 1 card?"
+    fix: "Write 8 4 2 1 above the digits before reading."
+  - see: "A student writing 13 in binary gets stuck."
+    ask: "What is the biggest card that fits in 13?"
+    fix: "Take the 8, then 5 is left: the biggest card that fits is 4, then 1 is left."
+stretch: "Count from 0 to 15 in binary on four cards. Which card flips every time? Which flips every second time? Every fourth?"
+support: "Keep the card values (16 8 4 2 1) written above every binary number until reading them is automatic."
+leads: |
+  Next: How many patterns? (how many numbers a set of bits can hold, and overflow).
+
+  Where it leads: text, colours and images as numbers. In maths, the places are powers of 2, as base-10 places are powers of 10.
+exit:
+  q: "What is 10101 in binary? Write 12 in binary."
+  a: "10101 = 16 + 4 + 1 = 21. 12 = 8 + 4 = 1100."
+explain: |
+  A **bit** is one switch that is off (**0**) or on (**1**). In **binary**, bits sit side by side and each place is worth **double** the place on its right: 1, 2, 4, 8, 16. Add the places that hold a 1: $10110 = 16 + 4 + 2 = 22$.
+
+  To write a number in binary, take the biggest place that fits, then the biggest that fits what is left, and so on. Computers use bits because two states (low or high voltage) are easy to tell apart reliably.
+sources:
+  - { title: "CS Unplugged: Binary numbers (CC BY-SA 4.0)", url: "https://www.csunplugged.org/en/topics/binary-numbers/", checked: 2026-10-12 }
+  - { title: "Digital Technologies Hub: Years 7–8 Binary numbers (CC BY 4.0)", url: "https://www.digitaltechnologieshub.edu.au/search/years-7-8-binary-numbers/", checked: 2026-10-12 }
