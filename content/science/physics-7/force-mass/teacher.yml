@@ -1,0 +1,35 @@
+summary: "Students state the qualitative relationship between force, mass and acceleration, predict which object accelerates more under the same force, and read the pattern from data (AC9S7U04, node 5, an integration node)."
+time: 17
+timing: "Engage and Explore 6 min · Explain 8 min · Evaluate 3 min · Typical adds 3 min, Wider about 1 min"
+goals:
+  - I can say what happens to acceleration when the force or the mass changes.
+  - I can predict which of two objects accelerates more under the same force.
+  - I can read a pattern from force data.
+before: |
+  A short integration tutorial that follows the four Year 7 forces lessons. Set the width with `?width=minimum`, `typical` (default) or `wider`. The Year 10 lessons put numbers on this (F = ma); here the aim is the qualitative pattern and the data.
+
+  Board notes: the trolley sits on a frictionless track; the board shows the acceleration before Play. The data tables in the questions are small, rounded numbers chosen for a clear pattern. Don't call the pattern F = ma yet.
+running:
+  - "Engage: tally the predictions. Ask the 'full one' group what a heavier trolley resists."
+  - "Explore: ask what happened to the acceleration when the mass doubled."
+  - "Explain: the two statements and the data patterns are the success criteria."
+  - "In your own words: the two bar graphs and a sentence for each."
+struggle: "Putting force and mass together. When a student says a heavier object accelerates more, ask which one they would rather push to get moving."
+stuck:
+  - see: "A student says acceleration is the same speed."
+    ask: "Is acceleration how fast, or how quickly speed changes?"
+    fix: "How quickly speed changes. Same force on a bigger mass changes speed more slowly."
+  - see: "A student says heavier means more acceleration."
+    ask: "Which trolley is easier to get moving?"
+    fix: "The lighter one. Heavier means more resistance to changing motion."
+stretch: "A 4 kg trolley and a 1 kg trolley are pushed with the same force and the 4 kg one accelerates at 2 m/s². How fast does the 1 kg one accelerate? (8 m/s².)"
+support: "Give the data as two small tables with the acceleration column blank for the last row, and ask students to say 'doubles' or 'halves' for each step."
+leads: |
+  Next: Year 8 energy, then Year 10 Newton's laws, where the pattern becomes F = ma.
+
+  In class: a dynamics trolley on a ramp with a light string and different masses; a bowling ball and a tennis ball given the same push; data logging with light gates if available.
+exit:
+  q: "The same push is given to a 3 kg box and a 6 kg box. Which accelerates more, and by how much compared with the other?"
+  a: "The 3 kg box. It accelerates twice as much, because it has half the mass."
+explain: |
+  For the **same unbalanced force**, a larger mass gives a smaller acceleration. For the **same mass**, a larger unbalanced force gives a larger acceleration.

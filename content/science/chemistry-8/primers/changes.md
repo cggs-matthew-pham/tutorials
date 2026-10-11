@@ -27,3 +27,5 @@ The unit now opens with physical change (node 1): melting, boiling and dissolvin
 ## Signs and energy (nodes 3 to 5)
 
 Signs of a chemical change (colour, gas, precipitate, light, smell, temperature change) are clues, not proof; the test is a new substance. Exothermic reactions give energy out to the surroundings (hotter); endothermic ones take it in (colder). There is no 'cold energy'.
+
+**On screen:** the short tutorial *Physical or chemical? Use all the clues* covers node 6 with sorting and misleading-clue cases.

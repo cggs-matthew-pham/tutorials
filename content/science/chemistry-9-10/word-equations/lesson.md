@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 node: [AC9S9U07 n1, AC9S9U07 n3]
 assumes: [AC9S9U07 n2]   # word equations do not need the atom model; Where do the atoms go? (n2) comes next, on purpose
 unit: equations

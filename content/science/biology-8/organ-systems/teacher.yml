@@ -1,0 +1,34 @@
+summary: "Students name the organs of one animal system and one plant system, explain how they coordinate to do a survival job, and compare the two as solutions to a shared problem (AC9S8U02, node 4)."
+time: 15
+timing: "Engage 3 min · Explain 9 min · Evaluate 3 min · Typical adds 1 min, Wider about 1 min"
+goals:
+  - I can name organs of an animal and a plant system and say what each does.
+  - I can say how the organs work as a system.
+  - I can compare the two systems.
+before: |
+  A short questions-led lesson with no simulation, following Tissues and organs. Set the width with `?width=minimum`, `typical` (default) or `wider`. It is the key node of the unit (★) and rewards diagrams and models more than screens: a hand pump and tubing model of the circulatory system works well.
+
+  Board notes: none. Systems are simplified: the circulatory system has a double loop (heart to lungs and back, heart to body and back) that the Year 8 descriptor doesn't require.
+running:
+  - "Engage: tally the predictions. Ask the 'nothing' group what the leg needs from the blood."
+  - "Explain: the two matches and the shared problem are the success criteria."
+  - "In your own words: the two labelled diagrams."
+struggle: "Seeing the system, not a list of parts. When a student lists organs, ask them what job would stop if one were removed."
+stuck:
+  - see: "A student says the heart makes blood."
+    ask: "What does the heart do to blood that is already there?"
+    fix: "It pumps it. Blood is made in the bone marrow."
+  - see: "A student says plants have no system because they have no heart."
+    ask: "How does water get from the root to the leaf?"
+    fix: "Through xylem, which is a transport system with no pump."
+stretch: "Why do large animals and tall trees both need transport systems, when a single-celled organism doesn't? (Diffusion works over tiny distances only.)"
+support: "Give a diagram of each system with the organs unlabelled and a word bank, and ask students to add one arrow for the direction of flow."
+leads: |
+  Next: Year 9 coordination and signals.
+
+  In class: model circulatory system with a hand pump and tubing; celery in coloured water to show xylem; take a pulse before and after exercise.
+exit:
+  q: "Say in a sentence how a plant's vascular system and an animal's circulatory system are alike, and one way they differ."
+  a: "Alike: both move materials to every cell. Different: the animal pumps blood with a heart, while the plant has no pump and water is pulled up the xylem as it evaporates from the leaves."
+explain: |
+  An **organ system** is a group of organs that work together to do a job the whole organism needs. If one organ fails, the system fails. The circulatory system and a plant's vascular system both **move materials to every cell**.

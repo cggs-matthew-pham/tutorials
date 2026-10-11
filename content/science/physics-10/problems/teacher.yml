@@ -1,0 +1,34 @@
+summary: "Students solve multi-step force and motion problems using F = ma and a = Δv ÷ t with correct units, use a graph to support a quantitative argument, and check answers for reasonableness (AC9S10U05, node 7, a practise node)."
+time: 20
+timing: "Engage 3 min · Explain 12 min · Evaluate 3 min · Typical adds 1 min, Wider about 1 min"
+goals:
+  - I can solve a problem that needs two or more steps.
+  - I can keep the units straight.
+  - I can tell whether an answer is reasonable.
+before: |
+  A practice lesson with no simulation, following Free body diagrams. Set the width with `?width=minimum`, `typical` (default) or `wider`. The Year 10 progression marks this node as a place for structured practice, so students need pencil and calculator more than a screen: ask them to show each line in their books before entering an answer.
+
+  Answers with a sign are entered as numbers (−2.5). Round figures are chosen for clean numbers; real braking and engine forces vary with speed.
+running:
+  - "Engage: tally the predictions. Ask the 'acceleration' group what force the acceleration depends on."
+  - "Explain: the five-step routine is the success criterion; collect a different problem from each group."
+  - "In your own words: the routine and the motorbike problem."
+struggle: "Choosing the step, not just the formula. When a student reaches for a number, ask what quantity it is and which step it belongs to."
+stuck:
+  - see: "A student uses the engine force alone."
+    ask: "What other force acts, and which way?"
+    fix: "Resistance, backwards. F in F = ma is the net force."
+  - see: "A student gets a huge or tiny answer."
+    ask: "Does a mass in grams or a time in minutes appear anywhere?"
+    fix: "Convert to kg and s first."
+stretch: "A 1000 kg car has a braking force of 5000 N while travelling at 30 m/s. How long does it take to stop, and how far does it go? (6 s; 90 m, the area under the speed–time graph.)"
+support: "Give a five-line template (Known, Net force, Acceleration, Speed or time, Reasonable?) with the first line filled in."
+leads: |
+  Next: Newton's laws in the real world.
+
+  In class: collect braking data with a toy car and a ramp; use a speed–time graph from a data logger; work through a vehicle's stopping distance table.
+exit:
+  q: "A 50 kg skateboarder is pushed with a net force of 100 N from rest. How fast is she moving after 4 s?"
+  a: "a = 100 ÷ 50 = 2 m/s². After 4 s: 2 × 4 = 8 m/s."
+explain: |
+  A routine: **net force**, then **F = ma**, then **a = Δv ÷ t**, then **check** the answer and the units. On a speed–time graph the **gradient** is the acceleration.

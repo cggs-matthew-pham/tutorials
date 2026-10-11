@@ -1,0 +1,13 @@
+# Boards for "Use the table to predict".
+
+# region: table
+widget: atom
+mode: table
+colour: outer
+# endregion
+
+# region: metals
+widget: atom
+mode: table
+colour: metal
+# endregion

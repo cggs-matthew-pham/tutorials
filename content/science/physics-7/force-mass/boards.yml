@@ -1,0 +1,21 @@
+# Boards for "Same push, different mass".
+
+# region: trolley
+widget: forces
+object: Trolley
+mass: 1, 10, 2
+force P: right, 6, Push
+motion: on
+track: 40
+time: 4
+# endregion
+
+# region: adjust
+widget: forces
+object: Trolley
+mass: 1, 10, 5
+force P: right, 6, Push, adjust 0-20
+motion: on
+track: 40
+time: 4
+# endregion

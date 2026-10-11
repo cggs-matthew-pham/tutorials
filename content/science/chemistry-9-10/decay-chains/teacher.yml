@@ -1,0 +1,37 @@
+summary: "Students trace a decay sequence, track atomic and mass numbers at each step, and explain how the sequence ends at a stable nucleus (AC9S9U06, node 5, an integration node)."
+time: 22
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 1 min, Wider about 1 min"
+goals:
+  - I can follow a decay chain from an unstable isotope to a stable one.
+  - I can work out the atomic and mass numbers after each alpha or beta decay.
+  - I can say why a chain stops.
+before: |
+  A short integration tutorial that follows the half-life lesson. Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  The decay board stops at a stable isotope and says whether each step is how the isotope really decays, so students can't wander into impossible chains. The uranium-238 chain used here is the main series: eight alpha and six beta decays, with a few side branches in the full chart that are left out.
+
+  Board notes: the board counts alpha (`x`) and beta (`y`) decays. Half-lives vary from a fraction of a second to billions of years and aren't shown here.
+running:
+  - "Engage: tally the predictions. Ask the 'stable lead' group what makes a nucleus stable."
+  - "Explore: ask what is the same about every alpha step, and every beta step."
+  - "Explain: the number questions and 'why it stops' are the success criteria."
+  - "In your own words: the first four steps of the chain."
+struggle: "Keeping two numbers in step. When a student changes only one of the atomic or mass numbers, ask what each particle carried away."
+stuck:
+  - see: "A student subtracts 4 from the atomic number for alpha."
+    ask: "How many protons does an alpha particle carry?"
+    fix: "Two, so the atomic number falls by 2; the mass number falls by 4."
+  - see: "A student changes the mass number in beta decay."
+    ask: "What changes in the nucleus in beta decay?"
+    fix: "A neutron becomes a proton: the atomic number rises by 1 and the mass number stays the same."
+stretch: "Thorium-232 decays by 6 alpha and 4 beta decays to a stable lead isotope. Which isotope? (232 − 24 = 208; 90 − 12 + 4 = 82: lead-208.)"
+support: "Give a two-column table (Alpha, Beta) with the change to atomic and mass number filled in, and ask students to tick the right column at each step on the board."
+leads: |
+  Next: word equations and balancing equations.
+
+  In class: draw the decay series on a large wall chart with a bar for each isotope's half-life; ask students to colour the alpha and beta steps.
+exit:
+  q: "Radium-226 (atomic number 88) decays by alpha emission. What are the new atomic and mass numbers?"
+  a: "Atomic number 86, mass number 222: radon-222."
+explain: |
+  A **decay chain** ends only at a stable nucleus. **Alpha** decay lowers the atomic number by 2 and the mass number by 4; **beta** decay raises the atomic number by 1 and leaves the mass number unchanged.

@@ -320,3 +320,7 @@ table.ctally tr.cwatch td { font-weight: 700; }
 .pvval { font-size: 13px; color: var(--muted, #5d6675); min-height: 1.3em; }
 .pvcol button { min-width: 44px; }
 .pvdots { display: block; }
+/* Waves and charge */
+.wvband[aria-pressed=true] { background: var(--accent); border-color: transparent; color: #fff; }
+.fbar select { font: 600 14px system-ui, sans-serif; padding: 7px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); }
+.fbar button.quiet { background: var(--card); color: var(--ink); }

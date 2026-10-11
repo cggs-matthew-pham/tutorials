@@ -1,0 +1,16 @@
+# Boards for "How does current flow?".
+
+# region: loop
+widget: charge
+mode: current
+material: choose
+volts: 2
+# endregion
+
+# region: explain
+widget: charge
+mode: current
+material: copper
+volts: 4
+run: 2
+# endregion

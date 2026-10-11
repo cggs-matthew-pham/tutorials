@@ -1,0 +1,29 @@
+# Boards for "How does light bend?".
+
+# region: glass
+widget: wave
+mode: refract
+medium: glass
+angle: 40
+# endregion
+
+# region: mirror
+widget: wave
+mode: refract
+surface: mirror
+angle: 40
+# endregion
+
+# region: choose
+widget: wave
+mode: refract
+medium: choose
+angle: 60
+# endregion
+
+# region: explain
+widget: wave
+mode: refract
+medium: glass
+angle: 45
+# endregion

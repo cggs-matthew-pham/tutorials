@@ -1,0 +1,42 @@
+summary: "Students explain static electricity as the transfer of electrons between materials that leaves a charge imbalance, and use it to explain attraction, repulsion and electrostatic discharge (AC9S9U04, node 3)."
+time: 24
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can say what moves when two materials are rubbed together.
+  - I can say which charges attract and which repel.
+  - I can explain what a spark is.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows the sound lesson and comes before How does current flow?, which uses the same particle picture inside a wire.
+
+  Not a hinge node, but students carry two misconceptions here: that rubbing makes charge, and that protons move. The prediction targets both.
+
+  Board notes: eight atoms per material; one electron moves each time Rub is pressed (at most 6). Which material loses electrons depends on the pair; wool to balloon is a typical case. Charging by induction and by contact are left to class demonstrations.
+running:
+  - "Engage: tally the predictions. Ask the 'protons' group why only electrons are free."
+  - "Explore: ask what has to be true of the two net charges."
+  - "Explain: electron transfer and the spark are the success criteria."
+  - "In your own words: the before and after atom diagrams."
+struggle: "Charge is moved, not made, and only electrons move. When a student says the balloon 'got a positive charge from the wool', ask which particle would have had to cross."
+stuck:
+  - see: "A student says the wool and the balloon are both negative."
+    ask: "Where did the balloon's extra electrons come from?"
+    fix: "From the wool, which now has fewer electrons than protons, so it is positive."
+  - see: "A student says protons moved."
+    ask: "Are protons free to leave the atom?"
+    fix: "No: they are locked in the nucleus. Only electrons can be rubbed off."
+  - see: "A student thinks a neutral object has no charges at all."
+    ask: "How many + and − are in each atom?"
+    fix: "Equal numbers, so they cancel. Neutral means balanced, not empty."
+stretch: "A glass rod rubbed with silk becomes positive and the silk negative. Which material lost electrons? Which gained? (The rod lost; the silk gained.)"
+support: "Give a two-column table (Before rubbing, After rubbing) with the + and − counts for each material, and let students fill the after column by moving one − at a time."
+leads: |
+  Next: How does current flow? uses the same picture inside a metal wire.
+
+  In class: rub a balloon on hair and pick up paper bits; a comb or ruler and a thin stream of water; an electroscope or a Van de Graaff generator if available. Many materials charge better in dry air.
+exit:
+  q: "A plastic ruler is rubbed on a cloth and becomes negative. What happened to the cloth, and why?"
+  a: "The cloth became positive. Electrons moved from the cloth to the ruler, so the cloth has more + than −."
+explain: |
+  Rubbing moves **electrons** from one material to the other. The material that gains them becomes **negative**; the one that loses them becomes **positive**, by the same amount. Protons never move.
+
+  **Unlike charges attract; like charges repel.** A **spark** is the extra electrons rushing back to neutralise the imbalance.

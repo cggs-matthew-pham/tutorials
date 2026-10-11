@@ -2,11 +2,21 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: waves, charge and the class-task nodes (11 Oct 2026, science chat)
+
+Two new shared-board widgets (Matthew approved): `wave` (`mode: sound | refract | spectrum`) and `charge` (`mode: static | pair | current`), both in AUTHORING › 12; the sound and charge boards draw on a canvas. Year 9 Physics gains a unit, Wave and particle models (AC9S9U04): How does sound travel? (n2, hinge), Where does static charge come from? and How does current flow? (n3), What is the electromagnetic spectrum? and How does light bend? (n4), Wave or particle? (n5, questions only). Lessons now run heat transfer, sound, static charge, current, spectrum, bending light, wave or particle, then conservation, efficiency, Sankey. Clips on ports 8289 to 8293 (next free 8297); pictures for all five; every board check passes headless; decks fit.
+
+Matthew also said yes to short questions-led lessons for the class-task nodes, so eight more exist: Same push, different mass (`physics-7/force-mass`, 7U04 n5, forces board), Physical or chemical? Use all the clues (`chemistry-8/classify-changes`, 8U07 n6), Organ systems (`biology-8/organ-systems`, 8U02 n4), From uranium to lead (`chemistry-9-10/decay-chains`, 9U06 n5, decay board: uranium-238 takes 8 alpha and 6 beta decays), Where does the mass go? (`chemistry-9-10/conservation-of-mass`, 9U07 n5), Use the table to predict (`chemistry-9-10/predict-from-table`, 10U06 n4, table board), Solving force and motion problems and Newton's laws in the real world (`physics-10/problems`, `real-world`, 10U05 n7 and n8). No clips or pictures for these (they are practice and discussion); ports 8294 to 8296 are used by the three with boards. The woomera question treats it as a lever that lengthens the push, and its teacher note asks for community guidance on anything about its making or use. Chemistry 9 and 10 lessons were renumbered (now 15).
+
+Shared tools touched (see roadmap/shared.md): one line in `core.js` `B.jsx`, a selector in `render-pictures.mjs`, the new widgets, and a few CSS rules. Board clips and pictures re-record and redraw on the next publish.
+
+Still class-taught: 7U02 n3 (abiotic factors), 8U04 n1 (sedimentary rocks), 9U02 n2 (reproductive organs), 10U01 n2 (mitosis), 10U03 n1 (scale of the universe), and the other uncovered nodes (7U01 n4–n5, 7U02 n5, 8U03 n3–n6, 8U04 n3–n5, 9U01 n6–n7, 9U02 n4–n5, 9U03 n5, 10U01 n5–n6, 10U02 n3–n5, 10U03 n4–n5, 10U04 n4–n6, 7U06 n5).
+
 ## Done: energy, Years 8 and 9 (11 Oct 2026, science chat)
 
 A new shared-board widget, `energy` (coaster, chain, sankey), and six lessons. New course Year 8 Physics (`physics-8/`): Moving or stored? (8U05 n1–n2), Transfer or transformation? (n3–n4, the hinge: by-product heat), Follow the energy (n5–n6, with a fire-drill chain). Year 9 Physics gains a unit, Conservation of energy and efficiency: Where does the energy go? (9U05 n1, hinge), How much is useful? (n2, hinge), What does a Sankey diagram show? (n3–n4). Kinetic and potential families follow the progression (kinetic: movement, heat, sound, light, electrical; potential: chemical, gravitational, elastic). Clips on ports 8283–8288 (next free 8289); pictures except the flow-diagram lessons (no board to draw); every check passes headless; decks fit.
 
-Left in physics: 9U04 n2–n5 (sound, electricity, light: a wave widget), 10U05 n7–n8 (class tasks), 7U04 n5.
+Left in physics: nothing from the progressions' integration nodes; see the waves entry above.
 
 ## Done: signs, energy in reactions, third law, free body diagrams (11 Oct 2026, science chat)
 

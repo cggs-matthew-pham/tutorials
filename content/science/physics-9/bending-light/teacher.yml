@@ -1,0 +1,42 @@
+summary: "Students use the wave model to explain reflection and refraction: wave fronts bounce at equal angles, and slow down and bend towards the normal in a denser material (AC9S9U04, node 4; builds on AC9S5U03)."
+time: 25
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 4 min, Wider about 2 min"
+goals:
+  - I can say why light bends when it goes into glass.
+  - I can say what happens to a ray that goes straight in.
+  - I can use the law of reflection.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows What is the electromagnetic spectrum? and comes before Wave or particle?
+
+  Students met reflection and refraction as rules for rays in Year 5. Here the wave model gives the reason. The blue lines are wave fronts (crests); the orange arrows are rays, at right angles to the fronts.
+
+  Board notes: the wave fronts' spacing in the second material is the incident spacing divided by the refractive index (1.33 water, 1.5 glass, 2.4 diamond); the ray's angle follows Snell's law. The light is a single colour, so dispersion isn't shown. Partial reflection at the glass is drawn as a dotted line. The index and Snell's law are not named for students.
+running:
+  - "Engage: tally the predictions. Ask the 'away' group which end of the front gets into the glass first."
+  - "Explore: ask what happened to the gap between fronts."
+  - "Explain: why it bends and the law of reflection are the success criteria."
+  - "In your own words: the labelled ray diagram with fronts."
+struggle: "Connecting a change of speed to a change of direction. When a student says 'the glass bends it', ask what happens to one end of the wave front when it slows down first."
+stuck:
+  - see: "A student measures the angle from the surface."
+    ask: "Which line are both angles measured from on the board?"
+    fix: "The normal, the dashed line at right angles to the surface."
+  - see: "A student says light speeds up in glass."
+    ask: "Are the fronts closer together or further apart in the glass?"
+    fix: "Closer: the waves are slower there."
+  - see: "A student says a ray along the normal bends."
+    ask: "Which end of the front enters the glass first?"
+    fix: "Neither: the whole front enters together, so it slows without turning."
+stretch: "Water bends light less than glass. Is light faster or slower in water than in glass? (Faster: water slows it down less.)"
+support: "Give a marching-band picture: a line of people walks from pavement onto sand at an angle and slow down one by one. Students draw the line turning."
+leads: |
+  Next: Wave or particle? weighs up the wave and particle models.
+
+  In class: a laser pointer through a tank of water, a clear block or a semicircle; a coin in a cup that appears when water is poured in; a mirror and a ruler for the law of reflection.
+exit:
+  q: "A ray of light goes from air into water and bends towards the normal. What does that tell you about the speed of light in water?"
+  a: "It is slower in water than in air. The change of speed turns the wave fronts and so the ray."
+explain: |
+  **Reflection**: the angle of reflection equals the angle of incidence.
+
+  **Refraction**: light slows down in a denser material, so the wave fronts bunch up and the direction bends **towards the normal**. Going straight in, it slows without bending.

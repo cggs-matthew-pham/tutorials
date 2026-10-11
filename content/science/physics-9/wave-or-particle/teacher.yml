@@ -1,0 +1,38 @@
+summary: "Students evaluate the wave and particle models against phenomena from the unit, say where each succeeds and fails, and explain that models are tools with domains of usefulness (AC9S9U04, node 5, an integration node)."
+time: 15
+timing: "Engage 3 min · Explain 8 min · Evaluate 3 min · Typical adds 2 min, Wider about 2 min"
+goals:
+  - I can say which model explains each phenomenon best.
+  - I can say where a model stops working.
+  - I can explain why models are tools, not copies of reality.
+before: |
+  A short questions-led lesson with no simulation, an integration node that pulls the unit together. Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows How does light bend?
+
+  The photon material is a first look, not a full treatment: the aim is for students to see that a good model can still have limits, and that scientists combine models. Don't introduce wave-particle duality as mysterious; say that light is modelled in two ways and the choice depends on the question.
+
+  Board notes: none; the lesson has no board. The in-your-book task is the main output, and a class discussion of the sorted list works better than the screen.
+running:
+  - "Engage: tally the predictions. Ask the 'one is right' group what experiment could settle it."
+  - "Explain: the sort and the 'models are tools' question are the success criteria."
+  - "In your own words: two phenomena, two models, two sentences."
+struggle: "Moving from 'which model is true' to 'which model is useful for this question'. When a student asks which model is correct, ask what the model needs to do in this case."
+stuck:
+  - see: "A student says the particle model is wrong because it doesn't explain sound."
+    ask: "What does it explain well?"
+    fix: "Conduction and convection. A model is judged by what it is used for."
+  - see: "A student says light is both a wave and a particle at once."
+    ask: "In which experiments does it act like each?"
+    fix: "Like a wave when it bends and spreads, like photons when it hands over energy to single electrons. It is one thing described by two models."
+stretch: "Can you think of a model from another subject that is a useful tool but not a literal copy? (A map, a circuit diagram, the water-flow model of electricity.)"
+support: "Give a two-column table (Wave model, Particle model) with the six phenomena on slips to place, and a sentence starter for each: 'The ___ model fits because ___.'"
+leads: |
+  Next: Year 9 energy (conservation and efficiency).
+
+  In class: a short debate about which model explains a mystery phenomenon; ask students to name another model they have used in science and say what it can't explain.
+exit:
+  q: "Give one phenomenon where the wave model is more useful than the particle model, and one where it is the other way round."
+  a: "Wave: sound, reflection or refraction of light. Particle: conduction of heat, static charge. Any one of each, with a reason."
+explain: |
+  The **particle model** explains conduction, convection and static charge. The **wave model** explains sound, reflection, refraction and the electromagnetic spectrum. Light also behaves as **photons** when it gives energy to single electrons.
+
+  A model is a **tool** with a domain of usefulness, not a literal description.

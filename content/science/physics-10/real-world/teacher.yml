@@ -1,0 +1,36 @@
+summary: "Students apply Newton's laws to design features and techniques, explain how a First Nations spearthrower extends the force on a spear, and evaluate a vehicle safety feature using F = ma (AC9S10U05, node 8, an integration node)."
+time: 20
+timing: "Engage 3 min · Explain 12 min · Evaluate 3 min · Typical adds 1 min, Wider about 1 min"
+goals:
+  - I can use two of Newton's laws to explain a real design or technique.
+  - I can explain how a spearthrower works in terms of force, time and acceleration.
+  - I can compare two safety designs with F = ma.
+before: |
+  An integration tutorial with no simulation that closes the unit on Newton's laws. Set the width with `?width=minimum`, `typical` (default) or `wider`. Its main output is the in-your-book task, and it works best with a class discussion of a real object.
+
+  The woomera (spearthrower) is used by many First Nations peoples across Australia. Give it the respect due to a technology that is still used and still made: invite a speaker, or use resources produced with First Nations communities, and let students explain the physics without claiming to explain the culture. The lesson uses it as a lever that lengthens the push on the spear. Other design details, including how it is made, are matters for the people who hold that knowledge.
+
+  Numbers are chosen to be clean. Real crashes involve complicated forces; the lesson uses average forces.
+running:
+  - "Engage: tally the predictions. Ask the 'absorbs it all' group where the energy goes."
+  - "Explain: the match and the crumple-zone calculation are the success criteria."
+  - "In your own words: a design, the law it uses and two sentences."
+struggle: "Choosing the right law for the situation. When a student says 'Newton's laws' in general, ask which law matters for this feature and what quantity changes."
+stuck:
+  - see: "A student says the airbag makes the force disappear."
+    ask: "What is the change in speed, and how long does it take with and without the bag?"
+    fix: "The speed change is the same. A longer time means a smaller acceleration and a smaller force."
+  - see: "A student says a woomera makes the spear lighter."
+    ask: "Does the spear's mass change?"
+    fix: "No. The thrower's push acts over a longer distance and time, so the speed at release is higher."
+stretch: "A 0.8 kg spear is accelerated by an average net force of 40 N for 0.6 s (by hand) or 0.9 s (with a woomera). Find the speed at release in each case. (30 m/s and 45 m/s: a = F ÷ m = 50 m/s², v = at.)"
+support: "Give each feature on a card and the three laws on three more, with a sentence frame: 'It uses the ___ law because ___ changes.'"
+leads: |
+  Next: the Year 10 energy and climate lessons.
+
+  In class: crack an egg-drop challenge with different crumple designs; collect measurements of a ball's launch with and without a follow-through; look at a tennis racquet or cricket bat.
+exit:
+  q: "A car stops from 20 m/s in 0.5 s with one crumple zone, and in 1.0 s with a better one. By what factor does the force on the occupants change?"
+  a: "It halves. Twice the time means half the acceleration, so half the force."
+explain: |
+  Newton's laws explain design: seat belts (**first law**), airbags and crumple zones (**second law**: a longer stopping time means a smaller force), rockets (**third law**), and a spearthrower, which lengthens the push on the spear so it leaves faster.

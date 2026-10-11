@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 8
 node: AC9S9U07 n4
 unit: equations
 title: How do you balance an equation?

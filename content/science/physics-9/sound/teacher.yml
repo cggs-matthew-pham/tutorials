@@ -1,0 +1,42 @@
+summary: "Students describe sound as a longitudinal wave that needs a medium, use compressions and rarefactions to explain how energy is transferred, and link frequency to pitch and amplitude to loudness (AC9S9U04, node 2, a hinge node)."
+time: 25
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 4 min, Wider about 2 min"
+goals:
+  - I can describe a sound wave with compressions and rarefactions.
+  - I can say what changes when a sound gets higher or louder.
+  - I can explain why sound cannot travel through a vacuum.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows How does heat get through? and comes before the charge lessons.
+
+  The hinge: the wave model first appears here. Students who picture particles flowing from speaker to ear cannot go on to light as a wave or to compare the wave and particle models later. The prediction targets it, and the orange particle on the board is the answer.
+
+  Board notes: the animation is slowed down, the speeds in the three media are not to scale (the numbers shown are the real ones), and the particles are drawn in one row of 7 for clarity. Real sound waves have far more particles per wavelength.
+running:
+  - "Engage: tally the predictions. Ask where the 'travels to your ear' group thinks the air at the speaker goes."
+  - "Explore: ask what moved, the particles or the pattern."
+  - "Explain: compression, longitudinal and vacuum are the success criteria."
+  - "In your own words: the dot diagram with compression and rarefaction marked."
+struggle: "That the wave travels but the particles don't. When a student says air rushes to the ear, ask them to point to the orange particle and say where it is a second later."
+stuck:
+  - see: "A student says the particles travel to the listener."
+    ask: "Where is the orange particle now, compared with a moment ago?"
+    fix: "It is in the same place. Only the squashed patch has moved on."
+  - see: "A student mixes up pitch and loudness."
+    ask: "Which slider changed the number of waves, and which changed their height on the graph?"
+    fix: "Pitch is how often (frequency); loudness is how big (amplitude)."
+  - see: "A student thinks sound is slower in solids."
+    ask: "Which particles are closest together?"
+    fix: "In a solid they are closest and tightly bonded, so the vibration passes on fastest."
+stretch: "A sound has a frequency of 200 vibrations a second. How many compressions pass you in a second? (200.) If the speed is 340 m/s, how long is each wave? (340 ÷ 200 = 1.7 m.)"
+support: "Give a drawn row of dots with a pencil mark on one dot. Ask students to draw the row at three moments as the wave passes, keeping the marked dot in place."
+leads: |
+  Next: The charge lessons (the particle model of electricity), then the electromagnetic spectrum, where the wave model has to work without a medium.
+
+  In class: stretch a slinky across a table and push and pull one end, then shake it sideways; use a tuning fork on water; a bell in a vacuum jar if available. A yidaki or other instrument from a local First Nations community, with the community's guidance, is a strong real example.
+exit:
+  q: "A loud, high note is played. Say what is large or fast about the wave, and what the particles of air in between are doing."
+  a: "Large amplitude (loud) and high frequency (high pitch). The particles vibrate to and fro in place while the squashed and spread-out patches travel."
+explain: |
+  A sound wave is a line of **compressions** (particles squashed together) and **rarefactions** (spread out) that travels through a medium. The particles only vibrate to and fro; the pattern moves.
+
+  **Frequency** sets the **pitch** and **amplitude** sets the **loudness**. With no particles, as in a vacuum, there is no sound.

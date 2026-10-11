@@ -42,3 +42,5 @@ Misconceptions: gamma makes a new element; the beta electron comes from the shel
 Each unstable nucleus decays at random, but a large sample halves in a fixed time, the **half-life**: 1/2, 1/4, 1/8 … Half-life is not changed by heat or chemistry. Short half-lives suit medicine (fluorine-18, about 2 hours); long ones suit dating (carbon-14, 5730 years).
 
 Misconceptions: the sample is all gone after two half-lives; each nucleus decays at exactly the half-life; heating speeds decay up.
+
+**On screen:** the short tutorials *From uranium to lead* (node 5 of 9U06, decay chains, in the atoms unit), *Where does the mass go?* (node 5 of 9U07, in equations) and *Use the table to predict* (node 4 of 10U06, in periodic) cover the integration nodes.

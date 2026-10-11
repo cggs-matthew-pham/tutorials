@@ -1,0 +1,27 @@
+# Boards for "Where does static charge come from?".
+
+# region: rub
+widget: charge
+mode: static
+rub: Wool > Balloon
+# endregion
+
+# region: pair
+widget: charge
+mode: pair
+first: 2
+second: -1
+# endregion
+
+# region: explain
+widget: charge
+mode: static
+rub: Wool > Balloon
+# endregion
+
+# region: explain-pic
+widget: charge
+mode: static
+rub: Wool > Balloon
+run: 3
+# endregion

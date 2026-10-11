@@ -1,0 +1,13 @@
+# Boards for "From uranium to lead".
+
+# region: radon
+widget: atom
+mode: decay
+isotope: radon-222
+# endregion
+
+# region: uranium
+widget: atom
+mode: decay
+isotope: uranium-238
+# endregion

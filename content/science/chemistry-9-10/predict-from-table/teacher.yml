@@ -1,0 +1,35 @@
+summary: "Students use an element's position in the periodic table to predict its outer electrons, shells, reactivity and bonding, explain properties from atomic structure, and use the table as a predictive tool (AC9S10U06, node 4, an integration node)."
+time: 22
+timing: "Engage and Explore 7 min · Explain 10 min · Evaluate 3 min · Typical adds 1 min, Wider about 1 min"
+goals:
+  - I can predict outer electrons and shells from group and period.
+  - I can predict reactivity and the ion an element forms.
+  - I can explain two properties with atomic structure.
+before: |
+  An integration tutorial that follows the trends lesson. Set the width with `?width=minimum`, `typical` (default) or `wider`. The board covers elements 1 to 20, so the questions about rubidium and germanium are reasoned from the pattern rather than clicked.
+
+  The group-number shortcut (group minus 10 for outer electrons) works for groups 13 to 18 only; transition metals are left to class. Reactivity trends are given as patterns, not rules without exceptions.
+running:
+  - "Engage: tally the predictions. Ask the 'look it up' group what they would be looking up."
+  - "Explore: ask how the outer electrons changed along period 3."
+  - "Explain: the outer-electron questions and the reactivity trend are the success criteria."
+  - "In your own words: the predicted properties of a new element and how they were found."
+struggle: "Using position as the evidence. When a student asks 'is it in the book?', ask what the group tells them about its outer electrons."
+stuck:
+  - see: "A student says lithium is more reactive than rubidium because it is smaller."
+    ask: "Which outer electron is held more tightly, and why?"
+    fix: "Lithium's, because it is closer to the nucleus. Rubidium's is further away and easier to lose."
+  - see: "A student says sodium gains an electron."
+    ask: "How many outer electrons does it have, and what is the easiest way to a full shell?"
+    fix: "One; losing it leaves a full shell underneath. Group 1 loses an electron."
+stretch: "An element is in group 2, period 6. Predict its outer electrons, its reactivity compared with magnesium, and the charge on its ion. (2; more reactive; 2+.)"
+support: "Give a template card: 'Group ___ means ___ outer electrons. Period ___ means ___ shells. It will (lose/gain) ___ electron(s) to form a ___ ion.'"
+leads: |
+  Next: Year 10 reaction types and collision theory.
+
+  In class: flame tests (with school safety rules), a spectroscope for lamps of different elements, a puzzle where students place unlabelled element cards on a blank table using their properties.
+exit:
+  q: "Predict the number of outer electrons and the ion formed by calcium, which is in group 2, period 4."
+  a: "Two outer electrons; it loses them to form a Ca²⁺ ion."
+explain: |
+  **Group** gives the **outer electrons**; **period** gives the **shells**. Outer electrons decide reactivity and bonding, so the table is a **predictive model**, not a list.

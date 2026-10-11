@@ -59,6 +59,7 @@ var WPB = (function () {
   /** A JSXGraph board in #board, replacing any earlier one. */
   B.jsx = function (opts) {
     if (B.jsxBoard) JXG.JSXGraph.freeBoard(B.jsxBoard);
+    B.el('board').querySelectorAll('canvas.wpcv').forEach(function (c) { c.remove(); });
     B.jsxBoard = JXG.JSXGraph.initBoard('board', Object.assign({
       keepAspectRatio: false, axis: false, grid: false, showNavigation: false, showCopyright: false,
       pan: { enabled: false }, zoom: { enabled: false, wheel: false }, registerEvents: true,

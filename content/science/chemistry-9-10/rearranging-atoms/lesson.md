@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 node: AC9S9U07 n2
 unit: equations
 title: Where do the atoms go?

@@ -1,0 +1,26 @@
+# Boards for "How does sound travel?".
+
+# region: sound
+widget: wave
+mode: sound
+medium: air
+freq: 3
+amp: 3
+# endregion
+
+# region: choose
+widget: wave
+mode: sound
+medium: choose
+freq: 3
+amp: 3
+# endregion
+
+# region: explain
+widget: wave
+mode: sound
+medium: air
+freq: 2
+amp: 3
+run: 2
+# endregion

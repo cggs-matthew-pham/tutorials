@@ -844,6 +844,29 @@ Vary, Practise, Make).
     decays in a row from the start, `s` 1 once stable. `mode: shield`: fire alpha, beta and gamma at paper,
     aluminium and lead (`fired: alpha, beta, gamma` starts with all three shown, for a picture). Values: `x`, `y`,
     `w` 1 once fired, `f` kinds fired.
+  - `widget: wave` (AC9S9U04 n2 and n4). `mode: sound`: a speaker, a tube of particles, a listener and a pressure
+    graph (canvas): compressions and rarefactions travel, each particle only moves to and fro (one orange particle
+    marks this), the wave is slowed down and the speeds are not to scale. `medium: air | water | steel | vacuum |
+    choose` (a menu), `freq: 2` and `amp: 3` (1 to 5; sliders Pitch and Loudness unless `sliders: off`), `mark`,
+    `labels` (compression, rarefaction, wavelength), `hear: on` (a Hear it tone button), `run: 2` (seconds already
+    run, for a picture), `play: off`. Values: `f`, `a`, `m` (0 vacuum, 1 air, 2 water, 3 steel), `v` real speed (m/s),
+    `l` wavelength in tube lengths, `h` 1 once the sound has reached the listener. `mode: refract`: wave fronts
+    (blue) and rays crossing from air into `medium: glass | water | diamond | choose` with `angle: 40` (a slider
+    Angle, 0 to 80 in 5s), or `surface: mirror` for reflection; fronts are closer and slower in the material and the
+    ray follows Snell's law (not named for students). `rays: off`, `play: off`, `run`. Values: `i`, `r` (refraction
+    or reflection angle), `n` index of the material, `e` 1 for a mirror. `mode: spectrum`: the seven bands, one at a
+    time (buttons or click the bar), with typical wavelength, frequency, use and care, and a schematic wave;
+    `band: visible`. Values: `b` band (0 radio to 6 gamma), `n` bands looked at, `f` and `l` log10 of frequency and
+    wavelength.
+  - `widget: charge` (AC9S9U04 n3). `mode: static`: two materials of eight atoms each, `rub: Wool > Balloon`
+    (gives up electrons > gains them); buttons Rub (one electron each, at most `max: 6`), Touch metal (the extra
+    electrons rush back, with a spark) and Start again; `run: 4` rubs already done, for a picture. Values: `a` net
+    charge of the first, `b` of the second, `n` electrons moved, `d` times touched while charged, `s` 1 after a touch.
+    `mode: pair`: two balls with `first: 2` and `second: -1` (-3 to 3, sliders Ball 1 and Ball 2): like charges
+    push apart, unlike pull together. Values: `p`, `q`, `f` (-1 pull, 0 none, 1 push). `mode: current`: a battery, a
+    wire loop and a bulb with fixed + atoms and moving - electrons, `material: copper | plastic | choose`, `volts: 3`
+    (0 to 6, slider Battery), `run: 2`. Values: `v`, `m` (1 conductor), `i`, `l` (1 if the bulb is lit). Sound and
+    charge draw on a canvas (`canvas.wpcv`) inside `#board`; `B.jsx` removes a leftover one.
   - `widget: energy` (AC9S8U05, AC9S9U05). `mode: coaster`: a roller coaster car on a track of hills (Play, Pause,
     Reset) with bars for potential, kinetic, and heat and sound, and the total marked; `start: 30` (m, 10 to 50),
     `mass: 500`, `g: 10`, `friction: off | on | toggle`, `drag: 400` (N while moving), `run: 4` (seconds already run,

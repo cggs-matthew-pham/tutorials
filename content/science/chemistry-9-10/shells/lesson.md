@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 10
 node: AC9S10U06 n1
 unit: periodic
 title: How are the electrons arranged?

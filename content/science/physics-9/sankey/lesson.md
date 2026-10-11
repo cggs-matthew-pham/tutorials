@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 10
 node: [AC9S9U05 n3, AC9S9U05 n4]
 unit: conservation
 title: What does a Sankey diagram show?

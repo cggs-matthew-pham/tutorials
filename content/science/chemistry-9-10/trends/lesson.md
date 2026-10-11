@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 12
 node: AC9S10U06 n3
 unit: periodic
 title: Why does the periodic table repeat?

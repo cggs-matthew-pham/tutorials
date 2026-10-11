@@ -42,3 +42,5 @@ Questions: Which pull changed the motion most quickly, and how can you tell? Wha
 **Success criteria (from the progression):** states the relationship in words (a bigger unbalanced force gives a bigger change in motion; a bigger mass gives a smaller change for the same force); predicts which object speeds up more under the same force; identifies the pattern in data. Keep it qualitative: F = ma waits for Year 10.
 
 **Watch for:** "heavier objects need a force to keep moving" (from node 2), and mixing up mass and weight (node 4) when students explain why the loaded trolley is slower.
+
+**On screen:** the short tutorial *Same push, different mass* covers node 5 (the qualitative relationship and the data pattern); the investigation above still comes first.

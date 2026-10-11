@@ -1,0 +1,42 @@
+summary: "Students describe light and the electromagnetic spectrum as transverse waves differing in frequency and wavelength, and link frequency to energy and use (AC9S9U04, node 4)."
+time: 26
+timing: "Engage and Explore 8 min · Explain 11 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can say what makes light and X-rays the same kind of wave.
+  - I can say how wavelength, frequency and energy change from radio to gamma.
+  - I can match a wave to a use and a risk.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows How does current flow? and comes before How does light bend?
+
+  The pattern is the point: wavelength down, frequency up, energy up. The wave at the bottom of the board is a schematic with a few cycles per band: the real wavelengths span about fifteen powers of ten. Figures are typical and rounded: radio 3 m (100 MHz), microwave 12 cm (2.5 GHz), infrared 10 µm, visible 500 nm, UV 100 nm, X-ray 1 nm, gamma 1 pm.
+
+  Be clear that 'more energy per wave' is different from 'more powerful': a strong radio transmitter delivers more power than a dim UV lamp, but each radio wave carries little energy.
+running:
+  - "Engage: tally the predictions. Ask the 'microwaves' group what makes an oven powerful."
+  - "Explore: ask what pattern they notice from Radio to Gamma."
+  - "Explain: the energy question and the uses match are the success criteria."
+  - "In your own words: the labelled line of seven bands."
+struggle: "Separating how powerful a source is from how much energy each wave carries. When a student says microwaves are more dangerous than X-rays because an oven cooks food, ask what each single wave can do to one cell."
+stuck:
+  - see: "A student says gamma rays travel faster."
+    ask: "Which of the two bands is it that differs in speed on the board?"
+    fix: "None: all travel at 300 000 km/s in a vacuum."
+  - see: "A student says light needs air to travel through."
+    ask: "How does sunlight reach us?"
+    fix: "Across empty space. Light needs no medium."
+  - see: "A student thinks infrared is the same as visible light."
+    ask: "Which band has the longer wavelength?"
+    fix: "Infrared. We feel it as heat but can't see it."
+stretch: "A radio wave has frequency 100 MHz and a speed of 300 000 000 m/s. What is its wavelength? (3 m, using speed = frequency × wavelength.)"
+support: "Give the seven bands on cards in order with their names and ask students to add 'long', 'short' and arrows for frequency and energy before they try the match."
+leads: |
+  Next: How does light bend? uses the wave model to explain reflection and refraction.
+
+  In class: a prism or a CD to show visible light spreading; a TV remote seen through a phone camera (infrared); UV beads that change colour in sunlight; discuss local sun-safety rules.
+exit:
+  q: "A student says X-rays are dangerous because they are faster than light. Correct them in a sentence."
+  a: "X-rays travel at the same speed as light. They are dangerous because each wave has a high frequency and carries a lot of energy, enough to damage cells."
+explain: |
+  Light is a **transverse wave** and part of the **electromagnetic spectrum**, which runs from radio to gamma. All travel at the **same speed** in a vacuum and need no medium.
+
+  Going from radio to gamma, the **wavelength gets shorter**, the **frequency higher** and the **energy per wave greater**. That decides what each wave is used for and how careful we must be.

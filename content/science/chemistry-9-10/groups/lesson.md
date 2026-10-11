@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 11
 node: AC9S10U06 n2
 unit: periodic
 title: Why do elements in a group behave alike?

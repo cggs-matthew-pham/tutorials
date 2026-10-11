@@ -1,0 +1,13 @@
+# Boards for "What is the electromagnetic spectrum?".
+
+# region: spectrum
+widget: wave
+mode: spectrum
+band: visible
+# endregion
+
+# region: explain
+widget: wave
+mode: spectrum
+band: ultraviolet
+# endregion

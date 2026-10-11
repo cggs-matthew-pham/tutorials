@@ -1,0 +1,42 @@
+summary: "Students explain electric current as a directed flow of free electrons driven by voltage, and distinguish conductors from insulators using free and bound electrons (AC9S9U04, node 3)."
+time: 25
+timing: "Engage and Explore 8 min · Explain 11 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can explain what an electric current is.
+  - I can say why copper conducts and plastic doesn't.
+  - I can say what the battery does.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows Where does static charge come from? and comes before the electromagnetic spectrum.
+
+  Students arrive from Year 6 circuits with a working model (current goes round, the bulb uses it up). The prediction targets 'electrons used up'. Don't introduce current as a number of amperes here; the Year 9 descriptor is about the particle model.
+
+  Board notes: the loop shows far fewer electrons than a real wire has, and drift is exaggerated. Real drift speed is a small fraction of a millimetre a second; the push travels round the loop almost at once, which is why the bulb lights immediately. The nearest neighbour atoms are drawn as fixed positive charges; real conductors have a 'sea' of free electrons around positive ions.
+running:
+  - "Engage: tally the predictions. Ask the 'used up' group where the electrons go when they leave the bulb."
+  - "Explore: ask what is different about plastic that matters."
+  - "Explain: free versus bound and the battery's role are the success criteria."
+  - "In your own words: the loop diagram with both directions marked."
+struggle: "That electrons aren't used up. When a student says the bulb eats electrons, ask them to count the electrons entering and leaving the bulb on the board."
+stuck:
+  - see: "A student says current is used up in the bulb."
+    ask: "Do fewer electrons leave the bulb than enter it?"
+    fix: "The same number leave. The bulb gets energy from them, not electrons."
+  - see: "A student says plastic has no electrons."
+    ask: "Is plastic made of atoms?"
+    fix: "Yes, so it has electrons. They are tied to their atoms and can't move round."
+  - see: "A student says the battery makes electrons."
+    ask: "Were there electrons in the wire before the battery was joined?"
+    fix: "Yes. The battery pushes the ones already there."
+stretch: "The push reaches the bulb almost at once, but each electron drifts very slowly. How can the bulb light straight away? (The wire is already full of electrons, so they all start moving together, like a full tube of marbles.)"
+support: "Give a drawn loop with the battery and bulb and ask students to add an arrow on each of three blue electrons, then to label the battery's + and − ends."
+leads: |
+  Next: What is the electromagnetic spectrum? The wave model is extended to light, which, unlike sound, doesn't need a medium.
+
+  In class: build a simple circuit and test materials as conductors or insulators; a lemon or potato cell; a hand-crank generator.
+exit:
+  q: "A student says 'the bulb uses up the electrons so the wire after it is empty'. What would you say?"
+  a: "The same number of electrons leave the bulb as enter it. They carry on round the loop. The bulb transfers some of the energy they carry as light and heat."
+explain: |
+  A **current** is a flow of **free electrons** pushed round the circuit by the battery. A **conductor** has free electrons; an **insulator** has none because its electrons are tied to their atoms.
+
+  The electrons are **not used up**. More volts means a stronger push and a bigger current.

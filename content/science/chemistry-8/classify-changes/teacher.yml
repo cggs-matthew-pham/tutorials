@@ -1,0 +1,36 @@
+summary: "Students apply the new-substance criterion, observable clues and energy change together to classify unfamiliar changes, and explain why several clues are better than one (AC9S8U07, node 6, an integration node)."
+time: 16
+timing: "Engage 3 min · Explain 9 min · Evaluate 3 min · Typical adds 2 min, Wider about 1 min"
+goals:
+  - I can classify an unfamiliar change using all the criteria.
+  - I can say why several clues are better than one.
+  - I can give an example where one clue misleads.
+before: |
+  A short questions-led lesson with no simulation, closing the unit on physical and chemical change. Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows the energy lesson.
+
+  The first prediction targets the bubbles misconception. Real cases are the best material: bring a few unlabelled changes (a lit match, an effervescent tablet, melting wax) and have groups argue for a classification before you reveal.
+
+  Board notes: none; the lesson has no board. Cases are simplified: cooking involves many reactions.
+running:
+  - "Engage: tally the predictions. Ask the 'both' group what substance is the gas in the pot."
+  - "Explain: the sort and the 'cold reaction' case are the success criteria."
+  - "In your own words: a kitchen change with two clues and the new-substance reason."
+struggle: "Deciding on the evidence, not the first clue. When a student says 'it bubbled so it's chemical', ask what the bubbles are and where they came from."
+stuck:
+  - see: "A student says a temperature change means a chemical change."
+    ask: "What happens to the temperature when ice melts?"
+    fix: "It takes in energy, but it's still water. A temperature change is a clue, not a test."
+  - see: "A student says dissolving is chemical because the sugar disappears."
+    ask: "How could you get the sugar back?"
+    fix: "By evaporating the water. The sugar is still there, so it's physical."
+stretch: "Is burning a candle physical, chemical or both? Say which part is which. (The wax melting is physical; the wax vapour burning is chemical.)"
+support: "Give a three-box organiser (What I see; Is there a new substance?; My decision) for each case, with the new-substance question printed in bold."
+leads: |
+  Next: Year 9 atoms and the periodic table, and balancing equations.
+
+  In class: a 'mystery change' station with five tubes and cards; vinegar and baking soda, steel wool in vinegar, ice in a beaker with a thermometer.
+exit:
+  q: "A student says 'it fizzed, so it was chemical'. Give one case where fizzing is not chemical and say what to check instead."
+  a: "Boiling water fizzes with steam, a physical change. Check whether a new substance was made."
+explain: |
+  Ask first: **is a new substance made?** Then use the clues, and remember that **one clue can mislead**. **Several clues pointing the same way** give more confidence.

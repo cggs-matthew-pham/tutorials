@@ -1,0 +1,34 @@
+summary: "Students explain why total mass is conserved in a closed reaction, account for apparent changes in open systems, and connect balanced equations to mass conservation (AC9S9U07, node 5, an integration node)."
+time: 15
+timing: "Engage 3 min · Explain 9 min · Evaluate 3 min · Typical adds 1 min, Wider about 1 min"
+goals:
+  - I can explain why mass is conserved in a closed system.
+  - I can explain why mass seems to change in an open system.
+  - I can say what a balanced equation shows about mass.
+before: |
+  A short questions-led lesson with no simulation, after Balancing equations. Set the width with `?width=minimum`, `typical` (default) or `wider`. It works best paired with a real investigation: weigh an antacid tablet and water in an open beaker, then in a sealed zip-lock bag.
+
+  The numbers in the questions are chosen for clean answers: magnesium and oxygen combine in a ratio of 3 to 2 by mass, and iron and sulfur react in a ratio of about 7 to 4.
+running:
+  - "Engage: tally the predictions. Ask the 'destroyed' group where the carbon dioxide went."
+  - "Explain: the closed-system sum and the open-system case are the success criteria."
+  - "In your own words: why the reading dropped and what to change."
+struggle: "Counting all the substances, including gases. When a student says mass was lost, ask what else was in the system that they didn't weigh."
+stuck:
+  - see: "A student says burning destroys the wood."
+    ask: "What are the products of burning wood?"
+    fix: "Carbon dioxide and water vapour (gases) and ash. Their mass adds up to the wood plus the oxygen used."
+  - see: "A student says mass appears when magnesium burns."
+    ask: "What in the air could join the magnesium?"
+    fix: "Oxygen. The product is heavier because it has oxygen in it."
+stretch: "6.0 g of carbon burns completely in 16.0 g of oxygen. What mass of carbon dioxide forms? (22.0 g.) What mass would be left of the oxygen if only 12.0 g was available? (Not enough: the product would be less than 22.0 g.)"
+support: "Give a sentence frame: 'The balance reading went (up / down) because ___ (entered / left) the container. The total mass of everything is still ___.'"
+leads: |
+  Next: Year 10 atoms and the periodic table.
+
+  In class: antacid tablet and water in an open beaker and in a sealed zip-lock bag on a balance; steel wool on a balance with a flame; vinegar and baking soda in a bottle with a balloon.
+exit:
+  q: "A student weighs a candle before and after burning it in an open dish and finds it lighter. Is mass conserved?"
+  a: "Yes. The missing mass left as carbon dioxide and water vapour. Weighing the candle and the oxygen used against the gases would show the same total."
+explain: |
+  Atoms are **rearranged**, not made or destroyed, so total mass is **conserved**. In an **open system** the mass can seem to change when a gas escapes or enters. A **balanced equation** has the same atoms on both sides.

@@ -26,3 +26,5 @@ A force is a vector. Along one line, add forces that point the same way and subt
 ## Third law and free body diagrams (nodes 5 and 6)
 
 Forces come in pairs: A on B and B on A, same size, opposite directions, on different objects, so they never cancel. Weight and support on a book are balanced forces, not a pair. A free body diagram shows one object and every force on it; work each direction separately.
+
+**On screen:** the short tutorials *Solving force and motion problems* (node 7) and *Newton's laws in the real world* (node 8) support the practice and application nodes; the in-your-book tasks are the main work.
