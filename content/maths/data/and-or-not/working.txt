@@ -1,0 +1,7 @@
+# Zoe's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: zoe
+30 students: 13 have a dog, 10 have a cat and 4 have both.
+"Dog or cat" means a dog, a cat, or both.
+P(dog or cat) = 13/30 + 10/30 = 23/30.
+# endregion

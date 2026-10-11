@@ -1,0 +1,36 @@
+# Outcomes to choose for "Complementary events". Students click outcomes to make event A; Show not A shades the rest.
+
+# region: run
+widget: events
+first: dice
+target: a >= 5
+complement: on
+# endregion
+
+# region: explain
+widget: events
+first: dice
+event: a <= 2
+complement: on
+# endregion
+
+# region: explain-pic
+widget: events
+first: dice
+event: a <= 2
+complement: shown
+# endregion
+
+# region: nosix
+widget: events
+first: dice
+second: dice
+target: a < 6 and b < 6
+# endregion
+
+# region: make
+widget: events
+first: dice
+second: dice
+complement: on
+# endregion

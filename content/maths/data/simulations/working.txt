@@ -1,0 +1,7 @@
+# Ella's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ella
+Ella uses an app to roll two dice 20 times.
+A sum of 12 never comes up in her 20 rolls.
+So the probability of a sum of 12 is 0.
+# endregion

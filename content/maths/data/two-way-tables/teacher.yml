@@ -1,0 +1,45 @@
+summary: Students read, build and convert between Venn diagrams and two-way tables for two yes/no properties (AC9M8P02, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can sort a group into one, the other, both and neither.
+  - I can build a Venn diagram or a two-way table from a story.
+  - I can change a Venn diagram into a two-way table, and back.
+struggle: "The overlap. Ask students to write the 'both' number first, every time, and take it from each total."
+before: |
+  Do the Run board yourself first. Students need sample spaces and fractions as probabilities.
+
+  The one idea: two properties make four groups, and every person is in exactly one. The common mistake is writing a whole total (22 like tea) in the 'only' part, counting the overlap twice (Lia's mistake).
+
+  The board shows the diagram and the table together; choosing a region highlights the matching cell. In Modify, students fill one from the other (the board ticks when all four are right).
+
+  Probabilities from these (and, or, not) come in two lessons. Tree diagrams and grids (the other representations in 8P02) are next.
+running:
+  - "Predict: ask who might have been counted twice."
+  - "Run: ask which two groups make the whole Sport circle."
+  - "Investigate: ask Lia how many like tea but not coffee."
+  - "Modify: ask where 'both' goes in the table."
+  - "Make: ask which picture answers 'how many ride a bike in all?' faster."
+stuck:
+  - see: "A student writes the whole total in the 'only' part."
+    ask: "Are some of those people in the overlap too?"
+    fix: "Write both first; only = total − both."
+  - see: "A student forgets the 'neither' group."
+    ask: "Is everyone in a circle?"
+    fix: "The box is everyone; neither = total − the other three."
+  - see: "A student mixes up rows and columns in the table."
+    ask: "Read the row name, then the column name: what do both say?"
+    fix: "Each inside cell is one row property and one column property."
+stretch: "Three properties need three circles: how many regions does that make? Try it for sport, music and art."
+support: "A blank Venn diagram and a blank two-way table on one sheet, with 'both' marked in each."
+leads: |
+  This starts AC9M8P02 node 1.
+
+  Where it leads: grids and tree diagrams (next lesson), and 'and', 'or' and 'not' probabilities.
+exit:
+  q: "50 students: 30 study French, 25 study Japanese, 10 study both. How many study neither?"
+  a: "French only 20, Japanese only 15, both 10: 45, so 5 study neither."
+explain: |
+  Sorting a group by two yes/no properties makes four groups: **one only**, **the other only**, **both** and **neither**. Everyone is in exactly one.
+
+  A **Venn diagram** shows them as two overlapping circles in a box; a **two-way table** shows them as four cells with totals. Write **both** first, then take it from each total.

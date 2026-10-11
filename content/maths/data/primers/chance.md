@@ -17,6 +17,10 @@ Large experiments and simulations are how probabilities are estimated when no sa
 - **Expecting the predicted count exactly**, and calling a fair dice unfair after a short experiment.
 - **The gambler's fallacy**: thinking a coin is "due" a head after a run of tails. Each trial is independent.
 
+## Year 8: compound events
+
+An event and its **complement** (not A) cover every outcome once, so P(not A) = 1 − P(A); "at least one" is quickest as 1 − P(none). Two events that just can't happen together are not complementary unless they also cover everything. Two events one after the other make **pairs**, listed once each in a **grid** or a **tree diagram** (HT and TH are different outcomes); count by multiplying. Two properties of one group make four groups (one, the other, both, neither), shown by a **Venn diagram** or a **two-way table**: write "both" first. **And** is the overlap; **or** is one, the other or both, so P(A or B) = P(A) + P(B) − P(A and B). A **simulation** runs many trials quickly; its relative frequency estimates the probability, and a short run can be well off. The common slips: counting the overlap twice, merging HT and TH, and trusting 20 trials.
+
 ## The words
 
-**outcome**, **sample space**, **event**, **probability**, **equally likely**, **expected count**, **relative frequency**, **trial**, **law of large numbers**.
+**outcome**, **sample space**, **event**, **probability**, **equally likely**, **expected count**, **relative frequency**, **trial**, **law of large numbers**, **complement**, **two-way table**, **Venn diagram**, **tree diagram**, **compound event**, **simulation**.

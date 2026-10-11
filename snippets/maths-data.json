@@ -94,6 +94,46 @@
           "hint": "The experiment's estimate of the probability. Over many trials it settles close to the probability (the law of large numbers); nothing is ever 'due'.",
           "board": "widget: chance\ndevice: coin\nseed: 2\nstart: 2000",
           "shows": "2000 flips: the relative frequency of heads settles near 0.5"
+        },
+        {
+          "label": "complementary events",
+          "unit": "chance",
+          "code": "P(\\text{not } A) = 1 - P(A)",
+          "hint": "An event and its complement cover every outcome once. For 'at least one', count the outcomes with none and subtract from 1.",
+          "board": "widget: events\nfirst: dice\nevent: a >= 5\ncomplement: shown",
+          "shows": "Roll 5 or 6 (A) and the other four outcomes (not A)"
+        },
+        {
+          "label": "Venn diagram and two-way table",
+          "unit": "chance",
+          "code": "\\text{both first: only} = \\text{total} - \\text{both}",
+          "hint": "Two yes/no properties make four groups: one only, both, the other only, neither. Each is a region of the Venn diagram and a cell of the table.",
+          "board": "widget: venn\nlabels: Sport, Music\ncounts: 12, 8, 5, 5",
+          "shows": "The same 30 students as a Venn diagram and a two-way table"
+        },
+        {
+          "label": "grid and tree diagram",
+          "unit": "chance",
+          "code": "\\text{outcomes} = 3 \\times 2 = 6",
+          "hint": "Two events make pairs: a grid or a tree lists every pair once, and the number of outcomes is the two counts multiplied. HT and TH are different outcomes.",
+          "board": "widget: events\nfirst: red, blue, green\nsecond: coin\nnames: Spinner, Coin\nview: tree\nevent: b = H",
+          "shows": "A spinner with three equal parts, then a coin: 6 outcomes, 3 of them heads"
+        },
+        {
+          "label": "and, or, not",
+          "unit": "chance",
+          "code": "P(A \\text{ or } B) = P(A) + P(B) - P(A \\text{ and } B)",
+          "hint": "And is the overlap; or is one, the other or both; not A is everything outside A. Count each outcome once.",
+          "board": "widget: venn\nlabels: Dog, Cat\ncounts: 9, 4, 6, 11\nevent: a or b",
+          "shows": "Dog or cat: everything inside the circles, 19 of 30"
+        },
+        {
+          "label": "simulation",
+          "unit": "chance",
+          "code": "\\text{relative frequency} = \\dfrac{\\text{count}}{\\text{trials}}",
+          "hint": "Run many trials with random numbers (=RANDBETWEEN(1,6) is a dice) and compare the relative frequency with the probability. Short runs can be well off.",
+          "board": "widget: events\nfirst: dice\nsecond: dice\nshow: sum\nevent: s >= 10",
+          "shows": "Two dice with a total of 10 or more chosen (6 of 36), ready to simulate"
         }
       ]
     }

@@ -781,6 +781,21 @@ Vary, Practise, Make).
     with a point P set by `slider x:`, `slider y:`, `slider z:` (or fixed), its path from the origin dashed. `target: 3, 2, 4`
     draws a ring Q; `box: on` draws the box from the origin to P. Values `x`, `y`, `z`, `d` (1 on the target), `v` (the box's
     volume). Use a height near 680. Checks: `"d = 1"`, `"v = 24"`.
+  - `widget: events` (first used by `maths/data/complementary-events`): the sample space of `first:` and optional `second:`
+    (each `dice`, `dice 4` to `dice 12`, `coin`, or a list of equally likely outcomes `red, blue, green`; `names:` renames
+    them), drawn as a row, a grid (`view: grid`) or a tree (`view: tree`, at most 16 outcomes; `both` adds a switch button).
+    `show: sum` labels two dice by their total. Students click outcomes to make event A (`choose: off` stops them);
+    `event:` and `target:` are rules over `a`, `b` and `s` (the sum) with `and`, `or`, `not`, `=`, `<`, `>`, `%` and outcome
+    names as words (`a = H and b % 2 = 0`). `complement: on` adds Show not A (`shown` starts it shown); `trials: on` adds
+    Run 1 to 1000 and a frequency table (`seed:` for clips). Values `n` (in A), `m` (all), `p`, `q` (not A), `k` (not A
+    shown), `r` (A matches the target), `u` (trials), `c`, `f` (relative frequency of A), `e` (|f − p|). Checks: `"r = 1"`,
+    `"n = 9 and k = 1"`, `"u >= 1000 and e < 0.04"`.
+  - `widget: venn` (first used by `maths/data/two-way-tables`): `labels: Sport, Music` and `counts: 12, 8, 5, 5` (A only, both,
+    B only, neither) as a Venn diagram and a two-way table with totals (`show: venn | table | both`). Students choose regions
+    by clicking either, or with buttons named "Sport only", "Sport and Music", "Music only", "Neither"; `event: a or b` (a,
+    b, a and b, a or b, not a, not b, a only, b only, neither, all; join with +) chooses at the start. `blank: table` or
+    `blank: venn` turns the four counts into boxes to fill from the other picture. Values `x`, `y`, `z`, `w` (A only, both,
+    B only, neither chosen), `n`, `t`, `p`, `k` (every box right). Checks: `"x = 1 and y = 1 and z = 1 and w = 0"`, `"k = 1"`.
   - Board variables in `when:` must be single letters: the evaluator reads a longer name such as `sb` as s × b.
   - `widget: data` (first used by `maths/data`): a dot plot of `values: 4, 7, 7, 8` on `range: 0, 20` (default: around
     the data), with the mean (▲), median (dashed) and range (arrow) marked and written underneath (`show: mean, median,

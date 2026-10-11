@@ -1,0 +1,45 @@
+summary: Students find P(A and B), P(A or B), P(not A) and P(neither) from Venn diagrams, two-way tables and two-dice grids, counting the overlap once (AC9M8P02, node 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can find 'and', 'or', 'not' and 'neither' on a Venn diagram, a table or a grid.
+  - I can work out P(A or B) without counting the overlap twice.
+  - I can explain that 'or' in maths includes both.
+struggle: "The overlap in 'or'. Ask students to point to the overlap and say how many times they have counted it."
+before: |
+  Do the Run board yourself first. Students need Venn diagrams and two-way tables, grids, and complements (the last three lessons).
+
+  The one idea: 'and' is the overlap, 'or' is everything inside the circles (one, the other or both), 'not' is outside a circle, and 'neither' is outside both. The common mistake is adding the totals for 'or' (Zoe's mistake), counting the overlap twice.
+
+  Inclusive 'or' is the maths meaning; everyday 'or' is often exclusive ("tea or coffee?"). Name the difference once. The addition rule P(A or B) = P(A) + P(B) − P(A and B) appears as a routine, not a formula to memorise.
+
+  Wider: Venn diagrams with three circles, and checking 'or' with a complement (neither).
+running:
+  - "Predict: ask whether a probability can be more than 1."
+  - "Run: ask how many times the 8 are counted now."
+  - "Investigate: ask Zoe where the 4 with both are."
+  - "Modify: ask which outcomes are both over 9 and doubles."
+  - "Make: ask how many outcomes are in A, in B and in both."
+stuck:
+  - see: "A student adds the two totals for 'or'."
+    ask: "Is anyone in both totals?"
+    fix: "Add, then take away the overlap once."
+  - see: "A student gives 'and' as everyone in either circle."
+    ask: "Does 'and' need both to be true?"
+    fix: "And is the overlap only."
+  - see: "A student leaves out the 'both' people from 'or'."
+    ask: "Does someone with a dog and a cat have a dog or a cat?"
+    fix: "In maths, 'or' includes both."
+stretch: "Find P(exactly one of A and B) for the Sport and Music class, and write it using 'or', 'and' and 'not'."
+support: "Four mini Venn diagrams with 'and', 'or', 'not A' and 'neither' shaded, as a reference card."
+leads: |
+  This completes AC9M8P02.
+
+  Where it leads: simulations of compound events (next lesson), and independent events in Year 10.
+exit:
+  q: "40 students: 25 like maths, 18 like art, 10 like both. Find P(maths or art) and P(neither)."
+  a: "25 + 18 − 10 = 33, so 33/40. Neither: 7/40."
+explain: |
+  **A and B**: both happen (the overlap). **A or B**: at least one happens, both included (everything inside the circles). **Not A**: everything outside A. **Neither**: outside both.
+
+  Count each outcome once. From totals: P(A or B) = P(A) + P(B) − P(A and B), because the overlap is in both totals.

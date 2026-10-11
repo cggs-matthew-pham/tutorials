@@ -1,0 +1,45 @@
+summary: Students choose events on a dice and two dice, show their complements, and use P(not A) = 1 − P(A), including for 'at least one' (AC9M8P01, nodes 1 and 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can name the complement of an event.
+  - I can find P(not A) from P(A), in fractions, decimals and percentages.
+  - I can use the complement to find the chance of 'at least one'.
+struggle: "Telling complementary from 'can't happen together'. Ask: does every outcome land in one of the two?"
+before: |
+  Do the Run board yourself first. Students need sample spaces and probability as a fraction (Year 7 Chance).
+
+  The one idea: an event and its complement cover every outcome exactly once, so their probabilities add to 1. The common mistake is calling any two events that can't happen together complementary (Ben's mistake); complementary events must also cover everything. "Mutually exclusive" is the formal word for can't-happen-together; it is used in the teacher notes, not required of students yet.
+
+  'At least one' is the main use: one block to count (none) instead of many cases.
+
+  Wider: the chance of at least one six in four rolls of a dice, 1 − (5/6)⁴, a famous gambling question (needs multiplying, Year 10).
+running:
+  - "Predict: ask whether the other colours matter."
+  - "Run: ask whether any outcome is in both, or in neither."
+  - "Investigate: ask Ben where a roll of 3 goes."
+  - "Modify: ask why counting 'no six' is quicker than 'at least one six'."
+  - "Make: ask how many outcomes make a quarter of 36."
+stuck:
+  - see: "A student says a heart and a spade are complementary."
+    ask: "Where do clubs go?"
+    fix: "Complementary events cover every outcome."
+  - see: "A student counts 12 outcomes with at least one six."
+    ask: "Which outcome did you count twice?"
+    fix: "(6, 6) is in both rows; or count no six (25) and subtract from 36."
+  - see: "A student writes P(not A) = P(A)."
+    ask: "Which outcomes are not in A?"
+    fix: "Count everything else, or subtract from 1."
+stretch: "Two dice are rolled. Which is more likely: at least one six, or a sum of 7 or more? Use complements."
+support: "A sample space printed as a grid, with two colours of highlighter."
+leads: |
+  This covers AC9M8P01.
+
+  Where it leads: two-way tables and Venn diagrams (next), and 'and', 'or' and 'not' in compound events.
+exit:
+  q: "P(it snows tomorrow) = 0.08. What is P(it does not snow)? Then: two coins are tossed; what is P(at least one tail)?"
+  a: "0.92. And 1 − P(HH) = 1 − 1/4 = 3/4."
+explain: |
+  The **complement** of an event A, written **not A**, is every other outcome. A and not A cover every outcome exactly once, so **P(A) + P(not A) = 1**, and P(not A) = 1 − P(A).
+
+  This makes **at least one** easy: count the outcomes with none, and subtract from 1. Two events that just can't happen together are not complementary unless they cover every outcome too.

@@ -1,0 +1,46 @@
+# Simulated trials of two events for "Simulating compound events". Run adds trials; the table counts each result.
+
+# region: run
+widget: events
+first: dice
+second: dice
+show: sum
+event: s = 7
+trials: on
+# endregion
+
+# region: explain
+widget: events
+first: dice
+second: dice
+show: sum
+event: s = 8
+trials: on
+seed: 5
+# endregion
+
+# region: explain-pic
+widget: events
+first: dice
+second: dice
+show: sum
+event: s = 8
+# endregion
+
+# region: coins
+widget: events
+first: coin
+second: coin
+names: First coin, Second coin
+event: a = H or b = H
+choose: off
+trials: on
+# endregion
+
+# region: free
+widget: events
+first: dice
+second: dice
+show: sum
+trials: on
+# endregion

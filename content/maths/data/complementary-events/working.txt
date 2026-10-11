@@ -1,0 +1,8 @@
+# Ben's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ben
+Ben rolls a dice. Event A is "roll a 1" and event B is "roll a 6".
+A and B cannot both happen on the same roll.
+So A and B are complementary events.
+So P(B) = 1 − P(A) = 1 − 1/6 = 5/6.
+# endregion

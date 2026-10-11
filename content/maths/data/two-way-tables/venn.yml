@@ -1,0 +1,40 @@
+# A Venn diagram and a two-way table for "Venn diagrams and two-way tables".
+
+# region: run
+widget: venn
+labels: Sport, Music
+counts: 12, 8, 5, 5
+# endregion
+
+# region: explain
+widget: venn
+labels: Sport, Music
+counts: 12, 8, 5, 5
+# endregion
+
+# region: explain-pic
+widget: venn
+labels: Sport, Music
+counts: 12, 8, 5, 5
+event: b
+# endregion
+
+# region: totable
+widget: venn
+labels: Dog, Cat
+counts: 9, 4, 6, 11
+blank: table
+# endregion
+
+# region: tovenn
+widget: venn
+labels: Glasses, Left-handed
+counts: 7, 2, 3, 16
+blank: venn
+# endregion
+
+# region: make
+widget: venn
+labels: Bus, Bike
+counts: 10, 3, 6, 9
+# endregion

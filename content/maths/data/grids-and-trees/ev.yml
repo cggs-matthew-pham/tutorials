@@ -1,0 +1,57 @@
+# Two-event sample spaces as grids and trees, for "Grids and tree diagrams".
+
+# region: run
+widget: events
+first: coin
+second: dice
+view: both
+target: a = H and b % 2 = 0
+# endregion
+
+# region: explain
+widget: events
+first: coin
+second: dice
+view: tree
+# endregion
+
+# region: explain-pic
+widget: events
+first: coin
+second: dice
+view: tree
+event: a = T and b > 4
+# endregion
+
+# region: spin
+widget: events
+first: red, blue, green
+second: coin
+names: Spinner, Coin
+view: both
+target: a = blue and b = T
+# endregion
+
+# region: dice
+widget: events
+first: dice
+second: dice
+show: sum
+target: s = 8
+# endregion
+
+# region: same
+widget: events
+first: A, B, C
+second: A, B, C
+names: First letter, Second letter
+view: both
+target: a = b
+# endregion
+
+# region: make
+widget: events
+first: dice
+second: dice
+show: sum
+# endregion

@@ -1,0 +1,8 @@
+# Max's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: max
+Max tosses two coins and lists what can happen.
+The equally likely outcomes are: HH, TT, and one of each.
+That is 3 outcomes, and one of them is "one of each".
+So P(one head and one tail) = 1/3.
+# endregion

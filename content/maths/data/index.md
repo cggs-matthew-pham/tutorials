@@ -4,5 +4,5 @@ summary: Collect and display data, find its centre and spread, and compare data 
 order: 5
 units:
   - { id: statistics, title: Data, summary: "Counting and measuring, mean, median, mode and range, stem-and-leaf plots, and comparing two data sets." }
-  - { id: chance, title: Chance, summary: "Sample spaces and probabilities, then experiments: what happens in 10 trials, and in 1000." }
+  - { id: chance, title: Chance, summary: "Sample spaces and probabilities, then experiments: what happens in 10 trials, and in 1000. Year 8: complements, Venn diagrams, two-way tables, grids and trees, and, or, not, and simulations." }
 ---

@@ -412,3 +412,18 @@ div.bcard { cursor: default; }
 .lgtable th, .lgtable td { border: 1px solid var(--line); padding: 5px 10px; text-align: center; }
 .lgtable th { background: var(--card); font: 600 13px system-ui, sans-serif; }
 .lgtable tr.now td { background: color-mix(in srgb, var(--accent) 18%, transparent); font-weight: 700; }
+/* venn (maths chat): a Venn diagram and a two-way table side by side; events: clickable outcomes */
+.vnwrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; padding: 10px; height: 100%; overflow: auto; box-sizing: border-box; }
+.vnsvg { flex: 1 1 260px; min-width: 0; max-width: 460px; height: auto; }
+table.vntable { flex: none; }
+table.vntable { border-collapse: collapse; font: 16px/1.4 system-ui, sans-serif; }
+table.vntable th { font-weight: 600; font-size: 14px; color: var(--muted); padding: 6px 10px; }
+table.vntable td { border: 1px solid var(--line); padding: 8px 14px; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; min-width: 3em; }
+table.vntable td.vncell { background: var(--card); }
+table.vntable td.vncell.on { background: color-mix(in srgb, var(--left) 55%, var(--card)); }
+table.vntable td.vntot { color: var(--muted); font-weight: 600; }
+table.vntable input { width: 3.2em; font: inherit; text-align: center; }
+.vnfill { display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: center; width: 100%; font: 14px system-ui, sans-serif; }
+.vnfill input { width: 3.2em; font: inherit; text-align: center; }
+.evcell:focus { outline: none; }
+.evcell:focus rect { stroke-width: 4; stroke: var(--accent); }

@@ -1,0 +1,8 @@
+# Lia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: lia
+In a group of 40 people, 22 like tea, 18 like coffee and 7 like both.
+Lia writes 7 in the overlap of the Venn diagram.
+She writes 22 in the tea-only part and 18 in the coffee-only part.
+Neither: 40 − 22 − 18 − 7 = −7.
+# endregion

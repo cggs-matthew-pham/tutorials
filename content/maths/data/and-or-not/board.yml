@@ -1,0 +1,41 @@
+# Venn diagrams and two-dice grids for "And, or and not".
+
+# region: run
+widget: venn
+labels: Sport, Music
+counts: 12, 8, 5, 5
+# endregion
+
+# region: explain
+widget: venn
+labels: Dog, Cat
+counts: 9, 4, 6, 11
+# endregion
+
+# region: explain-pic
+widget: venn
+labels: Dog, Cat
+counts: 9, 4, 6, 11
+event: a or b
+# endregion
+
+# region: notmusic
+widget: venn
+labels: Sport, Music
+counts: 12, 8, 5, 5
+# endregion
+
+# region: dice
+widget: events
+first: dice
+second: dice
+show: sum
+target: s > 9 or a = b
+# endregion
+
+# region: make
+widget: events
+first: dice
+second: dice
+show: sum
+# endregion

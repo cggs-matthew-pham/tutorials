@@ -1,0 +1,45 @@
+summary: Students list the outcomes of two events in a grid and a tree diagram, count the outcomes in an event and find its probability (AC9M8P02, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can list every outcome of two events with a grid or a tree diagram.
+  - I can count the outcomes in an event and give its probability.
+  - I can choose between a grid, a tree and a Venn diagram.
+struggle: "Counting HT and TH as different. Ask students to colour the two coins (a red coin and a blue coin) before they list."
+before: |
+  Do the Run board yourself first. Students need sample spaces (Year 7) and the Venn diagrams and tables from the last lesson.
+
+  The one idea: two events make pairs, and a grid or tree lists every pair once, so the outcomes are equally likely. The common mistake is merging pairs that differ only in order (Max's HH, TT, one of each), which makes unequal outcomes look equal.
+
+  Branch probabilities (multiplying along a tree) are Year 10 (AC9M10P01); here every outcome is equally likely and students count. The board lists outcomes rather than drawing spinners, so the lesson says 'equal parts' every time; point it out.
+
+  Wider: three coins on a tree (8 outcomes), and why a grid can't show them.
+running:
+  - "Predict: ask how many dice results go with heads."
+  - "Run: ask whether the grid and tree show the same 12 outcomes."
+  - "Investigate: ask Max to toss a red and a blue coin."
+  - "Modify: ask why the sums of 8 lie on a diagonal."
+  - "Make: ask how many outcomes make a half."
+stuck:
+  - see: "A student adds the outcomes (2 + 6 = 8)."
+    ask: "How many dice results go with heads? With tails?"
+    fix: "Each first outcome pairs with every second outcome: multiply."
+  - see: "A student lists HT and TH once."
+    ask: "If one coin is red and one is blue, is red-heads blue-tails the same as red-tails blue-heads?"
+    fix: "Order matters: both are outcomes."
+  - see: "A student says P(sum is 7) = 1/11."
+    ask: "Are the sums 2 to 12 equally likely?"
+    fix: "Count pairs in the grid, not the list of sums."
+stretch: "Three coins: draw the tree. What is P(exactly two heads)? Why can't the board's grid show this?"
+support: "A printed 6 by 6 grid for two dice and a blank two-level tree."
+leads: |
+  This completes AC9M8P02 node 1 with the last lesson.
+
+  Where it leads: 'and', 'or' and 'not' (next), simulations, and multiplying along branches in Year 10.
+exit:
+  q: "A spinner shows 1, 2 or 3 (equal parts) and a coin is tossed. List the outcomes. What is P(an odd number and heads)?"
+  a: "1H, 1T, 2H, 2T, 3H, 3T: 6 outcomes. 1H and 3H, so 2/6 = 1/3."
+explain: |
+  Two events one after the other make **pairs**. A **tree diagram** splits each first outcome into every second outcome; a **grid** puts one event down the side and the other across. Both list every pair once, so each is equally likely.
+
+  The number of outcomes is the two counts **multiplied**. Order matters: HT and TH are different outcomes. Then P(event) = outcomes in the event ÷ all outcomes.

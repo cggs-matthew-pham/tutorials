@@ -1,0 +1,45 @@
+summary: Students simulate two dice and two coins, record results in a frequency table, and compare relative frequencies with probabilities from the sample space (AC9M8P03, nodes 1 and 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 15 min"
+goals:
+  - I can run a simulation of two events and record the results in a frequency table.
+  - I can find a relative frequency and compare it with the probability.
+  - I can explain why more trials give a better estimate.
+struggle: "Trusting a short run. Ask: how many times would you expect it in this many trials? Then: is what happened surprising?"
+before: |
+  Do the Run board yourself first. Students need the two-dice grid (Grids and tree diagrams), complements, and relative frequency and the law of large numbers (Year 7 Many trials).
+
+  The one idea: a simulation is many quick trials; its relative frequency estimates the probability and gets closer as trials grow. The common mistake is concluding from a short run (Ella's mistake: no 12 in 20 rolls, so impossible).
+
+  The board is one digital tool. Others for a class task: a spreadsheet (=RANDBETWEEN(1,6) in two columns, a sum column, COUNTIF for the frequency table, filled down 1000 rows), an online dice simulator, or a short Python program. Generative AI can write a simulation, but students should check its code and its frequency table against the grid: an AI may describe results it never ran.
+
+  Wider: simulate something with no simple sample space, such as how many packets of cereal you buy to collect all 6 cards.
+running:
+  - "Predict: ask how many pairs make 7, and how many make 12."
+  - "Run: ask which totals are rare, and why."
+  - "Investigate: ask how many 12s Ella should expect in 20 rolls."
+  - "Modify: ask what happens to the gap between f and P as trials grow."
+  - "Make: ask for the probability before the Run button."
+stuck:
+  - see: "A student says the simulation is wrong because 7 came up 15 times in 100, not 17."
+    ask: "Would a real dice give exactly 17?"
+    fix: "Simulations vary like real trials; more trials, closer results."
+  - see: "A student reports a count as a relative frequency."
+    ask: "Out of how many trials?"
+    fix: "Relative frequency = count ÷ trials."
+  - see: "A student expects the sums 2 to 12 to be equally likely."
+    ask: "How many pairs in the grid make 2? Make 7?"
+    fix: "Count pairs: the middle totals have more."
+stretch: "Build the two-dice simulation in a spreadsheet with 1000 rows and a frequency table. Does it agree with the board?"
+support: "A frequency table template for totals 2 to 12 with columns for count, relative frequency and probability."
+leads: |
+  This covers AC9M8P03.
+
+  Where it leads: statistics from samples (Year 8 Statistics), and independent events and simulations in Years 9 and 10.
+exit:
+  q: "A simulation gives a total of 8 on two dice 68 times in 500 trials. Find the relative frequency and compare it with the probability."
+  a: "68 ÷ 500 = 0.136. P(8) = 5/36 ≈ 0.139: very close."
+explain: |
+  A **simulation** repeats a chance experiment many times with random numbers. Record each result in a **frequency table**, then **relative frequency** = count ÷ trials.
+
+  Compare it with the **probability** from the sample space. A short run can be well off; over many trials the relative frequency settles close to the probability. A simulation estimates; the grid gives the exact value.
