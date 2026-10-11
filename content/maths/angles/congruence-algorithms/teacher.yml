@@ -1,0 +1,48 @@
+summary: Students follow, order, fix and design algorithms that decide whether two triangles are congruent, similar or neither, testing them on one pair of every kind (AC9M8SP04, nodes 1 and 2).
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 10 min · Practise and Make 15 min"
+goals:
+  - I can follow an algorithm for two triangles and say which test it used.
+  - I can find a pair of triangles an algorithm gets wrong, and fix it.
+  - I can design and test my own algorithm, and describe how it works.
+struggle: "Answering from what is known, not what could be worked out. Ask 'does the description say that?' before every yes."
+before: |
+  Do the Run board yourself first. Students need the congruence tests, similar triangles and the shape-classifying algorithms from Year 7.
+
+  The one idea: order matters (congruent before similar, because congruent triangles are similar too), every case needs a path, and the algorithm is only trusted once it has been tested on one pair of each kind. The common mistake is an algorithm that accepts any angle with two sides (Raj's SSA mistake).
+
+  The board is the same key used for classifying shapes; each specimen is a pair of triangles. Answer "yes" only when the description says the parts are equal. The improved key adds step G for SAS similarity, a gap students find in Modify.
+
+  Wider: compare two correct algorithms for the fewest questions; write the algorithm in Python with if and elif.
+running:
+  - "Predict: ask what equal angles alone tell you."
+  - "Run: ask which question separates congruent from similar."
+  - "Investigate: ask Raj which angle the SSA pair has."
+  - "Modify: ask what test case would have found the gap."
+  - "Make: ask a partner to trace your algorithm on an SSA pair."
+stuck:
+  - see: "A student answers yes to SSS for the RHS pair (by working out the third side)."
+    ask: "Does the description give all three sides?"
+    fix: "Answer from what is given; RHS has its own question."
+  - see: "A student answers yes at step B for the RHS pair."
+    ask: "Is the right angle between the hypotenuse and the 5 cm side?"
+    fix: "The right angle is between the two shorter sides; RHS has its own question at E."
+  - see: "A student puts the similarity question first."
+    ask: "What would a congruent pair be called then?"
+    fix: "Ask the most specific question (congruent) first."
+  - see: "A student's algorithm has no answer for some pairs."
+    ask: "Where does a 'no' at your last question go?"
+    fix: "End with a catch-all: 'not enough to tell'."
+stretch: "Write the algorithm in Python with if, elif and else, and test it on your six pairs. What is the fewest number of questions that separates all the answers?"
+support: "Give the questions on cards and the six test pairs on cards; students order the questions, then run each pair through."
+leads: |
+  This covers AC9M8SP04.
+
+  Where it leads: algorithms in code (the Code pathways), and similar triangles in trigonometry (Year 10).
+exit:
+  q: "Why must an algorithm for congruence not answer 'congruent' when two sides and any angle are equal?"
+  a: "If the angle is not between the sides (SSA), two different triangles can fit, so they might not be congruent."
+explain: |
+  An **algorithm** for two triangles asks about their equal parts in order: the **congruence** tests first (SSS, SAS, ASA or AAS, RHS), then **similarity** (AA, sides in the same ratio), then **not enough to tell**.
+
+  Test it on one pair of every kind, including SSA (which must not be called congruent). When you fix it, test every pair again.

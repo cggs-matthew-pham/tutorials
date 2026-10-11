@@ -1,0 +1,45 @@
+summary: Students scale a triangle by a scale factor, find missing sides of similar shapes, and compare rectangles that are similar, congruent or neither (AC9M8SP01, nodes 2 and 3).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can find a scale factor from a pair of matching sides.
+  - I can use a scale factor to find a missing side.
+  - I can say whether two shapes are congruent, similar or neither, and why.
+struggle: "Matching the sides. Ask students to say which side matches which (shortest with shortest) before they divide."
+before: |
+  Do the Run board yourself first. Students need congruent triangles (last lesson) and multiplying by decimals.
+
+  The one idea: similar means every length times the same scale factor, with the angles unchanged. The common mistake is adding a fixed amount to every side (Mia's mistake).
+
+  Similarity conditions for triangles: AA, SSS (all sides in one ratio) and SAS (two sides in one ratio, the included angle equal). Only AA is practised much here; SSS appears in Practise. The link to transformations: translations, reflections and rotations give congruent shapes; an enlargement gives a similar shape.
+
+  Wider: measure something tall outside with shadows and a metre ruler.
+running:
+  - "Predict: ask what doubling does to a corner's angle."
+  - "Run: ask what each copy side ÷ original side gives."
+  - "Investigate: ask Mia whether her photo would look stretched."
+  - "Modify: ask why two rectangles with all 90° angles may not be similar."
+  - "Make: ask which original side matches y."
+stuck:
+  - see: "A student adds the same amount to every side."
+    ask: "Would the picture look the same shape?"
+    fix: "Find k by dividing, then multiply every side by k."
+  - see: "A student divides the wrong way (original ÷ copy)."
+    ask: "Is the copy bigger or smaller? Should k be more or less than 1?"
+    fix: "k = copy ÷ original."
+  - see: "A student says all rectangles are similar because the angles match."
+    ask: "Is a 4 by 2 rectangle the same shape as a 4 by 3?"
+    fix: "For shapes other than triangles, check the sides' ratios too."
+stretch: "A similar triangle has scale factor 3. How many times bigger is its area? Test it with the 3, 4, 5 triangle."
+support: "A table with original sides in one column and copy sides in the next, with a ÷ column for k."
+leads: |
+  This covers AC9M8SP01 nodes 2 and 3.
+
+  Where it leads: proving quadrilateral properties with congruent triangles (next lesson), congruence algorithms, and trigonometry in Year 10 (which rests on similar right-angled triangles).
+exit:
+  q: "A 2 m by 3 m garden bed is enlarged so the 2 m side becomes 5 m. How long is the 3 m side now?"
+  a: "k = 5 ÷ 2 = 2.5, so 3 × 2.5 = 7.5 m."
+explain: |
+  **Similar** shapes are the same shape, maybe a different size. Every length is multiplied by the same **scale factor** k = copy ÷ original, and the angles stay the same. Congruent is similar with k = 1.
+
+  Triangles are similar by **AA**, **SSS** (sides in one ratio) or **SAS** (two sides in one ratio, the angle between them equal). For other shapes, check both the angles and the ratios of the sides.

@@ -1,0 +1,37 @@
+# Quadrilaterals with their angles, for "Problems with quadrilaterals". classify: on names the shape.
+
+# region: run
+widget: geometry
+shape: polygon
+sides: 4
+corners: 1,1; 8,2; 7,6; 2,5
+classify: on
+sum: off
+# endregion
+
+# region: explain
+widget: geometry
+shape: polygon
+sides: 4
+corners: 1,1; 7,1; 10,4; 4,4
+classify: on
+sum: off
+# endregion
+
+# region: explain-pic
+widget: geometry
+shape: polygon
+sides: 4
+corners: 1,1; 7,1; 10,4; 4,4
+classify: on
+sum: off
+# endregion
+
+# region: make
+widget: geometry
+shape: polygon
+sides: 4
+corners: 1,1; 8,2; 7,6; 2,5
+classify: on
+sum: off
+# endregion

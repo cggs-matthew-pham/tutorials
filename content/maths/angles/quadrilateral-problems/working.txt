@@ -1,0 +1,8 @@
+# Jo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: jo
+ABCD is a parallelogram with angle A = 65°.
+Opposite angles add to 180°, so angle C = 180° − 65° = 115°.
+Angles A and B are co-interior, so angle B = 180° − 65° = 115°.
+So the angles are A = 65°, B = 115°, C = 115° and D = 65°.
+# endregion

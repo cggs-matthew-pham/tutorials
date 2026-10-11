@@ -1,0 +1,8 @@
+# Leo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leo
+Leo wants to prove that a kite's diagonals cross at 90°.
+He draws one kite carefully and measures where the diagonals cross.
+It measures 90°, so this proves it for every kite.
+He writes: the diagonals of a kite are perpendicular.
+# endregion

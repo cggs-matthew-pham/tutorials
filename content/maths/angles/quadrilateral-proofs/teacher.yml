@@ -1,0 +1,45 @@
+summary: Students test diagonal properties of quadrilaterals on the board, then prove them with congruent triangles (AC9M8SP02, node 1).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 12 min · Practise and Make 13 min"
+goals:
+  - I can find two triangles in a quadrilateral and say which test makes them congruent.
+  - I can use matching parts of congruent triangles to prove a property.
+  - I can explain why measuring one shape is not a proof.
+struggle: "Giving a reason for every equal part. Ask 'how do you know?' after each line until the answer is a property, a test or a shared side."
+before: |
+  Do the Run board yourself first. Students need the congruence tests (Congruent triangles), the quadrilateral family (Year 7) and angles at parallel lines.
+
+  The one idea: two congruent triangles inside the shape give equal sides and angles, and that holds for every shape of the kind. The common mistake is treating one careful drawing as a proof (Leo's mistake).
+
+  The board measures diagonals: l is equal, u is cut in half, y is at 90°. Use the board for evidence and conjectures; the proofs are written. Year 8 proofs can be a plan with reasons, not a two-column format.
+
+  Wider: prove a parallelogram's diagonals bisect each other (ASA with alternate angles), or prove the converse: a quadrilateral whose diagonals bisect each other is a parallelogram.
+running:
+  - "Predict: ask what would convince someone who has never seen a rectangle."
+  - "Run: ask whether any rectangle breaks the rule."
+  - "Investigate: ask why each pair of parts is equal."
+  - "Modify: ask which diagonal of the kite gets cut in half."
+  - "Make: ask which two triangles the proof would use."
+stuck:
+  - see: "A student says 'they look equal'."
+    ask: "How do you know, for every shape like this?"
+    fix: "Give a property, a shared side or a test for each equal part."
+  - see: "A student picks two triangles that don't share parts."
+    ask: "Which side do the two triangles have in common?"
+    fix: "Choose triangles on either side of a diagonal, or the two triangles that share a side."
+  - see: "A student names the test but stops."
+    ask: "Now what does congruence give you?"
+    fix: "Matching parts of congruent triangles are equal: that is the property."
+stretch: "Prove that a parallelogram's opposite angles are equal, then that its diagonals cut each other in half."
+support: "A proof frame: 'Look at triangles __ and __. __ = __ because __ (three times). So they are congruent by __. So __ = __.'"
+leads: |
+  This covers AC9M8SP02 node 1.
+
+  Where it leads: problems with quadrilateral properties (next lesson), and proof in Years 9 and 10 (circle geometry, similar triangles).
+exit:
+  q: "Kite ABCD has AB = AD and CB = CD. Prove that angle B = angle D."
+  a: "Triangles ABC and ADC: AB = AD, CB = CD, AC shared, so they are congruent (SSS). Angle B and angle D match, so they are equal."
+explain: |
+  A **proof** gives a reason for every step and works for every shape of the kind; one measured drawing is only an example.
+
+  To prove a quadrilateral property: find two triangles (often either side of a diagonal), give the equal parts with reasons, name the **congruence test**, then use **matching parts of congruent triangles**. This proves, for example, that a rectangle's diagonals are equal.

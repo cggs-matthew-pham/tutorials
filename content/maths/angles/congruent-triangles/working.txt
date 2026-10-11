@@ -1,0 +1,7 @@
+# Tom's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: tom
+Two triangles each have a 6 cm side, a 5 cm side and a 40° angle.
+In both, the 40° angle is opposite the 5 cm side, not between the two sides.
+Two sides and an angle match, so they are congruent by SAS.
+# endregion

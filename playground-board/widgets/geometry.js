@@ -20,6 +20,8 @@
 //                            trapezium has at least one pair of parallel sides, so a parallelogram is one too), any
 //                            polygon by sides, regular or not, convex or concave.
 //                            Sides count as equal within 2% (a square grid cannot make an exact equilateral triangle).
+//   diagonals: on            a quadrilateral's diagonals AC and BD, with the four parts from where they cross: values
+//                            l (1 if the diagonals are equal), u (1 if they cut each other in half), y (1 if at 90°)
 // Measurements are rounded to whole degrees so that the shown angles add to the shown total.
 // state: { scope: { vars: { a, b, c, ... (each corner's angle), s (total), m (largest angle), n (sides),
 //                   k (triangles shown by split, else 0), t (1 while torn), v (1 if no corner points in) },
@@ -69,6 +71,7 @@
       s.ext = ei;
     }
     s.classify = on('classify', false);
+    s.diag = on('diagonals', false) && s.n === 4;
     s.showSum = on('sum', true); s.tear = on('tear', false) && s.kind === 'triangle'; s.split = on('split', false); s.presets = on('presets', false) && s.kind === 'triangle';
   }
 
@@ -207,6 +210,7 @@
     })(t);
     board.create('polygon', P, { fillColor: ink, fillOpacity: 0.03, borders: { strokeColor: ink, strokeWidth: 3, highlight: false }, vertices: { visible: false }, fixed: true, highlight: false });
     if (spec.classify && measure(pts) && !measure(pts).flat) marks(board, pts, ink);
+    if (spec.diag) { board.create('segment', [P[0], P[2]], { strokeColor: muted, strokeWidth: 2, dash: 1, fixed: true, highlight: false }); board.create('segment', [P[1], P[3]], { strokeColor: muted, strokeWidth: 2, dash: 1, fixed: true, highlight: false }); board.create('point', [function () { var m = cross(corners()); return m ? m.at[0] : 0; }, function () { var m = cross(corners()); return m ? m.at[1] : 0; }], { name: '', size: 3, fillColor: muted, strokeColor: muted, fixed: true, highlight: false, showInfobox: false }); }
     // diagonals of the split
     for (var d2 = 2; d2 < nSides - 1; d2++) (function (j) {
       ui.splitObjs.push(board.create('segment', [P[0], P[j]], { strokeColor: muted, strokeWidth: 2, dash: 2, fixed: true, highlight: false }));
@@ -235,6 +239,15 @@
     });
     meas = measure(corners());
     board.update();
+  }
+  // where a quadrilateral's diagonals AC and BD cross, and the four parts
+  function cross(c) {
+    var A = c[0], Bq = c[1], Cq = c[2], D = c[3], r = [Cq[0] - A[0], Cq[1] - A[1]], s2 = [D[0] - Bq[0], D[1] - Bq[1]], den = r[0] * s2[1] - r[1] * s2[0];
+    if (Math.abs(den) < 1e-9) return null;
+    var t = ((Bq[0] - A[0]) * s2[1] - (Bq[1] - A[1]) * s2[0]) / den, w = ((Bq[0] - A[0]) * r[1] - (Bq[1] - A[1]) * r[0]) / den;
+    if (t <= 0 || t >= 1 || w <= 0 || w >= 1) return null;
+    var at = [A[0] + t * r[0], A[1] + t * r[1]], L = function (p, q) { return Math.hypot(q[0] - p[0], q[1] - p[1]); };
+    return { at: at, AC: L(A, Cq), BD: L(Bq, D), AM: L(A, at), MC: L(at, Cq), BM: L(Bq, at), MD: L(at, D), dot: r[0] * s2[0] + r[1] * s2[1] };
   }
   function shown(l) { return !spec.given || spec.given.indexOf(l) >= 0; }
   function near(v, lo, hi) { var s = spec.snapStep; return Math.max(lo, Math.min(hi, round(Math.round(v / s) * s))); }
@@ -345,6 +358,13 @@
         var cl = classify(c, meas);
         ['e', 'g', 'p', 'q', 'r', 'w', 'z'].forEach(function (k) { vars[k] = cl[k]; });
         if (ui.cls) ui.cls.textContent = cl.text;
+      }
+      if (spec.diag) {
+        var dg = cross(c), f2 = function (v) { return B.fmt(Math.round(v * 100) / 100); }, eq = function (a, b) { return Math.abs(a - b) < 0.02 * Math.max(a, b); };
+        if (dg) {
+          vars.l = eq(dg.AC, dg.BD) ? 1 : 0; vars.u = eq(dg.AM, dg.MC) && eq(dg.BM, dg.MD) ? 1 : 0; vars.y = Math.abs(dg.dot) < 1e-6 * dg.AC * dg.BD + 1e-9 ? 1 : 0;
+          text += '. Diagonals: AC = ' + f2(dg.AC) + ' (' + f2(dg.AM) + ' + ' + f2(dg.MC) + '), BD = ' + f2(dg.BD) + ' (' + f2(dg.BM) + ' + ' + f2(dg.MD) + ')' + (vars.l ? '; equal' : '') + (vars.u ? '; they cut each other in half' : '') + (vars.y ? '; they cross at 90°' : '');
+        } else { vars.l = 0; vars.u = 0; vars.y = 0; text += '. The diagonals do not cross inside the shape.'; }
       }
       if (split) text += meas.convex ? '. Split from A: ' + (nSides - 2) + (nSides - 2 === 1 ? ' triangle' : ' triangles') + ', ' + (nSides - 2) + ' × 180° = ' + meas.total + '°' : '. A corner points in, so lines from A would go outside: drag it out to split.';
     }

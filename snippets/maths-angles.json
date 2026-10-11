@@ -187,6 +187,55 @@
           "hint": "A set of steps and decisions that gives the right result every time. Test it on one shape of every class."
         }
       ]
+    },
+    {
+      "name": "Congruence, similarity and 3D",
+      "items": [
+        {
+          "label": "congruence tests",
+          "unit": "congruence",
+          "code": "\\text{SSS},\\ \\text{SAS},\\ \\text{ASA or AAS},\\ \\text{RHS}",
+          "hint": "Each set of equal parts fixes a triangle. In SAS the angle is between the two sides; SSA is not a test, because it can give two triangles.",
+          "board": "widget: congruence\ntest: SSA\np: 8\nq: 6\ns: 40",
+          "shows": "Two different triangles with the same SSA parts"
+        },
+        {
+          "label": "scale factor",
+          "unit": "congruence",
+          "code": "k = \\dfrac{\\text{copy length}}{\\text{matching original length}}",
+          "hint": "Similar shapes: every length times k, every angle the same. Triangles are similar by AA, SSS (sides in one ratio) or SAS.",
+          "board": "widget: similar\nshape: triangle\nsides: 3, 4, 5\nk: 2",
+          "shows": "A 3, 4, 5 triangle and a copy twice as big"
+        },
+        {
+          "label": "diagonals of quadrilaterals",
+          "unit": "congruence",
+          "code": "\\text{rectangle: equal, bisect} \\quad \\text{rhombus: bisect at } 90^\\circ",
+          "hint": "A parallelogram's diagonals cut each other in half; a kite's cross at 90°. Prove a property with two congruent triangles.",
+          "board": "widget: geometry\nshape: polygon\nsides: 4\ncorners: 3,1; 9,1; 9,5; 3,5\nclassify: on\ndiagonals: on\nsum: off",
+          "shows": "A rectangle with its two equal diagonals"
+        },
+        {
+          "label": "parallelogram angles",
+          "unit": "congruence",
+          "code": "\\text{opposite angles equal; neighbours add to } 180^\\circ",
+          "hint": "Neighbouring angles are co-interior between parallel sides. All four add to 360°."
+        },
+        {
+          "label": "3D coordinates",
+          "unit": "solids",
+          "code": "(x, y, z)",
+          "hint": "Along x, along y, then up z. The order is always x, y, z; points on the floor have z = 0.",
+          "board": "widget: space3d\nx: 3\ny: 2\nz: 4",
+          "shows": "The point (3, 2, 4) on three axes"
+        },
+        {
+          "label": "congruence algorithm",
+          "unit": "algorithms",
+          "code": "\\text{congruent?} \\to \\text{similar?} \\to \\text{not enough to tell}",
+          "hint": "Ask the congruence tests first, then the similarity conditions, and end with a catch-all. Test on one pair of each kind, including SSA."
+        }
+      ]
     }
   ]
 }

@@ -594,6 +594,9 @@ Vary, Practise, Make).
       (most sides of one length), `q` (1 scalene, 2 isosceles, 3 equilateral), `r` (1 acute, 2 right, 3 obtuse), `g`
       (right angles), `p` (parallel pairs), `w` (1 regular), `z` (1 square, 2 rectangle, 3 rhombus, 4 parallelogram, 5
       trapezium, 6 kite, 0 other). Checks: `"q = 2 and r = 2"`, `"z = 3"`, `"z = 5 and g >= 1"`, `"n = 6 and v = 0"`.
+    - `diagonals: on` (first used by `maths/angles/quadrilateral-proofs`; quadrilaterals only) draws AC and BD dashed with
+      the crossing point, and adds their lengths (in two parts from the crossing) to `#gsum`. Values `l` (1 if equal), `u`
+      (1 if they cut each other in half), `y` (1 if at 90°). Checks: `"z = 2 and l = 1"`, `"z = 6 and y = 1 and u = 0"`.
   - `widget: bars` (first used by `maths/number/equivalent-fractions`): fraction bars. The top bar is `a` of `b` equal
     parts shaded (sliders or fixed values; b from 1 to 24); an optional second bar `c` of `d` (give both). `hundred: on`
     makes the second a 10 by 10 grid with `c` of 100 squares shaded. `show: decimal, percent` writes each fraction as a
@@ -748,6 +751,22 @@ Vary, Practise, Make).
     (and `name: Car A`) adds a second line; `base: 4.2` adds a fixed starting amount (top = base + rate × x); `money: top` writes
     dollars (automatic when a unit is `$`). km over h also gives the rate in m/s. Values `r`, `x`, `y` (base + r × x), `c`
     (the compared amount), `q`, `b`, `m` (m/s). Checks: `"r = 75 and x = 2"`, `"y = 460"`, `"m = 25"`.
+  - `widget: congruence` (first used by `maths/angles/congruent-triangles`): a triangle built from given parts on base AB,
+    drawing every triangle they allow (none, one, or two for SSA). `test: SSS | SAS | ASA | AAS | RHS | SSA | choose`
+    (`choose` adds a "Give SSS" button for each). Parts are sliders or fixed values, sides `p`, `q`, `r` and angles `s`, `t`
+    (defaults: sides 1 to 12 in halves, angles 10° to 170° in 5s), named by the test: SSS AB, AC, BC; SAS AB, AC, angle A;
+    ASA AB, angles A, B; AAS BC (opposite A), angles A, B; RHS AB and hypotenuse BC = `r`; SSA AB, BC, angle A. Values `n`
+    (0, 1 or 2 triangles), `k` (1 if the test always fixes the triangle, 0 for SSA), `p`, `q`, `r`, `s`, `t`. Sliders say
+    "Make side q smaller", "Make angle s bigger". Checks: `"n = 2"`, `"p = 6 and r = 10"`.
+  - `widget: similar` (first used by `maths/angles/similar-shapes`): `shape: triangle` (`sides: 3, 4, 5`, `slider k:` or
+    `k: 2`, `hide: y` writes ? for that copy side; values `k`, `a`, `b`, `c`, copy sides `x`, `y`, `z`) or `shape: rectangle`
+    (`first: 4, 2`, `slider w:` and `slider h:`; values `w`, `h`, `s` 1 if similar, `c` 1 if congruent, `k` the scale
+    factor if similar). Sliders say "Make the scale factor bigger", "Make the width bigger". Checks: `"k = 2"`, `"y = 12"`,
+    `"s = 1 and c = 0"`.
+  - `widget: space3d` (first used by `maths/angles/3d-coordinates`): x, y and z axes in isometric view (`size: 6`, 2 to 10)
+    with a point P set by `slider x:`, `slider y:`, `slider z:` (or fixed), its path from the origin dashed. `target: 3, 2, 4`
+    draws a ring Q; `box: on` draws the box from the origin to P. Values `x`, `y`, `z`, `d` (1 on the target), `v` (the box's
+    volume). Use a height near 680. Checks: `"d = 1"`, `"v = 24"`.
   - Board variables in `when:` must be single letters: the evaluator reads a longer name such as `sb` as s × b.
   - `widget: data` (first used by `maths/data`): a dot plot of `values: 4, 7, 7, 8` on `range: 0, 20` (default: around
     the data), with the mean (▲), median (dashed) and range (arrow) marked and written underneath (`show: mean, median,

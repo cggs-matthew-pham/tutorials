@@ -1,0 +1,8 @@
+# Mia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mia
+A 4 cm by 6 cm photo is enlarged so the 4 cm side becomes 7 cm.
+7 − 4 = 3, so 3 cm is added to every side.
+The 6 cm side becomes 6 + 3 = 9 cm.
+The enlargement is 7 cm by 9 cm.
+# endregion

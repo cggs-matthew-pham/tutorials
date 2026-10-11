@@ -1,0 +1,38 @@
+# A triangle and a scaled copy, and two rectangles, for "Similar shapes".
+
+# region: run
+widget: similar
+shape: triangle
+sides: 3, 4, 5
+slider k: 0.5, 3, 1, 0.5
+# endregion
+
+# region: explain
+widget: similar
+shape: triangle
+sides: 3, 4, 5
+slider k: 0.5, 3, 1, 0.5
+# endregion
+
+# region: explain-pic
+widget: similar
+shape: triangle
+sides: 3, 4, 5
+k: 2
+# endregion
+
+# region: rect
+widget: similar
+shape: rectangle
+first: 4, 2
+slider w: 1, 10, 4
+slider h: 1, 6, 2
+# endregion
+
+# region: make
+widget: similar
+shape: triangle
+sides: 6, 8, 10
+slider k: 0.5, 3, 1, 0.5
+hide: y
+# endregion

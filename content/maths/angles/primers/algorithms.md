@@ -19,6 +19,10 @@ Every `if` and `else` in a program is a decision like these. Writing the steps c
 - **Testing on one shape**, which hides a missing branch.
 - **Leaving a branch with no ending.**
 
+## Year 8: congruent, similar or neither
+
+The same ideas sort pairs of triangles. Ask the congruence tests first (SSS, SAS, ASA or AAS, RHS), then the similarity conditions (AA, sides in one ratio), and end with "not enough to tell". Answer each question from what is known to be equal, not what could be worked out. Test it on one pair of every kind, including SSA, which must not be called congruent; when you fix a gap, test every pair again.
+
 ## The words
 
 **algorithm**, **attribute**, **decision**, **flowchart**, **decision tree**, **trace**.

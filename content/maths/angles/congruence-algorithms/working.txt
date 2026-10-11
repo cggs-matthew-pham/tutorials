@@ -1,0 +1,8 @@
+# Raj's algorithm for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: raj
+Raj writes an algorithm to decide if two triangles are congruent.
+Step 1: if all three pairs of sides are equal, say "congruent".
+Step 2: if two pairs of sides and any pair of angles are equal, say "congruent".
+Step 3: otherwise, say "not enough to tell".
+# endregion

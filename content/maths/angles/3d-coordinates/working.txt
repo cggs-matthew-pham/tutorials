@@ -1,0 +1,7 @@
+# Kim's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kim
+A drone is 5 m east (x), 2 m north (y) and 3 m up (z) from its base.
+Kim writes its position as (3, 5, 2), with the height first because it matters most.
+Anyone reading (3, 5, 2) would put the drone 3 m east, 5 m north and 2 m up.
+# endregion

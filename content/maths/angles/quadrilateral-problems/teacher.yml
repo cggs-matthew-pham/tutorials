@@ -1,0 +1,45 @@
+summary: Students use the angle and diagonal properties of quadrilaterals to find unknown angles and lengths, with reasons (AC9M8SP02, node 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 10 min · Practise and Make 12 min"
+goals:
+  - I can find unknown angles in parallelograms, rhombuses, kites and trapeziums.
+  - I can use diagonal properties to find lengths.
+  - I can give a reason for each step.
+struggle: "Telling opposite from neighbouring angles. Ask students to trace the parallel sides with a finger before they decide which rule applies."
+before: |
+  Do the Run board yourself first. Students need the quadrilateral family, co-interior angles and the angle sum of a quadrilateral (Year 7), and the proofs from the last lesson.
+
+  The one idea: each property is a rule with a reason, so a problem is a chain of rules. The common mistake is saying opposite angles of a parallelogram add to 180° (Jo's mistake); neighbouring angles do.
+
+  Reasons students should use: co-interior angles, opposite angles of a parallelogram, angle sum of a quadrilateral (360°), properties of the diagonals, congruent triangles.
+
+  Wider: the carpenter's check in the hook (equal diagonals mean a parallelogram frame is a rectangle).
+running:
+  - "Predict: ask which angle is opposite the 70° one."
+  - "Run: ask what stays the same as the parallelogram changes."
+  - "Investigate: ask Jo which pairs are co-interior."
+  - "Modify: ask for a check using 360°."
+  - "Make: ask which angles of the kite must be equal, and why."
+stuck:
+  - see: "A student subtracts from 180 for the opposite angle."
+    ask: "Are those two angles between the same pair of parallel sides?"
+    fix: "Opposite angles are equal; neighbours add to 180°."
+  - see: "A student uses the whole diagonal for half."
+    ask: "Where do the diagonals cross?"
+    fix: "They cut each other in half: each part is half the diagonal."
+  - see: "A student gives answers with no reasons."
+    ask: "Which property did you use?"
+    fix: "Write the reason after each line, such as 'co-interior angles'."
+stretch: "Prove the carpenter's check: a parallelogram with equal diagonals is a rectangle."
+support: "The properties table from the lesson, printed with a column for 'reason words'."
+leads: |
+  This completes AC9M8SP02.
+
+  Where it leads: congruence algorithms (next lesson), and circle geometry and trigonometry in Years 9 and 10.
+exit:
+  q: "In parallelogram ABCD, angle B = 3 × angle A. Find all four angles."
+  a: "A + 3A = 180, so A = 45°. B = 135°, C = 45°, D = 135°."
+explain: |
+  Use the **properties**, with a reason for each step. A **parallelogram**'s opposite angles are equal and its neighbouring (co-interior) angles add to 180°. A **kite** has one pair of equal opposite angles. A **rectangle**'s diagonals are equal and cut each other in half; a **rhombus**'s cut each other in half at 90°.
+
+  Every quadrilateral's angles add to 360°: use it to check.

@@ -48,7 +48,7 @@ Would you be happy with that answer from a sorting machine?
 stage: run
 insight: "Following a two-question algorithm on three test triangles shows the order that gives the equilateral triangle its own name."
 try: { playground: board, starter: "keys.yml#triangles", height: 600 }
-check: { type: board, text: "Follow this two-question algorithm for each triangle in turn. How does it name the 4, 4, 4 triangle? Compare with your prediction.", when: "n = 3 and e = 0", explain: "Asking 'all three equal?' first gives the equilateral triangle its own name. The one-question algorithm called it isosceles." }
+check: { type: board, text: "Follow this two-question algorithm for each triangle in turn. How does it name the 4, 4, 4 triangle? Compare with your prediction.", when: "n = 3", explain: "Asking 'all three equal?' first gives the equilateral triangle its own name. The one-question algorithm called it isosceles." }
 ```
 
 Read each shape's description, answer the question, and press the button to go on.
@@ -107,9 +107,9 @@ tasks:
       extra: ["Ask: is one angle a right angle? If yes, say scalene and stop."]
       explain: "Measure first. Test equilateral before isosceles. Scalene is what is left, so it needs no question."
   - starter: "keys.yml#triangles"
-    check: { type: board, text: "Run the fixed algorithm on all three triangles. Does every one get the right name?", when: "n = 3 and e = 0", explain: "With the specific question first, each triangle reaches its own name." }
+    check: { type: board, text: "Run the fixed algorithm on all three triangles. Does every one get the right name?", when: "n = 3", explain: "With the specific question first, each triangle reaches its own name." }
   - starter: "keys.yml#quads"
-    check: { type: board, text: "Run the quadrilateral algorithm on all five shapes.", when: "n = 5 and e = 0", explain: "Every shape reaches its own name, and the algorithm asks at most three questions." }
+    check: { type: board, text: "Run the quadrilateral algorithm on all five shapes.", when: "n = 5", explain: "Every shape reaches its own name, and the algorithm asks at most three questions." }
   - check:
       type: question
       q: "A kite (two pairs of equal neighbouring sides, no parallel sides) is put through the quadrilateral algorithm. What happens?"
@@ -181,7 +181,7 @@ stage: make
 insight: "Writing their own algorithm in steps shows whether they put the specific questions first and cover every class."
 try: { playground: board, starter: "keys.yml#quads", height: 600 }
 hint: ["Answer each question using the shape's description.", "If the key names the wrong shape, find the question you answered wrongly."]
-check: { type: board, text: "Run the quadrilateral algorithm on all five shapes again, and say each answer aloud as you go.", when: "n = 5 and e = 0", explain: "Every shape reaches its own name." }
+check: { type: board, text: "Run the quadrilateral algorithm on all five shapes again, and say each answer aloud as you go.", when: "n = 5", explain: "Every shape reaches its own name." }
 ```
 
 Now write an algorithm that sorts triangles by their **angles** into acute, right-angled and obtuse. Test it on one triangle of each class, and say how it works to a partner.

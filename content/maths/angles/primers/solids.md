@@ -21,6 +21,10 @@ Engineers, builders and designers pass solids around as drawings. Choosing the d
 - **Adding every pile to get a view.** A view shows only the tallest pile in each column.
 - **Mixing up front and side views.** Say which way you are looking.
 
+## Year 8: points in 3D
+
+A third axis, z, points up from the x-y plane, so a point in space is (x, y, z): along x, along y, then up. The order is always x, y, z, and points on the floor have z = 0. A box from the origin to (x, y, z) has edges x, y and z long. Real systems do the same with other names: east, north and up for a drone, metres up in a building, latitude, longitude and altitude for a plane. The common slip: writing the height first.
+
 ## The words
 
-**net**, **prism**, **face**, **surface area**, **isometric drawing**, **view**, **top view (plan)**, **front view**, **side view (elevation)**.
+**net**, **prism**, **face**, **surface area**, **isometric drawing**, **view**, **top view (plan)**, **front view**, **side view (elevation)**, **z-axis**, **3D coordinates**, **altitude**.

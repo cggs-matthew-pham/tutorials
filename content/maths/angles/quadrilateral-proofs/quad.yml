@@ -1,0 +1,42 @@
+# Quadrilaterals with their diagonals, for "Proving quadrilateral properties". classify: on names the shape;
+# diagonals: on draws AC and BD and reports l (equal), u (cut each other in half) and y (at 90°).
+
+# region: run
+widget: geometry
+shape: polygon
+sides: 4
+corners: 2,1; 8,1; 10,5; 4,5
+classify: on
+diagonals: on
+sum: off
+# endregion
+
+# region: explain
+widget: geometry
+shape: polygon
+sides: 4
+corners: 3,1; 9,1; 9,5; 3,5
+classify: on
+diagonals: on
+sum: off
+# endregion
+
+# region: explain-pic
+widget: geometry
+shape: polygon
+sides: 4
+corners: 3,1; 9,1; 9,5; 3,5
+classify: on
+diagonals: on
+sum: off
+# endregion
+
+# region: free
+widget: geometry
+shape: polygon
+sides: 4
+corners: 1,1; 8,2; 7,6; 2,5
+classify: on
+diagonals: on
+sum: off
+# endregion

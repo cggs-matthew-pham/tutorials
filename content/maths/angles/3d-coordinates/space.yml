@@ -1,0 +1,38 @@
+# Points in 3D, for "Coordinates in 3D". Sliders move P along x, y and z.
+
+# region: run
+widget: space3d
+slider x: 0, 6, 0
+slider y: 0, 6, 0
+slider z: 0, 6, 0
+target: 3, 2, 4
+# endregion
+
+# region: explain
+widget: space3d
+slider x: 0, 6, 0
+slider y: 0, 6, 0
+slider z: 0, 6, 0
+# endregion
+
+# region: explain-pic
+widget: space3d
+x: 3
+y: 2
+z: 4
+# endregion
+
+# region: box
+widget: space3d
+slider x: 0, 6, 2
+slider y: 0, 6, 1
+slider z: 0, 6, 1
+box: on
+# endregion
+
+# region: free
+widget: space3d
+slider x: 0, 6, 2
+slider y: 0, 6, 3
+slider z: 0, 6, 1
+# endregion

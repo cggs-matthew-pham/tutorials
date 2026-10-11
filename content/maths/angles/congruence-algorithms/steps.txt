@@ -1,0 +1,10 @@
+# Steps of an algorithm to put in order for "Algorithms for congruence". Plain text: students order the lines.
+
+# region: algo
+List the equal parts of the two triangles.
+If all three pairs of sides are equal, say "congruent (SSS)" and stop.
+If not, and two pairs of sides and the angle between them are equal, say "congruent (SAS)" and stop.
+If not, and two pairs of angles are equal, check the sides next.
+If a matching pair of sides is equal too, say "congruent (ASA or AAS)"; if not, say "similar".
+Otherwise, say "not enough to tell".
+# endregion

@@ -1,0 +1,48 @@
+# Algorithms that decide whether two triangles are congruent, similar or neither, for "Algorithms for congruence".
+# The key board follows one question at a time; each specimen is a pair of triangles.
+
+# region: explain
+widget: key
+step A: Are all three pairs of sides equal? | Congruent (SSS) | B
+step B: Are two pairs of sides equal, with the angle between them equal too? | Congruent (SAS) | C
+step C: Are two pairs of angles equal? | D | E
+step D: Is a pair of matching sides equal too? | Congruent (ASA or AAS) | Similar (AA)
+step E: Do both have a right angle, with equal hypotenuses and another pair of equal sides? | Congruent (RHS) | F
+step F: Are all three pairs of sides in the same ratio? | Similar (SSS) | Neither, or not enough to tell
+specimen: Congruent (SAS) | Both: sides 4 cm and 9 cm, with a 50° angle between them.
+need: 1
+# endregion
+
+# region: run
+widget: key
+step A: Are all three pairs of sides equal? | Congruent (SSS) | B
+step B: Are two pairs of sides equal, with the angle between them equal too? | Congruent (SAS) | C
+step C: Are two pairs of angles equal? | D | E
+step D: Is a pair of matching sides equal too? | Congruent (ASA or AAS) | Similar (AA)
+step E: Do both have a right angle, with equal hypotenuses and another pair of equal sides? | Congruent (RHS) | F
+step F: Are all three pairs of sides in the same ratio? | Similar (SSS) | Neither, or not enough to tell
+specimen: Congruent (SAS) | Both: sides 4 cm and 9 cm, with a 50° angle between them.
+specimen: Similar (AA) | Both: angles 40° and 65°. The sides between those angles are 8 cm in one and 16 cm in the other.
+specimen: Congruent (SSS) | One has sides 5, 6 and 7 cm; the other has sides 7, 5 and 6 cm.
+specimen: Neither, or not enough to tell | Both: sides 6 cm and 8 cm, and a 30° angle opposite the 6 cm side (not between them).
+specimen: Congruent (RHS) | Both: a right angle, a 13 cm hypotenuse and a 5 cm side.
+specimen: Congruent (ASA or AAS) | Both: angles 40° and 65°, and the side between them is 8 cm.
+# endregion
+
+# region: better
+widget: key
+step A: Are all three pairs of sides equal? | Congruent (SSS) | B
+step B: Are two pairs of sides equal, with the angle between them equal too? | Congruent (SAS) | C
+step C: Are two pairs of angles equal? | D | E
+step D: Is a pair of matching sides equal too? | Congruent (ASA or AAS) | Similar (AA)
+step E: Do both have a right angle, with equal hypotenuses and another pair of equal sides? | Congruent (RHS) | F
+step F: Are all three pairs of sides in the same ratio? | Similar (SSS) | G
+step G: Are two pairs of sides in the same ratio, with equal angles between them? | Similar (SAS) | Neither, or not enough to tell
+specimen: Similar (SAS) | One has sides 4 cm and 6 cm with 50° between them; the other has sides 8 cm and 12 cm with 50° between them.
+specimen: Congruent (SAS) | Both: sides 4 cm and 9 cm, with a 50° angle between them.
+specimen: Similar (AA) | Both: angles 40° and 65°. The sides between those angles are 8 cm in one and 16 cm in the other.
+specimen: Congruent (SSS) | One has sides 5, 6 and 7 cm; the other has sides 7, 5 and 6 cm.
+specimen: Neither, or not enough to tell | Both: sides 6 cm and 8 cm, and a 30° angle opposite the 6 cm side (not between them).
+specimen: Congruent (RHS) | Both: a right angle, a 13 cm hypotenuse and a 5 cm side.
+specimen: Congruent (ASA or AAS) | Both: angles 40° and 65°, and the side between them is 8 cm.
+# endregion

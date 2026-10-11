@@ -1,0 +1,47 @@
+# Triangles from given parts, for "Congruent triangles".
+
+# region: run
+widget: congruence
+test: choose
+slider q: 1, 12, 7, 0.5
+# endregion
+
+# region: explain
+widget: congruence
+test: SSA
+p: 8
+slider q: 4, 12, 9, 0.5
+s: 40
+# endregion
+
+# region: explain-pic
+widget: congruence
+test: SSA
+p: 8
+q: 6
+s: 40
+# endregion
+
+# region: asa
+widget: congruence
+test: ASA
+p: 6
+# endregion
+
+# region: rhs
+widget: congruence
+test: RHS
+# endregion
+
+# region: sss
+widget: congruence
+test: SSS
+# endregion
+
+# region: ssa
+widget: congruence
+test: SSA
+p: 6
+slider q: 1, 12, 3, 0.5
+s: 40
+# endregion

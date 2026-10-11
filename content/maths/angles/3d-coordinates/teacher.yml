@@ -1,0 +1,45 @@
+summary: Students plot and read points (x, y, z) on 3D axes, and use 3D systems for drones, buildings, planes and 3D printers (AC9M8SP03, nodes 1 and 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can plot and read a point (x, y, z) in 3D.
+  - I can say what each coordinate means in a real system, such as a drone's position.
+  - I can describe positions with latitude, longitude and altitude.
+struggle: "Seeing depth on a flat picture. Ask students to trace the dashed path with a finger: along x, along y, then up."
+before: |
+  Do the Run board yourself first. Students need the Cartesian plane (Year 7 transformations) and views of solids.
+
+  The one idea: one more axis, at right angles to the other two, gives one more number; the order is always x, y, z. The common mistake is putting the height first or in the order it was read (Kim's mistake).
+
+  The board draws the axes in isometric projection, so a point can look like two different points; the dashed path and the label settle it. A corner of the room makes a good real set of axes: two floor edges and the vertical edge.
+
+  Wider: plan a 3D printer's path for a small box, or describe a position in a game such as Minecraft (which puts y up: a different convention, which is fine once it is stated).
+running:
+  - "Predict: ask which number tells the height."
+  - "Run: ask what each slider changes, and what stays the same."
+  - "Investigate: ask Kim where (3, 5, 2) actually is."
+  - "Modify: ask why a box from the origin has edges x, y and z."
+  - "Make: ask for one corner on the floor and one on the z-axis."
+stuck:
+  - see: "A student writes the height first."
+    ask: "What order did we agree: along, along, up?"
+    fix: "Always (x, y, z): the height is last."
+  - see: "A student reads a point from the picture by where it seems to sit."
+    ask: "Follow the dashed path: how far along each axis?"
+    fix: "Read the path, not the position on the screen."
+  - see: "A student thinks floor 4 is 15 m up (counting the ground floor)."
+    ask: "How many floors above the ground floor is floor 4?"
+    fix: "Ground floor is 0, so floor 4 is 4 × 3 m."
+stretch: "Find the distance from the origin to (3, 4, 12) by using Pythagoras twice."
+support: "Use the corner of a room or a box: point along each edge in turn while saying the coordinate."
+leads: |
+  This covers AC9M8SP03.
+
+  Where it leads: 3D modelling and games in Digital Technologies, vectors in senior mathematics, and Pythagoras in 3D (Year 10).
+exit:
+  q: "A drone is 8 m east, 3 m north and 20 m up from its base, with x east, y north and z up. Write its position. Then it flies 5 m north: where is it now?"
+  a: "(8, 3, 20), then (8, 8, 20)."
+explain: |
+  A third axis, **z**, points up from the x-y plane. A point in space is **(x, y, z)**: along x, along y, then up. The order is always x, y, z; points with z = 0 are on the floor.
+
+  Real systems work the same way: east, north and up for a drone; across, back and floor in a building; **latitude**, **longitude** and **altitude** for a plane.

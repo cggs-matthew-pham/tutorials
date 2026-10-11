@@ -1,0 +1,8 @@
+# Steps of a proof to put in order for "Proving quadrilateral properties". Plain text: students order the lines.
+
+# region: rect
+ABCD is a rectangle. Look at triangles ABC and BAD, made by the diagonals AC and BD.
+Side AB is in both, BC = AD (opposite sides of a rectangle), and angle B = angle A = 90°.
+Two sides and the angle between them match, so △ABC ≡ △BAD (SAS).
+Matching sides of congruent triangles are equal, so AC = BD: the diagonals are equal.
+# endregion
