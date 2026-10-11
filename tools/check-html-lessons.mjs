@@ -6,8 +6,8 @@ import { spawn } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 const { loadLessons, getSnippet } = await import('./lesson.mjs');
-// HTML-playground courses: HTML & CSS and Bootstrap.
-const lessons = loadLessons().filter((l) => ['code/html/', 'code/bootstrap/'].some((p) => l.slug.startsWith(p)));
+// Courses on the HTML and DOM playgrounds: HTML & CSS, Bootstrap, the DOM course and Vue.
+const lessons = loadLessons().filter((l) => ['code/html/', 'code/bootstrap/', 'code/dom/', 'code/vue/'].some((p) => l.slug.startsWith(p)));
 const srv = spawn('node', ['tools/serve.mjs', 'dist', '8261'], { stdio: 'ignore' });
 await new Promise((r) => setTimeout(r, 800));
 const U = 'http://127.0.0.1:8261/';
@@ -37,7 +37,8 @@ for (const l of lessons) {
   region = null;
   await p.goto(U + l.slug + '/'); await p.waitForTimeout(800);
   ok(await p.evaluate(() => typeof window.evalRules === 'function'), 'the lesson script did not run (a bare tag in Markdown, such as <style>, can swallow it)');
-  const put = async (step, code) => { const f = await (await p.locator(`#${step} iframe`).elementHandle()).contentFrame(); await f.waitForFunction(() => window.__playground?.updates > 0); await f.locator('#code').fill(code); await f.locator('#code').dispatchEvent('input'); await p.waitForTimeout(450); };
+  // The DOM playground (Vue, DOM) has a Run button and reports when it runs; the HTML playground reports as you type.
+  const put = async (step, code) => { const f = await (await p.locator(`#${step} iframe`).elementHandle()).contentFrame(); const run = f.locator('#run'); const dom = await run.count(); await f.waitForFunction((d) => d ? !!window.__playground : window.__playground?.updates > 0, dom); await f.locator('#code').fill(code); await f.locator('#code').dispatchEvent('input'); if (dom) { await run.click(); await f.waitForFunction(() => ['done', 'error'].includes(window.__playground.status), null, { timeout: 15000 }); } await p.waitForTimeout(450); };
   for (const s of l.steps) {
     const sec = p.locator('#' + s.id); await sec.scrollIntoViewIfNeeded();
     const items = s.tasks.length ? s.tasks.map((t, i) => ({ t, i, k: t.config.check, id: t.id })) : [{ t: null, i: 0, k: s.config.check, id: s.id }];

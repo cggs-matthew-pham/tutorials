@@ -1,0 +1,50 @@
+summary: "Students predict a ticket total after two clicks, trace the total and a v-if message, find a plain calculation that goes stale, add a people count and a group deal, and make a recipe scaler."
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can work a value out from other data with computed.
+  - I can explain why a plain calculation in setup goes stale.
+  - I can use a computed value on the page and in a v-if.
+before: |
+  Read the unit primer first. `computed(() => adults.value * 12 + children.value * 5)` gives a value Vue works out again whenever the refs it reads change. On the page it is used like a ref (`{{ total }}`, `v-if="total >= 50"`). The arrow `() =>` is a short function that gives back what follows it; students do not need more about arrow functions than that.
+
+  The planted bug is the idea the course names as hard: a value **derived** from data must be computed, or it is worked out once when setup runs and then goes stale. The page shows no error. A useful contrast: a ref is data you set; a computed is data you never set, only work out.
+
+  Prices are invented for the example.
+running:
+  - "Predict: ask students to say how the total is worked out before they choose."
+  - "Run: ask what makes the free programme message appear and disappear."
+  - "Investigate: trace on paper first, then check by clicking."
+  - "Modify: for the group deal, ask where the if goes (inside the computed) and what it must give back."
+  - "Make: ask which data everything else is worked out from."
+struggle: "Students make the total a ref and update it in every button. Ask \"what is the total worked out from?\" and \"what if someone adds a button and forgets?\""
+stuck:
+  - see: "The total never changes."
+    ask: "Is it wrapped in computed?"
+    fix: "const total = computed(() => …);"
+  - see: "A red error: computed is not defined."
+    ask: "Is computed in the line that takes things from Vue?"
+    fix: "const { createApp, ref, computed } = Vue;"
+  - see: "The total shows NaN or [object Object]."
+    ask: "Inside computed, did every ref get its .value?"
+    fix: "adults.value * 12, not adults * 12."
+  - see: "A computed with an if shows nothing."
+    ask: "Does the function return the value at the end?"
+    fix: "Finish with return sum;"
+stretch: "Stop the numbers going below 0 (a computed can't do that: change the buttons, or use Math.max). Add a computed message that says how far from $50 the order is."
+support: "Give the people computed written out; students only return and show it."
+leads: "Next lesson: components with props. Class idea: name three values on a shopping site that are computed (total, item count, delivery cost)."
+exit:
+  q: "Why does a total made with computed stay right, when a plain calculation in setup does not?"
+  a: "Vue works a computed out again whenever the data it uses changes; a plain calculation runs once, when the page starts."
+explain: |
+  1. Two adults, twelve dollars each.
+  2. The total is worked out from `adults` with `computed`.
+  3. Show it on the page with `{{ total }}`: two adults, 24 dollars.
+  4. One more adult, and `computed` works the total out again: 36.
+solutions:
+  step-4#t1: page.html#sol-people
+  step-4#t2: page.html#sol-deal
+  step-5: page.html#sol-make
+sources:
+  - { title: "Vue.js: Computed properties", url: "https://vuejs.org/guide/essentials/computed.html", checked: 2026-10-12 }

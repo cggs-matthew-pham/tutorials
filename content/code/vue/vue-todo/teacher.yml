@@ -1,0 +1,45 @@
+summary: "Students match the parts of a finished to-do app to the course's pieces, find a count that goes stale, build the app in three milestones with fading support, then add a feature of their own."
+time: 100
+timing: "Plan 10 min · Milestone 1 15 min · Milestone 2 25 min · Milestone 3 30 min · Make it yours 20 min (two lessons)"
+goals:
+  - I can plan an app as data, events, worked-out values and components.
+  - I can build a to-do app with Vue that adds, ticks, counts and clears tasks.
+  - I can add a feature of my own and say which Vue pieces it uses.
+before: |
+  Read the challenge primer first, then build milestone 1 yourself. There is **nothing new** here apart from one line: `v-model` on a tick box joins it to true or false. Each milestone recalls a lesson: adding (events and inputs, lesson 3), ticking and counting (computed, lesson 4), the component (lesson 5). Support fades on purpose: milestone 1 gives most of the code, milestone 2 an outline as comments, milestone 3 only the goals. Finishing this lesson marks **Challenge complete** on the course page.
+
+  The count and Clear done use a `for` loop over the list, which students know from p5.js and the DOM course. Real Vue code would often use `filter`, which is fine as a stretch. The tick box inside the component changes `task.done` on the object it was given: it works because the parent and the card share the same object, but in larger apps a component sends an event up instead (`emit`), which this course leaves out.
+running:
+  - "Plan: match the parts, then write the three milestones on the board as a checklist."
+  - "Milestone 1: everyone should finish this in the first lesson. Check an empty box adds nothing."
+  - "Milestone 2: the outline is in the comments. Students who are stuck use Reset to this task's start."
+  - "Milestone 3: goals only. Ask students what the component's prop is before they write it."
+  - "Make it yours: ask each student to name the Vue pieces their feature uses."
+struggle: "Milestone 3 is meant to be hard: turning working code into a component. Ask \"what does one card need to be given?\" before showing anything."
+stuck:
+  - see: "The count does not change when a box is ticked."
+    ask: "Is left a computed, and does the tick box have v-model on t.done?"
+    fix: "Wrap the count in computed(() => { … }) and join the box with v-model=\"t.done\"."
+  - see: "Add puts an empty task in the list."
+    ask: "What does addTask check before pushing?"
+    fix: "if (newTask.value !== \"\") { … }"
+  - see: "The component shows nothing."
+    ask: "Is it registered before app.mount, is task in its props, and does the tag pass :task=\"t\"?"
+    fix: "All three: register, list the prop, pass it with a colon."
+stretch: "Save the tasks between visits with localStorage (watch the list, then JSON.stringify it); use filter for the count; send a delete event up from the component with emit."
+support: "Pair students for milestone 3: one writes the component, one writes Clear done."
+leads: "The optional lesson builds the same app in Vue, Preact and Svelte. Real projects use a build tool (npm create vue@latest) and single-file .vue components; the ideas stay the same. Assessment idea: students annotate a printout of their app with the lesson each part came from."
+exit:
+  q: "Why is the number left a computed and not a ref?"
+  a: "It is worked out from the list, so it must be counted again whenever a task is added, ticked or cleared; computed does that, a ref would go out of step."
+explain: |
+  1. The finished app's data is a list of tasks.
+  2. `v-model` joins the box to `newTask`; Add runs `addTask`, which pushes to the list.
+  3. Each task is a `todo-item` component, made by `v-for`.
+  4. Tick one: the count of what is left is `computed`, so it follows.
+  5. Build it in three milestones: add tasks; tick and count; the component and Clear done.
+solutions:
+  step-2#t1: page.html#sol-m1
+  step-2#t2: page.html#sol-m2
+  step-2#t3: page.html#sol-m3
+  step-3: page.html#sol-make

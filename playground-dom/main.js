@@ -53,7 +53,12 @@ window.addEventListener('load',function(){say({t:'loaded'})});
 // Pictures and libraries are found in this playground's media folder (src="trophy.svg", <script src="vue.js">), as files
 // next to a real page; fetch("weather.json") reads a file there too.
 const BASE = `<base href="${new URL('media/', location.href).href}">`;
+// A library beside the page (<script src="vue.js">) is fetched with CORS, so an error it throws on the page's behalf
+// (Vue rethrows errors from click handlers) shows its real message instead of "Script error.". Same line, so line
+// numbers stay. The site and the local servers allow any origin, as GitHub Pages does.
+const corsLocal = (code) => code.replace(/<script(\s)(?=[^>]*\bsrc\s*=\s*["'](?![a-z]+:|\/\/))(?![^>]*\bcrossorigin\b)/gi, '<script crossorigin$1');
 function pageDoc(code) {
+  code = corsLocal(code);
   const tag = `${BASE}<script>${SHIM}<\/script>${ZOOM}`;
   const dt = code.match(/^\s*<!doctype[^>]*>/i);
   return dt ? dt[0] + tag + code.slice(dt[0].length) : '<!doctype html>' + tag + code;

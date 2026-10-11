@@ -74,6 +74,12 @@ Lesson counts include optional lessons. "Pictures" are drawn by `render-pictures
   - Its own `playground-dom/` (Run, console panel, DOM hints; reports as `html`), clips and expected pictures.
   - Not done: a class trial, saving between visits (by design).
 
+- **Apps with Vue** (`code/vue`, 7 incl. optional Same app, three frameworks): built 12 Oct.
+  - Data on the page, Lists and choices, Events and inputs, Computed, Components and props, then the challenge (a to-do app in three milestones) and the optional three-framework lesson (Vue, Preact with htm, Svelte compiled in the page).
+  - Composition API (`ref`, `computed`) in the global build, on the DOM playground. Vue's development build, for its warnings. Svelte components sit in a hidden `<textarea data-svelte>`, compiled by `svelte.js` (vendor/web).
+  - Reference (Vue and Frameworks groups in `snippets/html.json`), pictures, voiced clips; `check-html` walks it and the DOM course.
+  - Not done: a class trial; `:key` and `emit` are teacher-note stretches only.
+
 ### MakeCode pathway
 
 - **micro:bit Foundations** (`code/microbit`, 14): built 9 Oct.
@@ -140,12 +146,12 @@ The plan keeps "build it yourself, then meet the real tool": students hand-build
    - Bootstrap's CSS is hosted under the HTML playground's media folder, so the HTML playground works unchanged.
    - Checks use `contains` on class names.
    - Why Bootstrap rather than Tailwind: it reads easily for beginners, and its class names map onto the components students already built by hand.
-2. **Vue** (extension after the DOM course; about 5 lessons, Years 10+).
+2. **Vue** (built 12 Oct, see Courses; extension after the DOM course; about 5 lessons, Years 10+).
    - Lessons: data and `{{ }}`, `v-if` and `v-for`, events, `computed`, components with props, then a small app (the quiz or a to-do list).
    - Teach the **Composition API** (`ref`, `computed`), because it is the closest to React hooks and Svelte's patterns.
    - The no-build version of Vue (about 150 KB) is hosted on our site. It probably runs in the DOM playground, with `<script>` loading it.
    - The hard part: when the page updates, and keeping derived values in `computed`.
-3. **Same app, three frameworks** (an optional last Vue lesson). The same small app in Vue, React-style (Preact with htm, about 5 KB) and Svelte (its compiler in the browser, about 1–2 MB, loaded only by this lesson).
+3. **Same app, three frameworks** (built 12 Oct as `code/vue/vue-compare`; an optional last Vue lesson). The same small app in Vue, React-style (Preact with htm, about 5 KB) and Svelte (its compiler in the browser, about 1–2 MB, loaded only by this lesson).
    - The point: components, state, derived values and events are the same ideas in all three, and only the syntax and update rules differ.
    - React's update rule (`setState`, and replacing values rather than changing them) is named as the thing that catches people out.
    - Angular is left out: it needs TypeScript and a command-line toolchain. AngularJS is dead (support ended in 2021).
@@ -163,6 +169,7 @@ The plan keeps "build it yourself, then meet the real tool": students hand-build
 
 ## Log
 
+- 12 Oct: Apps with Vue (6 lessons + optional Same app, three frameworks); the DOM playground loads local libraries with CORS and gives Vue hints; `check-html` also walks the DOM and Vue courses.
 - 12 Oct: Pages with Bootstrap (3 lessons), with a nod to Bulma, Tailwind, daisyUI and Pico (Matthew's request); `vendor/web/` and the shared changes in `shared.md`.
 - 12 Oct: `struggle:` notes for all 63 MakeCode lessons; every code lesson now has one (`npm run effort` is clean for code).
 - 12 Oct: effort audit for Python Foundations, the console bridge, Objects, Deeper Python 1 to 5 and HTML & CSS (40 `struggle:` notes; 17 first hints now point at the idea, with the code as the next hint); two overflowing deck slides fixed (Robotics Drive, Python Variables).

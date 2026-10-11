@@ -1,0 +1,202 @@
+<!-- region: predict -->
+<div id="app">
+  <player-card name="Ada"></player-card>
+  <player-card name="Sam"></player-card>
+  <player-card name="Lin"></player-card>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp } = Vue;
+  const app = createApp({});
+  app.component("player-card", {
+    props: ["name"],
+    template: `<p style="border: 2px solid teal; padding: 8px;">Player: {{ name }}</p>`
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<div id="app">
+  <h1>Chess ladder</h1>
+  <player-card v-for="p in players" :name="p.name" :wins="p.wins"></player-card>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  const app = createApp({
+    setup() {
+      const players = ref([
+        { name: "Ada", wins: 5 },
+        { name: "Sam", wins: 4 },
+        { name: "Lin", wins: 2 }
+      ]);
+      return { players };
+    }
+  });
+  app.component("player-card", {
+    props: ["name", "wins"],
+    template: `
+      <div style="border: 2px solid teal; padding: 8px; margin: 8px 0;">
+        <h2>{{ name }}</h2>
+        <p>Wins: {{ wins }}</p>
+      </div>`
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<div id="app">
+  <player-card v-for="p in players" :name="p.name" wins="p.wins"></player-card>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  const app = createApp({
+    setup() {
+      const players = ref([{ name: "Ada", wins: 5 }, { name: "Sam", wins: 4 }]);
+      return { players };
+    }
+  });
+  app.component("player-card", {
+    props: ["name", "wins"],
+    template: `<p>{{ name }}: {{ wins }} wins</p>`
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-medal -->
+<div id="app">
+  <h1>Chess ladder</h1>
+  <player-card v-for="p in players" :name="p.name" :wins="p.wins"></player-card>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  const app = createApp({
+    setup() {
+      const players = ref([
+        { name: "Ada", wins: 5 },
+        { name: "Sam", wins: 4 },
+        { name: "Lin", wins: 2 }
+      ]);
+      return { players };
+    }
+  });
+  app.component("player-card", {
+    props: ["name", "wins"],
+    template: `
+      <div style="border: 2px solid teal; padding: 8px; margin: 8px 0;">
+        <h2>{{ name }}</h2>
+        <p>Wins: {{ wins }}</p>
+        <p v-if="wins >= 5">🏅 Top player</p>
+      </div>`
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-kai -->
+<div id="app">
+  <h1>Chess ladder</h1>
+  <player-card v-for="p in players" :name="p.name" :wins="p.wins"></player-card>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  const app = createApp({
+    setup() {
+      const players = ref([
+        { name: "Ada", wins: 5 },
+        { name: "Sam", wins: 4 },
+        { name: "Lin", wins: 2 },
+        { name: "Kai", wins: 3 }
+      ]);
+      return { players };
+    }
+  });
+  app.component("player-card", {
+    props: ["name", "wins"],
+    template: `
+      <div style="border: 2px solid teal; padding: 8px; margin: 8px 0;">
+        <h2>{{ name }}</h2>
+        <p>Wins: {{ wins }}</p>
+      </div>`
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<div id="app">
+  <h1>Pets at our school</h1>
+  <!-- Show every pet with a component of your own, with v-for. -->
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  const app = createApp({
+    setup() {
+      const pets = ref([
+        { name: "Biscuit", kind: "guinea pig" },
+        { name: "Nemo", kind: "goldfish" },
+        { name: "Pepper", kind: "rabbit" }
+      ]);
+      return { pets };
+    }
+  });
+  // Your component: app.component("pet-card", { props: [...], template: `...` });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<div id="app">
+  <h1>Pets at our school</h1>
+  <pet-card v-for="p in pets" :name="p.name" :kind="p.kind"></pet-card>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  const app = createApp({
+    setup() {
+      const pets = ref([
+        { name: "Biscuit", kind: "guinea pig" },
+        { name: "Nemo", kind: "goldfish" },
+        { name: "Pepper", kind: "rabbit" }
+      ]);
+      return { pets };
+    }
+  });
+  app.component("pet-card", {
+    props: ["name", "kind"],
+    template: `
+      <div style="border: 2px dashed orange; padding: 8px; margin: 8px 0;">
+        <h2>{{ name }}</h2>
+        <p>A {{ kind }}</p>
+      </div>`
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: explain-start -->
+<div id="app">
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp } = Vue;
+  const app = createApp({});
+  app.mount("#app");
+</script>
+<!-- endregion -->

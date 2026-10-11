@@ -1,0 +1,350 @@
+<!-- region: predict -->
+<!-- file: vue.html -->
+<h2>Vue</h2>
+<div id="vue-app">
+  <button @click="add">Add a star</button>
+  <p>Stars: {{ count }} {{ stars.join("") }}</p>
+</div>
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const stars = ref([]);
+      const count = computed(() => stars.value.length);
+      function add() {
+        stars.value.push("⭐");
+      }
+      return { stars, count, add };
+    }
+  }).mount("#vue-app");
+</script>
+
+<!-- file: preact.html -->
+<h2>Preact</h2>
+<div id="preact-app"></div>
+<script src="preact.js"></script>
+<script>
+  const { html, render, useState } = htmPreact;
+  function App() {
+    const [stars, setStars] = useState([]);
+    const count = stars.length;
+    function add() {
+      setStars([...stars, "⭐"]);
+    }
+    return html`
+      <button onClick=${add}>Add a star</button>
+      <p>Stars: ${count} ${stars.join("")}</p>`;
+  }
+  render(html`<${App} />`, document.querySelector("#preact-app"));
+</script>
+
+<!-- file: svelte.html -->
+<h2>Svelte</h2>
+<textarea data-svelte hidden>
+  <script>
+    let stars = $state([]);
+    let count = $derived(stars.length);
+    function add() {
+      stars.push("⭐");
+    }
+  </script>
+  <button onclick={add}>Add a star</button>
+  <p>Stars: {count} {stars.join("")}</p>
+</textarea>
+<script src="svelte.js"></script>
+<!-- endregion -->
+
+<!-- region: run -->
+<h2>Vue</h2>
+<div id="vue-app">
+  <button @click="add">Add a star</button>
+  <p>Stars: {{ count }} {{ stars.join("") }}</p>
+</div>
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const stars = ref([]);
+      const count = computed(() => stars.value.length);
+      function add() {
+        stars.value.push("⭐");
+      }
+      return { stars, count, add };
+    }
+  }).mount("#vue-app");
+</script>
+
+<h2>Preact</h2>
+<div id="preact-app"></div>
+<script src="preact.js"></script>
+<script>
+  const { html, render, useState } = htmPreact;
+  function App() {
+    const [stars, setStars] = useState([]);
+    const count = stars.length;
+    function add() {
+      setStars([...stars, "⭐"]);
+    }
+    return html`
+      <button onClick=${add}>Add a star</button>
+      <p>Stars: ${count} ${stars.join("")}</p>`;
+  }
+  render(html`<${App} />`, document.querySelector("#preact-app"));
+</script>
+
+<h2>Svelte</h2>
+<textarea data-svelte hidden>
+  <script>
+    let stars = $state([]);
+    let count = $derived(stars.length);
+    function add() {
+      stars.push("⭐");
+    }
+  </script>
+  <button onclick={add}>Add a star</button>
+  <p>Stars: {count} {stars.join("")}</p>
+</textarea>
+<script src="svelte.js"></script>
+<!-- endregion -->
+
+<!-- region: vue -->
+<h2>Vue</h2>
+<div id="vue-app">
+  <button @click="add">Add a star</button>
+  <p>Stars: {{ count }} {{ stars.join("") }}</p>
+</div>
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const stars = ref([]);
+      const count = computed(() => stars.value.length);
+      function add() {
+        stars.value.push("⭐");
+      }
+      return { stars, count, add };
+    }
+  }).mount("#vue-app");
+</script>
+<!-- endregion -->
+
+<!-- region: preact -->
+<h2>Preact</h2>
+<div id="preact-app"></div>
+<script src="preact.js"></script>
+<script>
+  const { html, render, useState } = htmPreact;
+  function App() {
+    const [stars, setStars] = useState([]);
+    const count = stars.length;
+    function add() {
+      setStars([...stars, "⭐"]);
+    }
+    return html`
+      <button onClick=${add}>Add a star</button>
+      <p>Stars: ${count} ${stars.join("")}</p>`;
+  }
+  render(html`<${App} />`, document.querySelector("#preact-app"));
+</script>
+<!-- endregion -->
+
+<!-- region: svelte -->
+<h2>Svelte</h2>
+<textarea data-svelte hidden>
+  <script>
+    let stars = $state([]);
+    let count = $derived(stars.length);
+    function add() {
+      stars.push("⭐");
+    }
+  </script>
+  <button onclick={add}>Add a star</button>
+  <p>Stars: {count} {stars.join("")}</p>
+</textarea>
+<script src="svelte.js"></script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<div id="preact-app"></div>
+<script src="preact.js"></script>
+<script>
+  const { html, render, useState } = htmPreact;
+  function App() {
+    const [stars, setStars] = useState([]);
+    function add() {
+      stars.push("⭐");
+      setStars(stars);
+    }
+    return html`
+      <button onClick=${add}>Add a star</button>
+      <p>Stars: ${stars.length} ${stars.join("")}</p>`;
+  }
+  render(html`<${App} />`, document.querySelector("#preact-app"));
+</script>
+<!-- endregion -->
+
+<!-- region: sol-svelte-if -->
+<h2>Svelte</h2>
+<textarea data-svelte hidden>
+  <script>
+    let stars = $state([]);
+    let count = $derived(stars.length);
+    function add() {
+      stars.push("⭐");
+    }
+  </script>
+  <button onclick={add}>Add a star</button>
+  <p>Stars: {count} {stars.join("")}</p>
+  {#if count >= 5}
+    <p>That's a lot of stars!</p>
+  {/if}
+</textarea>
+<script src="svelte.js"></script>
+<!-- endregion -->
+
+<!-- region: sol-preact-clear -->
+<h2>Preact</h2>
+<div id="preact-app"></div>
+<script src="preact.js"></script>
+<script>
+  const { html, render, useState } = htmPreact;
+  function App() {
+    const [stars, setStars] = useState([]);
+    const count = stars.length;
+    function add() {
+      setStars([...stars, "⭐"]);
+    }
+    function clear() {
+      setStars([]);
+    }
+    return html`
+      <button onClick=${add}>Add a star</button>
+      <button onClick=${clear}>Clear</button>
+      <p>Stars: ${count} ${stars.join("")}</p>`;
+  }
+  render(html`<${App} />`, document.querySelector("#preact-app"));
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<h2>Vue</h2>
+<div id="vue-app">
+  <button @click="add">Add a star</button>
+  <p>Stars: {{ count }} {{ stars.join("") }}</p>
+</div>
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const stars = ref([]);
+      const count = computed(() => stars.value.length);
+      function add() {
+        stars.value.push("⭐");
+      }
+      return { stars, count, add };
+    }
+  }).mount("#vue-app");
+</script>
+
+<h2>Preact</h2>
+<div id="preact-app"></div>
+<script src="preact.js"></script>
+<script>
+  const { html, render, useState } = htmPreact;
+  function App() {
+    const [stars, setStars] = useState([]);
+    const count = stars.length;
+    function add() {
+      setStars([...stars, "⭐"]);
+    }
+    return html`
+      <button onClick=${add}>Add a star</button>
+      <p>Stars: ${count} ${stars.join("")}</p>`;
+  }
+  render(html`<${App} />`, document.querySelector("#preact-app"));
+</script>
+
+<h2>Svelte</h2>
+<textarea data-svelte hidden>
+  <script>
+    let stars = $state([]);
+    let count = $derived(stars.length);
+    function add() {
+      stars.push("⭐");
+    }
+  </script>
+  <button onclick={add}>Add a star</button>
+  <p>Stars: {count} {stars.join("")}</p>
+</textarea>
+<script src="svelte.js"></script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<h2>Vue</h2>
+<div id="vue-app">
+  <button @click="add">Add a star</button>
+  <button @click="remove">Remove one</button>
+  <p>Stars: {{ count }} {{ stars.join("") }}</p>
+</div>
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const stars = ref([]);
+      const count = computed(() => stars.value.length);
+      function add() {
+        stars.value.push("⭐");
+      }
+      function remove() {
+        stars.value.pop();
+      }
+      return { stars, count, add, remove };
+    }
+  }).mount("#vue-app");
+</script>
+
+<h2>Preact</h2>
+<div id="preact-app"></div>
+<script src="preact.js"></script>
+<script>
+  const { html, render, useState } = htmPreact;
+  function App() {
+    const [stars, setStars] = useState([]);
+    const count = stars.length;
+    function add() {
+      setStars([...stars, "⭐"]);
+    }
+    function remove() {
+      setStars(stars.slice(0, -1));
+    }
+    return html`
+      <button onClick=${add}>Add a star</button>
+      <button onClick=${remove}>Remove one</button>
+      <p>Stars: ${count} ${stars.join("")}</p>`;
+  }
+  render(html`<${App} />`, document.querySelector("#preact-app"));
+</script>
+
+<h2>Svelte</h2>
+<textarea data-svelte hidden>
+  <script>
+    let stars = $state([]);
+    let count = $derived(stars.length);
+    function add() {
+      stars.push("⭐");
+    }
+    function remove() {
+      stars.pop();
+    }
+  </script>
+  <button onclick={add}>Add a star</button>
+  <button onclick={remove}>Remove one</button>
+  <p>Stars: {count} {stars.join("")}</p>
+</textarea>
+<script src="svelte.js"></script>
+<!-- endregion -->

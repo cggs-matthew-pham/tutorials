@@ -415,7 +415,7 @@ On the create page, the helper row adds a starter for each check type and for ta
 
 ### HTML lessons: pictures and links
 
-Pictures students use live in `media/html/` (drawn for the course: `trophy.svg`, `medal.svg`, `book.svg`, `ball.svg`, `star.svg`, `music.svg`); lesson code names them directly, `<img src="trophy.svg" alt="...">`, as files next to a real page. Add new ones there (your own drawings, or images you may share). Links in the preview open in a new tab, so the student's page stays; use `https://example.com/...` addresses in lessons. Forms send nowhere: pressing a form's button (or Enter in a box) shows a short note saying nothing was sent.
+Pictures students use live in `media/html/` (drawn for the course: `trophy.svg`, `medal.svg`, `book.svg`, `ball.svg`, `star.svg`, `music.svg`); lesson code names them directly, `<img src="trophy.svg" alt="...">`, as files next to a real page. Add new ones there (your own drawings, or images you may share). Libraries are files there too, from `vendor/web/` (README there): `<link rel="stylesheet" href="bootstrap.min.css">`, `<script src="vue.js"></script>`, `preact.js`, `svelte.js` (a component in `<textarea data-svelte hidden>`), `bulma.min.css`, `pico.classless.min.css`, `tailwind.js`, `daisyui.css`; the DOM playground has the same folder. Links in the preview open in a new tab, so the student's page stays; use `https://example.com/...` addresses in lessons. Forms send nowhere: pressing a form's button (or Enter in a box) shows a short note saying nothing was sent.
 
 ### HTML lessons: tags in text
 

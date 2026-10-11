@@ -473,6 +473,106 @@
      "shows": "A heading and a button, styled with no classes"
     }
    ]
+  },
+  {
+   "name": "Vue",
+   "items": [
+    {
+     "label": "Vue app",
+     "code": "<div id=\"app\">\n  ‹the page›\n</div>\n\n<script src=\"vue.js\"></script>\n<script>\n  const { createApp, ref, computed } = Vue;\n  createApp({\n    setup() {\n      ‹data and functions›\n      return { ‹names› };\n    }\n  }).mount(\"#app\");\n</script>\n",
+     "hint": "Vue looks after everything inside the div with id app. setup makes the data and functions, and returns the names the page can use. vue.js sits beside the page.",
+     "matches": "createApp\\s*\\(",
+     "example": "<div id=\"app\">\n  <p>Today: {{ temp }} °C</p>\n</div>\n\n<script src=\"vue.js\"></script>\n<script>\n  const { createApp, ref } = Vue;\n  createApp({\n    setup() {\n      const temp = ref(21);\n      return { temp };\n    }\n  }).mount(\"#app\");\n</script>\n",
+     "shows": "A sentence showing the data: Today: 21 °C"
+    },
+    {
+     "label": "ref data",
+     "code": "const ‹score› = ref(‹0›);\n",
+     "hint": "Data that Vue watches: when it changes, the page follows. Return it from setup. In the script its value is score.value; on the page, just score.",
+     "matches": "\\bref\\s*\\("
+    },
+    {
+     "label": "show data {{ }}",
+     "code": "{{ ‹score› }}\n",
+     "hint": "Shows a value from setup on the page, and keeps it up to date. Any short expression works: {{ score * 2 }}.",
+     "matches": "\\{\\{"
+    },
+    {
+     "label": "@click event",
+     "code": "<button @click=\"‹addPoint›\">‹Add›</button>\n",
+     "hint": "Runs a function from setup when the button is clicked. A short change works too: @click=\"score++\".",
+     "matches": "@click\\b"
+    },
+    {
+     "label": "v-for",
+     "code": "<li v-for=\"‹name› in ‹players›\">{{ ‹name› }}</li>\n",
+     "hint": "Makes this tag once for each item in the list. Put it on the tag you want more of (the li, not the ul).",
+     "matches": "\\sv-for\\s*=",
+     "example": "<ul id=\"app\">\n  <li v-for=\"fruit in fruits\">{{ fruit }}</li>\n</ul>\n\n<script src=\"vue.js\"></script>\n<script>\n  const { createApp, ref } = Vue;\n  createApp({\n    setup() {\n      const fruits = ref([\"Apple\", \"Pear\", \"Plum\"]);\n      return { fruits };\n    }\n  }).mount(\"#app\");\n</script>\n",
+     "shows": "A list with one item for each fruit"
+    },
+    {
+     "label": "v-if",
+     "code": "<p v-if=\"‹players.length === 0›\">‹No players yet.›</p>\n",
+     "hint": "Shows the tag only while the condition is true. v-else on the next tag shows when it is false.",
+     "matches": "\\sv-(if|else)\\b"
+    },
+    {
+     "label": "v-model",
+     "code": "<input v-model=\"‹newName›\">\n",
+     "hint": "Joins a box to a ref, both ways: typing changes the data, and changing the data changes the box. On a tick box it is true or false.",
+     "matches": "\\sv-model\\b"
+    },
+    {
+     "label": "function in setup",
+     "code": "function ‹addPoint›() {\n  ‹score›.value++;\n}\n",
+     "hint": "A function the page can run (return it from setup). In the script, a ref's value is in .value.",
+     "matches": "\\.value\\s*(\\+\\+|--|[-+]?=(?!=))"
+    },
+    {
+     "label": "computed",
+     "code": "const ‹total› = computed(() => ‹adults.value * 12›);\n",
+     "hint": "A value worked out from other data. Vue works it out again whenever that data changes, so it never goes stale. Never set it yourself.",
+     "matches": "\\bcomputed\\s*\\("
+    },
+    {
+     "label": "component and props",
+     "code": "app.component(\"‹player-card›\", {\n  props: [\"‹name›\"],\n  template: `‹<p>{{ name }}</p>›`\n});\n",
+     "hint": "A tag of your own, made once and used many times: <player-card :name=\"p.name\"></player-card>. The colon passes a value. Make the app with const app = createApp(...), add components, then app.mount(\"#app\").",
+     "matches": "\\.component\\s*\\("
+    }
+   ]
+  },
+  {
+   "name": "Frameworks",
+   "items": [
+    {
+     "label": "Preact app",
+     "code": "<div id=\"app\"></div>\n<script src=\"preact.js\"></script>\n<script>\n  const { html, render, useState } = htmPreact;\n  function App() {\n    ‹state and functions›\n    return html`‹the page›`;\n  }\n  render(html`<${App} />`, document.querySelector(\"#app\"));\n</script>\n",
+     "hint": "Preact works like React. A component is a function that returns its page, written in html`…` (htm). Preact runs the function again after every change.",
+     "matches": "htmPreact"
+    },
+    {
+     "label": "useState",
+     "code": "const [‹stars›, ‹setStars›] = useState(‹[]›);\n",
+     "hint": "Preact and React state: the value, and a function to change it. Always give it a new value: setStars([...stars, item]), never stars.push.",
+     "matches": "\\buseState\\s*\\("
+    },
+    {
+     "label": "Svelte component",
+     "code": "<textarea data-svelte hidden>\n  <script>\n    ‹state and functions›\n  </script>\n  ‹the page›\n</textarea>\n<script src=\"svelte.js\"></script>\n",
+     "hint": "Here a Svelte component sits in a hidden textarea and svelte.js compiles it in the page. In a real project it is its own file, App.svelte.",
+     "matches": "data-svelte",
+     "example": "<textarea data-svelte hidden>\n  <script>\n    let name = $state(\"world\");\n  </script>\n  <p>Hello, {name}!</p>\n</textarea>\n<script src=\"svelte.js\"></script>\n",
+     "shows": "Hello, world!"
+    },
+    {
+     "label": "$state and $derived",
+     "code": "let ‹count› = $state(‹0›);\nlet ‹double› = $derived(‹count * 2›);\n",
+     "hint": "Svelte's data that changes, and a value worked out from it. Change $state data directly (count++, list.push). Show it with {count}; choose with {#if …} … {/if}.",
+     "matches": "\\$(state|derived)\\s*\\("
+    }
+   ]
   }
  ]
 }

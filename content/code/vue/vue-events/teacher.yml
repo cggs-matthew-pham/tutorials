@@ -1,0 +1,47 @@
+summary: "Students predict that v-model follows each letter, add names with a function, match the parts, find score++ on a ref, add a Reset function and a second box, and make a badge maker."
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 15 min"
+goals:
+  - I can run a function of my own when a button is clicked.
+  - I can join a box to data with v-model.
+  - I can change a ref in the script with .value.
+before: |
+  Read the unit primer first. Two new pieces. `@click="addPlayer"` names a function to run on a click; the function is written in `setup` and returned with the data. `v-model="newName"` joins a box to a ref both ways: typing changes the ref, and setting the ref (to empty text, say) changes the box. Compare the DOM course, where students read `box.value` and listened for the `"input"` event themselves.
+
+  **The hard part of the whole course:** a ref is a box. On the page Vue opens it for you (`{{ score }}`, `@click="score++"`); in the script you open it yourself (`score.value++`). Writing `score++` in a function gives a red error, "Assignment to constant variable", because the ref was made with `const`. The playground's hint names `.value` for this case. Expect it all lesson; it is also the planted bug.
+running:
+  - "Predict: ask what DOM-course students would have needed (an input event and box.value)."
+  - "Run: press Add with an empty box and ask which line stops it."
+  - "Investigate: before the bug, ask students to underline every .value in the script and none on the page."
+  - "Modify: a new function is three edits: write it, return it, name it in @click."
+  - "Make: ask which ref each box changes, and what the button's function changes."
+struggle: "Students mix up when to write .value. Ask \"are you on the page or in the script?\" every time, and let them answer before they type."
+stuck:
+  - see: "A red error: Assignment to constant variable."
+    ask: "Is that a ref, changed in the script?"
+    fix: "Change its .value: score.value++."
+  - see: "Clicking does nothing; the console warns a property is not defined."
+    ask: "Is the function in the return?"
+    fix: "return { players, newName, addPlayer, reset };"
+  - see: "The box and the paragraph do not match."
+    ask: "Does v-model name the same ref the paragraph shows?"
+    fix: "Use the same name in v-model and in {{ }}."
+stretch: "Add when Enter is pressed: @keyup.enter=\"addPlayer\" on the box. Remove a player when their name is clicked (pass the name to a function)."
+support: "Give the Reset function written out; students return it and add the button."
+leads: "Next lesson: computed values, worked out from data and kept up to date. Class idea: find an Add button on a real site and say which data it changes."
+exit:
+  q: "In a Vue function, how do you add 1 to a ref called score, and why is it different on the page?"
+  a: "score.value++; the page unwraps refs for you, but the script reaches the value inside with .value."
+explain: |
+  1. A score on the page, made with `ref`.
+  2. A function in `setup` adds a point.
+  3. In the script, the number is in `score.value`.
+  4. The button runs the function when it is clicked: `@click="addPoint"`.
+  5. On the page you write `score`; in the script, `score.value`.
+solutions:
+  step-4#t1: page.html#sol-reset
+  step-4#t2: page.html#sol-club
+  step-5: page.html#sol-make
+sources:
+  - { title: "Vue.js: Event handling", url: "https://vuejs.org/guide/essentials/event-handling.html", checked: 2026-10-12 }
+  - { title: "Vue.js: Form input bindings (v-model)", url: "https://vuejs.org/guide/essentials/forms.html", checked: 2026-10-12 }

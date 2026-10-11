@@ -1,0 +1,49 @@
+summary: "Students predict what a made-up tag shows, make cards from a list with a component and props, find a prop passed without its colon, add a medal to every card and a player to the data, and make pet cards."
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 20 min"
+goals:
+  - I can make a tag of my own with app.component.
+  - I can pass each copy its own data with props and :name="value".
+  - I can show one component for each item in a list.
+before: |
+  Read the unit primer first. `app.component("player-card", { props: [...], template: `...` })` registers a new tag; every `<player-card>` on the page becomes a copy of the template. **Props** are its inputs: the tag that uses it hands them in. `:wins="p.wins"` (with a colon, short for `v-bind:`) passes the value of `p.wins`; `wins="p.wins"` passes the words, which is the planted bug.
+
+  Two rules come from writing the page straight into HTML, without a build step: component names need a dash, and their tags need a separate closing tag (`<player-card></player-card>`, not `<player-card />`). The template is a JavaScript string between back-ticks, so it can span lines.
+
+  Props flow one way: a card should not change its own props (Vue warns if it tries). Changing data happens in the parent; sending messages up from a component (`emit`) is left out of this course.
+running:
+  - "Predict: ask what the browser normally does with a tag it does not know (it ignores it)."
+  - "Run: change one player's data and ask why only one card changed."
+  - "Investigate: draw the data flowing from the list, through v-for, into each card's props."
+  - "Modify: ask whether the medal goes in the data or the template, and why."
+  - "Make: ask students to name their two props before writing the template."
+struggle: "Students try to read the players list inside the component. Ask \"what has this card been given?\" and point to props."
+stuck:
+  - see: "Cards show words like p.name."
+    ask: "Is there a colon before the prop?"
+    fix: ":name=\"p.name\" passes the value."
+  - see: "Nothing shows, and the console warns about failing to resolve a component."
+    ask: "Is app.component before app.mount, with the same name as the tag?"
+    fix: "Register it before mount; the tag and the name must match, dash included."
+  - see: "A prop is blank on every card."
+    ask: "Is it in the props list?"
+    fix: "props: [\"name\", \"kind\"]"
+stretch: "Give player-card a computed of its own (setup(props) { … }) that shows a rating from the wins. Make the cards sit in a row with Flexbox."
+support: "Give the pet-card component written out; students add the v-for tag only."
+leads: "Next: the final challenge, a to-do app built in milestones, with an optional lesson that builds the same app in three frameworks. Class idea: open a shopping site and count the cards made from one component."
+exit:
+  q: "What is the difference between wins=\"p.wins\" and :wins=\"p.wins\"?"
+  a: "Without the colon the card is given the words p.wins; with the colon it is given the value of p.wins."
+explain: |
+  1. An empty app.
+  2. A component is a tag of your own: `app.component("player-card", { … })`.
+  3. Its prop, `name`, is the data each copy is given; its template is the HTML each copy shows.
+  4. Use the tag twice, with a different name each time.
+  5. Written once, used twice, each copy with its own data.
+solutions:
+  step-4#t1: page.html#sol-medal
+  step-4#t2: page.html#sol-kai
+  step-5: page.html#sol-make
+sources:
+  - { title: "Vue.js: Components basics", url: "https://vuejs.org/guide/essentials/component-basics.html", checked: 2026-10-12 }
+  - { title: "Vue.js: Props", url: "https://vuejs.org/guide/components/props.html", checked: 2026-10-12 }

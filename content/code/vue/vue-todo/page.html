@@ -1,0 +1,440 @@
+<!-- region: finished -->
+<div id="app">
+  <h1>To do</h1>
+  <input v-model="newTask" placeholder="Something to do">
+  <button @click="addTask">Add</button>
+  <ul>
+    <todo-item v-for="t in tasks" :task="t"></todo-item>
+  </ul>
+  <p>{{ left }} left to do</p>
+  <button @click="clearDone">Clear done</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  const app = createApp({
+    setup() {
+      const tasks = ref([
+        { text: "Feed the cat", done: false },
+        { text: "Pack my bag", done: true }
+      ]);
+      const newTask = ref("");
+      const left = computed(() => {
+        let count = 0;
+        for (const t of tasks.value) {
+          if (!t.done) {
+            count++;
+          }
+        }
+        return count;
+      });
+      function addTask() {
+        if (newTask.value !== "") {
+          tasks.value.push({ text: newTask.value, done: false });
+          newTask.value = "";
+        }
+      }
+      function clearDone() {
+        const keep = [];
+        for (const t of tasks.value) {
+          if (!t.done) {
+            keep.push(t);
+          }
+        }
+        tasks.value = keep;
+      }
+      return { tasks, newTask, left, addTask, clearDone };
+    }
+  });
+  app.component("todo-item", {
+    props: ["task"],
+    template: `<li><label><input type="checkbox" v-model="task.done"> {{ task.text }}</label></li>`
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: start -->
+<div id="app">
+  <h1>To do</h1>
+  <input v-model="newTask" placeholder="Something to do">
+  <!-- Milestone 1: an Add button that runs addTask. -->
+  <ul>
+    <li v-for="t in tasks">{{ t.text }}</li>
+  </ul>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  const app = createApp({
+    setup() {
+      const tasks = ref([
+        { text: "Feed the cat", done: false },
+        { text: "Pack my bag", done: true }
+      ]);
+      const newTask = ref("");
+      // Milestone 1: function addTask() { … } adds { text: newTask.value, done: false }
+      // to tasks.value (if the box is not empty), then empties the box.
+      return { tasks, newTask };
+    }
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-m1 -->
+<div id="app">
+  <h1>To do</h1>
+  <input v-model="newTask" placeholder="Something to do">
+  <button @click="addTask">Add</button>
+  <ul>
+    <li v-for="t in tasks">{{ t.text }}</li>
+  </ul>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  const app = createApp({
+    setup() {
+      const tasks = ref([
+        { text: "Feed the cat", done: false },
+        { text: "Pack my bag", done: true }
+      ]);
+      const newTask = ref("");
+      function addTask() {
+        if (newTask.value !== "") {
+          tasks.value.push({ text: newTask.value, done: false });
+          newTask.value = "";
+        }
+      }
+      return { tasks, newTask, addTask };
+    }
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: m2 -->
+<div id="app">
+  <h1>To do</h1>
+  <input v-model="newTask" placeholder="Something to do">
+  <button @click="addTask">Add</button>
+  <ul>
+    <!-- Milestone 2: a tick box in each li, joined to t.done with v-model. -->
+    <li v-for="t in tasks">{{ t.text }}</li>
+  </ul>
+  <!-- Milestone 2: show how many are left, with {{ left }}. -->
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  const app = createApp({
+    setup() {
+      const tasks = ref([
+        { text: "Feed the cat", done: false },
+        { text: "Pack my bag", done: true }
+      ]);
+      const newTask = ref("");
+      function addTask() {
+        if (newTask.value !== "") {
+          tasks.value.push({ text: newTask.value, done: false });
+          newTask.value = "";
+        }
+      }
+      // Milestone 2: const left = computed(() => { … }) counts the tasks that are not done
+      // (a for loop over tasks.value, adding 1 when !t.done), then returns the count.
+      return { tasks, newTask, addTask };
+    }
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-m2 -->
+<div id="app">
+  <h1>To do</h1>
+  <input v-model="newTask" placeholder="Something to do">
+  <button @click="addTask">Add</button>
+  <ul>
+    <li v-for="t in tasks"><label><input type="checkbox" v-model="t.done"> {{ t.text }}</label></li>
+  </ul>
+  <p>{{ left }} left to do</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  const app = createApp({
+    setup() {
+      const tasks = ref([
+        { text: "Feed the cat", done: false },
+        { text: "Pack my bag", done: true }
+      ]);
+      const newTask = ref("");
+      function addTask() {
+        if (newTask.value !== "") {
+          tasks.value.push({ text: newTask.value, done: false });
+          newTask.value = "";
+        }
+      }
+      const left = computed(() => {
+        let count = 0;
+        for (const t of tasks.value) {
+          if (!t.done) {
+            count++;
+          }
+        }
+        return count;
+      });
+      return { tasks, newTask, left, addTask };
+    }
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: m3 -->
+<div id="app">
+  <h1>To do</h1>
+  <input v-model="newTask" placeholder="Something to do">
+  <button @click="addTask">Add</button>
+  <ul>
+    <li v-for="t in tasks"><label><input type="checkbox" v-model="t.done"> {{ t.text }}</label></li>
+  </ul>
+  <p>{{ left }} left to do</p>
+  <!-- Milestone 3, goals only:
+       1. Make each li a todo-item component, with the task as its prop.
+       2. A Clear done button that keeps only the tasks that are not done. -->
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  const app = createApp({
+    setup() {
+      const tasks = ref([
+        { text: "Feed the cat", done: false },
+        { text: "Pack my bag", done: true }
+      ]);
+      const newTask = ref("");
+      function addTask() {
+        if (newTask.value !== "") {
+          tasks.value.push({ text: newTask.value, done: false });
+          newTask.value = "";
+        }
+      }
+      const left = computed(() => {
+        let count = 0;
+        for (const t of tasks.value) {
+          if (!t.done) {
+            count++;
+          }
+        }
+        return count;
+      });
+      return { tasks, newTask, left, addTask };
+    }
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-m3 -->
+<div id="app">
+  <h1>To do</h1>
+  <input v-model="newTask" placeholder="Something to do">
+  <button @click="addTask">Add</button>
+  <ul>
+    <todo-item v-for="t in tasks" :task="t"></todo-item>
+  </ul>
+  <p>{{ left }} left to do</p>
+  <button @click="clearDone">Clear done</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  const app = createApp({
+    setup() {
+      const tasks = ref([
+        { text: "Feed the cat", done: false },
+        { text: "Pack my bag", done: true }
+      ]);
+      const newTask = ref("");
+      const left = computed(() => {
+        let count = 0;
+        for (const t of tasks.value) {
+          if (!t.done) {
+            count++;
+          }
+        }
+        return count;
+      });
+      function addTask() {
+        if (newTask.value !== "") {
+          tasks.value.push({ text: newTask.value, done: false });
+          newTask.value = "";
+        }
+      }
+      function clearDone() {
+        const keep = [];
+        for (const t of tasks.value) {
+          if (!t.done) {
+            keep.push(t);
+          }
+        }
+        tasks.value = keep;
+      }
+      return { tasks, newTask, left, addTask, clearDone };
+    }
+  });
+  app.component("todo-item", {
+    props: ["task"],
+    template: `<li><label><input type="checkbox" v-model="task.done"> {{ task.text }}</label></li>`
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<div id="app">
+  <p>{{ left }} left to do</p>
+  <button @click="tasks[0].done = true">Tick the first</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const tasks = ref([{ text: "Feed the cat", done: false }, { text: "Pack my bag", done: false }]);
+      let left = 0;
+      for (const t of tasks.value) {
+        if (!t.done) {
+          left++;
+        }
+      }
+      return { tasks, left };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<div id="app">
+  <h1>To do</h1>
+  <input v-model="newTask" placeholder="Something to do">
+  <button @click="addTask">Add</button>
+  <ul>
+    <todo-item v-for="t in tasks" :task="t"></todo-item>
+  </ul>
+  <p>{{ left }} left to do</p>
+  <button @click="clearDone">Clear done</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  const app = createApp({
+    setup() {
+      const tasks = ref([
+        { text: "Feed the cat", done: false },
+        { text: "Pack my bag", done: true }
+      ]);
+      const newTask = ref("");
+      const left = computed(() => {
+        let count = 0;
+        for (const t of tasks.value) {
+          if (!t.done) {
+            count++;
+          }
+        }
+        return count;
+      });
+      function addTask() {
+        if (newTask.value !== "") {
+          tasks.value.push({ text: newTask.value, done: false });
+          newTask.value = "";
+        }
+      }
+      function clearDone() {
+        const keep = [];
+        for (const t of tasks.value) {
+          if (!t.done) {
+            keep.push(t);
+          }
+        }
+        tasks.value = keep;
+      }
+      return { tasks, newTask, left, addTask, clearDone };
+    }
+  });
+  app.component("todo-item", {
+    props: ["task"],
+    template: `<li><label><input type="checkbox" v-model="task.done"> {{ task.text }}</label></li>`
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<div id="app">
+  <h1>To do</h1>
+  <input v-model="newTask" placeholder="Something to do">
+  <button @click="addTask">Add</button>
+  <ul>
+    <todo-item v-for="t in tasks" :task="t"></todo-item>
+  </ul>
+  <p>{{ left }} left to do</p>
+  <button @click="clearDone">Clear done</button>
+  <p v-if="tasks.length > 0 && left === 0">All done! 🎉</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  const app = createApp({
+    setup() {
+      const tasks = ref([
+        { text: "Feed the cat", done: false },
+        { text: "Pack my bag", done: true }
+      ]);
+      const newTask = ref("");
+      const left = computed(() => {
+        let count = 0;
+        for (const t of tasks.value) {
+          if (!t.done) {
+            count++;
+          }
+        }
+        return count;
+      });
+      function addTask() {
+        if (newTask.value !== "") {
+          tasks.value.push({ text: newTask.value, done: false });
+          newTask.value = "";
+        }
+      }
+      function clearDone() {
+        const keep = [];
+        for (const t of tasks.value) {
+          if (!t.done) {
+            keep.push(t);
+          }
+        }
+        tasks.value = keep;
+      }
+      return { tasks, newTask, left, addTask, clearDone };
+    }
+  });
+  app.component("todo-item", {
+    props: ["task"],
+    template: `<li><label><input type="checkbox" v-model="task.done"> {{ task.text }}</label></li>`
+  });
+  app.mount("#app");
+</script>
+<!-- endregion -->

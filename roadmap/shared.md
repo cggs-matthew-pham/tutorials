@@ -280,7 +280,10 @@ For the four web proposals in `roadmap/code.md` (Bootstrap, Vue, the three-frame
 - **Clips and pictures:** `snippets/html.json` gains Bootstrap, Vue, Frameworks and Fetch groups, and `playground-dom/` changes (below), so every HTML and DOM clip records again at the next publish (as when turtle.json grew). New cards get new pictures; existing pictures keep their hashes.
 - **`vendor/web/` also has** Bulma, Pico (classless), Tailwind's browser build and daisyUI, for the Bootstrap course's look at other frameworks (Matthew asked for it).
 - **`tools/check-html-lessons.mjs`:** also walks `code/bootstrap/`, and answers `sort` checks the way it answers `match` (no existing lesson's result changed).
-- **Code chat's own files (for the record):** `playground-dom/main.js` gives the preview `<base href="media/">` (as the HTML playground does), makes `#name` links scroll inside the page, shows an `Error` in `console.log` by its message, and gives a line number only for errors in the page itself (not in a library).
+- **`tools/render-pictures.mjs` (with Vue):** the html and expected sections load each page from the local server's address (`showPage`) instead of `setContent`, which writes the page with `document.write`, so Chromium blocked its `<script src>` lines and Vue pages drew `{{ }}` unfilled. Their hashes change, so the 56 HTML card pictures and 98 expected pictures redraw once (quick; no MakeCode, no `SHARED` bump).
+- **`tools/check-html-lessons.mjs` (with Vue):** also walks `code/dom/` and `code/vue/`; on the DOM playground it presses Run after putting in a solution. All DOM lessons pass.
+- **Svelte wrapper:** a component sits in `<textarea data-svelte hidden>` (not a `<script>` with a comment), so code checks and the concept scan see it.
+- **Code chat's own files (for the record):** `playground-dom/main.js` gives the preview `<base href="media/">` (as the HTML playground does), makes `#name` links scroll inside the page, shows an `Error` in `console.log` by its message, gives a line number only for errors in the page itself (not in a library), and loads `<script src>` files beside the page with `crossorigin` (same line) so a library's rethrown error shows its real message, not "Script error.". `playground-dom/dom-errors.js`: hints for a Vue ref changed without `.value`, and for a missing library line.
 
 ## Parked
 

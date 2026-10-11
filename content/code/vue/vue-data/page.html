@@ -1,0 +1,137 @@
+<!-- region: predict -->
+<div id="app">
+  <p>Score: {{ score }}</p>
+  <button @click="score++">Add a point</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const score = ref(0);
+      return { score };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<div id="app">
+  <h1>{{ title }}</h1>
+  <p>Score: {{ score }}</p>
+  <button @click="score++">Add a point</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const title = ref("Quiz night");
+      const score = ref(0);
+      return { title, score };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<div id="app">
+  <p>Score: {{ score }}</p>
+  <button @click="score++">Add a point</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      let score = 0;
+      return { score };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-minus -->
+<div id="app">
+  <h1>{{ title }}</h1>
+  <p>Score: {{ score }}</p>
+  <button @click="score++">Add a point</button>
+  <button @click="score--">Take a point</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const title = ref("Quiz night");
+      const score = ref(0);
+      return { title, score };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-team -->
+<div id="app">
+  <h1>{{ title }}</h1>
+  <p>Team: {{ team }}</p>
+  <p>Score: {{ score }}</p>
+  <button @click="score++">Add a point</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const title = ref("Quiz night");
+      const team = ref("Owls");
+      const score = ref(0);
+      return { title, team, score };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<div id="app">
+  <!-- Show two pieces of data with {{ }}, and a button for each that changes it. -->
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      // Make your data here with ref, and return it.
+      return { };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<div id="app">
+  <h1>Space game</h1>
+  <p>Lives: {{ lives }}</p>
+  <p>Level: {{ level }}</p>
+  <button @click="lives--">Lose a life</button>
+  <button @click="level++">Next level</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const lives = ref(3);
+      const level = ref(1);
+      return { lives, level };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->

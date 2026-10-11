@@ -1,0 +1,167 @@
+<!-- region: predict -->
+<div id="app">
+  <ul>
+    <li v-for="name in players">{{ name }}</li>
+  </ul>
+  <button @click="players.push('Kai')">Add Kai</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const players = ref(["Ada", "Sam", "Lin"]);
+      return { players };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<div id="app">
+  <h1>Chess team</h1>
+  <ul>
+    <li v-for="name in players">{{ name }}</li>
+  </ul>
+  <p v-if="players.length === 0">No players yet.</p>
+  <button @click="players.push('Kai')">Add Kai</button>
+  <button @click="players.pop()">Remove the last</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const players = ref(["Ada", "Sam", "Lin"]);
+      return { players };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<div id="app">
+  <ul v-for="name in players">
+    <li>{{ name }}</li>
+  </ul>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const players = ref(["Ada", "Sam", "Lin"]);
+      return { players };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-clear -->
+<div id="app">
+  <h1>Chess team</h1>
+  <ul>
+    <li v-for="name in players">{{ name }}</li>
+  </ul>
+  <p v-if="players.length === 0">No players yet.</p>
+  <button @click="players.push('Kai')">Add Kai</button>
+  <button @click="players.pop()">Remove the last</button>
+  <button @click="players = []">Clear</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const players = ref(["Ada", "Sam", "Lin"]);
+      return { players };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-full -->
+<div id="app">
+  <h1>Chess team</h1>
+  <ul>
+    <li v-for="name in players">{{ name }}</li>
+  </ul>
+  <p v-if="players.length === 0">No players yet.</p>
+  <p v-if="players.length >= 5">Team full!</p>
+  <button @click="players.push('Kai')">Add Kai</button>
+  <button @click="players.pop()">Remove the last</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const players = ref(["Ada", "Sam", "Lin"]);
+      return { players };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<div id="app">
+  <h1>My playlist</h1>
+  <!-- A list of songs with v-for, a message with v-if when it is empty,
+       and buttons that add a song and remove one. -->
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const songs = ref(["First song", "Second song"]);
+      return { songs };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<div id="app">
+  <h1>My playlist</h1>
+  <ol>
+    <li v-for="song in songs">{{ song }}</li>
+  </ol>
+  <p v-if="songs.length === 0">Nothing to play.</p>
+  <button @click="songs.push('Another song')">Add a song</button>
+  <button @click="songs.shift()">Play the first</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const songs = ref(["First song", "Second song"]);
+      return { songs };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: explain-start -->
+<div id="app">
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const players = ref(["Ada", "Sam", "Lin"]);
+      return { players };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->

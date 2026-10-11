@@ -1,0 +1,197 @@
+<!-- region: predict -->
+<div id="app">
+  <input v-model="name">
+  <p>Hello, {{ name }}!</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const name = ref("friend");
+      return { name };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<div id="app">
+  <h1>Chess team</h1>
+  <input v-model="newName" placeholder="A name">
+  <button @click="addPlayer">Add</button>
+  <p>Adding: {{ newName }}</p>
+  <ul>
+    <li v-for="name in players">{{ name }}</li>
+  </ul>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const players = ref(["Ada", "Sam"]);
+      const newName = ref("");
+      function addPlayer() {
+        if (newName.value !== "") {
+          players.value.push(newName.value);
+          newName.value = "";
+        }
+      }
+      return { players, newName, addPlayer };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<div id="app">
+  <p>Score: {{ score }}</p>
+  <button @click="addPoint">Add a point</button>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const score = ref(0);
+      function addPoint() {
+        score++;
+      }
+      return { score, addPoint };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-reset -->
+<div id="app">
+  <h1>Chess team</h1>
+  <input v-model="newName" placeholder="A name">
+  <button @click="addPlayer">Add</button>
+  <button @click="reset">Reset</button>
+  <p>Adding: {{ newName }}</p>
+  <ul>
+    <li v-for="name in players">{{ name }}</li>
+  </ul>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const players = ref(["Ada", "Sam"]);
+      const newName = ref("");
+      function addPlayer() {
+        if (newName.value !== "") {
+          players.value.push(newName.value);
+          newName.value = "";
+        }
+      }
+      function reset() {
+        players.value = ["Ada", "Sam"];
+        newName.value = "";
+      }
+      return { players, newName, addPlayer, reset };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-club -->
+<div id="app">
+  <h1>{{ club }} team</h1>
+  <input v-model="club" placeholder="Club name">
+  <input v-model="newName" placeholder="A name">
+  <button @click="addPlayer">Add</button>
+  <p>Adding: {{ newName }}</p>
+  <ul>
+    <li v-for="name in players">{{ name }}</li>
+  </ul>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const club = ref("Chess");
+      const players = ref(["Ada", "Sam"]);
+      const newName = ref("");
+      function addPlayer() {
+        if (newName.value !== "") {
+          players.value.push(newName.value);
+          newName.value = "";
+        }
+      }
+      return { club, players, newName, addPlayer };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<div id="app">
+  <!-- A name badge maker: boxes joined to data with v-model,
+       the badge shown with {{ }}, and a button that runs a function. -->
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      return { };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<div id="app">
+  <h1>Badge maker</h1>
+  <input v-model="person" placeholder="Your name">
+  <input v-model="role" placeholder="Your role">
+  <button @click="shout">Make it loud</button>
+  <div style="border: 3px solid teal; padding: 12px; margin-top: 12px;">
+    <h2>{{ person }}</h2>
+    <p>{{ role }}</p>
+  </div>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const person = ref("Ada");
+      const role = ref("Captain");
+      function shout() {
+        person.value = person.value.toUpperCase() + "!";
+      }
+      return { person, role, shout };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: explain-start -->
+<div id="app">
+  <p>Score: {{ score }}</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref } = Vue;
+  createApp({
+    setup() {
+      const score = ref(0);
+      return { score };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->

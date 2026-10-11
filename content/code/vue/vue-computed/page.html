@@ -1,0 +1,189 @@
+<!-- region: predict -->
+<div id="app">
+  <p>Adults ($12): {{ adults }} <button @click="adults++">+</button></p>
+  <p>Children ($5): {{ children }}</p>
+  <p>Total: ${{ total }}</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const adults = ref(2);
+      const children = ref(1);
+      const total = computed(() => adults.value * 12 + children.value * 5);
+      return { adults, children, total };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<div id="app">
+  <h1>Concert tickets</h1>
+  <p>Adults ($12): {{ adults }}
+    <button @click="adults++">+</button> <button @click="adults--">−</button></p>
+  <p>Children ($5): {{ children }}
+    <button @click="children++">+</button> <button @click="children--">−</button></p>
+  <p><b>Total: ${{ total }}</b></p>
+  <p v-if="total >= 50">A free programme comes with your tickets!</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const adults = ref(2);
+      const children = ref(1);
+      const total = computed(() => adults.value * 12 + children.value * 5);
+      return { adults, children, total };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<div id="app">
+  <p>Adults ($12): {{ adults }} <button @click="adults++">+</button></p>
+  <p>Children ($5): {{ children }}</p>
+  <p>Total: ${{ total }}</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const adults = ref(2);
+      const children = ref(1);
+      const total = adults.value * 12 + children.value * 5;
+      return { adults, children, total };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-people -->
+<div id="app">
+  <h1>Concert tickets</h1>
+  <p>Adults ($12): {{ adults }}
+    <button @click="adults++">+</button> <button @click="adults--">−</button></p>
+  <p>Children ($5): {{ children }}
+    <button @click="children++">+</button> <button @click="children--">−</button></p>
+  <p>People: {{ people }}</p>
+  <p><b>Total: ${{ total }}</b></p>
+  <p v-if="total >= 50">A free programme comes with your tickets!</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const adults = ref(2);
+      const children = ref(1);
+      const people = computed(() => adults.value + children.value);
+      const total = computed(() => adults.value * 12 + children.value * 5);
+      return { adults, children, people, total };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-deal -->
+<div id="app">
+  <h1>Concert tickets</h1>
+  <p>Adults ($12): {{ adults }}
+    <button @click="adults++">+</button> <button @click="adults--">−</button></p>
+  <p>Children ($5): {{ children }}
+    <button @click="children++">+</button> <button @click="children--">−</button></p>
+  <p><b>Total: ${{ total }}</b></p>
+  <p v-if="total >= 50">A free programme comes with your tickets!</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const adults = ref(2);
+      const children = ref(1);
+      const total = computed(() => {
+        let sum = adults.value * 12 + children.value * 5;
+        if (adults.value + children.value >= 6) {
+          sum = sum - 10;
+        }
+        return sum;
+      });
+      return { adults, children, total };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<div id="app">
+  <h1>Pancakes</h1>
+  <p>Pancakes: {{ pancakes }}
+    <button @click="pancakes++">+</button> <button @click="pancakes--">−</button></p>
+  <!-- Show how much of each ingredient: each one worked out from pancakes with computed.
+       For 1 pancake: 25 g of flour, 40 ml of milk. -->
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const pancakes = ref(4);
+      return { pancakes };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<div id="app">
+  <h1>Pancakes</h1>
+  <p>Pancakes: {{ pancakes }}
+    <button @click="pancakes++">+</button> <button @click="pancakes--">−</button></p>
+  <ul>
+    <li>Flour: {{ flour }} g</li>
+    <li>Milk: {{ milk }} ml</li>
+    <li>Eggs: {{ eggs }}</li>
+  </ul>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const pancakes = ref(4);
+      const flour = computed(() => pancakes.value * 25);
+      const milk = computed(() => pancakes.value * 40);
+      const eggs = computed(() => Math.ceil(pancakes.value / 4));
+      return { pancakes, flour, milk, eggs };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->
+
+<!-- region: explain-start -->
+<div id="app">
+  <p>Adults ($12): {{ adults }} <button @click="adults++">+</button></p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+  const { createApp, ref, computed } = Vue;
+  createApp({
+    setup() {
+      const adults = ref(2);
+      return { adults };
+    }
+  }).mount("#app");
+</script>
+<!-- endregion -->

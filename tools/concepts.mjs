@@ -243,7 +243,7 @@ export const CONCEPTS = {
     { id: 'vue-component', label: 'a component of your own (app.component)', re: /\.component\s*\(/ },
     { id: 'vue-props', label: 'props, and :name="value" to pass data in', re: /\bprops\s*:|\s:[a-z][\w-]*\s*=/ },
     { id: 'preact', label: 'Preact or React state (useState)', re: /\buseState\s*\(/ },
-    { id: 'svelte', label: 'a Svelte component', re: /type\s*=\s*["']text\/svelte["']/ },
+    { id: 'svelte', label: 'a Svelte component', re: /<textarea\b[^>]*\bdata-svelte\b/ },
     { id: 'fetch', label: 'loading data (fetch)', re: /\bfetch\s*\(/ },
     { id: 'async-await', label: 'async and await (waiting for something slow)', re: /\basync\s+function\b|\bawait\b/ },
     { id: 'json-data', label: 'JSON (response.json(), JSON.parse)', re: /\.json\s*\(\s*\)|\bJSON\.(parse|stringify)\b/ },

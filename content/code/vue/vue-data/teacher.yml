@@ -1,0 +1,48 @@
+summary: "Students make a Vue app, predict that the page follows the data with no textContent, match the parts of the app, find a plain variable Vue does not watch, add a button and new data, and make a two-value counter."
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can make a Vue app and keep its data in refs.
+  - I can show data on the page with {{ }}.
+  - I can explain why the page changes by itself when the data changes.
+before: |
+  Read the unit primer first. A Vue app has two halves. The **page** is ordinary HTML inside `<div id="app">`, with `{{ name }}` wherever a value should appear. The **setup** function makes the data with `ref(...)` and returns the names the page may use. `createApp({ setup() { … } }).mount("#app")` joins them. When a ref changes, Vue redraws the parts of the page that show it: students never write `textContent`.
+
+  `vue.js` sits beside the page in the playground (it is served from this site). On a real site you would use Vue's file from vuejs.org or a build tool; teacher notes later in the course say more. The console shows one line about a **development build**: that is the version with friendlier warnings, chosen on purpose.
+
+  `@click="score++"` is a recipe in this lesson (events are lesson 3). The planted bug is a plain `let` variable: the click changes it but Vue is not watching, so the page never updates and there is no error. That is the most important idea in the course: Vue only keeps up with data it watches.
+running:
+  - "Predict: ask students who did the DOM course which line they expect to need."
+  - "Run: change the title in setup and run again; nothing else on the page needs to change."
+  - "Investigate: for the bug, ask \"how does Vue know the score changed?\""
+  - "Modify: new data is three edits: the ref, the return, the {{ }}. Write them as a checklist on the board."
+  - "Make: ask each student which button changes which ref."
+struggle: "Students forget one of the three edits (ref, return, {{ }}) and the value does not show. Ask them to point to all three for each piece of data before you look at the code."
+stuck:
+  - see: "The page shows {{ score }} as text."
+    ask: "Is the vue.js line there, and does the app mount on #app?"
+    fix: "Load vue.js before the script, and keep the {{ }} inside the div with id app."
+  - see: "A value is blank and the console warns it was accessed but is not defined."
+    ask: "Is its name in the return?"
+    fix: "Add it: return { title, score, team };"
+  - see: "Clicks do nothing and there is no error."
+    ask: "Was the data made with ref?"
+    fix: "const score = ref(0); a plain let is not watched."
+stretch: "Show the score twice on the page (in the title and a paragraph) and watch both follow. Add a button that doubles the score."
+support: "Give the finished run page and ask students only to add the Take a point button."
+leads: "Next lesson: lists with v-for and choices with v-if. Class idea: list three apps and name the data each one keeps."
+exit:
+  q: "What two things must you do so a value in setup appears on the page and stays up to date?"
+  a: "Make it with ref and return it from setup, then show it with {{ name }} inside the app."
+explain: |
+  1. The page shows the score with `{{ score }}`.
+  2. Load Vue, the `vue.js` file beside the page.
+  3. In `setup`, the score is a `ref`: data that Vue watches. Return it so the page can use it.
+  4. Each click changes the score, and Vue changes the page. No `textContent`.
+solutions:
+  step-4#t1: page.html#sol-minus
+  step-4#t2: page.html#sol-team
+  step-5: page.html#sol-make
+sources:
+  - { title: "Vue.js: Quick Start (using Vue from a script tag)", url: "https://vuejs.org/guide/quick-start.html#using-vue-from-cdn", checked: 2026-10-12 }
+  - { title: "Vue.js: Reactivity fundamentals (ref)", url: "https://vuejs.org/guide/essentials/reactivity-fundamentals.html", checked: 2026-10-12 }

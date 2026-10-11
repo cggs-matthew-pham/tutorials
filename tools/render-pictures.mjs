@@ -139,6 +139,15 @@ const withMedia = (code) => {
   const dt = code.match(/^\s*<!doctype[^>]*>/i);
   return dt ? dt[0] + base + code.slice(dt[0].length) : '<!DOCTYPE html>' + base + code;
 };
+// Load a page from the local server's address (not setContent, which writes it with document.write, so Chromium
+// may block its <script src> lines: a Vue example or expected page then drew its {{ }} unfilled).
+async function showPage(page, html) {
+  const url = `http://localhost:${port}/__wp-picture.html`;
+  await page.unroute(url).catch(() => {});
+  await page.route(url, (r) => r.fulfill({ status: 200, contentType: 'text/html; charset=utf-8', body: html }));
+  await page.goto(url, { waitUntil: 'load' });
+  await page.waitForTimeout(100);
+}
 const examples = (file, wrap) => JSON.parse(readFileSync(file, 'utf8')).groups.flatMap((g) => g.items.filter((i) => i.example).map((i) => ({ id: snippetId(i.label), code: wrap(strip(i.example)) })));
 const hashDir = (...parts) => {
   const h = createHash('sha1');
@@ -192,10 +201,10 @@ await pictures({
 // 320px wide; cropped to what is on it (text, boxes with a background or border, controls), with a margin.
 await pictures({
   name: 'html', dir: join(DIR, 'html'), viewport: { width: 320, height: 600 },
-  base: hashDir('media', String(withMedia), 'html-v1'), legacy: [LEGACY.html],
+  base: hashDir('media', String(withMedia), String(showPage), 'html-v1'), legacy: [LEGACY.html],
   jobs: examples('snippets/html.json', (c) => c),
   async draw(page, j) {
-    await page.setContent(withMedia(j.code), { waitUntil: 'load' });
+    await showPage(page, withMedia(j.code));
     const box = await page.evaluate(() => {
       let r = 0, b = 0;
       const add = (q) => { if (q.width > 0 && q.height > 0) { r = Math.max(r, q.right); b = Math.max(b, q.bottom); } };
@@ -223,10 +232,10 @@ await pictures({
 const { loadLessons, getSnippet, expectedItems } = await import('./lesson.mjs');
 await pictures({
   name: 'expected', dir: join(DIR, 'expected'), viewport: { width: 520, height: 900 },
-  base: hashDir('media', String(withMedia), 'expected-v1'), legacy: [LEGACY.expected],
+  base: hashDir('media', String(withMedia), String(showPage), 'expected-v1'), legacy: [LEGACY.expected],
   jobs: loadLessons().filter((l) => l.language !== 'javascript').flatMap((l) => expectedItems(l).map((e) => ({ id: `${l.slug}/${e.key}`, code: getSnippet(l.dir, e.ref) }))),
   async draw(page, j) {
-    await page.setContent(withMedia(j.code), { waitUntil: 'load' });
+    await showPage(page, withMedia(j.code));
     const bottom = await page.evaluate(() => {
       let b = 0;
       for (const el of document.body.querySelectorAll('*')) { const q = el.getBoundingClientRect(); if (q.height > 0) b = Math.max(b, q.bottom + parseFloat(getComputedStyle(el).marginBottom || 0)); }

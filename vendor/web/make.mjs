@@ -6,7 +6,7 @@
 //
 // Makes: bootstrap.min.css, vue.js (Vue's global development build, for its warnings), preact.js (Preact, its hooks
 // and htm as one script with a global `htmPreact`) and svelte.js (Svelte's compiler, its runtime and our glue, which
-// compiles every <script type="text/svelte"> on the page and mounts it where it stands). Licences are copied too.
+// compiles every <textarea data-svelte> on the page and mounts it where it stands). Licences are copied too.
 import { copyFileSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

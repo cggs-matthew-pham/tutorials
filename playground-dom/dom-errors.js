@@ -16,6 +16,11 @@ export function hint(message, code = '', line = null) {
     h = `\`${x[1]}\` is not a selector. Use \`#id\`, \`.class\` or a tag name such as \`h1\`.`;
   } else if (/Illegal invocation|is not a function/.test(m) && /addEventListener\s*\(\s*['"]\w+['"]\s*,\s*\w+\s*\(/.test(code)) {
     h = 'The function after the event name must not have `()`: `addEventListener("click", name)` gives the browser the function to call later; `name()` runs it straight away.';
+  } else if (/Assignment to constant variable/.test(m) && /\bref\s*\(/.test(code)) {
+    // Vue: a ref made with const, changed in the script as if it were its value (score++ instead of score.value++).
+    h = 'In the script, a ref keeps its value in `.value`: for example `score.value++`, not `score++`. The page unwraps refs for you; the script does not.';
+  } else if ((x = m.match(/^ReferenceError: (\w+) is not defined/)) && /data-svelte|htmPreact|\bVue\b/.test(code) && ['Vue', 'htmPreact', 'svelte'].includes(x[1])) {
+    h = `\`${x[1]}\` comes from a file loaded with a \`<script src>\` line. Check that line is there, above this script, and spelt as in the lesson.`;
   }
   if (h) return { hint: h, line: line && lines[line - 1] !== undefined ? line : null };
   return base(message, code, line);

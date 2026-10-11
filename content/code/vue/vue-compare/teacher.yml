@@ -1,0 +1,52 @@
+summary: "Students predict that three versions of the same app (Vue, Preact, Svelte) behave alike, sort each piece of code by the idea it is, find React's update catch in Preact, add an if in Svelte and a Clear button in Preact, and add one feature to all three."
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can find the data, the worked-out value, the event and the shown data in Vue, Preact and Svelte code.
+  - I can explain why React and Preact need a new list rather than a changed one.
+  - I can add the same feature in three frameworks.
+before: |
+  An optional lesson for students who finished the to-do app. **The point:** components, state, derived (worked-out) values and events are the same ideas in every framework; only the syntax and the update rules differ.
+
+  - **Preact** is a tiny library written to work like React (same function components and hooks: `useState`). Its page is written with **htm**, a way to write HTML-like tags in a JavaScript string, because real React uses JSX, which needs a build step. Its update rule: the component function runs again after every change, so a plain `const count = stars.length` is always right, but you must **replace** data, never change it in place. `stars.push(...); setStars(stars)` gives Preact the same list, so it skips the update: the planted bug, and the most common React mistake.
+  - **Svelte** compiles each component to plain JavaScript. `$state` and `$derived` are its "runes". Its data can be changed in place (`stars.push`). Here the compiler runs in the browser (about 1 MB, loaded only by this lesson), reading the component from a hidden `<textarea data-svelte>`; in a real project it is a file called `App.svelte`, compiled by a build tool.
+  - **Angular** is left out on purpose: it needs TypeScript and a command-line toolchain. The older AngularJS is no longer supported (support ended in January 2022).
+
+  Every library is served from this site, not a CDN.
+running:
+  - "Predict: ask students who did the computed lesson whether Preact's plain count will go stale."
+  - "Run: point out the short wait while Svelte compiles."
+  - "Investigate: do the sort as a class, one framework at a time."
+  - "Modify: ask what each framework calls v-if, and what Preact needs instead of changing the list."
+  - "Make: ask which version they would rather read in a year's time, and why."
+struggle: "The three spellings blur together. Keep returning to the four ideas: ask \"which line is the data? the worked-out value? the event?\" in each panel."
+stuck:
+  - see: "Preact's page does not change."
+    ask: "Does setStars get a new list, or the old one changed?"
+    fix: "setStars([...stars, \"⭐\"]) or stars.slice(0, -1): always a new list."
+  - see: "Svelte shows a red error about reading the component."
+    ask: "Which line of the component does the message name?"
+    fix: "Check the braces { } and the {#if} … {/if} pair on that line."
+  - see: "The Svelte app does not appear at all."
+    ask: "Is svelte.js loaded after the textarea, and does the textarea have data-svelte?"
+    fix: "Keep the textarea with data-svelte hidden, and the script src=\"svelte.js\" line after it."
+stretch: "Make each framework's star list into a component of its own. Find the same app in React on react.dev and compare it with the Preact version."
+support: "Do the sort together on the board; students do only the Svelte if."
+leads: "Real projects: npm create vue@latest (Vue), Vite with React, or npx sv create (Svelte), each with one file per component. Class discussion: why might a team choose each one (popularity and jobs, simplicity, speed)?"
+exit:
+  q: "Name one idea that all three frameworks share, and one thing that differs."
+  a: "Shared: data that changes and a page that follows it (or worked-out values, events, components). Different: the spelling, or the update rule (Preact replaces data, Vue and Svelte can change it)."
+explain: |
+  1. One page, three copies of the same app: Vue, Preact and Svelte.
+  2. Each keeps a list of stars and works out how many there are.
+  3. Each button changes its list, and each page follows.
+  4. The ideas are the same; only the way you write them differs.
+solutions:
+  step-4#t1: page.html#sol-svelte-if
+  step-4#t2: page.html#sol-preact-clear
+  step-5: page.html#sol-make
+sources:
+  - { title: "Preact: No-build workflows (htm)", url: "https://preactjs.com/guide/v11/no-build-workflows", checked: 2026-10-12 }
+  - { title: "React: Updating arrays in state", url: "https://react.dev/learn/updating-arrays-in-state", checked: 2026-10-12 }
+  - { title: "Svelte: $state", url: "https://svelte.dev/docs/svelte/$state", checked: 2026-10-12 }
+  - { title: "AngularJS: end of support", url: "https://docs.angularjs.org/misc/version-support-status", checked: 2026-10-12 }

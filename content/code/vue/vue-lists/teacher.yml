@@ -1,0 +1,48 @@
+summary: "Students predict that pushing to a list adds a tag, trace the page as the list changes, find v-for on the wrong tag, add a Clear button and a Team full message, and make a playlist."
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can make a tag for each item in a list with v-for.
+  - I can show a tag only when something is true with v-if.
+  - I can change a list and watch the page keep up.
+before: |
+  Read the unit primer first. `v-for="name in players"` on a tag makes one copy of that tag per item; inside it, `name` is the item for that copy. `v-if="…"` adds the tag while the condition is true and removes it otherwise. Both are **attributes on the tag they control**, which is why the planted bug (v-for on the `ul`) makes three lists.
+
+  This reverses the DOM course's lesson on lists, where changing an array did not change the page ("list-is-live"). In Vue it does, because the list is a ref. Say so explicitly to students who did the DOM course; it is a good moment to name what Vue is doing for them.
+
+  Real Vue code adds `:key` to v-for tags (`:key="name"`) so Vue can tell items apart when they move; it does not change what students see here, so the course leaves it to the stretch. `players = []` inside `@click` works because the page unwraps refs for you (lesson 3 shows the script side).
+running:
+  - "Predict: ask DOM-course students what happened when they pushed to an array there."
+  - "Run: empty the list and ask what made the message appear."
+  - "Investigate: do the trace on paper first, then check it by clicking."
+  - "Modify: for Team full, ask which number to compare and with which sign."
+  - "Make: ask each student to say which tag v-for repeats."
+struggle: "Students put v-for on the container because \"it's the list\". Ask \"which tag do you want more of?\" and let them move it themselves."
+stuck:
+  - see: "Several lists, each with one item."
+    ask: "Which tag has the v-for?"
+    fix: "Put v-for on the li, not the ul or ol."
+  - see: "The message never shows or never goes."
+    ask: "What does the v-if compare, and is it === ?"
+    fix: "v-if=\"players.length === 0\"; a single = sets a value instead of comparing."
+  - see: "The names show as {{ name }}."
+    ask: "Is the li inside the div with id app?"
+    fix: "Keep everything Vue should handle inside #app."
+stretch: "Add :key=\"song\" to the v-for. Number the items with v-for=\"(song, i) in songs\" and {{ i + 1 }}. Add v-else after a v-if."
+support: "Give the ul with v-for already written; students add only the v-if message."
+leads: "Next lesson: functions for events and v-model for inputs, so the list can take any name. Class idea: find three lists on a website and say what each item's data would be."
+exit:
+  q: "Why does v-for go on the li and not the ul?"
+  a: "v-for repeats the tag it is on, once per item; we want many li tags in one list, not many lists."
+explain: |
+  1. The data is a list of three players; the page starts empty.
+  2. `v-for` on the `li` makes one `li` for each name in the list.
+  3. A button adds Kai to the list.
+  4. Change the list, and Vue adds the `li` for you.
+solutions:
+  step-4#t1: page.html#sol-clear
+  step-4#t2: page.html#sol-full
+  step-5: page.html#sol-make
+sources:
+  - { title: "Vue.js: List rendering (v-for)", url: "https://vuejs.org/guide/essentials/list.html", checked: 2026-10-12 }
+  - { title: "Vue.js: Conditional rendering (v-if)", url: "https://vuejs.org/guide/essentials/conditional.html", checked: 2026-10-12 }
