@@ -1,0 +1,25 @@
+# Practice for "Prime factors". Answers are a single number, so students can't just type the original number.
+templates:
+  - q: "{n} = 2^p × {r}. What is p? (Hint: keep halving.)"
+    vars: { p: "2..5", r: [3, 5, 7, 9, 11, 15] }
+    let: { n: "2 ^ p * r" }
+    answer: "{p}"
+    feedback:
+      - ["{2 ^ p}", "p is how many times 2 is a factor, not 2^p itself."]
+    explain: "Halve {n} {p} times to reach {r}, so {n} = 2^{p} × {r}."
+  - q: "What is the largest prime factor of {n}?"
+    vars: { a: [2, 3, 4, 6, 8, 9, 12], q: [5, 7, 11, 13, 17, 19] }
+    let: { n: "a * q" }
+    answer: "{q}"
+    feedback:
+      - ["{n}", "{n} is not prime: it has smaller factors."]
+      - ["{a}", "{a} is a factor, but is it prime, and is it the largest?"]
+    explain: "{n} = {a} × {q}, and {q} is prime and bigger than any prime factor of {a}."
+  - q: "{n} = 2^a × 3^b. What is b?"
+    vars: { a: "1..4", b: "1..3" }
+    let: { n: "2 ^ a * 3 ^ b" }
+    where: "a != b"
+    answer: "{b}"
+    feedback:
+      - ["{a}", "That is how many 2s. Divide out the 2s first, then count the 3s."]
+    explain: "{n} = 2^{a} × 3^{b}: {a} twos and {b} threes, so b = {b}."

@@ -1,0 +1,15 @@
+# Practice for "Estimating to check". Estimates round each number to 1 significant figure.
+templates:
+  - q: "Estimate {a} × {b} by rounding each number to 1 significant figure. What is your estimate?"
+    vars: { a: "11..98", b: "11..98" }
+    where: "a % 10 != 5 and b % 10 != 5"
+    let: { ra: "round(a / 10) * 10", rb: "round(b / 10) * 10" }
+    answer: "{ra * rb}"
+    feedback:
+      - ["{a * b}", "That is the exact answer. Estimate by rounding first."]
+    explain: "{a} ≈ {ra} and {b} ≈ {rb}, so about {ra} × {rb} = {ra * rb}."
+  - q: "Estimate {a} × {b} by rounding each number to the nearest whole number."
+    vars: { a: "1.1..9.9 by 0.1", b: "11..49" }
+    where: "abs(a - round(a)) != 0.5 and a != round(a)"
+    answer: "{round(a) * b}"
+    explain: "{a} ≈ {round(a)}, so about {round(a)} × {b} = {round(a) * b}."

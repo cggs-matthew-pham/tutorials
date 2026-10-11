@@ -1,0 +1,35 @@
+# Practice for "Multiplying and dividing fractions".
+templates:
+  - q: "Work out {a}/{b} × {c}/{d}. Give your answer in simplest form."
+    vars: { a: "1..7", b: "2..9", c: "1..7", d: "2..9" }
+    where: "a < b and c < d and gcd(a, b) = 1 and gcd(c, d) = 1"
+    let: { n: "a * c", m: "b * d" }
+    answer: "{n / gcd(n, m)}{m / gcd(n, m) == 1 ? '' : '/' + m / gcd(n, m)}"
+    form: simplest
+    feedback:
+      - ["{a * d + b * c}/{m}", "Multiplying needs no common denominator: multiply the tops, then the bottoms."]
+    explain: "Tops: {a} × {c} = {n}. Bottoms: {b} × {d} = {m}. {n}/{m}{gcd(n, m) > 1 ? ' = ' + n / gcd(n, m) + '/' + m / gcd(n, m) : ''}."
+  - q: "Work out {w} ÷ (1/{d})."
+    vars: { w: "2..9", d: "2..8" }
+    answer: "{w * d}"
+    feedback:
+      - ["{w}/{d}", "Dividing by 1/{d} asks how many pieces of size 1/{d} fit into {w}: there are {d} in each whole."]
+    explain: "Each whole holds {d} pieces of 1/{d}, so {w} wholes hold {w} × {d} = {w * d}."
+  - q: "Work out {a}/{b} ÷ {c}/{d}. Give your answer in simplest form."
+    vars: { a: "1..7", b: "2..9", c: "1..7", d: "2..9" }
+    where: "a < b and c < d and gcd(a, b) = 1 and gcd(c, d) = 1"
+    let: { n: "a * d", m: "b * c" }
+    answer: "{n / gcd(n, m)}{m / gcd(n, m) == 1 ? '' : '/' + m / gcd(n, m)}"
+    form: simplest
+    feedback:
+      - ["{(a * c) / gcd(a * c, b * d)}/{(b * d) / gcd(a * c, b * d)}", "That multiplies. To divide, flip the second fraction, then multiply."]
+    explain: "Flip and multiply: {a}/{b} × {d}/{c} = {n}/{m}{gcd(n, m) > 1 ? ' = ' + n / gcd(n, m) + '/' + m / gcd(n, m) : ''}."
+  - q: "Work out {a}/{b} ÷ {w}. Give your answer in simplest form."
+    vars: { a: "1..7", b: "2..9", w: "2..6" }
+    where: "a < b and gcd(a, b) = 1"
+    let: { n: "a", m: "b * w" }
+    answer: "{n / gcd(n, m)}{m / gcd(n, m) == 1 ? '' : '/' + m / gcd(n, m)}"
+    form: simplest
+    feedback:
+      - ["{a * w}/{b}", "That multiplies by {w}. Dividing by {w} makes each piece {w} times smaller: multiply the bottom by {w}."]
+    explain: "Dividing by {w} is multiplying by 1/{w}: {a}/{b} × 1/{w} = {n}/{m}{gcd(n, m) > 1 ? ' = ' + n / gcd(n, m) + '/' + m / gcd(n, m) : ''}."

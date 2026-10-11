@@ -1,0 +1,26 @@
+# Practice for "Sharing in a ratio".
+templates:
+  - q: "Share ${t} between Sam and Tia in the ratio {a} : {b}. How much does Tia get, in dollars?"
+    vars: { a: "2..7", b: "2..7", u: "2..30" }
+    let: { t: "(a + b) * u" }
+    where: "a != b"
+    answer: "{b * u}"
+    feedback:
+      - ["{t / b}", "Find one part first: {t} ÷ ({a} + {b})."]
+      - ["{a * u}", "That is Sam's share. Tia has {b} parts."]
+    explain: "{a} + {b} = {a + b} parts. {t} ÷ {a + b} = {u} a part. Tia has {b} parts: {b} × {u} = {b * u}."
+  - q: "Sand and cement are mixed {b} : {a}. How much cement is in {t} kg of mix, in kg?"
+    vars: { a: "2..5", b: "3..9", u: [10, 20, 25, 50, 100] }
+    let: { t: "(a + b) * u" }
+    where: "a < b"
+    answer: "{a * u}"
+    feedback:
+      - ["{t / a}", "Find one part first: {t} ÷ {a + b}."]
+    explain: "{a + b} parts make {t} kg, so a part is {u} kg. Cement is {a} parts: {a * u} kg."
+  - q: "Prizes are shared between Ali, Bo and Cy in the ratio {a} : {b} : {c}. Bo gets ${b * u}. How much is shared altogether, in dollars?"
+    vars: { a: "1..5", b: "2..5", c: "1..5", u: "3..20" }
+    where: "a != b and b != c"
+    answer: "{(a + b + c) * u}"
+    feedback:
+      - ["{b * u * 3}", "Find one part from Bo's share: {b * u} ÷ {b} = {u}. Then count all the parts."]
+    explain: "Bo's {b} parts are ${b * u}, so a part is ${u}. There are {a} + {b} + {c} = {a + b + c} parts: {a + b + c} × {u} = ${(a + b + c) * u}."

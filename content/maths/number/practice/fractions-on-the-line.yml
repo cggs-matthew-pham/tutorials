@@ -1,0 +1,21 @@
+# Practice for "Fractions and decimals on the line".
+templates:
+  - q: "Which is greater: {a}/{b} or {c}/{d}? Type the fraction."
+    vars: { a: "1..7", b: "2..9", c: "1..7", d: "2..9" }
+    where: "a < b and c < d and a * d != b * c and b != d and gcd(a, b) = 1 and gcd(c, d) = 1"
+    answer: "{a * d > b * c ? a : c}/{a * d > b * c ? b : d}"
+    feedback:
+      - ["{a * d > b * c ? c : a}/{a * d > b * c ? d : b}", "Change both to the same denominator, {b * d}, then compare the tops."]
+    explain: "{a}/{b} = {a * d}/{b * d} and {c}/{d} = {c * b}/{b * d}, so {a * d > b * c ? a : c}/{a * d > b * c ? b : d} is greater."
+  - q: "Which is less: −{a}/{b} or −{c}/{d}? Type the number."
+    vars: { a: "1..7", b: "2..9", c: "1..7", d: "2..9" }
+    where: "a < b and c < d and a * d != b * c and b != d and gcd(a, b) = 1 and gcd(c, d) = 1"
+    answer: "-{a * d > b * c ? a : c}/{a * d > b * c ? b : d}"
+    feedback:
+      - ["-{a * d > b * c ? c : a}/{a * d > b * c ? d : b}", "For negatives, the one further from zero is less."]
+    explain: "{a * d > b * c ? a : c}/{a * d > b * c ? b : d} is the bigger size, so its negative is further left: it is less."
+  - q: "What number is halfway between {a} and {b}?"
+    vars: { a: "-10..8 by 0.5", b: "-8..12 by 0.5" }
+    where: "b > a + 1"
+    answer: "{(a + b) / 2}"
+    explain: "Halfway is the mean: ({a} + {b}) ÷ 2 = {(a + b) / 2}."

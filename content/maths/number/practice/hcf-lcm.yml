@@ -1,0 +1,25 @@
+# Practice for "HCF and LCM".
+templates:
+  - q: "Find the HCF of {a} and {b}."
+    vars: { h: "2..12", x: "1..9", y: "1..9" }
+    let: { a: "h * x", b: "h * y" }
+    where: "gcd(x, y) = 1 and x != y and a <= 120 and b <= 120"
+    answer: "{gcd(a, b)}"
+    feedback:
+      - ["{lcm(a, b)}", "That is the LCM. The HCF is the biggest number that divides both."]
+    explain: "{gcd(a, b)} divides both ({a} = {gcd(a, b)} × {a / gcd(a, b)} and {b} = {gcd(a, b)} × {b / gcd(a, b)}), and no bigger number does."
+  - q: "Find the LCM of {a} and {b}."
+    vars: { a: "2..15", b: "2..15" }
+    where: "a < b"
+    answer: "{lcm(a, b)}"
+    feedback:
+      - ["{gcd(a, b)}", "That is the HCF. The LCM is the smallest number both divide into."]
+      - ["{a * b}", "{a} × {b} is a common multiple, but not always the lowest."]
+    explain: "Multiples of {max(a, b)}: the first one {min(a, b)} divides into is {lcm(a, b)}."
+  - q: "Buses leave every {a} minutes and trams every {b} minutes. Both leave at 8:00. How many minutes until they next leave together?"
+    vars: { a: "4..15", b: "4..20" }
+    where: "a != b and lcm(a, b) <= 120"
+    answer: "{lcm(a, b)}"
+    feedback:
+      - ["{gcd(a, b)}", "You need a time both divide into: a common multiple, not a common factor."]
+    explain: "The first common multiple of {a} and {b} is {lcm(a, b)}: they next leave together after {lcm(a, b)} minutes."

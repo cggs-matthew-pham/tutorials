@@ -1,0 +1,20 @@
+# Practice for "Equivalent fractions".
+templates:
+  - q: "Write {a * k}/{b * k} in simplest form."
+    vars: { a: "1..9", b: "2..12", k: "2..6" }
+    where: "a < b and gcd(a, b) = 1"
+    answer: "{a}/{b}"
+    form: simplest
+    explain: "Divide the top and bottom by {k}: {a * k}/{b * k} = {a}/{b}."
+  - q: "{a}/{b} = ?/{b * k}. What is the missing top?"
+    vars: { a: "1..9", b: "2..12", k: "2..8" }
+    where: "a < b"
+    answer: "{a * k}"
+    feedback:
+      - ["{a + b * k - b}", "Multiply, don't add: the bottom was multiplied by {k}, so multiply the top by {k} too."]
+    explain: "{b} × {k} = {b * k}, so multiply the top by {k} too: {a} × {k} = {a * k}."
+  - q: "{a * k}/{b * k} = {a}/?. What is the missing bottom?"
+    vars: { a: "1..9", b: "2..12", k: "2..6" }
+    where: "a < b"
+    answer: "{b}"
+    explain: "The top was divided by {k}, so divide the bottom by {k}: {b * k} ÷ {k} = {b}."

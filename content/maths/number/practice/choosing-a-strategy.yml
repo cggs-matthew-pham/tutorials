@@ -1,0 +1,16 @@
+# Practice for "Choosing a strategy". Questions built for a quick strategy; any correct answer is marked right.
+templates:
+  - q: "Work out {a} × {b} × {c} in your head. (Look for a pair that makes a round number.)"
+    vars: { a: [2, 4, 5, 25, 20, 50], b: "3..19", c: [5, 2, 4, 25, 20] }
+    where: "a * c == 10 or a * c == 100"
+    answer: "{a * b * c}"
+    explain: "Pair {a} × {c} = {a * c} first, then × {b} = {a * b * c}."
+  - q: "Work out {a} + {b} + {c} in your head. (Look for a pair that makes a whole ten.)"
+    vars: { a: "11..89", b: "11..89", c: "11..89" }
+    where: "(a + c) % 10 = 0 and b % 10 != 0"
+    answer: "{a + b + c}"
+    explain: "{a} + {c} = {a + c} first, then + {b} = {a + b + c}."
+  - q: "Work out {p}% of {a}. (Change the percentage to a fraction.)"
+    vars: { p: [25, 50, 75, 20, 10], a: "4..96 by 4" }
+    answer: "{p * a / 100}"
+    explain: "{p}% = {p / gcd(p, 100)}/{100 / gcd(p, 100)}, so {a} ÷ {100 / gcd(p, 100)} × {p / gcd(p, 100)} = {p * a / 100}."

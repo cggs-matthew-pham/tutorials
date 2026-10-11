@@ -1,0 +1,29 @@
+# Practice for "Fractions, decimals and percentages".
+templates:
+  - q: "Write {a}/{b} as a percentage."
+    vars: { b: [2, 4, 5, 10, 20, 25, 50], a: "1..49" }
+    where: "a < b and a <= 9"
+    answer: "{100 * a / b}"
+    feedback:
+      - ["{a / b}", "That is the decimal. Multiply by 100 for a percentage."]
+    explain: "{a}/{b} = {a / b} = {100 * a / b}%."
+  - q: "Write {p}% as a decimal."
+    vars: { p: "1..150" }
+    answer: "{p / 100}"
+    form: decimal
+    feedback:
+      - ["{p / 10}", "Per cent means out of 100: divide by 100, not 10."]
+    explain: "{p}% = {p} ÷ 100 = {p / 100}."
+  - q: "Write {d} as a fraction in simplest form."
+    vars: { d: [0.1, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.9, 0.05, 0.12, 0.35, 0.45, 0.04] }
+    answer: "{round(d * 100) / gcd(round(d * 100), 100)}/{100 / gcd(round(d * 100), 100)}"
+    form: simplest
+    explain: "{d} = {round(d * 100)}/100 = {round(d * 100) / gcd(round(d * 100), 100)}/{100 / gcd(round(d * 100), 100)}."
+  - q: "Write {a}/{b} as a decimal."
+    vars: { b: [2, 4, 5, 8, 10, 20, 25], a: "1..9" }
+    where: "a < b"
+    answer: "{a / b}"
+    form: decimal
+    feedback:
+      - ["{a}.{b}", "The fraction bar means divide: {a} ÷ {b}."]
+    explain: "{a} ÷ {b} = {a / b}."

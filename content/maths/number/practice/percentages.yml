@@ -1,0 +1,19 @@
+# Practice for "Percentages of amounts".
+templates:
+  - q: "Find {p}% of ${a}."
+    vars: { p: [5, 10, 15, 20, 25, 30, 40, 50, 60, 75], a: "20..400 by 20" }
+    answer: "{p * a / 100}"
+    feedback:
+      - ["{a / p}", "Percent means out of 100: {p}% of {a} is {p}/100 × {a}."]
+    explain: "{p}% of ${a} = {p}/100 × {a} = ${p * a / 100|m}."
+  - q: "A ${a} jacket is {p}% off. What is the sale price, in dollars?"
+    vars: { p: [10, 15, 20, 25, 30, 40, 50], a: "40..200 by 10" }
+    answer: "{a - p * a / 100}"
+    feedback:
+      - ["{p * a / 100}", "That is the discount. Take it off the price."]
+    explain: "The discount is {p}% of ${a} = ${p * a / 100|m}, so the price is ${a - p * a / 100|m}. Or {a} × {(100 - p) / 100}."
+  - q: "{c} out of {t} students walk to school. What percentage is that?"
+    vars: { t: [20, 25, 50], c: "1..40" }
+    where: "c < t"
+    answer: "{100 * c / t}"
+    explain: "{c}/{t} = {c / t} = {100 * c / t}%."

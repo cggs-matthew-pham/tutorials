@@ -1,0 +1,20 @@
+# Practice for "Place value and powers of 10".
+templates:
+  - q: "What is {d} × 10^{n}?"
+    vars: { d: "2..9", n: "2..5" }
+    answer: "{d * 10 ^ n}"
+    feedback:
+      - ["{d * 10 * n}", "10^{n} is {10 ^ n} (1 followed by {n} zeros), not 10 × {n}."]
+    explain: "10^{n} = {10 ^ n|n}, so {d} × 10^{n} = {d * 10 ^ n|n}."
+  - q: "In {n|n}, what is the value of the digit {dig}?"
+    vars: { a: "1..9", b: "1..9", c: "0..9", e: "1..9", p: [1, 2, 3] }
+    let: { n: "a * 1000 + b * 100 + c * 10 + e", dig: "p == 3 ? a : p == 2 ? b : p == 1 ? c : e" }
+    where: "dig != 0 and a != b and a != c and a != e and b != c and b != e and c != e"
+    answer: "{dig * 10 ^ p}"
+    feedback:
+      - ["{dig}", "The digit is {dig}, but its value depends on its column."]
+    explain: "{dig} is in the {p == 3 ? 'thousands' : p == 2 ? 'hundreds' : p == 1 ? 'tens' : 'ones'} column, so it is worth {dig} × 10^{p} = {dig * 10 ^ p}."
+  - q: "Work out {d} × 10^{n} + {e} × 10^{m}."
+    vars: { d: "1..9", e: "1..9", n: "3..4", m: "0..2" }
+    answer: "{d * 10 ^ n + e * 10 ^ m}"
+    explain: "{d * 10 ^ n|n} + {e * 10 ^ m} = {d * 10 ^ n + e * 10 ^ m|n}."

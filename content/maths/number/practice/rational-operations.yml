@@ -1,0 +1,33 @@
+# Practice for "Calculating with negative fractions and decimals".
+templates:
+  - q: "Work out −{a}/{b} × {c}/{d}. Give your answer in simplest form."
+    vars: { a: "1..7", b: "2..9", c: "1..7", d: "2..9" }
+    where: "a < b and c < d and gcd(a, b) = 1 and gcd(c, d) = 1"
+    let: { n: "a * c", m: "b * d" }
+    answer: "-{n / gcd(n, m)}{m / gcd(n, m) == 1 ? '' : '/' + m / gcd(n, m)}"
+    form: simplest
+    feedback:
+      - ["{n / gcd(n, m)}/{m / gcd(n, m)}", "One negative and one positive multiply to a negative."]
+    explain: "Size: {a}/{b} × {c}/{d} = {n / gcd(n, m)}/{m / gcd(n, m)}. One negative, so the answer is negative."
+  - q: "Work out {a} × {b|p}."
+    vars: { a: "-9..9", b: "-4.5..-0.5 by 0.25" }
+    where: "a != 0"
+    answer: "{a * b}"
+    feedback:
+      - ["{-a * b}", "Check the sign: same signs give a positive, different signs a negative."]
+    explain: "{abs(a)} × {abs(b)} = {abs(a * b)}, and the signs {a < 0 ? 'are the same' : 'differ'}: {a * b}."
+  - q: "Work out {a} + {b|p}."
+    vars: { a: "-6..6 by 0.5", b: "-6..-0.5 by 0.25" }
+    answer: "{a + b}"
+    feedback:
+      - ["{a - b}", "Adding a negative moves left."]
+    explain: "Adding {b} is subtracting {-b}: {a} − {-b} = {a + b}."
+  - q: "Work out −{a}/{b} ÷ {c}/{d}. Give your answer in simplest form."
+    vars: { a: "1..7", b: "2..9", c: "1..7", d: "2..9" }
+    where: "a < b and c < d and gcd(a, b) = 1 and gcd(c, d) = 1"
+    let: { n: "a * d", m: "b * c" }
+    answer: "-{n / gcd(n, m)}{m / gcd(n, m) == 1 ? '' : '/' + m / gcd(n, m)}"
+    form: simplest
+    feedback:
+      - ["{n / gcd(n, m)}{m / gcd(n, m) == 1 ? '' : '/' + m / gcd(n, m)}", "One negative divided by a positive gives a negative."]
+    explain: "Flip and multiply: {a}/{b} × {d}/{c} = {n}/{m}{gcd(n, m) > 1 ? ' = ' + n / gcd(n, m) + '/' + m / gcd(n, m) : ''}, and the answer is negative."

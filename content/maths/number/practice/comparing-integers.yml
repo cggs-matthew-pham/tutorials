@@ -1,0 +1,22 @@
+# Practice for "Comparing integers". New numbers each time (tools/practice-core.mjs).
+templates:
+  - q: "Which is less: {a} or {b}?"
+    vars: { a: "-20..20", b: "-20..20" }
+    where: "a != b and (a < 0 or b < 0)"
+    answer: "{min(a, b)}"
+    feedback:
+      - ["{max(a, b)}", "Less means further left on the number line. For negatives, the bigger the number after the minus, the less it is."]
+    explain: "On the number line, {min(a, b)} is further left than {max(a, b)}, so it is less."
+  - q: "The temperature is {a}°C and drops by {d}°C. What is it now, in °C?"
+    vars: { a: "1..10", d: "3..15" }
+    where: "a - d < 0"
+    answer: "{a - d}"
+    feedback:
+      - ["{d - a}", "Count down from {a}: you pass 0 and keep going below it."]
+    explain: "{a} − {d} = {a - d}°C. Counting down from {a}, you pass 0 and go {d - a} below."
+  - q: "What is the difference between {a}°C and {b}°C, in degrees?"
+    vars: { a: "-12..-1", b: "1..15" }
+    answer: "{b - a}"
+    feedback:
+      - ["{b + a}", "Count the steps from {a} up to 0, then from 0 up to {b}, and add them."]
+    explain: "From {a} to 0 is {-a}, and from 0 to {b} is {b}: {-a} + {b} = {b - a} degrees."

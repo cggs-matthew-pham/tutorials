@@ -1,0 +1,26 @@
+# Practice for "Money models". Tax brackets are given in each question (simplified 2026–27 resident rates).
+templates:
+  - q: "Tax is 0% on the first $18 200 of income and 15% on the part from $18 200 to $45 000. Find the tax on ${i|n}."
+    vars: { i: "20000..45000 by 200" }
+    answer: "{rd(0.15 * (i - 18200), 2)}"
+    feedback:
+      - ["{rd(0.15 * i, 2)}", "The first $18 200 is tax-free: only the part above it is taxed."]
+    explain: "Taxed part: {i|n} − 18 200 = {i - 18200|n}. 15% of it is {rd(0.15 * (i - 18200), 2)|n}."
+  - q: "Ana earns ${r|m} an hour and works {h} hours. How much does she earn, in dollars?"
+    vars: { r: "18..35 by 0.5", h: "4..38" }
+    answer: "{r * h}"
+    explain: "${r|m} × {h} = ${r * h|m}."
+  - q: "Leo earns ${r} an hour, and time and a half on Sunday. How much does he earn for {h} hours on a Sunday, in dollars?"
+    vars: { r: "16..30", h: "2..8" }
+    answer: "{1.5 * r * h}"
+    feedback:
+      - ["{r * h}", "Time and a half means 1.5 times the normal rate."]
+    explain: "Sunday rate: 1.5 × ${r} = ${1.5 * r|m}. For {h} hours: ${1.5 * r|m} × {h} = ${1.5 * r * h|m}."
+  - q: "Tax is 0% on the first $18 200, 15% on the part from $18 200 to $45 000, and 30% on the part from $45 000 to $135 000. Find the tax on ${i|n}."
+    vars: { i: "46000..90000 by 1000" }
+    answer: "{4020 + 0.3 * (i - 45000)}"
+    show: "${4020 + 0.3 * (i - 45000)|n}"
+    feedback:
+      - ["{0.3 * i}", "Only the part above $45 000 is taxed at 30%."]
+      - ["{0.3 * (i - 45000)}", "Add the tax on the 15% band too: 15% of 26 800 = $4020."]
+    explain: "15% of (45 000 − 18 200) = 4020, plus 30% of ({i|n} − 45 000) = {0.3 * (i - 45000)|n}: ${4020 + 0.3 * (i - 45000)|n}."

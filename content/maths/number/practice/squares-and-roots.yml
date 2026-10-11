@@ -1,0 +1,27 @@
+# Practice for "Squares and square roots".
+templates:
+  - q: "What is {a}²?"
+    vars: { a: "2..15" }
+    answer: "{a * a}"
+    feedback:
+      - ["{2 * a}", "Squaring means {a} × {a}, not {a} × 2."]
+    explain: "{a}² = {a} × {a} = {a * a}."
+  - q: "What is √{a * a}?"
+    vars: { a: "2..15" }
+    answer: "{a}"
+    feedback:
+      - ["{a * a / 2}", "The square root is the number that, times itself, makes {a * a}; not half of it."]
+    explain: "{a} × {a} = {a * a}, so √{a * a} = {a}."
+  - q: "A square has an area of {a * a} cm². How long is each side, in cm?"
+    vars: { a: "3..15" }
+    answer: "{a}"
+    feedback:
+      - ["{a * a / 4}", "Dividing by 4 gives the side from the perimeter, not from the area. The side is the square root of the area."]
+    explain: "Side × side = {a * a}, so the side is √{a * a} = {a} cm."
+  - q: "A square has an area of {a * a} m². What is its perimeter, in m?"
+    vars: { a: "3..12" }
+    answer: "{4 * a}"
+    feedback:
+      - ["{a}", "That is the side. The perimeter is all four sides."]
+      - ["{a * a / 4}", "Find the side first: √{a * a} = {a}. Then the perimeter is 4 × {a}."]
+    explain: "Side √{a * a} = {a} m, so the perimeter is 4 × {a} = {4 * a} m."

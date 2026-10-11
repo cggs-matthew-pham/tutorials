@@ -1,0 +1,24 @@
+# Practice for "Modelling with ratios".
+templates:
+  - q: "A recipe mixes juice and water {a} : {b}. How much juice is in {t} mL of drink, in mL?"
+    vars: { a: "2..4", b: "3..9", u: [20, 25, 50, 100] }
+    let: { t: "(a + b) * u" }
+    where: "a < b"
+    answer: "{a * u}"
+    feedback:
+      - ["{t * a / b}", "The parts are juice and water together: {a} + {b} = {a + b} parts."]
+    explain: "{t} ÷ {a + b} = {u} mL a part; juice is {a} parts = {a * u} mL."
+  - q: "A map has a scale of 1 : {s}. Two towns are {d} cm apart on the map. How far apart are they in real life, in km?"
+    vars: { s: [25000, 50000, 100000, 250000], d: "2..20" }
+    answer: "{d * s / 100000}"
+    feedback:
+      - ["{d * s}", "That is in centimetres. 1 km = 100 000 cm."]
+    explain: "{d} cm × {s|n} = {d * s|n} cm = {d * s / 100000} km."
+  - q: "Paint is mixed blue to white {a} : {b}. You have {x} L of blue. How much white do you need, in L?"
+    vars: { a: "1..5", b: "1..5", k: "2..6" }
+    let: { x: "a * k" }
+    where: "a != b"
+    answer: "{b * k}"
+    feedback:
+      - ["{x + b - a}", "Multiply, don't add: {a} became {x}, which is × {k}."]
+    explain: "{a} × {k} = {x}, so white is {b} × {k} = {b * k} L."

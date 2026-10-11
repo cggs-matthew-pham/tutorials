@@ -173,6 +173,31 @@ else console.log('✓ error tasks: every planted error names its fault and an on
   }
   if (!n) console.log('✓ voiceover: spoken lines are short');
 }
+// Practice templates (content/<course>/practice/<lesson>.yml): each names a lesson in its course, and every template
+// makes sensible questions when tried many times (tools/practice-core.mjs).
+{
+  const { checkPractice } = await import('./practice-core.mjs');
+  const { MATH } = await import('./math-expr.mjs');
+  const YAML = (await import('yaml')).default;
+  const { existsSync } = await import('node:fs');
+  const courses = [...new Set(lessons.map((l) => l.slug.split('/').slice(0, -1).join('/')))];
+  let files = 0, n = 0, w = 0;
+  for (const c of courses) {
+    const dir = pjoin(CONTENT_ROOT, c, 'practice');
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir).filter((x) => x.endsWith('.yml'))) {
+      files++;
+      const where = `${c}/practice/${f}`, name = f.replace(/\.yml$/, '');
+      if (!bySlug[`${c}/${name}`]) { n++; console.error(`✗ ${where}: there is no lesson ${c}/${name}`); continue; }
+      let d; try { d = YAML.parse(readFileSync(pjoin(dir, f), 'utf8')); } catch (e) { n++; console.error(`✗ ${where}: ${e.message}`); continue; }
+      const r = checkPractice(d, where, MATH);
+      r.errors.forEach((e) => console.error('✗ ' + e)); r.warnings.forEach((e) => console.warn('⚠ ' + e));
+      n += r.errors.length; w += r.warnings.length;
+    }
+  }
+  bad += n;
+  if (files && !n) console.log(`✓ practice: ${files} files of templates make sensible questions${w ? ` (${w} warnings)` : ''}`);
+}
 // Effort (warnings, never a failure): each lesson names its hard part, ends with a recap, and no first hint gives the
 // answer away. One line here; `npm run effort` lists every gap (AUTHORING › Effort and struggle).
 {

@@ -1,0 +1,28 @@
+# Practice for "Percentage change".
+templates:
+  - q: "A price goes from ${a} to ${b|m}. What is the percentage increase?"
+    vars: { a: [20, 25, 40, 50, 80, 100, 200], p: [5, 10, 20, 25, 30, 40, 50] }
+    let: { b: "a * (100 + p) / 100" }
+    answer: "{p}"
+    feedback:
+      - ["{b - a}", "That is the increase in dollars. As a percentage, divide it by the original price, ${a}, then × 100."]
+    explain: "Increase ${b - a|m} out of the original ${a}: {b - a}/{a} = {p}%."
+  - q: "A ${a} item is discounted {p}%, then the new price goes up {p}%. What is the final price, in dollars?"
+    vars: { a: [40, 60, 80, 100, 120, 200], p: [10, 20, 25, 50] }
+    answer: "{a * (100 - p) / 100 * (100 + p) / 100}"
+    feedback:
+      - ["{a}", "The second {p}% is of a smaller amount, so it doesn't undo the first."]
+    explain: "{a} × {(100 - p) / 100} = {a * (100 - p) / 100}, then × {(100 + p) / 100} = ${a * (100 - p) / 100 * (100 + p) / 100|m}."
+  - q: "A town's population falls from {a|n} to {b|n}. What is the percentage decrease?"
+    vars: { a: [2000, 4000, 5000, 8000, 10000], p: [5, 10, 15, 20, 25] }
+    let: { b: "a * (100 - p) / 100" }
+    answer: "{p}"
+    explain: "A fall of {a - b|n} out of the original {a|n}: {p}%."
+  - q: "A ${a} bike is reduced by {p}%. What is the new price, in dollars? (Use a multiplier.)"
+    vars: { a: [80, 120, 150, 200, 240, 300, 450], p: [5, 10, 15, 20, 25, 30, 40] }
+    answer: "{a * (100 - p) / 100}"
+    show: "${a * (100 - p) / 100|m}"
+    feedback:
+      - ["{a * p / 100}", "That is the discount. The multiplier for {p}% off is {(100 - p) / 100}."]
+      - ["{a * (100 + p) / 100}", "Reduced means smaller: the multiplier is 1 − {p / 100} = {(100 - p) / 100}."]
+    explain: "{p}% off leaves {100 - p}%, so the multiplier is {(100 - p) / 100}: {a} × {(100 - p) / 100} = ${a * (100 - p) / 100|m}."

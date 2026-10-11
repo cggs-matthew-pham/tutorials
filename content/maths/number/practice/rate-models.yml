@@ -1,0 +1,29 @@
+# Practice for "Ratio and rate models".
+templates:
+  - q: "A recipe uses {a} cups of rice to {b} cups of water. How much water for {c} cups of rice?"
+    vars: { a: [2, 3, 4], b: "2..9", c: "2..12" }
+    where: "a != b and c != a and (b * c) % a == 0"
+    answer: "{b * c / a}"
+    feedback:
+      - ["{c + b - a}", "Scale, don't add: water is {b / a} times the rice."]
+    explain: "Water per cup of rice: {b} ÷ {a} = {b / a}. For {c} cups: {c} × {b / a} = {b * c / a}."
+  - q: "A taxi charges ${f} to start plus ${r|m} per km. How much for a {d} km trip, in dollars?"
+    vars: { f: "3..6", r: "1.5..3 by 0.5", d: "2..20" }
+    answer: "{f + r * d}"
+    feedback:
+      - ["{r * d}", "Add the starting fee."]
+    explain: "{f} + {r|m} × {d} = ${f + r * d|m}."
+  - q: "Paint covers {c} m² per litre. How many litres for a wall of {a} m²?"
+    vars: { c: [8, 10, 12, 15], k: "2..9" }
+    let: { a: "c * k" }
+    answer: "{k}"
+    feedback:
+      - ["{a * c}", "Litres = area ÷ coverage per litre."]
+    explain: "{a} ÷ {c} = {k} L."
+  - q: "Paint covers {c} m² per litre and comes in 1 L tins. How many tins do you buy for a wall of {a} m²?"
+    vars: { c: [8, 10, 12, 15], a: "20..95" }
+    where: "a % c != 0"
+    answer: "{ceil(a / c)}"
+    feedback:
+      - ["{floor(a / c)}", "That leaves part of the wall unpainted: round up to whole tins."]
+    explain: "{a} ÷ {c} = {rd(a / c, 2)} L, which needs {ceil(a / c)} tins (round up: you can't buy part of a tin)."

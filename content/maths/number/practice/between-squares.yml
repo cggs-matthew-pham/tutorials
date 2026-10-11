@@ -1,0 +1,23 @@
+# Practice for "Between the squares".
+templates:
+  - q: "√{n} is between two whole numbers. What is the smaller one?"
+    vars: { k: "2..12", d: "1..20" }
+    let: { n: "k * k + d" }
+    where: "d < 2 * k + 1"
+    answer: "{k}"
+    feedback:
+      - ["{k + 1}", "{k + 1}² = {(k + 1) * (k + 1)}, which is more than {n}. Use the square just below."]
+    explain: "{k}² = {k * k} and {k + 1}² = {(k + 1) * (k + 1)}. {n} is between them, so √{n} is between {k} and {k + 1}."
+  - q: "Which whole number is √{n} closest to?"
+    vars: { k: "2..12", d: "1..20" }
+    let: { n: "k * k + d" }
+    where: "d < 2 * k + 1 and d != k and d != k + 1"
+    answer: "{d < k ? k : k + 1}"
+    explain: "{n} is between {k * k} and {(k + 1) * (k + 1)}, and closer to {d < k ? k * k : (k + 1) * (k + 1)}, so √{n} is closest to {d < k ? k : k + 1}."
+  - q: "Estimate √{n} to 1 decimal place, without a calculator. (Answers within 0.1 count.)"
+    vars: { k: "3..9", d: "2..14" }
+    let: { n: "k * k + d" }
+    where: "d < 2 * k"
+    answer: "{rd(sqrt(n), 1)}"
+    tolerance: 0.1
+    explain: "{n} is between {k * k} and {(k + 1) * (k + 1)}, about {rd(d / (2 * k + 1), 1)} of the way, so √{n} ≈ {k} + {rd(d / (2 * k + 1), 1)} ≈ {rd(sqrt(n), 1)} (a calculator gives {rd(sqrt(n), 3)})."

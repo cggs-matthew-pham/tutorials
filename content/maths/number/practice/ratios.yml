@@ -1,0 +1,23 @@
+# Practice for "What is a ratio?".
+templates:
+  - q: "A bag has {r} red and {g} green beads. Write the ratio of red to green, as it is (don't simplify)."
+    vars: { r: "2..15", g: "2..15" }
+    where: "r != g"
+    answer: "{r} : {g}"
+    feedback:
+      - ["{g} : {r}", "Order matters: red first, then green."]
+    explain: "Red to green is {r} : {g}."
+  - q: "A bag has {r} red and {g} green beads. Write the ratio of red to all the beads, as it is."
+    vars: { r: "2..15", g: "2..15" }
+    where: "r != g"
+    answer: "{r} : {r + g}"
+    feedback:
+      - ["{r} : {g}", "All the beads means red and green together: {r} + {g}."]
+    explain: "There are {r} + {g} = {r + g} beads, so red to all is {r} : {r + g}."
+  - q: "A class has {b} boys and {g} girls. What fraction of the class are girls? Give it in simplest form."
+    vars: { b: "8..16", g: "8..16" }
+    answer: "{g / gcd(g, b + g)}/{(b + g) / gcd(g, b + g)}"
+    form: simplest
+    feedback:
+      - ["{g / gcd(g, b)}/{b / gcd(g, b)}", "That compares girls with boys. A fraction compares girls with everyone."]
+    explain: "Girls out of everyone: {g}/{b + g}{gcd(g, b + g) > 1 ? ' = ' + g / gcd(g, b + g) + '/' + (b + g) / gcd(g, b + g) : ''}."

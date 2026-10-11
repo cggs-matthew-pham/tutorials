@@ -1,0 +1,22 @@
+# Practice for "Rates".
+templates:
+  - q: "A cyclist rides {d} km in {t} hours. What is her average speed, in km/h?"
+    vars: { s: "12..36", t: [0.5, 1.5, 2, 2.5, 3, 4] }
+    let: { d: "s * t" }
+    answer: "{s}"
+    feedback:
+      - ["{d * t}", "Speed is distance ÷ time, not distance × time."]
+    explain: "{d} ÷ {t} = {s} km/h."
+  - q: "{n} apples cost ${c|m}. What is the cost per apple, in dollars?"
+    vars: { n: [2, 4, 5, 6, 8, 10], u: "0.4..1.5 by 0.1" }
+    let: { c: "rd(n * u, 2)" }
+    answer: "{rd(c / n, 2)}"
+    feedback:
+      - ["{rd(n / c, 2)}", "That is apples per dollar. Cost per apple is dollars ÷ apples."]
+    explain: "{c|m} ÷ {n} = ${rd(c / n, 2)|m} per apple."
+  - q: "Change {k} km/h to metres per second."
+    vars: { k: [18, 36, 54, 72, 90, 108] }
+    answer: "{k / 3.6}"
+    feedback:
+      - ["{k * 3.6}", "Metres per second are smaller numbers: divide by 3.6."]
+    explain: "{k} km/h = {k * 1000} m in 3600 s, so {k} ÷ 3.6 = {k / 3.6} m/s."

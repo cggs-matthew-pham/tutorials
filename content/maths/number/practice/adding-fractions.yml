@@ -1,0 +1,20 @@
+# Practice for "Adding and subtracting fractions".
+templates:
+  - q: "Work out {a}/{b} + {c}/{d}. Give your answer in simplest form (an improper fraction or a mixed number is fine)."
+    vars: { a: "1..5", b: "2..9", c: "1..5", d: "2..9" }
+    where: "a < b and c < d and b != d and gcd(a, b) = 1 and gcd(c, d) = 1"
+    let: { n: "a * d + c * b", m: "b * d" }
+    answer: "{n / gcd(n, m)}{m / gcd(n, m) == 1 ? '' : '/' + m / gcd(n, m)}"
+    form: simplest
+    feedback:
+      - ["{a + c}/{b + d}", "Don't add the bottoms. Change both to the same denominator first."]
+    explain: "{a}/{b} + {c}/{d} = {a * d}/{m} + {c * b}/{m} = {n}/{m}{gcd(n, m) > 1 ? ' = ' + n / gcd(n, m) + '/' + m / gcd(n, m) : ''}."
+  - q: "Work out {a}/{b} − {c}/{d}. Give your answer in simplest form."
+    vars: { a: "1..8", b: "2..9", c: "1..8", d: "2..9" }
+    where: "a < b and c < d and b != d and a * d > c * b and gcd(a, b) = 1 and gcd(c, d) = 1"
+    let: { n: "a * d - c * b", m: "b * d" }
+    answer: "{n / gcd(n, m)}{m / gcd(n, m) == 1 ? '' : '/' + m / gcd(n, m)}"
+    form: simplest
+    feedback:
+      - ["{a - c}/{b - d}", "Don't subtract the bottoms. Change both to the same denominator first."]
+    explain: "{a}/{b} − {c}/{d} = {a * d}/{m} − {c * b}/{m} = {n}/{m}{gcd(n, m) > 1 ? ' = ' + n / gcd(n, m) + '/' + m / gcd(n, m) : ''}."

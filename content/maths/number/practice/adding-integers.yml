@@ -1,0 +1,21 @@
+# Practice for "Adding and subtracting integers".
+templates:
+  - q: "Work out {a} + {b|p}."
+    vars: { a: "-15..15", b: "-15..-1" }
+    answer: "{a + b}"
+    feedback:
+      - ["{a - b}", "Adding a negative moves left, the same as subtracting {-b}."]
+    explain: "Adding {b} is the same as subtracting {-b}: {a} − {-b} = {a + b}."
+  - q: "Work out {a} − {b|p}."
+    vars: { a: "-15..15", b: "-15..-1" }
+    answer: "{a - b}"
+    feedback:
+      - ["{a + b}", "Subtracting a negative is the same as adding: {a} − ({b}) = {a} + {-b}."]
+    explain: "Subtracting {b} is the same as adding {-b}: {a} + {-b} = {a - b}."
+  - q: "Work out {a} − {b}."
+    vars: { a: "-12..12", b: "1..20" }
+    where: "a - b < 0"
+    answer: "{a - b}"
+    feedback:
+      - ["{b - a}", "Start at {a} and move {b} to the left: you end below zero."]
+    explain: "Start at {a} and move {b} left: {a - b}."

@@ -1,0 +1,22 @@
+# Practice for "Powers".
+templates:
+  - q: "Work out {b}^{n}."
+    vars: { b: "2..9", n: "2..5" }
+    where: "b ^ n <= 1300"
+    answer: "{b ^ n}"
+    feedback:
+      - ["{b * n}", "{b}^{n} means {n} lots of {b} multiplied together, not {b} × {n}."]
+    explain: "{b}^{n} = {b} multiplied by itself {n} times = {b ^ n}."
+  - q: "{b ^ n} = {b} to the power of what?"
+    vars: { b: "2..5", n: "2..6" }
+    where: "b ^ n <= 1100"
+    answer: "{n}"
+    feedback:
+      - ["{b ^ n / b}", "Count how many {b}s multiply to make {b ^ n}."]
+    explain: "{b} multiplied by itself {n} times makes {b ^ n}, so {b ^ n} = {b}^{n}."
+  - q: "Work out {a} × {b}^{n}."
+    vars: { a: "2..5", b: "2..4", n: "2..3" }
+    answer: "{a * b ^ n}"
+    feedback:
+      - ["{(a * b) ^ n}", "Do the power first: {b}^{n} = {b ^ n}, then multiply by {a}."]
+    explain: "Powers come before multiplying: {b}^{n} = {b ^ n}, and {a} × {b ^ n} = {a * b ^ n}."

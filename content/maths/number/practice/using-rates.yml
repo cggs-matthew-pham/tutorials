@@ -1,0 +1,19 @@
+# Practice for "Using rates".
+templates:
+  - q: "A plane flies at {s} km/h. How long does it take to fly {d} km, in hours?"
+    vars: { s: [400, 500, 600, 700, 800, 900], t: [1.5, 2, 2.5, 3, 4] }
+    let: { d: "s * t" }
+    answer: "{t}"
+    feedback:
+      - ["{s / d}", "Time = distance ÷ speed: {d} ÷ {s}, not the other way."]
+    explain: "{d} ÷ {s} = {t} hours."
+  - q: "A tap fills at {r} L per minute. How much water after {m} minutes, in L?"
+    vars: { r: "2..15", m: "3..20" }
+    answer: "{r * m}"
+    explain: "{r} × {m} = {r * m} L."
+  - q: "A car uses {r} L of fuel per 100 km. How much fuel for {d} km, in L?"
+    vars: { r: "5..12", d: [200, 300, 400, 50, 150, 250] }
+    answer: "{r * d / 100}"
+    feedback:
+      - ["{r * d}", "The rate is per 100 km: {d} km is {d / 100} lots of 100 km."]
+    explain: "{d} km is {d / 100} × 100 km, so {r} × {d / 100} = {r * d / 100} L."

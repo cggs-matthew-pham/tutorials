@@ -1,0 +1,23 @@
+# Practice for "Multiplying and dividing integers".
+templates:
+  - q: "Work out {a} × {b|p}."
+    vars: { a: "-12..12", b: "-12..-2" }
+    where: "a != 0 and a != 1 and a != -1"
+    answer: "{a * b}"
+    feedback:
+      - ["{-a * b}", "Check the sign: two negatives make a positive; one negative makes a negative."]
+    explain: "{abs(a)} × {abs(b)} = {abs(a * b)}, and the sign is {a * b > 0 ? 'positive (the signs are the same)' : 'negative (the signs are different)'}: {a * b}."
+  - q: "Work out {a * b} ÷ {b|p}."
+    vars: { a: "-12..12", b: "-9..-2" }
+    where: "a != 0"
+    answer: "{a}"
+    feedback:
+      - ["{-a}", "Check the sign: dividing two numbers with the same sign gives a positive; different signs give a negative."]
+    explain: "{abs(a * b)} ÷ {abs(b)} = {abs(a)}, and the sign is {a > 0 ? 'positive' : 'negative'}: {a}."
+  - q: "Work out ({b})^{n}."
+    vars: { b: "-5..-2", n: "2..4" }
+    where: "abs(b) ^ n <= 625"
+    answer: "{b ^ n}"
+    feedback:
+      - ["{-(b ^ n)}", "Count the negatives: an even number of them multiplies to a positive, an odd number to a negative."]
+    explain: "{n} lots of {b} multiplied: {n % 2 == 0 ? 'an even number of negatives, so positive' : 'an odd number of negatives, so negative'}: {b ^ n}."

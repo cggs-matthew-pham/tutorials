@@ -1,0 +1,19 @@
+# Practice for "Modelling with money".
+templates:
+  - q: "A ${a} item is marked up {p}%. What is the new price, in dollars?"
+    vars: { a: "20..200 by 10", p: [10, 20, 25, 30, 40, 50] }
+    answer: "{a * (100 + p) / 100}"
+    feedback:
+      - ["{a * p / 100}", "That is the increase. Add it to the price."]
+    explain: "{a} × {(100 + p) / 100} = ${a * (100 + p) / 100|m}. Or {p}% of {a} is {a * p / 100|m}, and {a} + {a * p / 100|m} = ${a * (100 + p) / 100|m}."
+  - q: "A phone plan costs ${f} a month plus ${c} per GB. How much is a month with {g} GB, in dollars?"
+    vars: { f: "10..30", c: "2..8", g: "1..12" }
+    answer: "{f + c * g}"
+    feedback:
+      - ["{(f + c) * g}", "The monthly fee is paid once, not for each GB."]
+    explain: "{f} + {c} × {g} = {f + c * g} dollars."
+  - q: "Pens cost ${p|m} each or ${b|m} for a pack of {n}. How much do you save on {n} pens by buying the pack, in dollars?"
+    vars: { p: "1.5..4 by 0.5", n: [4, 5, 6, 10], d: "0.5..3 by 0.5" }
+    let: { b: "p * n - d" }
+    answer: "{d}"
+    explain: "{n} single pens cost {n} × ${p|m} = ${p * n|m}. The pack is ${b|m}, so you save ${d|m}."

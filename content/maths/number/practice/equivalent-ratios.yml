@@ -1,0 +1,16 @@
+# Practice for "Equivalent and simplest ratios".
+templates:
+  - q: "Simplify {a * k} : {b * k}."
+    vars: { a: "1..9", b: "1..9", k: "2..8" }
+    where: "a != b and gcd(a, b) = 1"
+    answer: "{a} : {b}"
+    feedback:
+      - ["{a * k / 2} : {b * k / 2}", "Equal, but not simplest: divide by the highest common factor, {k}."]
+    explain: "Divide both by the HCF, {k}: {a} : {b}."
+  - q: "{a} : {b} = {a * k} : ?. What is the missing number?"
+    vars: { a: "1..9", b: "1..9", k: "2..9" }
+    where: "a != b"
+    answer: "{b * k}"
+    feedback:
+      - ["{b + a * k - a}", "Multiply, don't add: {a} became {a * k}, which is × {k}."]
+    explain: "{a} × {k} = {a * k}, so {b} × {k} = {b * k}."

@@ -21,6 +21,9 @@ import { buildCreate } from './build-create.mjs';
 import { layoutTrail, trailHtml, TRAIL_CSS, trailheadsHtml, TRAILHEADS_CSS } from './trail.mjs';
 import { loadCurriculum, curriculumMapHtml, CMAP_CSS } from './curriculum-map.mjs';
 import { coachPrompt } from './coach.mjs';
+import { PRACTICE_JS } from './practice-core.mjs';
+import { PRACTICE_CSS, PRACTICE_UI_JS, practiceBody } from './practice-view.mjs';
+import { MATH_JS } from './math-expr.mjs';
 import { loadProgressions } from './progressions.mjs';
 import { markedMath, textWithMath, workedHtml } from './maths.mjs';
 import { FORMS_JS, NUMBAS_VERSION } from './maths-forms.mjs';
@@ -419,6 +422,30 @@ const RECAP_CSS = `
 const RECAP_COACH_JS = `if(/[?&]coach=1(&|$)/.test(location.search))document.querySelectorAll('.rccoach').forEach(function(b){b.hidden=false});
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.rccoach button');if(!b)return;var box=b.closest('.rccoach'),t=box.querySelector('textarea'),done=function(){b.textContent='Copied. Paste it into the AI tool your school allows.'};
 if(navigator.clipboard)navigator.clipboard.writeText(t.value).then(done,function(){t.hidden=false;t.select()});else{t.hidden=false;t.select()}});`;
+// Practice page (<course>/practice/): question templates in content/<course>/practice/<lesson>.yml (tools/practice-core.mjs),
+// kept outside the lesson folders so adding practice never re-records a lesson's clips.
+function practiceSkills(node, courseLessons) {
+  const dir = join(CONTENT_ROOT, node.path, 'practice');
+  if (!existsSync(dir)) return [];
+  return courseLessons.filter((l) => !l.optional || existsSync(join(dir, `${l.slug.split('/').pop()}.yml`))).map((l) => {
+    const f = join(dir, `${l.slug.split('/').pop()}.yml`);
+    if (!existsSync(f)) return null;
+    const d = YAMLparse(readFileSync(f, 'utf8')) || {};
+    return { slug: l.slug, title: d.skill || l.title, unit: l.unit, templates: d.templates || [] };
+  }).filter((x) => x && x.templates.length);
+}
+function writePractice(node, skills) {
+  const units = Array.isArray(node.meta?.units) ? node.meta.units : [];
+  const pp = `${node.path}/practice`;
+  mkdirSync(join(OUT, pp), { recursive: true });
+  const data = JSON.stringify({ title: node.title, course: node.path, skills }).replace(/</g, '\\u003c');
+  writeFileSync(join(OUT, pp, 'index.html'), page(`Practice: ${node.title}`,
+    `<style>${PRACTICE_CSS}</style><header class="top"><a class="crumb" href="../">← ${esc(node.title)}</a><h1>${esc(node.title)}: practice</h1>` +
+    `<p class="lede">New numbers every time. Get 3 right in a row to mark a skill as practised.</p></header>` +
+    practiceBody(node.title, units, skills, esc) + `<script type="application/json" id="wpp-data">${data}</script>`,
+    `<script>${MATH_JS}${PRACTICE_JS}${PRACTICE_UI_JS}</script>`, navFor(pp, 'course', node.path)));
+}
+
 function writeRecap(node, courseLessons) {
   const units = Array.isArray(node.meta?.units) ? node.meta.units : [];
   const mdp = new Marked();
@@ -467,8 +494,10 @@ for (const node of dirs.values()) {
     // (filled from this browser's progress by progress.js), and the playground and reference as small links.
     // recap: true in a course's index.md: a short recap page at <course>/recap/ (recapHtml, below), linked as a chip.
     const recap = node.meta?.recap === true;
-    const tools = (play ? `<a class="chip" href="playground/">Playground</a>` : '') + (ref ? `<a class="chip" href="reference/">Reference</a>` : '') + (recap ? `<a class="chip" href="recap/">Recap</a>` : '');
+    const practice = practiceSkills(node, courseLessons);
+    const tools = (play ? `<a class="chip" href="playground/">Playground</a>` : '') + (ref ? `<a class="chip" href="reference/">Reference</a>` : '') + (recap ? `<a class="chip" href="recap/">Recap</a>` : '') + (practice.length ? `<a class="chip" href="practice/">Practice</a>` : '');
     if (recap) writeRecap(node, courseLessons);
+    if (practice.length) writePractice(node, practice);
     // One collapsed row per lesson: the whole sequence is visible; opening a row shows its steps.
     const row = (l) => {
       const segs = segmentsOf(l), name = l.slug.split('/').pop();

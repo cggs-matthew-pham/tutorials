@@ -1,0 +1,25 @@
+# Practice for "Rounding decimals".
+templates:
+  - q: "Round {x} to 1 decimal place."
+    vars: { w: "0..99", f: "1..999" }
+    let: { x: "w + f / 1000" }
+    where: "f % 100 != 50 and f % 10 != 0"
+    answer: "{rd(x, 1)|f1}"
+    form: decimal
+    feedback:
+      - ["{floor(x * 10) / 10}", "Look at the hundredths digit: 5 or more rounds up."]
+    explain: "The hundredths digit decides: {x} rounds to {rd(x, 1)|f1}."
+  - q: "Round {x} to 2 decimal places."
+    vars: { w: "0..20", f: "1..9999" }
+    let: { x: "w + f / 10000" }
+    where: "f % 10 != 0 and f % 100 != 50"
+    answer: "{rd(x, 2)|f2}"
+    form: decimal
+    explain: "The thousandths digit decides: {x} rounds to {rd(x, 2)|f2}."
+  - q: "Round {n|n} to the nearest hundred."
+    vars: { n: "1001..99999" }
+    where: "n % 100 != 50"
+    answer: "{round(n / 100) * 100}"
+    feedback:
+      - ["{floor(n / 100) * 100}", "Look at the tens digit: 5 or more rounds up."]
+    explain: "The tens digit decides: {n|n} rounds to {round(n / 100) * 100|n}."
