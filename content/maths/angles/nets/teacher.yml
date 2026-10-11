@@ -1,0 +1,43 @@
+summary: Students build nets on a grid and watch the board fold them into a cube, then find the net area of a triangular prism (AC9M7SP01, node 1).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can tell whether a net folds into a cube, and say how I know.
+  - I can name the faces in the net of a prism or a pyramid.
+  - I can find the surface area of a triangular prism from its net.
+struggle: "Picturing the fold. Let students build a cube from paper or linking squares beside the board; the board's colours say where each square lands."
+before: |
+  Do the Run board yourself first, then fold a real cube net from card if you have time.
+
+  The one idea: a net works only if every face is covered exactly once. Counting six squares is necessary but not enough (Zara's mistake).
+
+  The board folds by rolling a cube over the squares, so the colour on each square is the face it becomes. The cube has 11 different nets; the Make task is not about finding all of them (see Stretch).
+running:
+  - "Predict: ask which square would land on the first one."
+  - "Run: ask students to find a net before they check it on the board."
+  - "Investigate: ask what Zara could do to check her block."
+  - "Modify: for the prism, ask which side of the triangle each rectangle matches."
+  - "Make: ask why the area has two parts, the ends and the sides."
+stuck:
+  - see: "A student says any six joined squares fold into a cube."
+    ask: "Which two squares would land on the same face?"
+    fix: "Roll the cube across the squares, or fold a paper copy."
+  - see: "A student forgets the two triangles when finding a prism's area."
+    ask: "How many faces does a triangular prism have?"
+    fix: "Five faces: three rectangles and two triangles."
+  - see: "A student halves the net area."
+    ask: "Is the net the whole surface or only part?"
+    fix: "The net is the whole surface laid flat."
+stretch: "A cube has 11 different nets (turning or flipping a net does not count as new). Can you find them all?"
+support: "Give students six linking squares or a card net to fold before the board."
+leads: |
+  This starts AC9M7SP01.
+
+  Where it leads: views and isometric drawings (next lesson); surface area and volume of prisms (Measurement); Year 8 volume of prisms and cylinders.
+exit:
+  q: "A net of six squares has four in a row, one above and one below. Does it fold into a cube? How can you tell?"
+  a: "Yes. The row of four wraps round the sides, and the extra two squares are the top and the bottom, so every face is covered once."
+explain: |
+  A **net** is a solid unfolded flat. A cube's net is six squares that fold to cover all six faces once; six squares alone is not enough, so test by folding.
+
+  A triangular prism's net is two triangles (the ends) and three rectangles (one for each side of the triangle). Its area is the surface area.

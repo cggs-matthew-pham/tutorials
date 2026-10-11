@@ -1,0 +1,53 @@
+# Data boards for "Statistical investigations". Hours of sleep on school nights.
+
+# region: run
+widget: data
+values: 6.5, 7, 7.5, 8, 8, 8, 8.5, 8.5, 8.5, 9, 9, 9, 9.5, 10, 10
+range: 5, 12
+step: 0.5
+edit: on
+show: mean, median, range
+label: Hours of sleep on a school night
+# endregion
+
+# region: explain
+widget: data
+values: 6.5, 7, 7.5, 8, 8, 8, 8.5, 8.5, 8.5, 9, 9, 9, 9.5, 10, 10
+range: 5, 12
+step: 0.5
+show: median, range
+label: Hours of sleep on a school night
+# endregion
+
+# region: compare
+widget: data
+values: 6.5, 7, 7.5, 8, 8, 8, 8.5, 9, 9.5, 10
+second: 7.5, 8.5, 9, 9.5, 9.5, 10, 10, 10.5, 11, 12
+names: School nights, Weekends
+range: 5, 13
+step: 0.5
+show: mean, median, range
+label: Hours of sleep
+# endregion
+
+# region: fair
+widget: data
+values: 6.5, 7, 8, 8, 8.5, 9, 10
+second: 7.5, 8.5, 9, 9.5, 9.5, 10, 10, 10.5, 11, 12
+names: School nights, Weekends
+range: 5, 13
+step: 0.5
+edit: on
+show: median, range
+label: Hours of sleep
+# endregion
+
+# region: make
+widget: data
+values: 8
+range: 5, 12
+step: 0.5
+edit: on
+show: mean, median, range
+label: Hours of sleep on a school night
+# endregion

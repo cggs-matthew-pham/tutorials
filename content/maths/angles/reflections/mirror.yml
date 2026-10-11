@@ -1,0 +1,37 @@
+# Shapes to reflect for "Reflections".
+
+# region: run
+widget: transform
+mode: reflect
+shape: 2,1; 4,1; 4,3
+range: 6
+# endregion
+
+# region: explain
+widget: transform
+mode: reflect
+shape: 2,1; 4,1; 4,3
+range: 6
+# endregion
+
+# region: explain-pic
+widget: transform
+mode: reflect
+shape: 2,1; 4,1; 4,3
+range: 6
+axis: y
+# endregion
+
+# region: free
+widget: transform
+mode: reflect
+shape: -4,1; -2,1; -2,4
+range: 6
+# endregion
+
+# region: make
+widget: transform
+mode: reflect
+shape: 1,1; 3,1; 4,2; 3,3; 1,3
+range: 6
+# endregion

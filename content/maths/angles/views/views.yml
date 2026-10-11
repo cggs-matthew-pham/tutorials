@@ -1,0 +1,45 @@
+# Cube piles for "Views".
+
+# region: run
+widget: views
+size: 3
+max: 4
+start: 2,1,0; 0,1,0; 0,0,3
+# endregion
+
+# region: explain
+widget: views
+size: 3
+max: 4
+start: 0,0,0; 0,0,0; 0,0,0
+# endregion
+
+# region: explain-pic
+widget: views
+size: 3
+max: 4
+start: 0,0,0; 3,0,0; 1,0,0
+# endregion
+
+# region: free
+widget: views
+size: 3
+max: 4
+start: 0,0,0; 0,0,0; 0,0,0
+# endregion
+
+# region: top
+widget: views
+size: 3
+max: 4
+numbers: on
+hide: iso
+start: 0,0,0; 0,0,0; 0,0,0
+# endregion
+
+# region: side
+widget: views
+size: 3
+max: 4
+start: 2,0,0; 0,0,0; 1,1,1
+# endregion

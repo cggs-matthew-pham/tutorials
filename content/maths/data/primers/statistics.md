@@ -19,9 +19,9 @@ Statistics in the news, in sport and in science all rest on choosing a fair summ
 - **Leaving empty stems out of a stem-and-leaf plot**, hiding gaps.
 - **Comparing single values** (the top score) instead of centre and spread.
 
-## A statistical investigation (AC9M7ST03, a class task)
+## A statistical investigation (AC9M7ST03)
 
-The descriptor's investigation is best done in class, using the tools from these lessons: pose a question about the class (for example, "Do we sleep less on school nights?"), plan what to measure and how, collect the data, display it (dot plot or stem-and-leaf), find the centre and spread, compare groups, and report a conclusion with its limits (who was asked, how many, how it was measured).
+The lesson *Statistical investigations* gives the shape of one (question, plan, sample and bias, display, summary, report), with sleep as the example. The investigation itself is best done in class too, using the tools from these lessons: pose a question about the class (for example, "Do we sleep less on school nights?"), plan what to measure and how, collect the data, display it (dot plot or stem-and-leaf), find the centre and spread, compare groups, and report a conclusion with its limits (who was asked, how many, how it was measured).
 
 ## The words
 

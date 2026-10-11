@@ -53,7 +53,7 @@
   function svgEl() {
     var el = B.el('board'); el.replaceChildren();
     if (B.jsxBoard) { try { JXG.JSXGraph.freeBoard(B.jsxBoard); } catch (e) { /* gone */ } B.jsxBoard = null; }
-    var svg = document.createElementNS(NS, 'svg'); svg.setAttribute('width', '100%'); svg.setAttribute('height', '100%'); svg.setAttribute('role', 'img');
+    var svg = document.createElementNS(NS, 'svg'); svg.setAttribute('width', '100%'); svg.setAttribute('height', '100%'); svg.style.position = 'absolute'; svg.style.left = '0'; svg.style.top = '0'; el.style.position = 'relative'; svg.setAttribute('role', 'img');
     el.appendChild(svg);
     return svg;
   }

@@ -130,6 +130,63 @@
           "shows": "A concave hexagon with one corner pointing in"
         }
       ]
+    },
+    {
+      "name": "Solids, transformations and algorithms",
+      "items": [
+        {
+          "label": "net",
+          "unit": "solids",
+          "code": "\\text{cube: 6 squares on 6 different faces}",
+          "hint": "A net is a solid unfolded flat. Fold it, or roll a cube over it, to check that every face is covered once. Six squares is not enough.",
+          "board": "widget: net\nmode: cube\ncells: 1,0; 0,1; 1,1; 2,1; 3,1; 1,2",
+          "shows": "A cross of six squares that folds into a cube"
+        },
+        {
+          "label": "prism net area",
+          "unit": "solids",
+          "code": "A = 2 \\times \\text{triangle} + \\text{length} \\times (a + b + c)",
+          "hint": "A triangular prism has two triangles and three rectangles. The net's area is the surface area."
+        },
+        {
+          "label": "top, front and side views",
+          "unit": "solids",
+          "code": "\\text{front} = \\text{tallest pile in each column}",
+          "hint": "A view shows what you can see from one side; hidden cubes do not show. The top view with heights shows every cube.",
+          "board": "widget: views\nsize: 3\nmax: 4\nstart: 0,0,0; 0,1,0; 3,1,0",
+          "shows": "Three drawings of the same cubes"
+        },
+        {
+          "label": "translation",
+          "unit": "transform",
+          "code": "(x, y) \\to (x + a, \\, y + b)",
+          "hint": "Every point slides the same way. Right and up add; left and down take away.",
+          "board": "widget: transform\nmode: translate\nshape: 1,1; 3,1; 3,2\nrange: 8\ndx: 3\ndy: -2",
+          "shows": "A triangle moved 3 right and 2 down"
+        },
+        {
+          "label": "reflection",
+          "unit": "transform",
+          "code": "x\\text{-axis: } (x, y) \\to (x, -y) \\qquad y\\text{-axis: } (x, y) \\to (-x, y)",
+          "hint": "Each point and its image are the same distance from the mirror, on opposite sides.",
+          "board": "widget: transform\nmode: reflect\nshape: 2,1; 4,1; 4,3\nrange: 6\naxis: y",
+          "shows": "A triangle reflected in the y-axis"
+        },
+        {
+          "label": "rotation",
+          "unit": "transform",
+          "code": "90^\\circ \\text{ anticlockwise: } (x, y) \\to (-y, x)",
+          "hint": "Give the centre, the angle and the direction. A half turn: (x, y) to (−x, −y). 90° clockwise is 270° anticlockwise.",
+          "board": "widget: transform\nmode: rotate\nshape: 2,1; 4,1; 4,2\nrange: 6\nt: 90",
+          "shows": "A triangle turned a quarter turn about the origin"
+        },
+        {
+          "label": "algorithm",
+          "unit": "algorithms",
+          "code": "\\text{ask the most specific question first}",
+          "hint": "A set of steps and decisions that gives the right result every time. Test it on one shape of every class."
+        }
+      ]
     }
   ]
 }

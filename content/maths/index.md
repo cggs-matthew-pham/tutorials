@@ -23,11 +23,11 @@ pathways:
       - { title: Irrational numbers and index laws, stage: extensions, summary: "Surds, recurring decimals and the laws of exponents.", after: [number-foundations], tagline: "Surds and the laws of powers." }
   - id: space
     title: Geometry and measurement
-    summary: Angles and shapes, then area, volume, circles and Pythagoras.
+    summary: Angles and shapes, nets, views, transformations and algorithms, then area, volume, circles and Pythagoras.
     fit: "Start here to measure angles, shapes, areas and volumes, and see why the formulas work."
     about: "**Angles and shapes** links to the coding pathway: the turtle already turns through exterior angles, and classifying shapes is an algorithm students can write."
     courses:
-      - { path: maths/angles, id: angles-shapes, stage: foundations, tagline: "Angle facts, angle sums and naming shapes." }
+      - { path: maths/angles, id: angles-shapes, stage: foundations, tagline: "Angle facts, naming shapes, nets, transformations and algorithms." }
       - { path: maths/measurement, id: area-volume, stage: foundations, after: [angles-shapes, number-foundations, maths/algebra], tagline: "Area, volume, circles and Pythagoras." }
       - { title: Trigonometry, stage: extensions, summary: "Similar triangles and the trigonometric ratios.", after: [area-volume], tagline: "Similar triangles and sin, cos and tan." }
   - id: data

@@ -1,0 +1,45 @@
+summary: Students plan an investigation (question, variable, sample, bias), then summarise and report one in terms of shape, centre and spread (AC9M7ST03, nodes 1 and 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 10 min · Practise and Make 12 min"
+goals:
+  - I can write a question that data can answer.
+  - I can plan a fair sample and name a possible bias.
+  - I can report what data show using shape, centre and spread, and say the limits.
+struggle: "Planning before collecting. Ask students to say who they would measure and how, before looking at any numbers."
+before: |
+  Do the Run board yourself first. Students need the data lessons before this one (kinds of data, centre, stem-and-leaf plots, comparing data).
+
+  The one idea: the answer is only as good as the question and the sample. A small, friendly sample describes that group and not the whole year (Kai's mistake).
+
+  This lesson gives the shape of a whole investigation with sleep as the example. The real investigation is a class task: students choose their own question (sleep, screen time, reaction time, jumping), collect data in class, display it on the data board or a spreadsheet and write the report in the four parts of the Make task. Do at least two investigations in different contexts, so the skill transfers.
+
+  A public source (the Australian Bureau of Statistics, for example) can give a second set for a social question; use it as an extension.
+running:
+  - "Predict: ask what number you would write down for each question."
+  - "Run: ask what the new value does to the median and to the range."
+  - "Investigate: ask students to name a second source of bias."
+  - "Modify: ask what the report would say with different samples."
+  - "Make: ask students to swap reports and find the limits the author left out."
+stuck:
+  - see: "A student asks an opinion question."
+    ask: "What would you write down for each person?"
+    fix: "Turn it into a variable you can measure."
+  - see: "A student generalises from a few friends."
+    ask: "Would your friends be like the rest of Year 7?"
+    fix: "Say who was measured, and how they were chosen."
+  - see: "A student reports only the mean."
+    ask: "How spread out are the values?"
+    fix: "Report shape, centre and spread."
+stretch: "Repeat the investigation with a sample twice the size. How much do the median and range change? Compare it with a published data set."
+support: "Give students the report in four sentence starters: My question was…, I measured…, The data show…, This is limited because…"
+leads: |
+  This completes AC9M7ST03, with a class investigation.
+
+  Where it leads: comparing larger data sets, histograms and scatter plots (Year 8).
+exit:
+  q: "A survey asks only the first 10 students into school how they travel. Give one reason it may not represent the school."
+  a: "Students who arrive early may travel differently (for example, by bus or parent drop-off), so the sample is biased."
+explain: |
+  A **statistical investigation** asks a question data can answer, plans the variable and a fair **sample**, collects and displays the data, summarises its **shape, centre and spread**, and reports an answer with its **limits**.
+
+  A sample that is small or chosen for convenience may be **biased**, so the report says who was measured and how.

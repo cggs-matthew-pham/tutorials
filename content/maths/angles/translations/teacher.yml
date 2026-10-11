@@ -1,0 +1,45 @@
+summary: Students slide a triangle on the coordinate plane and describe the move by the change in each coordinate (AC9M7SP03, node 1).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can translate a shape and write the new coordinates.
+  - I can describe a translation as so many units left or right and up or down.
+  - I can say what changes and what stays the same.
+struggle: "Left and down mean taking away. Ask students to say, before moving, whether x and y get bigger or smaller."
+before: |
+  Do the Run board yourself first. Students need to plot and read coordinates in all four quadrants (Year 6).
+
+  The one idea: every point moves the same way, so the same amount is added to every x and every y. The common mistake is adding for left or down (Ravi's mistake).
+
+  This is the hinge for the transformations node: a coordinate slip here carries into reflections and rotations, so check the Practise answers.
+
+  Combining two translations (the last Modify question) is a wider idea.
+running:
+  - "Predict: ask for the direction of the change in x and in y separately."
+  - "Run: ask what stays the same for all three corners."
+  - "Investigate: ask Ravi's question again with 3 left and 2 down."
+  - "Modify: for the undo question, ask what the opposite of each part is."
+  - "Make: ask for the translation as a rule for (x, y)."
+stuck:
+  - see: "A student adds when moving left or down."
+    ask: "On the x-axis, does a number get bigger or smaller as you go left?"
+    fix: "Left and down take away; right and up add."
+  - see: "A student swaps the x and y changes."
+    ask: "Which way does x measure, across or up?"
+    fix: "x is across, y is up; write the horizontal move first."
+  - see: "A student moves only corner A."
+    ask: "Where does corner B go?"
+    fix: "Every corner moves the same way."
+stretch: "Two translations are done one after the other. Write the single translation that does the same, and show that the order does not matter."
+support: "Count squares on the grid for each move before using the sliders."
+leads: |
+  This starts AC9M7SP03.
+
+  Where it leads: reflections (next lesson), rotations, then combining transformations and the vector notation for translations in Year 8.
+exit:
+  q: "A (2, 5) is translated 4 left and 3 down. Where is A′?"
+  a: "(−2, 2): x is 2 − 4 = −2 and y is 5 − 3 = 2."
+explain: |
+  A **translation** slides every point of a shape the same distance in the same direction. The **object** becomes the **image**, and A becomes A′.
+
+  Right and up add; left and down take away. A translation of 3 right and 2 down changes $(x, y)$ to $(x + 3, y - 2)$.

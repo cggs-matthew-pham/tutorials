@@ -324,3 +324,7 @@ table.ctally tr.cwatch td { font-weight: 700; }
 .wvband[aria-pressed=true] { background: var(--accent); border-color: transparent; color: #fff; }
 .fbar select { font: 600 14px system-ui, sans-serif; padding: 7px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); }
 .fbar button.quiet { background: var(--card); color: var(--ink); }
+
+/* views */
+.vgrid { display: grid; gap: 4px; justify-content: center; margin: 8px 0; }
+.vcell { min-height: 2.6em; font-size: 18px; font-weight: 700; }

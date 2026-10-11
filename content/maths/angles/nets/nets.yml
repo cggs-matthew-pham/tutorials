@@ -1,0 +1,49 @@
+# Nets to build and fold for "Nets". The cube board starts with the squares in a row.
+
+# region: run
+widget: net
+mode: cube
+cells: 0,1; 1,1; 2,1; 3,1; 4,1; 5,1
+# endregion
+
+# region: explain
+widget: net
+mode: cube
+cells: 0,1; 1,1; 2,1; 3,1; 4,1; 5,1
+# endregion
+
+# region: explain-pic
+widget: net
+mode: cube
+cells: 1,0; 0,1; 1,1; 2,1; 3,1; 1,2
+# endregion
+
+# region: modify
+widget: net
+mode: cube
+cells: 0,1; 1,1; 2,1; 3,1; 4,1; 5,1
+# endregion
+
+# region: cross
+widget: net
+mode: cube
+cells: 1,0; 0,1; 1,1; 2,1; 3,1; 1,2
+# endregion
+
+# region: prism
+widget: net
+mode: prism
+a: 3
+b: 4
+slider L: 1, 8, 3
+units: cm
+# endregion
+
+# region: prism-free
+widget: net
+mode: prism
+slider a: 1, 10, 3
+slider b: 1, 10, 4
+slider L: 1, 8, 3
+units: cm
+# endregion

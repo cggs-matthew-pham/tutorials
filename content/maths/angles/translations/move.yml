@@ -1,0 +1,37 @@
+# Triangles to slide for "Translations".
+
+# region: run
+widget: transform
+mode: translate
+shape: 1,1; 3,1; 3,2
+range: 8
+slider dx: -8, 8, 0
+slider dy: -8, 8, 0
+# endregion
+
+# region: explain
+widget: transform
+mode: translate
+shape: 1,1; 3,1; 3,2
+range: 8
+slider dx: -8, 8, 0
+slider dy: -8, 8, 0
+# endregion
+
+# region: explain-pic
+widget: transform
+mode: translate
+shape: 1,1; 3,1; 3,2
+range: 8
+dx: 3
+dy: -2
+# endregion
+
+# region: free
+widget: transform
+mode: translate
+shape: 1,1; 3,1; 3,2
+range: 8
+slider dx: -8, 8, 0
+slider dy: -8, 8, 0
+# endregion

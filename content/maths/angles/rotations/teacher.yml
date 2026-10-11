@@ -1,0 +1,47 @@
+summary: Students turn a shape about a centre and find the image of each corner for quarter and half turns (AC9M7SP03, node 3).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can rotate a shape 90°, 180° or 270° about the origin.
+  - I can describe a rotation by its centre, angle and direction.
+  - I can use the pattern in the coordinates to check an answer.
+struggle: "Picturing the turn. Use tracing paper pinned at the centre, or have students point a pencil at the shape and turn it."
+before: |
+  Do the Run board yourself first. Students need translations and reflections (previous lessons).
+
+  The one idea: a rotation needs a centre, an angle and a direction. About the origin, an anticlockwise quarter turn is $(x, y) \to (-y, x)$; the half turn changes both signs. The common mistake is only swapping the coordinates (Lee's mistake).
+
+  The board turns anticlockwise only; clockwise turns are the questions in Modify and Make (90° clockwise is 270° anticlockwise).
+
+  Rotation is the hardest transformation to reason about: let students trace and turn before using the rule. The rule is a check on the answer, not the method.
+
+  Turning about another centre (the second Modify task) is done by the picture: the rule does not apply.
+running:
+  - "Predict: ask students to point a pencil and turn it a quarter."
+  - "Run: ask what stays the same after each turn (the distance to the centre)."
+  - "Investigate: ask how Lee could test his answer."
+  - "Modify: for the centre (1, 0), ask where A is measured from."
+  - "Make: ask for the description with the direction."
+stuck:
+  - see: "A student swaps the coordinates without a sign."
+    ask: "Which quadrant should the image be in?"
+    fix: "Picture the turn first, then use the rule to check."
+  - see: "A student turns clockwise."
+    ask: "Which way do clock hands go? Which way do we turn here?"
+    fix: "The board turns anticlockwise; clockwise 90° is 270° anticlockwise."
+  - see: "A student forgets the centre."
+    ask: "What point does the shape turn about?"
+    fix: "Always name the centre, the angle and the direction."
+stretch: "Show that reflecting in the x-axis and then the y-axis gives the same image as a 180° rotation about the origin. Which two reflections (one in the line y = x) make a 90° rotation?"
+support: "Use tracing paper: trace the shape, pin the centre and turn the paper a quarter at a time."
+leads: |
+  This completes AC9M7SP03.
+
+  Where it leads: combining transformations and tessellations (Year 8); rotational symmetry.
+exit:
+  q: "The point (2, 3) turns 180° about the origin. Where is the image?"
+  a: "(−2, −3): both signs change."
+explain: |
+  A **rotation** turns a shape about a **centre** by an **angle** in a **direction** (clockwise or anticlockwise). The shape keeps its size.
+
+  About the origin, anticlockwise: 90° changes $(x, y)$ to $(-y, x)$; 180° changes it to $(-x, -y)$; 270° changes it to $(y, -x)$.

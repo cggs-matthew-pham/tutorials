@@ -1,0 +1,42 @@
+# Shapes to turn for "Rotations".
+
+# region: run
+widget: transform
+mode: rotate
+shape: 2,1; 4,1; 4,2
+range: 6
+slider t: 0, 360, 0, 90
+# endregion
+
+# region: explain
+widget: transform
+mode: rotate
+shape: 2,1; 4,1; 4,2
+range: 6
+slider t: 0, 360, 0, 90
+# endregion
+
+# region: explain-pic
+widget: transform
+mode: rotate
+shape: 2,1; 4,1; 4,2
+range: 6
+t: 90
+# endregion
+
+# region: free
+widget: transform
+mode: rotate
+shape: 2,1; 4,1; 4,2
+range: 6
+slider t: 0, 360, 0, 90
+# endregion
+
+# region: centre
+widget: transform
+mode: rotate
+shape: 2,1; 4,1; 4,2
+range: 6
+centre: 1, 0
+slider t: 0, 360, 0, 90
+# endregion

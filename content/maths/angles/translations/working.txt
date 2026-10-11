@@ -1,0 +1,8 @@
+# Ravi's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ravi
+The point A is (2, 3). The translation is 4 left and 1 up.
+Left is a move along the x-axis, so I add 4 to x.
+Up means add 1 to y.
+The image of A is (6, 4).
+# endregion

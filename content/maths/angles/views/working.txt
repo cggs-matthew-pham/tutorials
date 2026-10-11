@@ -1,0 +1,8 @@
+# Noor's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: noor
+The first column has piles of 3, 1 and 2 cubes.
+Noor draws the front view of that column.
+She adds the piles, so the column shows 6 squares.
+The front view is 6 squares tall.
+# endregion

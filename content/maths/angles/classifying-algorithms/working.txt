@@ -1,0 +1,9 @@
+# Pia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: pia
+Pia writes an algorithm for four-sided shapes.
+1. Are there two pairs of parallel sides? If yes, say "parallelogram".
+2. If not, is there one pair? If yes, say "trapezium".
+She tests it on a rectangle: step 1 says yes, so it says "parallelogram".
+She decides it works, because a rectangle is a parallelogram.
+# endregion

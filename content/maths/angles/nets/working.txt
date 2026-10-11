@@ -1,0 +1,8 @@
+# Zara's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: zara
+Zara draws six squares in a 2 by 3 block.
+A cube has six faces.
+Her pattern has six squares.
+So her pattern folds into a cube.
+# endregion

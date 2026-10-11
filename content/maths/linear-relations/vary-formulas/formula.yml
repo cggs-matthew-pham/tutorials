@@ -1,0 +1,50 @@
+# Formula boards for "Changing one thing at a time".
+
+# region: run
+widget: formula
+formula: V = lwh
+slider l: 1, 6, 2
+slider w: 1, 6, 3
+slider h: 1, 6, 1
+units: cm³
+# endregion
+
+# region: explain
+widget: formula
+formula: V = lwh
+slider l: 1, 6, 2
+slider w: 1, 6, 3
+slider h: 1, 6, 1
+# endregion
+
+# region: explain-pic
+widget: formula
+formula: V = lwh
+slider l: 1, 6, 2
+slider w: 1, 6, 3
+slider h: 3, 6, 3
+# endregion
+
+# region: distance
+widget: formula
+formula: d = st
+slider s: 10, 100, 50, 10
+slider t: 1, 6, 2
+units: km
+# endregion
+
+# region: square
+widget: formula
+formula: A = ss
+slider s: 1, 10, 3
+units: cm²
+# endregion
+
+# region: box
+widget: formula
+formula: V = lwh
+slider l: 1, 6, 1
+slider w: 1, 6, 1
+slider h: 1, 6, 1
+units: cm³
+# endregion

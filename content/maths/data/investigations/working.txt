@@ -1,0 +1,7 @@
+# Kai's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kai
+Kai's question: how many hours do Year 7 students sleep on school nights?
+He asks the 8 students in his swimming squad.
+Their median is 8 hours, so Year 7 students sleep 8 hours.
+# endregion

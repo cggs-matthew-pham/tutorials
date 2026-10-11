@@ -1,0 +1,47 @@
+summary: Students follow, fix and test algorithms that classify triangles and quadrilaterals, and describe how each works (AC9M7SP04, nodes 1 and 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 10 min · Practise and Make 12 min"
+goals:
+  - I can follow an algorithm and say what each decision does.
+  - I can put the questions of a classifier in an order that works.
+  - I can test an algorithm on one shape of every class.
+struggle: "Ordering the questions. Ask students to say which shape each question separates before they put it in a position."
+before: |
+  Do the Run board yourself first. Students need the triangle and quadrilateral classes (Classifying shapes lessons).
+
+  The one idea: each shape must reach its own name, so the most specific question comes first. A short algorithm can be wrong; testing on one shape of every class finds it (Pia's mistake).
+
+  The board follows the key one question at a time; it is the same tool students use for living things in science. Students design on paper: the Make task asks for an algorithm for triangles by angles, drawn as a flowchart or written as numbered steps.
+
+  Judging two algorithms for efficiency (fewest questions) and for edge cases (the kite) are wider ideas.
+
+  This links to Code: an algorithm written in steps is a program with `if` and `else`.
+running:
+  - "Predict: ask what the machine should say for the equilateral triangle."
+  - "Run: ask which triangle the algorithm gets wrong, and why."
+  - "Investigate: ask what test shapes Pia should have used."
+  - "Modify: ask students to describe the quad algorithm in words."
+  - "Make: ask a partner to run the algorithm on a shape the author hasn't tried."
+stuck:
+  - see: "A student asks the general question first."
+    ask: "What would a square be called by this question?"
+    fix: "Ask the most specific question first."
+  - see: "A student tests on one shape."
+    ask: "Which classes has your test not reached?"
+    fix: "Test one shape of every class."
+  - see: "A student has a path with no end."
+    ask: "Where does a 'no' lead?"
+    fix: "Every yes and every no must lead on to another question or a name."
+stretch: "Compare two correct algorithms for the same job: which asks fewer questions on average? Then write the triangle algorithm in Python with `if` and `else`."
+support: "Give students the questions on cards and ask them to lay out the order before they use the board."
+leads: |
+  This completes AC9M7SP04.
+
+  Where it leads: algorithms in code (the Code pathways), flowcharts for other decisions, and decision trees in Probability.
+exit:
+  q: "Why must a classifier ask 'are all three sides equal?' before 'are two sides equal?'"
+  a: "An equilateral triangle has two equal sides too, so the wider question would give it the wrong name."
+explain: |
+  An **algorithm** is a precise series of steps and decisions. A **classification algorithm** asks yes/no questions about attributes and ends in one name for each shape.
+
+  Put the most specific question first, make sure every branch ends in a name, and **test** it on one shape of every class. A flowchart, a decision tree and numbered steps show the same algorithm.

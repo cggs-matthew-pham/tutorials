@@ -41,6 +41,12 @@
           "unit": "rules",
           "code": "\\text{axis} \\to \\text{line} \\to \\text{other axis}",
           "hint": "Find the value you know on its axis, go to the line, then read across to the other axis. Sections of a graph increase, decrease or stay constant."
+        },
+        {
+          "label": "vary one variable",
+          "unit": "rules",
+          "code": "V = l \\times w \\times h \\quad (\\text{change } h \\text{ only})",
+          "hint": "To see what one letter does, change only that letter and keep the others the same. Record the results in a table."
         }
       ]
     },

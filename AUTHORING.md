@@ -663,6 +663,22 @@ Vary, Practise, Make).
     or kg, L), with one part and each share. `labels: red, blue` names the terms. Up to 48 blocks in a row, 40 parts.
     Values (single letters): `a b c k`, `p q r` (terms times k), `t` (parts), `g` (common factor), `s` (1 if simplest),
     `w` (total), `u` (one part), `x y z` (shares). Checks: `"p = 6 and q = 9"`, `"a = 2 and b = 3 and s = 1"`, `"w = 60 and y = 36"`.
+  - `widget: transform` (first used by `maths/angles/translations`, `reflections`, `rotations`): a shape (`shape: 1,1; 3,1; 3,2`,
+    3 to 6 corners called A, B, C…) and its image on the coordinate plane (`range: 8` is the axes' half-width). `mode: translate`
+    (`slider dx:` and `slider dy:` as min, max, start[, step], or fixed `dx: 3`), `mode: reflect` (buttons Reflect in the x-axis,
+    Reflect in the y-axis and Show the original only, or `axis: x | y`), `mode: rotate` (`slider t: 0, 360, 0, 90`, anticlockwise
+    degrees; `centre: 1, 0`). `show: none` hides the rule line. Values: `dx dy`, `m` (0 none, 1 x-axis, 2 y-axis), `t`, and
+    points `A B C…` for the IMAGE corners. Checks: `"x(A) = 4 and y(A) = -1"`, `"m = 1"`, `"t = 270 and x(B) = 1"`.
+  - `widget: net` (first used by `maths/angles/nets`): `mode: cube` is a grid (`grid: 6, 4`) where students press squares to build a
+    net (`cells: 1,0; 0,1; …`, x,y with y down; at most 8 squares); the board rolls a cube over it, colours each square by the face
+    it lands on and says whether it folds. Values `c` (squares), `f` (1 if it folds), `d` (different faces). `mode: prism` is the net
+    of a triangular prism on a right triangle (`slider a: 1, 10, 3`, `slider b:`, `slider L:` or fixed `a: 3`; `units: cm`): values
+    `a b L`, `c` (hypotenuse), `A` (net area = surface area), `v` (volume). Checks: `"f = 1 and c = 6"`, `"a = 3 and b = 4 and A > 90"`.
+  - `widget: views` (first used by `maths/angles/views`): piles of cubes on a `size: 3` base (2 to 4), drawn isometrically and as
+    the top, front and side views. `start: 2,1,0; 0,1,0; 0,0,3` (rows from the back, left to right), `max: 4` (tallest pile),
+    `numbers: on` (heights on the top view), `hide: iso | views`. Students press a cell to add a cube (back to 0 after the tallest).
+    Front view looks at the front row; side view from the right. Values `n` (cubes), `h` (tallest), `t`, `f`, `s` (squares in the
+    top, front and side views). Checks: `"t = 4 and f = 5"`, `"n = 12 and t = 4 and h = 3"`.
   - Board variables in `when:` must be single letters: the evaluator reads a longer name such as `sb` as s × b.
   - `widget: data` (first used by `maths/data`): a dot plot of `values: 4, 7, 7, 8` on `range: 0, 20` (default: around
     the data), with the mean (▲), median (dashed) and range (arrow) marked and written underneath (`show: mean, median,

@@ -1,0 +1,45 @@
+summary: Students build piles of cubes and compare the isometric drawing with the top, front and side views, finding what each view hides (AC9M7SP01, nodes 2 and 3).
+time: 40
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can draw or read the top, front and side views of a pile of cubes.
+  - I can say what a view hides.
+  - I can say one advantage and one disadvantage of a net and of a 3D drawing.
+struggle: "Knowing which side is which. Turn a real pile of cubes round on the desk beside the board; the side view is seen from the right."
+before: |
+  Do the Run board yourself first. Build a small pile from linking cubes to hold up.
+
+  The one idea: a view shows only what you can see from one side, so the front and side views show the tallest pile in each column and hide the rest. The common mistake is adding the piles (Noor's mistake).
+
+  The board's rows run from the back (top of the grid) to the front. The front view looks from the front; the side view looks from the right. The top view puts the back row at the top.
+
+  The view orientation is the hinge for this node: students who mix up front and side cannot compare representations.
+running:
+  - "Predict: ask what could be hiding behind the front pile."
+  - "Run: ask students to say which view they think will change before they press."
+  - "Investigate: ask Noor's question again with a column of 1, 3, 1."
+  - "Modify: ask for the fewest cubes first, then the most."
+  - "Make: ask which drawing they would give a builder."
+stuck:
+  - see: "A student adds all the piles to find a view."
+    ask: "If you stand at the front, which cubes can you see in one column?"
+    fix: "Only the tallest pile. Lower piles are hidden behind it."
+  - see: "A student confuses front and side views."
+    ask: "Which way are you looking? Which row is nearest you?"
+    fix: "Front looks from the front row; side looks from the right."
+  - see: "A student thinks the isometric drawing shows every cube."
+    ask: "Can you see the cube hidden behind the tall pile?"
+    fix: "No drawing from one direction shows everything; the top view with numbers is the exception."
+stretch: "Two different piles can have the same top, front and side views. Can you find a pair?"
+support: "Use a real pile of linking cubes and look at it from each side before using the board."
+leads: |
+  This completes AC9M7SP01.
+
+  Where it leads: building solids from their views, and surface area and volume of prisms (Measurement); drawing in perspective in Year 8.
+exit:
+  q: "A front view shows 3 squares. Does the pile have 3 cubes? Why or why not?"
+  a: "Not necessarily. The front view shows only the tallest pile in each column; there could be more cubes behind."
+explain: |
+  A **view** is what you see from one side. The **top** view (plan) looks down; the **front** and **side** views (elevations) look across. They show the tallest pile in each column, and hide cubes behind or beneath.
+
+  A top view with a number on each pile shows every cube. A **net** shows every face at its true size, but not what the solid looks like when built.

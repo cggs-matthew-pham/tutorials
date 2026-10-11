@@ -1,0 +1,45 @@
+summary: Students vary one variable at a time in V = lwh, d = st and A = s², write the results as a table and describe the effect (AC9M7A06, nodes 1 and 2).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can change one variable and hold the others still.
+  - I can describe in words what happens to the output.
+  - I can say which variable has the biggest effect, and why.
+struggle: "Holding the others still. Ask students to say which letters stay the same before they move a slider."
+before: |
+  Do the Run board yourself first. Students need to substitute into a formula (Substituting into formulas in Algebra).
+
+  The one idea: to see what one letter does, change only that letter. Changing two at once makes it impossible to tell which did what (Tom's mistake).
+
+  The wider idea is that a variable's effect depends on the formula: in V = lwh, doubling any one factor doubles V; in A = s², doubling s makes A four times as big. The second Modify question and the last are about comparing effects.
+
+  The elaborations suggest spreadsheets. The Make task ends with a table: let students build it in a spreadsheet with a formula in the cells, so changing one cell updates the row. Machine-learning models are formulas with very many variables tuned in the same way (a talking point only).
+running:
+  - "Predict: ask what is staying the same."
+  - "Run: ask students to say the pattern in V before moving the next slider."
+  - "Investigate: ask Tom what he should change."
+  - "Modify: ask whether the distance question works for any speed."
+  - "Make: ask for the table, then the sentence."
+stuck:
+  - see: "A student moves two sliders and describes the result."
+    ask: "Which slider caused that change?"
+    fix: "Change one, write down V, then change the next."
+  - see: "A student says doubling the side doubles the area."
+    ask: "What is 6 × 6 compared with 3 × 3?"
+    fix: "A square's area has the side twice: doubling gives 4 times."
+  - see: "A student reads 2l as 2 and l side by side."
+    ask: "What does the working on the board show between 2 and l?"
+    fix: "2l means 2 × l."
+stretch: "In d = st, find three different pairs of s and t that give d = 120. What pattern do you see? Which graph would show it?"
+support: "Give a printed table with l and w filled in and a blank row for V."
+leads: |
+  This completes AC9M7A06.
+
+  Where it leads: formulas in a spreadsheet, and changing the subject of a formula (Algebra, Year 8).
+exit:
+  q: "In V = lwh with l = 2, w = 3, h = 4, h goes to 8 and nothing else changes. What is V?"
+  a: "48: 2 × 3 × 8, double the 24 it was."
+explain: |
+  To see what one variable does in a formula, **change that variable only** and keep the others the same, then record the results in a table.
+
+  In $V = lwh$, doubling any one variable doubles $V$. In $A = s \times s$, doubling $s$ makes $A$ four times as big.

@@ -1,0 +1,8 @@
+# Mia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mia
+The point P is (4, 3). Mia reflects it in the x-axis.
+The x-axis is horizontal, so she changes the x-coordinate.
+She changes 4 to −4.
+The image of P is (−4, 3).
+# endregion

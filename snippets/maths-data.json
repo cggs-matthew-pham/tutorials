@@ -55,6 +55,12 @@
           "hint": "Describe shape (symmetrical or skewed, clusters, gaps, outliers), centre and spread. Compare both centre and spread, with numbers, in context.",
           "board": "widget: data\nvalues: 12, 14, 15, 15, 16, 17, 18\nsecond: 6, 10, 13, 16, 19, 20, 22\nnames: Class A, Class B\nrange: 0, 25\nshow: median, range",
           "shows": "Similar medians; Class B much more spread"
+        },
+        {
+          "label": "statistical investigation",
+          "unit": "statistics",
+          "code": "\\text{ask} \\to \\text{plan} \\to \\text{collect} \\to \\text{display} \\to \\text{summarise} \\to \\text{report}",
+          "hint": "Ask a question data can answer, plan the variable and a fair sample, collect and display the data, describe its shape, centre and spread, then report the answer with its limits."
         }
       ]
     },

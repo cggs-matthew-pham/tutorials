@@ -1,0 +1,32 @@
+# Classification algorithms to run for "Algorithms for classifying shapes". The key board follows one step at a time.
+
+# region: explain
+widget: key
+step A: Are all three sides equal? | Equilateral | B
+step B: Are two sides equal? | Isosceles | Scalene
+specimen: Isosceles | Sides 5 cm, 5 cm and 3 cm.
+specimen: Equilateral | Sides 4 cm, 4 cm and 4 cm.
+specimen: Scalene | Sides 3 cm, 4 cm and 5 cm.
+# endregion
+
+# region: triangles
+widget: key
+step A: Are all three sides equal? | Equilateral | B
+step B: Are two sides equal? | Isosceles | Scalene
+specimen: Scalene | Sides 3 cm, 4 cm and 5 cm.
+specimen: Isosceles | Sides 5 cm, 5 cm and 3 cm.
+specimen: Equilateral | Sides 4 cm, 4 cm and 4 cm.
+# endregion
+
+# region: quads
+widget: key
+step A: Are all four sides equal? | B | C
+step B: Are all four angles right angles? | Square | Rhombus
+step C: Are there two pairs of parallel sides? | D | Trapezium
+step D: Are all four angles right angles? | Rectangle | Parallelogram
+specimen: Rectangle | Sides 6 cm and 4 cm, with four right angles.
+specimen: Trapezium | One pair of parallel sides; the other two sides are not parallel.
+specimen: Rhombus | Four sides of 5 cm; angles 60° and 120°.
+specimen: Square | Four sides of 5 cm and four right angles.
+specimen: Parallelogram | Sides 6 cm and 4 cm; angles 70° and 110°; both pairs of opposite sides parallel.
+# endregion

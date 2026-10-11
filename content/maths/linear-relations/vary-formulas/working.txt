@@ -1,0 +1,8 @@
+# Tom's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: tom
+Tom wants to know what h does to V = lwh.
+He sets l = 2, w = 3 and h = 1, so V = 6.
+Then he changes h to 2 and w to 4, so V = 16.
+V went from 6 to 16, so doubling h made V go up by 10.
+# endregion

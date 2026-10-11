@@ -1,0 +1,8 @@
+# Steps to put in order for "Algorithms for classifying shapes". Plain text: students order the lines.
+
+# region: triangle
+Start with a triangle and measure its three sides.
+Ask: are all three sides equal? If yes, say equilateral and stop.
+Ask: are two sides equal? If yes, say isosceles and stop.
+Otherwise, say scalene.
+# endregion

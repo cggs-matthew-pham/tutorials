@@ -1,0 +1,45 @@
+summary: Students reflect shapes in the x-axis and y-axis and state which coordinate changes sign (AC9M7SP03, node 2).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can reflect a shape in the x-axis or the y-axis.
+  - I can say which coordinate changes sign for each axis.
+  - I can check a reflection by its distance from the mirror.
+struggle: "Which coordinate changes. Ask students to say which way the point moves across the mirror, up and down or left and right."
+before: |
+  Do the Run board yourself first. Students need translations (previous lesson).
+
+  The one idea: a point and its image are the same distance from the mirror on opposite sides. In the x-axis the point crosses up or down, so y changes sign; in the y-axis it crosses left or right, so x changes sign. The common mistake is the swap (Mia's mistake).
+
+  Reflecting in other lines (such as y = x) is wider and is left for the stretch.
+
+  Seeing both reflections close together is deliberate: the Run board lets students flip between them.
+running:
+  - "Predict: ask which way the point travels across the mirror."
+  - "Run: ask what stays the same for each mirror."
+  - "Investigate: ask how Mia could check her answer with the picture."
+  - "Modify: for the two mirrors, ask what single move does the same."
+  - "Make: ask for the rule written for both axes."
+stuck:
+  - see: "A student changes the wrong coordinate."
+    ask: "Does the point cross the mirror by going up and down, or left and right?"
+    fix: "The coordinate that measures the distance to the mirror changes sign."
+  - see: "A student changes both signs."
+    ask: "How many mirrors did you use?"
+    fix: "One mirror changes one coordinate; two mirrors change both."
+  - see: "A student puts the image on the same side."
+    ask: "Which side of the mirror is the image on?"
+    fix: "The image is on the opposite side of the mirror."
+stretch: "Reflect in the line y = x. What happens to the coordinates? What about two reflections in a row, in the x-axis and then the y-axis: which transformation is that?"
+support: "Use tracing paper folded along the axis and press through the corners."
+leads: |
+  This continues AC9M7SP03.
+
+  Where it leads: rotations (next lesson); reflection and rotational symmetry in Year 8; combining transformations.
+exit:
+  q: "The point (5, −2) is reflected in the x-axis. Where is the image?"
+  a: "(5, 2): y changes sign."
+explain: |
+  A **reflection** flips a shape over a mirror line; each point and its image are the same distance from the mirror, on opposite sides.
+
+  In the x-axis, $(x, y) \to (x, -y)$. In the y-axis, $(x, y) \to (-x, y)$.
