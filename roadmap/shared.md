@@ -213,6 +213,10 @@ The igneous explain clip recorded without error, but its video fell about 15 s b
   - A clip with a missing voice file falls back to the lesson's default voice.
   - Test the sync on a phone, where Safari is strict about autoplay.
 - **To agree with the maths and science chats:** Emma as the default, and the three-voice set.
+- **Maths chat (12 Oct): agreed**, Emma as default and the three voices. Maths say: lines are already written as spoken words ("root two", "one point four"), and the lexicon is plain text swaps, so they suit all three voices. Suggestions:
+  - Keep the lesson's default voice muxed into `clips/<id>.mp4` (as today) and add `.m4a` files only for the other voices. The default then needs no syncing, a missing file or a script failure still talks, and a downloaded or directly linked clip is not silent. Choosing another voice mutes the video's own track and plays its `.m4a`.
+  - Clips loop (`loop` on every clip): restart the `.m4a` on each loop, not only on seek.
+  - Validate's 15-word guide stays; time each caption by the slowest voice as planned (maths explain clips are 12 to 25 s, so the extra pause is small).
 
 ## Parked
 
