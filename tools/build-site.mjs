@@ -364,6 +364,49 @@ ${NAV_JS}
 </script></body></html>`);
 }
 
+// Recap page for a course: one card per required lesson, grouped by unit. Each card asks the lesson's exit
+// question first ("Try first"); the answer, the Explain-it-to-me text, its picture and its clip open only after.
+// Short on purpose: retrieval first, then the explanation students already met in the lesson.
+const RECAP_CSS = `
+.rcunit{margin:28px 0 8px}.rcunit h2{font-size:1.15rem;margin:0 0 4px}.rcunit>p{margin:0 0 10px;color:var(--muted);font-size:15px}
+.rc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:10px 0}
+.rc h3{margin:0 0 6px;font-size:1.05rem}.rc h3 a{color:inherit;text-decoration:none}.rc h3 a:hover{text-decoration:underline}
+.rcq{margin:0;font-size:16px}.rcq b{color:var(--predict,#7c3aed);font-size:13px;letter-spacing:.04em;text-transform:uppercase;margin-right:6px}
+.rc details{margin-top:8px}.rc summary{cursor:pointer;font-weight:600;color:var(--investigate);padding:4px 0}
+.rca{margin:6px 0 10px;padding:8px 12px;border-left:4px solid var(--run);background:color-mix(in srgb,var(--run) 8%,var(--card));border-radius:6px}
+.rcx{font-size:15.5px}.rcx p{margin:6px 0}.rc figure{margin:10px 0}.rc img,.rc video{max-width:100%;height:auto;border-radius:8px}
+.rcgo{display:inline-block;margin-top:6px;font-size:14px;font-weight:600}
+`;
+function writeRecap(node, courseLessons) {
+  const units = Array.isArray(node.meta?.units) ? node.meta.units : [];
+  const mdp = new Marked();
+  const card = (l) => {
+    const T = l.teacher || {}, name = l.slug.split('/').pop();
+    if (!T.exit?.q && !T.explain) return '';
+    const st = l.explainStep;
+    const hasClip = st?.config.clip && existsSync(join(OUT, l.slug, 'clips', `${st.id}.mp4`));
+    // The clip's files sit with the lesson; from the recap page that is ../<lesson>/clips/.
+    const clip = hasClip ? clipHtml(l, st).replace(/(src|poster)="clips\//g, `$1="../${name}/clips/`).replace('preload="metadata"', 'preload="none"') : '';
+    const pic = l.explainPicture ? pictureHtml(l, l.explainPicture, 'explain') : '';
+    const body = (T.exit?.a ? `<p class="rca">${esc(T.exit.a)}</p>` : '') + (T.explain ? `<div class="rcx">${mdp.parse(String(T.explain))}</div>` : '') + pic + clip +
+      `<a class="rcgo" href="../${esc(name)}/">Open the lesson →</a>`;
+    return `<article class="rc"><h3><a href="../${esc(name)}/">${l.order != null ? `${l.order}. ` : ''}${esc(l.title)}</a></h3>` +
+      (T.exit?.q ? `<p class="rcq"><b>Try first</b>${esc(T.exit.q)}</p><details><summary>Check your answer</summary>${body}</details>` : `<details><summary>Show the explanation</summary>${body}</details>`) +
+      `</article>`;
+  };
+  const required = courseLessons.filter((l) => !l.optional);
+  const groups = units.map((u) => ({ u, ls: required.filter((l) => l.unit === u.id) })).filter((g) => g.ls.length);
+  const loose = required.filter((l) => !units.some((u) => u.id === l.unit));
+  if (loose.length) groups.push({ u: { title: units.length ? 'More lessons' : '' }, ls: loose });
+  const rp = `${node.path}/recap`, rup = '../'.repeat(rp.split('/').length);
+  mkdirSync(join(OUT, rp), { recursive: true });
+  writeFileSync(join(OUT, rp, 'index.html'), page(`Recap: ${node.title}`,
+    `<style>${RECAP_CSS}</style><header class="top"><a class="crumb" href="../">← ${esc(node.title)}</a><h1>${esc(node.title)}: recap</h1>` +
+    `<p class="lede">Answer each question in your head or on paper first, then check it.</p></header>` +
+    groups.map((g) => `<section class="rcunit">${g.u.title ? `<h2>${esc(g.u.title)}</h2>` : ''}${g.ls.map(card).join('')}</section>`).join(''),
+    '', navFor(rp, 'course', node.path)));
+}
+
 for (const node of dirs.values()) {
   const isRoot = node.path === '';
   const parentPath = node.path.split('/').slice(0, -1).join('/');
@@ -378,7 +421,10 @@ for (const node of dirs.values()) {
   if (courseLessons.length && !isRoot) {
     // A course page: progress first. Continue card, one compact row per lesson with a segment per check
     // (filled from this browser's progress by progress.js), and the playground and reference as small links.
-    const tools = (play ? `<a class="chip" href="playground/">Playground</a>` : '') + (ref ? `<a class="chip" href="reference/">Reference</a>` : '');
+    // recap: true in a course's index.md: a short recap page at <course>/recap/ (recapHtml, below), linked as a chip.
+    const recap = node.meta?.recap === true;
+    const tools = (play ? `<a class="chip" href="playground/">Playground</a>` : '') + (ref ? `<a class="chip" href="reference/">Reference</a>` : '') + (recap ? `<a class="chip" href="recap/">Recap</a>` : '');
+    if (recap) writeRecap(node, courseLessons);
     // One collapsed row per lesson: the whole sequence is visible; opening a row shows its steps.
     const row = (l) => {
       const segs = segmentsOf(l), name = l.slug.split('/').pop();

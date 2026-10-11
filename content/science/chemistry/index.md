@@ -1,5 +1,6 @@
 ---
 title: Year 7 Chemistry
+recap: true
 summary: The particle model of matter, then pure substances, mixtures and separating them. Concept tutorials for introducing or revising each idea, with particle simulations.
 order: 1
 units:

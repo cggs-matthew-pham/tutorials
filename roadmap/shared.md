@@ -169,6 +169,10 @@ With `trail: true`, `/code/` opens on trailheads: a Continue card (the course of
 
 Pathway pages of subjects with `trail: units` (Code too, on this branch) show one stop per course, laid out as the course trail; a course with two or more units opens into an area headed by its name, its units as stops snaking inside (up to three to a row, ending on the right so the trail leaves it cleanly). The current course opens on its own (else the first); clicking another course opens it and closes the one that was open; a unit stop goes to that unit on the course page. Trailhead pictures on subject pages are back to one dot per course. Shared files: `tools/trail.mjs` (`layoutTrailExpand`, area HTML and CSS), `site/trail.js` (rewritten: unit progress, open/close, lines in any direction), `tools/build-site.mjs`.
 
+## Done (11 Oct 2026): recap page (Year 7 Chemistry first)
+
+`recap: true` in a course's index.md makes `<course>/recap/` (a Recap chip on the course page): required lessons grouped by unit, each a card with the lesson's exit question as "Try first" and a closed "Check your answer" holding the exit answer, the Explain-it-to-me text, its picture and its clip (`preload="none"`, files read from the lesson's own `clips/`). A lesson with no exit question shows "Show the explanation" instead. Nothing new to write: it reuses `teacher.yml` (`exit`, `explain`) and the lesson's `explainPicture` and `explainClip`. On for `science/chemistry` only; turn it on per course. Shared file: `tools/build-site.mjs` (`writeRecap`, `RECAP_CSS`).
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).
