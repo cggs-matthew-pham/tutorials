@@ -1,0 +1,35 @@
+# Pythagoras boards for "Right, acute or obtuse?". t is the angle between a and b; at 90° the squares balance.
+
+# region: run
+widget: pythag
+a: 3
+b: 4
+slider t: 60, 120, 70, 5
+# endregion
+
+# region: explain
+widget: pythag
+a: 3
+b: 4
+slider t: 60, 120, 90, 5
+# endregion
+
+# region: explain-pic
+widget: pythag
+a: 3
+b: 4
+t: 110
+# endregion
+
+# region: acute
+widget: pythag
+a: 3
+b: 4
+slider t: 60, 120, 90, 5
+# endregion
+
+# region: make
+widget: pythag
+slider a: 1, 15, 1
+slider b: 1, 15, 1
+# endregion

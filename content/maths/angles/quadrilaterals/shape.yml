@@ -1,0 +1,46 @@
+# Quadrilaterals to drag for "The quadrilateral family". classify: on marks equal and parallel sides and names the shape.
+
+# region: run
+widget: geometry
+shape: polygon
+sides: 4
+corners: 1,1; 8,2; 7,6; 2,5
+classify: on
+sum: off
+# endregion
+
+# region: explain
+widget: geometry
+shape: polygon
+sides: 4
+corners: 3,1; 8,1; 8,5; 2,5
+classify: on
+sum: off
+# endregion
+
+# region: explain-pic
+widget: geometry
+shape: polygon
+sides: 4
+corners: 3,1; 7,1; 7,5; 3,5
+classify: on
+sum: off
+# endregion
+
+# region: free
+widget: geometry
+shape: polygon
+sides: 4
+corners: 1,1; 8,2; 7,6; 2,5
+classify: on
+sum: off
+# endregion
+
+# region: make
+widget: geometry
+shape: polygon
+sides: 4
+corners: 2,1; 9,2; 8,6; 1,5
+classify: on
+sum: off
+# endregion

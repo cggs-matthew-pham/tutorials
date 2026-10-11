@@ -1,0 +1,45 @@
+summary: Students build right-angled triangles with squares on each side, see that the two smaller squares exactly make the biggest, and use a² + b² = c² to find the hypotenuse (AC9M8M06, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can find the hypotenuse of a right-angled triangle.
+  - I can explain Pythagoras' theorem with squares on the sides.
+  - I can check that an answer is sensible (longer than each short side, shorter than both together).
+struggle: "Keeping the order square, add, root. Ask students to say the three steps before they touch a calculator, and to check the answer against the two shorter sides."
+before: |
+  Do the Run board yourself first. Students need squares and square roots (Number Foundations) and right-angled triangles (Classifying triangles).
+
+  The one idea: the areas of the squares on the two shorter sides add to the area of the square on the hypotenuse. The common mistake is adding the sides (Leah's mistake). The sense check (between the longer short side and the sum) catches most slips.
+
+  This is the curriculum's Year 8 content; it is placed here, after circles, because it needs Year 7 squares and roots and triangle names.
+running:
+  - "Predict: take a vote; students who chose 7 added; 25 forgot the root."
+  - "Run: count the small squares in the 9 and 16 and see the 25 together."
+  - "Investigate: write 'square, add, root' on the board."
+  - "Modify: for √2, ask between which whole numbers it lies before computing."
+  - "Make: ask whether 6-8-10 is new or a scaled 3-4-5."
+stuck:
+  - see: "A student adds the sides (Leah's mistake)."
+    ask: "Is walking across shorter or longer than going round the corner?"
+    fix: "Square both, add, then root."
+  - see: "A student stops at c² (25 for 3 and 4)."
+    ask: "Is 25 a length or an area?"
+    fix: "It is the big square's area: root it for the side."
+  - see: "A student cannot tell which side is the hypotenuse."
+    ask: "Where is the right angle? Which side does not touch it?"
+    fix: "The hypotenuse is opposite the right angle."
+stretch: "Find three more whole-number triangles (Pythagorean triples) that are not multiples of 3-4-5."
+support: "Use squared paper for the squares; keep a list of squares to 20² visible."
+leads: |
+  Next: Finding a side (node 2), including a shorter side.
+
+  Where it leads: distance between points on a graph, trigonometry (Year 10), and 3D diagonals.
+exit:
+  q: "A right-angled triangle has sides 10 cm and 24 cm at the right angle. Find the hypotenuse."
+  a: "100 + 576 = 676, √676 = 26 cm."
+explain: |
+  In a right-angled triangle, the **hypotenuse** $c$ is the side opposite the right angle (the longest). **Pythagoras' theorem**: the squares on the two shorter sides add to the square on the hypotenuse,
+
+  $$a^2 + b^2 = c^2$$
+
+  To find $c$: square $a$ and $b$, add, then take the square root. With 6 and 8: $36 + 64 = 100$, $c = 10$.

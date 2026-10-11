@@ -1,0 +1,7 @@
+# Kim's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kim
+This rhombus has four sides of 5 cm.
+Its angles are 60°, 120°, 60° and 120°.
+All its sides are equal, so it is a regular quadrilateral.
+# endregion

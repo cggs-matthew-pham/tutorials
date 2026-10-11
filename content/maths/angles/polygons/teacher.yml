@@ -1,0 +1,45 @@
+summary: Students change the number of sides and drag corners to see polygons named (pentagon to decagon), regular or irregular, and convex or concave, and reason about why equal sides alone are not enough (AC9M7SP02, node 3).
+time: 35
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 8 min · Practise and Make 9 min"
+goals:
+  - I can name polygons from 3 to 10 sides.
+  - I can tell whether a polygon is regular, and explain why.
+  - I can tell a convex polygon from a concave one.
+struggle: "Checking both sides and angles before calling a shape regular. Ask students to say what they checked for each, rather than confirming their answer."
+before: |
+  Do the Run board yourself first. Students need the quadrilateral family (previous lesson) and the polygon angle sum (Angles in a polygon).
+
+  The one idea: regular means equal sides **and** equal angles; concave means a corner points in. The common mistake is equal sides alone (Kim's mistake with a rhombus).
+
+  A dart (a kite with one corner pushed in) is named a kite by the board, as its sides fit the kite's definition; some textbooks keep kites convex and call the concave one a dart.
+
+  The board starts each polygon regular (its corners are off the grid); dragging a corner puts it on the grid, so it becomes irregular.
+running:
+  - "Predict: ask a 'yes' student to imagine squashing a regular hexagon."
+  - "Run: ask what happens to one angle when its corner points in."
+  - "Investigate: link the prefixes to words they know (octopus, decade, pentathlon)."
+  - "Modify: for the octagon, ask how small a move breaks regular."
+  - "Make: ask whether a dart is still a kite, and why."
+stuck:
+  - see: "A student calls a rhombus regular (Kim's mistake)."
+    ask: "Are its angles all the same?"
+    fix: "Regular needs equal sides and equal angles."
+  - see: "A student mixes up convex and concave."
+    ask: "Does any corner point into the shape, like a cave?"
+    fix: "Concave has a 'cave': a corner pointing in."
+  - see: "A student confuses heptagon and hexagon."
+    ask: "Which has six: hex or hept?"
+    fix: "Hex six, hept seven (like September, the old seventh month)."
+stretch: "Which regular polygons tile a floor with no gaps? Use their angles (60°, 90°, 108°, 120°) to explain."
+support: "Keep the names table visible; tick 'sides equal' and 'angles equal' separately for each shape."
+leads: |
+  This completes AC9M7SP02.
+
+  Where it leads: tessellations, and the interior and exterior angles of regular polygons (Year 8); Pythagoras (AC9M8M06) for right-angled triangles.
+exit:
+  q: "A pentagon has angles 100°, 110°, 110°, 100° and 120°. Is it regular? Convex or concave?"
+  a: "Irregular (its angles are not equal), convex (every angle under 180°)."
+explain: |
+  A **polygon** is named by its number of sides: pentagon 5, hexagon 6, heptagon 7, octagon 8, nonagon 9, decagon 10.
+
+  It is **regular** when all its sides **and** all its angles are equal (a rhombus has equal sides but is not regular). It is **concave** when a corner points in (an angle over 180°), and **convex** when every corner points out.

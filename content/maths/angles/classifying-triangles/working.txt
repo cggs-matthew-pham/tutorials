@@ -1,0 +1,7 @@
+# Zara's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: zara
+A triangle has angles 110°, 40° and 30°.
+It has two acute angles, 40° and 30°.
+So it is an acute triangle.
+# endregion

@@ -1,0 +1,8 @@
+# Ava's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ava
+Is a triangle with sides 5, 13 and 12 right-angled?
+5² + 13² = 25 + 169 = 194
+12² = 144
+194 is not 144, so it is not right-angled.
+# endregion

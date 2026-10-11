@@ -1,0 +1,29 @@
+# Pythagoras boards for "Finding a side". The hypotenuse c changes as b changes; find the b that gives the c you want.
+
+# region: run
+widget: pythag
+a: 3
+slider b: 1, 8, 1
+units: m
+# endregion
+
+# region: explain
+widget: pythag
+a: 6
+slider b: 1, 10, 6
+units: cm
+# endregion
+
+# region: explain-pic
+widget: pythag
+a: 6
+b: 8
+units: cm
+# endregion
+
+# region: six
+widget: pythag
+a: 6
+slider b: 1, 10, 2
+units: cm
+# endregion

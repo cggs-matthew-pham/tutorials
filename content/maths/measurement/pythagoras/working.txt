@@ -1,0 +1,8 @@
+# Leah's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leah
+A right-angled triangle has shorter sides 6 cm and 8 cm. Find the hypotenuse.
+The hypotenuse is the two shorter sides added together.
+6 + 8 = 14
+So the hypotenuse is 14 cm.
+# endregion

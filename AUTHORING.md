@@ -580,6 +580,14 @@ Vary, Practise, Make).
     - Values for checks: each corner's angle by its lower-case letter (`a`, `b`, `c`, …), `s` the total, `m` the largest
       angle, `n` sides, `k` triangles shown by split (else 0), `t` 1 while torn, `v` 1 if no corner points in; corners as
       points (`x(A)`). Examples: `"m > 120"`, `"m = 90"`, `"n = 5 and k = 3"`, `"n = 4 and v = 0"`, `"s = 1260"`.
+    - `classify: on` (first used by `maths/angles/classifying-triangles`) marks equal sides with ticks (within 2%: a
+      square grid cannot make an exact equilateral triangle), parallel sides with arrows and right angles with a small
+      square, and names the shape under the angles (`#gclass`): a triangle by sides and angles, a quadrilateral by
+      family with its other names ("Square: … (also a rectangle, a rhombus, a parallelogram and a kite)"), any other
+      polygon as regular or irregular, convex or concave. A trapezium has at least one pair of parallel sides (the Australian Curriculum's definition), so parallelograms are trapezia too; `z` gives the most special name. Values: `e`
+      (most sides of one length), `q` (1 scalene, 2 isosceles, 3 equilateral), `r` (1 acute, 2 right, 3 obtuse), `g`
+      (right angles), `p` (parallel pairs), `w` (1 regular), `z` (1 square, 2 rectangle, 3 rhombus, 4 parallelogram, 5
+      trapezium, 6 kite, 0 other). Checks: `"q = 2 and r = 2"`, `"z = 3"`, `"z = 5 and g >= 1"`, `"n = 6 and v = 0"`.
   - `widget: bars` (first used by `maths/number/equivalent-fractions`): fraction bars. The top bar is `a` of `b` equal
     parts shaded (sliders or fixed values; b from 1 to 24); an optional second bar `c` of `d` (give both). `hundred: on`
     makes the second a 10 by 10 grid with `c` of 100 squares shaded. `show: decimal, percent` writes each fraction as a
@@ -633,6 +641,12 @@ Vary, Practise, Make).
     circumference is laid flat beside three diameters and a bit, and each size goes into a table of d, C and C ÷ d;
     `roll: shown` starts rolled (pictures). `units: cm`. Values: `r`, `d`, `c` (2 dp), `q` (C ÷ d), `o` (1 once this size
     is rolled), `n` (sizes in the table). Checks: `"d = 10"`, `"n >= 3"`, `"r = 2.5 and o = 1"`, `"c > 24.5 and c < 25.5"`.
+  - `widget: pythag` (first used by `maths/measurement/pythagoras`): a triangle with sides `a` and `b` (sliders or fixed,
+    up to 20) meeting at angle `t` (default 90; `slider t: 60, 120, 90, 5` opens and closes it), with a square on each
+    side drawn in unit squares and labelled with its area; the picture rescales to fit. At 90° the panel writes
+    a² + b² = c² and c (exact or ≈ 2 dp); otherwise it compares a² + b² with c². `hide: c` hides c's length and area.
+    Values: `a`, `b`, `c` (2 dp), `C` (c²), `s` (a² + b²), `t`, `r` (1 acute, 2 right, 3 obtuse). Checks:
+    `"a = 3 and b = 4"`, `"c = 10"`, `"r = 1 and C < 20"`, `"(C - 169) * (C - 289) = 0"` (either of two values).
   - `widget: data` (first used by `maths/data`): a dot plot of `values: 4, 7, 7, 8` on `range: 0, 20` (default: around
     the data), with the mean (▲), median (dashed) and range (arrow) marked and written underneath (`show: mean, median,
     mode, range` or `none`). `edit: on`: students click the line to add a value (landing on `step:`, default 1), click a

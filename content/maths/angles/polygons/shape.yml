@@ -1,0 +1,43 @@
+# Polygons to drag for "Polygons". More sides and Fewer sides change the number of sides (it starts regular).
+
+# region: run
+widget: geometry
+shape: polygon
+sides: choose
+classify: on
+sum: off
+# endregion
+
+# region: explain
+widget: geometry
+shape: polygon
+sides: choose
+classify: on
+sum: off
+# endregion
+
+# region: explain-pic
+widget: geometry
+shape: polygon
+sides: 6
+corners: 2,1; 7,1; 9,4; 6,3; 4,6; 1,4
+classify: on
+sum: off
+# endregion
+
+# region: free
+widget: geometry
+shape: polygon
+sides: choose
+classify: on
+sum: off
+# endregion
+
+# region: make
+widget: geometry
+shape: polygon
+sides: 4
+corners: 2,1; 9,2; 8,6; 1,5
+classify: on
+sum: off
+# endregion

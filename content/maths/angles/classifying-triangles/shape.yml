@@ -1,0 +1,50 @@
+# Triangles to drag for "Classifying triangles". classify: on marks equal sides and right angles and names the triangle.
+
+# region: run
+widget: geometry
+shape: triangle
+corners: 1,1; 9,1; 6,6
+classify: on
+sum: off
+# endregion
+
+# region: explain
+widget: geometry
+shape: triangle
+corners: 1,1; 8,1; 5,5
+classify: on
+sum: off
+# endregion
+
+# region: explain-pic
+widget: geometry
+shape: triangle
+corners: 2,1; 8,1; 5,5
+classify: on
+sum: off
+# endregion
+
+# region: scalene
+widget: geometry
+shape: triangle
+corners: 2,1; 8,1; 5,5
+classify: on
+sum: off
+# endregion
+
+# region: equilateral
+widget: geometry
+shape: triangle
+corners: 2,1; 6,1; 3,4
+snap: 0.5
+classify: on
+sum: off
+# endregion
+
+# region: make
+widget: geometry
+shape: triangle
+corners: 2,1; 8,1; 4,5
+classify: on
+sum: off
+# endregion

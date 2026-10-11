@@ -132,5 +132,11 @@
   "radius-diameter": {"home": "maths/measurement/parts-of-a-circle", "text": "The radius and the diameter are mixed up (a radius of 5 read as a diameter of 5); the diameter is two radii, right across through the centre."},
   "pi-exact": {"home": "maths/measurement/discovering-pi", "text": "π is taken to be exactly 3.14 or 22/7; π is a fixed number that never ends or repeats (3.14159…), and 3.14 and 22/7 are approximations."},
   "score-set": {"home": "code/games/ms-catch", "text": "score = 1 adds one to the score; in fact it sets the score to 1 every time, so it never goes higher. score += 1 adds one."},
-  "key-always-there": {"home": "code/games/ms-keys", "text": "keyboard.LEFT can be asked about from the first frame; in fact microStudio adds it only after the first key press, so the game stops with an AttributeError until then."}
+  "key-always-there": {"home": "code/games/ms-keys", "text": "keyboard.LEFT can be asked about from the first frame; in fact microStudio adds it only after the first key press, so the game stops with an AttributeError until then."},
+  "acute-one-angle": {"home": "maths/angles/classifying-triangles", "text": "A triangle is called acute because it has an acute angle (every triangle has at least two); an acute triangle has all three angles less than 90°, and one angle over 90° makes it obtuse."},
+  "square-not-rectangle": {"home": "maths/angles/quadrilaterals", "text": "A square is said not to be a rectangle (or a rhombus) because its sides are all equal; a square has every property of a rectangle, so it is a special rectangle."},
+  "regular-sides-only": {"home": "maths/angles/polygons", "text": "A polygon with equal sides is called regular even when its angles differ (a rhombus); regular needs equal sides and equal angles."},
+  "pyth-no-squares": {"home": "maths/measurement/pythagoras", "text": "The two shorter sides are added to give the hypotenuse (6 + 8 = 14); it is their squares that add (36 + 64 = 100), so c = √100 = 10."},
+  "pyth-add-for-leg": {"home": "maths/measurement/finding-a-side", "text": "A shorter side is found by adding the squares (b² = 10² + 6²), which gives a side longer than the hypotenuse; for a shorter side, subtract: b² = 10² − 6²."},
+  "c-not-longest": {"home": "maths/measurement/right-or-not", "text": "The theorem is tested with any side as c (5² + 13² against 12²); c must be the longest side, so test 5² + 12² against 13²."}
 }

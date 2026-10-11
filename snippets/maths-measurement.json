@@ -97,6 +97,31 @@
           "hint": "Use the diameter, or double the radius. Backwards: $d = C \\div \\pi$. Exact answers keep π: $10\\pi$ cm."
         }
       ]
+    },
+    {
+      "name": "Pythagoras",
+      "items": [
+        {
+          "label": "Pythagoras' theorem",
+          "unit": "pythagoras",
+          "code": "a^2 + b^2 = c^2",
+          "hint": "In a right-angled triangle, the squares on the two shorter sides add to the square on the hypotenuse c, the side opposite the right angle.",
+          "board": "widget: pythag\na: 3\nb: 4\nunits: cm",
+          "shows": "Squares of 9, 16 and 25 on a 3-4-5 triangle"
+        },
+        {
+          "label": "finding a side",
+          "unit": "pythagoras",
+          "code": "c = \\sqrt{a^2 + b^2} \\qquad b = \\sqrt{c^2 - a^2}",
+          "hint": "Add the squares for the hypotenuse; subtract for a shorter side. Check: the hypotenuse is the longest."
+        },
+        {
+          "label": "right, acute or obtuse",
+          "unit": "pythagoras",
+          "code": "a^2 + b^2 \\;\\text{vs}\\; c^2",
+          "hint": "With c the longest side: equal, right-angled; a² + b² smaller, obtuse; bigger, acute. Pythagorean triples: 3-4-5, 5-12-13, 8-15-17 and multiples."
+        }
+      ]
     }
   ]
 }

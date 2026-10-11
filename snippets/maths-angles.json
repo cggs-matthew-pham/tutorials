@@ -95,6 +95,41 @@
           "shows": "A pentagon splits into 3 triangles from A: 540°"
         }
       ]
+    },
+    {
+      "name": "Shapes",
+      "items": [
+        {
+          "label": "triangles by sides and angles",
+          "unit": "shapes",
+          "code": "\\text{scalene, isosceles, equilateral} \\;\\; \\text{acute, right-angled, obtuse}",
+          "hint": "Give two names: one for the sides (how many are equal) and one for the biggest angle. Equal sides sit opposite equal angles.",
+          "board": "widget: geometry\nshape: triangle\ncorners: 2,1; 8,1; 5,5\nclassify: on\nsum: off",
+          "shows": "An isosceles acute triangle, its equal sides ticked"
+        },
+        {
+          "label": "quadrilateral family",
+          "unit": "shapes",
+          "code": "\\text{every square is a rectangle; every rectangle is a parallelogram}",
+          "hint": "Trapezium: at least one pair of parallel sides. Parallelogram: two. Rhombus: four equal sides. Rectangle: four right angles. Square: both. Kite: two pairs of equal neighbouring sides. A square is also a rectangle and a rhombus.",
+          "board": "widget: geometry\nshape: polygon\nsides: 4\ncorners: 3,1; 7,1; 7,5; 3,5\nclassify: on\nsum: off",
+          "shows": "A square with equal sides, parallel sides and right angles marked"
+        },
+        {
+          "label": "regular polygon",
+          "unit": "shapes",
+          "code": "\\text{equal sides} \\;\\text{and}\\; \\text{equal angles}",
+          "hint": "Both are needed: a rhombus has equal sides but is not regular. Names: pentagon 5, hexagon 6, heptagon 7, octagon 8, nonagon 9, decagon 10."
+        },
+        {
+          "label": "convex and concave",
+          "unit": "shapes",
+          "code": "\\text{concave: an angle} > 180^\\circ",
+          "hint": "Convex: every corner points out. Concave: at least one corner points in.",
+          "board": "widget: geometry\nshape: polygon\nsides: 6\ncorners: 2,1; 7,1; 9,4; 6,3; 4,6; 1,4\nclassify: on\nsum: off",
+          "shows": "A concave hexagon with one corner pointing in"
+        }
+      ]
     }
   ]
 }

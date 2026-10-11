@@ -14,11 +14,21 @@
 //   presets: on              buttons that set a triangle's shape: Acute, Right-angled, Obtuse, Very flat
 //   angles: given a, b       show only these sizes; the other corners show their letter (angles to find)
 //   exterior: C              extend the side into C past C (dashed) and mark the exterior angle x (value x)
+//   classify: on             mark equal sides (ticks), parallel sides (arrows) and right angles, and name the shape:
+//                            a triangle by sides and angles, a quadrilateral by family (square, rectangle, rhombus,
+//                            parallelogram, trapezium, kite; its most special name, with the others it also has: a
+//                            trapezium has at least one pair of parallel sides, so a parallelogram is one too), any
+//                            polygon by sides, regular or not, convex or concave.
+//                            Sides count as equal within 2% (a square grid cannot make an exact equilateral triangle).
 // Measurements are rounded to whole degrees so that the shown angles add to the shown total.
 // state: { scope: { vars: { a, b, c, ... (each corner's angle), s (total), m (largest angle), n (sides),
 //                   k (triangles shown by split, else 0), t (1 while torn), v (1 if no corner points in) },
 //                   points: { A: [x, y], ... } } }
 // Checks: "m > 90", "m = 90", "n = 5 and s = 540", "k = 3", "t = 1", "v = 0".
+// With classify: e (most sides of one equal length), q (triangle by sides: 1 scalene, 2 isosceles, 3 equilateral),
+//   r (triangle by angles: 1 acute, 2 right, 3 obtuse), g (right angles), p (pairs of parallel sides), w (1 if
+//   regular), z (quadrilateral: 1 square, 2 rectangle, 3 rhombus, 4 parallelogram, 5 trapezium that is not a parallelogram, 6 kite, 0 none of these).
+//   Checks: "q = 2 and r = 2", "z = 3", "n = 6 and w = 0 and v = 1".
 (function (B) {
   'use strict';
   var spec = null, pts = [], P = [], torn = false, split = false, nSides = 3, ui = {}, meas = null, preset = null;
@@ -58,6 +68,7 @@
       if (ei < 0 || ei >= s.n) throw new Error('exterior: a corner letter, such as "exterior: C".');
       s.ext = ei;
     }
+    s.classify = on('classify', false);
     s.showSum = on('sum', true); s.tear = on('tear', false) && s.kind === 'triangle'; s.split = on('split', false); s.presets = on('presets', false) && s.kind === 'triangle';
   }
 
@@ -102,6 +113,78 @@
     return { ang: ang, total: total, convex: convex };
   }
 
+  var NAMES = ['', '', '', 'triangle', 'quadrilateral', 'pentagon', 'hexagon', 'heptagon', 'octagon', 'nonagon', 'decagon'];
+  // Sides, equal-side groups, parallel pairs and right angles of the shape with corners c (exact on grid points).
+  function shapeFacts(c) {
+    var n = c.length, sides = [], i, j;
+    for (i = 0; i < n; i++) { var a = c[i], b = c[(i + 1) % n]; sides.push({ dx: b[0] - a[0], dy: b[1] - a[1], len: Math.hypot(b[0] - a[0], b[1] - a[1]) }); }
+    var eq = function (x, y) { return Math.abs(x - y) <= 0.02 * Math.max(x, y); };
+    var group = new Array(n).fill(0), g = 0;
+    for (i = 0; i < n; i++) { if (group[i]) continue; var mem = [i]; for (j = i + 1; j < n; j++) if (!group[j] && eq(sides[i].len, sides[j].len)) mem.push(j); if (mem.length > 1) { g++; mem.forEach(function (k) { group[k] = g; }); } }
+    var most = 1; for (i = 1; i <= g; i++) most = Math.max(most, group.filter(function (x) { return x === i; }).length);
+    var par = new Array(n).fill(0), p = 0;
+    for (i = 0; i < n; i++) for (j = i + 2; j < n; j++) {
+      if (i === 0 && j === n - 1) continue;
+      if (!par[i] && !par[j] && Math.abs(sides[i].dx * sides[j].dy - sides[i].dy * sides[j].dx) < 1e-9) { p++; par[i] = par[j] = p; }
+    }
+    var right = [];
+    for (i = 0; i < n; i++) { var s1 = sides[(i + n - 1) % n], s2 = sides[i]; right.push(Math.abs(s1.dx * s2.dx + s1.dy * s2.dy) < 1e-9); }
+    return { sides: sides, group: group, most: most, par: par, pairs: p, right: right, eq: eq };
+  }
+  function classify(c, m) {
+    var f = shapeFacts(c), n = c.length, out = { e: f.most, g: f.right.filter(Boolean).length, p: f.pairs, q: 0, r: 0, w: 0, z: 0, facts: f };
+    var allEq = f.most === n, angEq = m && m.ang && m.ang.every(function (a) { return Math.abs(a.deg - m.ang[0].deg) < 1.5; });
+    if (n === 3) {
+      out.q = f.most === 3 ? 3 : f.most === 2 ? 2 : 1;
+      var big = Math.max.apply(null, m.ang.map(function (a) { return a.deg; }));
+      out.r = out.g ? 2 : big > 90 ? 3 : 1;
+      out.text = ['', 'Scalene (no equal sides)', 'Isosceles (two equal sides)', 'Equilateral (three equal sides)'][out.q] + ', ' + ['', 'acute (every angle less than 90°)', 'right-angled (one angle is 90°)', 'obtuse (one angle more than 90°)'][out.r] + '.';
+      if (out.q === 3) out.text += ' On a square grid the sides can only be nearly equal.';
+    } else if (n === 4) {
+      var L = f.sides.map(function (x) { return x.len; }), both = f.par[0] && f.par[0] === f.par[2] && f.par[1] && f.par[1] === f.par[3];
+      var oneP = !both && ((f.par[0] && f.par[0] === f.par[2]) || (f.par[1] && f.par[1] === f.par[3]));
+      var kite = (f.eq(L[0], L[1]) && f.eq(L[2], L[3])) || (f.eq(L[1], L[2]) && f.eq(L[3], L[0]));
+      var rightAll = out.g === 4;
+      out.z = allEq && rightAll ? 1 : both && rightAll ? 2 : allEq ? 3 : both ? 4 : oneP ? 5 : kite ? 6 : 0;
+      var also = { 1: 'also a rectangle, a rhombus, a parallelogram, a trapezium and a kite', 2: 'also a parallelogram and a trapezium', 3: 'also a parallelogram, a trapezium and a kite', 4: 'also a trapezium', 5: '', 6: '', 0: '' }[out.z];
+      var why = { 1: 'four equal sides and four right angles', 2: 'two pairs of parallel sides and four right angles', 3: 'four equal sides', 4: 'two pairs of parallel sides', 5: 'one pair of parallel sides', 6: 'two pairs of equal sides next to each other', 0: 'no equal or parallel sides that name it' }[out.z];
+      out.text = (['Quadrilateral', 'Square', 'Rectangle', 'Rhombus', 'Parallelogram', 'Trapezium', 'Kite'][out.z]) + ': ' + why + (also ? ' (' + also + ')' : '') + '.';
+    }
+    if (n >= 5 || n === 4) {
+      out.w = allEq && angEq ? 1 : 0;
+      var name = NAMES[n] || n + '-gon';
+      var gen = (out.w ? 'Regular ' : 'Irregular ') + name + ' (' + (out.w ? 'all sides and all angles equal' : allEq ? 'equal sides, but not all angles equal' : angEq ? 'equal angles, but not all sides equal' : 'sides or angles not all equal') + '), ' + (m && m.convex ? 'convex.' : 'concave (a corner points in).');
+      out.text = n === 4 ? out.text + (m && !m.convex ? ' Concave: a corner points in.' : '') : gen;
+    } else if (n === 3) out.w = out.q === 3 ? 1 : 0;
+    return out;
+  }
+  function marks(board, c, ink) {
+    var f = shapeFacts(c), n = c.length, fx = { fixed: true, highlight: false };
+    f.sides.forEach(function (sd, i) {
+      var a = c[i], mid = [a[0] + sd.dx / 2, a[1] + sd.dy / 2], ux = sd.dx / sd.len, uy = sd.dy / sd.len, nx = -uy, ny = ux, t = 0.22;
+      for (var k = 0; k < f.group[i]; k++) {   // equal-length ticks: 1, 2, 3 per group
+        var off = (k - (f.group[i] - 1) / 2) * 0.16;
+        var cx = mid[0] + ux * off, cy = mid[1] + uy * off;
+        board.create('segment', [[cx - nx * t, cy - ny * t], [cx + nx * t, cy + ny * t]], Object.assign({ strokeColor: ink, strokeWidth: 2 }, fx));
+      }
+      if (f.par[i]) {   // parallel arrows (> and >>), pointing the same way on both sides of a pair
+        var first = f.par.indexOf(f.par[i]), d = f.sides[first], sg = (d.dx * sd.dx + d.dy * sd.dy) < 0 ? -1 : 1;
+        var vx = ux * sg, vy = uy * sg;
+        for (var q = 0; q < f.par[i]; q++) {
+          var px = mid[0] + vx * (0.35 + q * 0.16) + (f.group[i] ? vx * 0.2 : 0), py = mid[1] + vy * (0.35 + q * 0.16) + (f.group[i] ? vy * 0.2 : 0);
+          board.create('segment', [[px - vx * 0.18 + nx * 0.14, py - vy * 0.18 + ny * 0.14], [px, py]], Object.assign({ strokeColor: ink, strokeWidth: 2 }, fx));
+          board.create('segment', [[px - vx * 0.18 - nx * 0.14, py - vy * 0.18 - ny * 0.14], [px, py]], Object.assign({ strokeColor: ink, strokeWidth: 2 }, fx));
+        }
+      }
+    });
+    f.right.forEach(function (rt, i) {
+      if (!rt) return;
+      var p = c[i], a = f.sides[(i + n - 1) % n], b = f.sides[i], z = 0.32;
+      var u1 = [-a.dx / a.len * z, -a.dy / a.len * z], u2 = [b.dx / b.len * z, b.dy / b.len * z];
+      board.create('polygon', [p, [p[0] + u1[0], p[1] + u1[1]], [p[0] + u1[0] + u2[0], p[1] + u1[1] + u2[1]], [p[0] + u2[0], p[1] + u2[1]]], Object.assign({ fillOpacity: 0, borders: { strokeColor: ink, strokeWidth: 1.5, highlight: false }, vertices: { visible: false } }, fx));
+    });
+  }
+
   function corners() { return P.map(function (p) { return [round(p.X()), round(p.Y())]; }); }
 
   function build() {
@@ -123,6 +206,7 @@
         { fillColor: cols[t % 4], fillOpacity: 0.12, borders: { visible: false }, vertices: { visible: false }, fixed: true, highlight: false }));
     })(t);
     board.create('polygon', P, { fillColor: ink, fillOpacity: 0.03, borders: { strokeColor: ink, strokeWidth: 3, highlight: false }, vertices: { visible: false }, fixed: true, highlight: false });
+    if (spec.classify && measure(pts) && !measure(pts).flat) marks(board, pts, ink);
     // diagonals of the split
     for (var d2 = 2; d2 < nSides - 1; d2++) (function (j) {
       ui.splitObjs.push(board.create('segment', [P[0], P[j]], { strokeColor: muted, strokeWidth: 2, dash: 2, fixed: true, highlight: false }));
@@ -147,7 +231,7 @@
     })(spec.ext);
     P.forEach(function (p) {
       p.on('drag', function () { meas = measure(corners()); report(true); });
-      p.on('up', function () { var x = near(p.X(), 0, spec.gw), y = near(p.Y(), 0, spec.gh); p.moveTo([x, y]); preset = null; B.moved = true; meas = measure(corners()); board.update(); report(); });
+      p.on('up', function () { var x = near(p.X(), 0, spec.gw), y = near(p.Y(), 0, spec.gh); p.moveTo([x, y]); preset = null; B.moved = true; meas = measure(corners()); board.update(); report(); if (spec.classify) { pts = corners(); setTimeout(rebuild, 0); } });
     });
     meas = measure(corners());
     board.update();
@@ -216,6 +300,7 @@
   function paintPanel() {
     var panel = B.el('gpanel'); panel.replaceChildren(); ui = {};
     ui.read = document.createElement('p'); ui.read.className = 'rulework'; ui.read.id = 'gsum'; ui.read.setAttribute('aria-live', 'polite'); panel.appendChild(ui.read);
+    if (spec.classify) { ui.cls = document.createElement('p'); ui.cls.className = 'tcount gclass'; ui.cls.id = 'gclass'; ui.cls.setAttribute('aria-live', 'polite'); panel.appendChild(ui.cls); }
     if (spec.tear) {
       ui.tear = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); ui.tear.setAttribute('class', 'gtear'); ui.tear.setAttribute('role', 'img'); ui.tear.hidden = !torn; panel.appendChild(ui.tear);
     }
@@ -234,6 +319,7 @@
       var Q = P[LET.indexOf(n)]; if (!Q) return;
       Q.moveTo([near(Q.X() + dx * spec.snapStep, 0, spec.gw), near(Q.Y() + dy * spec.snapStep, 0, spec.gh)]);
       preset = null; B.moved = true; meas = measure(corners()); B.jsxBoard.update(); report();
+      if (spec.classify) { pts = corners(); rebuild(); }
     });
   }
   function setCorners(c) { pts = c.map(function (p) { return p.slice(); }); B.moved = true; rebuild(); }
@@ -255,14 +341,20 @@
       if (spec.given) text = spec.given.map(function (g) { return g === 'x' ? 'x = ' + vars.x + '°' : g + ' = ' + (vars[g] !== undefined ? vars[g] : '?') + '°'; }).join(', ') + '. Find the others.';
       else text = spec.showSum ? meas.ang.map(function (a, i) { return LET[i]; }).join(' + ') + ' = ' + list + ' = ' + meas.total + '°' : meas.ang.map(function (a, i) { return LET[i] + ' = ' + a.whole + '°'; }).join(', ');
       if (!spec.given && vars.x !== undefined) text += '. Outside angle x = ' + vars.x + '°';
+      if (spec.classify) {
+        var cl = classify(c, meas);
+        ['e', 'g', 'p', 'q', 'r', 'w', 'z'].forEach(function (k) { vars[k] = cl[k]; });
+        if (ui.cls) ui.cls.textContent = cl.text;
+      }
       if (split) text += meas.convex ? '. Split from A: ' + (nSides - 2) + (nSides - 2 === 1 ? ' triangle' : ' triangles') + ', ' + (nSides - 2) + ' × 180° = ' + meas.total + '°' : '. A corner points in, so lines from A would go outside: drag it out to split.';
     }
     ui.read.textContent = text;
+    if (ui.cls && (!meas || meas.flat)) ui.cls.textContent = '';
     if (torn) drawTear();
     B.say(nSides === 3 ? 'A triangle' + (preset ? ' (' + preset.toLowerCase() + ')' : '') + '. Drag a corner, or use Move, to change it.' : 'A shape with ' + nSides + ' sides. Drag a corner, or use Move, to change it.');
     if (quiet) return;
     B.save({ pts: c, torn: torn, split: split, n: nSides });
-    B.post({ scope: { vars: vars, points: points } }, text);
+    B.post({ scope: { vars: vars, points: points } }, text + (ui.cls && ui.cls.textContent ? ' ' + ui.cls.textContent : ''));
   }
 
   B.widget('geometry', {

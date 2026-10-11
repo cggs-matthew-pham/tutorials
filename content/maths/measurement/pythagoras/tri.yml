@@ -1,0 +1,36 @@
+# Pythagoras boards: a right-angled triangle with a square on each side. a and b are the sides at the right angle.
+
+# region: run
+widget: pythag
+slider a: 1, 8, 1
+slider b: 1, 8, 1
+units: cm
+# endregion
+
+# region: explain
+widget: pythag
+a: 3
+slider b: 1, 8, 3
+units: cm
+# endregion
+
+# region: explain-pic
+widget: pythag
+a: 3
+b: 4
+units: cm
+# endregion
+
+# region: twelve
+widget: pythag
+slider a: 1, 12, 3
+slider b: 1, 12, 4
+units: cm
+# endregion
+
+# region: make
+widget: pythag
+slider a: 1, 10, 1
+slider b: 1, 10, 1
+units: cm
+# endregion

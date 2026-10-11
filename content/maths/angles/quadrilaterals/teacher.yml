@@ -1,0 +1,43 @@
+summary: Students drag quadrilaterals until the board names them, learn the defining properties of the trapezium, parallelogram, rhombus, rectangle, square and kite, and reason about the family (a square is a rectangle and a rhombus) (AC9M7SP02, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can name a quadrilateral from its properties.
+  - I can explain why a square is also a rectangle and a rhombus.
+  - I can use parallel sides to find angles in a parallelogram.
+struggle: "Accepting that one shape can have several names. Ask students to read a square's properties against each name's list, out loud, instead of telling them the answer."
+before: |
+  Do the Run board yourself first. Students need parallel lines and co-interior angles (Parallel lines unit).
+
+  The one idea: a name is a list of properties, and a shape with every property on a list belongs to that family. This is the unit's hinge: students who hold the everyday meaning ("a rectangle is longer than wide") cannot reason about the family (Sam's mistake).
+
+  Definitions: this site follows the Australian Curriculum glossary, where a trapezium has at least one pair of parallel sides, so every parallelogram (and rectangle, rhombus and square) is a trapezium too. Some textbooks say exactly one pair; mention it if yours does.
+running:
+  - "Predict: take a vote; most say no. Keep the vote visible until after Investigate."
+  - "Run: ask what the board added to its name as the rectangle appeared."
+  - "Investigate: build a family tree on the board, from quadrilateral down to square."
+  - "Modify: for the edge case, ask what co-interior angles say about the next corner."
+  - "Make: ask why a trapezium can't have exactly three right angles."
+stuck:
+  - see: "A student says a square is not a rectangle (Sam's mistake)."
+    ask: "What does a shape need to be a rectangle? Does a square have it?"
+    fix: "Four right angles: yes. Extra properties don't remove a name."
+  - see: "A student names a rhombus a diamond and stops there."
+    ask: "What do its sides and its parallel pairs say?"
+    fix: "Four equal sides: rhombus (and so a parallelogram)."
+  - see: "A student cannot make a kite on the board."
+    ask: "Which sides should be equal: opposite ones or neighbours?"
+    fix: "Neighbours: two short ones together and two long ones together."
+stretch: "Draw a Venn diagram of rectangles and rhombuses. What goes in the overlap? Where do parallelograms go?"
+support: "Use a property checklist (parallel pairs, equal sides, right angles) for every shape before naming it."
+leads: |
+  Next: Polygons (node 3): regular or irregular, convex or concave.
+
+  Where it leads: properties of diagonals and congruence proofs for quadrilaterals (Years 8 to 10).
+exit:
+  q: "A shape has two pairs of parallel sides and four equal sides but no right angles. Give all its names."
+  a: "Rhombus, parallelogram and kite."
+explain: |
+  A quadrilateral's name comes from its **properties**: a **trapezium** has at least one pair of parallel sides; a **parallelogram** two; a **rhombus** four equal sides; a **rectangle** four right angles; a **square** four equal sides and four right angles; a **kite** two pairs of equal sides next to each other.
+
+  A shape with all of another name's properties belongs to that family too: every square is a rectangle and a rhombus, every rhombus and rectangle is a parallelogram, and every parallelogram is a trapezium.

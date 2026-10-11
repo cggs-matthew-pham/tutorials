@@ -1,0 +1,43 @@
+summary: Students drag triangles on a dot grid and see them named by sides (scalene, isosceles, equilateral) and by angles (acute, right, obtuse), combine the two names, and reason about impossible pairs (AC9M7SP02, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can name a triangle by its sides and by its angles.
+  - I can explain why some triangles are impossible, like a right-angled equilateral triangle.
+  - I can use equal sides and equal angles to find missing angles.
+struggle: "Making a triangle with two names at once on the board. Ask students to say which name they will fix first and what has to stay true while they fix the second, rather than moving corners for them."
+before: |
+  Do the Run board yourself first. Students need the triangle angle sum (Angles in a triangle) and the words acute, right and obtuse for angles.
+
+  The one idea: every triangle has a sides name and an angles name, and equal sides sit opposite equal angles. The common mistake is naming by any acute angle (Zara's mistake): every triangle has at least two.
+
+  A square grid cannot make an exact equilateral triangle; the board counts sides within 2% as equal and says so.
+running:
+  - "Predict: take a show of hands; ask a 'yes' student to sketch one."
+  - "Run: ask what the ticks and the small square mean."
+  - "Investigate: for the impossible pair, ask what angles an equilateral triangle must have."
+  - "Modify: for nearly equilateral, ask why the grid cannot do it exactly (the height is not a whole number of squares)."
+  - "Make: ask which angle is obtuse and why."
+stuck:
+  - see: "A student calls a triangle acute because it has an acute angle (Zara's mistake)."
+    ask: "Which is the biggest angle?"
+    fix: "The biggest angle decides: under 90° acute, 90° right, over 90° obtuse."
+  - see: "A student gives only one name."
+    ask: "What do the sides say, and what do the angles say?"
+    fix: "Name the sides first, then the biggest angle."
+  - see: "A student thinks a right-angled triangle can't be isosceles."
+    ask: "What happens if you cut a square along its diagonal?"
+    fix: "Two equal sides at the right angle: 45°, 45°, 90°."
+stretch: "List all nine pairs (3 side names × 3 angle names). Which are possible? Sketch each possible one."
+support: "Keep a two-column table on the board: sides names and angles names with a picture of each."
+leads: |
+  Next: The quadrilateral family (node 2).
+
+  Where it leads: Pythagoras' theorem (Year 8) for right-angled triangles, and congruent and similar triangles (Years 8 and 9).
+exit:
+  q: "A triangle has angles 30°, 30° and 120°. Name it by its sides and its angles."
+  a: "Isosceles (two equal angles, so two equal sides) and obtuse (120°)."
+explain: |
+  Name a triangle by its **sides**: **scalene** (none equal), **isosceles** (two equal), **equilateral** (all three equal). And by its **biggest angle**: **acute** (all under 90°), **right-angled** (one is 90°), **obtuse** (one over 90°).
+
+  Equal sides sit opposite equal angles. So an equilateral triangle has three 60° angles, and can never be right-angled or obtuse.

@@ -1,0 +1,8 @@
+# Ken's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ken
+A right-angled triangle has hypotenuse 10 cm and one shorter side 6 cm. Find the other side.
+b² = 10² + 6²
+= 100 + 36 = 136
+b = √136 ≈ 11.66 cm
+# endregion

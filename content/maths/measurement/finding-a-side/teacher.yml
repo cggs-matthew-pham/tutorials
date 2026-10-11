@@ -1,0 +1,44 @@
+summary: Students use Pythagoras to find the hypotenuse or a shorter side (subtracting the squares), with non-whole answers to two decimal places and a sense check, in contexts such as ladders, screens and ramps (AC9M8M06, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can find a shorter side of a right-angled triangle.
+  - I can decide whether to add or subtract the squares.
+  - I can solve problems with ladders, screens and ramps, and check my answer makes sense.
+struggle: "Deciding whether to add or subtract. Ask students to point to the hypotenuse and say whether it is the side they know or the side they want, before any calculation."
+before: |
+  Do the Run board yourself first. Students need the hypotenuse method (previous lesson) and square roots between whole numbers (Between the squares).
+
+  The one idea: add the squares to find the hypotenuse, subtract them to find a shorter side. The common mistake is adding for a shorter side (Ken's mistake); the check "the hypotenuse is the longest" catches it.
+running:
+  - "Predict: students who chose 5.83 added; ask whether the wall can be taller than the ladder."
+  - "Run: ask what the big square has to be."
+  - "Investigate: for the screen, share sketches; label the hypotenuse first."
+  - "Modify: for the shortcut, ask what is being compared."
+  - "Make: compare 0.5 m in 1.2 m with the 1 in 14 rule."
+stuck:
+  - see: "A student adds the squares for a shorter side (Ken's mistake)."
+    ask: "Is your answer shorter than the hypotenuse?"
+    fix: "Subtract: hypotenuse squared minus the known side squared."
+  - see: "A student subtracts the lengths, not the squares."
+    ask: "What does the theorem say about the squares?"
+    fix: "Square both, subtract, then root."
+  - see: "A student cannot find the triangle in a word problem."
+    ask: "Where is the right angle? Which length is opposite it?"
+    fix: "Sketch it, mark the right angle, label c first."
+stretch: "A 2 m by 1.5 m door: can a 2.6 m wide board be carried through it, tilted along the diagonal?"
+support: "Use a decision card: 'Know c? Subtract. Want c? Add.' and keep squares to 20² visible."
+leads: |
+  Next: Right, acute or obtuse? (node 3): using the theorem backwards to test a triangle.
+
+  Where it leads: distance between two points, trigonometry (Year 10), and 3D diagonals of boxes.
+exit:
+  q: "A right-angled triangle has hypotenuse 17 cm and one side 8 cm. Find the other side."
+  a: "289 − 64 = 225, √225 = 15 cm."
+explain: |
+  Pythagoras finds any side of a right-angled triangle:
+
+  - the **hypotenuse**: add the squares, $c^2 = a^2 + b^2$;
+  - a **shorter side**: subtract, $b^2 = c^2 - a^2$.
+
+  Then take the square root (to two decimal places if it is not whole). Check: the hypotenuse must be the longest side.

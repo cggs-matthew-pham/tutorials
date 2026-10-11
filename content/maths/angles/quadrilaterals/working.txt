@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+A square has four right angles.
+A rectangle is a quadrilateral with four right angles.
+A square also has two pairs of parallel sides, like a rectangle.
+But a square is not a rectangle, because all its sides are equal.
+# endregion
