@@ -1,0 +1,17 @@
+# Practice for "Ways to choose a sample".
+templates:
+  - q: "A systematic sample of {s} is taken from a list of {N}. Every how many is chosen?"
+    vars: { s: [10, 20, 25, 40, 50], k: [2, 4, 5, 8, 10] }
+    let: { N: "s * k" }
+    answer: "{k}"
+    feedback:
+      - ["{s}", "Divide the list by the sample size: {N} ÷ {s}."]
+    explain: "{N} ÷ {s} = {k}: every {k}th, from a random start among the first {k}."
+  - q: "A school has {a} Year 7s and {b} Year 8s. A stratified sample of {n} is taken in proportion. How many Year {w ? 8 : 7}s are in it?"
+    vars: { k: [1, 1.5, 2, 2.5], x: "4..12", y: "4..12", w: [0, 1] }
+    let: { a: "x * k * 20", b: "y * k * 20", n: "(x + y) * 2" }
+    where: "x != y"
+    answer: "{w ? y * 2 : x * 2}"
+    feedback:
+      - ["{n / 2}", "Not half each: in proportion to the year's share of the school."]
+    explain: "Year {w ? 8 : 7}s are {w ? b : a} of {a + b}. {w ? b : a}/{a + b} × {n} = {w ? y * 2 : x * 2}."

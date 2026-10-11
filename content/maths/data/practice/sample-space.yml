@@ -1,0 +1,21 @@
+# Practice for "Sample spaces and probability". Fractions in simplest form.
+templates:
+  - q: "A bag has {r} red, {b} blue and {g} green counters. You take one without looking. What is P({w = 0 ? 'red' : w = 1 ? 'blue' : 'green'})? Simplest form."
+    vars: { r: "1..9", b: "1..9", g: "1..9", w: "0..2" }
+    let: { f: "w = 0 ? r : w = 1 ? b : g", t: "r + b + g" }
+    answer: "{f / gcd(f, t)}/{t / gcd(f, t)}"
+    form: simplest
+    feedback:
+      - ["{f}/{t - f}", "That compares with the other counters. Out of all {t}: {f}/{t}."]
+    explain: "{f} {w = 0 ? 'red' : w = 1 ? 'blue' : 'green'} out of {t} counters: {f}/{t}{gcd(f, t) > 1 ? ' = ' + f / gcd(f, t) + '/' + t / gcd(f, t) : ''}."
+  - q: "Roll a fair dice. What is the probability of {w = 0 ? 'a number greater than ' + k : w = 1 ? 'a number less than ' + k : 'a multiple of ' + m}? Simplest form."
+    vars: { w: "0..2", k: "2..5", m: [2, 3] }
+    let: { f: "w = 0 ? 6 - k : w = 1 ? k - 1 : 6 / m" }
+    answer: "{f / gcd(f, 6)}/{6 / gcd(f, 6)}"
+    form: simplest
+    explain: "{f} of the 6 faces: {f}/6{gcd(f, 6) > 1 ? ' = ' + f / gcd(f, 6) + '/' + 6 / gcd(f, 6) : ''}."
+  - q: "A spinner is {p}% red and the rest blue. What is P(blue), as a decimal?"
+    vars: { p: [10, 20, 25, 30, 35, 40, 45, 55, 60, 65, 70, 75, 80] }
+    answer: "{(100 - p) / 100}"
+    form: decimal
+    explain: "Blue is the other {100 - p}%: {(100 - p) / 100}."

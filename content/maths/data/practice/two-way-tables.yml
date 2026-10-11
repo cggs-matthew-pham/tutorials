@@ -1,0 +1,19 @@
+# Practice for "Venn diagrams and two-way tables".
+templates:
+  - q: "{t} people: {a} like tea, {c} like coffee and {b} like both. How many like neither?"
+    vars: { b: "2..9", x: "4..15", y: "4..15", z: "1..10" }
+    let: { a: "b + x", c: "b + y", t: "x + y + b + z" }
+    answer: "{z}"
+    feedback:
+      - ["{t - a - c}", "You took the {b} who like both away twice, once in each total. Add them back once."]
+    explain: "Tea only {x}, coffee only {y}, both {b}: {x + y + b} like at least one. {t} − {x + y + b} = {z} like neither."
+  - q: "In a class, {x} play sport only, {b} play both, {y} play music only and {z} play neither. How many do exactly one of the two?"
+    vars: { x: "4..15", b: "2..10", y: "3..12", z: "1..8" }
+    answer: "{x + y}"
+    feedback:
+      - ["{x + y + b}", "Exactly one leaves out those who do both."]
+    explain: "Sport only + music only: {x} + {y} = {x + y}."
+  - q: "A two-way table: {a} students walk and own a bike, {b} walk and don't own a bike. How many students walk in all?"
+    vars: { a: "3..25", b: "3..25" }
+    answer: "{a + b}"
+    explain: "Add along the 'walk' row: {a} + {b} = {a + b}."

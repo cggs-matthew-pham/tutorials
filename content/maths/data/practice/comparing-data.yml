@@ -1,0 +1,14 @@
+# Practice for "Comparing data sets".
+templates:
+  - q: "Class A's quiz scores range from {s ? p1 : q1} to {s ? p1 + v1 : q1 + v2}; Class B's from {s ? q1 : p1} to {s ? q1 + v2 : p1 + v1}. By how much is the bigger range larger?"
+    vars: { p1: "8..14", v1: "3..8", q1: "2..10", v2: "9..18", s: [0, 1] }
+    answer: "{v2 - v1}"
+    explain: "The ranges are {s ? v1 : v2} (A) and {s ? v2 : v1} (B): {v2 - v1} apart, so {s ? 'A' : 'B'}'s scores are more consistent."
+  - q: "Class A's median is {m}. Class B's median is {m + k}. By how much is B's median higher?"
+    vars: { m: "10..30", k: "1..6" }
+    answer: "{k}"
+    explain: "{m + k} − {m} = {k}. A comparison says it in context: B's typical score was {k} higher."
+  - q: "Times (s): {o = 0 ? (a + 2) + ', ' + x + ', ' + a + ', ' + (a + 1) + ', ' + (a + 3) + ', ' + (a + 1) + ', ' + (a + 2) : o = 1 ? (a + 1) + ', ' + (a + 3) + ', ' + (a + 2) + ', ' + a + ', ' + x + ', ' + (a + 2) + ', ' + (a + 1) : x + ', ' + (a + 1) + ', ' + a + ', ' + (a + 2) + ', ' + (a + 1) + ', ' + (a + 3) + ', ' + (a + 2)}. Which value is an outlier?"
+    vars: { a: "11..15", x: "24..35", o: "0..2" }
+    answer: "{x}"
+    explain: "{x} is far from the rest, which sit between {a} and {a + 3}."

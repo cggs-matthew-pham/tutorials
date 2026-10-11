@@ -1,0 +1,20 @@
+# Practice for "Simulating compound events".
+templates:
+  - q: "In {n} simulated rolls of two dice, a total of {s} came up {f} times. What is its relative frequency? (A decimal.)"
+    vars: { n: [100, 200, 400, 500], s: "2..12", e: [-0.02, -0.01, 0, 0.01, 0.02] }
+    let: { f: "max(1, round(n * ((6 - abs(s - 7)) / 36 + e)))" }
+    answer: "{f / n}"
+    form: decimal
+    explain: "{f} ÷ {n} = {f / n}. The theory says {6 - abs(s - 7)}/36 ≈ {(6 - abs(s - 7)) / 36|3}."
+  - q: "Two dice are rolled {n} times. About how many times do you expect a total of {s}?"
+    vars: { k: [1, 2, 3, 5, 10], s: "2..12" }
+    let: { n: "36 * k" }
+    answer: "{(6 - abs(s - 7)) * k}"
+    feedback:
+      - ["{n / 11}", "The 11 totals are not equally likely: {6 - abs(s - 7)} of the 36 pairs make {s}."]
+    explain: "P = {6 - abs(s - 7)}/36, so expect {6 - abs(s - 7)}/36 × {n} = {(6 - abs(s - 7)) * k}."
+  - q: "In a simulation, A happened {a} times in {n} trials. How many times did not A happen?"
+    vars: { n: [50, 100, 200, 500, 1000], p: "0.1..0.9 by 0.01" }
+    let: { a: "round(n * p)" }
+    answer: "{n - a}"
+    explain: "Every trial is A or not A: {n} − {a} = {n - a}."

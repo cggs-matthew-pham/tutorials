@@ -1,0 +1,20 @@
+# Practice for "Predict and test".
+templates:
+  - q: "You roll a fair dice {n} times. About how many {w = 0 ? 'sixes' : w = 1 ? 'even numbers' : 'numbers less than 3'} do you expect?"
+    vars: { n: [30, 60, 90, 120, 150, 300, 600], w: "0..2" }
+    answer: "{n * (w = 0 ? 1 : w = 1 ? 3 : 2) / 6}"
+    feedback:
+      - ["{n / 6}", "{w = 0 ? '' : 'That is for one face. '}Count the faces that work: {w = 0 ? 1 : w = 1 ? 3 : 2} of 6."]
+    explain: "P = {w = 0 ? 1 : w = 1 ? 3 : 2}/6, so expect {w = 0 ? 1 : w = 1 ? 3 : 2}/6 × {n} = {n * (w = 0 ? 1 : w = 1 ? 3 : 2) / 6}."
+  - q: "A spinner is {a}/{b} red. How many reds do you expect in {n} spins?"
+    vars: { b: [4, 5, 8, 10], a: "1..3", k: "5..20" }
+    where: "gcd(a, b) = 1"
+    let: { n: "b * k" }
+    answer: "{a * k}"
+    explain: "{a}/{b} × {n} = {a * k}."
+  - q: "A coin landed heads {h} times in {n} flips. What is the relative frequency of heads? (A decimal.)"
+    vars: { n: [10, 20, 25, 40, 50], h: "4..30" }
+    where: "h < n"
+    answer: "{h / n}"
+    form: decimal
+    explain: "{h} ÷ {n} = {h / n}. Expected is 0.5; small experiments wander from it."

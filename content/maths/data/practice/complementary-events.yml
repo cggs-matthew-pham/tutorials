@@ -1,0 +1,26 @@
+# Practice for "Complementary events".
+templates:
+  - q: "The chance {w = 0 ? 'a bus is late' : w = 1 ? 'it rains tomorrow' : 'a spinner lands on red'} is {p}. What is the chance it {w = 0 ? 'is not late' : w = 1 ? 'does not rain' : 'does not land on red'}?"
+    vars: { p: "0.05..0.95 by 0.05", w: "0..2" }
+    answer: "{1 - p}"
+    feedback:
+      - ["{p}", "The event and its complement add to 1: 1 − {p}."]
+    explain: "1 − {p} = {1 - p}."
+  - q: "{n} coins are tossed. What is the probability of at least one {w ? 'head' : 'tail'}? (A fraction.)"
+    vars: { n: "2..5", w: [0, 1] }
+    answer: "{pow(2, n) - 1}/{pow(2, n)}"
+    feedback:
+      - ["1/{pow(2, n)}", "That is all {w ? 'tails' : 'heads'}, the complement. At least one {w ? 'head' : 'tail'} is everything else: 1 − 1/{pow(2, n)}."]
+    explain: "The complement is all {w ? 'tails' : 'heads'}: 1/{pow(2, n)} (one outcome of {pow(2, n)}). So P(at least one {w ? 'head' : 'tail'}) = 1 − 1/{pow(2, n)} = {pow(2, n) - 1}/{pow(2, n)}."
+  - q: "A bag has {t} counters and P(red) = {r}/{t}. What is P(not red)? (A fraction.)"
+    vars: { t: [10, 12, 15, 20, 25], r: "1..9" }
+    where: "r < t and gcd(r, t) = 1"
+    answer: "{t - r}/{t}"
+    explain: "1 − {r}/{t} = {t - r}/{t}."
+  - q: "Two dice are rolled. What is the probability of at least one {f}? (A fraction.)"
+    vars: { f: "1..6" }
+    answer: "11/36"
+    feedback:
+      - ["2/6", "That adds 1/6 + 1/6, which counts double {f}s twice. Use the complement: no {f} on either dice is 5 × 5 = 25 of 36."]
+      - ["25/36", "That is no {f} at all, the complement. At least one is 1 − 25/36."]
+    explain: "No {f} on either dice: 5 × 5 = 25 of the 36 pairs. So at least one {f}: 1 − 25/36 = 11/36."

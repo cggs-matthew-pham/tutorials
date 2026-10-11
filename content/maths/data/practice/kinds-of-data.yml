@@ -1,0 +1,14 @@
+# Practice for "Counting and measuring".
+templates:
+  - q: "How many of these are continuous: {i = 0 ? 'height' : i = 1 ? 'number of siblings' : i = 2 ? 'time to run 100 m' : 'shoe size'}, {j = 0 ? 'mass of a bag' : j = 1 ? 'goals scored' : j = 2 ? 'temperature' : 'number of pets'}, {k = 0 ? 'cars in a car park' : k = 1 ? 'length of a leaf' : k = 2 ? 'students in a class' : 'volume of water in a tank'}?"
+    vars: { i: "0..3", j: "0..3", k: "0..3" }
+    let: { n: "(i = 0 or i = 2) + (j = 0 or j = 2) + (k = 1 or k = 3)" }
+    answer: "{n}"
+    explain: "{i = 0 or i = 2 ? 'Measured (continuous)' : 'Counted or in whole steps (discrete)'}: {i = 0 ? 'height' : i = 1 ? 'siblings' : i = 2 ? 'time' : 'shoe size'}. {j = 0 or j = 2 ? 'Measured (continuous)' : 'Counted (discrete)'}: {j = 0 ? 'mass' : j = 1 ? 'goals' : j = 2 ? 'temperature' : 'pets'}. {k = 1 or k = 3 ? 'Measured (continuous)' : 'Counted (discrete)'}: {k = 0 ? 'cars' : k = 1 ? 'length' : k = 2 ? 'students' : 'volume'}. {n} continuous."
+  - q: "A length is recorded as {L} cm, to the nearest centimetre. What is the smallest it could really be, in cm?"
+    vars: { L: "100..180" }
+    answer: "{L - 0.5}"
+    feedback:
+      - ["{L}", "To the nearest centimetre means it could be up to half a centimetre below {L}."]
+      - ["{L - 1}", "{L - 1} would round to {L - 1}. Half a centimetre below {L} still rounds to {L}."]
+    explain: "Anything from {L - 0.5} up to (not including) {L + 0.5} rounds to {L}. Measured data is always rounded."

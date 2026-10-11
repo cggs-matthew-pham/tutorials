@@ -1,0 +1,14 @@
+# Practice for "How samples vary".
+templates:
+  - q: "Five samples of 20 gave these proportions who play sport: {a}, {b}, {c}, {d}, {e}. What is the range of the results?"
+    vars: { a: "0.3..0.7 by 0.05", b: "0.3..0.7 by 0.05", c: "0.3..0.7 by 0.05", d: "0.3..0.7 by 0.05", e: "0.3..0.7 by 0.05" }
+    where: "max(a, b, c, d, e) - min(a, b, c, d, e) >= 0.1"
+    answer: "{max(a, b, c, d, e) - min(a, b, c, d, e)}"
+    explain: "Highest {max(a, b, c, d, e)} − lowest {min(a, b, c, d, e)} = {max(a, b, c, d, e) - min(a, b, c, d, e)}. Fair samples still vary."
+  - q: "A forecast model is run {n} times with slightly different starting data. In {r} runs it rains. What chance of rain does this suggest, as a percentage?"
+    vars: { n: [20, 40, 50, 100], p: [10, 20, 30, 40, 60, 70, 80, 90] }
+    let: { r: "n * p / 100" }
+    answer: "{p}"
+    feedback:
+      - ["{p / 100}", "That is the chance as a decimal. × 100 for a percentage."]
+    explain: "{r} ÷ {n} = {p / 100}, a {p}% chance."

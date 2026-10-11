@@ -1,0 +1,16 @@
+# Practice for "Many trials".
+templates:
+  - q: "After {n} flips, a coin has shown {h} heads. What is the relative frequency of heads? (A decimal.)"
+    vars: { n: [100, 200, 500, 1000], p: "0.42..0.58 by 0.002" }
+    let: { h: "round(n * p)" }
+    answer: "{h / n}"
+    form: decimal
+    feedback:
+      - ["{n / h}", "Heads ÷ flips: {h} ÷ {n}."]
+    explain: "{h} ÷ {n} = {h / n}. Over many flips it settles near 0.5."
+  - q: "A drawing pin landed point-up {u} times in {n} throws. Estimate the probability it lands point-up. (A decimal.)"
+    vars: { n: [200, 400, 500, 800, 1000], p: "0.3..0.7 by 0.005" }
+    let: { u: "round(n * p)" }
+    answer: "{u / n}"
+    form: decimal
+    explain: "Relative frequency: {u} ÷ {n} = {u / n}. With {n} throws, that is a fair estimate."

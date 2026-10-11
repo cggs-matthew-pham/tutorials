@@ -1,0 +1,20 @@
+# Practice for "Describing a sample".
+templates:
+  - q: "A sample of 7 students' sleep (hours): {o = 0 ? s5 + ', ' + s1 + ', ' + s7 + ', ' + s2 + ', ' + s4 + ', ' + s3 + ', ' + s6 : o = 1 ? s6 + ', ' + s3 + ', ' + s1 + ', ' + s7 + ', ' + s4 + ', ' + s2 + ', ' + s5 : s2 + ', ' + s7 + ', ' + s4 + ', ' + s6 + ', ' + s1 + ', ' + s5 + ', ' + s3}. What is the median, in hours?"
+    vars: { s1: "6..7.5 by 0.5", d2: [0, 0.5], d3: [0, 0.5, 1], d4: [0.5, 1], d5: [0, 0.5], d6: [0, 0.5], d7: [0, 0.5], o: "0..2" }
+    let: { s2: "s1 + d2", s3: "s2 + d3", s4: "s3 + d4", s5: "s4 + d5", s6: "s5 + d6", s7: "s6 + d7" }
+    answer: "{s4}"
+    feedback:
+      - ["{o = 0 ? s2 : o = 1 ? s7 : s6}", "That is the middle of the list as written. Sort first."]
+    explain: "Sorted: {s1}, {s2}, {s3}, {s4}, {s5}, {s6}, {s7}. The 4th is {s4}."
+  - q: "A sample's values are {a}, {b}, {c}, {d}, {e}, {f} and {g}. What is the mean?"
+    vars: { a: "2..12", b: "2..12", c: "2..12", d: "2..12", e: "2..12", f: "2..12", m: "5..10" }
+    let: { g: "7 * m - a - b - c - d - e - f" }
+    where: "g >= 2 and g <= 14"
+    answer: "{m}"
+    explain: "Total {7 * m}, ÷ 7 = {m}."
+  - q: "A sample of Year 10 sleep runs from {lo} to {hi} hours. What is the range, in hours?"
+    vars: { lo: "5..7 by 0.5", w: "1.5..3 by 0.5" }
+    let: { hi: "lo + w" }
+    answer: "{w}"
+    explain: "{hi} − {lo} = {w} hours."

@@ -1,0 +1,21 @@
+# Practice for "Grids and tree diagrams".
+templates:
+  - q: "A spinner has {a} colours and {w = 0 ? 'a dice has 6 faces' : 'a coin has 2 sides'}. How many outcomes when you spin, then {w = 0 ? 'roll' : 'toss'}?"
+    vars: { a: "2..8", w: [0, 1] }
+    answer: "{a * (w = 0 ? 6 : 2)}"
+    feedback:
+      - ["{a + (w = 0 ? 6 : 2)}", "Each of the {a} colours pairs with each {w = 0 ? 'face' : 'side'}: multiply."]
+    explain: "{a} × {w = 0 ? 6 : 2} = {a * (w = 0 ? 6 : 2)} pairs (one row of the grid per colour)."
+  - q: "Two dice are rolled. What is P(the sum is {s})? (A fraction.)"
+    vars: { s: "2..12" }
+    answer: "{6 - abs(s - 7)}/36"
+    feedback:
+      - ["1/11", "The 11 sums are not equally likely. Count the pairs in the 6 × 6 grid."]
+    explain: "In the 6 × 6 grid, {6 - abs(s - 7)} pair{6 - abs(s - 7) == 1 ? ' makes' : 's make'} {s}: {6 - abs(s - 7)}/36."
+  - q: "You toss {n} coin{n == 1 ? '' : 's'}{w ? ' and roll a dice' : ''}. How many outcomes are there?"
+    vars: { n: "1..5", w: [0, 1] }
+    where: "n > 1 or w = 1"
+    answer: "{pow(2, n) * (w ? 6 : 1)}"
+    feedback:
+      - ["{2 * n + (w ? 6 : 0)}", "Each coin doubles the branches{w ? ', and the dice multiplies them by 6' : ''}: multiply, don't add."]
+    explain: "Each coin doubles the branches: 2^{n} = {pow(2, n)}{w ? ', then × 6 for the dice = ' + pow(2, n) * 6 : ''}."

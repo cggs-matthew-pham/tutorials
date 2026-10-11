@@ -162,6 +162,14 @@ export function makePractice() {
     if (/^\s*\(.*,.*\)\s*$/.test(raw)) return { ok: false, keep: true, msg: 'Give just the number, not a point.' };
     raw = String(raw).replace(/^(.+?)\s*=\s*[a-zA-Z]\s*$/, '$1').replace(/[º˚]/g, '°');   // 3n + 2 = s; º and ˚ for degrees
     if (!/[a-z]/i.test(g.answer)) raw = raw.replace(/^\s*[×x*]\s*(?=[\d.])/, '');   // a scale factor written ×4
+    raw = raw.replace(/^\s*P\s*\([^)]*\)\s*=\s*/i, '').replace(/^\s*(-?\d+)\s+out\s+of\s+(\d+)\s*$/i, '$1/$2').replace(/(\d)\.\s*$/, '$1').replace(/^\s*(-?\d+),(\d{1,2})\s*$/, '$1.$2');   // P(A) = 1/4, 5 out of 12, 5/12., 0,4
+    // A probability typed as a percentage (25% for 1/4)
+    var pc = /^\s*(\d+(?:\.\d+)?)\s*%\s*$/.exec(raw), av = null;
+    try { av = /[a-z:,()]/i.test(g.answer) ? null : WPM.evaluate(g.answer.replace(/[−–]/g, '-'), {}); } catch (e) { av = null; }
+    if (pc && av !== null && av > 0 && av < 1 && Math.abs(Number(pc[1]) / 100 - av) <= Math.max(1e-9, g.tolerance / 100 || 0, 0.0005)) {
+      if (g.form) return { ok: false, keep: true, msg: 'Right value. Give it as ' + (g.form === 'decimal' ? 'a decimal' : 'a fraction in simplest form') + ', not a percentage.' };
+      if (Math.abs(Number(pc[1]) / 100 - av) < 1e-9) return { ok: true };
+    }
     if (g.answer.indexOf(':') < 0) raw = String(raw).replace(/^\s*(\d{1,2}):00\b/, '$1');   // 14:00 for the hour 14
     var v = WPM.splitAnswer(String(raw).trim()).value.trim().replace(/[−–]/g, '-').replace(/^(-?)\s*\$\s*/, '$1').replace(/^-\s+/, '-').replace(/(\d),(?=\d{3}(\D|$))/g, '$1');
     if (!v) return { ok: false, msg: 'Type your answer first.' };
@@ -196,7 +204,9 @@ export function makePractice() {
       if (g.form === 'whole' && !/^\s*-?\d+\s*$/.test(v)) return { ok: false, keep: true, msg: 'Write it as a whole number.' };
       return { ok: true };
     }
-    return { ok: false, msg: feedback(g, v, WPM) || 'Not quite. Check your working and try again.' };
+    var fbm = feedback(g, v, WPM);
+    if (!fbm && g.answer.indexOf('/') > 0 && /^\s*-?\d*\.\d+\s*$/.test(v) && av !== null && Math.abs(Number(v) - av) < 0.006) return { ok: false, keep: true, msg: 'Close: give it exactly, as a fraction.' };
+    return { ok: false, msg: fbm || 'Not quite. Check your working and try again.' };
   }
   function feedback(g, v, WPM, rhsOnly) {
     for (var i = 0; i < g.feedback.length; i++) {

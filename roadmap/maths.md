@@ -129,6 +129,11 @@ Number Foundations gains three units and eight lessons (17 to 24): Place value a
 
 Angles and shapes gains three units and six lessons (10 to 15): Solids (Nets, 7SP01 n1; Views of a solid, n2 and n3), Transformations (Translations, 7SP03 n1; Reflections, n2; Rotations, n3) and Algorithms (Algorithms for classifying shapes, 7SP04 n1 and n2, on the `key` board). Linear relations gains *Changing one thing at a time* (12, 7A06 n1 and n2, on the `formula` board) and Data and chance gains *Statistical investigations* (9, 7ST03 n1 and n2, on the `data` board); a full investigation is still a class task, which the teacher notes and the Make step set up. New boards `transform`, `net` and `views` (see roadmap/shared.md). New misconceptions: net-count-only, view-adds-up, translate-sign, reflect-axis-swap, rotate-swap-only, algo-general-first, vary-two-at-once, sample-generalise. The Year 7 descriptors left over from the earlier pushes (7SP01, 7SP03, 7SP04, 7A06, 7ST03) are now taught.
 
+## Done: Data practice, so every maths course has a Practice page (12 Oct 2026)
+- `content/maths/data/practice/`: 16 of 20 lessons (left out: Bias, Collecting data, Investigations and Investigating with samples, which are about judgement). Data lists are shown unsorted, in orders that never put the median in the middle or first; classify questions are counts.
+- Review fixes: unsorted outlier and pocket-money lists, realistic sleep and school sizes, "not A" and "at least one six" (taught but missing), stem-and-leaf with even counts and a mode, which-measure questions that need working. Core: a probability typed as a percentage (25% for 1/4) is accepted (or asked for in the named form), "5 out of 12", "P(A) = 5/12", "0,4", and "Close: give it exactly" for a rounded fraction.
+- All seven courses: 110 skills. Next: try the pages with a class; Year 9 when Matthew chooses.
+
 ## Done: Angles practice (12 Oct 2026)
 - `content/maths/angles/practice/`: 17 of 21 lessons, geometry described in words (no diagrams on the page). Left out: the two algorithm lessons, Angles at parallel lines (naming pairs) and Proving quadrilateral properties (proofs). Transformations and 3D coordinates are answered as points.
 - Review fixes: a triangular pyramid's net (4 triangles, not 3), chains whose answer flips between a and 180 − a so it can't be guessed from the wording, scrambled congruence statements (△ABC ≡ △QRP), feedback slips that are possible, and the lessons' own words. Core: point answers, "A′(3, −2)", "x = 3, y = −2", º for °, and ×4 for a scale factor.
@@ -148,7 +153,6 @@ Angles and shapes gains three units and six lessons (10 to 15): Solids (Nets, 7S
 ## Done: Algebra practice (12 Oct 2026)
 - `content/maths/algebra/practice/`: 14 files, one per lesson, 3 to 5 templates each, kept to what each lesson teaches (no negatives or powers in the Year 7 lessons). Expanding and factorising answers must be expanded or fully factorised; rearranging answers must be `x = …`; inequalities are answered as `x > 3` (or `>=`).
 - Independent review: no wrong answers; fixed zero terms ("+ 0"), "1x", "− −5", "whole numbers" for negative ranges (now integers), questions beyond the lesson, and marking slips (typed x², capital letters, either side of a subject answer, unreadable input no longer resets the streak).
-- Next: practice for data, with a review.
 
 ## Done: Practice page, Number Foundations first (12 Oct 2026)
 

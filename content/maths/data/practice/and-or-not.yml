@@ -1,0 +1,36 @@
+# Practice for "And, or and not". Fractions out of the total are fine.
+templates:
+  - q: "{t} students: {a} have a dog, {c} have a cat and {b} have both. What is P(a dog or a cat)? (A fraction.)"
+    vars: { b: "2..8", x: "3..12", y: "3..12", z: "1..8" }
+    let: { a: "b + x", c: "b + y", t: "x + y + b + z" }
+    answer: "{x + y + b}/{t}"
+    feedback:
+      - ["{a + c}/{t}", "{b} students have both and were counted twice: {a} + {c} − {b}."]
+      - ["{x + y}/{t}", "That is exactly one. 'Or' includes those with both."]
+    explain: "Dog or cat (at least one): {a} + {c} − {b} = {x + y + b}, out of {t}: {x + y + b}/{t}."
+  - q: "{t} students: {a} have a dog, {c} have a cat and {b} have both. What is P(a dog and a cat)? (A fraction.)"
+    vars: { b: "2..8", x: "3..12", y: "3..12", z: "1..8" }
+    let: { a: "b + x", c: "b + y", t: "x + y + b + z" }
+    answer: "{b}/{t}"
+    explain: "Both: {b} out of {t}."
+  - q: "{t} students: {a} have a dog, {c} have a cat and {b} have both. What is P(neither)? (A fraction.)"
+    vars: { b: "2..8", x: "3..12", y: "3..12", z: "1..8" }
+    let: { a: "b + x", c: "b + y", t: "x + y + b + z" }
+    answer: "{z}/{t}"
+    feedback:
+      - ["{t - a - c}/{t}", "You took the {b} with both away twice, once in each total. Add them back once: {t} − ({a} + {c} − {b})."]
+    explain: "At least one: {a} + {c} − {b} = {x + y + b}. Neither: {t} − {x + y + b} = {z}, so {z}/{t}."
+  - q: "A dice is rolled. A is 'an {u ? 'even' : 'odd'} number' and B is 'more than {k}'. How many outcomes are in A or B?"
+    vars: { k: "1..5", u: [0, 1] }
+    let: { both: "u ? 3 - floor(k / 2) : 3 - ceil(k / 2)" }
+    answer: "{3 + (6 - k) - both}"
+    feedback:
+      - ["{3 + (6 - k)}", "{both} outcome{both == 1 ? ' is' : 's are'} in both A and B. Count {both == 1 ? 'it' : 'them'} once."]
+    explain: "A has 3 outcomes, B has {6 - k} ({k == 5 ? 'just 6' : k + 1 + ' to 6'}), and {both} {both == 1 ? 'is' : 'are'} in both. A or B: 3 + {6 - k} − {both} = {3 + (6 - k) - both}."
+  - q: "{t} students: {a} have a dog. What is P(not a dog)? (A fraction.)"
+    vars: { t: [20, 24, 25, 28, 30, 32], a: "3..18" }
+    where: "a < t"
+    answer: "{t - a}/{t}"
+    feedback:
+      - ["{a}/{t}", "That is P(a dog). 'Not a dog' is everyone else."]
+    explain: "{t} − {a} = {t - a} don't have a dog: {t - a}/{t} (which is 1 − {a}/{t})."

@@ -1,0 +1,40 @@
+# Practice for "Mean, median, mode and range". Lists are shown unsorted (one of three orders).
+templates:
+  - q: "Find the median of {o = 0 ? s4 + ', ' + s1 + ', ' + s5 + ', ' + s3 + ', ' + s2 : o = 1 ? s5 + ', ' + s2 + ', ' + s4 + ', ' + s1 + ', ' + s3 : s2 + ', ' + s5 + ', ' + s4 + ', ' + s1 + ', ' + s3}."
+    vars: { s1: "1..9", d2: "0..4", d3: "1..5", d4: "0..4", d5: "1..8", o: "0..2" }
+    let: { s2: "s1 + d2", s3: "s2 + d3", s4: "s3 + d4", s5: "s4 + d5" }
+    answer: "{s3}"
+    feedback:
+      - ["{o = 0 ? s5 : s4}", "That is the middle of the list as written. Sort it first: {s1}, {s2}, {s3}, {s4}, {s5}."]
+      - ["{(s1 + s2 + s3 + s4 + s5) / 5}", "That is the mean. The median is the middle value once sorted."]
+    explain: "Sorted: {s1}, {s2}, {s3}, {s4}, {s5}. The middle (3rd) value is {s3}."
+  - q: "Find the median of {o = 0 ? s4 + ', ' + s1 + ', ' + s6 + ', ' + s3 + ', ' + s2 + ', ' + s5 : o = 1 ? s6 + ', ' + s2 + ', ' + s5 + ', ' + s1 + ', ' + s4 + ', ' + s3 : s3 + ', ' + s6 + ', ' + s1 + ', ' + s5 + ', ' + s2 + ', ' + s4}."
+    vars: { s1: "1..9", d2: "0..3", d3: "1..4", d4: "1..5", d5: "0..3", d6: "1..6", o: "0..2" }
+    let: { s2: "s1 + d2", s3: "s2 + d3", s4: "s3 + d4", s5: "s4 + d5", s6: "s5 + d6" }
+    answer: "{(s3 + s4) / 2}"
+    feedback:
+      - ["{s3}", "With 6 values there are two in the middle, {s3} and {s4}: the median is halfway between them."]
+      - ["{s4}", "With 6 values there are two in the middle, {s3} and {s4}: the median is halfway between them."]
+    explain: "Sorted: {s1}, {s2}, {s3}, {s4}, {s5}, {s6}. Two middle values, {s3} and {s4}: ({s3} + {s4}) ÷ 2 = {(s3 + s4) / 2}."
+  - q: "Find the mean of {a}, {b}, {c}, {d} and {e}."
+    vars: { a: "2..20", b: "2..20", c: "2..20", d: "2..20", m: "5..15 by 0.5" }
+    let: { e: "5 * m - a - b - c - d" }
+    where: "e >= 1 and e <= 30 and e = round(e)"
+    answer: "{m}"
+    feedback:
+      - ["{5 * m}", "That is the total. Share it among the 5 values: ÷ 5."]
+    explain: "Total {a} + {b} + {c} + {d} + {e} = {5 * m}, shared among 5: {5 * m} ÷ 5 = {m}."
+  - q: "What is the range of {a}, {b}, {c}, {d}, {e} and {f}?"
+    vars: { a: "1..40", b: "1..40", c: "1..40", d: "1..40", e: "1..40", f: "1..40" }
+    answer: "{max(a, b, c, d, e, f) - min(a, b, c, d, e, f)}"
+    feedback:
+      - ["{max(a, b, c, d, e, f)}", "That is the highest. The range is highest − lowest."]
+      - ["{abs(f - a)}", "Use the highest and lowest values, not the last and first."]
+    explain: "Highest {max(a, b, c, d, e, f)} − lowest {min(a, b, c, d, e, f)} = {max(a, b, c, d, e, f) - min(a, b, c, d, e, f)}."
+  - q: "What is the mode of {o = 0 ? a + ', ' + m + ', ' + b + ', ' + m + ', ' + c + ', ' + m : a + ', ' + m + ', ' + m + ', ' + b + ', ' + m + ', ' + c}?"
+    vars: { a: "1..15", b: "1..15", c: "1..15", m: "1..15", o: [0, 1] }
+    where: "a != b and b != c and a != c and m != a and m != b and m != c"
+    answer: "{m}"
+    feedback:
+      - ["3", "That is how many times it appears. The mode is the value itself."]
+    explain: "{m} appears 3 times, more than any other value: the mode is {m}."
