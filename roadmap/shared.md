@@ -223,6 +223,25 @@ The igneous explain clip recorded without error, but its video fell about 15 s b
   - **Fix the busy-board lag in the same change.** Both edit `render.mjs`, and each edit re-records every clip, so doing the recorder lag (Open, above) together costs one full re-record, not two, and brings back the igneous clip.
   - **Check length with the slowest voice.** Some science clips run near or over the 30 s guide with Emma; after the first multi-voice publish, list clips over 30 s in their slowest voice and trim those `say:` lines.
 
+## Proposed (12 Oct 2026, science chat; Matthew agreed the idea): a one-move coach prompt on recap pages
+
+**Why:** responsible AI use, aimed at beneficial rather than detrimental offloading. Lodge and Loble, *Artificial intelligence, cognitive offloading and implications for education* (UTS, March 2026; https://www.uts.edu.au/news/2026/03/experts-warn-unstructured-ai-use-in-schools-risks-cognitive-atrophy/contentassets/ai-cognitive-offloading-and-implications-for-education.pdf): offloading extraneous load can help, offloading the thinking that builds learning harms it, unstructured use drifts to the harmful kind and novices are hit hardest. It recommends metacognitive prompts, critical thinking within domain knowledge, teacher agency over AI tools, and favours teacher-facing AI.
+
+**What:** a "Copy a coach prompt" button, not a built-in chatbot. The site sends nothing and needs no accounts or keys; the student pastes the prompt into the AI tool the school allows (age terms and policy stay with the school).
+- **Scoped to one move:** the lesson's node sentence (the exact idea, not the topic), its success criteria, the misconceptions behind its wrong options, and its predict question.
+- **Coaching rules in the prompt:** Socratic, one question at a time, never give the answer; probe the named misconception; may check the one prerequisite node the progression data names (one step back), never later ideas; redirect anything else ("that's for another lesson"); stop when the student explains the move in their own words and gets one new case right, then send them back to the lesson.
+- **Limits stated plainly:** a prompt instructs, it can't enforce; it makes the coached path the default.
+
+**Where (low prominence for now):**
+- **Recap page only** (`recapHtml` in `build-site.mjs`): a small "Still stuck? Copy a coach prompt" under each answer, after the student has tried. Not on lesson pages, so the board and checks stay the main path.
+- **Teacher guide:** the same prompt per lesson, so teachers see exactly what it says.
+- Off unless the course or teacher turns it on (a course flag, or `?coach=1` on the recap link, as `?width=` works).
+- Generated at build time from existing data (no AI at build); applies to any subject with nodes and misconceptions (maths and science first; code later).
+
+**Later, if it works:** move into lessons after two wrong attempts; relates to the parked Nib idea (protégé effect, also named in the paper).
+
+**To agree with the code and maths chats:** placement (recap and teacher guide), the default (off), and the prompt rules.
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).
