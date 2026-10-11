@@ -1,0 +1,154 @@
+{
+ "title": "microStudio games reference",
+ "summary": "The microStudio commands and Python from Games with microStudio, each with what it does. Copy a card into your game.",
+ "language": "python",
+ "target": "microstudio",
+ "groups": [
+  {
+   "name": "The game loop",
+   "items": [
+    {
+     "label": "def init",
+     "code": "def init():\n    global ‹x›\n    ‹x› = ‹0›",
+     "hint": "Runs once, when the game starts. Give your variables their first values here. The engine calls it: you never do."
+    },
+    {
+     "label": "def update",
+     "code": "def update():\n    global ‹x›\n    ‹x› += ‹1›",
+     "hint": "Runs 60 times a second. Move things, check keys and keep score here. A variable it changes needs a global line."
+    },
+    {
+     "label": "def draw",
+     "code": "def draw():\n    screen.clear(‹\"black\"›)\n    ‹screen.fillRound(x, 0, 10, 10, \"yellow\")›",
+     "hint": "Runs after each update. Clear the screen, then draw everything where it is now. Change nothing here.",
+     "example": "x = -80\n\ndef update():\n    global x\n    x += 1\n\ndef draw():\n    screen.clear(\"rgb(10,10,40)\")\n    screen.fillRound(x, 0, 16, 16, \"rgb(255,210,0)\")\n",
+     "shows": "Draws the dot where x is now; update moves it a little each frame."
+    },
+    {
+     "label": "global",
+     "code": "global ‹score›",
+     "hint": "The first line inside a function that changes a variable made outside it. Without it, Python stops with \"cannot access local variable\"."
+    }
+   ]
+  },
+  {
+   "name": "Drawing",
+   "items": [
+    {
+     "label": "screen.clear",
+     "code": "screen.clear(‹\"rgb(10,10,40)\"›)",
+     "hint": "Fills the whole screen with one colour. Put it first in draw(), or the last frame stays on the screen.",
+     "example": "def draw():\n    screen.clear(\"rgb(30,90,160)\")\n"
+    },
+    {
+     "label": "screen.fillRect",
+     "code": "screen.fillRect(‹x›, ‹y›, ‹width›, ‹height›, ‹\"colour\"›)",
+     "hint": "A filled box. x and y are its middle: (0, 0) is the middle of the screen, y goes up to 100 at the top.",
+     "example": "def draw():\n    screen.clear(\"rgb(10,10,40)\")\n    screen.fillRect(0, 0, 80, 40, \"rgb(100,200,255)\")\n    screen.fillRect(0, -80, 24, 6, \"orange\")\n"
+    },
+    {
+     "label": "screen.fillRound",
+     "code": "screen.fillRound(‹x›, ‹y›, ‹width›, ‹height›, ‹\"colour\"›)",
+     "hint": "A filled circle or oval, centred on x and y. Same width and height for a circle.",
+     "example": "def draw():\n    screen.clear(\"rgb(10,10,40)\")\n    screen.fillRound(-40, 0, 30, 30, \"rgb(255,210,0)\")\n    screen.fillRound(40, 0, 60, 30, \"pink\")\n"
+    },
+    {
+     "label": "screen.drawRect and drawRound",
+     "code": "screen.drawRect(‹x›, ‹y›, ‹width›, ‹height›, ‹\"colour\"›)\nscreen.drawRound(‹x›, ‹y›, ‹width›, ‹height›, ‹\"colour\"›)",
+     "hint": "Outlines only: the same as fillRect and fillRound, without filling the inside.",
+     "example": "def draw():\n    screen.clear(\"rgb(10,10,40)\")\n    screen.drawRect(-40, 0, 50, 50, \"white\")\n    screen.drawRound(40, 0, 50, 50, \"rgb(255,210,0)\")\n"
+    },
+    {
+     "label": "screen.drawLine",
+     "code": "screen.drawLine(‹x1›, ‹y1›, ‹x2›, ‹y2›, ‹\"colour\"›)",
+     "hint": "A straight line from one point to another.",
+     "example": "def draw():\n    screen.clear(\"rgb(10,10,40)\")\n    screen.drawLine(-80, -60, 80, 60, \"white\")\n    screen.drawLine(-80, 60, 80, -60, \"orange\")\n"
+    },
+    {
+     "label": "screen.drawText",
+     "code": "screen.drawText(‹text›, ‹x›, ‹y›, ‹size›, ‹\"colour\"›)",
+     "hint": "Writes text centred on x and y. A number must be joined as text: \"Score: \" + str(score).",
+     "example": "score = 3\n\ndef draw():\n    screen.clear(\"rgb(10,10,40)\")\n    screen.drawText(\"Score: \" + str(score), 0, 80, 12, \"white\")\n    screen.drawText(\"GAME OVER\", 0, 0, 24, \"rgb(255,120,120)\")\n"
+    },
+    {
+     "label": "Colours",
+     "code": "‹\"red\"›   ‹\"rgb(255,210,0)\"›   ‹\"#40a0ff\"›",
+     "hint": "A colour is text: a name, rgb(red, green, blue) with numbers from 0 to 255, or a hex code.",
+     "example": "def draw():\n    screen.clear(\"rgb(10,10,40)\")\n    screen.fillRound(-60, 0, 40, 40, \"red\")\n    screen.fillRound(0, 0, 40, 40, \"rgb(255,210,0)\")\n    screen.fillRound(60, 0, 40, 40, \"#40a0ff\")\n"
+    },
+    {
+     "label": "screen.drawSprite",
+     "code": "screen.drawSprite(‹\"star\"›, ‹x›, ‹y›, ‹width›, ‹height›)",
+     "hint": "Draws a picture you made in microStudio's Sprites tab, by its name. Sprites need microstudio.dev: in our playground nothing appears."
+    }
+   ]
+  },
+  {
+   "name": "Keys and mouse",
+   "items": [
+    {
+     "label": "pressed",
+     "code": "def pressed(key):\n    return hasattr(keyboard, key) and keyboard[key] != 0",
+     "hint": "Copy this helper into your game once. pressed(\"LEFT\") is True while the key is held. Key names: LEFT, RIGHT, UP, DOWN, SPACE, A to Z."
+    },
+    {
+     "label": "Move with keys",
+     "code": "if pressed(‹\"LEFT\"›):\n    ‹px› -= ‹2›\nif pressed(‹\"RIGHT\"›):\n    ‹px› += ‹2›",
+     "hint": "Inside update(): a held key moves the player a little every frame, so it glides."
+    },
+    {
+     "label": "Stay on the screen",
+     "code": "if ‹px› < ‹-150›:\n    ‹px› = ‹-150›",
+     "hint": "After moving, put the player back if it has gone past an edge. The top is y = 100 and the bottom is y = -100."
+    },
+    {
+     "label": "mouse",
+     "code": "‹mouse.x›   ‹mouse.y›   ‹mouse.pressed›",
+     "hint": "Where the mouse is, in the same coordinates as drawing. mouse.pressed is 1 while the button is held, else 0."
+    }
+   ]
+  },
+  {
+   "name": "Sound",
+   "items": [
+    {
+     "label": "audio.beep",
+     "code": "audio.beep(‹\"C E G\"›)",
+     "hint": "Plays notes from text. Put it where something happens in update(), once, not in draw(). Try \"duration 100 C E G\" or \"saw C2\"."
+    }
+   ]
+  },
+  {
+   "name": "Objects and chance",
+   "items": [
+    {
+     "label": "class with move and draw",
+     "code": "class ‹Star›:\n    def __init__(self, x):\n        self.x = x\n        self.y = ‹100›\n\n    def move(self):\n        self.y -= ‹1›\n\n    def draw(self):\n        screen.fillRound(self.x, self.y, ‹8›, ‹8›, ‹\"yellow\"›)",
+     "hint": "Each object keeps its own x and y in self, moves itself and draws itself.",
+     "example": "class Star:\n    def __init__(self, x):\n        self.x = x\n        self.y = 60\n\n    def draw(self):\n        screen.fillRound(self.x, self.y, 10, 10, \"rgb(255,210,0)\")\n\nstars = []\nfor i in range(4):\n    stars.append(Star(-60 + i * 40))\n\ndef draw():\n    screen.clear(\"rgb(10,10,40)\")\n    for star in stars:\n        star.draw()\n",
+     "shows": "Four Star objects, each drawn at its own x."
+    },
+    {
+     "label": "A list of objects",
+     "code": "for ‹star› in ‹stars›:\n    ‹star›.move()",
+     "hint": "In update(), tell every object to move; in draw(), tell every object to draw. The loop stays short however many there are."
+    },
+    {
+     "label": "random.randint",
+     "code": "import random\n\nrandom.randint(‹-90›, ‹90›)",
+     "hint": "A whole number picked at random from the first to the second, both included. import random goes at the top of the game."
+    },
+    {
+     "label": "touches",
+     "code": "def touches(self, x, y):\n    return abs(self.x - x) < ‹12› and abs(self.y - y) < ‹8›",
+     "hint": "True when this object is close to (x, y) in both directions: abs() is the distance, whichever side it is on."
+    },
+    {
+     "label": "print",
+     "code": "print(‹score›)",
+     "hint": "Writes in the console under the game: useful to check a value while the game runs."
+    }
+   ]
+  }
+ ]
+}

@@ -83,12 +83,14 @@ export function buildPyPlayground(out = 'dist') {
   return dest;
 }
 
-/** Example games on lesson pages, play only: the microStudio engine (vendor/microstudio, MIT, with Brython) and a page that runs ?code=. */
+/** Example games on lesson pages, play only: the microStudio engine (vendor/microstudio, MIT, with Brython) and a page that runs ?code=;
+ * plus edit.html, the free game playground and clip stage (code beside the player, friendly errors, a console). */
 export function buildMicrostudioPlayground(out = 'dist') {
   const dest = join(out, '_playground-microstudio');
   rmSync(dest, { recursive: true, force: true });
   cpSync(join(root, 'playground-microstudio'), dest, { recursive: true });
   cpSync(join(root, 'vendor', 'microstudio'), join(dest, 'vendor'), { recursive: true });
+  copyFileSync(join(root, 'tools', 'python-errors.mjs'), join(dest, 'python-errors.mjs')); // friendly errors in edit.html, the free game playground
   stampPlayground(dest);
   return dest;
 }

@@ -228,3 +228,28 @@ def draw():
     for star in stars:
         star.draw()
 # endregion
+# region: clip
+import random
+
+class Star:
+    def __init__(self, x):
+        self.x = x
+        self.y = 100
+        self.speed = random.randint(5, 15) / 10
+
+
+def init():
+    global stars
+    stars = []
+    for i in range(4):
+        stars.append(Star(-60 + i * 40))
+
+def update():
+    for star in stars:
+        star.move()
+
+def draw():
+    screen.clear("rgb(10,10,40)")
+    for star in stars:
+        star.draw()
+# endregion

@@ -5,6 +5,25 @@ title: Catch and score
 summary: "Put the paddle and the stars together: a star that touches the paddle scores a point and starts again. Add lives, a game over and a restart, then a power-up of your own."
 language: python
 hook: "A game is a loop, things that move, and one question asked every frame: are these two touching?"
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-microstudio" 8132
+  url: http://127.0.0.1:8132/edit.html
+  ready: Python game code
+  layout: full
+pacing:
+  keyDelayMs: 12
+explainClip:
+  query: {code: "@game.py#clip", zoom: 1.15}
+  caption: "A star that touches the paddle scores"
+  clip:
+    - caption: "touches() is True when the star is close across and close up and down."
+    - type: {into: "Python game code", after: "            self.restart()\n", text: "\n    def touches(self, x, y):\n        return abs(self.x - x) < 12 and abs(self.y - y) < 8\n"}
+    - caption: "Every frame, update() asks each star. A catch adds 1 and sends the star back to the top."
+    - type: {into: "Python game code", after: "        star.move()\n", text: "        if star.touches(px, -80):\n            score += 1\n            star.restart()\n"}
+    - click: "Run ▶"
+    - expect: {selector: "#status", contains: "Running"}
+    - caption: "Watch the score when a star lands on the paddle."
+    - wait: 6500
 ---
 This is the whole game: the paddle from Keys and movement, the stars from Stars as objects, and a `touches()` method that asks whether a star is close to the paddle. When it is, the score goes up and the star starts again from the top.
 

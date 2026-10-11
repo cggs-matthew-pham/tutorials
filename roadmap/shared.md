@@ -236,3 +236,16 @@ The igneous explain clip recorded without error, but its video fell about 15 s b
 - `tools/concepts.mjs` `CONCEPTS.html`: `text-content`, `style-prop`, `class-list`, `input-value`, `console-log`, `create-element`, `append-element`. `content/code/html/make-it-react` now lists `text-content, style-prop` in `recipes` (metadata only, `lesson.md`, so no clip re-records).
 - `misconceptions.json`: `selector-typo`, `selector-prefix`, `script-order`, `call-not-pass`, `class-dot`, `value-is-text`, `list-is-live`, `state-in-handler`, `name-typo`.
 - Note: `check-decks` reports `robot-drive` slide 4 at 709px. This was already the case and is not from this change.
+
+## Changed by the code chat (12 Oct 2026): microStudio playground, Reference and clips
+- `playground-microstudio/edit.html` and `edit.js` add an editor beside the player (`index.html`), which runs in an iframe on the same origin. `build-playground` copies `tools/python-errors.mjs` into `_playground-microstudio/`. Two changes to `index.html`:
+  - `brython({ indexedDB: false })`: when the top page has another origin (the clip stage), Brython's cache never opens and it waits forever.
+  - A guard sets `navigator.language` to en-US when `Intl` cannot read the browser's locale. With no `LANG` set (this sandbox), Chromium reports `en-US@posix` and Brython stops at load.
+  - No existing clip used this playground, so nothing re-records.
+- `tools/build-site.mjs`:
+  - `PLAY` entries can name `page:` (the file to open, default `index.html`); `PLAY['code/games']` is the new entry.
+  - New `REFS` entry `code/games/reference`.
+  - `MS_SNIPS` is read on its own (not through `loadSnippetFiles`), so its card ids never shadow turtle cards of the same name.
+  - `PICS.microstudio`, and `refItem` picks pictures by `target: microstudio`.
+  - A course whose steps use `playground: microstudio` takes its cheat-sheet cards and pictures from `snippets/microstudio.json`.
+- `tools/render-pictures.mjs`: new section `microstudio` (`_pictures/microstudio/`, the 9 examples). No other section's hash changed.

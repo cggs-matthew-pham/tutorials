@@ -151,6 +151,8 @@ iframe{flex:1;width:100%;border:0;min-height:0}`;
 const orderOf = (l) => (l.order ?? Infinity);
 const lessons = loadLessons().sort((a, b) => (a.slug.split('/').slice(0, -1).join('/')).localeCompare(b.slug.split('/').slice(0, -1).join('/')) || orderOf(a) - orderOf(b) || a.slug.localeCompare(b.slug));
 const snippetFiles = loadSnippetFiles();
+// microStudio cards are read on their own (not in loadSnippetFiles), so their ids never shadow turtle cards of the same name.
+const MS_SNIPS = JSON.parse(readFileSync(join('snippets', 'microstudio.json'), 'utf8'));
 // kind -> { snippet id -> label } so a check can say what it unlocked by name
 const snippetNames = Object.fromEntries(Object.entries(snippetFiles).map(([k, d]) => [k, Object.fromEntries(d.groups.flatMap((g) => g.items.map((i) => [snippetId(i.label), i.label])))]));
 let bad = 0;
@@ -217,6 +219,8 @@ const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Pyth
   'code/console': { kind: 'turtle', dir: '_playground', label: 'Python console', id: 'free/console', code: 'name = input("What is your name? ")\nprint("Hello, " + name + "!")\n' },
   'code/objects': { kind: 'turtle', dir: '_playground', label: 'Python', id: 'free/objects' },
   'code/dom': { kind: 'dom', dir: '_playground-dom', label: 'DOM and console', id: 'free/dom', code: '<h1 id="title">Hello</h1>\n<button id="go">Click me</button>\n\n<script>\n  const go = document.querySelector("#go");\n  go.addEventListener("click", function () {\n    document.querySelector("#title").textContent = "Clicked!";\n    console.log("clicked");\n  });\n</script>\n' },
+  // Games with microStudio: the game player with an editor beside it (edit.html), for trying ideas when microstudio.dev is not open.
+  'code/games': { kind: 'microstudio', dir: '_playground-microstudio', page: 'edit.html', label: 'Python game', id: 'free/games' },
   'code/p5': { kind: 'p5', dir: '_playground-p5', label: 'p5.js', id: 'free/p5', code: 'function setup() {\n  createCanvas(400, 300);\n  background(240);\n  circle(200, 150, 100);\n}\n' },
   'code/flask': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/flask', code: 'from flask import Flask\n\napp = Flask(__name__)\n\n\n@app.route("/")\ndef home():\n    return "<h1>Hello</h1>"\n\n\napp.run()\n' },
   'code/gradio': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/gradio', code: 'import gradio as gr\n\n\ndef shout(text):\n    return text.upper() + "!"\n\n\ngr.Interface(fn=shout, inputs="text", outputs="text").launch()\n' },
@@ -226,7 +230,7 @@ const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Pyth
 // Maths cards (snippets/maths.json, maths-<name>.json): a Reference page and cheat sheets for the course each names.
 const MATHS_CARDS = loadAllMathsCards();
 const REFS = [{ file: 'turtle', path: 'code/python/reference' }, { file: 'html', path: 'code/html/reference' }, { file: 'microbit', path: 'code/microbit/reference' }, { file: 'arcade', path: 'code/arcade/reference' }, { file: 'robot', path: 'code/robotics/reference' },
-  { file: 'p5', path: 'code/p5/reference' }, { file: 'microbit', path: 'code/microbit-computer/reference' }, { file: 'microbit', path: 'code/microbit-security/reference' },
+  { file: 'p5', path: 'code/p5/reference' }, { file: 'microstudio', path: 'code/games/reference' }, { file: 'microbit', path: 'code/microbit-computer/reference' }, { file: 'microbit', path: 'code/microbit-security/reference' },
   // groups: only these groups of the file; title and summary: shown instead of the file's own.
   { file: 'turtle', path: 'code/console/reference', groups: ['Text in and out', 'Code structure'], title: 'Python console reference', summary: 'The commands from the console bridge, with what each one does.' },
   { file: 'turtle', path: 'code/deeper/reference', groups: ['Text in and out', 'Text and collections', 'Files', 'Code structure', 'Objects'], title: 'Python console reference', summary: 'Text, lists, dictionaries and files in the console, with what each command does.' },
@@ -266,7 +270,8 @@ const readPics = (sub) => { const f = join(OUT, '_pictures', ...sub, 'pictures.j
 const PICS = { python: { pics: readPics([]), dir: '_pictures/' }, html: { pics: readPics(['html']), dir: '_pictures/html/' }, maths: { pics: readPics(['maths']), dir: '_pictures/maths/' }, makecode: { pics: readPics(['makecode']), dir: '_pictures/makecode/' } };
 // Arcade blocks share the MakeCode manifest; render-pictures draws its snippet blocks as arcade/<snippet id>.png,
 // because Arcade and micro:bit snippets can share a label (if, pause).
-PICS.javascript = { pics: readPics(['p5']), dir: '_pictures/p5/' };   // its own folder: p5 cards never borrow turtle pictures by id
+PICS.javascript = { pics: readPics(['p5']), dir: '_pictures/p5/' };
+PICS.microstudio = { pics: readPics(['microstudio']), dir: '_pictures/microstudio/' };   // drawn by the microStudio player (render-pictures)   // its own folder: p5 cards never borrow turtle pictures by id
 PICS.arcade = { pics: Object.fromEntries(Object.entries(PICS.makecode.pics).filter(([k]) => k.startsWith('arcade/')).map(([k, v]) => [k.slice(7), v])), dir: '_pictures/makecode/arcade/' };
 // A MakeCode program's blocks picture (drawn by render-pictures), as { url, w, h } from base (the site root), or null.
 const blocksPic = (code, base) => { const id = blocksId(code), p = PICS.makecode.pics[id]; return p ? { url: `${base}_pictures/makecode/${id}.png?v=${p.hash || ''}`, w: p.w, h: p.h } : null; };
@@ -290,7 +295,7 @@ for (const r of REFS) {
   const units = Array.isArray(dirs.get(parent)?.meta?.units) && dirs.get(parent).meta.units.length;
   const isM = data.language === 'maths';
   const printLink = units ? `<p class="ref-print"><a href="print/">Print a cheat sheet</a> <span class="muted">(the whole course or one unit, ${isM ? 'with board pictures' : `with a picture of ${data.language === 'makecode' ? 'each block' : 'what each command draws'}`})</span></p>` : '';
-  const item = isM ? (i) => mathsRefItem({ ...i, id: `maths-${snippetId(i.label)}` }, { pictures: PICS.maths.pics, depth, esc }) : (i) => refItem(i, data.language, depth, data.target === 'arcade' ? 'arcade' : data.language);
+  const item = isM ? (i) => mathsRefItem({ ...i, id: `maths-${snippetId(i.label)}` }, { pictures: PICS.maths.pics, depth, esc }) : (i) => refItem(i, data.language, depth, data.target === 'arcade' || data.target === 'microstudio' ? data.target : data.language);
   const body = (isM ? `<link rel="stylesheet" href="${'../'.repeat(depth)}_katex/katex.min.css"><style>${MATHS_CARD_CSS}</style>` : '') + printLink + search + data.groups.filter((g) => !r.groups || r.groups.includes(g.name)).map((g) => `<section class="ref-section"><h2 class="ref-group">${esc(g.name)}</h2>` + g.items.map(item).join('') + '</section>').join('') + script;
   mkdirSync(join(OUT, r.path), { recursive: true });
   writeFileSync(join(OUT, r.path, 'index.html'), page(r.title || data.title,
@@ -346,8 +351,8 @@ const sharedModuleNames = Object.keys(loadSharedModules());
 for (const [path, pg] of Object.entries(PLAY)) {
   const depth = path.split('/').length + 1; // .../playground/ -> site root
   const up = '../'.repeat(depth);
-  const mkPg = pg.kind === 'microbit' || pg.kind === 'arcade' || pg.kind === 'p5';
-  const src = `${up}${pg.dir}/index.html?id=${pg.id || (mkPg ? `free/${pg.pkg ? path.split('/').pop() : pg.kind}` : 'free')}&free=1${pg.code ? `&code=${encodeURIComponent(pg.code)}` : ''}&v=${VERSIONS[pg.dir]}${mkPg ? `&target=${pg.kind}` : ''}${pg.pkg ? `&pkg=${encodeURIComponent(pg.pkg)}` : ''}${pg.kind === 'turtle' && sharedModuleNames.length ? `&use=${sharedModuleNames.join(',')}` : ''}`;
+  const mkPg = pg.kind === 'microbit' || pg.kind === 'arcade' || pg.kind === 'p5' || pg.kind === 'microstudio';
+  const src = `${up}${pg.dir}/${pg.page || 'index.html'}?id=${pg.id || (mkPg ? `free/${pg.pkg ? path.split('/').pop() : pg.kind}` : 'free')}&free=1${pg.code ? `&code=${encodeURIComponent(pg.code)}` : ''}&v=${VERSIONS[pg.dir]}${mkPg && pg.kind !== 'microstudio' ? `&target=${pg.kind}` : ''}${pg.pkg ? `&pkg=${encodeURIComponent(pg.pkg)}` : ''}${pg.kind === 'turtle' && sharedModuleNames.length ? `&use=${sharedModuleNames.join(',')}` : ''}`;
   mkdirSync(join(OUT, path, 'playground'), { recursive: true });
   writeFileSync(join(OUT, path, 'playground', 'index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(pg.label)} playground</title><style>${PLAYGROUND_PAGE_CSS}${NAV_CSS}</style></head><body>
@@ -597,10 +602,12 @@ for (const coursePath of teachCourses) {
     ? (ls.flatMap((l) => l.steps).map((s) => s.config.try?.playground).find((k) => k === 'microbit' || k === 'arcade') || 'microbit')
     : unlockKind(ls[0], ls[0].steps[0] || { config: {} });
   // Pictures of this course's snippets: Arcade blocks sit apart from micro:bit ones (PICS.arcade).
-  const picKey = kind === 'arcade' ? 'arcade' : (ls[0]?.language || 'python');
+  // Games with microStudio: its own cards (snippets/microstudio.json) and pictures, not the turtle ones.
+  const msCourse = ls.some((l) => l.steps.some((s) => s.config.try?.playground === 'microstudio'));
+  const picKey = msCourse ? 'microstudio' : kind === 'arcade' ? 'arcade' : (ls[0]?.language || 'python');
   // Robot lessons use the robot blocks (snippets/robot.json) first, then the micro:bit ones they build on.
   const robotCourse = ls.some((l) => makecodeExtensions(l).some((e) => e.name === 'microbit-robot'));
-  const courseSnips = new Map([...(robotCourse ? [snippetFiles.robot] : []), snippetFiles[kind]].flatMap((f) => f?.groups || []).flatMap((g) => g.items.map((i) => [snippetId(i.label), i])));
+  const courseSnips = new Map((msCourse ? [MS_SNIPS] : [...(robotCourse ? [snippetFiles.robot] : []), snippetFiles[kind]]).flatMap((f) => f?.groups || []).flatMap((g) => g.items.map((i) => [snippetId(i.label), i])));
   // MakeCode lessons ask students to add blocks their starters do not have yet (show leds, a parameter), so their
   // solutions count too: a cheat sheet lists blocks, never a task's answer.
   const codeOf = (l) => [...l.steps.flatMap((s) => [s.config.code, s.config.try?.starter, ...s.tasks.flatMap((t) => [t.config.code, t.config.starter, t.config.try?.starter])]),

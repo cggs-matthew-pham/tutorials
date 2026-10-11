@@ -58,6 +58,10 @@ window.ms_use_server = false;
   document.addEventListener("mousedown", function () { document.getElementById("hint").style.display = "none"; });
 })();
 </script>
+<script>
+// Brython stops at load when the browser reports a locale Intl cannot read (en-US@posix, from a machine with no LANG set).
+try { Intl.getCanonicalLocales(navigator.language); } catch (e) { try { Object.defineProperty(Navigator.prototype, "language", { get: function () { return "en-US"; } }); Object.defineProperty(Navigator.prototype, "languages", { get: function () { return ["en-US"]; } }); } catch (e2) {} }
+</script>
 <script src="vendor/runner.js"></script><script src="vendor/brython.js"></script><script src="vendor/brython_stdlib.js"></script><script src="vendor/microengine.js"></script>
 <script type="text/python">from browser import window
 import traceback
@@ -85,6 +89,7 @@ window.pythonLoaded = function () {
   if (rt && !rt.started) rt.checkStartReady();
   document.body.focus();
 };
-window.addEventListener("load", function () { brython(); });
+// No indexedDB cache: in a frame whose top page has another origin (the clip stage) the cache never opens and Brython waits.
+window.addEventListener("load", function () { brython({ indexedDB: false }); });
 </script>
 </body></html>

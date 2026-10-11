@@ -5,6 +5,25 @@ title: Stars as objects
 summary: "Bring the Star class from Objects with turtles into a game engine: each star moves itself in update() and draws itself in draw(). Change colours and numbers, then add a class of your own."
 language: python
 hook: "Your falling-stars game from the turtle course, rebuilt in a game engine: same class, same methods, smoother and faster."
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-microstudio" 8132
+  url: http://127.0.0.1:8132/edit.html
+  ready: Python game code
+  layout: full
+pacing:
+  keyDelayMs: 12
+explainClip:
+  query: {code: "@game.py#clip", zoom: 1.15}
+  caption: "Each star moves itself and draws itself"
+  clip:
+    - caption: "Each Star keeps its own x, y and speed in self."
+    - wait: 1200
+    - caption: "move() changes this star's y. draw() paints it where it is now."
+    - type: {into: "Python game code", after: "random.randint(5, 15) / 10", text: "\n\n    def move(self):\n        self.y -= self.speed\n        if self.y < -100:\n            self.y = 100\n            self.x = random.randint(-90, 90)\n\n    def draw(self):\n        screen.fillRound(self.x, self.y, 8, 8, \"rgb(255,210,0)\")"}
+    - click: "Run ▶"
+    - expect: {selector: "#status", contains: "Running"}
+    - caption: "update() asks every star to move; draw() asks every star to draw itself."
+    - wait: 3500
 ---
 In **Objects with turtles** each star was an object with its own turtle, speed and `move()` method. A game engine has no turtles, so a star keeps its own position in `self.x` and `self.y`, and gets a `draw()` method that paints it where it is. Everything else is what you already know.
 

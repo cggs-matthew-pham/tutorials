@@ -5,6 +5,27 @@ title: A game loop
 summary: "Every game engine runs your game in a loop: init once, then update and draw about 60 times a second. Make a ball move across the screen in microStudio."
 language: python
 hook: "Every game you have played redraws the whole screen about 60 times a second. Between pictures, the game moves everything a tiny bit."
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-microstudio" 8132
+  url: http://127.0.0.1:8132/edit.html
+  ready: Python game code
+  layout: full
+pacing:
+  keyDelayMs: 12
+explainClip:
+  query: {code: "", zoom: 1.3}
+  caption: "init once, then update and draw 60 times a second"
+  clip:
+    - caption: "init() runs once, when the game starts: x begins at the left."
+    - type: {into: "Python game code", text: "def init():\n    global x\n    x = -100\n\n", append: true}
+    - caption: "update() runs 60 times a second: it moves x a little each time."
+    - type: {into: "Python game code", text: "def update():\n    global x\n    x += 1\n    if x > 100:\n        x = -100\n\n", append: true}
+    - caption: "draw() runs after each update: clear the screen, then draw the dot where x is now."
+    - type: {into: "Python game code", text: "def draw():\n    screen.clear(\"rgb(10,10,40)\")\n    screen.fillRound(x, 0, 10, 10, \"rgb(255,210,0)\")\n", append: true}
+    - click: "Run ▶"
+    - expect: {selector: "#status", contains: "Running"}
+    - caption: "Nobody calls these functions in the code: the engine does, over and over."
+    - wait: 2800
 ---
 **microStudio** is a free game engine that runs in the browser. You write Python there, and it runs your game. These lessons show each game working on this page; you make your own copy on **microstudio.dev**.
 

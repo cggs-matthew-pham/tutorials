@@ -373,6 +373,25 @@ await pictures({
   draw: p5Draw,
 });
 
+// ---- microStudio: what each snippets/microstudio.json example draws (Reference and cheat sheets), from the play-only
+// player in _playground-microstudio, cropped to the game's canvas after a short wait. Own folder: _pictures/microstudio.
+await pictures({
+  name: 'microstudio', dir: join(DIR, 'microstudio'), viewport: { width: 320, height: 200 },
+  base: hashDir('playground-microstudio', 'vendor/microstudio', 'microstudio-v1'),
+  jobs: examples(resolve('snippets', 'microstudio.json'), (c) => c),
+  async draw(page, j) {
+    await page.goto(`http://localhost:${port}/_playground-microstudio/index.html?hint=0&code=${encodeURIComponent(j.code)}`);
+    await page.waitForFunction(() => window.player?.runtime?.started || window.__gameError, null, { timeout: 30000 });
+    await page.waitForTimeout(800);
+    if (await page.evaluate(() => window.__gameError)) return null;
+    const canvas = page.locator('canvas').first();
+    if (!(await canvas.count())) return null;
+    const box = await canvas.boundingBox();
+    const buf = await page.screenshot({ clip: { x: box.x, y: box.y, width: box.width, height: box.height } });
+    return { data: `data:image/png;base64,${buf.toString('base64')}`, w: Math.round(box.width * 2), h: Math.round(box.height * 2), div: 2 };
+  },
+});
+
 // ---- MakeCode blocks: each snippets/microbit.json and snippets/arcade.json block (for the cheat sheets and Reference) and every program a
 // MakeCode lesson shows (decks, worksheets, guides, explainPicture), drawn by MakeCode's own renderer through
 // _playground-makecode/render.html. Needs makecode.microbit.org: offline, nothing is drawn and the pages keep the
