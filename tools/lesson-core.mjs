@@ -24,7 +24,7 @@ export function voiceSpec(v) {
 export const captionText = (v) => (v && typeof v === 'object' ? String(v.text ?? '') : String(v ?? ''));
 export const captionSay = (v) => (v && typeof v === 'object' && v.say !== undefined ? String(v.say) : captionText(v));
 // board: interactive diagrams (balance, machine, graph…); maths is its old name and still works.
-export const PLAYGROUND_KINDS = ['turtle', 'python', 'microstudio', 'p5', 'html', 'board', 'maths', 'microbit', 'arcade', 'science'];
+export const PLAYGROUND_KINDS = ['turtle', 'python', 'microstudio', 'p5', 'dom', 'html', 'board', 'maths', 'microbit', 'arcade', 'science'];
 const isBoard = (pg) => ['board', 'maths', 'science'].includes(pg);
 /** What a board check can expect from a board's report: the board (balance, machine), and the science board (done: the widget's task is finished). Newer boards use when: conditions. */
 export const BOARD_KEYS = ['balanced', 'solved', 'x'];
@@ -183,7 +183,7 @@ export const snippetId = (label) => String(label).toLowerCase().replace(/[^a-z0-
 
 /** Which playground (and so which snippet list) a step's unlocks refer to. */
 // The Python playground (Pyodide) shares the turtle playground's Python snippets, unlocks and code rules.
-export const unlockKind = (lesson, step) => (['python', 'microstudio'].includes(step.config.try?.playground) ? 'turtle' : step.config.try?.playground) || (lesson.language === 'html' ? 'html' : lesson.language === 'javascript' ? 'p5' : lesson.language === 'science' ? 'science' : 'turtle');
+export const unlockKind = (lesson, step) => (['python', 'microstudio'].includes(step.config.try?.playground) ? 'turtle' : step.config.try?.playground === 'dom' ? 'html' : step.config.try?.playground) || (lesson.language === 'html' ? 'html' : lesson.language === 'javascript' ? 'p5' : lesson.language === 'science' ? 'science' : 'turtle');
 
 export const DEFAULT_PACING = {
   typeCps: 55,        // characters per second when code is "typed" into the stage's code panel
@@ -347,7 +347,7 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
     if (v === undefined) return;
     if (typeof v !== 'string' || !v.trim()) return err(where, 'expected must be a code reference, such as page.html#sol-make');
     if (!c.try) return err(where, 'expected needs the step to have a try playground');
-    if ((c.try.playground || (lesson.language === 'html' ? 'html' : 'turtle')) !== (lesson.language === 'javascript' ? 'p5' : 'html')) return err(where, 'expected works in the HTML playground only (for turtle, use an output-only clip: see AUTHORING.md)');
+    if (((c.try.playground === 'dom' ? 'html' : c.try.playground) || (lesson.language === 'html' ? 'html' : 'turtle')) !== (lesson.language === 'javascript' ? 'p5' : 'html')) return err(where, 'expected works in the HTML playground only (for turtle, use an output-only clip: see AUTHORING.md)');
     try { snip(v); } catch (e) { err(where, `expected: ${e.message}`); }
   };
   const err = (where, msg) => errs.push(`${lesson.slug} › ${where}: ${msg}`);
@@ -399,7 +399,7 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
         if (r.count !== undefined && !(r.count && typeof r.count === 'object' && !Array.isArray(r.count) && Object.keys(r.count).length && Object.values(r.count).every((n) => Number.isInteger(n) && n > 0))) err(where, 'code rule count must map a code fragment to a whole number, such as { "basic.show": 3 }');
         if (!Object.keys(r).length) err(where, 'check (code) needs at least one rule');
       }
-      const pk = c.try ? ({ python: 'turtle' }[c.try.playground] || c.try.playground || (lesson.language === 'html' ? 'html' : lesson.language === 'javascript' ? 'p5' : 'turtle')) : null;
+      const pk = c.try ? ({ python: 'turtle', dom: 'html' }[c.try.playground] || c.try.playground || (lesson.language === 'html' ? 'html' : lesson.language === 'javascript' ? 'p5' : 'turtle')) : null;
       if (!pk || !['turtle', 'html', 'p5', ...MAKECODE_KINDS].includes(pk)) err(where, 'a code check needs a playground on the step (try: { starter: ... })');
       else if (r && typeof r === 'object') {
         const allowedR = pk === 'html' ? HTML_RULES : pk === 'p5' ? P5_RULES : MAKECODE_KINDS.includes(pk) ? MAKECODE_RULES : CODE_RULES.filter((x) => !['tags', 'inside', 'count'].includes(x));

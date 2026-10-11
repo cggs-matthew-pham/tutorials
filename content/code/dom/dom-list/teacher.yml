@@ -1,0 +1,43 @@
+summary: "Students make elements with createElement and put them on the page with append, loop over an array to build a list, add items from a box, fix a push that never reaches the page, and add features of their own."
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 15 min"
+goals:
+  - I can make a new element and add it to the page.
+  - I can build a list on the page from an array.
+  - I can make each new element do something when clicked.
+before: |
+  Read the unit primer first. This brings together arrays and loops (p5.js) with the page: the array is data, the list on the page is a picture of it. `createElement` makes an element in memory; `append` is what shows it. `li.remove()` takes one away. The classic slip is changing the array and expecting the page to follow, so the bug has no red error. A listener added to each new li is a closure over `li`: students do not need that word, only that "this li removes itself". Plain `append`, `createElement` and `remove` are enough; we do not use innerHTML on purpose.
+running:
+  - "Predict: ask students to count the loop turns on their fingers."
+  - "Run: ask where the new li came from, and where it went."
+  - "Investigate: for the bug, ask \"what does the page know about the array?\""
+  - "Modify: ask what return does inside a handler."
+  - "Make: ask each student what the elements of their list are, and what each one should do."
+stuck:
+  - see: "Clicking Add changes nothing."
+    ask: "Does the handler make an element and append it?"
+    fix: "Make an li, set its text, then list.append(li)."
+  - see: "Cannot read properties of null (reading append)."
+    ask: "Does the list id match the selector?"
+    fix: "Match the id exactly, with #."
+  - see: "Every item removes at once, or the wrong one."
+    ask: "Is the listener inside the handler, on the new li?"
+    fix: "Add li.addEventListener inside the Add handler, before append."
+  - see: "Empty items still appear."
+    ask: "Is the check before the li is made?"
+    fix: "Put the if and return at the top of the handler."
+stretch: "Add a Clear all button, or keep the items in an array as well, and show how many there are."
+support: "Give the Add handler complete and ask students only for the remove-on-click."
+leads: "Next lesson: a page that keeps a score between clicks."
+exit:
+  q: "What is the difference between createElement and append?"
+  a: "createElement makes the element in memory; append puts it on the page, where people can see it."
+explain: |
+  1. `document.createElement("li")` makes a new element, not yet on the page.
+  2. `li.textContent = …` gives it words; `list.append(li)` puts it on the page.
+  3. Changing an array does not change the page: the page changes when you make or remove elements.
+solutions:
+  step-4#t1: page.html#sol-remove
+  step-4#t2: page.html#sol-notempty
+  step-5: page.html#sol-make
+struggle: "Made is not shown: createElement does nothing visible until append. Ask \"is it on the page yet?\" at every step."

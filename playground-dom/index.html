@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web page and JavaScript playground</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="pg">
+  <section class="pane editor-pane" aria-label="Code">
+    <div class="bar">
+      <span class="title">HTML &amp; JavaScript</span>
+      <button id="run" class="btn primary" type="button" title="Run the page (Ctrl+Enter)">Run ▶</button>
+      <button id="reset" class="btn ghost" type="button">Reset</button>
+    </div>
+    <textarea id="code" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="HTML and JavaScript code" wrap="off"></textarea>
+    <div id="status" role="status" data-state="ready">Ready: press Run</div>
+  </section>
+  <section class="pane preview-pane" aria-label="Page">
+    <div class="stage"><iframe id="preview" title="Page preview" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"></iframe></div>
+    <div id="problem" role="alert" hidden></div>
+    <div class="console-head">Console</div>
+    <pre id="output" aria-label="Console" aria-live="polite"></pre>
+  </section>
+</div>
+<script type="module" src="main.js"></script>
+</body>
+</html>

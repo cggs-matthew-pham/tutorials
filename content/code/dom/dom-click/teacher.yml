@@ -1,0 +1,43 @@
+summary: "Students run a function when a button is clicked with addEventListener, tell handing over a function from running it, fix a listener written with brackets, add a Reset button, and make buttons that change different things."
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can run a function when someone clicks a button.
+  - I can say what the event name and the handler are.
+  - I can give a handler without running it straight away.
+before: |
+  Read the unit primer first. This is the Python events lesson (a handler runs when something happens) in JavaScript, and the same lesson as p5's `mousePressed`, but the page picks the element and the event. `addEventListener("click", start)` hands the browser a function; `start()` calls it now. The bug has no red error, so students must look at the page: it says Go! straight away. Functions were taught in the p5.js course; if students skipped it, spend a minute on "a function is code with a name" first. IDs named like variables (`message`) are fine here because the script uses `const`.
+running:
+  - "Predict: ask what is different between writing a recipe and cooking it."
+  - "Run: ask students to click each button and say which function ran."
+  - "Investigate: for the bug, ask \"when did the heading change, and why then?\""
+  - "Modify: ask where the third button is in the HTML, and where in the script."
+  - "Make: ask each pair which button does what, before they test."
+stuck:
+  - see: "The heading says Go! at once and the button does nothing."
+    ask: "Are there brackets after start in the listener?"
+    fix: "Remove them: addEventListener(\"click\", start)."
+  - see: "Cannot read properties of null (reading addEventListener)."
+    ask: "Does the button id in the HTML match the selector?"
+    fix: "Match the id exactly, with # in the selector."
+  - see: "Nothing happens when I click."
+    ask: "Did you press Run, and is the button inside the page?"
+    fix: "Press Run again; check the id."
+  - see: "The new button does nothing."
+    ask: "Did you add a listener for it?"
+    fix: "Add its listener under the others."
+stretch: "Make one button toggle between two states using a variable, or make a button remove itself with button.remove()."
+support: "Give the whole Reset function and listener, and ask students to change what it says."
+leads: "Next lesson: classes, to change how the whole page looks with one line."
+exit:
+  q: "What is the difference between start and start() in a listener?"
+  a: "start hands the function over to run on each click; start() runs it once, right now."
+explain: |
+  1. `addEventListener("click", start)` says: when this button is clicked, run `start`.
+  2. `start` has no brackets because we hand over the function, not run it.
+  3. The handler changes the page each time the event happens.
+solutions:
+  step-4#t1: page.html#sol-reset
+  step-4#t2: page.html#sol-colour
+  step-5: page.html#sol-make
+struggle: "Brackets: start hands the function over, start() runs it now. The page, not an error, shows the slip."

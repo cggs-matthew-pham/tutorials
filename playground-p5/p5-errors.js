@@ -20,7 +20,7 @@ export function hint(message, code = '', line = null) {
   } else if ((x = m.match(/Assignment to constant variable/))) {
     h = 'A `const` can never change. Use `let` for a variable that changes.';
   } else if ((x = m.match(/^(?:TypeError: )?([\w.]+) is not a function/))) {
-    h = `\`${x[1]}\` is not a function. Check its spelling and capital letters: is it a name p5 has, or a function you wrote?`;
+    h = `\`${x[1]}\` is not a function. Check its spelling and capital letters: is it a name the browser or p5 has, or a function you wrote?`;
   } else if ((x = m.match(/Cannot (?:read|set) propert(?:y|ies) of (undefined|null)(?: \((?:reading|setting) '([^']+)'\))?/))) {
     h = `Something is ${x[1]} where the code expects a thing with \`${x[2] || 'a value'}\`. Check the name before the dot, and that the array or object has been made (and the place number exists).`;
   } else if (/Unexpected identifier/.test(m)) {

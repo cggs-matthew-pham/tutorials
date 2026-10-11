@@ -104,6 +104,16 @@ export function buildP5Playground(out = 'dist') {
   return dest;
 }
 
+/** The web page and JavaScript playground (DOM course): our editor, console and sandbox page; the JavaScript hints are shared with p5 (p5-errors.js). */
+export function buildDomPlayground(out = 'dist') {
+  const dest = join(out, '_playground-dom');
+  rmSync(dest, { recursive: true, force: true });
+  cpSync(join(root, 'playground-dom'), dest, { recursive: true });
+  copyFileSync(join(root, 'playground-p5', 'p5-errors.js'), join(dest, 'p5-errors.js'));
+  stampPlayground(dest);
+  return dest;
+}
+
 /** The HTML & CSS playground has no dependencies: it is copied as is. */
 export function buildHtmlPlayground(out = 'dist') {
   const dest = join(out, '_playground-html');
@@ -207,6 +217,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   console.log('Playground built into ' + buildPlayground(out));
   console.log('HTML playground built into ' + buildHtmlPlayground(out));
   console.log('p5.js playground built into ' + buildP5Playground(out));
+  console.log('Web page and JavaScript playground built into ' + buildDomPlayground(out));
   console.log('Board built into ' + await buildMathsPlayground(out));
   console.log('MakeCode playground built into ' + buildMakecodePlayground(out));
   console.log('Explain stage built into ' + buildExplainStage(out));

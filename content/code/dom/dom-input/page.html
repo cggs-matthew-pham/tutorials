@@ -1,0 +1,101 @@
+<!-- region: predict -->
+<input id="name" placeholder="Your name">
+<button id="greet">Greet</button>
+<p id="out"></p>
+<script>
+  const nameBox = document.querySelector("#name");
+  const out = document.querySelector("#out");
+  document.querySelector("#greet").addEventListener("click", function () {
+    out.textContent = "Hello, " + nameBox.value + "!";
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<textarea id="msg" rows="3" cols="30" placeholder="Type here"></textarea>
+<p><span id="count">0</span> characters</p>
+<script>
+  const msg = document.querySelector("#msg");
+  const count = document.querySelector("#count");
+  msg.addEventListener("input", function () {
+    count.textContent = msg.value.length;
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<input id="a" value="4"> +
+<input id="b" value="5">
+<button id="add">Add</button>
+<p id="sum"></p>
+<script>
+  const a = document.querySelector("#a");
+  const b = document.querySelector("#b");
+  document.querySelector("#add").addEventListener("click", function () {
+    document.querySelector("#sum").textContent = a.value + b.value;
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: sol-add -->
+<input id="a" value="4"> +
+<input id="b" value="5">
+<button id="add">Add</button>
+<p id="sum"></p>
+<script>
+  const a = document.querySelector("#a");
+  const b = document.querySelector("#b");
+  document.querySelector("#add").addEventListener("click", function () {
+    document.querySelector("#sum").textContent = Number(a.value) + Number(b.value);
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: sol-limit -->
+<textarea id="msg" rows="3" cols="30" placeholder="Type here"></textarea>
+<p><span id="count">0</span> characters</p>
+<p id="warning"></p>
+<script>
+  const msg = document.querySelector("#msg");
+  const count = document.querySelector("#count");
+  const warning = document.querySelector("#warning");
+  msg.addEventListener("input", function () {
+    count.textContent = msg.value.length;
+    if (msg.value.length > 20) {
+      warning.textContent = "Too long!";
+      warning.style.color = "red";
+    } else {
+      warning.textContent = "";
+    }
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<h1>My calculator</h1>
+<input id="amount" placeholder="A number">
+<button id="go">Work it out</button>
+<p id="answer"></p>
+<script>
+  // Read the input, turn it into a number with Number(...), work something out, and show it.
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<h1>Tip calculator</h1>
+<input id="amount" placeholder="Bill in dollars">
+<button id="go">Work out a 10% tip</button>
+<p id="answer"></p>
+<script>
+  const amount = document.querySelector("#amount");
+  const answer = document.querySelector("#answer");
+  document.querySelector("#go").addEventListener("click", function () {
+    const bill = Number(amount.value);
+    if (isNaN(bill)) {
+      answer.textContent = "Please type a number.";
+    } else {
+      answer.textContent = "Tip: $" + (bill * 0.1).toFixed(2);
+    }
+  });
+</script>
+<!-- endregion -->

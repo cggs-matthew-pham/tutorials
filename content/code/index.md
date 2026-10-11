@@ -26,7 +26,7 @@ pathways:
     courses:
       - { path: code/html, stage: foundations }
       - { path: code/p5, stage: extensions, after: [code/html] }
-      - { title: "The DOM and the browser console", tagline: "Make a web page react when people click and type.", stage: extensions, summary: "JavaScript that changes a real page when people click and type." }
+      - { path: code/dom, stage: extensions, after: [code/p5] }
       - { path: code/flask, stage: extensions, after: [code/html, code/console] }
   - id: makecode
     title: MakeCode

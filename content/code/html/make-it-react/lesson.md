@@ -5,7 +5,7 @@ optional: true
 title: Make it react
 summary: Add a few lines of JavaScript, as a recipe, so a button changes the page and a form greets people by name.
 language: html
-recipes: [script, js-event, js-query]
+recipes: [script, js-event, js-query, text-content, style-prop]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8133
   url: http://127.0.0.1:8133/index.html

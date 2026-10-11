@@ -1,0 +1,308 @@
+<!-- region: predict -->
+<p id="q">What is 3 + 4?</p>
+<button id="a1">6</button>
+<button id="a2">7</button>
+<p id="result"></p>
+<script>
+  function pick(answer) {
+    const result = document.querySelector("#result");
+    if (answer === 7) {
+      result.textContent = "Correct!";
+    } else {
+      result.textContent = "Try again";
+    }
+  }
+  document.querySelector("#a1").addEventListener("click", function () {
+    pick(6);
+  });
+  document.querySelector("#a2").addEventListener("click", function () {
+    pick(7);
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<h1>Capital cities quiz</h1>
+<p id="question"></p>
+<div id="choices"></div>
+<p id="feedback"></p>
+<p>Score: <span id="score">0</span></p>
+<script>
+  const questions = [
+    { text: "What is the capital of France?", choices: ["Paris", "Rome", "Madrid"], answer: "Paris" },
+    { text: "What is the capital of Japan?", choices: ["Seoul", "Tokyo", "Beijing"], answer: "Tokyo" },
+    { text: "What is the capital of Australia?", choices: ["Sydney", "Canberra", "Perth"], answer: "Canberra" },
+  ];
+  let current = 0;
+  let score = 0;
+  const questionEl = document.querySelector("#question");
+  const choicesEl = document.querySelector("#choices");
+  const feedbackEl = document.querySelector("#feedback");
+  const scoreEl = document.querySelector("#score");
+
+  function showQuestion() {
+    const q = questions[current];
+    questionEl.textContent = q.text;
+    choicesEl.textContent = "";
+    for (const choice of q.choices) {
+      const button = document.createElement("button");
+      button.textContent = choice;
+      button.addEventListener("click", function () {
+        check(choice);
+      });
+      choicesEl.append(button);
+    }
+  }
+
+  function check(choice) {
+    if (choice === questions[current].answer) {
+      score = score + 1;
+      scoreEl.textContent = score;
+      feedbackEl.textContent = "Correct!";
+    } else {
+      feedbackEl.textContent = "Not quite: it was " + questions[current].answer;
+    }
+    current = current + 1;
+    if (current < questions.length) {
+      showQuestion();
+    } else {
+      questionEl.textContent = "Finished! Score: " + score;
+      choicesEl.textContent = "";
+    }
+  }
+
+  showQuestion();
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<p id="question"></p>
+<div id="choices"></div>
+<p id="feedback"></p>
+<script>
+  const questions = [
+    { text: "Capital of France?", choices: ["Paris", "Rome"], answer: "Paris" },
+    { text: "Capital of Japan?", choices: ["Seoul", "Tokyo"], answer: "Tokyo" },
+  ];
+  let current = 0;
+  const questionEl = document.querySelector("#question");
+  const choicesEl = document.querySelector("#choices");
+  const feedbackEl = document.querySelector("#feedback");
+  function showQuestion() {
+    const q = questions[current];
+    questionEl.textContent = q.text;
+    choicesEl.textContent = "";
+    for (const choice of q.choices) {
+      const button = document.createElement("button");
+      button.textContent = choice;
+      button.addEventListener("click", function () {
+        check(choice);
+      });
+      choicesEl.append(button);
+    }
+  }
+  function check(choice) {
+    if (choice = questions[current].answer) {
+      feedbackEl.textContent = "Correct!";
+    } else {
+      feedbackEl.textContent = "Not quite";
+    }
+    current = current + 1;
+    if (current < questions.length) {
+      showQuestion();
+    }
+  }
+  showQuestion();
+</script>
+<!-- endregion -->
+
+<!-- region: sol-colour -->
+<h1>Capital cities quiz</h1>
+<p id="question"></p>
+<div id="choices"></div>
+<p id="feedback"></p>
+<p>Score: <span id="score">0</span></p>
+<script>
+  const questions = [
+    { text: "What is the capital of France?", choices: ["Paris", "Rome", "Madrid"], answer: "Paris" },
+    { text: "What is the capital of Japan?", choices: ["Seoul", "Tokyo", "Beijing"], answer: "Tokyo" },
+    { text: "What is the capital of Australia?", choices: ["Sydney", "Canberra", "Perth"], answer: "Canberra" },
+  ];
+  let current = 0;
+  let score = 0;
+  const questionEl = document.querySelector("#question");
+  const choicesEl = document.querySelector("#choices");
+  const feedbackEl = document.querySelector("#feedback");
+  const scoreEl = document.querySelector("#score");
+
+  function showQuestion() {
+    const q = questions[current];
+    questionEl.textContent = q.text;
+    choicesEl.textContent = "";
+    for (const choice of q.choices) {
+      const button = document.createElement("button");
+      button.textContent = choice;
+      button.addEventListener("click", function () {
+        check(choice);
+      });
+      choicesEl.append(button);
+    }
+  }
+
+  function check(choice) {
+    if (choice === questions[current].answer) {
+      score = score + 1;
+      scoreEl.textContent = score;
+      feedbackEl.textContent = "Correct!";
+      feedbackEl.style.color = "green";
+    } else {
+      feedbackEl.textContent = "Not quite: it was " + questions[current].answer;
+      feedbackEl.style.color = "crimson";
+    }
+    current = current + 1;
+    if (current < questions.length) {
+      showQuestion();
+    } else {
+      questionEl.textContent = "Finished! Score: " + score;
+      choicesEl.textContent = "";
+    }
+  }
+
+  showQuestion();
+</script>
+<!-- endregion -->
+
+<!-- region: sol-total -->
+<h1>Capital cities quiz</h1>
+<p id="question"></p>
+<div id="choices"></div>
+<p id="feedback"></p>
+<p>Score: <span id="score">0</span></p>
+<script>
+  const questions = [
+    { text: "What is the capital of France?", choices: ["Paris", "Rome", "Madrid"], answer: "Paris" },
+    { text: "What is the capital of Japan?", choices: ["Seoul", "Tokyo", "Beijing"], answer: "Tokyo" },
+    { text: "What is the capital of Australia?", choices: ["Sydney", "Canberra", "Perth"], answer: "Canberra" },
+  ];
+  let current = 0;
+  let score = 0;
+  const questionEl = document.querySelector("#question");
+  const choicesEl = document.querySelector("#choices");
+  const feedbackEl = document.querySelector("#feedback");
+  const scoreEl = document.querySelector("#score");
+
+  function showQuestion() {
+    const q = questions[current];
+    questionEl.textContent = q.text;
+    choicesEl.textContent = "";
+    for (const choice of q.choices) {
+      const button = document.createElement("button");
+      button.textContent = choice;
+      button.addEventListener("click", function () {
+        check(choice);
+      });
+      choicesEl.append(button);
+    }
+  }
+
+  function check(choice) {
+    if (choice === questions[current].answer) {
+      score = score + 1;
+      scoreEl.textContent = score;
+      feedbackEl.textContent = "Correct!";
+    } else {
+      feedbackEl.textContent = "Not quite: it was " + questions[current].answer;
+    }
+    current = current + 1;
+    if (current < questions.length) {
+      showQuestion();
+    } else {
+      questionEl.textContent = "Finished! You scored " + score + " of " + questions.length;
+      choicesEl.textContent = "";
+    }
+  }
+
+  showQuestion();
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<h1>My quiz</h1>
+<p id="question"></p>
+<div id="choices"></div>
+<p id="feedback"></p>
+<p>Score: <span id="score">0</span></p>
+<script>
+  // Your own quiz. Make a list of questions, keep the question number and the score
+  // in variables, show a question with buttons for the choices, and check the answer on a click.
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<h1>Space quiz</h1>
+<p id="question"></p>
+<div id="choices"></div>
+<p id="feedback"></p>
+<p>Score: <span id="score">0</span></p>
+<button id="again" class="hidden">Play again</button>
+<style>.hidden { display: none; }</style>
+<script>
+  const questions = [
+    { text: "Which planet is closest to the Sun?", choices: ["Mercury", "Venus", "Mars"], answer: "Mercury" },
+    { text: "What is the Moon?", choices: ["A star", "A moon of Earth", "A planet"], answer: "A moon of Earth" },
+    { text: "Which planet has rings you can see easily?", choices: ["Saturn", "Mars", "Earth"], answer: "Saturn" },
+    { text: "What do we call our galaxy?", choices: ["Andromeda", "The Milky Way", "Orion"], answer: "The Milky Way" },
+    { text: "How many planets orbit the Sun?", choices: ["Eight", "Nine", "Seven"], answer: "Eight" },
+  ];
+  let current = 0;
+  let score = 0;
+  const questionEl = document.querySelector("#question");
+  const choicesEl = document.querySelector("#choices");
+  const feedbackEl = document.querySelector("#feedback");
+  const scoreEl = document.querySelector("#score");
+  const again = document.querySelector("#again");
+
+  function showQuestion() {
+    const q = questions[current];
+    questionEl.textContent = q.text;
+    choicesEl.textContent = "";
+    for (const choice of q.choices) {
+      const button = document.createElement("button");
+      button.textContent = choice;
+      button.addEventListener("click", function () {
+        check(choice);
+      });
+      choicesEl.append(button);
+    }
+  }
+
+  function check(choice) {
+    if (choice === questions[current].answer) {
+      score = score + 1;
+      scoreEl.textContent = score;
+      feedbackEl.textContent = "Correct!";
+    } else {
+      feedbackEl.textContent = "Not quite: it was " + questions[current].answer;
+    }
+    current = current + 1;
+    if (current < questions.length) {
+      showQuestion();
+    } else {
+      questionEl.textContent = "Finished! You scored " + score + " of " + questions.length;
+      choicesEl.textContent = "";
+      again.classList.remove("hidden");
+    }
+  }
+
+  again.addEventListener("click", function () {
+    current = 0;
+    score = 0;
+    scoreEl.textContent = score;
+    feedbackEl.textContent = "";
+    again.classList.add("hidden");
+    showQuestion();
+  });
+
+  showQuestion();
+</script>
+<!-- endregion -->

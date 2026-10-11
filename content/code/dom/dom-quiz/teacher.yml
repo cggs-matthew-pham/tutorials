@@ -1,0 +1,43 @@
+summary: "Students build and extend a quiz page from an array of questions, buttons made for each choice, click handlers, a score and a question number, fix an answer check that is always true, add colour feedback and a total, and make a quiz of their own."
+time: 65
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 25 min"
+goals:
+  - I can build a page that reacts to clicks with data from an array.
+  - I can keep a score and a question number in variables.
+  - I can make a quiz of my own and test it with someone.
+before: |
+  Read the unit primer first. This is the final challenge; it marks "Challenge complete". It mirrors the p5.js and Python challenges: a list of data, a loop, a handler, a score. Everything has been taught; the new part is putting it together. The questions are an array of objects, buttons are made from the choices, `check(choice)` is the handler, `current` and `score` are the only variables that change. The bug is a single `=` in an `if`: no error, every answer is right; the p5 course had `>` where `<` belonged. Quizzes that save results or send them anywhere are out of scope: the playground sends nothing. Large projects belong to the teacher (a unit project, a class quiz bank).
+running:
+  - "Predict: ask what the page says after each click."
+  - "Run: let students play and call out scores."
+  - "Investigate: for the bug, ask \"does one = compare, or put?\""
+  - "Modify: ask which two variables change when a question is answered."
+  - "Make: pairs write their questions on paper first; swap and play before changing."
+stuck:
+  - see: "Every answer is correct."
+    ask: "Does the check use ===?"
+    fix: "Compare with three equal signs."
+  - see: "Cannot read properties of undefined (reading text)."
+    ask: "Has current gone past the end of the array?"
+    fix: "Stop at questions.length before showing the next question."
+  - see: "The buttons pile up."
+    ask: "Is the old choices box emptied first?"
+    fix: "Set choicesEl.textContent = \"\" before making new buttons."
+  - see: "The score is wrong after Play again."
+    ask: "Was the score set back to 0?"
+    fix: "Reset current, score and the text on the page."
+stretch: "Shuffle the questions, add a timer with setInterval, or give harder questions more points using a property on each object."
+support: "Give the whole quiz and ask students to add only questions of their own, then the colour feedback."
+leads: "Optional next lesson: the real browser console. Beyond the course: the Python web apps course, to keep results between visits."
+exit:
+  q: "Which two variables change as the quiz is played?"
+  a: "current, the number of the question on the screen, and score, how many were right."
+explain: |
+  1. The questions are an array of objects: text, choices and answer.
+  2. Buttons are made for each choice; a click calls `check`.
+  3. `current` and `score` are the only memory; the page shows them.
+solutions:
+  step-4#t1: page.html#sol-colour
+  step-4#t2: page.html#sol-total
+  step-5: page.html#sol-make
+struggle: "Where the data lives: the page is built from the array, and only current and score change. Draw those two boxes on the board."

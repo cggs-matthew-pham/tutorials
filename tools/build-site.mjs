@@ -16,7 +16,7 @@ import { lessonPageHtml, tryEmbed, esc, titleCase, page, codeBlock, siteNav, NAV
 import { readFileSync } from 'node:fs';
 import { snippetId, unlockKind, pictureSpec, usesBoardPictures, pictureBoard, makecodePackage, makecodeExtensions, captionText } from './lesson-core.mjs';
 import { loadLessons, validateLesson, getSnippet, loadDirMeta, loadSnippetFiles, loadSharedModules, CONTENT_ROOT } from './lesson.mjs';
-import { buildPlayground, buildPyPlayground, buildMicrostudioPlayground, buildP5Playground, buildHtmlPlayground, buildMathsPlayground, buildSciencePlayground, buildKatex, buildNumbas, buildMakecodePlayground, buildExplainStage } from './build-playground.mjs';
+import { buildPlayground, buildPyPlayground, buildMicrostudioPlayground, buildP5Playground, buildDomPlayground, buildHtmlPlayground, buildMathsPlayground, buildSciencePlayground, buildKatex, buildNumbas, buildMakecodePlayground, buildExplainStage } from './build-playground.mjs';
 import { buildCreate } from './build-create.mjs';
 import { layoutTrail, trailHtml, TRAIL_CSS, trailheadsHtml, TRAILHEADS_CSS } from './trail.mjs';
 import { loadCurriculum, curriculumMapHtml, CMAP_CSS } from './curriculum-map.mjs';
@@ -162,6 +162,7 @@ buildPlayground(OUT);
 buildPyPlayground(OUT);
 buildMicrostudioPlayground(OUT);
 buildP5Playground(OUT);
+buildDomPlayground(OUT);
 buildHtmlPlayground(OUT);
 await buildMathsPlayground(OUT);
 buildSciencePlayground(OUT);
@@ -170,7 +171,7 @@ buildNumbas(OUT);
 buildMakecodePlayground(OUT);
 buildExplainStage(OUT);
 // Each playground's build stamp, added to the iframe URLs so a deploy is picked up at once.
-const VERSIONS = Object.fromEntries(['_playground', '_playground-py', '_playground-microstudio', '_playground-p5', '_playground-html', '_playground-board', '_playground-makecode', '_playground-science'].map((d) => [d, readFileSync(join(OUT, d, 'version.txt'), 'utf8').trim()]));
+const VERSIONS = Object.fromEntries(['_playground', '_playground-py', '_playground-microstudio', '_playground-p5', '_playground-dom', '_playground-html', '_playground-board', '_playground-makecode', '_playground-science'].map((d) => [d, readFileSync(join(OUT, d, 'version.txt'), 'utf8').trim()]));
 buildCreate(OUT);
 
 // Which lesson step unlocks which snippet: the playgrounds lock exactly these until the check is passed.
@@ -215,6 +216,7 @@ const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Pyth
   // The console bridge: the turtle playground with its own saved program; a starter with no turtle opens it in console mode.
   'code/console': { kind: 'turtle', dir: '_playground', label: 'Python console', id: 'free/console', code: 'name = input("What is your name? ")\nprint("Hello, " + name + "!")\n' },
   'code/objects': { kind: 'turtle', dir: '_playground', label: 'Python', id: 'free/objects' },
+  'code/dom': { kind: 'dom', dir: '_playground-dom', label: 'DOM and console', id: 'free/dom', code: '<h1 id="title">Hello</h1>\n<button id="go">Click me</button>\n\n<script>\n  const go = document.querySelector("#go");\n  go.addEventListener("click", function () {\n    document.querySelector("#title").textContent = "Clicked!";\n    console.log("clicked");\n  });\n</script>\n' },
   'code/p5': { kind: 'p5', dir: '_playground-p5', label: 'p5.js', id: 'free/p5', code: 'function setup() {\n  createCanvas(400, 300);\n  background(240);\n  circle(200, 150, 100);\n}\n' },
   'code/flask': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/flask', code: 'from flask import Flask\n\napp = Flask(__name__)\n\n\n@app.route("/")\ndef home():\n    return "<h1>Hello</h1>"\n\n\napp.run()\n' },
   'code/gradio': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/gradio', code: 'import gradio as gr\n\n\ndef shout(text):\n    return text.upper() + "!"\n\n\ngr.Interface(fn=shout, inputs="text", outputs="text").launch()\n' },

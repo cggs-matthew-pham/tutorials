@@ -1,0 +1,137 @@
+<!-- region: predict -->
+<style>
+  body { font-family: system-ui, sans-serif; padding: 16px; }
+  .dark { background: midnightblue; color: white; }
+  .hidden { display: none; }
+  .big { font-size: 48px; }
+</style>
+<h1>Night mode</h1>
+<p>Click the button to switch between light and dark.</p>
+<button id="theme">Switch theme</button>
+<script>
+  const button = document.querySelector("#theme");
+  button.addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<style>
+  body { font-family: system-ui, sans-serif; padding: 16px; }
+  .dark { background: midnightblue; color: white; }
+  .hidden { display: none; }
+  .big { font-size: 48px; }
+</style>
+<h1>Night mode</h1>
+<button id="theme">Switch theme</button>
+<button id="tip-button">Show tip</button>
+<p id="tip" class="hidden">Tip: dark pages are easier on the eyes at night.</p>
+<script>
+  document.querySelector("#theme").addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+  });
+  document.querySelector("#tip-button").addEventListener("click", function () {
+    document.querySelector("#tip").classList.toggle("hidden");
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<style>
+  body { font-family: system-ui, sans-serif; padding: 16px; }
+  .dark { background: midnightblue; color: white; }
+  .hidden { display: none; }
+  .big { font-size: 48px; }
+</style>
+<h1>Night mode</h1>
+<button id="theme">Switch theme</button>
+<script>
+  document.querySelector("#theme").addEventListener("click", function () {
+    document.body.classList.toggle(".dark");
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: sol-big -->
+<style>
+  body { font-family: system-ui, sans-serif; padding: 16px; }
+  .dark { background: midnightblue; color: white; }
+  .hidden { display: none; }
+  .big { font-size: 48px; }
+</style>
+<h1 id="heading">Night mode</h1>
+<button id="theme">Switch theme</button>
+<button id="tip-button">Show tip</button>
+<button id="size">Bigger heading</button>
+<p id="tip" class="hidden">Tip: dark pages are easier on the eyes at night.</p>
+<script>
+  document.querySelector("#theme").addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+  });
+  document.querySelector("#tip-button").addEventListener("click", function () {
+    document.querySelector("#tip").classList.toggle("hidden");
+  });
+  document.querySelector("#size").addEventListener("click", function () {
+    document.querySelector("#heading").classList.toggle("big");
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: sol-two -->
+<style>
+  body { font-family: system-ui, sans-serif; padding: 16px; }
+  .dark { background: midnightblue; color: white; }
+  .hidden { display: none; }
+  .big { font-size: 48px; }
+</style>
+<h1>Night mode</h1>
+<button id="light">Light</button>
+<button id="night">Dark</button>
+<script>
+  document.querySelector("#light").addEventListener("click", function () {
+    document.body.classList.remove("dark");
+  });
+  document.querySelector("#night").addEventListener("click", function () {
+    document.body.classList.add("dark");
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<style>
+  body { font-family: system-ui, sans-serif; padding: 16px; }
+  /* Write a class for each look, then switch it with classList. */
+</style>
+<h1>My themes</h1>
+<button id="theme">Change theme</button>
+<script>
+  // Find the button, then toggle a class on the body or on another element.
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<style>
+  body { font-family: system-ui, sans-serif; padding: 16px; background: lightyellow; }
+  .ocean { background: navy; color: white; }
+  .spaced { letter-spacing: 4px; }
+  .card { padding: 12px; border: 2px solid teal; border-radius: 12px; }
+  .hidden { display: none; }
+</style>
+<h1 class="card">My themes</h1>
+<button id="theme">Ocean theme</button>
+<button id="space">Spaced letters</button>
+<button id="more">Show more</button>
+<p id="extra" class="hidden">Everything here is switched with classList.</p>
+<script>
+  document.querySelector("#theme").addEventListener("click", function () {
+    document.body.classList.toggle("ocean");
+  });
+  document.querySelector("#space").addEventListener("click", function () {
+    document.querySelector("h1").classList.toggle("spaced");
+  });
+  document.querySelector("#more").addEventListener("click", function () {
+    document.querySelector("#extra").classList.toggle("hidden");
+  });
+</script>
+<!-- endregion -->

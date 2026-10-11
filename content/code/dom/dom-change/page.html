@@ -1,0 +1,78 @@
+<!-- region: predict -->
+<h1 id="title">Sports day</h1>
+<p class="note">Bring a hat.</p>
+<script>
+  const title = document.querySelector("#title");
+  title.textContent = "Sports day: moved to Friday";
+  console.log(title.textContent);
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<h1 id="title">Sports day</h1>
+<p class="note">Bring a hat.</p>
+<script>
+  const title = document.querySelector("#title");
+  title.textContent = "Sports day: moved to Friday";
+  const note = document.querySelector(".note");
+  note.textContent = "Bring a hat and water.";
+  note.style.fontStyle = "italic";
+  console.log(title.textContent);
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<h1 id="title">Sports day</h1>
+<p class="note">Bring a hat.</p>
+<script>
+  const title = document.querySelector("#titel");
+  title.textContent = "Sports day: moved to Friday";
+</script>
+<!-- endregion -->
+
+<!-- region: sol-note -->
+<h1 id="title">Sports day</h1>
+<p class="note">Bring a hat.</p>
+<script>
+  const title = document.querySelector("#title");
+  title.textContent = "Sports day: moved to Friday";
+  const note = document.querySelector(".note");
+  note.textContent = "Bring a hat, water and sunscreen.";
+</script>
+<!-- endregion -->
+
+<!-- region: sol-colour -->
+<h1 id="title">Sports day</h1>
+<p class="note">Bring a hat.</p>
+<script>
+  const title = document.querySelector("#title");
+  title.textContent = "Sports day: moved to Friday";
+  title.style.color = "crimson";
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<h1 id="title">My page</h1>
+<p class="note">Change me with JavaScript.</p>
+<p id="extra">Me too.</p>
+<script>
+  // Find each element, then change its text, colour or size.
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<h1 id="title">My page</h1>
+<p class="note">Change me with JavaScript.</p>
+<p id="extra">Me too.</p>
+<script>
+  const title = document.querySelector("#title");
+  title.textContent = "Welcome to my page";
+  title.style.color = "teal";
+  const note = document.querySelector(".note");
+  note.textContent = "Written by JavaScript.";
+  note.style.fontSize = "24px";
+  const extra = document.querySelector("#extra");
+  extra.textContent = "Me too, in a different colour.";
+  extra.style.color = "darkorange";
+</script>
+<!-- endregion -->

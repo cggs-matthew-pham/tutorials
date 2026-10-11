@@ -1,0 +1,43 @@
+summary: "Students find an element with querySelector, change its text and colour from JavaScript, read console.log in the Console, meet null from a mistyped selector, and change three elements on a page of their own."
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can find an element on a page with JavaScript.
+  - I can change its text and its colour.
+  - I can read the Console to see what my code did.
+before: |
+  Read the unit primer first. Students know HTML and CSS (and, from p5.js, variables and functions); this is the first time JavaScript meets a page. `document.querySelector` takes a CSS-style selector as text: `#id`, `.class`, or a tag. `textContent` is the words, `style.color` and `style.fontSize` the look. The script sits below the elements it finds: it runs when the browser reaches it. The bug task is the most common slip of the whole course: a selector that matches nothing returns `null`, and the error appears on the next line. The playground says so in its hint. Our playground runs the whole page again each time you press Run, so changes made by the script always start from the HTML.
+running:
+  - "Predict: ask what the page looks like before the script runs, and after."
+  - "Run: point out the Console under the page and where the message came from."
+  - "Investigate: for the bug, ask 'what does querySelector give you when it finds nothing?'"
+  - "Modify: ask students to say the selector aloud: 'hash for id, dot for class'."
+  - "Make: ask each student which element they found first and how they knew its selector."
+stuck:
+  - see: "Cannot set properties of null."
+    ask: Does the selector match the id or class exactly, with # or a dot?
+    fix: Copy the id or class from the HTML, and add # for an id or a dot for a class.
+  - see: "Nothing changes, and there is no error."
+    ask: Did you press Run, and is the change on a line after the selector?
+    fix: Press Run again, and check the line that changes the element is inside the script.
+  - see: "The colour or size does not change."
+    ask: Is the value in quotes and spelled as CSS spells it?
+    fix: "Write el.style.color = \"red\"; and el.style.fontSize = \"24px\"; (capital S in fontSize)."
+  - see: "The page shows the script as text."
+    ask: Is the code inside <script> and </script>?
+    fix: Wrap the JavaScript in script tags.
+stretch: Change the page title in the browser tab with document.title, or change an element's background with style.backgroundColor.
+support: Give the first two lines (find, then change) and ask students to copy the pattern for each other element.
+leads: "Next lesson: events, so the change happens when someone clicks."
+exit:
+  q: "What does querySelector give you if nothing matches?"
+  a: "null, which has no textContent: that is why the next line fails."
+explain: |
+  1. `document.querySelector("#title")` finds the element with id title (`.` for a class).
+  2. `title.textContent = "…"` replaces its words; `title.style.color = "…"` changes its colour.
+  3. A script runs when the browser reaches it, so it goes below the elements it uses.
+solutions:
+  step-4#t1: page.html#sol-note
+  step-4#t2: page.html#sol-colour
+  step-5: page.html#sol-make
+struggle: "The selector is text and a typo gives null, with the error one line later. Teach 'null means check the selector' before anything else."

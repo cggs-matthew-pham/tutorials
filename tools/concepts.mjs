@@ -220,6 +220,13 @@ export const CONCEPTS = {
     { id: 'position', label: 'positioning (position, top, left)', raw: true, re: prop('position|z-index') },
     { id: 'media-query', label: 'screen-size rules (@media)', raw: true, re: /@media\b/ },
     { id: 'js-event', label: 'JavaScript events (addEventListener)', re: /addEventListener\s*\(/ },
+    { id: 'text-content', label: 'changing text (textContent)', re: /\.(textContent|innerText)\b/ },
+    { id: 'style-prop', label: 'changing style from JavaScript (el.style.color = …)', re: /\.style\.\w+\s*=/ },
+    { id: 'class-list', label: 'classList (add, remove, toggle)', re: /\.classList\./ },
+    { id: 'input-value', label: 'reading an input (.value)', re: /\.value\b/ },
+    { id: 'console-log', label: 'console.log', re: /console\.(log|warn|error)\s*\(/ },
+    { id: 'create-element', label: 'making an element (createElement)', re: /createElement\s*\(/ },
+    { id: 'append-element', label: 'adding to the page (append, remove)', re: /\.(append|appendChild|prepend|remove)\s*\(/ },
     { id: 'js-query', label: 'JavaScript finding an element (querySelector, getElementById)', re: /querySelector(All)?\s*\(|getElementById\s*\(/ },
   ],
   /** JavaScript for p5.js (content/code/p5). Code has comments removed and string contents emptied. p5's own hooks

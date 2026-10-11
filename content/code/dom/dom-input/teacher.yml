@@ -1,0 +1,43 @@
+summary: "Students read an input with .value, react as they type with the input event, find that values are text and use Number() to add, and make a calculator or converter of their own."
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can read what someone types with .value.
+  - I can react on every keystroke with the input event.
+  - I can turn typed text into a number with Number().
+before: |
+  Read the unit primer first. This is the Python input() lesson with a twist: there is no program waiting, so the page reacts to an event. `input` fires on every keystroke; `click` on a button reads the box once. The big idea is that `.value` is always text, as `input()` was in Python: the same `"45"` surprise. The bug has no red error, so students must read the answer. `Number("abc")` is `NaN`; `isNaN(x)` checks for it, used in the Make example. The playground cannot send a form, on purpose: use a button and an event, not a `<form>`.
+running:
+  - "Predict: ask when the value is read."
+  - "Run: ask students to type quickly and say when the number changes."
+  - "Investigate: ask what + does to two pieces of text."
+  - "Modify: ask what Number(\"5\") gives, and what Number(\"hello\") gives."
+  - "Make: ask each student what could go wrong if someone types words."
+stuck:
+  - see: "The sum shows 45, or the text joined."
+    ask: "Is the value turned into a number first?"
+    fix: "Wrap each value: Number(a.value)."
+  - see: "Cannot read properties of null (reading value)."
+    ask: "Does the input id match the selector?"
+    fix: "Match the id exactly, with #."
+  - see: "The box seems to do nothing."
+    ask: "Is the listener on the box or the button, and is it the right event?"
+    fix: "Use \"input\" on the box, or \"click\" on the button."
+  - see: "NaN is shown."
+    ask: "Was the box empty or full of words?"
+    fix: "Check with isNaN and show a friendly message."
+stretch: "Make the result appear live, with no button at all, using the input event on each box."
+support: "Give the greeting page and ask students to change only the words, then add a second box."
+leads: "Next lesson: lists of elements: making new elements and adding them to the page."
+exit:
+  q: "Why is \"4\" + \"5\" equal to \"45\"?"
+  a: "The value of an input is text, and + joins text. Number() turns it into a number first."
+explain: |
+  1. `box.value` is the text typed in the box right now.
+  2. The `"input"` event runs your function on every keystroke.
+  3. A value is always text: use `Number(box.value)` for sums.
+solutions:
+  step-4#t1: page.html#sol-add
+  step-4#t2: page.html#sol-limit
+  step-5: page.html#sol-make
+struggle: "Text versus number: \"4\" + \"5\" is \"45\". Show the page, ask what + does to text, and only then show Number()."

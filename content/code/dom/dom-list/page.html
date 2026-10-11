@@ -1,0 +1,121 @@
+<!-- region: predict -->
+<ul id="list"></ul>
+<script>
+  const items = ["apples", "bread", "milk"];
+  const list = document.querySelector("#list");
+  for (const item of items) {
+    const li = document.createElement("li");
+    li.textContent = item;
+    list.append(li);
+  }
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<input id="item" placeholder="Add an item">
+<button id="add">Add</button>
+<ul id="list"></ul>
+<script>
+  const input = document.querySelector("#item");
+  const list = document.querySelector("#list");
+  document.querySelector("#add").addEventListener("click", function () {
+    const li = document.createElement("li");
+    li.textContent = input.value;
+    list.append(li);
+    input.value = "";
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<input id="item" placeholder="Add an item">
+<button id="add">Add</button>
+<ul id="list"></ul>
+<script>
+  const items = [];
+  const input = document.querySelector("#item");
+  document.querySelector("#add").addEventListener("click", function () {
+    items.push(input.value);
+    input.value = "";
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: sol-remove -->
+<input id="item" placeholder="Add an item">
+<button id="add">Add</button>
+<ul id="list"></ul>
+<script>
+  const input = document.querySelector("#item");
+  const list = document.querySelector("#list");
+  document.querySelector("#add").addEventListener("click", function () {
+    const li = document.createElement("li");
+    li.textContent = input.value;
+    li.addEventListener("click", function () {
+      li.remove();
+    });
+    list.append(li);
+    input.value = "";
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: sol-notempty -->
+<input id="item" placeholder="Add an item">
+<button id="add">Add</button>
+<ul id="list"></ul>
+<script>
+  const input = document.querySelector("#item");
+  const list = document.querySelector("#list");
+  document.querySelector("#add").addEventListener("click", function () {
+    if (input.value === "") {
+      return;
+    }
+    const li = document.createElement("li");
+    li.textContent = input.value;
+    list.append(li);
+    input.value = "";
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<h1>My list</h1>
+<input id="item" placeholder="Add something">
+<button id="add">Add</button>
+<ul id="list"></ul>
+<script>
+  // Make a list of your own: shopping, jobs, scores, favourite songs.
+  // Each click: make an element, give it text, add it to the list.
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<h1>Homework tracker</h1>
+<input id="item" placeholder="A task">
+<button id="add">Add task</button>
+<ul id="list"></ul>
+<p><span id="left">0</span> tasks left</p>
+<script>
+  const input = document.querySelector("#item");
+  const list = document.querySelector("#list");
+  const left = document.querySelector("#left");
+  let remaining = 0;
+  document.querySelector("#add").addEventListener("click", function () {
+    if (input.value === "") {
+      return;
+    }
+    const li = document.createElement("li");
+    li.textContent = input.value;
+    li.addEventListener("click", function () {
+      li.remove();
+      remaining = remaining - 1;
+      left.textContent = remaining;
+    });
+    list.append(li);
+    remaining = remaining + 1;
+    left.textContent = remaining;
+    input.value = "";
+  });
+</script>
+<!-- endregion -->

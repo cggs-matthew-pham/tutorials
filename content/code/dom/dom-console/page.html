@@ -1,0 +1,76 @@
+<!-- region: predict -->
+<p id="demo">Hello</p>
+<script>
+  const demo = document.querySelector("#demo");
+  console.log("The text is:", demo.textContent);
+  console.log("The length is", demo.textContent.length);
+  console.warn("Careful!");
+  console.error("Something is wrong");
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<h1>Sports day</h1>
+<p>Bring a hat.</p>
+<p>Bring water.</p>
+<script>
+  const heading = document.querySelector("h1");
+  console.log("Heading:", heading.textContent);
+  const paragraph = document.querySelector("p");
+  console.log("First paragraph:", paragraph.textContent);
+  console.log("Is it a paragraph?", paragraph.tagName);
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<p id="demo">Hello</p>
+<script>
+  const demo = document.querySelector("#demo");
+  let count = 0;
+  count = count + 1;
+  console.log("Count is", cout);
+</script>
+<!-- endregion -->
+
+<!-- region: sol-count -->
+<h1>Sports day</h1>
+<p>Bring a hat.</p>
+<p>Bring water.</p>
+<script>
+  const paragraphs = document.querySelectorAll("p");
+  console.log("Paragraphs on the page:", paragraphs.length);
+</script>
+<!-- endregion -->
+
+<!-- region: sol-loop -->
+<h1>Sports day</h1>
+<p>Bring a hat.</p>
+<p>Bring water.</p>
+<script>
+  const paragraphs = document.querySelectorAll("p");
+  for (const p of paragraphs) {
+    console.log(p.textContent);
+  }
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<h1>Explore me</h1>
+<p>One paragraph.</p>
+<p class="note">Another, with a class.</p>
+<script>
+  // Use console.log to find out things about this page.
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<h1>Explore me</h1>
+<p>One paragraph.</p>
+<p class="note">Another, with a class.</p>
+<script>
+  console.log("Title:", document.querySelector("h1").textContent);
+  console.log("Paragraphs:", document.querySelectorAll("p").length);
+  console.log("Notes:", document.querySelectorAll(".note").length);
+  console.log("The note says:", document.querySelector(".note").textContent);
+</script>
+<!-- endregion -->

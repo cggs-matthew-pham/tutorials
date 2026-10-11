@@ -761,6 +761,7 @@ export const PLAYGROUNDS = {
   python: { dir: '_playground-py', title: 'Python playground' },
   microstudio: { dir: '_playground-microstudio', title: 'Example game (play only)', height: 400 },
   p5: { dir: '_playground-p5', title: 'p5.js playground' },
+  dom: { dir: '_playground-dom', title: 'Web page and JavaScript playground' },
   html: { dir: '_playground-html', title: 'HTML and CSS playground' },
   board: { dir: '_playground-board', title: 'Board' },
   maths: { dir: '_playground-board', title: 'Board' },

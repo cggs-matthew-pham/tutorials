@@ -1,0 +1,43 @@
+summary: "Students keep a count in a variable made above a click handler, show it on the page, win at ten with an if, find a variable made inside the handler that starts over, and make a clicker game of their own."
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can keep a number between clicks in a variable.
+  - I can show a changing number on the page.
+  - I can use an if inside a handler to decide when something happens.
+before: |
+  Read the unit primer first. This is the Python "global" and state idea in JavaScript: a variable made above a function is shared and kept; one made inside is made again each call. The p5 sketches kept values in `let` above `draw`; here the handler plays the part of `draw`. The page is only a picture of the variable: change the variable, then put it on the page. The bug has no red error. `button.disabled = true` is a property like `textContent`. The Make example uses `setInterval` (run a function every 1000 ms) and `clearInterval`; students can use it as a recipe, and a number of them will want it.
+running:
+  - "Predict: ask students to say \"made once\" or \"made each click\" about clicks."
+  - "Run: ask where the number on the page comes from."
+  - "Investigate: for the bug, ask \"how many times is let clicks run?\""
+  - "Modify: ask what a reset must put back."
+  - "Make: ask each student what the score is, what the goal is, and what happens at the end."
+stuck:
+  - see: "The count stays at 1."
+    ask: "Is the variable made inside the handler?"
+    fix: "Move let clicks = 0 above the handler."
+  - see: "The count is right but the page does not change."
+    ask: "Is the new value put on the page?"
+    fix: "Set countEl.textContent = clicks after changing clicks."
+  - see: "Reset does not fully reset."
+    ask: "What else did the game change besides clicks?"
+    fix: "Put back the message and enable the button."
+  - see: "Cannot assign to a const."
+    ask: "Is the variable made with const and then changed?"
+    fix: "Use let for a variable that changes."
+stretch: "Make the goal change each game (a random target), or keep a best score that survives a reset."
+support: "Give the counter and ask students for only the win message."
+leads: "Next lesson: the final challenge, a quiz page."
+exit:
+  q: "Why is let clicks above the handler and not inside it?"
+  a: "Above, it is made once and keeps its value; inside, it would start over on every click."
+explain: |
+  1. A variable made above the handler keeps its value between clicks.
+  2. Change the variable first, then put it on the page with `textContent`.
+  3. An `if` in the handler decides when something happens.
+solutions:
+  step-4#t1: page.html#sol-reset
+  step-4#t2: page.html#sol-great
+  step-5: page.html#sol-make
+struggle: "The page shows the variable; it is not the variable. Ask \"what does the page know about clicks?\" and the answer is nothing."

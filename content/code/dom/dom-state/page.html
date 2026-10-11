@@ -1,0 +1,136 @@
+<!-- region: predict -->
+<p>Clicks: <span id="count">0</span></p>
+<button id="click">Click me</button>
+<script>
+  let clicks = 0;
+  const countEl = document.querySelector("#count");
+  document.querySelector("#click").addEventListener("click", function () {
+    clicks = clicks + 1;
+    countEl.textContent = clicks;
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: run -->
+<p>Clicks: <span id="count">0</span></p>
+<button id="click">Click me</button>
+<p id="message">Reach 10 clicks to win.</p>
+<script>
+  let clicks = 0;
+  const countEl = document.querySelector("#count");
+  const message = document.querySelector("#message");
+  const button = document.querySelector("#click");
+  button.addEventListener("click", function () {
+    clicks = clicks + 1;
+    countEl.textContent = clicks;
+    if (clicks >= 10) {
+      message.textContent = "You win!";
+      button.disabled = true;
+    }
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: bug -->
+<p>Clicks: <span id="count">0</span></p>
+<button id="click">Click me</button>
+<script>
+  const countEl = document.querySelector("#count");
+  document.querySelector("#click").addEventListener("click", function () {
+    let clicks = 0;
+    clicks = clicks + 1;
+    countEl.textContent = clicks;
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: sol-reset -->
+<p>Clicks: <span id="count">0</span></p>
+<button id="click">Click me</button>
+<button id="reset">Reset</button>
+<p id="message">Reach 10 clicks to win.</p>
+<script>
+  let clicks = 0;
+  const countEl = document.querySelector("#count");
+  const message = document.querySelector("#message");
+  const button = document.querySelector("#click");
+  button.addEventListener("click", function () {
+    clicks = clicks + 1;
+    countEl.textContent = clicks;
+    if (clicks >= 10) {
+      message.textContent = "You win!";
+      button.disabled = true;
+    }
+  });
+  document.querySelector("#reset").addEventListener("click", function () {
+    clicks = 0;
+    countEl.textContent = clicks;
+    message.textContent = "Reach 10 clicks to win.";
+    button.disabled = false;
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: sol-great -->
+<p>Clicks: <span id="count">0</span></p>
+<button id="click">Click me</button>
+<p id="message">Reach 10 clicks to win.</p>
+<script>
+  let clicks = 0;
+  const countEl = document.querySelector("#count");
+  const message = document.querySelector("#message");
+  const button = document.querySelector("#click");
+  button.addEventListener("click", function () {
+    clicks = clicks + 1;
+    countEl.textContent = clicks;
+    if (clicks === 5) {
+      message.textContent = "Halfway there!";
+    }
+    if (clicks >= 10) {
+      message.textContent = "You win!";
+      button.disabled = true;
+    }
+  });
+</script>
+<!-- endregion -->
+
+<!-- region: make -->
+<h1>My clicker game</h1>
+<p>Score: <span id="score">0</span></p>
+<button id="play">Play</button>
+<p id="message"></p>
+<script>
+  // A score that keeps its value, a goal, and a message when you win or lose.
+</script>
+<!-- endregion -->
+
+<!-- region: sol-make -->
+<h1>Catch the star</h1>
+<p>Score: <span id="score">0</span> &nbsp; Time: <span id="time">10</span></p>
+<button id="star" style="position: relative; left: 40px">&#9733;</button>
+<p id="message">Click the star as fast as you can.</p>
+<script>
+  let score = 0;
+  let time = 10;
+  const scoreEl = document.querySelector("#score");
+  const timeEl = document.querySelector("#time");
+  const star = document.querySelector("#star");
+  const message = document.querySelector("#message");
+  star.addEventListener("click", function () {
+    if (time <= 0) {
+      return;
+    }
+    score = score + 1;
+    scoreEl.textContent = score;
+    star.style.left = Math.floor(Math.random() * 300) + "px";
+  });
+  const timer = setInterval(function () {
+    time = time - 1;
+    timeEl.textContent = time;
+    if (time <= 0) {
+      clearInterval(timer);
+      message.textContent = "Time is up! You scored " + score + ".";
+    }
+  }, 1000);
+</script>
+<!-- endregion -->

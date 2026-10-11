@@ -1,0 +1,43 @@
+summary: "Students switch CSS classes with classList.toggle, add and remove, hide and show a tip with a hidden class, fix a classList call written with a dot, and make a themed page of their own."
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can switch a class on and off with classList.
+  - I can write a CSS class and use JavaScript to decide when it applies.
+  - I can show and hide something with a class.
+before: |
+  Read the unit primer first. This ties the CSS lessons to JavaScript: the look is in `<style>`, the script only flips a class. `classList.toggle("dark")` on `document.body` applies a rule to the whole page. The classic slip is `classList.toggle(".dark")`: no error, no change. The bug task is a logic bug, so students must click the button and notice nothing happens. Hiding with a `.hidden { display: none }` class is the pattern behind menus, tabs and tips; make the link to "display" from the CSS course.
+running:
+  - "Predict: ask where the colour of the dark page is written."
+  - "Run: ask students to click each button twice and say what toggle does."
+  - "Investigate: for the bug, ask \"is it the CSS or the script, and how can you tell?\""
+  - "Modify: ask which element gets the class in each case."
+  - "Make: ask each student to list their classes before writing the buttons."
+stuck:
+  - see: "Clicking does nothing and there is no error."
+    ask: "Does the class name in classList have a dot?"
+    fix: "Remove the dot: toggle(\"dark\")."
+  - see: "The class is added but nothing changes."
+    ask: "Does the CSS have a rule for exactly that class name?"
+    fix: "Check the spelling of the rule and the class."
+  - see: "Cannot read properties of null."
+    ask: "Does the id in the selector match the HTML?"
+    fix: "Match the id, with a #."
+  - see: "It changes the wrong thing."
+    ask: "Which element did you call classList on?"
+    fix: "Check the selector, and use document.body for the whole page."
+stretch: "Remember the theme with a second class for each choice, or make a button that cycles through three themes using a variable."
+support: "Give the CSS classes ready-made and ask students to write only the buttons and listeners."
+leads: "Next lesson: inputs, reading what someone types."
+exit:
+  q: "Why does classList.toggle(\"dark\") have no dot?"
+  a: "classList takes the class name, not a CSS selector: the dot is only for CSS rules and querySelector."
+explain: |
+  1. A class in the CSS (`.dark`) says how something looks.
+  2. `classList.toggle("dark")` adds that class if it is missing and removes it if it is there.
+  3. In classList the name has no dot.
+solutions:
+  step-4#t1: page.html#sol-big
+  step-4#t2: page.html#sol-two
+  step-5: page.html#sol-make
+struggle: "The dot: the CSS rule is .dark but the class name is dark. The page does nothing and says nothing."
