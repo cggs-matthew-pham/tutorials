@@ -163,7 +163,28 @@ Maths and science have recap pages (`recap: true`, roadmap/shared.md). For code,
 
 A brief that needs two courses belongs to the later one. Why not a pathway page alone: the "You'll use" chips link to course recap cards, and one long page would mix briefs for students at very different points.
 
-Still to decide: how a brief is written (a `projects.yml` per pathway, or Markdown), and whether project progress counts towards anything.
+**A project is a self-assessed achievement (discussed 12 Oct).**
+- **Milestones.** The student ticks them ("it runs", "it does the goal", "I added my own idea"); nothing is marked.
+- **Evidence chips.** Worked out from the code by the concept scan: "You built it with: functions with parameters · a list · an `if` inside a loop". A brief lists only 3 or 4 skills. The wording is "you used", never "you still need", so students aren't pushed to cram in constructs.
+- **A short reflection,** such as "the hardest part was…".
+- **A badge,** kept apart from lesson progress (it shows on the course page and the trail, not in "Done").
+- **A "Show your teacher" card** (badge, skills, reflection, Download), because progress is per browser.
+
+**No new playground features.** Every playground already reports its code to the page. The page embeds the course's playground as a step and runs `conceptsIn(code, language)` on each report. That function moves into a pure `concepts-core.mjs` the build copies to the site, as `python-errors.mjs` is. One thing to check: a Python project with modules must report every tab. These are shared changes (`build-site`, `lesson-view`, the scanner split), so they get a roadmap/shared.md proposal before building.
+
+**Crossovers (later, a small set).** For example, a micro:bit and a web page:
+- one page, a playground per part, chips combined
+- lives in the course after both halves (micro:bit and the computer), and shows on both trails
+- needs a small `microbit.js` helper in `media/` (`connect()`, `onLine()`), labelled as a recipe
+- the sandboxed preview probably can't use Web Serial, so the real version is downloaded and opened in Chrome (`tier: typical`), and a "pretend micro:bit" button sends lines in the playground
+
+Still to decide:
+- The brief format: `projects.yml` per course, or Markdown files in `projects/`.
+- Whether a badge counts towards anything (proposed: no; it is its own achievement).
+- Which briefs come first (Python and Web), and who writes them.
+- Whether recap waits for the exit-question check or both ship together.
+- Who sees the reflection: kept only in the browser, or also on the Show your teacher card.
+- Whether the Web Serial helper is worth building before a crossover brief exists.
 
 ## Proposed (12 Oct 2026, Matthew agreed the direction; not built): Web pathway after the DOM
 
