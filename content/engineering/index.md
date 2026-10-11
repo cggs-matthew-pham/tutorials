@@ -19,7 +19,7 @@ pathways:
     courses:
       - { path: engineering/circuits, id: circuits, stage: foundations, tagline: "Wire an LED, a button and a sensor." }
       - { path: engineering/arduino, id: arduino, stage: foundations, after: [circuits], tagline: "From blocks to C++ on a real board." }
-      - { title: Power and motors, id: power, stage: extensions, after: [arduino], summary: "Why a pin can't run a motor, motor drivers, two supplies and one ground, choosing a battery, LiPo safety.", tagline: "Make it move." }
+      - { path: engineering/power, id: power, stage: extensions, after: [arduino], tagline: "Make it move." }
   - id: cad
     title: CAD and fabrication
     summary: Design parts to size in Tinkercad and Onshape, then 3D print or laser cut them.

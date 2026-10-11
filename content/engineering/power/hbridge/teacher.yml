@@ -1,0 +1,29 @@
+summary: Students drive a motor through an H-bridge driver, using two direction inputs and a PWM enable, read the three signals in a sketch, find a PWM signal on the wrong pin, and compare braking with coasting.
+time: 40
+timing: "Predict and Try 6 min · Worked example 9 min · Vary 5 min · Tinkercad 12 min · Practise and Make 8 min"
+goals:
+  - I can make a motor go forwards, backwards and stop with a driver.
+  - I can set a motor's speed with PWM on the enable pin.
+struggle: "Students try a negative speed for backwards. Keep the truth table on the board."
+before: |
+  Model: an L293D-style driver with its own motor battery; IN1/IN2 HIGH-LOW forwards, LOW-HIGH backwards, both the same stops (both HIGH brakes), ENA 0–255 sets speed. Many driver boards tie ENA HIGH with a jumper: remove it to use PWM.
+
+  The L293D drops about 1.5–2 V; the TB6612 much less. The Robotics challenges (Cutebot) hide the same driver behind MakeCode blocks.
+running:
+  - "Predict: ask what 'minus speed' would mean to a PWM signal."
+  - "Find the mistake: ask which pins have a ~."
+stuck:
+  - see: "The motor won't go backwards."
+    ask: "Which input is HIGH?"
+    fix: "Swap IN1 and IN2."
+stretch: "Write a function drive(int speed) that goes forwards for positive speeds and backwards for negative ones."
+support: "A printed truth table beside the board."
+leads: |
+  Next: Two supplies, one ground.
+exit:
+  q: "Write the three lines that make a motor (IN1 on 8, IN2 on 7, ENA on 9) go forwards at full speed."
+  a: "digitalWrite(8, HIGH); digitalWrite(7, LOW); analogWrite(9, 255);"
+explain: |
+  A **motor driver** (an **H-bridge**) can send the battery's current through the motor either way. Two pins set the direction: IN1 HIGH and IN2 LOW is forwards, swapped is backwards, the same stops it (both HIGH brakes). A third, PWM pin on **ENA** sets the speed with `analogWrite` (0–255). Two jobs, two kinds of signal.
+sources:
+  - { title: "Texas Instruments L293D datasheet (link)", url: "https://www.ti.com/product/L293D", checked: 2026-10-12 }

@@ -1,0 +1,8 @@
+# Sam's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The LED worked on pin 9, so the motor will too.
+digitalWrite(9, HIGH) switches the motor on.
+The motor doesn't turn, so the code must be wrong.
+Sam rewrites the code three times.
+# endregion

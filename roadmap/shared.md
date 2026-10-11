@@ -392,3 +392,4 @@ One block per playground. Course status is in `code.md`.
 - Later the same day: new board widget `circuit` (`playground-board/widgets/circuit.js`, registered in `index.html`, styles at the end of `style.css`); `core.js` unchanged. `misconceptions.json`: four entries for the circuits course.
 - Later again: new board widget `arduino` (`playground-board/widgets/arduino.js`, registered in `index.html`, styles at the end of `style.css`); `core.js` unchanged. `misconceptions.json`: six entries for the Arduino course.
 - Engineering again: new board widget `breadboard` (`playground-board/widgets/breadboard.js`, registered in `index.html`, styles in `style.css`); the `arduino` widget gained `test:` cases (an addition). `misconceptions.json`: three entries.
+- Engineering: new board widget `motor` (`playground-board/widgets/motor.js`, registered in `index.html`, styles in `style.css`). `misconceptions.json`: four entries.

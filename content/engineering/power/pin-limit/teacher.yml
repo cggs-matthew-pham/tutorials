@@ -1,0 +1,32 @@
+summary: Students try a motor straight on pin 9, compare the 700 mA it asks for with the 20 mA a pin gives, follow the two currents in a transistor circuit, see and fix the switch-off spike with a diode, and sort parts by whether a pin can drive them.
+time: 40
+timing: "Predict and Try 5 min · Worked example 8 min · Vary 6 min · Tinkercad 12 min · Practise and Make 9 min"
+goals:
+  - I can explain why a pin can't run a motor.
+  - I can describe how a transistor lets a pin switch a motor.
+  - I can say what a flyback diode is for.
+struggle: "Students reach for the code first. Make 'power before code' the rule of the unit."
+before: |
+  Model: Uno pin 20 mA recommended, 40 mA absolute maximum; motor 150 mA running, 700 mA starting (a small 6 V TT gear motor; check your kit's datasheet). In reality a pin asked for more sags and can be damaged; the board shows the current asked for.
+
+  Safety: never wire a motor straight to a pin on real hardware. Unit 4 (this course) is Years 9–10.
+running:
+  - "Predict: ask what is different about a motor and an LED, apart from what it does."
+  - "Worked example: trace both loops in two colours."
+  - "Vary: the spike is invisible on real hardware until something dies; say so."
+stuck:
+  - see: "A student rewrites the code."
+    ask: "How much current does the motor need, and how much can the pin give?"
+    fix: "Use a transistor or driver."
+stretch: "A MOSFET (such as the IRLZ44N) can switch several amps with almost no gate current. Why would that suit a bigger motor?"
+support: "A two-column card: signal (pin, mA) and power (battery, hundreds of mA)."
+leads: |
+  Next: Motor drivers (both directions and speed).
+exit:
+  q: "Why can't you run a motor from an Arduino pin, and what do you use instead?"
+  a: "A pin gives about 20 mA and a motor needs hundreds. The pin switches a transistor or motor driver, which switches the motor's own battery."
+explain: |
+  **A pin is a signal, not a power supply.** It can give about 20 mA (40 at most), and a small motor needs about 150 mA turning and 700 mA starting. So the pin switches a **transistor**, and the transistor switches the motor's own **battery**. A motor is a coil: switching it off makes a voltage spike, so a **diode** across it gives the spike a safe path.
+sources:
+  - { title: "Arduino: digital pins (current limits; link)", url: "https://docs.arduino.cc/learn/microcontrollers/digital-pins/", checked: 2026-10-12 }
+  - { title: "SparkFun Inventor's Kit v4.1, motor circuits (benchmark; CC BY-SA 4.0)", url: "https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v41", checked: 2026-10-12 }

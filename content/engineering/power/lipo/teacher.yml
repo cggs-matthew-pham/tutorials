@@ -1,0 +1,31 @@
+summary: A teacher-led safety lesson. Students decide what to do with a swollen pack, sort charging and storage habits into safe and unsafe, work out full and empty voltages for a 2S pack, put the charging routine in order, and are signed off by the teacher before any LiPo use.
+time: 30
+timing: "Predict 3 min · Sort 10 min · Practise 5 min · Routine 5 min · Sign-off 7 min"
+goals:
+  - I can inspect a LiPo pack and know when to retire it.
+  - I can follow the charging routine.
+  - I can say the full, storage and empty voltages for a pack.
+struggle: "Students treat LiPos like any battery because they look harmless. Show the school's fire-safe bag and disposal arrangements in person."
+before: |
+  Follow your school's risk assessment and the manufacturer's instructions; they override this page. Figures: full 4.2 V a cell, nominal 3.7 V, storage about 3.8 V, do not discharge below about 3.0–3.3 V a cell (set the low-voltage cutoff or alarm). Charge at 1 C or less unless the pack says otherwise.
+
+  Have ready: a balance charger, a LiPo bag, a non-flammable surface, a bucket of sand, and the school's battery disposal route. A swollen pack goes to disposal, never the general bin.
+
+  This lesson is a prerequisite: no student uses a LiPo until the sign-off step is done with you. AA or NiMH packs meet every brief in this course.
+running:
+  - "Predict: let students argue for 'it still works' before revealing why not."
+  - "Sort: ask for the reason behind each unsafe habit."
+  - "Sign-off: talk to each student or group; this is the record that you did."
+stuck:
+  - see: "A student wants to charge at home."
+    ask: "Who will be watching it, and on what surface?"
+    fix: "School rules: charging only at school, supervised."
+stretch: "Look up the C rating on a LiPo label. What does 25 C mean for a 1000 mAh pack's maximum current?"
+support: "A printed card of the routine and the three voltages, kept by the charging station."
+leads: |
+  Back to Choosing a battery, or on to a Make project: a two-motor drive base (pairs with Mechanisms for gearing and the robotics simulator).
+exit:
+  q: "Give three rules for charging a LiPo."
+  a: "Any three of: balance charger set to LiPo and the right cell count; in a fire-safe bag on a non-flammable surface; never left unattended; inspect first and never charge a damaged or swollen pack; charge at 1 C or less."
+explain: |
+  **LiPo** packs are light and give big currents, but store a lot of energy in a soft pouch. Damaged, over-charged or run-flat cells can swell and catch fire. The rules: **inspect** every time; charge on a **balance charger** set to LiPo, in a **fire-safe bag**, with someone **watching**; never run below the **cutoff** (about 3 V a cell); **store** at about 3.8 V a cell; **retire** any pack that swells. Your teacher signs you off before you use one.

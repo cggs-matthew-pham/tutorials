@@ -261,5 +261,9 @@
   "gate-reads-switches": {"home": "systems/logic/combine", "text": "Every gate in a circuit is taken to use the switches; each gate uses only what arrives on its own wires, often another gate's output."},
   "binary-digit-two": {"home": "systems/logic/adding", "text": "1 + 1 is written as 2 in a binary sum; binary has only 0 and 1, so 1 + 1 = 10: write 0, carry 1."},
   "latch-forgets": {"home": "systems/logic/remember", "text": "A latch is thought to work like a lamp, dropping back to 0 when Set goes off; with Set and Reset both off it keeps its last value, which is what makes it memory."},
-  "code-not-numbers": {"home": "systems/logic/processor", "text": "Instructions and data are thought to be different kinds of thing in memory; instructions are numbers in the same memory, and a processor will run whatever the program counter points at."}
+  "code-not-numbers": {"home": "systems/logic/processor", "text": "Instructions and data are thought to be different kinds of thing in memory; instructions are numbers in the same memory, and a processor will run whatever the program counter points at."},
+  "code-runs-motor": {"home": "engineering/power/pin-limit", "text": "If the code is right, a motor on a pin is thought to run; a pin gives about 20 mA and a motor needs hundreds, so it needs its own supply switched by a transistor or driver."},
+  "one-signal-speed-direction": {"home": "engineering/power/hbridge", "text": "Speed and direction are thought to come from one signal; in an H-bridge two inputs set the direction and a separate PWM signal sets the speed."},
+  "separate-supplies-no-ground": {"home": "engineering/power/ground", "text": "Two separate supplies are thought to need no connection; the grounds must be joined so the driver can read the board's signals against the same 0 V."},
+  "mah-is-strength": {"home": "engineering/power/battery", "text": "A battery's mAh is thought to be its power or strength; it is how much charge it holds, which sets how long it lasts at a given current, while the voltage is set separately."}
 }

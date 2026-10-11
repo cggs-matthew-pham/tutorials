@@ -1,0 +1,10 @@
+# The charging routine, for the ordering task. Plain text, display only.
+
+# region: charge
+Check the pack: no swelling, dents, torn wrap or damaged wires.
+Put the pack in a fire-safe LiPo bag on a non-flammable surface.
+Plug both the main lead and the balance lead into the balance charger.
+Set the charger to LiPo, the right cell count and a current no more than the pack's capacity (1 C).
+Stay with it while it charges.
+Unplug it when the charger says it is full, and let it cool before use.
+# endregion

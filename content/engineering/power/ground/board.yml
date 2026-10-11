@@ -1,0 +1,31 @@
+# Boards for "Two supplies, one ground": the Uno on USB, the motor through a driver.
+
+# region: run
+widget: motor
+mode: ground
+ground: off
+# endregion
+
+# region: explain
+widget: motor
+mode: ground
+ground: off
+# endregion
+
+# region: explain-pic
+widget: motor
+mode: ground
+# endregion
+
+# region: vary
+widget: motor
+mode: ground
+supply: board
+# endregion
+
+# region: make
+widget: motor
+mode: ground
+ground: off
+supply: board
+# endregion

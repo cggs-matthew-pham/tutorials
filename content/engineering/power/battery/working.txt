@@ -1,0 +1,8 @@
+# Sam's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The robot needs a strong battery.
+The 2200 mAh pack has a bigger number than the 1000 mAh pack.
+So it is more powerful and will make the robot faster.
+Sam buys the 2200 mAh pack.
+# endregion

@@ -1,0 +1,36 @@
+# Boards for "Why a motor can't run from a pin". Model: a pin gives about 20 mA (40 at most); the motor draws 150 mA
+# running and 700 mA starting.
+
+# region: run
+widget: motor
+mode: pin
+wiring: direct
+# endregion
+
+# region: explain
+widget: motor
+mode: pin
+wiring: direct
+choose: on
+# endregion
+
+# region: explain-pic
+widget: motor
+mode: pin
+wiring: transistor
+# endregion
+
+# region: vary
+widget: motor
+mode: pin
+wiring: transistor
+toggle: on
+# endregion
+
+# region: make
+widget: motor
+mode: pin
+wiring: direct
+choose: on
+toggle: on
+# endregion

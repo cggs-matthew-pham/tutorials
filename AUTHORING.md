@@ -757,6 +757,14 @@ Vary, Practise, Make).
     hole to move it, or use Move [leg] to [hole]. Values `l` (first LED lit), `r` (a resistor in its loop), `x` (no
     resistor), `z` (pin or 5V straight to GND), `v` (would light turned round), `y` (both legs in one strip), `q` (holes
     looked at), `m` (legs moved), `p` (button held). Ready selector `.bbsvg`.
+  - `widget: motor` (first used by `engineering/power/`): a stated model (pin about 20 mA, 40 at most; a 6 V gear motor
+    150 mA running, 700 starting). `mode: pin`: pin 9 drives a motor straight or through a transistor and battery
+    (`wiring: direct | transistor`, `choose: on`, `diode: on`, `toggle: on`); values `w`, `o`, `i`, `n`, `m`, `x` (pin
+    overloaded), `f` (diode), `z` (switch-off spike seen). `mode: hbridge`: IN1, IN2 and an ENA slider (0–255); values
+    `a`, `b`, `e`, `d` (1, −1, 0), `s` (%), `k` (braking). `mode: ground`: `ground: off`, `supply: board`; Start the
+    motor; values `g`, `p`, `m`, `r` (Uno resets), `t` (started). `mode: battery`: six typical packs (`battery: aa4 |
+    nimh4 | nimh6 | pp3 | lipo2 | lipo2b`), `draw:` (mA), `need:` (minutes), `volts: 6, 9`, `grams:`, `derate: on` (use
+    80%); values `v`, `c`, `i`, `t` (minutes), `q` (grams), `p` (meets every criterion), `u` (usable %). Ready selector `.mtsvg`.
   - `widget: security` (first used by `systems/security/`): five modes. `mode: os`: apps (Video call, Notes, Game) ask
     the OS, which uses a driver per device; Swap webcam, Swap storage, Install/Remove driver (webcam B; `driver: on`), and
     a Game camera permission; values `c`, `s`, `d`, `o` (last request worked), `g`, `q`. `mode: dns`: an address bar

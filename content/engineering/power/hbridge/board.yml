@@ -1,0 +1,21 @@
+# Boards for "Motor drivers": an L293D-style H-bridge. IN1 and IN2 set the direction, ENA (PWM) the speed.
+
+# region: run
+widget: motor
+mode: hbridge
+# endregion
+
+# region: explain
+widget: motor
+mode: hbridge
+# endregion
+
+# region: explain-pic
+widget: motor
+mode: hbridge
+# endregion
+
+# region: make
+widget: motor
+mode: hbridge
+# endregion

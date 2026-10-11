@@ -1,0 +1,42 @@
+# Boards for "Choosing a battery". Battery figures are typical, not exact: check the ones you buy.
+
+# region: run
+widget: motor
+mode: battery
+battery: pp3
+draw: 350
+need: 30
+# endregion
+
+# region: explain
+widget: motor
+mode: battery
+battery: aa4
+draw: 350
+need: 30
+# endregion
+
+# region: explain-pic
+widget: motor
+mode: battery
+battery: aa4
+# endregion
+
+# region: vary
+widget: motor
+mode: battery
+battery: aa4
+draw: 900
+need: 60
+derate: on
+# endregion
+
+# region: make
+widget: motor
+mode: battery
+battery: aa4
+draw: 900
+need: 45
+grams: 80
+derate: on
+# endregion

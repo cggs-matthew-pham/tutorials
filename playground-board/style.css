@@ -678,3 +678,16 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .cpbar button.go { background: var(--accent); border-color: transparent; color: #fff; } .cpbar button:disabled { opacity: .4; cursor: default; }
 .cpticks { margin: 0; color: var(--muted); }
 .cpout { font: 600 15px/1.3 ui-monospace, Menlo, Consolas, monospace; } .cpout small { color: var(--muted); }
+
+/* Motors, drivers and batteries (motor) */
+.mtsvg { width: 100%; height: 100%; display: block; }
+.cksvg .mtbody { fill: #9aa5b4; stroke: var(--ink); stroke-width: 2; }
+.cksvg .mtspoke { stroke: var(--ink); stroke-width: 4; stroke-linecap: round; }
+.cksvg .mtbatt { fill: #2f6fb3; stroke: var(--ink); stroke-width: 1.5; }
+.cksvg .mtplus { font: 800 18px system-ui, sans-serif; fill: #fff; }
+.cksvg .mtfet { fill: #57606a; stroke: var(--ink); }
+.cksvg .mtdrv { fill: #24292f; stroke: var(--muted); }
+.cksvg .mtpin { font: 700 12px ui-monospace, Menlo, monospace; fill: #fff; }
+.cksvg .mtdiode { fill: none; stroke: var(--ink); stroke-width: 2; }
+.cksvg .ckwire.gnd { stroke: #24292f; }
+@media (prefers-color-scheme: dark) { .cksvg .ckwire.gnd { stroke: #c9d1d9; } }

@@ -1,0 +1,8 @@
+# Sam's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The Uno has its own power from USB.
+The motor has its own battery.
+They are separate, so they don't need to be joined.
+So Sam leaves the driver's GND unconnected to the Uno.
+# endregion

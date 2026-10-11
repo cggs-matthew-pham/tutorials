@@ -33,13 +33,18 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 - Hardware and upload steps are `tier: typical` reflect checks (Uno serial isn't read: `B.serial` filters for the micro:bit's USB id).
 - All board checks tested headless; two new clips record. Ports 8511–8512.
 
+## Done (12 Oct 2026): Power and motors
+
+- Course `engineering/power` (Physical computing, extensions, after Arduino; Years 9–10), units Driving a motor and Batteries: 1. Why a motor can't run from a pin (transistor, flyback diode), 2. Motor drivers (H-bridge truth table, ENA as PWM, brake vs coast), 3. Two supplies, one ground (shared 0 V; a motor on the Uno's 5V resets it), 4. Choosing a battery (run time = capacity ÷ current, 80% margin, voltage and weight criteria; the Make leads to a LiPo), 5. LiPo safety (teacher-led, no board: sort, voltages, routine Parsons, a teacher sign-off reflect). Primers `drive.md`, `battery.md`. Misconceptions `code-runs-motor`, `one-signal-speed-direction`, `separate-supplies-no-ground`, `mah-is-strength`.
+- New `motor` widget (`mode: pin | hbridge | ground | battery`). Battery figures are typical, not exact (teacher notes say so). Every board check tested headless; four clips record. Ports 8513–8516.
+- Physical computing is now complete as planned (circuits, Arduino blocks to C++, real hardware, power). Still open: the plan's two-motor drive-base Make as a teacher project; Uno USB ids in `B.serial`.
+
 ## Next
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.
 2. Mechanisms: compound gear trains (Years 9–10, with efficiency per mesh and the constraint as an inequality), levers, pulleys.
-3. Power and motors (Years 9–10 extension, plan lessons 13–17): a motor model on the board (pin current limit, H-bridge, two supplies, battery run time), LiPo safety teacher-led. Optional: let `B.serial` accept an Uno's USB ids so a real board's output can be checked.
-4. CAD lessons 1–2 (dimensions, tolerance) with answer checks.
-5. `tools/concepts.mjs` `prerequisites()` reads `code, maths, science, systems`: add `engineering` when the first built Engineering course has `after:`.
+3. CAD lessons 1–2 (dimensions, tolerance) with answer checks, or Mechanisms lesson 2 (compound gears / levers). Optional: let `B.serial` accept an Uno's USB ids so a real board's output can be checked.
+4. `tools/concepts.mjs` `prerequisites()` reads `code, maths, science, systems`: add `engineering` if an Engineering lesson ever uses the concept lint (its lessons are `language: maths`, which the lint skips).
 
 ## Open questions
 

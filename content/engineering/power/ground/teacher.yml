@@ -1,0 +1,27 @@
+summary: Students start a motor whose driver has its own battery but no shared ground (nothing happens), join the grounds, separate signal, power and ground in a worked example, run the motor from the Uno's 5V and watch it reset, and fix a robot with both faults.
+time: 35
+timing: "Predict and Try 5 min · Worked example 8 min · Vary 5 min · Tinkercad 8 min · Practise and Make 9 min"
+goals:
+  - I can explain why separate supplies need a shared ground.
+  - I can explain why a motor shouldn't run from the board's own 5V.
+struggle: "'Separate supplies' sounds like 'separate circuits'. Draw the two halves and the one ground wire between them."
+before: |
+  Model: without a common ground the driver doesn't respond (in reality the behaviour is unpredictable); a motor on the Uno's 5V resets the Uno when it starts (a brown-out). Some driver boards join the grounds for you on the board; still teach the wire.
+running:
+  - "Predict: ask '5 V compared with what?'"
+  - "Vary: the reset is the classic symptom students will meet on their own robots."
+stuck:
+  - see: "The motor never responds."
+    ask: "Is the Uno's GND joined to the battery's −?"
+    fix: "Join the grounds."
+stretch: "Some drivers take a separate logic supply (VCC1) and motor supply (VCC2). Which goes to which, on an L293D?"
+support: "A picture with signal wires in one colour, power in another, ground in black."
+leads: |
+  Next: Choosing a battery.
+exit:
+  q: "Two supplies power a project. Which terminals do you join, and why?"
+  a: "The negative terminals (the grounds), so both sides measure signals from the same 0 V. Never the positives."
+explain: |
+  The motor gets its **own battery**, but the **grounds must be joined**: a signal is a voltage compared with ground, so the driver can't read the Uno's pins without a shared 0 V. The + sides stay separate. Powering a motor from the Uno's own 5V pulls that supply down when the motor starts, and the Uno resets.
+sources:
+  - { title: "Texas Instruments L293D datasheet (link)", url: "https://www.ti.com/product/L293D", checked: 2026-10-12 }
