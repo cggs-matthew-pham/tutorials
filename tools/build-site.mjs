@@ -18,7 +18,7 @@ import { snippetId, unlockKind, pictureSpec, usesBoardPictures, pictureBoard, ma
 import { loadLessons, validateLesson, getSnippet, loadDirMeta, loadSnippetFiles, loadSharedModules, CONTENT_ROOT } from './lesson.mjs';
 import { buildPlayground, buildPyPlayground, buildHtmlPlayground, buildMathsPlayground, buildSciencePlayground, buildKatex, buildNumbas, buildMakecodePlayground, buildExplainStage } from './build-playground.mjs';
 import { buildCreate } from './build-create.mjs';
-import { layoutTrail, trailHtml, TRAIL_CSS } from './trail.mjs';
+import { layoutTrail, trailHtml, TRAIL_CSS, trailheadsHtml, TRAILHEADS_CSS } from './trail.mjs';
 import { loadCurriculum, curriculumMapHtml, CMAP_CSS } from './curriculum-map.mjs';
 import { markedMath, textWithMath, workedHtml } from './maths.mjs';
 import { FORMS_JS, NUMBAS_VERSION } from './maths-forms.mjs';
@@ -318,6 +318,7 @@ for (const path of [...new Set(lessons.map((l) => l.slug.split('/').slice(0, -1)
 writeFileSync(join(OUT, 'progress-manifest.json'), JSON.stringify(manifest));
 copyFileSync(join('site', 'progress.js'), join(OUT, 'progress.js'));
 copyFileSync(join('site', 'trail.js'), join(OUT, 'trail.js')); // the trail map on pathway pages (tools/trail.mjs)
+copyFileSync(join('site', 'trailheads.js'), join(OUT, 'trailheads.js')); // the trailheads on a subject page (tools/trail.mjs)
 copyFileSync(join('site', 'curriculum-map.js'), join(OUT, 'curriculum-map.js')); // the curriculum map (tools/curriculum-map.mjs)
 copyFileSync(join('site', 'check.js'), join(OUT, 'check.js')); // the Check your school page (content/check.md)
 
@@ -426,9 +427,17 @@ for (const node of dirs.values()) {
         `<script src="${mup}progress.js" data-root="${mup}" defer></script><script src="${mup}curriculum-map.js" defer></script>`, navFor(mp, 'home')));
     }
     const mapLink = cur ? `<a class="pcard pmap" href="map/"><b>Curriculum map</b><span>Every Years 7–10 descriptor by strand and year: how they connect, and which have lessons.</span></a>` : '';
+    // trail: true: the subject page opens on trailheads (Continue, then a card per pathway with a picture of its
+    // trail and a "Start here" line from the pathway's fit:), with today's list as "List for teachers".
+    const lessonCount = (path) => lessons.filter((l) => l.slug.split('/').slice(0, -1).join('/') === path && !l.optional).length;
+    const heads = node.meta?.trail === true ? trailheadsHtml(pathways, pathways.map((pw) => layoutTrail(pw, pathways, dirs, lessonCount)), esc) : '';
+    const viewToggle = `<script>(function(){var d=document.documentElement;d.classList.add('js-on');try{if(localStorage.getItem('wp-pathview')!=='list')d.classList.add('trail-on')}catch(e){d.classList.add('trail-on')}})()</script>` +
+      `<div class="ptoggle" role="group" aria-label="View"><button type="button" data-view="map">Trails</button><button type="button" data-view="list">List for teachers</button></div>`;
     writeFileSync(join(outDir, 'index.html'), page(node.title,
-      `<header class="top">${crumb}<h1>${esc(node.title)}</h1>${node.summary ? `<p class="lede">${esc(node.summary)}</p>` : ''}</header>${mapLink}${body}${create}`,
-      `<script src="${up}progress.js" data-root="${up}" defer></script>`, navFor(node.path, 'home')));
+      (heads ? `<style>${TRAIL_CSS}${TRAILHEADS_CSS}</style>` : '') +
+      `<header class="top">${crumb}<h1>${esc(node.title)}</h1>${node.summary ? `<p class="lede">${esc(node.summary)}</p>` : ''}</header>${mapLink}` +
+      (heads ? `${viewToggle}<div class="pview-map">${heads}</div><div class="pview-list">${body}</div>` : body) + create,
+      `<script src="${up}progress.js" data-root="${up}" defer></script>` + (heads ? `<script src="${up}trailheads.js" data-root="${up}" defer></script>` : ''), navFor(node.path, 'home')));
     // One page per pathway: <subject>/paths/<id>/, with its courses in order and the planned ones as placeholders.
     for (const pw of pathways) {
       const pp = `${node.path}/paths/${pw.id}`, pup = '../'.repeat(pp.split('/').length);

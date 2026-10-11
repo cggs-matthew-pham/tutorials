@@ -192,3 +192,48 @@ min-width:calc(var(--cols) * 220px);padding:18px 8px 0;border-radius:20px;backgr
 .tcard .tgo{justify-content:flex-start}
 }
 `;
+
+/** A small picture of a pathway's trail for its trailhead card: dots and lines only, marked by site/trailheads.js. */
+export function trailThumb(layout, esc) {
+  const { nodes, cols, rows } = layout;
+  const X = (n) => 18 + n.col * 64, Y = (n) => 14 + (n.row - 1) * 26;
+  const w = 36 + (cols - 1) * 64, h = 28 + (rows - 1) * 26;
+  const by = new Map(nodes.map((n) => [n.id, n]));
+  const edges = nodes.flatMap((n) => n.parents.map((p) => {
+    const a = by.get(p), x1 = X(a), y1 = Y(a), x2 = X(n), y2 = Y(n), m = (x2 - x1) / 2;
+    return `<path data-from="${esc(p)}" data-to="${esc(n.id)}" class="${n.soon ? 'later' : 'open'}" d="M${x1} ${y1} C${x1 + m} ${y1} ${x2 - m} ${y2} ${x2} ${y2}"/>`;
+  })).join('');
+  const dots = nodes.map((n) => (n.portal
+    ? `<rect data-id="${esc(n.id)}" class="tp" x="${X(n) - 6}" y="${Y(n) - 6}" width="12" height="12" rx="3"/>`
+    : `<circle data-id="${esc(n.id)}" class="${n.soon ? 'ts' : 'tt'}" cx="${X(n)}" cy="${Y(n)}" r="7"/>`)).join('');
+  return `<svg class="ththumb" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true">${edges}${dots}</svg>`;
+}
+
+/** The subject page with trail: true: Continue, one trailhead card per pathway, and the list for teachers. */
+export function trailheadsHtml(pathways, layouts, esc) {
+  const cards = pathways.map((pw, i) => `<a class="thead" href="paths/${esc(pw.id)}/" data-pw="${esc(pw.id)}">` +
+    `<h2>${esc(pw.title)}</h2>${pw.summary ? `<p class="thsum">${esc(pw.summary)}</p>` : ''}` +
+    `<span class="thpic">${trailThumb(layouts[i], esc)}</span>` +
+    (pw.fit ? `<p class="thfit">${esc(pw.fit)}</p>` : '') +
+    `<span class="thprog" hidden></span><span class="thgo">Open the ${esc(pw.title)} trail →</span></a>`).join('');
+  const data = pathways.map((pw, i) => ({ id: pw.id, title: pw.title, nodes: layouts[i].nodes.filter((n) => !n.portal).map((n) => ({ id: n.id, path: n.path, title: n.title, soon: !!n.soon })) }));
+  return `<div class="tbreak"><a class="thcont" id="thcont" hidden></a><div class="theads">${cards}</div></div>` +
+    `<script type="application/json" id="trailheads-data">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+}
+
+export const TRAILHEADS_CSS = `
+.thcont{display:grid;gap:2px;margin:6px 0 18px;padding:16px 20px;border-radius:14px;text-decoration:none;color:#fff;background:var(--accent)}
+.thcont[hidden]{display:none}.thcont small{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.9}.thcont b{font-size:1.2rem}.thcont span{font-size:15px;opacity:.95}
+.thcont:hover{filter:brightness(1.06)}@media(prefers-color-scheme:dark){.thcont{color:#1a1006}}
+.theads{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:4px 0 24px}
+.thead{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;text-decoration:none;color:inherit}
+.thead:hover{border-color:var(--accent)}.thead:focus-visible{outline:3px solid var(--investigate);outline-offset:3px}
+.thead h2{margin:0;font-size:1.4rem}.thsum{margin:0;color:var(--muted);font-size:15px;line-height:1.45}
+.thpic{display:block;border-radius:12px;padding:10px 8px;background:linear-gradient(90deg,color-mix(in srgb,var(--run) 10%,var(--bg)),color-mix(in srgb,var(--modify) 8%,var(--bg)));overflow:hidden}
+.ththumb{display:block;max-width:100%;height:auto;margin:0 auto}
+.ththumb path{fill:none;stroke-linecap:round}.ththumb .open{stroke:var(--muted);stroke-width:2;stroke-dasharray:1 5}.ththumb .later{stroke:color-mix(in srgb,var(--muted) 50%,transparent);stroke-width:1.5;stroke-dasharray:4 4}.ththumb .walked{stroke:var(--ink);stroke-width:3;stroke-dasharray:none}
+.ththumb circle{stroke-width:2.5}.ththumb .tt{fill:var(--card);stroke:var(--ink)}.ththumb .ts{fill:none;stroke:color-mix(in srgb,var(--muted) 70%,transparent);stroke-dasharray:3 3}
+.ththumb .tp{fill:var(--card);stroke:var(--investigate);stroke-width:2}.ththumb .done{fill:var(--ink)}.ththumb .going{stroke:var(--accent);fill:var(--card)}.ththumb .here{fill:var(--accent);stroke:var(--accent)}
+.thfit{margin:0;font-size:14.5px;line-height:1.45}.thprog{font-size:13.5px;color:var(--muted)}.thprog[hidden]{display:none}
+.thgo{margin-top:auto;font-weight:700;color:var(--accent);font-size:15px}
+`;

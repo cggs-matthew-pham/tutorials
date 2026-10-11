@@ -126,6 +126,10 @@ Pathway pages open on a trail map for students, with a "List for teachers" toggl
 - **Science: built, switched off (11 Oct).** `data/curriculum/science.json` (51 Years 7–10 descriptors and 22 earlier ones). Rows: Biological, Chemical, Earth and space, Physical, Human endeavour, Inquiry. Human endeavour and Inquiry are written for two years at a time (7H, 7I = Years 7–8; 9H, 9I = Years 9–10), so their cells span two columns. The kit labels Year 7 Understanding descriptors only "Understanding" with no prior knowledge (except 7U06); the importer takes their sub-strand from the code, but their links back to Years 5–6 need fixing in the kit.
 - **Handoff to the science chat:** tag each science lesson with the node it teaches (`node: AC9S7U04 n2`, as maths lessons do; the topic list in CLAUDE.md › Science gives most of them), then add `map: true` to `content/science/index.md`. Until the tags are in, every science tile shows "no lesson yet", which is why it is off. Adding `science` to `CHECKED` in `tools/progressions.mjs` is a separate choice (it makes validate require a node on every science lesson).
 
+## Done (11 Oct 2026): trailheads on the Code page
+
+With `trail: true`, `/code/` opens on trailheads: a Continue card (the course of the last lesson opened, else one in progress, linking to its next unfinished lesson), then one card per pathway with its summary, a small picture of its trail (dots and lines from the same layout as the pathway map, marked done, in progress and "you are here"), a "Start here…" line (new `fit:` on each pathway in `code/index.md`), "n of m courses done", and a link to its trail. "List for teachers" holds the old page and shares the `wp-pathview` choice with the pathway pages. Shared files: `tools/build-site.mjs` (subject page), `tools/trail.mjs` (`trailThumb`, `trailheadsHtml`, `TRAILHEADS_CSS`); new `site/trailheads.js`. Maths and science pages are unchanged until they set `trail: true` (their pathways would need `fit:` and course taglines).
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).
