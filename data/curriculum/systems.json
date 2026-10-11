@@ -1,0 +1,514 @@
+{
+ "subject": "systems",
+ "source": "waypoints-kit debe6f4",
+ "note": "Descriptor text: Australian Curriculum v9 (ACARA, CC BY 4.0). Waypoints and prior knowledge: Learning Waypoints. Made by tools/import-curriculum.mjs; do not edit by hand.",
+ "descriptors": [
+  {
+   "code": "AC9TDI6K01",
+   "year": 6,
+   "span": 1,
+   "strand": "Digital systems",
+   "title": "Internal components and function",
+   "description": "Investigate the main internal components of common digital systems and their function",
+   "prior": [
+    "AC9TDI4K01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Digital systems are made of parts",
+     "checkpoint": "Students can identify that digital systems are made up of distinct internal components, each performing a specific function",
+     "hinge": true,
+     "criteria": [
+      "Names at least two internal components of a digital system",
+      "States the function of each named component in plain language"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "How CPU, memory and I/O work together",
+     "checkpoint": "Students can explain how the CPU, memory and input/output components work together to perform a task",
+     "hinge": false,
+     "criteria": [
+      "Correctly assigns at least three roles (input, process, memory, output) to the correct component in a given task",
+      "Explains what each component contributes without treating them as interchangeable"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9TDI6K02",
+   "year": 6,
+   "span": 1,
+   "strand": "Networks and security",
+   "title": "Networks and data transmission",
+   "description": "Examine how digital systems form networks to transmit data",
+   "prior": [
+    "AC9TDI4K02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "How separate systems connect to form networks",
+     "checkpoint": "Students can explain how separate digital systems can be connected in different ways to exchange data",
+     "hinge": true,
+     "criteria": [
+      "Names at least two ways a device can connect to a network",
+      "Explains that connecting devices allows data to be exchanged between them"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "How data travels through a network",
+     "checkpoint": "Students can describe how data is structured into packets and transmitted through multiple devices from source to destination",
+     "hinge": false,
+     "criteria": [
+      "Explains that data is broken into packets for network transmission",
+      "Describes that packets travel through multiple devices to reach the destination"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9TDI6K03",
+   "year": 6,
+   "span": 1,
+   "strand": "Data representation",
+   "title": "Data represented as numbers",
+   "description": "Explain how digital systems represent all data using numbers",
+   "prior": [
+    "AC9TDI4K03"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Text as numbers",
+     "checkpoint": "Students can explain how text characters are represented as numbers in a digital system",
+     "hinge": true,
+     "criteria": [
+      "Explains that text characters are stored as numbers in a digital system",
+      "Can demonstrate a simple letter-to-number conversion"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Data type determines what you can do",
+     "checkpoint": "Students can explain how the data type used to represent data changes what operations can be performed on it",
+     "hinge": false,
+     "criteria": [
+      "Gives a correct example where the same value behaves differently based on data type",
+      "Explains in plain language why data type affects what operations are possible"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9TDI6K04",
+   "year": 6,
+   "span": 1,
+   "strand": "Data representation",
+   "title": "Binary representation",
+   "description": "Explore how data can be represented by off and on states (zeros and ones in binary)",
+   "prior": [
+    "AC9TDI6K03"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "On/off states represent zero and one",
+     "checkpoint": "Students can explain that an on/off state in a digital circuit represents the digits one and zero",
+     "hinge": true,
+     "criteria": [
+      "Explains that an on/off state represents 1 and 0 in a digital system",
+      "Gives at least one example of a two-state system representing binary data"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Binary connects numeric representation to physical storage",
+     "checkpoint": "Students can explain how binary connects the numeric representation of data (from AC9TDI6K03) to the physical on/off states in a digital system",
+     "hinge": false,
+     "criteria": [
+      "Connects the idea that data is stored as numbers to the idea that numbers are stored as binary sequences",
+      "Can describe the on/off state interpretation of at least one binary digit"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9TDI8K01",
+   "year": 8,
+   "span": 1,
+   "strand": "Digital systems",
+   "title": "Hardware specifications and performance",
+   "description": "Explain how hardware specifications affect performance and select appropriate hardware for particular tasks and workloads",
+   "prior": [
+    "AC9TDI6K01",
+    "AC9TDI6K02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "What hardware specifications are",
+     "checkpoint": "Students can identify key hardware specifications (RAM, storage, bandwidth, processor type) and explain what each measures",
+     "hinge": true,
+     "criteria": [
+      "Names at least three hardware specifications correctly",
+      "Explains what each specification measures in plain language"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "How specifications affect performance",
+     "checkpoint": "Students can explain how specific hardware specifications affect what a digital system can do and how quickly it performs",
+     "hinge": true,
+     "criteria": [
+      "Explains the causal link between at least one specification and a specific performance outcome",
+      "Does not confuse specifications (e.g. storage capacity with processing speed)"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Selecting hardware for tasks",
+     "checkpoint": "Students can select appropriate hardware for a particular task or workload and justify the selection based on specifications",
+     "hinge": false,
+     "criteria": [
+      "Selects hardware that matches the task requirements",
+      "Justifies the selection by referencing at least one relevant specification"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9TDI8K02",
+   "year": 8,
+   "span": 1,
+   "strand": "Networks and security",
+   "title": "Wired and wireless networks",
+   "description": "Investigate how data is transmitted and secured in wired and wireless networks including the internet",
+   "prior": [
+    "AC9TDI6K02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Wired vs wireless network properties",
+     "checkpoint": "Students can describe the properties of wired and wireless networks and compare their bandwidth, latency and reliability",
+     "hinge": true,
+     "criteria": [
+      "Correctly names at least two properties that differ between wired and wireless networks",
+      "Explains which network type is more suitable for a given use case and why"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Packets and protocols",
+     "checkpoint": "Students can explain how data is broken into packets for transmission and how protocols like TCP handle errors when packets are lost",
+     "hinge": true,
+     "criteria": [
+      "Explains that data is transmitted in packets, not as a continuous stream",
+      "Describes what happens when a packet is lost or delayed"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Why data needs to be secured",
+     "checkpoint": "Students can explain why cryptography is necessary for securing data transmitted across networks, connecting the need to how packets travel through shared infrastructure",
+     "hinge": true,
+     "criteria": [
+      "Explains why data needs encryption during transmission, not just storage",
+      "Names at least one real scenario where encryption protects users"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "How simple encryption works",
+     "checkpoint": "Students can explore how simple encryption algorithms transform data to protect it, and demonstrate an encrypt-decrypt cycle",
+     "hinge": false,
+     "criteria": [
+      "Describes how a simple algorithm transforms text into an encrypted form",
+      "Demonstrates that encryption is reversible — the original message can be recovered"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "How the internet transmits and secures data",
+     "checkpoint": "Students can explain how the internet combines network infrastructure, packet transmission, protocols and encryption to transmit and secure data end to end",
+     "hinge": false,
+     "criteria": [
+      "Describes a data journey across the internet that includes at least packets, a protocol and encryption",
+      "Identifies where in the journey wired and wireless networks are used"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9TDI8K03",
+   "year": 8,
+   "span": 1,
+   "strand": "Data representation",
+   "title": "Representing text, image and audio",
+   "description": "Investigate how digital systems represent text, image and audio data using integers",
+   "prior": [
+    "AC9TDI6K03",
+    "AC9TDI6K04"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "The principle: all data as integers",
+     "checkpoint": "Students can explain that digital systems represent all data types — text, images, audio — as integers, and that different encoding schemes map integers to different kinds of information",
+     "hinge": true,
+     "criteria": [
+      "States that all data types are represented as integers in digital systems",
+      "Gives at least one example of how a number represents non-numeric information"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Text as Unicode integers",
+     "checkpoint": "Students can explain how digital systems represent text as a sequence of characters, each mapped to an integer using the Unicode character set",
+     "hinge": false,
+     "criteria": [
+      "Correctly looks up Unicode values for given characters",
+      "Explains that each character has a unique integer in the Unicode set",
+      "Encodes at least a short word as a sequence of integers"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Images as pixel colour values",
+     "checkpoint": "Students can explain how digital systems represent bitmap images as RGB colour values per pixel, and how vector graphics use geometry instead",
+     "hinge": false,
+     "criteria": [
+      "Explains that bitmap images store RGB values (0-255) for each pixel",
+      "Identifies the colour represented by a given RGB triplet",
+      "Describes at least one difference between bitmap and vector image representation"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Audio as sampled amplitudes",
+     "checkpoint": "Students can explain how digital systems represent audio by sampling the amplitude of a sound wave at regular intervals and storing each sample as an integer",
+     "hinge": false,
+     "criteria": [
+      "Explains that audio is represented by sampling amplitude at regular intervals",
+      "States that each measurement is stored as an integer"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9TDI8K04",
+   "year": 8,
+   "span": 1,
+   "strand": "Data representation",
+   "title": "Integer representation in binary",
+   "description": "Explain how and why digital systems represent integers in binary",
+   "prior": [
+    "AC9TDI6K04",
+    "AC9TDI8K03"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Binary place value and counting",
+     "checkpoint": "Students can count in binary, convert between binary and decimal, and explain binary place value as powers of 2",
+     "hinge": true,
+     "criteria": [
+      "Correctly converts at least three decimal numbers to binary",
+      "Correctly converts at least three binary numbers to decimal",
+      "Explains that each position in a binary number represents a power of 2"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Bits, bytes and range",
+     "checkpoint": "Students can explain the relationship between the number of bits and the range of values that can be represented, and use standard units (byte = 8 bits)",
+     "hinge": false,
+     "criteria": [
+      "States that 1 byte = 8 bits and can represent values from 0 to 255",
+      "Does not confuse bit count with the values themselves (e.g. 8 bits does not mean the number 8)"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Why binary — circuits and logic gates",
+     "checkpoint": "Students can explain why digital systems use binary by connecting electronic on/off states to how circuits perform operations using logic gates",
+     "hinge": false,
+     "criteria": [
+      "Explains that binary maps to the two reliable states of electronic components",
+      "Demonstrates the output of AND and OR gates for given inputs",
+      "Connects logic gates to why digital systems are built on binary"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Binary connects to data encoding",
+     "checkpoint": "Students can explain how binary integer representation underpins the encoding of text, images and audio, connecting K04 to K03",
+     "hinge": false,
+     "criteria": [
+      "Traces a character from text to Unicode value to binary representation",
+      "Explains that all data types ultimately become sequences of binary digits",
+      "Connects the encoding chain from K03 (data as integers) to K04 (integers as binary)"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9TDI10K01",
+   "year": 10,
+   "span": 1,
+   "strand": "Networks and security",
+   "title": "Managing and securing networked systems",
+   "description": "investigate how hardware and software manage, control and secure access to data in networked digital systems",
+   "prior": [
+    "AC9TDI8K02",
+    "AC9TDI8K01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "The OS as a hardware abstraction layer",
+     "checkpoint": "Students can explain how the operating system hides the complexity of different hardware from applications, allowing software to treat different hardware uniformly.",
+     "hinge": false,
+     "criteria": [
+      "Correctly describes the OS as sitting between hardware and applications",
+      "Uses a specific example to illustrate how abstraction works (e.g. mouse and touchscreen treated the same by an application)"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Network addressing and routing",
+     "checkpoint": "Students can explain how domain names and IP addresses allow data to be transmitted to specific devices on a network.",
+     "hinge": true,
+     "criteria": [
+      "Correctly distinguishes IP addresses from domain names",
+      "Explains the role of DNS in translating between the two",
+      "Describes how routing tables direct packets toward their destination"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Access control mechanisms",
+     "checkpoint": "Students can describe elements of access control — including authentication and permissions — and explain why they are necessary in networked systems.",
+     "hinge": true,
+     "criteria": [
+      "Distinguishes authentication from authorisation/permissions correctly",
+      "Explains what a specific access control mechanism protects against in a networked context"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Cryptographic security mechanisms",
+     "checkpoint": "Students can explain how public key cryptography and hashing are used to secure the transmission and storage of data in networked systems.",
+     "hinge": true,
+     "criteria": [
+      "Correctly explains what public key cryptography protects (data in transit) and how it does so",
+      "Correctly explains what hashing protects (stored data / integrity verification) and how it differs from encryption"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Integration — how hardware and software work together in secured networks",
+     "checkpoint": "Students can investigate a networked digital system and explain how its hardware and software components — addressing, access control, and cryptography — work together to manage and secure data.",
+     "hinge": false,
+     "criteria": [
+      "Identifies the role of at least two distinct components in securing data in a networked system",
+      "Explains how the components interact — not just what each does individually"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9TDI10K02",
+   "year": 10,
+   "span": 1,
+   "strand": "Web documents",
+   "title": "Content, structure and presentation separation",
+   "description": "represent documents online as content (text), structure (markup) and presentation (styling) and explain why such representations are important",
+   "prior": [
+    "AC9TDI8P11",
+    "AC9TDI8P12"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "The three layers of a web document",
+     "checkpoint": "Students can identify and distinguish the three layers of an online document: content, structure and presentation.",
+     "hinge": true,
+     "criteria": [
+      "Correctly assigns specific examples (e.g. heading text, <h1> tag, font-size rule) to the correct layer",
+      "Does not confuse structural tags with visual appearance"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Representing documents with HTML and CSS",
+     "checkpoint": "Students can write web pages using HTML for content and structure and CSS for styling, and explain how HTML tags separate content from structure.",
+     "hinge": true,
+     "criteria": [
+      "HTML file uses structural tags correctly (headings, paragraphs, at minimum)",
+      "CSS rule targets an HTML element or class and changes its presentation",
+      "Student can explain what the HTML tag does versus what the CSS rule does"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Why separation matters",
+     "checkpoint": "Students can explain why separating content, structure and presentation is important — specifically how it allows each to be designed, edited and stored independently.",
+     "hinge": false,
+     "criteria": [
+      "Explains at least one concrete benefit of separation with a specific example",
+      "Connects the benefit to a real consequence (e.g. changing one CSS file updates many pages)"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9TDI10K03",
+   "year": 10,
+   "span": 1,
+   "strand": "Data representation",
+   "title": "Data compression techniques",
+   "description": "investigate simple data compression techniques",
+   "prior": [
+    "AC9TDI8K03",
+    "AC9TDI8K04"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Why compression is needed",
+     "checkpoint": "Students can explain why data compression is useful and identify contexts where it matters.",
+     "hinge": false,
+     "criteria": [
+      "Correctly explains what compression does (reduces file size)",
+      "Gives at least one concrete reason why reducing file size matters"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Lossless compression — run-length encoding",
+     "checkpoint": "Students can use run-length encoding to represent patterns in data in a compressed form and explain how the algorithm works.",
+     "hinge": true,
+     "criteria": [
+      "Correctly applies RLE to encode a simple sequence",
+      "Explains how the encoded form represents the original data"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Lossy vs lossless — trade-offs and consequences",
+     "checkpoint": "Students can explain the difference between lossy and lossless compression, identify contexts where each is appropriate, and describe the consequences of using each.",
+     "hinge": false,
+     "criteria": [
+      "Correctly distinguishes lossless (exact recovery) from lossy (permanent data loss) compression",
+      "Identifies an appropriate context for each type and justifies the choice",
+      "Names at least one consequence of using lossy compression in an inappropriate context"
+     ]
+    }
+   ]
+  }
+ ]
+}

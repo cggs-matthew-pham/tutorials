@@ -192,5 +192,6 @@
   "model-round-down": {"home": "maths/number/rate-models", "text": "A model's answer is rounded to the nearest whole number when the situation needs rounding up (2.4 L of paint as 2 tins); 2 tins are not enough, so buy 3."},
   "model-blame-maths": {"home": "maths/number/checking-models", "text": "A model's mismatch with real life is blamed on correct arithmetic; the cause is an assumption that did not hold, such as a steady speed with no stops."},
   "binary-place-reversed": {"home": "systems/data/binary-numbers", "text": "Binary places are counted from the left (1, 2, 4, 8), so 1100 is read as 3; the 1 place is on the right, so 1100 is 8 + 4 = 12."},
-  "binary-max-forgets-zero": {"home": "systems/data/binary-patterns", "text": "n bits make 2ⁿ patterns, so the largest number is taken to be 2ⁿ (4 bits up to 16); one pattern is 0, so the largest is 2ⁿ − 1."}
+  "binary-max-forgets-zero": {"home": "systems/data/binary-patterns", "text": "n bits make 2ⁿ patterns, so the largest number is taken to be 2ⁿ (4 bits up to 16); one pattern is 0, so the largest is 2ⁿ − 1."},
+  "data-meaning-fixed": {"home": "systems/data/data-as-numbers", "text": "Stored numbers are taken to have one fixed meaning (72, 105, 33 are the word Hi!); the meaning comes from the encoding a program reads them with, so a paint program shows the same numbers as greys."}
 }

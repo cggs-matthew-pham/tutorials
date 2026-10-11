@@ -11,7 +11,7 @@
   Object.keys(D).forEach(function (c) { D[c].p.forEach(function (p) { (follows[p] = follows[p] || []).push(c); }); });
   function tile(c) { return grid.querySelector('.cmt[data-code="' + c + '"]'); }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
-  function short(c) { return c.replace(/^AC9[A-Z]/, ''); }
+  function short(c) { return c.replace(/^AC9[A-Z]+?(?=\d)/, ''); }
   var hover = window.matchMedia ? matchMedia('(hover: hover)').matches : true;
 
   function nodeDone(c, i) { var ls = D[c].n[i][2]; return ls.length > 0 && ls.every(function (j) { return done[L[j].h]; }); }

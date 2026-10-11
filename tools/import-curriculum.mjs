@@ -13,20 +13,22 @@ import { execFileSync } from 'node:child_process';
 
 const [kit, subject = 'maths'] = process.argv.slice(2);
 if (!kit) { console.error('usage: node tools/import-curriculum.mjs <path to waypoints-kit> [maths]'); process.exit(1); }
-const PREFIX = { maths: 'AC9M', science: 'AC9S' }[subject];
+const PREFIX = { maths: 'AC9M', science: 'AC9S', systems: 'AC9TDI' }[subject];
+const KIT = { systems: 'technologies' }[subject] || subject;   // the kit's folder
+const ONLY = { systems: /^AC9TDI\d+K/ }[subject];             // Digital systems: Knowledge and understanding only (the P descriptors belong to Code)
 if (!PREFIX) { console.error(`no prefix for subject "${subject}"`); process.exit(1); }
 const CODE = /AC9[A-Z]{1,4}\d{1,2}[A-Z]{1,3}\d{2}/g;
-const yearOf = (c) => Number(c.match(/^AC9[A-Z](\d{1,2})/)?.[1]);
+const yearOf = (c) => Number(c.match(/^AC9[A-Z]+?(\d{1,2})/)?.[1]);
 const truthy = (v) => v === true || v === 'True' || v === 'true';
 const list = (v) => (Array.isArray(v) ? v : typeof v === 'string' && v.startsWith('[') ? JSON.parse(v.replace(/'/g, '"').replace(/\bNone\b/g, 'null')) : []);
 
 // Every descriptor in the kit, by code.
 const all = new Map();
-for (const f of readdirSync(join(kit, 'data', subject)).filter((n) => n.endsWith('.json'))) {
+for (const f of readdirSync(join(kit, 'data', KIT)).filter((n) => n.endsWith('.json'))) {
   let d;
-  try { d = JSON.parse(readFileSync(join(kit, 'data', subject, f), 'utf8')); } catch { continue; }
+  try { d = JSON.parse(readFileSync(join(kit, 'data', KIT, f), 'utf8')); } catch { continue; }
   const s = d.standard;
-  if (!s?.code?.startsWith(PREFIX)) continue;
+  if (!s?.code?.startsWith(PREFIX) || (ONLY && !ONLY.test(s.code))) continue;
   all.set(s.code, s);
 }
 
@@ -47,6 +49,8 @@ try {
 // Understanding descriptors only "Understanding", so those take their sub-strand from the code.
 const SCI = [['biolog', 'Biological'], ['chemi', 'Chemical'], ['earth', 'Earth and space'], ['physic', 'Physical'], ['endeavour', 'Human endeavour'], ['inquiry', 'Inquiry']];
 const SCI7 = { U01: 'Biological', U02: 'Biological', U03: 'Earth and space', U04: 'Physical', U05: 'Chemical', U06: 'Chemical' };
+// Digital systems: the kit files every K descriptor under one strand, so the map's rows come from the code.
+const SYS = { '6K01': 'Digital systems', '6K02': 'Networks and security', '6K03': 'Data representation', '6K04': 'Data representation', '8K01': 'Digital systems', '8K02': 'Networks and security', '8K03': 'Data representation', '8K04': 'Data representation', '10K01': 'Networks and security', '10K02': 'Web documents', '10K03': 'Data representation' };
 const strandOf = (s, code) => {
   const k = String(s || '').toLowerCase();
   if (subject === 'science') {
@@ -54,6 +58,7 @@ const strandOf = (s, code) => {
     if (/^AC9S7U0\d$/.test(code)) return SCI7[code.slice(-3)];
     return /^AC9S\d+H/.test(code) ? 'Human endeavour' : /^AC9S\d+I/.test(code) ? 'Inquiry' : s;
   }
+  if (subject === 'systems') return SYS[code.match(/(\d+)K(\d\d)$/)?.slice(1).join('K')] || 'Digital systems';
   for (const n of ['Number', 'Algebra', 'Measurement', 'Space', 'Statistics', 'Probability']) if (k.startsWith(n.toLowerCase())) return n;
   return s;
 };

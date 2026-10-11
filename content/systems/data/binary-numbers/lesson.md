@@ -1,5 +1,9 @@
 ---
-order: 1
+order: 2
+node: AC9TDI8K04 n1
+# The kit lists all of AC9TDI8K03 before binary. This site teaches node 1 first (Everything is numbers), then binary,
+# then text, images and sound as numbers (nodes 2 to 4, not written yet), so those are assumed here for now.
+assumes: [AC9TDI8K03 n2, AC9TDI8K03 n3, AC9TDI8K03 n4]
 unit: binary
 title: Bits and binary numbers
 summary: "A computer stores numbers with switches that are only off (0) or on (1). Put bits side by side, make each place worth double the one on its right (1, 2, 4, 8, 16), and add the places that hold a 1: 10110 = 16 + 4 + 2 = 22."

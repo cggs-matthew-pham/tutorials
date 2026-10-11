@@ -14,7 +14,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-export const CHECKED = ['maths', 'science'];   // subjects whose lessons must name a node
+export const CHECKED = ['maths', 'science', 'systems'];   // subjects whose lessons must name a node
 const CODE = /AC9[A-Z]{1,4}\d{1,2}[A-Z]{1,3}\d{2}/g;
 
 /** Parse one progression page. */
@@ -36,8 +36,8 @@ export function parsePage(md) {
   return { code, title: head[2].trim(), year: yearOf(code), prior: [...new Set((section('Prior Knowledge').match(CODE) || []))].filter((c) => c !== code), nodes };
 }
 
-/** The year level in a code such as AC9M7A01 (7) or AC9M10A01 (10); null if none. */
-export function yearOf(code) { const m = String(code).match(/^AC9[A-Z](\d{1,2})/); return m ? Number(m[1]) : null; }
+/** The year level in a code such as AC9M7A01 (7), AC9M10A01 (10) or AC9TDI8K03 (8); null if none. */
+export function yearOf(code) { const m = String(code).match(/^AC9[A-Z]+?(\d{1,2})/); return m ? Number(m[1]) : null; }
 
 /** All pages: Map code -> page. */
 export function loadProgressions(root = 'data/progressions') {

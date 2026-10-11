@@ -663,6 +663,11 @@ Vary, Practise, Make).
     and Take away a card (1 to 8), `lock: on` makes the cards a pattern to read. Values: `n` (the number), `c` (cards
     face up), `b` (cards), `m` (largest, 2^b − 1), `o` (1 after an overflow). Checks: `"n = 11 and c = 3"`, `"o = 1"`,
     `"b = 6 and n = 39"`.
+  - `widget: decode` (first used by `systems/data/data-as-numbers`): the same numbers read as text (character codes;
+    controls show as a dot), grey shades (0 black to 255 white) or sound samples (128 is silence). `numbers: 72, 105, 33`
+    (1 to 8, each 0 to 255), `as: text | grey | sound | all` (the starting reading), `switch: off` hides the reading
+    buttons, `edit: on` lets students change each number (− and +, or typed). Values: `a`, `b`, `c`, … (the numbers in
+    order), `r` (reading: 1 text, 2 grey, 3 sound, 0 all). Checks: `"r = 2"`, `"a = 89 and b = 101 and c = 115"`.
   - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
     between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
     `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b

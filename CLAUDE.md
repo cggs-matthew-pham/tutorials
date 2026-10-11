@@ -77,7 +77,7 @@ Waypoints tutorials: a static site (GitHub Pages) of markdown lessons with recor
 - Node content comes from waypoints-kit `data/science/y7_science_*.json`; the First Nations steam-distilling line in U06 node 4 is deliberately not claimed (see that lesson's teacher notes).
 
 ## Digital systems (roadmap/systems.md)
-- `content/systems/`: the DT Knowledge and understanding strand as its own subject. Lessons use `language: maths` (board checks, answers, worked examples) and the shared board; first widget `bits` (binary cards). No `node:` yet (no DT progression pages). Plan: Project doc digital-systems-plan.
+- `content/systems/`: the DT Knowledge and understanding strand as its own subject. Lessons use `language: maths` (board checks, answers, worked examples) and the shared board; widgets `decode` (the same numbers as text, grey or sound) and `bits` (binary cards). Every lesson names its `node:` (pages in `data/progressions/systems/`, from the kit's `data/technologies/` via `kit-page.mjs`); `systems` is in the node check's `CHECKED`, and the curriculum map is on (`/systems/map/`, Knowledge and understanding only, rows by topic). Plan: Project doc digital-systems-plan.
 
 ## Commands
 - `npm run validate`, `npm run render` (clips), `npm run build` (site), `npm run all`. A full `all` takes about 2 minutes.

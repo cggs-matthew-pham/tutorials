@@ -7,6 +7,7 @@ import { readFileSync, existsSync } from 'node:fs';
 export const STRANDS = {
   maths: ['Number', 'Algebra', 'Measurement', 'Space', 'Statistics', 'Probability'],
   science: ['Biological', 'Chemical', 'Earth and space', 'Physical', 'Human endeavour', 'Inquiry'],
+  systems: ['Data representation', 'Digital systems', 'Networks and security', 'Web documents'],
 };
 
 // Strands woven through the lessons and class work rather than taught by tutorials of their own (Matthew, 11 Oct):
@@ -41,7 +42,7 @@ export function curriculumMapHtml(subject, cur, lessons, up, esc) {
       into.set(k, [...(into.get(k) || []), i]);
     }
   }
-  const short = (c) => c.replace(/^AC9[A-Z]/, '');
+  const short = (c) => c.replace(/^AC9[A-Z]+?(?=\d)/, '');
   const nodeLessons = (d, n) => [...(perNode.get(`${d.code} n${n.n}`) || []), ...(perCode.get(d.code) || [])];
   const hasLessons = (d) => d.nodes.some((n) => nodeLessons(d, n).length);
   // Within a cell, anything a descriptor builds on (in the same cell) comes above it; otherwise code order.

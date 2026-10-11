@@ -1,0 +1,9 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+A file holds the numbers 72, 105, 33.
+A text program shows them as "Hi!".
+So the numbers 72, 105, 33 mean "Hi!".
+A paint program opens the same file.
+It shows the letters "Hi!" drawn as a picture.
+# endregion

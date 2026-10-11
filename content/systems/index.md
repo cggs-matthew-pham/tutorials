@@ -1,5 +1,6 @@
 ---
 title: Digital systems
+map: true
 trail: units
 summary: How computers work, without code. Short lessons on how data is stored as numbers, how networks move it and how it is kept safe. Each one is a board to try, a worked example and a few checks, for introducing an idea or revising it. They link to the coding lessons that put the same ideas to work.
 pathways:

@@ -1,0 +1,40 @@
+summary: Students switch one set of numbers between text, grey shades and sound to see that all data is stored as numbers and that an encoding gives the numbers their meaning (AC9TDI8K03 node 1).
+time: 35
+timing: "Predict and Try 6 min · Worked example 10 min · Vary 9 min · Practise and Make 10 min"
+goals:
+  - I can say how text, pictures and sound are all stored.
+  - I can explain why the same number can mean different things.
+  - I can give an example of a number standing for something that is not a number.
+struggle: "Students think the letters or colours are in the file and the numbers are a translation. Keep pointing at the top row: that is all the computer has; the rows below are what programs make of it."
+before: |
+  Try the board yourself first: switch between Text, Grey shades and Sound.
+
+  The one idea (the kit's hinge for AC9TDI8K03): every kind of data is stored as integers, and an **encoding** (the rule a program reads them with) gives them meaning. The next lessons put numbers into binary; later lessons look at each encoding properly (text codes, RGB pixels, sound samples).
+
+  Simplifications to say out loud if asked: text codes here are ASCII (A = 65); real text uses Unicode, which includes the same codes for these letters. Real pictures use three numbers per pixel (red, green, blue), not one grey. Real sound uses many thousands of samples a second.
+running:
+  - "Predict: students who chose \"the letters drawn as a picture\" think the letters are stored. Ask what the computer actually has."
+  - "Try: ask whether the top row changed when they switched."
+  - "Worked example: before each line, ask what 72 will be under the next rule."
+  - "Vary: ask why 10 shows nothing as text but a fine shade as grey."
+  - "Make: have students check their word as shades and as sound."
+stuck:
+  - see: "A student says the file contains the word Hi! (Sam's mistake)."
+    ask: "What does the top row show? Is there an H in it?"
+    fix: "The file holds 72, 105, 33. Hi! is what a text program makes of them."
+  - see: "A student can't find a letter's code in Make."
+    ask: "What is A's code? How far along the alphabet is your letter?"
+    fix: "Count on from A = 65 (or a = 97 for lower case)."
+stretch: "Open any small image or text file in a hex viewer (or ask the teacher to show one). Can you find the letter codes in a text file?"
+support: "Give a short code table (A = 65 … Z = 90, a = 97 … z = 122) for Make."
+leads: |
+  Next: Bits and binary numbers (how the computer stores each of these numbers with only 0 and 1).
+
+  Where it leads: text as character codes and Unicode, images as RGB pixels, and sound as samples (the rest of AC9TDI8K03).
+exit:
+  q: "The number 66 is stored in memory. Give two different things it could mean."
+  a: "Any two of: the letter B (as text), a dark grey (as a shade), a sound level below the middle (as audio), or the number 66 itself. Which one depends on the program's encoding."
+explain: |
+  A computer stores **all** data, whether text, pictures or sound, as **numbers**. The numbers alone don't say what they are. An **encoding** is the rule a program reads them with: as text, 72 is the letter H; as a grey shade (0 black to 255 white), 72 is dark grey; as sound (128 is silence), 72 is a level below the middle.
+
+  So the same numbers can be a word, a picture or a noise. The file type tells a program which rule to use.

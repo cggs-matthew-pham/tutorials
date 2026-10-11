@@ -1,0 +1,34 @@
+# Boards for "Everything is numbers": the same numbers read as text, grey shades or sound.
+
+# region: run
+widget: decode
+numbers: 72, 105, 33
+as: text
+# endregion
+
+# region: explain
+widget: decode
+numbers: 72, 105, 33
+as: text
+# endregion
+
+# region: explain-pic
+widget: decode
+numbers: 72, 105, 33
+as: all
+switch: off
+# endregion
+
+# region: modify
+widget: decode
+numbers: 72, 105, 33
+as: all
+edit: on
+# endregion
+
+# region: make
+widget: decode
+numbers: 65, 65, 65
+as: text
+edit: on
+# endregion

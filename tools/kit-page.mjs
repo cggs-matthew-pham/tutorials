@@ -7,7 +7,8 @@ import { join } from 'node:path';
 
 const [kit, ...codes] = process.argv.slice(2);
 if (!kit || !codes.length) { console.error('usage: node tools/kit-page.mjs <waypoints-kit checkout> <code> ...'); process.exit(1); }
-const SUBJ = { M: 'maths', S: 'science' };
+const SUBJ = { M: 'maths', S: 'science', T: 'technologies' };   // by the letter after AC9
+const OUT = { technologies: 'systems' };                      // the site's subject folder, where it differs from the kit's
 const MODE = { context_breadth: '↔ Widen contexts', consolidation: '◆ Practise here', structured_reasoning: '◎ Scaffold reasoning', integration: '⊕ Integration point', repertoire_building: '▣ Build a repertoire', width_opportunity: '★ Width opportunity' };
 
 for (const code of codes) {
@@ -15,7 +16,7 @@ for (const code of codes) {
   const dir = join(kit, 'data', subject);
   const file = readdirSync(dir).find((f) => f.endsWith(`_${code}.json`));
   if (!file) { console.error(`✗ ${code}: not in ${dir}`); process.exitCode = 1; continue; }
-  const out = join('data/progressions', subject, `${code}.md`);
+  const out = join('data/progressions', OUT[subject] || subject, `${code}.md`);
   if (existsSync(out)) { console.log(`= ${out} exists (kept)`); continue; }
   const d = JSON.parse(readFileSync(join(dir, file), 'utf8')), s = d.standard;
   const title = s.title.charAt(0) + s.title.slice(1).toLowerCase().replace(/\b(acara|ac9\w*)\b/gi, (w) => w.toUpperCase());
