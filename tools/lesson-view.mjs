@@ -114,6 +114,7 @@ p code,li code{background:color-mix(in srgb,var(--ink) 9%,transparent);padding:1
 figure.clip{margin:18px 0}figure.clip video{width:100%;border-radius:10px;border:1px solid var(--line);display:block;background:#0b0f14}
 figure.clip figcaption{font-size:14px;color:var(--muted);margin-top:6px}
 figure.clip .voiced-note{white-space:nowrap}
+figure.clip .vpick{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;margin-left:6px;white-space:nowrap}figure.clip .vpick button{font:inherit;font-size:13px;padding:2px 9px;border-radius:99px;border:1px solid var(--line);background:transparent;color:inherit;cursor:pointer}figure.clip .vpick button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;aspect-ratio:16/9;border:2px dashed var(--line);border-radius:10px;color:var(--muted);text-align:center;font-size:15px;padding:12px}
 .placeholder b{color:var(--ink)}
 .try{margin:20px 0 6px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
@@ -490,7 +491,7 @@ sync(w)});
 })();`;
 
 export const page = (title, body, scripts = '', nav = '') => `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)}</title><style>${CSS}${nav ? NAV_CSS : ''}</style></head><body>${nav}<div class="wrap">${body}</div><script>${JS}${nav ? NAV_JS : ''}</script>${scripts}</body></html>`;
+<title>${esc(title)}</title><style>${CSS}${nav ? NAV_CSS : ''}</style></head><body>${nav}<div class="wrap">${body}</div><script>${JS}${nav ? NAV_JS : ''}${body.includes('data-voices=') ? VOICE_JS : ''}</script>${scripts}</body></html>`;
 
 
 // A repeatable shuffle (so the page is the same on every build): used for match options.
@@ -744,6 +745,50 @@ ${teachersHtml}
 ${recapHtml}${nextCard}
 ${source ? `<footer>Source: <code>${esc(source)}</code></footer>` : ''}${mk ? `<style>${MAKECODE_CSS}</style>` : ''}`, (siteRoot ? `<script src="${esc(siteRoot)}progress.js" data-root="${esc(siteRoot)}" defer></script>` : '') + (mk ? `<script>${MAKECODE_JS}</script>` : '') + (hasForms && maths.forms ? `<script src="${esc(siteRoot)}${esc(maths.forms.src)}" defer></script><script>${maths.forms.js}</script>` : ''), siteNavHtml);
 }
+
+// A choice of voices on voiced clips (roadmap/shared.md): the lesson's own voice is mixed into the .mp4; another
+// voice is clips/<id>.<voice>.m4a, played in step with the video while the video's own sound is silenced. The choice
+// is saved per browser (wp-voice) and applies to every clip. The video's sound button stays the on/off switch:
+// - where the page can process the video's sound (Web Audio; desktop and Android), the video's own voice goes
+//   through a gain set to 0, so its sound button and volume work as usual and the chosen voice follows them;
+// - where it can't (iPhone and iPad: a video's volume can't be set there), the video stays muted and each press of its
+//   sound button turns the chosen voice on or off; the note beside the picker says which.
+// A voice file that fails to load falls back to the clip's own voice.
+export const VOICE_JS = `(function(){var figs=[].slice.call(document.querySelectorAll('figure.clip[data-voices]'));if(!figs.length)return;
+var K='wp-voice',all=[],AC=window.AudioContext||window.webkitAudioContext,ctx=null;
+var canVol=(function(){var v=document.createElement('video');try{v.volume=0.5}catch(e){}return v.volume===0.5})(),web=!!AC&&canVol;
+function saved(){try{return localStorage.getItem(K)||''}catch(e){return ''}}
+function save(v){try{localStorage.setItem(K,v)}catch(e){}}
+function audioCtx(){if(!ctx){try{ctx=new AC()}catch(e){web=false;return null}}if(ctx.state==='suspended')ctx.resume();return ctx}
+function alt(s){return s.cur!==s.own&&!!s.audio}
+function route(s){if(!web||s.gain||!alt(s))return;var c=audioCtx();if(!c)return;try{var n=c.createMediaElementSource(s.vid);s.gain=c.createGain();n.connect(s.gain);s.gain.connect(c.destination)}catch(e){web=false}}
+function hush(s){var on=alt(s);if(web&&s.gain){s.gain.gain.value=on?0:1;s.sound=!s.vid.muted}else if(on&&!s.vid.muted){s.self++;s.vid.muted=true;s.sound=true}if(s.audio){s.audio.muted=web?s.vid.muted:false;s.audio.volume=canVol?s.vid.volume:1}note(s)}
+function note(s){var n=s.fig.querySelector('.voiced-note');if(!n)return;if(!n.dataset.t)n.dataset.t=n.textContent;n.textContent=alt(s)&&!web?' · '+s.label+(s.sound?' on: press sound to stop':': press sound to hear'):n.dataset.t}
+function sync(s,hard){var a=s.audio,t=s.vid.currentTime;if(!a)return;if(hard||Math.abs(a.currentTime-t)>0.3){try{a.currentTime=t}catch(e){}}if(a.playbackRate!==s.vid.playbackRate)a.playbackRate=s.vid.playbackRate}
+function go(s){var a=s.audio;if(!a)return;if(s.vid.paused||s.wait||!s.sound||(web&&s.vid.muted)){a.pause();return}sync(s,true);var p=a.play();if(p&&p.catch)p.catch(function(){})}
+function unlock(s){var a=s.audio;if(!a||!a.paused||s.unlocked)return;s.unlocked=true;var m=a.muted;a.muted=true;var p=a.play();if(p&&p.then)p.then(function(){if(s.vid.paused||!s.sound)a.pause();a.muted=m;go(s)},function(){a.muted=m});else{a.pause();a.muted=m}}
+function use(s,v,gesture){if(v!==s.own&&s.others.indexOf(v)<0)v=s.own;
+[].forEach.call(s.fig.querySelectorAll('.vpick button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.v===v));if(b.dataset.v===v)s.label=b.textContent});
+if(s.audio){s.audio.pause();s.audio=null}s.cur=v;s.unlocked=false;
+if(v!==s.own){var a=new Audio(),src=(s.vid.currentSrc||s.vid.querySelector('source').src).replace(/\\.mp4(?=$|[?#])/,'.'+v+'.m4a');a.preload='auto';a.src=src;
+a.addEventListener('error',function(){if(s.audio!==a)return;s.audio=null;s.cur=s.own;var w=s.sound&&!web;hush(s);if(w&&s.vid.muted){s.self++;s.vid.muted=false}[].forEach.call(s.fig.querySelectorAll('.vpick button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.v===s.own))})});
+s.audio=a;if(gesture)route(s)}
+else if(!web&&s.sound&&s.vid.muted&&gesture){s.self++;s.vid.muted=false}
+hush(s);if(gesture)unlock(s);go(s)}
+figs.forEach(function(fig){var vid=fig.querySelector('video');if(!vid)return;
+var s={fig:fig,vid:vid,own:fig.dataset.voice,others:fig.dataset.voices.split(' '),cur:fig.dataset.voice,audio:null,gain:null,sound:!vid.muted,self:0,last:0,wait:false,label:''};all.push(s);
+var pick=fig.querySelector('.vpick');if(pick){pick.hidden=false;pick.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button[data-v]');if(!b)return;save(b.dataset.v);all.forEach(function(o){use(o,b.dataset.v,true)})})}
+vid.addEventListener('volumechange',function(){if(s.self){s.self--;return}if(!alt(s)){s.sound=!vid.muted;return}
+if(web&&s.gain){hush(s);go(s);return}
+if(!vid.muted){s.sound=!s.sound;s.self++;vid.muted=true;note(s);unlock(s);go(s)}});
+['play','playing'].forEach(function(ev){vid.addEventListener(ev,function(){s.wait=false;go(s)})});
+['pause','waiting'].forEach(function(ev){vid.addEventListener(ev,function(){if(ev!=='pause')s.wait=true;if(s.audio)s.audio.pause()})});
+['seeked','ratechange'].forEach(function(ev){vid.addEventListener(ev,function(){sync(s,ev==='seeked');go(s)})});
+vid.addEventListener('timeupdate',function(){var t=vid.currentTime;if(t+0.5<s.last){sync(s,true);go(s)}else if(s.audio&&!s.audio.paused)sync(s,false);s.last=t});
+use(s,saved()||s.own,false)});
+function gest(){if(ctx&&ctx.state==='suspended')ctx.resume();all.forEach(function(s){if(alt(s)){route(s);hush(s);unlock(s)}})}
+['pointerdown','click','keydown'].forEach(function(ev){document.addEventListener(ev,gest,true)});
+})();`;
 
 // The Explain it to me drawer: opened by the "?" in the step bar; held back until the first Predict is locked in.
 const EXPLAIN_JS = `(function(){var d=document.getElementById('xdrawer'),b=document.querySelector('.xbtn'),pop=document.querySelector('.xpop');if(!d||!b)return;var tm,y0=0;

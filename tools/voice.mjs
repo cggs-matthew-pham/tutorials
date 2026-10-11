@@ -79,7 +79,9 @@ export async function synth(text, spec, dir) {
     if (ENGINE === 'flite') {
       const tf = file.replace(/\.wav$/, '.txt');
       writeFileSync(tf, spoken);
-      execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-f', 'lavfi', '-i', `flite=textfile=${tf}:voice=slt`, '-filter:a', `atempo=${spec.speed}`, file]);
+      // A different flite voice for each Kokoro voice, so the test shows clips timed by the slowest voice.
+      const fv = { bm_george: 'rms', af_heart: 'awb' }[spec.name] || 'slt';
+      execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-f', 'lavfi', '-i', `flite=textfile=${tf}:voice=${fv}`, '-filter:a', `atempo=${spec.speed}`, file]);
     } else {
       const model = await kokoroModel();
       const audio = await model.generate(spoken, { voice: spec.name, speed: spec.speed });

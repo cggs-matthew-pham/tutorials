@@ -10,6 +10,12 @@ export const LAYOUTS = ['split', 'full'];
 /** Voiceover (frontmatter `voice:`): Kokoro voices graded A to C on its model card; US and UK English only. */
 export const VOICES = ['af_heart', 'af_bella', 'bf_emma', 'am_fenrir', 'am_michael', 'bm_george', 'bm_fable'];
 export const DEFAULT_VOICE = 'af_heart';
+/** Voices students can choose between on voiced clips (picker under the clip, saved per browser as `wp-voice`).
+ * The lesson's own voice is mixed into clips/<id>.mp4; each other voice here gets clips/<id>.<voice>.m4a. */
+export const CLIP_VOICES = ['bf_emma', 'bm_george', 'af_heart'];
+export const VOICE_LABELS = { af_heart: 'Heart', af_bella: 'Bella', bf_emma: 'Emma', am_fenrir: 'Fenrir', am_michael: 'Michael', bm_george: 'George', bm_fable: 'Fable' };
+/** The voices recorded beside a lesson's own voice (same speed), as voice specs. */
+export const otherVoices = (spec) => (spec ? CLIP_VOICES.filter((n) => n !== spec.name).map((name) => ({ name, speed: spec.speed })) : []);
 /** A spoken line longer than this many words gets a validate warning: one sentence keeps clips short. */
 export const SAY_MAX_WORDS = 15;
 /** Frontmatter `voice:` -> { name, speed } or null. Accepts true, a voice name, or { name, speed }. */

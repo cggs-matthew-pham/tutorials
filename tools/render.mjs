@@ -9,10 +9,12 @@ import { chromium } from 'playwright-core';
 import { spawn, execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync, existsSync, rmSync, readdirSync, statSync, renameSync } from 'node:fs';
+import { writeFile } from 'node:fs/promises';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadLessons, validateLesson, getSnippet, voiceSpec, captionText, captionSay } from './lesson.mjs';
 import { synth, voiceHashInput, ENGINE as VOICE_ENGINE } from './voice.mjs';
+import { otherVoices } from './lesson-core.mjs';
 import { blocksId } from './teach.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -53,7 +55,7 @@ function stepHash(lesson, step) {
   }
   h.update(stageHtml).update(rendererSrc).update(sharedFilesHash(lesson));
   const vs = voiceSpec(lesson.voice);
-  if (vs) h.update(voiceHashInput(vs));
+  if (vs) h.update(voiceHashInput(vs)).update(JSON.stringify(otherVoices(vs)));
   // The explain stage shows pictures drawn by render-pictures: they are part of the clip, so a missing or redrawn
   // picture records the clip again (a clip made while makecode.com was down mends itself on the next deploy).
   if (/_playground-explain/.test(lesson.app?.url || '')) {
@@ -69,7 +71,9 @@ function stepHash(lesson, step) {
 // accepts Kokoro clips, so clips made with the test voice (flite) or silent (none) are recorded again with the real
 // voice, while a build without Kokoro reuses Kokoro clips and fills in the rest its own way.
 const okVoice = (lesson, meta) => !voiceSpec(lesson.voice) || ['kokoro', VOICE_ENGINE].includes(meta.voice);
-const clipMeta = (lesson, step, voice) => JSON.stringify(voiceSpec(lesson.voice) ? { hash: stepHash(lesson, step), voice } : { hash: stepHash(lesson, step) });
+// `voices`: the other voices this clip has as clips/<id>.<voice>.m4a (none when it was recorded silent).
+const clipMeta = (lesson, step, voice, voices = []) => JSON.stringify(voiceSpec(lesson.voice) ? { hash: stepHash(lesson, step), voice, voices } : { hash: stepHash(lesson, step) });
+const voiceFiles = (m) => (Array.isArray(m?.voices) ? m.voices.filter((v) => /^[a-z]{2}_[a-z]+$/.test(v)).map((v) => `${v}.m4a`) : []);
 
 // Download a clip from the live site when its published hash matches: the same inputs give the same clip.
 async function seedClip(base, lesson, step, outDir) {
@@ -78,12 +82,12 @@ async function seedClip(base, lesson, step, outDir) {
     const meta = await fetch(`${url}.json`, { cache: 'no-store' });
     const m = meta.ok ? await meta.json() : null;
     if (!m || m.hash !== stepHash(lesson, step) || !okVoice(lesson, m)) return false;
-    for (const ext of voiceSpec(lesson.voice) ? ['mp4', 'jpg', 'vtt'] : ['mp4', 'jpg']) {
+    for (const ext of voiceSpec(lesson.voice) ? ['mp4', 'jpg', 'vtt', ...voiceFiles(m)] : ['mp4', 'jpg']) {
       const r = await fetch(`${url}.${ext}`);
       if (!r.ok) return false;
       writeFileSync(join(outDir, `${step.id}.${ext}`), Buffer.from(await r.arrayBuffer()));
     }
-    writeFileSync(join(outDir, `${step.id}.json`), clipMeta(lesson, step, m.voice));
+    writeFileSync(join(outDir, `${step.id}.json`), clipMeta(lesson, step, m.voice, m.voices || []));
     return true;
   } catch { return false; }
 }
@@ -145,21 +149,88 @@ const target = (frame, v, kinds) => {
 };
 
 // ---------- voiceover ----------
-// Place each spoken line at the moment its caption appeared, mix them into the clip, and write a transcript (.vtt)
-// of what is said: the player's CC button shows it, while the burned-in caption stays the short version.
+// Each spoken line is placed at the moment its caption appeared. The lesson's own voice is mixed into the clip;
+// every other voice in CLIP_VOICES gets an audio file of the same length (clips/<id>.<voice>.m4a), which the lesson
+// page plays in step with the muted video when a student picks that voice. The transcript (.vtt) is the same words
+// for every voice; the player's CC button shows it, while the burned-in caption stays the short version.
 let clipReport = null;
 const vttTime = (s) => { const ms = Math.max(0, Math.round(s * 1000)); const h = Math.floor(ms / 3600000), m = Math.floor(ms / 60000) % 60, sec = Math.floor(ms / 1000) % 60; return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}.${String(ms % 1000).padStart(3, '0')}`; };
-function muxVoice(mp4, spoken, trim, vttFile) {
-  const lines = spoken.map((l) => ({ ...l, start: Math.max(0, l.at / 1000 - trim) }));
+const duration = (f) => Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=nw=1:nk=1', f]).toString().trim());
+// One voice's lines as ffmpeg inputs and a filter that delays each to its place and mixes them into [a] (padded to
+// `pad` seconds when given). `first` is the input number of the first line.
+function voiceMix(lines, first, pad) {
   const inputs = lines.flatMap((l) => ['-i', l.file]);
-  const parts = lines.map((l, i) => `[${i + 1}:a]aresample=48000,aformat=channel_layouts=mono,adelay=${Math.round(l.start * 1000)}:all=1[a${i}]`);
-  const mix = lines.length > 1 ? `${lines.map((_, i) => `[a${i}]`).join('')}amix=inputs=${lines.length}:normalize=0:duration=longest[a]` : '[a0]anull[a]';
+  const parts = lines.map((l, i) => `[${i + first}:a]aresample=48000,aformat=channel_layouts=mono,adelay=${Math.round(l.start * 1000)}:all=1[a${i}]`);
+  const tail = pad ? `,apad=whole_dur=${pad.toFixed(3)}` : '';
+  const mix = lines.length > 1 ? `${lines.map((_, i) => `[a${i}]`).join('')}amix=inputs=${lines.length}:normalize=0:duration=longest${tail}[a]` : `[a0]anull${tail}[a]`;
+  return { inputs, filter: [...parts, mix].join(';') };
+}
+function muxVoice(mp4, spoken, trim, vttFile, voice) {
+  const lines = spoken.map((l) => ({ ...l.by[voice], text: l.text, start: Math.max(0, l.at / 1000 - trim) }));
+  const { inputs, filter } = voiceMix(lines, 1);
   const out = mp4.replace(/\.mp4$/, '.voiced.mp4');
-  execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-i', mp4, ...inputs, '-filter_complex', [...parts, mix].join(';'),
+  execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-i', mp4, ...inputs, '-filter_complex', filter,
     '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', out]);
   renameSync(out, mp4);
   const cues = lines.map((l, i) => `${i + 1}\n${vttTime(l.start)} --> ${vttTime(Math.min(l.start + l.seconds, lines[i + 1]?.start ?? Infinity))}\n${l.text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}\n`);
   writeFileSync(vttFile, `WEBVTT\n\n${cues.join('\n')}`);
+}
+// Another voice as an audio-only file exactly as long as the video, so it loops with it.
+function writeVoice(m4a, spoken, trim, voice, length) {
+  const lines = spoken.map((l) => ({ ...l.by[voice], start: Math.max(0, l.at / 1000 - trim) }));
+  const { inputs, filter } = voiceMix(lines, 0, length);
+  execFileSync('ffmpeg', ['-loglevel', 'error', '-y', ...inputs, '-filter_complex', filter, '-map', '[a]', '-t', length.toFixed(3),
+    '-c:a', 'aac', '-b:a', '64k', '-movflags', '+faststart', m4a]);
+}
+
+// ---------- video ----------
+// Frames come from Chromium's screencast, each stamped with the time it was drawn, and the clip is built from those
+// stamps. A busy page (hundreds of particles redrawn every frame) gives fewer frames, but each stays at its true time,
+// so the video keeps step with the voice. (Playwright's own recorder fell behind on such pages: the igneous clip ended
+// about 15 s behind its voice in CI.) It also leaves the CPU to the page: frames are saved as they come and encoded
+// once, after recording.
+async function startCapture(page, dir) {
+  const cdp = await page.context().newCDPSession(page);
+  const frames = [], writes = [];
+  let n = 0, offset = Infinity;
+  cdp.on('Page.screencastFrame', ({ data, metadata, sessionId }) => {
+    cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
+    const now = Date.now();
+    const drawn = metadata?.timestamp ? metadata.timestamp * 1000 : now;
+    offset = Math.min(offset, now - drawn); // the screencast's clock should be ours; if not, line it up with arrivals
+    const file = join(dir, `f${String(n++).padStart(6, '0')}.jpg`);
+    writes.push(writeFile(file, Buffer.from(data, 'base64')));
+    frames.push({ file, drawn });
+  });
+  await cdp.send('Page.startScreencast', { format: 'jpeg', quality: 90, maxWidth: 1280, maxHeight: 720, everyNthFrame: 1 });
+  return {
+    async stop() {
+      const end = Date.now();
+      await cdp.send('Page.stopScreencast').catch(() => {});
+      await Promise.all(writes);
+      await cdp.detach().catch(() => {});
+      const shift = Math.abs(offset) > 1000 ? offset : 0;
+      return { frames: frames.map((f) => ({ file: f.file, t: f.drawn + shift })).sort((a, b) => a.t - b.t), end };
+    },
+  };
+}
+// Frames from `from` (ms, our clock) to `end` as an H.264 clip at 25 fps: each frame shows until the next was drawn.
+function encodeFrames({ frames, end }, from, mp4, dir) {
+  let i = frames.findLastIndex((f) => f.t <= from);
+  if (i < 0) i = 0;
+  const kept = frames.slice(i).filter((f, k) => k === 0 || f.t > from);
+  if (!kept.length) throw new Error('no video frames were captured');
+  const list = ['ffconcat version 1.0'];
+  kept.forEach((f, k) => {
+    const t0 = Math.max(f.t, from), t1 = k + 1 < kept.length ? kept[k + 1].t : end;
+    list.push(`file '${resolve(f.file)}'`, `duration ${Math.max(0.001, (t1 - t0) / 1000).toFixed(3)}`);
+  });
+  list.push(`file '${resolve(kept.at(-1).file)}'`); // the concat demuxer drops the last entry's duration otherwise
+  const listFile = join(dir, 'frames.txt');
+  writeFileSync(listFile, list.join('\n') + '\n');
+  execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', listFile, '-an',
+    '-vf', 'fps=25,scale=1280:720:flags=bicubic,format=yuv420p', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '27', // sharp frames (not a blurred webm): 27 keeps busy boards near their old size
+    '-t', ((end - from) / 1000).toFixed(3), '-movflags', '+faststart', mp4]);
 }
 
 // ---------- one clip ----------
@@ -170,37 +241,42 @@ async function recordClip(browser, lesson, step, outDir) {
   rmSync(tmp, { recursive: true, force: true });
   mkdirSync(tmp, { recursive: true });
 
-  // Voiceover: every line is generated before recording starts, so the video never waits on the speech engine.
-  // The opening line is the step's say: (or its caption, if it has one); then each caption action's say: or text.
+  // Voiceover: every line is generated before recording starts, in every voice, so the video never waits on the
+  // speech engine. The opening line is the step's say: (or its caption, if it has one); then each caption action's
+  // say: or text. Timing follows the slowest voice, so the others have a slightly longer pause after a line.
   const vs = VOICE_ENGINE === 'none' ? null : voiceSpec(lesson.voice); // none: record voiced lessons silent
+  const voices = vs ? [vs, ...otherVoices(vs)] : [];
   const voiceDir = join('.voice-cache');
   const opening = vs ? (c.say ?? c.caption ?? '') : '';
-  const lineFor = new Map();
+  const lineFor = new Map(); // text -> { seconds (slowest voice), by: { voice: { file, seconds } } }
   if (vs) {
     for (const t of [opening, ...c.clip.filter((a) => a && a.caption !== undefined).map((a) => captionSay(a.caption))]) {
-      if (t && !lineFor.has(t)) lineFor.set(t, await synth(t, vs, voiceDir));
+      if (!t || lineFor.has(t)) continue;
+      const by = {};
+      for (const v of voices) { const l = await synth(t, v, voiceDir); by[v.name] = { file: l.file, seconds: l.seconds }; }
+      lineFor.set(t, { seconds: Math.max(...Object.values(by).map((l) => l.seconds)), by });
     }
   }
-  const spoken = [];         // { file, at (ms since t0), seconds, text }
-  let speakingUntil = 0;     // a new line waits for the last one to finish, so lines never overlap
+  const spoken = [];         // { at (ms since t0), text, by }
+  let speakingUntil = 0;     // a new line waits for the last one to finish in every voice, so lines never overlap
+  let spread = 0;            // how much longer the slowest voice takes than the lesson's own voice on the last line
   let narrationWait = 0;     // how much the voice lengthened the clip
+  const untilQuiet = async () => { const gap = speakingUntil - Date.now(); if (gap > 0) { narrationWait += gap; await sleep(gap); } };
   const speak = async (text) => {
     const line = text && lineFor.get(text);
     if (!line) return;
     const gap = speakingUntil ? speakingUntil + 250 - Date.now() : 0;
     if (gap > 0) { narrationWait += gap; await sleep(gap); }
-    spoken.push({ ...line, at: Date.now() - t0 });
+    spoken.push({ text, by: line.by, at: Date.now() - t0 });
     speakingUntil = Date.now() + line.seconds * 1000;
+    spread = (line.seconds - line.by[vs.name].seconds) * 1000;
   };
 
-  const ctx = await browser.newContext({
-    viewport: { width: 1280, height: 720 },
-    colorScheme: 'light',
-    recordVideo: { dir: tmp, size: { width: 1280, height: 720 } },
-  });
-  const t0 = Date.now();
+  const ctx = await browser.newContext({ viewport: { width: 1280, height: 720 }, colorScheme: 'light' });
   const page = await ctx.newPage();
   await page.setContent(stageHtml);
+  const capture = await startCapture(page, tmp);
+  const t0 = Date.now();
   const code = c.code ? getSnippet(lesson.dir, c.code) : '';
   const fileLabel = c.code ? c.code.split('#')[0] : '';
   await page.evaluate((o) => window.stage.init(o), {
@@ -242,15 +318,26 @@ async function recordClip(browser, lesson, step, outDir) {
     }
   };
 
+  // The first action after a caption that changes the picture (click, press, run) waits until every voice has finished
+  // that line, so the board never moves on while a slower voice is still describing it. Code typed as a caption
+  // explains it (show, type, clear) keeps its place in the lesson's own voice and moves only by how much longer the
+  // slowest voice takes, so typing still runs alongside the words. `wait` and `expect` change nothing: they don't wait.
+  let afterCaption = false;
   for (const action of c.clip) {
     const verb = Object.keys(action)[0];
     const v = action[verb];
     const ctxMsg = `${lesson.slug} ${step.id} "${verb}"`;
     try {
+      if (afterCaption && !['caption', 'wait', 'expect'].includes(verb)) {
+        afterCaption = false;
+        if (['click', 'press', 'run'].includes(verb)) await untilQuiet();
+        else { const d = Math.min(spread, speakingUntil - Date.now()); if (d > 0) { narrationWait += d; await sleep(d); } }
+      }
       if (verb === 'caption') {
         if (vs) await speak(captionSay(v) && lineFor.has(captionSay(v)) ? captionSay(v) : '');
         await page.evaluate((t) => window.stage.caption(t), captionText(v));
         await sleep(350);
+        afterCaption = true;
       }
       else if (verb === 'clear') { await page.evaluate(([f]) => window.stage.setCode('', f), [typeof v === 'string' ? v : '']); }
       else if (verb === 'show') {
@@ -265,9 +352,8 @@ async function recordClip(browser, lesson, step, outDir) {
       else if (verb === 'type') {
         const loc = await target(frame, v, ['label', 'placeholder']);
         await go(loc);
-        // append: true types at the end of what is there (so captions can explain each part as it appears).
-        // append: true types at the end; after: "text" types just after the first place that text appears
-        // (for example inside a <style> block), so captions can explain each part as it appears.
+        // append: true types at the end of what is there; after: "text" types just after the first place that text
+        // appears (for example inside a <style> block), so captions can explain each part as it appears.
         if (v.after !== undefined) {
           const at = await loc.evaluate((el, t) => { el.focus(); const i = el.value.indexOf(t); if (i >= 0) el.selectionStart = el.selectionEnd = i + t.length; return i; }, String(v.after));
           if (at < 0) throw new Error(`type.after: ${JSON.stringify(v.after)} is not in the editor`);
@@ -291,26 +377,32 @@ async function recordClip(browser, lesson, step, outDir) {
         await sleep(p.afterActionMs + 600); // let the viewer read the result
       }
     } catch (e) {
+      await capture.stop().catch(() => {});
       await ctx.close().catch(() => {});
       throw new Error(`${ctxMsg} failed: ${e.message}`);
     }
   }
-  if (speakingUntil > Date.now()) { narrationWait += speakingUntil - Date.now(); await sleep(speakingUntil - Date.now()); }
+  await untilQuiet();
   await sleep(p.postRollMs);
 
-  const video = page.video();
+  const shot = await capture.stop();
   await ctx.close();
-  const webm = await video.path();
 
   mkdirSync(outDir, { recursive: true });
   const mp4 = join(outDir, `${step.id}.mp4`);
-  const trim = Math.max(0, (readyAt - t0) / 1000 - 0.1).toFixed(2);
-  execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-ss', trim, '-i', webm, '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '24',
-    '-pix_fmt', 'yuv420p', '-movflags', '+faststart', mp4]);
-  if (spoken.length) muxVoice(mp4, spoken, Number(trim), join(outDir, `${step.id}.vtt`));
-  else rmSync(join(outDir, `${step.id}.vtt`), { force: true });
-  const length = Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=nw=1:nk=1', mp4]).toString().trim());
-  clipReport = { length, narration: narrationWait / 1000, lines: spoken.length };
+  const from = readyAt - 100;
+  const trim = (from - t0) / 1000;
+  encodeFrames(shot, from, mp4, tmp);
+  const length = duration(mp4);
+  for (const f of readdirSync(outDir)) if (f.startsWith(`${step.id}.`) && f.endsWith('.m4a')) rmSync(join(outDir, f));
+  const made = [];
+  if (spoken.length) {
+    muxVoice(mp4, spoken, trim, join(outDir, `${step.id}.vtt`), vs.name);
+    for (const v of otherVoices(vs)) { writeVoice(join(outDir, `${step.id}.${v.name}.m4a`), spoken, trim, v.name, length); made.push(v.name); }
+  } else rmSync(join(outDir, `${step.id}.vtt`), { force: true });
+  // How long the clip runs in its slowest voice (the video already allows for it) and in its own voice.
+  const lastEnd = (voice) => Math.max(0, ...spoken.map((l) => l.at / 1000 - trim + l.by[voice].seconds));
+  clipReport = { length, narration: narrationWait / 1000, lines: spoken.length, voices: made, ownEnd: spoken.length ? lastEnd(vs.name) : 0 };
   execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-sseof', '-1.2', '-i', mp4, '-frames:v', '1', '-q:v', '3', join(outDir, `${step.id}.jpg`)]);
   rmSync(tmp, { recursive: true, force: true });
   return mp4;
@@ -328,6 +420,7 @@ const NO_MAKECODE = !!process.env.WP_NO_MAKECODE && process.env.WP_NO_MAKECODE !
 const DEADLINE = Number(process.env.WP_DEADLINE) || 0;
 const outOfTime = () => DEADLINE > 0 && Date.now() / 1000 > DEADLINE;
 let leftForNextRun = 0, keptOld = 0;
+const overLong = []; // clips over CLIP_MAX_S, for the subject chats to trim (listed in the job summary)
 async function keepLive(base, lesson, step, outDir) {
   if (!base) return false;
   const url = `${base.replace(/\/$/, '')}/${lesson.slug}/clips/${step.id}`;
@@ -337,8 +430,9 @@ async function keepLive(base, lesson, step, outDir) {
     const m = await meta.json();
     if (m.voice === 'flite') return false;
     const got = {};
-    for (const ext of ['mp4', 'jpg', 'vtt']) { const r = await fetch(`${url}.${ext}`); if (r.ok) got[ext] = Buffer.from(await r.arrayBuffer()); }
+    for (const ext of ['mp4', 'jpg', 'vtt', ...voiceFiles(m)]) { const r = await fetch(`${url}.${ext}`); if (r.ok) got[ext] = Buffer.from(await r.arrayBuffer()); }
     if (!got.mp4) return false;
+    m.voices = voiceFiles(m).filter((f) => got[f]).map((f) => f.replace(/\.m4a$/, ''));
     for (const [ext, buf] of Object.entries(got)) writeFileSync(join(outDir, `${step.id}.${ext}`), buf);
     writeFileSync(join(outDir, `${step.id}.json`), JSON.stringify(m));
     return true;
@@ -379,11 +473,12 @@ for (const lesson of lessons) {
       try {
         clipReport = null;
         await recordClip(browser, lesson, s, outDir);
-        writeFileSync(join(outDir, `${s.id}.json`), clipMeta(lesson, s, VOICE_ENGINE));
+        writeFileSync(join(outDir, `${s.id}.json`), clipMeta(lesson, s, VOICE_ENGINE, clipReport?.voices || []));
         const r = clipReport;
-        const voiced = r?.lines ? `, ${r.lines} spoken lines, voice added ${r.narration.toFixed(1)}s` : '';
+        const voiced = r?.lines ? `, ${r.lines} spoken lines, voice added ${r.narration.toFixed(1)}s${r.voices.length ? `, ${r.voices.length + 1} voices` : ''}` : '';
         console.log(`✓ ${lesson.slug}/${s.id} "${s.title}" (${r ? r.length.toFixed(1) + 's clip' + voiced + ', ' : ''}${((Date.now() - t) / 1000).toFixed(1)}s to record)`);
-        if (r && r.length > CLIP_MAX_S) console.warn(`⚠ ${lesson.slug}/${s.id}: clip is ${r.length.toFixed(1)}s (over ${CLIP_MAX_S}s): shorten the spoken lines or split the idea`);
+        if (r && r.length > CLIP_MAX_S) console.warn(`⚠ ${lesson.slug}/${s.id}: clip is ${r.length.toFixed(1)}s in its slowest voice (over ${CLIP_MAX_S}s): shorten the spoken lines or split the idea`);
+        if (r && r.length > CLIP_MAX_S) overLong.push(`${lesson.slug}/${s.id}\t${r.length.toFixed(1)}`);
       } catch (e) { failures++; console.error(`✗ ${e.message.split('\n')[0]}`); }
       finally { await browser.close().catch(() => {}); }
     }
@@ -394,6 +489,10 @@ if (VOICE_ENGINE === 'flite') console.warn('⚠ voiced clips used the flite test
 if (VOICE_ENGINE === 'none') console.warn('⚠ voiced clips without a live Kokoro version were recorded silent; the next Kokoro build records them with the voice');
 console.log(`Clips: ${seeded} downloaded, ${stale} ${flag('--check') ? 'to record' : 'recorded or failed'}.`);
 if (process.env.GITHUB_OUTPUT) writeFileSync(process.env.GITHUB_OUTPUT, `stale=${stale}\n`, { flag: 'a' });
+if (overLong.length) {
+  console.warn(`⚠ ${overLong.length} clip(s) over ${CLIP_MAX_S}s in their slowest voice:\n  ${overLong.join('\n  ')}`);
+  if (process.env.GITHUB_STEP_SUMMARY) writeFileSync(process.env.GITHUB_STEP_SUMMARY, `- Clips over ${CLIP_MAX_S}s in their slowest voice (seconds): ${overLong.map((l) => l.replace('\t', ' ')).join('; ')}\n`, { flag: 'a' });
+}
 if (leftForNextRun) {
   const msg = `Out of time (WP_DEADLINE): ${leftForNextRun} clip(s) left for the next run (${keptOld} keep their live version meanwhile). Run the publish workflow again to finish.`;
   console.warn('⚠ ' + msg);

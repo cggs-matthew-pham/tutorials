@@ -14,7 +14,7 @@ import { Marked } from 'marked';
 import { parse as YAMLparse } from 'yaml';
 import { lessonPageHtml, tryEmbed, esc, titleCase, page, codeBlock, siteNav, NAV_CSS, NAV_JS, makecodeBlock } from './lesson-view.mjs';
 import { readFileSync } from 'node:fs';
-import { snippetId, unlockKind, pictureSpec, usesBoardPictures, pictureBoard, makecodePackage, makecodeExtensions, captionText } from './lesson-core.mjs';
+import { snippetId, unlockKind, pictureSpec, usesBoardPictures, pictureBoard, makecodePackage, makecodeExtensions, captionText, voiceSpec, CLIP_VOICES, VOICE_LABELS } from './lesson-core.mjs';
 import { loadLessons, validateLesson, getSnippet, loadDirMeta, loadSnippetFiles, loadSharedModules, CONTENT_ROOT } from './lesson.mjs';
 import { buildPlayground, buildPyPlayground, buildMicrostudioPlayground, buildP5Playground, buildDomPlayground, buildHtmlPlayground, buildMathsPlayground, buildSciencePlayground, buildKatex, buildNumbas, buildMakecodePlayground, buildExplainStage } from './build-playground.mjs';
 import { buildCreate } from './build-create.mjs';
@@ -32,15 +32,17 @@ const { highlightCode } = require('./highlight.cjs');
 const OUT = process.argv.includes('--out') ? process.argv[process.argv.indexOf('--out') + 1] : 'dist';
 
 // Never build a site whose clips speak with the flite test voice (render.mjs records each voiced clip's engine in
-// clips/<id>.json). Record them with Kokoro, or silent with WP_VOICE_ENGINE=none. WP_ALLOW_TEST_VOICE=1 is for
+// clips/<id>.json; that covers its other voices' clips/<id>.<voice>.m4a files too, and an audio file with no record
+// is refused as well). Record them with Kokoro, or silent with WP_VOICE_ENGINE=none. WP_ALLOW_TEST_VOICE=1 is for
 // looking at a local build only.
 {
   const { readdirSync, statSync } = await import('node:fs');
   const robotic = [];
-  const walk = (d) => { if (!existsSync(d)) return; for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p); else if (f.endsWith('.json') && d.endsWith('clips')) { try { if (JSON.parse(readFileSync(p, 'utf8')).voice === 'flite') robotic.push(p); } catch { /* not a clip record */ } } } };
+  const walk = (d) => { if (!existsSync(d)) return; for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p); else if (f.endsWith('.json') && d.endsWith('clips')) { try { if (JSON.parse(readFileSync(p, 'utf8')).voice === 'flite') robotic.push(p); } catch { /* not a clip record */ } }
+    else if (f.endsWith('.m4a') && d.endsWith('clips')) { const rec = join(d, `${f.split('.')[0]}.json`); let v = null; try { v = JSON.parse(readFileSync(rec, 'utf8')).voice; } catch { /* no record */ } if (!v || v === 'flite') robotic.push(p); } } };
   walk(OUT);
   if (robotic.length && !process.env.WP_ALLOW_TEST_VOICE) {
-    console.error(`✗ ${robotic.length} clip(s) use the flite test voice, which must not be published (first: ${robotic[0]}).\n  Record them with Kokoro (the publish workflow) or silent (WP_VOICE_ENGINE=none node tools/render.mjs ...).\n  To look at a local test build anyway: WP_ALLOW_TEST_VOICE=1 npm run build`);
+    console.error(`✗ ${robotic.length} clip file(s) use the flite test voice, which must not be published (first: ${robotic[0]}).\n  Record them with Kokoro (the publish workflow) or silent (WP_VOICE_ENGINE=none node tools/render.mjs ...).\n  To look at a local test build anyway: WP_ALLOW_TEST_VOICE=1 npm run build`);
     process.exit(1);
   }
 }
@@ -56,7 +58,15 @@ function clipHtml(lesson, step) {
     // A voiced clip has a transcript of what is said (clips/<id>.vtt): the CC button shows it. Clips start muted
     // either way (captions first: headphones are not guaranteed), so students unmute when they can listen.
     const vtt = existsSync(join(OUT, lesson.slug, 'clips', `${step.id}.vtt`)) ? `<track kind="captions" srclang="en" label="Transcript" src="clips/${step.id}.vtt">` : '';
-    inner = `<figure class="clip${vtt ? ' voiced' : ''}"><video controls loop muted playsinline preload="metadata"${poster}><source src="clips/${step.id}.mp4" type="video/mp4">${vtt}</video><figcaption>${esc(cap)}${vtt ? ' <span class="voiced-note">· Sound on for the voiceover</span>' : ''}</figcaption></figure>`;
+    // Other voices (clips/<id>.<voice>.m4a, listed in clips/<id>.json): a picker under the clip; VOICE_JS in
+    // lesson-view.mjs plays the chosen one in step with the muted video. The lesson's own voice is in the .mp4.
+    let others = [];
+    try { others = (JSON.parse(readFileSync(join(OUT, lesson.slug, 'clips', `${step.id}.json`), 'utf8')).voices || []).filter((v) => existsSync(join(OUT, lesson.slug, 'clips', `${step.id}.${v}.m4a`))); } catch { /* no record */ }
+    const own = voiceSpec(lesson.voice)?.name;
+    const choose = vtt && own && others.length ? [own, ...others].sort((a, b) => (CLIP_VOICES.indexOf(a) + 1 || 99) - (CLIP_VOICES.indexOf(b) + 1 || 99)) : [];
+    const voiceAttrs = choose.length ? ` data-voice="${esc(own)}" data-voices="${esc(others.join(' '))}"` : '';
+    const picker = choose.length ? ` <span class="vpick" role="group" aria-label="Voice" hidden>Voice: ${choose.map((v) => `<button type="button" data-v="${esc(v)}" aria-pressed="${v === own}">${esc(VOICE_LABELS[v] || v)}</button>`).join('')}</span>` : '';
+    inner = `<figure class="clip${vtt ? ' voiced' : ''}"${voiceAttrs}><video controls loop muted playsinline preload="metadata"${poster}><source src="clips/${step.id}.mp4" type="video/mp4">${vtt}</video><figcaption>${esc(cap)}${vtt ? ' <span class="voiced-note">· Sound on for the voiceover</span>' : ''}${picker}</figcaption></figure>`;
   } else {
     inner = `<div class="placeholder"><b>Clip placeholder · ${esc(step.id)}</b><span>${esc(cap)}</span><span>Rendered automatically by the build.</span></div>`;
   }
