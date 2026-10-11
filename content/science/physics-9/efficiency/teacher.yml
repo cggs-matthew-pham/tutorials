@@ -1,0 +1,42 @@
+summary: Students define efficiency, calculate it as useful output over total input, and explain why no real system reaches 100% (AC9S9U05, node 2, a hinge node).
+time: 25
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can work out the efficiency of a device.
+  - I can explain why no device is 100% efficient.
+  - I can explain why more useful output doesn't always mean more efficient.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows Where does the energy go? and comes before What does a Sankey diagram show?
+
+  The hinge: efficiency is a ratio. Students who compare useful outputs instead of proportions can't compare real systems. The two-bulbs prediction targets it.
+
+  Board notes: the Sankey board's band widths are drawn to scale; outputs start at 0 for students to set, and the board says when they add up to the input. Figures are rounded and typical: filament bulbs about 10%, LEDs about 40% (better ones more), car petrol engines 20 to 30%.
+running:
+  - "Engage: tally the predictions. 'Bulb A' compares amounts, not proportions."
+  - "Explore: ask what had to be true before the efficiency appeared (outputs = input)."
+  - "Explain: the two calculations and 'never 100%' are the success criteria."
+  - "In your own words: both bulbs' efficiencies and the sentence about proportion."
+struggle: "Efficiency as a proportion. When a student says the bigger device is more efficient, ask them to work out the useful share of each before deciding."
+stuck:
+  - see: "A student divides input by output."
+    ask: "Can a device give out more useful energy than goes in?"
+    fix: "No, so efficiency can't be more than 100%. Useful out goes on top."
+  - see: "A student forgets to multiply by 100."
+    ask: "What does 0.1 mean as a percentage?"
+    fix: "10%. Multiply the fraction by 100."
+  - see: "A student thinks wasted energy is destroyed."
+    ask: "Where did the 90 J go?"
+    fix: "It became heat in the room: transferred, not destroyed."
+stretch: "A device is 40% efficient and gives out 60 J of useful energy. How much energy went in? (150 J.)"
+support: "Give the formula as a fraction with labelled boxes: useful out on top, total in underneath, then × 100%."
+leads: |
+  Next: What does a Sankey diagram show? (nodes 3 and 4).
+
+  In class: compare a filament and an LED lamp with a thermometer or by touch; read energy ratings on appliance labels.
+exit:
+  q: "A phone charger takes in 20 J and stores 15 J in the battery. What is its efficiency, and where did the rest go?"
+  a: "15 ÷ 20 × 100% = 75%. The other 5 J became heat (the charger gets warm)."
+explain: |
+  **Efficiency** = useful energy out ÷ total energy in × 100%. It is a proportion, so a device that gives out more useful energy can still be less efficient.
+
+  No real device is 100% efficient: some energy always becomes by-products, usually heat.

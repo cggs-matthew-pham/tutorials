@@ -1,0 +1,38 @@
+# Boards for "Follow the energy".
+
+# region: coaster
+widget: energy
+mode: coaster
+friction: on
+# endregion
+
+# region: fire
+widget: energy
+mode: chain
+stage: Food stored in muscles | chemical | heat
+stage: Spinning stick | kinetic | sound
+stage: Hot wood dust | thermal
+stage: Flame | light | heat
+# endregion
+
+# region: hydro
+widget: energy
+mode: chain
+stage: Water behind a dam | gravitational
+stage: Falling water | kinetic | sound
+stage: Generator | electrical | heat | sound
+stage: Lights at home | light | heat
+# endregion
+
+# region: explain
+widget: energy
+mode: coaster
+friction: on
+# endregion
+
+# region: explain-pic
+widget: energy
+mode: coaster
+friction: on
+run: 4
+# endregion

@@ -1,0 +1,27 @@
+# Boards for "Where does the energy go?".
+
+# region: coaster
+widget: energy
+mode: coaster
+friction: toggle
+# endregion
+
+# region: stuck
+widget: energy
+mode: coaster
+friction: on
+drag: 1500
+# endregion
+
+# region: explain
+widget: energy
+mode: coaster
+friction: toggle
+# endregion
+
+# region: explain-pic
+widget: energy
+mode: coaster
+friction: on
+run: 4
+# endregion

@@ -1,0 +1,39 @@
+summary: Students construct and interpret Sankey diagrams, read efficiency and the largest waste from them, and apply efficiency and conservation to compare real energy systems (AC9S9U05, nodes 3 and 4).
+time: 26
+timing: "Engage and Explore 9 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can build a Sankey diagram from energy data.
+  - I can read the efficiency and the biggest waste from a Sankey diagram.
+  - I can say what a Sankey diagram doesn't show.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It closes Year 9 energy, after How much is useful?
+
+  Neither is a hinge node. The common slips are reading band widths as unrelated numbers and judging efficiency by the size of the useful band rather than its share of the input. The prediction targets the second.
+
+  Board notes: the board draws one split (input to outputs), not multi-stage chains. Power station figures are rounded and typical: coal about 35%, hydro about 90%, solar panels about 20%.
+running:
+  - "Engage: ask students who chose 'can't tell' what the widths are drawn to show."
+  - "Explore: ask which station's useful band is wider compared with its input."
+  - "Explain: the biggest-waste question and the solar efficiency are the success criteria; 'what it hides' is the critique."
+  - "In your own words: the two sketches with a comparison."
+struggle: "Reading widths as proportions. When a student compares two diagrams by the width of the useful band alone, ask what share of each input band it is."
+stuck:
+  - see: "A student's outputs don't add up to the input."
+    ask: "What does conservation of energy say about the total out?"
+    fix: "It must equal the total in. The board shows the missing amount."
+  - see: "A student says the widest band is the useful one."
+    ask: "Which band carries energy the device was made to produce?"
+    fix: "The useful band goes straight on; in a coal station the widest band is waste heat."
+stretch: "A power station's waste heat warms a nearby town's homes. Redraw its Sankey diagram. What happens to its overall efficiency? (Some waste becomes useful, so the efficiency of the whole system rises.)"
+support: "Give a Sankey template with the input band drawn and gaps for each output's label and amount."
+leads: |
+  Next: Year 10 energy (climate and the energy balance) uses the same accounting.
+
+  In class: draw Sankey diagrams on grid paper (1 square = 10 J) for three appliances from their labels or data sheets.
+exit:
+  q: "A wind turbine takes in 500 J of kinetic energy and gives out 200 J of electricity. What is its efficiency, and how would its Sankey diagram show the rest?"
+  a: "200 ÷ 500 × 100% = 40%. The other 300 J would bend away as wasted bands (heat and sound), together as wide as 300 J."
+explain: |
+  A **Sankey diagram** shows energy as bands whose widths are proportional to the amounts. The input splits into the useful output (straight on) and wasted outputs (bending away), which always add up to the input.
+
+  Read the efficiency as useful ÷ input, and find the biggest waste by the widest wasted band.

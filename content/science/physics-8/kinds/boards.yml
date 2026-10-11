@@ -1,0 +1,17 @@
+# Boards for "Moving or stored?".
+
+# region: coaster
+widget: energy
+mode: coaster
+# endregion
+
+# region: higher
+widget: energy
+mode: coaster
+start: 45
+# endregion
+
+# region: explain
+widget: energy
+mode: coaster
+# endregion

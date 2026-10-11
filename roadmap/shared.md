@@ -158,6 +158,9 @@ With `trail: true`, `/code/` opens on trailheads: a Continue card (the course of
 
 ## Changed by the science chat (11 Oct 2026)
 
+- New shared-board widget `playground-board/widgets/energy.js` (Matthew approved): `mode: coaster | chain | sankey` for Year 8 and 9 energy. One `<script>` line in `playground-board/index.html` and a few `.en*` rules at the end of `style.css`; nothing existing changed (AUTHORING › 12). As with any board change, board clips and pictures re-record and redraw on the next publish.
+- Proposed (not built): validate does not parse `teacher.yml`, so a colon in an unquoted summary only fails at build time (it has happened twice). A YAML parse of each `teacher.yml` in validate would catch it.
+
 - Science map switched on (handoff above done): all 65 science lessons have `node:` (from their teacher notes; every one matched the kit's node labels), `map: true` in `content/science/index.md`, and `science` is in `CHECKED` (`tools/progressions.mjs`). 21 progression pages written with `tools/kit-page.mjs` from the kit. 18 lessons list `assumes:` for earlier nodes taught in class (each comment names the node); seasons and word equations list a node they deliberately come before. `tools/curriculum-map.mjs` and `site/curriculum-map.js` (Matthew approved): `WOVEN` strands (science's Human endeavour and Inquiry) show no waypoint dots, "woven through lessons and class work" in the row and card instead of "no lesson yet". Maths is unchanged.
 
 - `playground-board/widgets/atom.js` (Matthew approved): `mode: halflife`, a `colour:` option for the table, and a stable or radioactive line in build mode (values `u`, `i`); a fix to "1 electrons". `playground-board/style.css` gains `.atkey`, `.atsw`, `.atstab`. Only atom lessons change; every board clip and picture redraws on the next publish, as with any board change.

@@ -1,0 +1,44 @@
+summary: "Students classify energy as kinetic (activity: movement, heat, sound, light, electrical) or potential (stored: chemical, gravitational, elastic), with examples, and see the two change into each other (AC9S8U05, nodes 1 and 2)."
+time: 22
+timing: "Engage and Explore 7 min · Explain 9 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can sort energy into kinetic and potential.
+  - I can give examples of chemical, gravitational and elastic potential energy.
+  - I can say what decides how much energy is stored.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It opens Year 8 Physics.
+
+  Neither node is a hinge, but they organise everything after: students arrive with energy forms learned one at a time (sound, heat, light, electricity) and think energy means movement. The book prediction targets that.
+
+  The classification follows the progression: kinetic for energy of activity (movement, heat, sound, light, electrical) and potential for stored energy (chemical, gravitational, elastic). Some textbooks list stores and transfers differently; the idea that matters is "active" versus "stored".
+
+  Board notes: the coaster has no friction here, so its energy only changes between gravitational potential and kinetic and the total is constant. It is given a small push at the start. Heights and masses are typical of a real coaster.
+running:
+  - "Engage: tally the predictions. 'No, it isn't moving' is the idea to work on."
+  - "Explore: ask where the orange bar was tallest, and where the blue bar was."
+  - "Explain: the sort is the success criterion; the fastest-point question links the bars to the ride."
+  - "In your own words: two columns of examples and the labelled coaster."
+struggle: "Heat, sound and light as kinetic. When a student puts heat under potential, ask what the particles are doing in something hot."
+stuck:
+  - see: "A student says a still object has no energy."
+    ask: "If it fell, would it speed up? Where would that energy come from?"
+    fix: "From the energy stored by its height: gravitational potential energy."
+  - see: "A student puts food under kinetic because it gives you energy to move."
+    ask: "Is the energy active while the food sits in the box?"
+    fix: "No: it is stored, chemical potential energy, until your body releases it."
+  - see: "A student thinks the coaster loses energy at the bottom."
+    ask: "Did the total line on the board move?"
+    fix: "No. The stored energy became kinetic energy; the total stayed the same."
+stretch: "Why can't the car (without friction) ever get higher than its starting point? (It would need more potential energy than it started with, and the total can't grow.)"
+support: "Give the two family headings with picture cues: a moving ball, a speaker, a torch (kinetic); a battery, a book on a shelf, a stretched spring (potential)."
+leads: |
+  Next: Transfer or transformation? (nodes 3 and 4).
+
+  In class: drop a ball from different heights onto sand; stretch a rubber band different amounts and measure how far it flies.
+exit:
+  q: "Name one example each of chemical, gravitational and elastic potential energy."
+  a: "For example: a battery or food (chemical), a ball held up high (gravitational), a stretched slingshot (elastic)."
+explain: |
+  **Kinetic energy** is energy of activity: movement, heat, sound, light and electricity. **Potential energy** is stored: chemical (food, fuel, batteries), gravitational (things up high) and elastic (things stretched or squashed).
+
+  Energy can change from one family to the other and back, as on a roller coaster, but the total stays the same.

@@ -1,0 +1,42 @@
+summary: Students distinguish energy transfer (same type, new place) from transformation (type changes), describe common transformations, and identify by-product heat (AC9S8U05, nodes 3 and 4; node 4 is a hinge).
+time: 25
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 3 min"
+goals:
+  - I can tell an energy transfer from a transformation.
+  - I can describe the transformations in a torch or a speaker.
+  - I can name the by-product heat in a transformation.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows Moving or stored? and comes before Follow the energy.
+
+  Node 4 is a hinge: by-product heat is what Year 9 efficiency and Sankey diagrams are built on. Students who think a device makes only its useful output can't account for all the energy later. The prediction targets that.
+
+  Board notes: the flow diagram board checks each stage's useful energy type and each arrow (transfer if the type is the same, transformation if it changes), then shows the by-products. Sound counts as kinetic (vibrating particles), as in the progression.
+running:
+  - "Engage: tally the predictions. 'Only light' is the hinge misconception."
+  - "Explore: after Check, ask what the red boxes or arrows had in common."
+  - "Explain: the sort and the by-product questions are the success criteria."
+  - "In your own words: the torch flow diagram with a by-product arrow."
+struggle: "Deciding transfer or transformation. When a student guesses, ask them to name the energy type on each side of the arrow first, then compare."
+stuck:
+  - see: "A student calls every arrow a transformation."
+    ask: "Is the energy the same type before and after?"
+    fix: "If yes (heat to heat), it only moved: a transfer."
+  - see: "A student leaves out by-product heat."
+    ask: "If you touched it after a while, would it be warm?"
+    fix: "Then some energy became heat: add it as a by-product."
+  - see: "A student says the heat is lost or destroyed."
+    ask: "Where does it go?"
+    fix: "Into the surroundings, spread out. It's still there, just not useful."
+stretch: "An electric kettle's job is to make heat. Is heat a by-product there? (No: heat is the useful output; by-products are the heat lost to the air and the kettle itself, and the sound.)"
+support: "Give a decision card: 'Same type before and after? → transfer. Different type? → transformation. Anything warm? → by-product heat.'"
+leads: |
+  Next: Follow the energy (nodes 5 and 6), then Year 9 conservation and efficiency.
+
+  In class: a circus of devices (torch, wind-up toy, buzzer, hand-crank generator) with a flow diagram for each; feel which parts get warm.
+exit:
+  q: "A wind-up toy runs across the floor. Is 'spring to moving wheels' a transfer or a transformation? Name a by-product."
+  a: "A transformation (elastic potential to kinetic). By-products: heat (friction) and sound."
+explain: |
+  In a **transfer**, the same type of energy moves to a new place (heat into your hands). In a **transformation**, energy changes type (chemical → electrical → light in a torch).
+
+  Almost every transformation also makes some **by-product** heat that isn't wanted. It isn't destroyed: it spreads into the surroundings.

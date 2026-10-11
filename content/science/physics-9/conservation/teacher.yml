@@ -1,0 +1,42 @@
+summary: Students state the law of conservation of energy and use it to account for all the energy in a system, including energy transferred as heat and sound (AC9S9U05, node 1, a hinge node).
+time: 25
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can state the law of conservation of energy.
+  - I can account for all the energy in a system, including heat and sound.
+  - I can explain where energy goes when it seems to be lost.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It builds on Year 8 energy (AC9S8U05) and comes before How much is useful? (efficiency).
+
+  The hinge: students who think energy is "used up" or "disappears" can't account for every output in an efficiency calculation and read Sankey diagrams as loss. The prediction and the braking question target it. Note the everyday meaning of "conserve energy" (save it) differs from the law.
+
+  Board notes: the coaster's total energy is set at the start and drawn as a dashed line; with friction (a steady force while moving) the heat and sound bar grows. On the high-friction track the car settles in a dip. Real coasters also lose energy to air resistance that grows with speed.
+running:
+  - "Engage: tally the predictions. 'Used up' and 'disappeared' are the hinge misconceptions."
+  - "Explore: ask whether the total line ever moved, with or without friction."
+  - "Explain: the law, the 150 kJ calculation and the braking question are the success criteria."
+  - "In your own words: three sets of bars that each add up to the total."
+struggle: "Replacing 'used up'. When a student says energy was used up, ask 'used up into what?' and wait for them to name heat or sound."
+stuck:
+  - see: "A student says the energy was used up."
+    ask: "Into what? Was anything warmer or louder afterwards?"
+    fix: "It became heat and sound. It's still there, spread into the surroundings."
+  - see: "A student thinks friction destroys energy."
+    ask: "What did the red bar do when friction was on?"
+    fix: "It grew: friction transforms kinetic energy into heat. The total stayed the same."
+  - see: "A student confuses the law with saving energy at home."
+    ask: "If you leave a light on, is energy destroyed?"
+    fix: "No, it's transformed into light and heat. 'Saving energy' means using less of a useful supply, not stopping it being destroyed."
+stretch: "A ball dropped from 2 m bounces to 1.5 m. What fraction of its energy became heat and sound on the bounce? (A quarter: it has three quarters of its starting potential energy at the top of the bounce.)"
+support: "Give the equation as a frame: 'Total = potential + kinetic + heat and sound = … + … + … '."
+leads: |
+  Next: How much is useful? (efficiency, node 2).
+
+  In class: drop balls of different kinds and measure bounce heights; feel a bike brake or sandpaper after rubbing.
+exit:
+  q: "A skateboarder has 2000 J at the top of a ramp and 1700 J of kinetic energy at the bottom. Where are the other 300 J?"
+  a: "Transferred as heat and sound because of friction and air resistance. The total is still 2000 J."
+explain: |
+  **Conservation of energy:** energy is never made or destroyed, only transferred or transformed. The total in a system always stays the same.
+
+  Energy that seems lost or used up has been transferred to the surroundings, usually as heat and sound.

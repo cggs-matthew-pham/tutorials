@@ -25,6 +25,7 @@ pathways:
     summary: Forces and motion, how energy moves, and Newton's laws.
     courses:
       - { path: science/physics-7, stage: foundations }
+      - { path: science/physics-8, stage: foundations }
       - { path: science/physics-9, stage: extensions }
       - { path: science/physics-10, stage: extensions }
   - id: earth-space

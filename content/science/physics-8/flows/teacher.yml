@@ -1,0 +1,39 @@
+summary: Students trace energy through multi-step systems, naming each stage's energy and every transfer, transformation and by-product, and construct and critique flow diagrams (AC9S8U05, nodes 5 and 6).
+time: 26
+timing: "Engage and Explore 9 min · Explain 9 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can trace energy through a system with several steps.
+  - I can draw a flow diagram with every by-product.
+  - I can spot what is missing from someone else's flow diagram.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It closes Year 8 energy and sets up Year 9 conservation and efficiency.
+
+  Not hinge nodes; tracing every output is the skill Year 9 needs. The prediction (the lower second hill) shows why by-products matter.
+
+  Board notes: the coaster's friction is a steady 400 N while it moves, so the heat bar grows with distance. The fire-drill chain is simplified to four stages. Fire drills (a stick spun against a hearth board) have been used by many peoples, including many First Peoples of Australia; for local practice and knowledge, use local resources and community guidance.
+running:
+  - "Engage: tally the predictions. 'Yes, same energy' ignores by-products; 'used up' calls them destroyed."
+  - "Explore: ask what the red bar would show if the ride went on for longer."
+  - "Explain: the 'what's missing' question is the critique skill; the sort checks useful versus by-product."
+  - "In your own words: the fire-drill flow diagram with side arrows."
+struggle: "Finding every output. When a student's diagram looks finished, ask 'what would you feel or hear at each stage?' to find the by-products."
+stuck:
+  - see: "A student says energy is used up going downhill."
+    ask: "Where did the red bar's energy come from, and is the total line lower?"
+    fix: "It came from the car's energy; the total didn't change. It moved into the surroundings."
+  - see: "A student leaves sound out of a flow diagram."
+    ask: "Is the system quiet?"
+    fix: "If you can hear it, some energy became sound: add it."
+stretch: "A pendulum swings lower and lower. Draw its flow diagram over several swings. (Gravitational potential ⇄ kinetic, with heat and sound leaving at each swing.)"
+support: "Give a flow diagram frame: three boxes, two arrows, and two empty side arrows labelled 'by-product'."
+leads: |
+  Next: Year 9, Where does the energy go? (conservation of energy, AC9S9U05).
+
+  In class: trace energy in a hand-crank torch or a bouncing ball (measure each bounce's height).
+exit:
+  q: "Draw a flow diagram for a battery-powered fan, with one by-product."
+  a: "Battery (chemical) → wires (electrical) → spinning blades (kinetic), with a by-product of heat (and sound) from the motor."
+explain: |
+  Real systems pass energy through many stages. A **flow diagram** shows each stage as a box, each transfer or transformation as an arrow, and every **by-product** (mostly heat and sound) as a side arrow.
+
+  Tracing all the outputs shows where energy goes. By-products go to the surroundings; they're never destroyed.

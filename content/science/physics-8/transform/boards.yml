@@ -1,0 +1,42 @@
+# Boards for "Transfer or transformation?".
+
+# region: torch
+widget: energy
+mode: chain
+stage: Battery | chemical
+stage: Wires | electrical
+stage: Bulb | light | heat
+# endregion
+
+# region: cocoa
+widget: energy
+mode: chain
+stage: Hot chocolate | thermal
+stage: Your cold hands | thermal
+# endregion
+
+# region: speaker
+widget: energy
+mode: chain
+stage: Phone battery | chemical
+stage: Circuit | electrical
+stage: Speaker cone | kinetic | heat
+stage: The air | sound
+# endregion
+
+# region: bow
+widget: energy
+mode: chain
+stage: Archer's muscles | chemical | heat
+stage: Bent bow | elastic
+stage: Flying arrow | kinetic | sound
+# endregion
+
+# region: explain
+widget: energy
+mode: chain
+show: answers
+stage: Battery | chemical
+stage: Wires | electrical
+stage: Bulb | light | heat
+# endregion

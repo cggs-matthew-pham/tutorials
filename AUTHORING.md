@@ -827,6 +827,16 @@ Vary, Practise, Make).
     decays in a row from the start, `s` 1 once stable. `mode: shield`: fire alpha, beta and gamma at paper,
     aluminium and lead (`fired: alpha, beta, gamma` starts with all three shown, for a picture). Values: `x`, `y`,
     `w` 1 once fired, `f` kinds fired.
+  - `widget: energy` (AC9S8U05, AC9S9U05). `mode: coaster`: a roller coaster car on a track of hills (Play, Pause,
+    Reset) with bars for potential, kinetic, and heat and sound, and the total marked; `start: 30` (m, 10 to 50),
+    `mass: 500`, `g: 10`, `friction: off | on | toggle`, `drag: 400` (N while moving), `run: 4` (seconds already run,
+    for a picture). Values `h`, `v`, `p`, `k`, `q`, `t` (kJ), `r` runs finished, `f` friction on, `z` past the first
+    dip. `mode: chain`: `stage: Battery | chemical` lines (name, useful type, then by-products); students choose each
+    stage's useful energy and each arrow (Transfer or Transformation), then Check; `show: answers` fills it in. Types:
+    chemical, gravitational, elastic, kinetic, thermal (or heat), sound, light, electrical. Values `c` 1 once all
+    right, `w` wrong at the last check, `n` checks. `mode: sankey`: `device:`, `input: 100, electrical`,
+    `output: Light, 10, useful` lines; band widths to scale, wasted bands bend down; `build: on` gives a slider per
+    output starting at 0. Values `i`, `u` useful, `w` wasted, `o` all out, `b` 1 while outputs = input, `e` %.
   - `widget: equation` (AC9S9U07 n4): `equation: CH4 + O2 -> CO2 + H2O` (symbols and subscripts, no brackets, 2 to 5
     substances, at most 9 atoms each). + and − change only the coefficients (aria-labels "CH4: more" and so on, 1 to
     6); each molecule is drawn, with an atom tally per element. `start: 1, 2, 1, 2`. Values: `b` 1 while balanced,

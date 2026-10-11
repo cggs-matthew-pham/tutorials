@@ -304,3 +304,9 @@ table.ctally tr.cwatch td { font-weight: 700; }
 .atstab.bad { color: #b4532a; }
 .ftpick span { align-self: center; color: var(--muted); font-size: 14px; }
 .ftpick button { min-width: 2.6em; }
+.enarrow { display: flex; align-items: center; font: 600 12px/1.2 system-ui, sans-serif; color: var(--muted); }
+.enarrow select { font: inherit; padding: 4px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); }
+.enarrow.bad select { border-color: #b42318; box-shadow: 0 0 0 1px #b42318; }
+.entype { font-weight: 600; }
+.enby { color: #b4532a; }
+.enbad { color: #b42318; }

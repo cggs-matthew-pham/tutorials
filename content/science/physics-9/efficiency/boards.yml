@@ -1,0 +1,41 @@
+# Boards for "How much is useful?".
+
+# region: filament
+widget: energy
+mode: sankey
+device: Filament bulb
+input: 100, electrical
+output: Light, 10, useful
+output: Heat, 90
+build: on
+# endregion
+
+# region: led
+widget: energy
+mode: sankey
+device: LED bulb
+input: 100, electrical
+output: Light, 40, useful
+output: Heat, 60
+build: on
+# endregion
+
+# region: engine
+widget: energy
+mode: sankey
+device: Car engine
+input: 100, chemical
+output: Movement, 25, useful
+output: Heat, 65
+output: Sound, 10
+build: on
+# endregion
+
+# region: explain
+widget: energy
+mode: sankey
+device: Filament bulb
+input: 100, electrical
+output: Light, 10, useful
+output: Heat, 90
+# endregion

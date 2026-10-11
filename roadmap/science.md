@@ -2,6 +2,12 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: energy, Years 8 and 9 (11 Oct 2026, science chat)
+
+A new shared-board widget, `energy` (coaster, chain, sankey), and six lessons. New course Year 8 Physics (`physics-8/`): Moving or stored? (8U05 n1–n2), Transfer or transformation? (n3–n4, the hinge: by-product heat), Follow the energy (n5–n6, with a fire-drill chain). Year 9 Physics gains a unit, Conservation of energy and efficiency: Where does the energy go? (9U05 n1, hinge), How much is useful? (n2, hinge), What does a Sankey diagram show? (n3–n4). Kinetic and potential families follow the progression (kinetic: movement, heat, sound, light, electrical; potential: chemical, gravitational, elastic). Clips on ports 8283–8288 (next free 8289); pictures except the flow-diagram lessons (no board to draw); every check passes headless; decks fit.
+
+Left in physics: 9U04 n2–n5 (sound, electricity, light: a wave widget), 10U05 n7–n8 (class tasks), 7U04 n5.
+
 ## Done: signs, energy in reactions, third law, free body diagrams (11 Oct 2026, science chat)
 
 How can you tell a reaction happened? (`chemistry-8/signs`, 8U07 n3), Hotter or colder? (`chemistry-8/energy-change`, 8U07 n4 and n5: hydrogen burning warms, nitrogen + oxygen at 600 K cools), Push the wall, and it pushes you? (`physics-10/third-law`, 10U05 n5) and What forces act on it? (`physics-10/free-body`, 10U05 n6). Collision theory already teaches temperature, concentration, surface area and catalysts, so it now also names 10U07 n6. Existing boards only; clips on ports 8279–8282 (next free 8283); every check passes headless; decks fit.

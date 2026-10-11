@@ -1,0 +1,54 @@
+# Boards for "What does a Sankey diagram show?".
+
+# region: coal
+widget: energy
+mode: sankey
+device: Coal power station
+input: 1000, chemical
+output: Electricity, 350, useful
+output: Cooling water, 550
+output: Chimney, 100
+build: on
+# endregion
+
+# region: hydro
+widget: energy
+mode: sankey
+device: Hydro-electric station
+input: 1000, gravitational
+output: Electricity, 900, useful
+output: Heat, 60
+output: Sound, 40
+build: on
+# endregion
+
+# region: solar
+widget: energy
+mode: sankey
+device: Solar panel
+input: 1000, light
+output: Electricity, 200, useful
+output: Heat, 700
+output: Reflected, 100
+# endregion
+
+# region: kettle
+widget: energy
+mode: sankey
+device: Electric kettle
+input: 2000, electrical
+output: Hot water, 1800, useful
+output: Kettle and air, 180
+output: Sound, 20
+build: on
+# endregion
+
+# region: explain
+widget: energy
+mode: sankey
+device: Coal power station
+input: 1000, chemical
+output: Electricity, 350, useful
+output: Cooling water, 550
+output: Chimney, 100
+# endregion
