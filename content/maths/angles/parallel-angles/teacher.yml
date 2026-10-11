@@ -34,8 +34,8 @@ leads: |
 
   Where it leads: geometric proof in Years 8 to 10 (congruent triangles, properties of quadrilaterals).
 exit:
-  q: "Parallel lines, b = 75°. Find f and e, with a reason for each."
-  a: "f = 75° (corresponding to b). e = 105° (on a straight line with f, or co-interior with c = 75°)."
+  q: A transversal crosses two parallel lines. One angle is 75°. Find the angle corresponding to it, and the angle next to that one on a straight line, with a reason for each.
+  a: 75° (corresponding angles are equal), then 180° − 75° = 105° (angles on a straight line).
 explain: |
   When the lines are **parallel**:
 

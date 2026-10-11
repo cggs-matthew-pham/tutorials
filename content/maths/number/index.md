@@ -1,5 +1,7 @@
 ---
 title: Number Foundations
+recap: true
+coach: true
 summary: Integers, squares and powers, fractions, decimals and percentages, place value, rounding and estimating, ratios, rates and modelling (with Year 8 rates, percentage change and money models). Compare and calculate with integers; squares, roots, prime factors, HCF and LCM; equivalent fractions and conversions; the four operations with fractions and percentages; then negative fractions and decimals.
 order: 3
 units:

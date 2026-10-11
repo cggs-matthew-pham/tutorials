@@ -34,8 +34,8 @@ leads: |
 
   Where it leads: geometric proof (Years 8 to 10), where a chain of reasons is the proof.
 exit:
-  q: "Parallel lines, d = 120°. Find g, with a reason for each step."
-  a: "e = 120° (alternate to d), g = 60° (a straight line with e). Other correct routes are fine."
+  q: A transversal crosses two parallel lines, making a 120° angle. Find the angle alternate to it and the angle co-interior to it, with reasons.
+  a: 120° (alternate angles are equal) and 180° − 120° = 60° (co-interior angles add to 180°).
 explain: |
   Most angle problems take more than one step. For each step:
 

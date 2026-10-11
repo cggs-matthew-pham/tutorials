@@ -1,5 +1,7 @@
 ---
 title: Algebra Foundations
+recap: true
+coach: true
 summary: Expressions and equations, three ways to solve them, each checked, then brackets, formulas, harder equations and inequalities.
 order: 1
 units:

@@ -1,5 +1,7 @@
 ---
 title: Data and chance
+recap: true
+coach: true
 summary: Collect and display data, find its centre and spread, and compare data sets; then list what can happen, give it a probability, and test it with experiments.
 order: 5
 units:

@@ -37,8 +37,8 @@ leads: |
 
   Where it leads: financial mathematics in Years 9 and 10 (interest, budgets), and modelling with rates.
 exit:
-  q: "Find the tax on $50 000 with the lesson's brackets."
-  a: "15% of 26 800 = 4020, plus 30% of 5000 = 1500: $5520."
+  q: Tax is 0% on the first $18 200 of income, 15% on the next part up to $45 000, and 30% on the part from $45 000 to $135 000. Find the tax on $50 000.
+  a: '15% of (45 000 − 18 200) = 15% of 26 800 = $4020, plus 30% of 5000 = $1500: $5520 in all.'
 explain: |
   To **model** a money problem: decide what to find, choose the calculation, work it out, and check it makes sense.
 

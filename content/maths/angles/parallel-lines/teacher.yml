@@ -34,8 +34,8 @@ leads: |
 
   Where it leads: angle sums of triangles and polygons (the next unit), and geometric reasoning with reasons in Years 8 to 10.
 exit:
-  q: "Name the pair: (1) c and f, (2) b and f, (3) d and f, (4) a and d."
-  a: "(1) alternate, (2) corresponding, (3) co-interior, (4) vertically opposite."
+  q: A transversal crosses two parallel lines. Which angle pairs are equal, and which pair adds to 180°?
+  a: Corresponding angles and alternate angles are equal (so are vertically opposite angles); co-interior angles add to 180°.
 explain: |
   A line crossing two **parallel** lines (a **transversal**) makes eight angles, $a$ to $h$. Each pair below takes one angle from each crossing:
 

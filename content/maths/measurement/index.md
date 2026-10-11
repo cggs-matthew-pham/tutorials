@@ -1,5 +1,7 @@
 ---
 title: Area, volume, circles and Pythagoras
+recap: true
+coach: true
 summary: Why the area formulas work (cut and move, halve and double), then area problems; volume as layers of the base; the parts of a circle, π, and the circumference; then Pythagoras' theorem for right-angled triangles; for Year 8, composite and irregular shapes, capacity and prism problems, the area of a circle, and time zones.
 order: 6
 units:

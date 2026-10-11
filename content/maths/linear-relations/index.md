@@ -1,5 +1,7 @@
 ---
 title: Linear relations
+recap: true
+coach: true
 summary: Straight-line graphs. What the numbers in a rule do to its line, solving equations with graphs, and modelling with lines.
 order: 2
 units:

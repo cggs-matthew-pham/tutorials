@@ -34,8 +34,8 @@ leads: |
 
   Where it leads: congruence and similarity (Years 8 and 9) and geometric proof, where chains of reasons are the whole point.
 exit:
-  q: "A triangle has a = 48° and b = 67°. Find c and the exterior angle at C, with reasons."
-  a: "c = 65° (angles in a triangle), x = 115° (a straight line with c). Check: 48° + 67° = 115°."
+  q: A triangle has angles of 48° and 67°. Find the third angle, and the exterior angle next to it, with reasons.
+  a: '180° − 48° − 67° = 65° (angles in a triangle). Exterior angle 180° − 65° = 115° (a straight line). Check: 48° + 67° = 115°.'
 explain: |
   To find an unknown angle in a shape, choose the **angle sum** for the shape: $180^\circ$ for a triangle, $(n - 2) \times 180^\circ$ for $n$ sides ($360^\circ$ for a quadrilateral, $540^\circ$ for a pentagon). Add the angles you know and subtract from the sum.
 

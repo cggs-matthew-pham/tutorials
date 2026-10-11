@@ -1,5 +1,7 @@
 ---
 title: Angles and shapes
+recap: true
+coach: true
 summary: Angles at parallel lines, then angle sums, then naming shapes. Corresponding and alternate angles are equal and co-interior angles add to 180°; a triangle's angles add to 180°, and any polygon's to 180° for each triangle it splits into; triangles, quadrilaterals and polygons are classified by their sides and angles.
 order: 4
 units:

@@ -1,5 +1,7 @@
 ---
 title: Irrational numbers and index laws
+recap: true
+coach: true
 summary: Which fractions make decimals that stop and which repeat, numbers whose digits never stop or repeat (square roots and π), and the laws for multiplying and dividing powers.
 order: 7
 units:
