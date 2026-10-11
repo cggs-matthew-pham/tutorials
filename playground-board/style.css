@@ -466,3 +466,19 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .nwlog li { margin: 2px 0; }
 .bbar button.go { background: var(--accent); border-color: transparent; color: #fff; }
 @media (prefers-color-scheme: dark) { .bbar button.go { color: #14181f; } }
+
+/* Gears and a winch (gears) */
+.gearsvg { width: 100%; height: 100%; display: block; }
+.gearsvg .ggear { stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+.gearsvg .gdrv { fill: color-mix(in srgb, var(--left) 35%, var(--card)); }
+.gearsvg .gdvn { fill: color-mix(in srgb, var(--right) 30%, var(--card)); }
+.gearsvg .gmotor { fill: var(--line); stroke: var(--muted); }
+.gearsvg .gaxle, .gearsvg .gdrum { fill: var(--card); stroke: var(--ink); stroke-width: 1.5; }
+.gearsvg .gspoke { stroke: var(--ink); stroke-width: 2; }
+.gearsvg .gmark { fill: var(--accent); stroke: var(--card); stroke-width: 1.5; }
+.gearsvg .grope { stroke: var(--muted); stroke-width: 2; fill: none; }
+.gearsvg .gbucket { fill: var(--line); stroke: var(--ink); stroke-width: 1.5; }
+.gearsvg .gbtext { font: 600 12px system-ui, sans-serif; fill: var(--ink); }
+.gearsvg .glabel { font: 600 14px system-ui, sans-serif; fill: var(--muted); }
+.gfacts { margin: 2px 0 0; font: 15px/1.4 ui-monospace, Menlo, Consolas, monospace; }
+.oprow label { display: inline-flex; align-items: center; gap: 4px; }

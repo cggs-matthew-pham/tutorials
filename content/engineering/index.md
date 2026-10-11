@@ -1,0 +1,42 @@
+---
+title: Engineering
+trail: units
+summary: "Build it, test it, improve it. An elective layer on top of the core curriculum for schools with kits, a makerspace or a STEM elective: mechanisms, circuits and microcontrollers, CAD and 3D printing. Each lesson teaches one engineering idea on a board or simulator, then a design brief tests it against criteria. It applies maths, science and code rather than re-teaching them."
+pathways:
+  - id: mechanisms
+    title: Mechanisms
+    summary: Gears, levers and pulleys, and the trade-off between speed and force.
+    fit: "Start here: no kits needed, and every lesson works in the browser."
+    about: "Design and Technologies (Engineering principles and systems) is the home; ratio from Maths, forces and simple machines from Science and loops from Code are applied, not taught. Each lesson is the maths shape (Predict, Try on a board, Worked example, Vary, Practise, Make) around a design brief with criteria and constraints. LEGO Technic or Meccano gears make a good hands-on start before the board."
+    courses:
+      - { path: engineering/mechanisms, id: mechanisms, stage: foundations, tagline: "Gear up a winch and trade speed for strength." }
+      - { title: Levers and pulleys, id: levers, stage: extensions, after: [mechanisms], summary: "Trade distance for force with levers, pulleys and linkages.", tagline: "Lift more by moving further." }
+  - id: physical
+    title: Physical computing
+    summary: Circuits, sensors and motors, from the micro:bit in Tinkercad to Arduino C++ on real hardware.
+    fit: "Start here to wire real circuits and program a microcontroller in text code."
+    about: "Builds on micro:bit Foundations (Code). Circuits on the micro:bit in Tinkercad, then the same circuits on an Arduino Uno in blocks, then in C++, then on a breadboard. Common parts (buttons, sensors, servos, displays) get Reference cards. Power, motor drivers and batteries are a Years 9–10 extension. A Raspberry Pi Pico nod shows the same ideas in MicroPython."
+    courses:
+      - { title: Circuits with the micro:bit, id: circuits, stage: foundations, summary: "Closed loops, resistors, buttons and sensors on pins, in Tinkercad.", tagline: "Wire an LED, a button and a sensor." }
+      - { title: Arduino, id: arduino, stage: foundations, after: [circuits], summary: "The same circuits on an Uno: blocks, then reading and writing C++, then real hardware.", tagline: "From blocks to C++ on a real board." }
+      - { title: Power and motors, id: power, stage: extensions, after: [arduino], summary: "Why a pin can't run a motor, motor drivers, two supplies and one ground, choosing a battery, LiPo safety.", tagline: "Make it move." }
+  - id: cad
+    title: CAD and fabrication
+    summary: Design parts to size in Tinkercad and Onshape, then 3D print or laser cut them.
+    fit: "Start here to design a part that fits, then print it."
+    courses:
+      - { title: Design and print, id: cad, stage: foundations, summary: "Dimensions, tolerances, designing for the printer and slicer trade-offs.", tagline: "Design a part that fits." }
+      - { title: Parametric design, id: parametric, stage: extensions, after: [cad], summary: "Onshape: dimensions as variables, and laser-cut joints.", tagline: "Change one number, update the model." }
+  - id: boards
+    title: Design your own board
+    summary: From breadboard to protoboard and soldering, then a schematic and a PCB.
+    fit: "Start here to turn a breadboard circuit into a board of your own."
+    courses:
+      - { title: Your own board, id: pcb, stage: extensions, summary: "A design project: breadboard, protoboard, schematic, PCB in KiCad or EasyEDA.", tagline: "Design a circuit board." }
+  - id: animation
+    title: 3D and animation
+    summary: What the computer does in 3D graphics and animation, in Blender or another package.
+    fit: "Start here to see a 3D model as numbers and animation as maths."
+    courses:
+      - { title: 3D and animation, id: animation, stage: extensions, summary: "Meshes, keyframes and interpolation, easing, procedural scenes with Python, rendering trade-offs.", tagline: "Animate with numbers." }
+---

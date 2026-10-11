@@ -714,6 +714,16 @@ Vary, Practise, Make).
     unchanged), `k`, `f`. `mode: journey`: laptop, Wi-Fi, home router, fibre, provider, two routes, shop, with a step log;
     HTTPS button; values `h`, `k`, `r`, `v`, `f`. A Send press counts as using the board. Ready selector for clips:
     `.nwbox` (a horizontal link has no height, so `.nwlink` never counts as visible).
+  - `widget: gears` (first used by `engineering/mechanisms/winch`): a motor gear (driver) meshing with a winch gear
+    (driven) whose drum lifts a bucket; no friction. `gears: 8, 16, 24, 40` (the kit, one of each), `driver:`, `driven:`,
+    `choose: on` (pick both from the kit; the same gear twice is refused), `rpm: 120`, `lift: 200` (g the motor lifts at
+    1 : 1), `drum: 0.1` (m a winch turn), `height: 1` (m), `load:` (g), `addload: on` (± 50 g), `limit:` (s; criteria ticks
+    when numbers show), `numbers: off` (hide ratio, speeds, capacity and time: students count turns and find the stall),
+    `brief: edit` (students set load and limit; the board lists the kit's pairs that meet it). Buttons Turn the motor once
+    (orange dots mark a tooth on each gear) and Lift the bucket (stalls when the load is more than it can lift). Values
+    `r` (driven ÷ driver), `d`, `g` (teeth), `rpm_w`, `cap_g`, `time_s`, `load_g`, `limit_s`, `turns_m`, `turns_w`, `s`
+    (last lift stalled), `l` (last lift worked), `p` (this pair meets both criteria), `n_pass` (pairs that do). Checks:
+    `"turns_m >= 1"`, `"s = 1 and load_g > 450"`, `"load_g = 300 and r = 1.5 and l = 1"`, `"n_pass = 1"`. Ready selector `.gearsvg`.
   - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
     between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
     `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b

@@ -1,0 +1,53 @@
+summary: Students fit gears to a motor-driven winch, find by testing that a small gear driving a big one is slower and stronger by the same factor, work out ratio, speed, strength and lift time, choose pairs for a brief, meet a brief where constraints conflict, then write a brief of their own.
+time: 45
+timing: "Predict and Try 8 min · Worked example 12 min · Vary 12 min · Practise and Make 13 min"
+goals:
+  - I can work out a gear ratio as driven teeth ÷ driver teeth.
+  - I can explain that a ratio makes the output slower and stronger by the same factor.
+  - I can check a design against every criterion in a brief.
+  - I can explain what to do when no design meets every constraint.
+struggle: "Students treat speed and strength as separate. Keep returning to 'same factor, opposite directions', and to which gear is being driven."
+before: |
+  Try every board yourself. LEGO Technic or Meccano gears make a good start before the board: mark a tooth on each gear, turn the small one once and count.
+
+  Simplifications: no friction or losses (real gear meshes lose a few per cent each), the motor lifts exactly 200 g with no gears, and the bucket rises at a steady speed. Years 9–10 can add 80% efficiency per mesh.
+
+  Curriculum hooks: Design and Technologies, engineering principles and systems (primary); Science, forces and simple machines; Maths, ratio and rates (applied, not taught). If the class has not met ratio, do that first.
+
+  Maths for the time: 1 m ÷ 0.1 m a turn = 10 winch turns; turns ÷ turns a minute × 60 = seconds.
+running:
+  - "Predict: ask a few students to say why they chose their option before the Try."
+  - "Try: the dot moves a third of a turn. Ask how many motor turns make one winch turn."
+  - "Worked example: model it live, line by line, before revealing the prepared lines."
+  - "Find the mistake: ask which gear is being driven in Sam's design."
+  - "Vary, too heavy: stop the class here. Who would they talk to, and what would they offer?"
+  - "Make: compare briefs. Did anyone make one pass by speed and another by strength?"
+stuck:
+  - see: "A student says the bigger gear turns faster."
+    ask: "Count the winch turns for one motor turn. Is it more or less than one?"
+    fix: "The big gear has more teeth to push past, so it turns less."
+  - see: "A student divides the driver by the driven gear (the ratio upside down)."
+    ask: "Which gear is being driven? Put that one on top."
+    fix: "Ratio = driven ÷ driver."
+  - see: "A student changes only the speed (or only the strength)."
+    ask: "Hang more load. Did the strength change as well as the speed?"
+    fix: "Both change, by the same ratio."
+  - see: "A student checks only the load."
+    ask: "Your design lifts it. Is it fast enough?"
+    fix: "Check every criterion in the brief."
+stretch: "Two pairs in a row (a compound train): 8 → 24, then 8 → 40 on the same axle. What is the overall ratio? Could it lift 700 g, and how long would it take?"
+support: "Give a table with columns ratio, winch speed, heaviest lift, time, and fill the 8 → 24 row together."
+leads: |
+  Next: levers and pulleys (planned), the same trade of distance for force.
+
+  Code links: a short Python loop can test every gear pair against the brief; the board's Make does this for them.
+  Physical computing: a motor and a servo on a real winch (Power and motors).
+exit:
+  q: "An 8-tooth gear drives a 40-tooth gear. The motor turns 100 times a minute and lifts 50 g on its own. How fast does the output turn, and what can it lift?"
+  a: "Ratio 40 ÷ 8 = 5, so 100 ÷ 5 = 20 turns a minute, and 50 × 5 = 250 g."
+explain: |
+  A **gear ratio** is driven teeth ÷ driver teeth. When a small gear drives a big one, the big one turns **slower** but **stronger**, by the same factor: an 8-tooth gear driving a 24-tooth gear gives a ratio of 3, so the winch turns 3 times slower and can lift 3 times as much.
+
+  To check a design, work out the speed (divide by the ratio), the strength (multiply by the ratio) and the time, then check every criterion in the brief. Sometimes no design meets them all, and someone has to decide which one to relax.
+sources:
+  - { title: "TeachEngineering: K-12 engineering design challenges (benchmark; the brief and wording are our own)", url: "https://www.teachengineering.org/", checked: 2026-10-12 }

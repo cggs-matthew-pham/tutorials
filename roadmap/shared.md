@@ -371,3 +371,10 @@ One block per playground. Course status is in `code.md`.
 - Board: new widget `playground-board/widgets/bits.js`, registered in `playground-board/index.html`, styles at the end of `style.css`. `core.js` unchanged. Editing the board folder re-records every board clip on the next publish (the clip hash covers the playground).
 - `misconceptions.json`: two entries. AUTHORING › board: `bits` entry.
 - Later the same day: `tools/progressions.mjs` (`CHECKED` adds `systems`; `yearOf` reads any learning-area prefix, so AC9TDI8K03 is Year 8; maths and science codes read as before), `tools/kit-page.mjs` (letter T → the kit's `data/technologies/`, written to `data/progressions/systems/`), `tools/import-curriculum.mjs` (subject `systems`: K descriptors only, rows by topic), `tools/curriculum-map.mjs` (`STRANDS.systems`) and the map's short codes (`6K03` rather than `DI6K03`; maths and science unchanged). New board widgets `decode`, then `pixels` and `sampling` (and `decode` gained `type: on` and `table: on`, which add to it), then `logic`; `pixels` gained `mode: bw`, `rle:`, `show: codes` and `lossy:` (additions). `tools/concepts.mjs` `prerequisites()` now includes `systems`. Then `network`. Clip-server ports: Digital systems lessons use 8460–8499; two maths lessons and two of ours had both claimed 8320–8333, so pick a fresh range when adding lessons.
+
+## Changed by the Engineering chat (12 Oct 2026)
+
+- New subject folder `content/engineering/` (menu "Engineering"; roadmap in `roadmap/engineering.md`). No build changes.
+- Board: new widget `playground-board/widgets/gears.js`, registered in `playground-board/index.html`, styles at the end of `style.css`. `core.js` unchanged. Like any board change, every board clip re-records on the next publish.
+- `misconceptions.json`: three entries (`bigger-gear-faster`, `gear-ratio-upside-down`, `gear-one-effect`). AUTHORING › board: `gears` entry.
+- Clip-server ports 8500–8539 for Engineering lessons.

@@ -230,5 +230,8 @@
   "bandwidth-is-latency": {"home": "systems/networks/wired-wireless", "text": "More bandwidth is thought to make each packet arrive sooner, so a faster plan fixes lag; bandwidth is how much data a second, latency is the delay for each packet."},
   "resend-whole-message": {"home": "systems/networks/packets", "text": "A lost packet is thought to mean resending the whole message; with TCP only the packet that was never acknowledged is sent again."},
   "packets-private": {"home": "systems/networks/who-can-see", "text": "A message is thought to be seen only by its receiver; its packets pass through Wi-Fi, routers and networks others control, and anyone there can copy plain text."},
-  "encrypt-at-router": {"home": "systems/networks/internet-journey", "text": "Data is thought to be encrypted by the router or the network; it is encrypted on the device (HTTPS) before it leaves, or the first hop would expose it."}
+  "encrypt-at-router": {"home": "systems/networks/internet-journey", "text": "Data is thought to be encrypted by the router or the network; it is encrypted on the device (HTTPS) before it leaves, or the first hop would expose it."},
+  "bigger-gear-faster": {"home": "engineering/mechanisms/winch", "text": "A bigger gear is thought to turn faster; a bigger driven gear turns slower, because more of its teeth must be pushed past for each turn."},
+  "gear-ratio-upside-down": {"home": "engineering/mechanisms/winch", "text": "The gear ratio is worked out as driver ÷ driven; it is driven ÷ driver, so swapping the gears makes the output faster and weaker, not stronger."},
+  "gear-one-effect": {"home": "engineering/mechanisms/winch", "text": "A gear ratio is thought to change only the speed or only the force; it changes both, by the same factor in opposite directions."}
 }

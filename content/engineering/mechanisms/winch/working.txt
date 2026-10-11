@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam puts the 24-tooth gear on the motor and the 8-tooth gear on the winch.
+ratio = 24 ÷ 8 = 3
+So the winch is 3 times stronger: it lifts 3 × 200 = 600 g.
+600 g is more than 450 g, so it will lift the bucket.
+# endregion

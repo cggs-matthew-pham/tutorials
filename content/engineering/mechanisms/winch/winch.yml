@@ -1,0 +1,65 @@
+# Boards for "Gear up the winch". The brief: motor 120 turns a minute, lifts 200 g with no gears, drum 0.1 m a turn,
+# lift 1 m in 15 s or less. The kit: one each of 8, 16, 24 and 40 teeth.
+
+# region: run
+widget: gears
+driver: 8
+driven: 24
+load: 450
+addload: on
+numbers: off
+# endregion
+
+# region: explain
+widget: gears
+driver: 8
+driven: 24
+load: 450
+limit: 15
+# endregion
+
+# region: explain-pic
+widget: gears
+driver: 8
+driven: 24
+load: 450
+limit: 15
+# endregion
+
+# region: vary-light
+widget: gears
+choose: on
+driver: 8
+driven: 40
+load: 300
+limit: 15
+# endregion
+
+# region: vary-motor
+widget: gears
+choose: on
+driver: 8
+driven: 40
+rpm: 180
+load: 450
+limit: 15
+# endregion
+
+# region: vary-heavy
+widget: gears
+choose: on
+driver: 16
+driven: 24
+load: 700
+limit: 15
+# endregion
+
+# region: make
+widget: gears
+choose: on
+brief: edit
+driver: 8
+driven: 24
+load: 450
+limit: 15
+# endregion
