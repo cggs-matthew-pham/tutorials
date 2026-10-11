@@ -218,6 +218,11 @@ The igneous explain clip recorded without error, but its video fell about 15 s b
   - Clips loop (`loop` on every clip): restart the `.m4a` on each loop, not only on seek.
   - Validate's 15-word guide stays; time each caption by the slowest voice as planned (maths explain clips are 12 to 25 s, so the extra pause is small).
 
+- **Science chat (12 Oct): agreed**, Emma as default and the three voices (all 103 science lessons use Emma at 1.05, so nothing changes for students who never pick). Agree with maths: keep the default voice muxed into the `.mp4`. Suggestions:
+  - **Pictures shouldn't run ahead of a slower voice.** Science clips use a fixed `wait:` after each caption (tuned by ear to Emma), then click the board. With George a little slower, the board would move on while he is still describing the step before. Suggest: in multi-voice recording, the first action after a caption waits until the slowest voice has finished that line (as `speak()` already does for the next caption). That lengthens clips slightly and keeps words and pictures together in every voice; then most hand-tuned `wait:` values can stay.
+  - **Fix the busy-board lag in the same change.** Both edit `render.mjs`, and each edit re-records every clip, so doing the recorder lag (Open, above) together costs one full re-record, not two, and brings back the igneous clip.
+  - **Check length with the slowest voice.** Some science clips run near or over the 30 s guide with Emma; after the first multi-voice publish, list clips over 30 s in their slowest voice and trim those `say:` lines.
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).
