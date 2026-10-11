@@ -20,7 +20,7 @@ pathways:
     about: "**Number Foundations** comes first for any course that uses negative numbers or the Cartesian plane, including Linear relations."
     courses:
       - { path: maths/number, id: number-foundations, stage: foundations, tagline: "Integers, powers, fractions, decimals and percentages." }
-      - { title: Irrational numbers and index laws, stage: extensions, summary: "Surds, recurring decimals and the laws of exponents.", after: [number-foundations], tagline: "Surds and the laws of powers." }
+      - { path: maths/real-numbers, id: real-numbers, stage: extensions, after: [number-foundations], tagline: "Recurring decimals, irrational numbers and index laws." }
   - id: space
     title: Geometry and measurement
     summary: Angles and shapes, nets, views, transformations and algorithms, then area, volume, circles and Pythagoras.

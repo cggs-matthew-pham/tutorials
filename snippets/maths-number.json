@@ -133,6 +133,20 @@
           "unit": "modelling",
           "code": "\\text{known} \\to \\text{unknown}",
           "hint": "The first step in modelling: say what you know, what you need, and how they are linked. Then calculate."
+        },
+        {
+          "label": "percentage change multiplier",
+          "unit": "modelling",
+          "code": "\\text{up } p\\%: \\times\\left(1 + \\tfrac{p}{100}\\right) \\qquad \\text{down } p\\%: \\times\\left(1 - \\tfrac{p}{100}\\right)",
+          "hint": "One change after another: multiply the multipliers. Up 20% then down 20% is × 0.96.",
+          "board": "widget: money\nmode: change\nq: 100\na: 20\nb: -20\nunits: $",
+          "shows": "$100 up 20%, then down 20%: $96"
+        },
+        {
+          "label": "tax brackets",
+          "unit": "modelling",
+          "code": "\\text{each part of the income} \\times \\text{its bracket's rate}",
+          "hint": "The marginal rate is the rate on the last dollar; the effective rate is total tax ÷ income."
         }
       ]
     },

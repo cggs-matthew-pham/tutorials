@@ -1,0 +1,45 @@
+# Percentage change boards for "Percentage change".
+
+# region: run
+widget: money
+mode: change
+q: 100
+slider a: -50, 50, 0, 5
+slider b: -50, 50, 0, 5
+units: $
+# endregion
+
+# region: explain
+widget: money
+mode: change
+q: 100
+a: 20
+slider b: -50, 50, 0, 5
+units: $
+# endregion
+
+# region: explain-pic
+widget: money
+mode: change
+q: 100
+a: 20
+b: -20
+units: $
+# endregion
+
+# region: free
+widget: money
+mode: change
+q: 100
+slider a: -50, 50, 0, 5
+slider b: -50, 50, 0, 5
+units: $
+# endregion
+
+# region: markup
+widget: percent
+q: 40
+slider p: 0, 100, 10, 5
+mode: increase
+units: $
+# endregion

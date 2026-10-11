@@ -1,0 +1,45 @@
+summary: Students model pay and income tax in brackets, compare marginal and effective rates, and judge what a simple tax model leaves out (AC9M8N05, node 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 10 min · Practise and Make 12 min"
+goals:
+  - I can work out income tax across brackets.
+  - I can explain the difference between the marginal and effective rate.
+  - I can model pay with a rate, hours and overtime, and check the answer makes sense.
+struggle: "Taxing parts, not the whole. Ask students to split the income into the bracket parts on paper before they calculate."
+before: |
+  Do the Run board yourself first. Students need percentage change (previous lesson).
+
+  The one idea: each part of the income is taxed at its own bracket's rate, so crossing into a higher bracket never lowers take-home pay. The common mistake is taxing the whole income at the top rate (Jay's mistake).
+
+  The board uses a simplified version of Australia's 2026–27 resident rates (0%, 15%, 30%, 37%, 45%, with thresholds $18 200, $45 000, $135 000, $190 000), without the Medicare levy or offsets. Check the ATO's current rates before quoting them as exact; the 15% rate is legislated to fall to 14% from 1 July 2027.
+
+  Wider: effective rates across incomes as a graph; superannuation contributions.
+running:
+  - "Predict: ask what happens to the first $45 000 when income passes it."
+  - "Run: ask which rate goes up in steps and which rises smoothly."
+  - "Investigate: ask Jay to split his income into parts."
+  - "Modify: ask why time and a half is × 1.5."
+  - "Make: ask what the model leaves out."
+stuck:
+  - see: "A student taxes the whole income at the top rate."
+    ask: "Which part of the income is in the top bracket?"
+    fix: "Split the income into bracket parts; tax each part."
+  - see: "A student forgets the tax-free part."
+    ask: "How much is taxed at 0%?"
+    fix: "Start from $18 200."
+  - see: "A student mixes up marginal and effective."
+    ask: "Is that the rate on the last dollar, or the share of all the income?"
+    fix: "Marginal: last dollar. Effective: tax ÷ income."
+stretch: "Plot the effective rate for incomes from $20 000 to $200 000. Why does it rise smoothly when the marginal rate jumps?"
+support: "A table with one row per bracket: the part of the income, the rate, the tax."
+leads: |
+  This completes AC9M8N05.
+
+  Where it leads: financial mathematics in Years 9 and 10 (interest, budgets), and modelling with rates.
+exit:
+  q: "Find the tax on $50 000 with the lesson's brackets."
+  a: "15% of 26 800 = 4020, plus 30% of 5000 = 1500: $5520."
+explain: |
+  To **model** a money problem: decide what to find, choose the calculation, work it out, and check it makes sense.
+
+  Income tax is worked out in **brackets**: each part of the income is taxed at its own rate. The **marginal rate** is the rate on the last dollar; the **effective rate** is total tax ÷ income, which is lower (for incomes above $18 200).

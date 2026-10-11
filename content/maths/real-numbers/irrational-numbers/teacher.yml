@@ -1,0 +1,45 @@
+summary: Students zoom in on √2, √3, π and 1/7 one digit at a time, and sort numbers into rational (fractions, decimals that stop or repeat) and irrational (AC9M8N01, node 1).
+time: 35
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 8 min · Practise and Make 9 min"
+goals:
+  - I can say what makes a number rational or irrational.
+  - I can sort numbers such as √9, √5, π and 0.333… correctly.
+  - I can explain why a rounded value is not the exact number.
+struggle: "Believing a decimal can go on forever without repeating. Let the zooming carry on past where students expect it to settle."
+before: |
+  Do the Run board yourself first. Students need recurring decimals (previous unit) and square roots (Number Foundations).
+
+  The one idea: rational numbers are fractions, so their decimals stop or repeat; irrational numbers never stop and never repeat. The common mistake is calling every square root irrational (Ana's mistake).
+
+  The board checks each zoom with squares for square roots, and with "too big, too small" for π.
+
+  Proving √2 is irrational is beyond Year 8; the board is evidence, not proof (say so). Wider: historical approximations of π (Egyptian, Chinese, Indian, Greek), the golden ratio.
+running:
+  - "Predict: ask what a repeating √2 would mean (it would be a fraction)."
+  - "Run: ask how they know 1.4 is too small."
+  - "Investigate: ask Ana to work out √16."
+  - "Modify: ask how 1/7's digits differ from √3's."
+  - "Make: ask what exact means here."
+stuck:
+  - see: "A student calls a long calculator decimal irrational."
+    ask: "Does it repeat? Is it a fraction?"
+    fix: "Repeating means rational; only endless and non-repeating is irrational."
+  - see: "A student calls every root irrational."
+    ask: "What is √16?"
+    fix: "Perfect squares have rational roots."
+  - see: "A student thinks π is 22/7."
+    ask: "What is 22 ÷ 7 to 4 places?"
+    fix: "3.1428… against 3.1415…: close, not equal."
+stretch: "Find how ancient Egyptian, Chinese and Indian mathematicians approximated π. Which approximation was closest?"
+support: "A card with two columns: 'stops or repeats: rational' and 'never stops, never repeats: irrational'."
+leads: |
+  This starts AC9M8N01.
+
+  Where it leads: placing irrational numbers on the number line (next lesson), Pythagoras' exact answers, and surds (Year 10).
+exit:
+  q: "Sort √20, √25, 0.4 and 0.454545… into rational and irrational."
+  a: "Rational: √25 = 5, 0.4, 0.454545… (= 5/11). Irrational: √20."
+explain: |
+  A **rational** number is a fraction: its decimal stops or repeats. An **irrational** number is not a fraction: its decimal **never stops and never repeats**.
+
+  √2, √3, √5 and π are irrational; √16 = 4 and 22/7 are rational. Use the exact form or a rounded value to calculate.

@@ -1,0 +1,25 @@
+# Long division boards for "Recurring decimals".
+
+# region: run
+widget: longdiv
+slider a: 1, 20, 1
+slider b: 2, 30, 3
+# endregion
+
+# region: explain
+widget: longdiv
+a: 1
+slider b: 2, 30, 6
+# endregion
+
+# region: explain-pic
+widget: longdiv
+a: 1
+b: 7
+# endregion
+
+# region: free
+widget: longdiv
+slider a: 1, 20, 1
+slider b: 2, 30, 2
+# endregion

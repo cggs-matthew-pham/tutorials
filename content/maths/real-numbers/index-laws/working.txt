@@ -1,0 +1,8 @@
+# Kai's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kai
+Kai simplifies 3² × 3⁴.
+The indices add: 2 + 4 = 6.
+The bases multiply: 3 × 3 = 9.
+So 3² × 3⁴ = 9⁶.
+# endregion

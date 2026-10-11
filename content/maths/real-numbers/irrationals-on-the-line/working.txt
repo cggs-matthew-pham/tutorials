@@ -1,0 +1,7 @@
+# Ben's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ben
+Ben places √50 on a number line.
+Half of 50 is 25, so √50 is about 25.
+He marks it between 25 and 26.
+# endregion

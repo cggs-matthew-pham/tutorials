@@ -1,0 +1,40 @@
+# Tax boards for "Money models". A simplified version of Australia's 2026–27 resident rates (no Medicare levy or offsets).
+
+# region: run
+widget: money
+mode: tax
+slider i: 0, 200000, 30000, 1000
+brackets: 18200: 0; 45000: 15; 135000: 30; 190000: 37; 45
+units: $
+# endregion
+
+# region: explain
+widget: money
+mode: tax
+slider i: 0, 200000, 40000, 5000
+brackets: 18200: 0; 45000: 15; 135000: 30; 190000: 37; 45
+units: $
+# endregion
+
+# region: explain-pic
+widget: money
+mode: tax
+i: 60000
+brackets: 18200: 0; 45000: 15; 135000: 30; 190000: 37; 45
+units: $
+# endregion
+
+# region: free
+widget: money
+mode: tax
+slider i: 0, 200000, 60000, 1000
+brackets: 18200: 0; 45000: 15; 135000: 30; 190000: 37; 45
+units: $
+# endregion
+
+# region: pay
+widget: formula
+formula: P = rh
+slider r: 20, 40, 25, 0.5
+slider h: 0, 40, 10
+# endregion

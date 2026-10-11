@@ -1,0 +1,7 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+A $200 jacket goes up 10%, then the new price goes down 10%.
+Up 10% adds 10% of $200, which is $20, so it costs $220.
+Down 10% takes off $20, so it costs $200 again.
+# endregion

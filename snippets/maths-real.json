@@ -1,0 +1,66 @@
+{
+  "title": "Maths reference: Irrational numbers and index laws",
+  "summary": "The words and methods from Irrational numbers and index laws, each with an example and, where it helps, a picture of the board.",
+  "language": "maths",
+  "course": "maths/real-numbers",
+  "_about": "Maths cards for maths/real-numbers (see snippets/maths.json for the format).",
+  "groups": [
+    {
+      "name": "Recurring decimals",
+      "items": [
+        {
+          "label": "terminating and recurring",
+          "unit": "decimals",
+          "code": "\\tfrac{3}{8} = 0.375 \\qquad \\tfrac{1}{7} = 0.\\overline{142857}",
+          "hint": "In long division a remainder of 0 means the decimal stops; a remainder that comes back means the digits repeat. A bar (or dots) marks the repeating block.",
+          "board": "widget: longdiv\na: 1\nb: 7",
+          "shows": "1 ÷ 7: the remainders come round again"
+        },
+        {
+          "label": "which decimals stop",
+          "unit": "decimals",
+          "code": "\\text{simplest form, denominator only 2s and 5s} \\Rightarrow \\text{terminates}",
+          "hint": "Simplify first, then break the denominator into primes. Any prime other than 2 or 5 makes it recur, because 10 = 2 × 5."
+        }
+      ]
+    },
+    {
+      "name": "Irrational numbers",
+      "items": [
+        {
+          "label": "rational and irrational",
+          "unit": "irrational",
+          "code": "\\text{rational: } \\tfrac{a}{b} \\qquad \\text{irrational: } \\sqrt{2},\\ \\pi",
+          "hint": "Rational numbers are fractions: their decimals stop or repeat. Irrational numbers never stop and never repeat. √16 = 4 is rational.",
+          "board": "widget: zoomline\nnumber: sqrt2\nplaces: 3",
+          "shows": "A number line to zoom in on √2"
+        },
+        {
+          "label": "placing a square root",
+          "unit": "irrational",
+          "code": "25 < 30 < 36 \\Rightarrow 5 < \\sqrt{30} < 6",
+          "hint": "Find the perfect squares either side, then square decimals to get closer. A rounded value is an approximation."
+        }
+      ]
+    },
+    {
+      "name": "Index laws",
+      "items": [
+        {
+          "label": "index laws",
+          "unit": "indices",
+          "code": "a^m \\times a^n = a^{m+n} \\quad a^m \\div a^n = a^{m-n} \\quad (a^m)^n = a^{mn}",
+          "hint": "Write the powers out as factors to see why. Only powers of the same base combine.",
+          "board": "widget: indexlaws\nmode: quotient\na: 3\nm: 5\nn: 2",
+          "shows": "3⁵ ÷ 3²: pairs of 3s cancel"
+        },
+        {
+          "label": "zero index",
+          "unit": "indices",
+          "code": "a^0 = 1 \\quad (a \\ne 0)",
+          "hint": "aⁿ ÷ aⁿ = 1, and the quotient law calls it a⁰."
+        }
+      ]
+    }
+  ]
+}

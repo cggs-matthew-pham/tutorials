@@ -1,0 +1,7 @@
+# Max's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: max
+Max wants to know if 3/12 terminates.
+12 = 2 × 2 × 3.
+12 has a prime factor of 3, so 3/12 recurs.
+# endregion

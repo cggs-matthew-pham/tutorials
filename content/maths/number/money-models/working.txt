@@ -1,0 +1,7 @@
+# Jay's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: jay
+Jay earns $50 000 a year.
+His income reaches the 30% bracket.
+So his tax is 30% of $50 000, which is $15 000.
+# endregion

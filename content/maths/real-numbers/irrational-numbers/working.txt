@@ -1,0 +1,7 @@
+# Ana's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ana
+Ana sorts √16 into rational or irrational.
+√16 is a square root.
+Square roots are irrational, so √16 is irrational.
+# endregion

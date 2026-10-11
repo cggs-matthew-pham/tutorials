@@ -1,0 +1,38 @@
+# Zooming number lines for "Irrational numbers".
+
+# region: run
+widget: zoomline
+number: sqrt2
+places: 3
+# endregion
+
+# region: explain
+widget: zoomline
+number: sqrt2
+places: 2
+# endregion
+
+# region: sqrt3
+widget: zoomline
+number: sqrt3
+places: 3
+# endregion
+
+# region: seventh
+widget: zoomline
+number: 1/7
+places: 6
+# endregion
+
+# region: pi
+widget: zoomline
+number: pi
+places: 4
+# endregion
+
+# region: explain-pic
+widget: zoomline
+number: pi
+places: 4
+found: 5
+# endregion

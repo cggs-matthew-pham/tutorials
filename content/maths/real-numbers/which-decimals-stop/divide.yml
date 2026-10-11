@@ -1,0 +1,29 @@
+# Long division boards with the denominator's prime factors, for "Which decimals stop?".
+
+# region: run
+widget: longdiv
+slider a: 1, 20, 1
+slider b: 2, 60, 6
+factors: on
+# endregion
+
+# region: explain
+widget: longdiv
+slider a: 1, 20, 9
+b: 24
+factors: on
+# endregion
+
+# region: explain-pic
+widget: longdiv
+a: 7
+b: 40
+factors: on
+# endregion
+
+# region: free
+widget: longdiv
+slider a: 1, 20, 1
+slider b: 2, 60, 10
+factors: on
+# endregion

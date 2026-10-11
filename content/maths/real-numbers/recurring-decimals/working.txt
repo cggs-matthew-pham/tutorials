@@ -1,0 +1,8 @@
+# Zoe's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: zoe
+Zoe divides 1 by 7 on a calculator.
+The screen shows 0.1428571429.
+The digits go on past the end of the screen.
+A decimal that never stops is irrational, so 1/7 is irrational.
+# endregion

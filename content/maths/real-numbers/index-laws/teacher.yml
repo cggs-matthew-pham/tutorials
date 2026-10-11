@@ -1,0 +1,45 @@
+summary: Students write powers out as factors on the board and discover the product, quotient and power laws and why a⁰ = 1 (AC9M8N02, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 10 min · Practise and Make 12 min"
+goals:
+  - I can explain each index law by writing the powers out.
+  - I can use the laws to simplify powers of the same base.
+  - I can explain why a⁰ = 1.
+struggle: "Keeping the base. Ask students to write the powers out as factors before they use any law."
+before: |
+  Do the Run board yourself first. Students need exponent notation (Number Foundations: Powers).
+
+  The one idea: the laws come from counting factors; the base never changes. The common mistake is multiplying the bases (Kai's mistake).
+
+  The board writes each power as a row of its factors: joined for a product, cancelled in pairs for a quotient, in groups for a power of a power. The quotient board keeps m at least n (negative indices are Year 9).
+
+  Wider: the pattern 2³, 2², 2¹, 2⁰ (halving each time) also gives 2⁰ = 1, and leads to 2⁻¹ = ½.
+running:
+  - "Predict: ask a '12' student to write 2³ × 2⁴ out."
+  - "Run: ask what happens to the count when n goes up by 1."
+  - "Investigate: ask Kai how many 3s there are."
+  - "Modify: ask how (2²)³ differs from 2² × 2³."
+  - "Make: ask for all the ways they found."
+stuck:
+  - see: "A student multiplies the bases."
+    ask: "Write both powers out: what number is repeated?"
+    fix: "The base stays the same; count the factors."
+  - see: "A student multiplies indices for a product."
+    ask: "How many factors altogether?"
+    fix: "Products add; powers of powers multiply."
+  - see: "A student says a⁰ = 0."
+    ask: "What is 5³ ÷ 5³?"
+    fix: "1, and the law calls it 5⁰."
+stretch: "Continue the pattern 2⁴, 2³, 2², 2¹, 2⁰ by halving. What should 2⁻¹ and 2⁻² be?"
+support: "A card for each law with the expanded-form picture beside it."
+leads: |
+  This starts AC9M8N02.
+
+  Where it leads: combining the laws (next lesson), scientific notation, and negative indices (Year 9).
+exit:
+  q: "Simplify 4⁶ ÷ 4² and (3²)⁴, leaving each as a power."
+  a: "4⁴ and 3⁸."
+explain: |
+  For powers of the **same base**: multiplying adds the indices ($a^m \times a^n = a^{m+n}$), dividing subtracts them ($a^m \div a^n = a^{m-n}$), and a power of a power multiplies them ($(a^m)^n = a^{mn}$). The base does not change.
+
+  $a^0 = 1$ (for $a \ne 0$), because $a^n \div a^n = 1$ and the quotient law gives $a^0$.

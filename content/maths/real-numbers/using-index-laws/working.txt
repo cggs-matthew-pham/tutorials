@@ -1,0 +1,8 @@
+# Lia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: lia
+Lia simplifies 2⁴ × 5².
+Add the indices: 4 + 2 = 6.
+Multiply the bases: 2 × 5 = 10.
+So 2⁴ × 5² = 10⁶.
+# endregion

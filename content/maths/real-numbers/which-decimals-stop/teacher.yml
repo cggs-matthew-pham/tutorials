@@ -1,0 +1,45 @@
+summary: Students predict whether a fraction's decimal terminates from the prime factors of its simplified denominator, and check on the long-division board (AC9M8N03, node 2).
+time: 35
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 8 min · Practise and Make 9 min"
+goals:
+  - I can predict whether a fraction terminates without dividing.
+  - I can explain the rule using 10 = 2 × 5.
+  - I can simplify a fraction before using the rule.
+struggle: "Simplifying first. Ask students to write the fraction in simplest form before they say anything about its denominator."
+before: |
+  Do the Run board yourself first. Students need prime factors (Number Foundations) and the previous lesson.
+
+  The one idea: in simplest form, a denominator made only of 2s and 5s gives a terminating decimal, because terminating decimals are fractions over powers of 10 = 2 × 5. The common mistake is skipping the simplifying (Max's mistake).
+
+  The board shows the simplest form and the prime factors with the long division.
+
+  Wider: in base 12 (12 = 2 × 2 × 3), thirds would terminate and fifths would recur.
+running:
+  - "Predict: ask what 40 is made of."
+  - "Run: ask for a denominator under 30 that is all 2s and 5s."
+  - "Investigate: ask Max to simplify."
+  - "Modify: ask which numerators work for denominator 15, and why."
+  - "Make: ask for the reason in primes."
+stuck:
+  - see: "A student judges by the denominator's size or digits."
+    ask: "What are its prime factors?"
+    fix: "Only the primes matter: 2s and 5s stop."
+  - see: "A student does not simplify first."
+    ask: "Is the fraction in simplest form?"
+    fix: "Cancel common factors, then look at the denominator."
+  - see: "A student thinks 8 = 2 × 4 counts as other primes."
+    ask: "Is 4 a prime?"
+    fix: "Break it down to primes: 8 = 2 × 2 × 2."
+stretch: "In base 12, which unit fractions from 1/2 to 1/12 would terminate? Why?"
+support: "A list of primes to 20 and factor trees for the denominators."
+leads: |
+  This completes AC9M8N03.
+
+  Where it leads: irrational numbers (next unit), whose decimals never stop and never repeat.
+exit:
+  q: "Does 9/24 terminate? Explain."
+  a: "Yes: 9/24 = 3/8, and 8 = 2 × 2 × 2, only 2s, so it terminates (0.375)."
+explain: |
+  Write the fraction in **simplest form** and break the denominator into **prime factors**. Only 2s and 5s: it **terminates**; any other prime: it **recurs**.
+
+  It works because a terminating decimal is a fraction over 10, 100, 1000…, and $10 = 2 \times 5$.

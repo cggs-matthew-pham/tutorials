@@ -1,0 +1,45 @@
+summary: Students combine the index laws one step at a time, check that the bases match before joining powers, and use the laws with powers of 10 (AC9M8N02, node 2).
+time: 35
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 8 min · Practise and Make 9 min"
+goals:
+  - I can simplify an expression using more than one index law.
+  - I can tell when powers can be joined (same base) and when they cannot.
+  - I can multiply numbers in scientific notation using the laws.
+struggle: "Checking the bases first. Ask students to circle each base before they use any law."
+before: |
+  Do the Run board yourself first. Students need the index laws (previous lesson).
+
+  The one idea: apply one law at a time (powers of powers, then multiply and divide left to right), and only for powers of the same base. The common mistake is joining different bases (Lia's mistake).
+
+  Adding powers (2³ + 2³) is not covered by the laws: a good discussion.
+
+  Wider: dividing in scientific notation; a systematic order for long expressions.
+running:
+  - "Predict: ask a '6⁷' student to work out 2⁵ × 3² as numbers."
+  - "Run: ask what all the ways have in common."
+  - "Investigate: ask Lia to check with numbers."
+  - "Modify: ask why 7³ + 7⁴ is not 7⁷."
+  - "Make: ask a partner to simplify their expression."
+stuck:
+  - see: "A student adds indices for different bases."
+    ask: "Circle the bases: are they the same?"
+    fix: "Only the same base combines."
+  - see: "A student adds when there is a power of a power."
+    ask: "How many groups, of how many factors?"
+    fix: "Powers of powers multiply the indices."
+  - see: "A student treats 3 as 3⁰."
+    ask: "How many 3s is 3?"
+    fix: "3 = 3¹."
+stretch: "Multiply (4 × 10⁵) × (5 × 10³) and give the answer in scientific notation (careful: 4 × 5 = 20)."
+support: "Write each expression out as factors for the first two problems."
+leads: |
+  This completes AC9M8N02.
+
+  Where it leads: scientific notation in science, negative indices and algebraic powers (Year 9).
+exit:
+  q: "Simplify (5³)² × 5⁴ ÷ 5⁸."
+  a: "5⁶ × 5⁴ ÷ 5⁸ = 5¹⁰ ÷ 5⁸ = 5²."
+explain: |
+  Simplify **one law at a time**: powers of powers first, then multiply and divide from left to right. Only join powers with the **same base**: $2^3 \times 3^2$ stays as it is (= 72).
+
+  Powers of 10 follow the laws, so $(3 \times 10^4) \times (2 \times 10^3) = 6 \times 10^7$.

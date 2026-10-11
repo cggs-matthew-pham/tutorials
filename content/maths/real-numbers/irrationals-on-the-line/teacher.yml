@@ -1,0 +1,45 @@
+summary: Students place square roots and π on the number line using the perfect squares either side and decimal squares, and decide when an approximation is enough (AC9M8N01, node 2).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can find the two whole numbers a square root is between.
+  - I can place a root or π to the nearest tenth.
+  - I can tell an exact value from an approximation.
+struggle: "Using squares, not halves. Ask students to write the perfect squares either side before they guess."
+before: |
+  Do the Run board yourself first. Students need the previous lesson and square numbers to 144.
+
+  The one idea: perfect squares either side bound a root (25 < 30 < 36 so 5 < √30 < 6), and decimal squares narrow it. The common mistake is halving (Ben's mistake).
+
+  The Run and Modify boards are number lines with a point to drag to the nearest tenth; the Make board zooms and counts wrong presses.
+
+  Wider: the real numbers are dense: between any two there are rationals and irrationals.
+running:
+  - "Predict: ask what 15² is."
+  - "Run: ask how they know √5 is nearer 2 than 3."
+  - "Investigate: ask Ben to check 25 × 25."
+  - "Modify: ask when 1.41 is good enough."
+  - "Make: ask for the squares they checked."
+stuck:
+  - see: "A student halves the number."
+    ask: "What times itself gives 50?"
+    fix: "Find the perfect squares either side."
+  - see: "A student cannot list perfect squares."
+    ask: "What is 6 × 6? 7 × 7?"
+    fix: "Write the squares to 12² down the side of the page."
+  - see: "A student treats 1.41 as exactly √2."
+    ask: "What is 1.41²?"
+    fix: "1.9881: close, not 2. 1.41 is an approximation."
+stretch: "Find a rational number and an irrational number between 1.41 and 1.42."
+support: "A list of squares 1 to 144, and a number line from 0 to 12 to mark them on."
+leads: |
+  This completes AC9M8N01.
+
+  Where it leads: exact answers with Pythagoras, and surds (Year 10).
+exit:
+  q: "Between which two whole numbers is √70? Which is it nearer?"
+  a: "64 < 70 < 81, so between 8 and 9, nearer 8 (√70 ≈ 8.37)."
+explain: |
+  The **real numbers** fill the number line: rational and irrational. To place a square root, find the **perfect squares either side** ($25 < 30 < 36$, so $5 < \sqrt{30} < 6$), then square decimals to get closer.
+
+  A rounded value such as 5.48 is an **approximation**; $\sqrt{30}$ is exact.

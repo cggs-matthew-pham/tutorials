@@ -697,6 +697,21 @@ Vary, Practise, Make).
     adds `slider f:` (hours; default 0.5 to 24) and marks the landing in the last city. Values `t`, `u v w` (other cities'
     times), `x y z` (their day compared with the first: −1, 0, 1), `f`, `a` (landing time), `b` (landing day). Checks:
     `"v = 9 and y = 0"`, `"a >= 9 and a <= 12"`. The prism board's `capacity: on` now also takes `units: m` (litres).
+  - `widget: longdiv` (first used by `maths/real-numbers/recurring-decimals`): a/b divided out step by step (remainder × 10,
+    digit, new remainder), the decimal with a bar over the repeating block; `slider a:`/`slider b:` or fixed (b 2 to 60);
+    `factors: on` adds the simplest form and the denominator's primes with the 2s-and-5s rule. Values `a`, `b`, `t` (1 if it
+    terminates), `p` (block length), `d` (digits before the block), `s` (simplified denominator), `f` (1 if only 2s and 5s).
+  - `widget: zoomline` (first used by `maths/real-numbers/irrational-numbers`): find `number:` (sqrt2, sqrt3, sqrt5, sqrt6, sqrt7,
+    sqrt8, sqrt10, pi, phi or a fraction like 1/7) by pressing the tenth of the line it is in, zooming ten times each time
+    (`places: 4`, `from: 0`; `found: 2` starts with that many found, for pictures). Wrong presses get the squares of the ends (roots)
+    or too big/small. Values `k` (right presses), `w` (wrong), `d` (1 when done). Pieces are labelled "Between 1.4 and 1.5".
+  - `widget: indexlaws` (first used by `maths/real-numbers/index-laws`): powers as rows of factor chips. `mode: product | quotient |
+    power | zero`, sliders `a` (base), `m`, `n` (quotient keeps m ≥ n; zero sets n = m), `result: off`. Values `a m n`, `k`
+    (resulting index), `v` (its value).
+  - `widget: money` (first used by `maths/number/percentage-change`, `money-models`): `mode: change` (q, then changes `a` and `b`
+    in %, as bars with multipliers; values `q a b x y`, `m` overall multiplier, `c` overall % change) or `mode: tax` (`slider i:`
+    income, `brackets: 18200: 0; 45000: 15; 135000: 30; 190000: 37; 45`; values `i`, `t` tax, `e` effective %, `r` marginal %,
+    `n` after tax). `units: $` (default).
   - Board variables in `when:` must be single letters: the evaluator reads a longer name such as `sb` as s × b.
   - `widget: data` (first used by `maths/data`): a dot plot of `values: 4, 7, 7, 8` on `range: 0, 20` (default: around
     the data), with the mean (▲), median (dashed) and range (arrow) marked and written underneath (`show: mean, median,

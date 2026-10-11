@@ -1,0 +1,45 @@
+summary: Students model percentage increases and decreases as multipliers, chain two changes, and explain why equal percentages up and down do not cancel (AC9M8N05, node 1).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can use a multiplier for a percentage increase or decrease.
+  - I can work out the result of two changes, one after the other.
+  - I can explain why up 20% then down 20% is not back to the start.
+struggle: "Asking 'a percentage of what?'. Ask students to name the amount each percentage is taken of before they calculate."
+before: |
+  Do the Run board yourself first. Students need percentages of amounts and increases and decreases (Number Foundations).
+
+  The one idea: each change multiplies the current amount, so successive changes multiply. The common mistake is taking the second percentage of the original amount (Sam's mistake).
+
+  The board draws the three amounts as bars with each multiplier between them; the Mark-up task uses the percentage bar.
+
+  Wider: population or prices changing by the same percentage each year (repeated multipliers: informal exponential growth).
+running:
+  - "Predict: ask '20% of what?' for the second change."
+  - "Run: ask whether any pair of equal ups and downs gets back to $100."
+  - "Investigate: ask Sam what 10% of $220 is."
+  - "Modify: ask whether two 20% discounts are better or worse for the shopper than one of 40%."
+  - "Make: ask why the order does not matter (multiplying in either order)."
+stuck:
+  - see: "A student takes the second percentage of the original."
+    ask: "What is the price just before the second change?"
+    fix: "Each percentage is of the current amount."
+  - see: "A student multiplies by 0.15 for a 15% increase."
+    ask: "Have you found the new amount, or just the increase?"
+    fix: "New amount: × (1 + 0.15)."
+  - see: "A student adds the percentages (−10 and −20 gives −30)."
+    ask: "What is 0.9 × 0.8?"
+    fix: "Multiply the multipliers: 0.72, a 28% fall."
+stretch: "A town's population grows 10% a year for 3 years. Is that a 30% increase? Find the true overall change."
+support: "Write each multiplier under its arrow, and multiply with a calculator."
+leads: |
+  This starts AC9M8N05.
+
+  Where it leads: money models (next lesson), compound interest and exponential growth (Years 9 and 10).
+exit:
+  q: "A $60 item is discounted 25%, then the discounted price goes up 25%. What is the final price?"
+  a: "60 × 0.75 × 1.25 = $56.25."
+explain: |
+  An increase of $p\%$ multiplies by $1 + \frac{p}{100}$; a decrease multiplies by $1 - \frac{p}{100}$.
+
+  For one change after another, **multiply the multipliers**: each percentage is of the current amount. Up 20% then down 20% is $1.2 \times 0.8 = 0.96$: 4% less.

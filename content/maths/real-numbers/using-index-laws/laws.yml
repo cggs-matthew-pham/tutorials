@@ -1,0 +1,33 @@
+# Index law boards for "Using the index laws".
+
+# region: run
+widget: indexlaws
+mode: product
+a: 3
+slider m: 1, 6, 1
+slider n: 1, 6, 1
+# endregion
+
+# region: explain
+widget: indexlaws
+mode: power
+a: 2
+m: 3
+slider n: 1, 4, 1
+# endregion
+
+# region: power
+widget: indexlaws
+mode: power
+slider a: 2, 10, 2
+slider m: 1, 4, 1
+slider n: 1, 6, 1
+# endregion
+
+# region: quotient
+widget: indexlaws
+mode: quotient
+slider a: 2, 10, 10
+slider m: 1, 6, 1
+slider n: 1, 6, 1
+# endregion

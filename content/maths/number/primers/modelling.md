@@ -18,6 +18,10 @@ Modelling is where Number meets the real world: shopping, savings, building, map
 - **Adding percentages of different amounts.**
 - **Bare numbers.** 33.6 what? Write $33.60.
 
+## Year 8: percentage change and money models
+
+A percentage change is a multiplier: up p% is × (1 + p/100), down p% is × (1 − p/100), and one change after another multiplies the multipliers (up 20% then down 20% is × 0.96). Income tax is a model in brackets: each part of the income is taxed at its own rate, so the marginal rate (on the last dollar) is higher than the effective rate (tax ÷ income). The common slips: taking a second percentage of the original amount, and taxing the whole income at the top rate.
+
 ## The words
 
 **model**, **formulate**, **interpret**, **justify**, **representation**, **profit**, **markup**, **discount**, **scale**.
