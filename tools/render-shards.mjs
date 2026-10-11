@@ -49,19 +49,25 @@ if (cmd === 'run') {
   if (!shard) { console.error(`No shard ${k} in ${PLAN}`); process.exit(1); }
   const copyTo = opt('--copy-to');
   const failed = [];
+  let recorded = 0;
   for (const slug of shard.lessons) {
-    const r = spawnSync('node', ['tools/render.mjs', '--lesson', slug, ...(SITE ? ['--seed', SITE] : [])], { stdio: 'inherit' });
+    // render.mjs's own per-run total ("Clips: 0 downloaded, 1 recorded or failed") is noise once per lesson: drop it
+    // and count the ✓ lines instead. Errors (stderr) still show as they happen.
+    const r = spawnSync('node', ['tools/render.mjs', '--lesson', slug, ...(SITE ? ['--seed', SITE] : [])], { stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8', maxBuffer: 64 << 20 });
+    const lines = (r.stdout || '').split('\n').filter((l) => l && !l.startsWith('Clips:'));
+    if (lines.length) console.log(lines.join('\n'));
+    recorded += lines.filter((l) => l.startsWith('✓')).length;
     if (r.status !== 0) failed.push(slug);
     const clips = join('dist', slug, 'clips');
     if (copyTo && existsSync(clips)) { mkdirSync(join(copyTo, slug), { recursive: true }); cpSync(clips, join(copyTo, slug, 'clips'), { recursive: true }); }
   }
   if (failed.length) {
-    const msg = `Job ${k}: ${failed.length} lesson(s) had a clip fail: ${failed.join(', ')}. Their other clips are kept; the publish job keeps the live version of anything missing.`;
+    const msg = `Job ${k}: ${recorded} of ${shard.clips} clips recorded; failed in ${failed.join(', ')}. The publish job keeps the live version of anything missing.`;
     console.error('✗ ' + msg);
     if (process.env.GITHUB_STEP_SUMMARY) writeFileSync(process.env.GITHUB_STEP_SUMMARY, `- ${msg}\n`, { flag: 'a' });
     process.exit(1);
   }
-  console.log(`Job ${k}: ${shard.clips} clip(s) in ${shard.lessons.length} lesson(s) done.`);
+  console.log(`Job ${k}: ${recorded} of ${shard.clips} clips recorded.`);
   process.exit(0);
 }
 
