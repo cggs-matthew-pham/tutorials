@@ -1,5 +1,7 @@
 ---
 order: 1
+node: AC9S8U04 n2
+assumes: [AC9S8U04 n1]   # sedimentary rocks: taught in class (no tutorial yet)
 unit: rocks
 title: Why do some rocks have big crystals?
 summary: Igneous rock forms when magma or lava cools. Slow cooling underground gives large crystals (granite); fast cooling at the surface gives small crystals (basalt) or glass (obsidian). Crystal size is a record of cooling rate.

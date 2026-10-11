@@ -1,5 +1,6 @@
 ---
 order: 3
+node: AC9S7U03 n2
 unit: moon
 title: Why does the moon change shape?
 summary: "The sun always lights half of the moon. As the moon goes round the Earth (29.5 days from new moon to new moon), we see more or less of that lit half: the phases. They are not caused by Earth's shadow."

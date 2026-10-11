@@ -1,5 +1,6 @@
 ---
 order: 3
+node: AC9S7U04 n3
 unit: forces
 title: What does an unbalanced force do?
 summary: An unbalanced force changes an object's motion, in the direction of the net force. Speeding up, slowing down, stopping, reversing and turning are all changes in motion, and every one needs an unbalanced force.

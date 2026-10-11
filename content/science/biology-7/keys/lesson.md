@@ -1,5 +1,6 @@
 ---
 order: 2
+node: AC9S7U01 n3
 unit: classification
 title: Who is it? Using a key
 summary: A dichotomous key identifies an organism by a series of yes-or-no questions about features you can observe. Following each choice carefully leads to the right name; one wrong choice leads to the wrong one.

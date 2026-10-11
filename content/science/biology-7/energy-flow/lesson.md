@@ -1,5 +1,6 @@
 ---
 order: 4
+node: AC9S7U02 n2
 unit: foodwebs
 title: Where does the energy go?
 summary: "Energy enters a food web as sunlight captured by producers and flows one way along the arrows. At each step only about 10% is passed on; the rest is used for living or lost as heat. Matter is different: decomposers return it to be used again."

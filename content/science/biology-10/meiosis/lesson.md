@@ -1,5 +1,7 @@
 ---
 order: 2
+node: AC9S10U01 n3
+assumes: [AC9S10U01 n2]   # mitosis: taught in class (no tutorial yet)
 unit: genetics
 title: Why is every sperm and egg different?
 summary: "Meiosis makes gametes. The chromosome pairs separate and each gamete gets one chromosome from each pair, chosen at random, so it has half the number and a different combination. With 23 pairs there are over 8 million combinations."

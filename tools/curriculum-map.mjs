@@ -9,6 +9,11 @@ export const STRANDS = {
   science: ['Biological', 'Chemical', 'Earth and space', 'Physical', 'Human endeavour', 'Inquiry'],
 };
 
+// Strands woven through the lessons and class work rather than taught by tutorials of their own (Matthew, 11 Oct):
+// their tiles show no waypoint dots and the card says so, instead of "no lesson yet".
+export const WOVEN = { science: ['Human endeavour', 'Inquiry'] };
+export const WOVEN_NOTE = 'Woven through the lessons and class work; no tutorials of its own.';
+
 export function loadCurriculum(subject) {
   const f = `data/curriculum/${subject}.json`;
   return existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : null;
@@ -20,6 +25,7 @@ export function loadCurriculum(subject) {
  */
 export function curriculumMapHtml(subject, cur, lessons, up, esc) {
   const strands = STRANDS[subject] || [...new Set(cur.descriptors.map((d) => d.strand))];
+  const woven = (d) => (WOVEN[subject] || []).includes(d.strand);
   const ds = cur.descriptors;
   const byCode = new Map(ds.map((d) => [d.code, d]));
   // Lessons per node ("AC9M7A01 n2") and per whole descriptor ("AC9M7N07").
@@ -49,9 +55,9 @@ export function curriculumMapHtml(subject, cur, lessons, up, esc) {
   };
   const years = [[0, 'Before Year 7'], [7, 'Year 7'], [8, 'Year 8'], [9, 'Year 9'], [10, 'Year 10']];
   const tile = (d) => {
-    const dots = d.nodes.map((n) => `<i class="${nodeLessons(d, n).length ? 'dl' : 'dn'}" data-n="${n.n}"></i>`).join('');
+    const wv = woven(d), dots = wv ? '' : d.nodes.map((n) => `<i class="${nodeLessons(d, n).length ? 'dl' : 'dn'}" data-n="${n.n}"></i>`).join('');
     const has = hasLessons(d);
-    return `<button type="button" class="cmt${has ? ' has' : ''}${d.year < 7 ? ' early' : ''}" data-code="${esc(d.code)}" aria-label="${esc(`${d.code}: ${d.title}${has ? ', has lessons' : ''}`)}">` +
+    return `<button type="button" class="cmt${has ? ' has' : ''}${wv ? ' woven' : ''}${d.year < 7 ? ' early' : ''}" data-code="${esc(d.code)}" aria-label="${esc(`${d.code}: ${d.title}${has ? ', has lessons' : wv ? ', woven through lessons and class work' : ''}`)}">` +
       `<span class="cmtop"><b>${esc(short(d.code))}</b><span class="cmdots" aria-hidden="true">${dots}</span></span><span class="cmtt">${esc(d.title)}</span></button>`;
   };
   let grid = `<svg class="cmlines" aria-hidden="true"></svg>` +
@@ -59,7 +65,8 @@ export function curriculumMapHtml(subject, cur, lessons, up, esc) {
   strands.forEach((s, r) => {
     const mine = ds.filter((d) => d.strand === s);
     const main = mine.filter((d) => d.year >= 7), withL = main.filter(hasLessons).length;
-    grid += `<h3 class="cms" style="grid-row:${r + 2}">${esc(s)}<small>${main.length} descriptors${withL ? ` · ${withL} with lessons` : ''}</small></h3>`;
+    const wvRow = (WOVEN[subject] || []).includes(s);
+    grid += `<h3 class="cms" style="grid-row:${r + 2}">${esc(s)}<small>${main.length} descriptors${wvRow ? ' · woven through lessons and class work' : withL ? ` · ${withL} with lessons` : ''}</small></h3>`;
     // A descriptor written for two years (science's Human endeavour and Inquiry: span 2) fills both columns.
     let skip = false;
     years.forEach(([y, t], i) => {
@@ -73,7 +80,7 @@ export function curriculumMapHtml(subject, cur, lessons, up, esc) {
   const data = {
     lessons: L.map((l) => ({ t: l.title, h: l.href, c: l.course })),
     d: Object.fromEntries(ds.map((d) => [d.code, {
-      t: d.title, y: d.year, w: d.span || 1, s: d.strand, x: d.description, p: d.prior.filter((c) => byCode.has(c)),
+      t: d.title, y: d.year, w: d.span || 1, s: d.strand, x: d.description, p: d.prior.filter((c) => byCode.has(c)), ...(woven(d) ? { v: WOVEN_NOTE } : {}),
       n: d.nodes.map((n) => [n.label, n.hinge ? 1 : 0, nodeLessons(d, n)]),
     }])),
   };
@@ -122,9 +129,11 @@ export const CMAP_CSS = `
 .cmtt{font-size:12.5px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .cmdots{display:inline-flex;gap:3px;flex:none}
 .cmap i,.cmkey i{display:inline-block;width:8px;height:8px;border-radius:50%;box-sizing:border-box;flex:none}
-.dl{border:2px solid var(--ink)}.dn{border:1.5px dashed color-mix(in srgb,var(--muted) 70%,transparent)}.dd{background:var(--run);border:2px solid var(--run)}
+.dw{background:color-mix(in srgb,var(--muted) 35%,transparent)}.dl{border:2px solid var(--ink)}.dn{border:1.5px dashed color-mix(in srgb,var(--muted) 70%,transparent)}.dd{background:var(--run);border:2px solid var(--run)}
 .cmt.on{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
 .cmt.pre{border:2px solid var(--investigate)}.cmt.post{border:2px dashed var(--practise)}
+.cmt.woven{border-style:dotted}
+.cmcard .cmwv{margin:0 0 10px;font-size:13.5px;color:var(--muted);font-style:italic}
 .cmgrid.only .cmt:not(.has):not(.on):not(.pre):not(.post){opacity:.35}
 .cmsrc{font-size:13px;color:var(--muted);margin-top:14px}
 @media(max-width:700px){

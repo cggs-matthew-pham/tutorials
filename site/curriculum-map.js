@@ -24,17 +24,18 @@
     card.append(el('p', 'cmk', c + ' · ' + (d.y < 7 ? yrs + ' (before Year 7)' : yrs) + ' · ' + d.s));
     card.append(el('h2', null, d.t));
     if (d.x) card.append(el('p', 'cmx', d.x));
+    if (d.v) card.append(el('p', 'cmwv', d.v));
     card.append(el('h3', null, 'Waypoints'));
     var ol = el('ol');
     d.n.forEach(function (n, i) {
-      var li = el('li'), dot = el('i', nodeDone(c, i) ? 'dd' : n[2].length ? 'dl' : 'dn'), body = el('div');
+      var li = el('li'), dot = el('i', nodeDone(c, i) ? 'dd' : n[2].length ? 'dl' : d.v ? 'dw' : 'dn'), body = el('div');
       var t = el('span', null, n[0]); body.append(t);
       if (n[1]) body.append(el('span', 'hg', 'HINGE'));
       if (n[2].length) n[2].forEach(function (j) {
         var a = el('a', null, L[j].t + (done[L[j].h] ? ' ✓' : '')); a.href = L[j].h; body.append(a);
         body.append(el('small', null, L[j].c));
       });
-      else body.append(el('small', null, 'No lesson yet'));
+      else if (!d.v) body.append(el('small', null, 'No lesson yet'));
       li.append(dot, body); ol.append(li);
     });
     card.append(ol);

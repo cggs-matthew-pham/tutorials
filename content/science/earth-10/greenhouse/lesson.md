@@ -1,5 +1,6 @@
 ---
 order: 5
+node: AC9S10U04 n3
 unit: climate
 title: How do greenhouse gases warm the Earth?
 summary: "Earth gives off infrared. Greenhouse gases (water vapour, CO₂, methane, nitrous oxide) absorb some of it and send part back down, slowing the energy going out. Without them Earth would average about −18 °C. Adding more upsets the balance, and Earth warms until it is restored."

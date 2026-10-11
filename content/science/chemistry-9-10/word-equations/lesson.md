@@ -1,5 +1,7 @@
 ---
 order: 5
+node: [AC9S9U07 n1, AC9S9U07 n3]
+assumes: [AC9S9U07 n2]   # word equations do not need the atom model; Where do the atoms go? (n2) comes next, on purpose
 unit: equations
 title: What goes in, what comes out?
 summary: "In a chemical reaction the reactants are used up and new substances, the products, are made. A word equation names them: reactants → products. It must include every product (burning a fuel makes water as well as carbon dioxide), but it shows no amounts or atoms."

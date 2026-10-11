@@ -1,5 +1,6 @@
 ---
 order: 1
+node: AC9S9U01 n1
 unit: control
 title: What counts as a stimulus?
 summary: "A stimulus is any change the body detects, outside it or inside it. Every response follows the same pathway: stimulus, receptor, command centre, effector, response."

@@ -1,5 +1,7 @@
 ---
 order: 3
+node: AC9S8U02 n1
+assumes: [AC9S8U01 n1, AC9S8U01 n4, AC9S8U01 n5]   # cellular scale; plant-specific structures; additional organelles: taught in class (no tutorial yet)
 unit: systems
 title: Why are cells different shapes?
 summary: "Almost all your cells have the same DNA, but they specialise: each develops a shape and contents that suit its job, like a red blood cell packed with haemoglobin or a nerve cell with a long axon."

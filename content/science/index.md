@@ -1,6 +1,7 @@
 ---
 title: Science
-summary: Short concept tutorials for introducing an idea or revising it, built around particle simulations. Each one is a mini 5E cycle (Engage, Explore, Explain, Elaborate, Evaluate) for one hinge idea in the curriculum. They sit beside practical work and class discussion, never instead of it.
+map: true
+summary: Short concept tutorials for introducing an idea or revising it, built around particle simulations. Each one is a mini 5E cycle (Engage, Explore, Explain, Elaborate, Evaluate) for one idea in the curriculum. They sit beside practical work and class discussion, never instead of it.
 pathways:
   - id: chemistry
     title: Chemistry

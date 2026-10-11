@@ -1,5 +1,7 @@
 ---
 order: 2
+node: AC9S7U03 n4
+assumes: [AC9S7U03 n3]   # seasons needs only spin, orbit and tilt (n1); it comes straight after them, before phases and eclipses, on purpose
 unit: earth
 title: Why is summer hot?
 summary: "Seasons are caused by the Earth's tilted axis, not its distance from the sun. Leaning towards the sun gives a higher noon sun (concentrated light) and longer days: summer. The two hemispheres have opposite seasons."

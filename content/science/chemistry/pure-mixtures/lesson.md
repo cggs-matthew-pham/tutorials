@@ -1,5 +1,7 @@
 ---
 order: 4
+node: AC9S7U06 n1
+assumes: [AC9S7U05 n4, AC9S7U05 n5]   # changes of state and energy; particle theory as a model: scope and limits: taught in class (no tutorial yet)
 unit: mixtures
 title: Pure substance or mixture?
 summary: A pure substance contains only one kind of particle; a mixture contains two or more. Classify familiar materials by their particles, not by how they look.

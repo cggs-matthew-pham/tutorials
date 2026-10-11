@@ -1,5 +1,7 @@
 ---
 order: 2
+node: AC9S8U06 n3
+assumes: [AC9S8U06 n2]   # elements: taught in class (no tutorial yet)
 unit: atoms
 title: Why isn't salt poisonous?
 summary: A compound is two or more types of atom chemically joined in a fixed ratio. It is a new substance with new properties, and a formula like H₂O tells you which atoms and how many.

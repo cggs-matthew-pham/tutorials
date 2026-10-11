@@ -1,5 +1,7 @@
 ---
 order: 1
+node: AC9S10U03 n2
+assumes: [AC9S10U03 n1]   # scale and structure of the universe: taught in class (no tutorial yet)
 unit: universe
 title: How did the universe begin?
 summary: "The big bang theory: space, time, matter and energy began about 13.8 billion years ago in an extremely hot, dense state, and the universe has expanded and cooled ever since: from particles to atoms, stars, galaxies and planets."

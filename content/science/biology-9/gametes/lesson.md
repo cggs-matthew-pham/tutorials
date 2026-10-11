@@ -1,5 +1,6 @@
 ---
 order: 5
+node: AC9S9U02 n1
 unit: reproduction
 title: What makes a sex cell special?
 summary: "Gametes (sperm and egg, or the nuclei in pollen and ovules) carry half the usual number of chromosomes, so fertilisation restores the full set. Each is specialised: sperm to swim and get in, the egg to feed the embryo and let only one sperm in."

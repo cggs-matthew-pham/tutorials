@@ -1,5 +1,6 @@
 ---
 order: 1
+node: AC9S9U03 n1
 unit: carbon
 title: What are Earth's spheres?
 summary: "Earth can be described as four interacting spheres: the atmosphere (air), biosphere (living things), hydrosphere (water) and geosphere (rock, soil and magma). Many things sit where spheres meet."

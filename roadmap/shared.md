@@ -133,6 +133,8 @@ Pathway pages open on a trail map for students, with a "List for teachers" toggl
 
 ## Changed by the science chat (11 Oct 2026)
 
+- Science map switched on (handoff above done): all 65 science lessons have `node:` (from their teacher notes; every one matched the kit's node labels), `map: true` in `content/science/index.md`, and `science` is in `CHECKED` (`tools/progressions.mjs`). 21 progression pages written with `tools/kit-page.mjs` from the kit. 18 lessons list `assumes:` for earlier nodes taught in class (each comment names the node); seasons and word equations list a node they deliberately come before. `tools/curriculum-map.mjs` and `site/curriculum-map.js` (Matthew approved): `WOVEN` strands (science's Human endeavour and Inquiry) show no waypoint dots, "woven through lessons and class work" in the row and card instead of "no lesson yet". Maths is unchanged.
+
 - `playground-board/widgets/atom.js` (Matthew approved): `mode: halflife`, a `colour:` option for the table, and a stable or radioactive line in build mode (values `u`, `i`); a fix to "1 electrons". `playground-board/style.css` gains `.atkey`, `.atsw`, `.atstab`. Only atom lessons change; every board clip and picture redraws on the next publish, as with any board change.
 
 - `playground-board/widgets/atom.js` gains `mode: decay` and `mode: shield` (alpha, beta, gamma; for 9U06 n3). Science-owned widget, no other file changed. As with any board change, every board clip re-records and every board picture redraws on the next publish.

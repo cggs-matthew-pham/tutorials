@@ -1,5 +1,7 @@
 ---
 order: 3
+node: AC9S9U01 n4
+assumes: [AC9S9U01 n3]   # nervous and endocrine systems as coordination mechanisms: taught in class (no tutorial yet)
 unit: control
 title: Nerve or hormone?
 summary: "The nervous system sends fast, short-lived electrical impulses along nerves to one place. The endocrine system releases hormones into the blood: slower, longer-lasting, and they reach every cell but act only on target cells."

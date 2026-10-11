@@ -1,5 +1,7 @@
 ---
 order: 3
+node: AC9S8U07 n2
+assumes: [AC9S8U07 n1]   # physical change at the particle level: taught in class (no tutorial yet)
 unit: changes
 title: Is it a new substance?
 summary: A chemical change makes a new substance, because atoms rearrange into new particles. A physical change only rearranges or spreads out the same particles. "Can it be reversed?" is not the test.

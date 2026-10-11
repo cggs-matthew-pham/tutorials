@@ -1,5 +1,6 @@
 ---
 order: 1
+node: AC9S10U01 n1
 unit: genetics
 title: Where are the instructions?
 summary: "DNA carries the instructions for an organism. It is coiled into chromosomes in the nucleus; a gene is a section of DNA that codes for a protein. Alleles are different versions of the same gene."

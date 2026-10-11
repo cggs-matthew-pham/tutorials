@@ -1,5 +1,7 @@
 ---
 order: 1
+node: AC9S7U01 n2
+assumes: [AC9S7U01 n1]   # purpose of classification: taught in class (no tutorial yet)
 unit: classification
 title: Plant, animal or something else?
 summary: Living things are sorted into kingdoms (animals, plants, fungi, protists and bacteria) using features you can observe, and you can justify each placement with those features.

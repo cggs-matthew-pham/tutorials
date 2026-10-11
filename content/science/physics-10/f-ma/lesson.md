@@ -1,5 +1,6 @@
 ---
 order: 3
+node: AC9S10U05 n4
 unit: newton
 title: How hard do you need to push?
 summary: "Newton's second law: the net force on an object equals its mass times its acceleration, F = ma. Double the net force and the acceleration doubles; double the mass and the acceleration halves."

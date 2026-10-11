@@ -2,6 +2,10 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: science lessons tagged, map on (11 Oct 2026, science chat)
+
+Every science lesson names its node; the node check runs for science; `/science/map/` is on. Decided (Matthew): Human endeavour and Inquiry are woven through lessons and class work, with no tutorials of their own; the map says so. The `assumes:` lines are the class-taught nodes the tutorials rely on, a ready list for the non-hinge queue (such as 7U01 n1 purpose of classification, 8U01 n1 cellular scale, 8U06 n2 elements, 8U07 n1 physical change, 10U05 n1 force as a vector).
+
 ## Done: isotopes, half-life, trends and word equations (11 Oct 2026, science chat)
 
 Four tutorials in `chemistry-9-10/`, from the non-hinge queue: Same element, different atoms? (isotopes, 9U06 n2, order 2), How long does radioactivity last? (half-life, 9U06 n4, order 4), What goes in, what comes out? (reactants, products and word equations, 9U07 n1 and n3 in one lesson with a Practise step, order 5) and Why does the periodic table repeat? (trends, 10U06 n3, order 10). Later lessons moved down. The atom board gains `mode: halflife` (a random sample with a graph, Wait one half-life), table `colour: shells | outer | metal`, and a stable or radioactive line in build mode. The half-life Wider step covers dating First Peoples' presence carefully: radiocarbon for younger layers, luminescence for older ones, agreement between methods (teacher note: local resources and community guidance). Voiced explain clips and pictures (ports 8261–8264, next free 8265); every check passes headless (the solver's science-board run step needs a longer wait; checked by hand); decks fit. Primers updated.

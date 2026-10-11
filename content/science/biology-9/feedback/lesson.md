@@ -1,5 +1,6 @@
 ---
 order: 4
+node: AC9S9U01 n5
 unit: control
 title: How does your body stay at 37 °C?
 summary: "Homeostasis keeps internal conditions near a set point by negative feedback: a change away from the set point is detected, and the response reverses it. Body temperature is controlled by the hypothalamus through sweating, shivering and blood flow."

@@ -1,5 +1,6 @@
 ---
 order: 5
+node: AC9S7U03 n5
 unit: moon
 title: Why are there two high tides a day?
 summary: "The moon's gravity pulls the oceans into two bulges, one facing the moon and one on the far side; the Earth spins through both, so most coasts get two high tides a day. Spring tides (biggest range) come at new and full moon, when the sun and moon pull in line; neap tides at the quarters."

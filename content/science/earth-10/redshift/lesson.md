@@ -1,5 +1,6 @@
 ---
 order: 2
+node: AC9S10U03 n3
 unit: universe
 title: How do we know the universe is expanding?
 summary: "Light from distant galaxies is redshifted: shifted to longer wavelengths, so they are moving away. Farther galaxies move away faster (Hubble's law), exactly what an expanding universe predicts, from any galaxy. Run backwards, everything was once together: evidence for the big bang."

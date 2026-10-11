@@ -1,5 +1,6 @@
 ---
 order: 3
+node: AC9S7U02 n1
 unit: foodwebs
 title: Who eats whom?
 summary: A food web joins all the food chains in an ecosystem. Arrows point the way energy flows, from the food to the eater. Every organism is a producer, a consumer or a decomposer, and decomposers include microorganisms.

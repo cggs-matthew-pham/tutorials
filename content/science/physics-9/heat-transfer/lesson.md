@@ -1,5 +1,6 @@
 ---
 order: 1
+node: AC9S9U04 n1
 unit: energy
 title: How does heat get through?
 summary: Conduction passes energy from particle to particle by collisions, with the particles staying in place. Convection carries energy as the heated fluid itself moves. The particle model explains both, and why metals conduct and trapped air insulates.

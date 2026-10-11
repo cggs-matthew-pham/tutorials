@@ -1,5 +1,6 @@
 ---
 order: 4
+node: AC9S9U06 n4
 unit: atoms
 title: How long does radioactivity last?
 summary: "Each unstable nucleus decays at random, but a large sample halves in a fixed time: its half-life. After one half-life half is left, after two a quarter, after three an eighth. Half-lives range from minutes to billions of years, which decides what each isotope is used for."

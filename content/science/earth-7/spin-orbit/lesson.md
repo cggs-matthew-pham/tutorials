@@ -1,5 +1,6 @@
 ---
 order: 1
+node: AC9S7U03 n1
 unit: earth
 title: Spinning and orbiting
 summary: "The Earth rotates (spins on its axis) once a day, causing day and night, and revolves (goes round the sun) once a year. Its axis is tilted and always points the same way in space."

@@ -1,5 +1,7 @@
 ---
 order: 1
+node: AC9S8U01 n2
+assumes: [AC9S8U01 n1]   # cellular scale: taught in class (no tutorial yet)
 unit: cells
 title: Is everything alive made of cells?
 summary: "Cell theory: all living things, including plants, fungi and bacteria, are made of cells. Some organisms are a single cell; others are made of many."

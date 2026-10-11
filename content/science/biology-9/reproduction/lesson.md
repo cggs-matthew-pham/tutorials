@@ -1,5 +1,7 @@
 ---
 order: 6
+node: AC9S9U02 n3
+assumes: [AC9S9U02 n2]   # reproductive organs: taught in class (no tutorial yet)
 unit: reproduction
 title: Why don't brothers and sisters look the same?
 summary: "In sexual reproduction each offspring gets a random half of each parent's genes, so offspring vary. In asexual reproduction one parent makes genetically identical clones. Variation helps a population survive change; asexual reproduction is fast and needs no partner."

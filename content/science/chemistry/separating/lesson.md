@@ -1,5 +1,6 @@
 ---
 order: 5
+node: AC9S7U06 n2
 unit: mixtures
 title: How do you separate a mixture?
 summary: Every separation technique uses a difference in a physical property between the parts of a mixture. Match property differences to techniques, and choose the order.

@@ -1,5 +1,7 @@
 ---
 order: 1
+node: AC9S10U05 n2
+assumes: [AC9S10U05 n1]   # force as a vector quantity: taught in class (no tutorial yet)
 unit: newton
 title: Does a moving thing need a push?
 summary: "Newton's first law: an object at rest stays at rest, and a moving object keeps moving at a constant velocity, unless a net force acts. Moving things slow down because of friction, not because their push runs out."

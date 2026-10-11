@@ -1,5 +1,6 @@
 ---
 order: 2
+node: AC9S9U01 n2
 unit: control
 title: Who decides?
 summary: "The central nervous system (brain and spinal cord) is the command centre: sensory neurons carry impulses in from receptors, motor neurons carry them out to effectors. Reflexes go through the spinal cord without waiting for the brain."

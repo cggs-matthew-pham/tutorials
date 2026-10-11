@@ -14,7 +14,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-export const CHECKED = ['maths'];   // subjects whose lessons must name a node (add 'science' once tagged)
+export const CHECKED = ['maths', 'science'];   // subjects whose lessons must name a node
 const CODE = /AC9[A-Z]{1,4}\d{1,2}[A-Z]{1,3}\d{2}/g;
 
 /** Parse one progression page. */
