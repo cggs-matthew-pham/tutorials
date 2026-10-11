@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Page A uses an h2 tag for "This week".
+Page B uses big bold text for "This week".
+On screen they look almost the same.
+So every visitor gets the same page from both.
+# endregion

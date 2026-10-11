@@ -8,10 +8,11 @@ pathways:
     title: Data representation
     summary: Bits and binary numbers, then text, colour, images and sound as numbers, then making data smaller.
     fit: "Start here to see how a computer stores every number, letter, colour and sound as 0s and 1s."
-    about: "**Data representation** follows the Digital Technologies Knowledge and understanding strand: Years 7–8 AC9TDI8K04 (how and why digital systems represent integers in binary) and AC9TDI8K03 (text, image and audio data as integers). **Making data smaller** is Years 9–10 (AC9TDI10K03, simple compression). No coding needed. The binary cards come from CS Unplugged; doing them with real cards first works well."
+    about: "**Data representation** follows the Digital Technologies Knowledge and understanding strand: Years 7–8 AC9TDI8K04 (how and why digital systems represent integers in binary) and AC9TDI8K03 (text, image and audio data as integers). **Making data smaller** is Years 9–10 (AC9TDI10K03, simple compression). **How a web page is made** is Years 9–10 (AC9TDI10K02): content, structure and presentation, and why they are kept apart, with no coding needed; the Code pathway's HTML & CSS course puts it to work. No coding needed. The binary cards come from CS Unplugged; doing them with real cards first works well."
     courses:
       - { path: systems/data, id: data-representation, stage: foundations, tagline: "Bits, binary numbers, and how many patterns a few bits can make." }
       - { path: systems/compression, id: compression, stage: extensions, after: [data-representation], tagline: "Squash data and see what is lost." }
+      - { path: systems/web, id: web-docs, stage: extensions, after: [data-representation], tagline: "Words, tags and style: three layers of every page." }
   - id: networks
     title: Networks and security
     summary: How data moves between computers, and how it is kept safe on the way.

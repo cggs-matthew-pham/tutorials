@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+In the Plain style, "This week" is a heading.
+In the Poster style, "This week" is pink and huge.
+So the Poster style changed "This week" into a different kind of part.
+To make it a list item, Sam should change the style sheet.
+# endregion

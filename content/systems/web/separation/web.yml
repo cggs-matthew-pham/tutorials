@@ -1,0 +1,33 @@
+# Boards for "Why keep them apart".
+
+# region: run
+widget: webdoc
+compare: on
+# endregion
+
+# region: explain
+widget: webdoc
+compare: on
+# endregion
+
+# region: explain-pic
+widget: webdoc
+doc: messy
+# endregion
+
+# region: site
+widget: webdoc
+edit: css
+pages: on
+# endregion
+
+# region: phone
+widget: webdoc
+styles: ocean, plain
+# endregion
+
+# region: make
+widget: webdoc
+doc: messy
+edit: html
+# endregion

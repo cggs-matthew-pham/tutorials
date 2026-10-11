@@ -271,5 +271,7 @@
   "print-strength-equal": {"home": "engineering/cad/orient", "text": "A printed part is thought to be equally strong every way; layers bond less well than the plastic along a layer, so parts are weaker across their layer lines."},
   "more-infill-better": {"home": "engineering/cad/slicer", "text": "More infill is thought to always be better; it costs time and plastic for little strength, while extra walls add more strength for less."},
   "edit-means-redraw": {"home": "engineering/parametric/parametric", "text": "Changing a design is thought to mean redrawing it; in a parametric model the dimensions are linked, so changing one updates everything that depends on it."},
-  "cut-on-the-line": {"home": "engineering/parametric/kerf", "text": "A laser is thought to cut exactly on the line; the beam burns away a width (the kerf), so cut slots come out wider and parts smaller than drawn."}
+  "cut-on-the-line": {"home": "engineering/parametric/kerf", "text": "A laser is thought to cut exactly on the line; the beam burns away a width (the kerf), so cut slots come out wider and parts smaller than drawn."},
+  "looks-is-structure": {"home": "systems/web/layers", "text": "A style sheet is thought to change what a part of a page is (big text becomes a heading); CSS changes only how it looks, and the HTML tag says what it is."},
+  "same-look-same-page": {"home": "systems/web/separation", "text": "Two pages that look the same are thought to be the same for everyone; screen readers, search engines and phone layouts use the structure, so faked headings and lists fail them."}
 }

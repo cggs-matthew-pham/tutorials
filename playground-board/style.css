@@ -706,3 +706,26 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .cksvg .fbsupport { fill: none; stroke: #e5484d; stroke-width: 2; stroke-dasharray: 4 4; }
 .cksvg .fbinfill { stroke: #c2570a; stroke-width: 1.5; opacity: .7; }
 .ckslide output { font: 600 13px ui-monospace, Menlo, monospace; min-width: 3em; }
+
+/* webdoc: a web page as content, structure and presentation */
+.wdwrap { height: 100%; overflow: auto; padding: 10px 12px; font: 14px/1.35 system-ui, sans-serif; display: flex; flex-direction: column; gap: 10px; }
+.wdbar { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+.wdgrp { display: inline-flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.wdlab { font: 600 12px/1.2 system-ui, sans-serif; color: var(--muted); margin-right: 2px; }
+.wdbar button { font: 600 13px/1.1 system-ui, sans-serif; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; }
+.wdbar button[aria-pressed=true] { background: var(--accent); border-color: transparent; color: #fff; }
+.wdmain { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; }
+.wdview { flex: 1 1 320px; min-width: 0; border: 2px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff; }
+.wdview.phone { flex: 0 0 300px; max-width: 300px; border-width: 8px; border-color: #334155; border-radius: 22px; }
+.wdhost { min-height: 220px; }
+.wdsr { flex: 1 1 240px; padding: 8px 10px; border: 2px solid var(--left); border-radius: 10px; background: var(--card); }
+.wdsr ol { margin: 4px 0 0; padding-left: 1.6em; } .wdsr li { margin: 2px 0; } .wdsr li.plain { color: var(--muted); }
+.wdhead { font: 700 12px/1.2 system-ui, sans-serif; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.wdpages { display: flex; flex-direction: column; gap: 6px; }
+.wdthumbs { display: flex; gap: 10px; flex-wrap: wrap; }
+.wdthumb { width: 220px; height: 150px; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; position: relative; background: #fff; }
+.wdthumb .wdtin { transform: scale(.5); transform-origin: 0 0; width: 440px; }
+.wdthumb small { position: absolute; bottom: 2px; right: 6px; background: var(--card); color: var(--muted); padding: 0 4px; border-radius: 4px; }
+.wdeds { display: flex; flex-wrap: wrap; gap: 10px; }
+.wded { flex: 1 1 280px; display: flex; flex-direction: column; gap: 4px; font: 600 12px/1.2 system-ui, sans-serif; color: var(--muted); }
+.wded textarea { font: 13px/1.4 ui-monospace, Menlo, Consolas, monospace; padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink); resize: vertical; }

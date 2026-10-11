@@ -288,6 +288,7 @@ export const THEORY = [
   { id: 'public-key', label: 'public and private keys' },
   { id: 'hardware-specs', label: 'hardware specifications (processor, RAM, storage)' },
   { id: 'fetch-execute', label: 'fetch, decode, execute' },
+  { id: 'web-layers', label: 'content, structure (HTML) and presentation (CSS) are separate layers' },
 ];
 export const theoryIds = new Set(THEORY.map((c) => c.id));
 export const conceptIds = (language) => new Set((CONCEPTS[language] || []).map((c) => c.id));

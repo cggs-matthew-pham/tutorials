@@ -1,0 +1,37 @@
+# Boards for "Three layers".
+
+# region: run
+widget: webdoc
+styles: plain, ocean, poster
+reader: off
+# endregion
+
+# region: explain
+widget: webdoc
+styles: plain, ocean, poster
+reader: off
+# endregion
+
+# region: explain-pic
+widget: webdoc
+styles: ocean
+reader: off
+# endregion
+
+# region: css
+widget: webdoc
+edit: css
+reader: off
+# endregion
+
+# region: html
+widget: webdoc
+edit: html
+reader: off
+# endregion
+
+# region: make
+widget: webdoc
+edit: css
+reader: off
+# endregion

@@ -1,0 +1,46 @@
+summary: Students swap style sheets, show a page's structure and switch the style off to separate content, structure and presentation, then change one layer at a time (AC9TDI10K02 nodes 1 and 2), with no coding needed.
+time: 40
+timing: "Predict and Try 6 min · Worked example 10 min · Vary 12 min · Practise and Make 12 min"
+goals:
+  - I can name the three layers of a web page.
+  - I can say which layer a part or a change belongs to.
+  - I can change the look of a page without changing its structure or words.
+struggle: "Students judge parts by how they look. Keep asking \"what is it?\" before \"how does it look?\", and use the Structure button to check."
+before: |
+  Try the boards yourself.
+
+  The one idea: content, structure and presentation are separate layers. This is a Knowledge and understanding lesson: students read and tweak a style sheet but never have to write a page. The Code pathway's HTML & CSS course is where they build pages (its Rules and selectors lesson links back here).
+
+  Node 2's minimum width asks students to write a small page; here they edit an existing one, which covers the explanation part. Students who want to write their own can open the HTML & CSS course's first lesson.
+
+  Hands-on: in a browser, many sites can be seen without their style sheet (Firefox: View › Page Style › No Style; Safari's Reader view is similar).
+running:
+  - "Predict: students who said a blank page think the style sheet holds the words."
+  - "Try: ask what stayed the same across all three looks."
+  - "Worked example: for each sorted item, ask \"what it says, what it is, or how it looks?\""
+  - "Vary: after the content change, ask which layer a translator would change."
+  - "Make: compare looks; ask whether anyone needed to touch the HTML."
+stuck:
+  - see: "A student says the Poster style made new headings (Sam's mistake)."
+    ask: "Turn on Structure. Are the tags the same in every style?"
+    fix: "Yes: the style sheet changes looks only."
+  - see: "A student's CSS does nothing."
+    ask: "Is the rule's selector a tag on the page (h1, h2, p, li)? Is there a semicolon and a closing brace?"
+    fix: "Fix the selector or the punctuation."
+stretch: "Find a website with a dark mode switch. Which layer does the switch change, and how could you tell?"
+support: "A three-column card: Content (what it says), Structure (what it is), Presentation (how it looks), with an example of each."
+leads: |
+  Next: Why keep them apart (sites, phones, screen readers).
+
+  Put to work in: Code › HTML & CSS (writing pages and style sheets).
+exit:
+  q: "Give one example of each layer from a web page you use, and say which layer a dark mode changes."
+  a: "For example: the article text (content), its headings and lists (structure), its colours and fonts (presentation). Dark mode changes presentation."
+explain: |
+  A web page is three layers:
+
+  - **Content**: what it says (the words, pictures and links).
+  - **Structure**: what each part is, marked with HTML tags (heading, paragraph, list, menu).
+  - **Presentation**: how it looks, set by CSS rules in a style sheet (colours, fonts, sizes, layout).
+
+  Change the style sheet and only the look changes: the words and the structure stay the same.

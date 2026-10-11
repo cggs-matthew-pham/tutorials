@@ -1,0 +1,44 @@
+summary: Students hear two look-alike pages through a screen reader, restyle a three-page site with one CSS rule, view a page at phone width, and fix a page whose structure was faked with looks (AC9TDI10K02 node 3), with no coding needed beyond tidying tags.
+time: 45
+timing: "Predict and Try 7 min · Worked example 10 min · Vary 10 min · Practise 6 min · Make 12 min"
+goals:
+  - I can explain why content, structure and presentation are kept apart.
+  - "I can give examples: a whole site, a phone, a screen reader."
+  - I can fix a page whose headings and lists were faked with looks.
+struggle: "The Make asks students to edit HTML for the first time in this course. It is hard on purpose but small: the screen reader shows what's missing; let them use it rather than giving the tags."
+before: |
+  Try the boards yourself.
+
+  The one idea: separation lets each layer change on its own, which is what makes sites maintainable, adaptable and accessible. The accessibility point matters most to many students; a short screen reader demo (VoiceOver on a Mac or iPad, Narrator on Windows) on a real page lands it.
+
+  The board's screen reader is a simplified model: it announces headings, links, lists and landmarks, as real screen readers do, but real ones say much more.
+
+  Page B (the "messy" page) uses tags that are still found on old sites (font, b, br for layout); they work but carry no meaning.
+running:
+  - "Predict: students who chose \"Heading level 2\" for Page B think the reader sees the look."
+  - "Try: ask a student to describe how they would find \"Coming up\" on Page B without seeing it."
+  - "Worked example: ask who else reads structure: search engines, translation tools, reader view."
+  - "Vary: after one rule restyles three pages, ask how that would go with 200 pages styled by hand."
+  - "Make: listen to the fixed page together in the screen reader."
+stuck:
+  - see: "A student says the two pages are the same (Sam's mistake)."
+    ask: "Turn on the screen reader for both. What does each say first?"
+    fix: "Same look, different structure: not the same page for everyone."
+  - see: "A student's fixed page still shows tags used only for looks."
+    ask: "Which tags are left? Which part should each be?"
+    fix: "Replace b and font with h1 or h2; turn the br lines into li items in a ul."
+stretch: "Look up the Web Content Accessibility Guidelines (WCAG). Find one rule that is about structure and one about presentation."
+support: "A list of the structure tags they need for the Make: h1, h2, p, ul, li, nav."
+leads: |
+  Links: Code › HTML & CSS (sections, components and the club page put this to work); Security and privacy (what a page gives away, planned).
+exit:
+  q: "Give two reasons to keep a page's look in a style sheet instead of in its HTML."
+  a: "For example: one change restyles a whole site; screen readers and phones use the structure, so the page works for more people and devices."
+explain: |
+  Keeping the layers apart means each one can change on its own:
+
+  - **A whole site**: one style sheet styles every page, so one change restyles them all.
+  - **Phones**: the same content and structure get different presentation on a small screen.
+  - **Screen readers**: they read the structure aloud (headings, lists, menus), so a heading faked with big bold text is just plain text to a blind reader.
+
+  Structure says what each part is; presentation only says how it looks.
