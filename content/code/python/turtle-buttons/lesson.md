@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 11
 unit: interaction
 introduces: [and-or]
 assumes: [callback, variable-update, global]

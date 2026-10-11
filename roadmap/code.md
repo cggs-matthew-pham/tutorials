@@ -19,7 +19,6 @@ The code chat's file: current status, what is open and the decisions that still 
 - **Python pathway questions still open:** whether turtle lessons 9–10 (events, build a button) suit foundations or extensions.
 
 **Code chat can do next**
-- The lists and `if` revisit: lists inside functions, and an `if` inside a function that decides (see Proposed).
 - MakeCode toolbox filters per step (`importproject` takes `filters`).
 
 ## Courses
@@ -28,10 +27,9 @@ Lesson counts include optional lessons. "Pictures" are drawn by `render-pictures
 
 ### Python pathway
 
-- **Python Foundations with Turtle** (`code/python`, 14 lessons): built.
-  - Lessons, in order: intro, variables, decisions, lists, functions, parameters, returns, modules, events, build a button, then the challenge (Catch the turtle and Power-ups, plus optional Control panel and Game levels).
+- **Python Foundations with Turtle** (`code/python`, 15 lessons): built.
+  - Lessons, in order: intro, variables, decisions, lists, functions, parameters, returns, functions that decide (12 Oct: the lists and `if` revisit, an `if` inside a function called for every item of a list), modules, events, build a button, then the challenge (Catch the turtle and Power-ups, plus optional Control panel and Game levels).
   - Has teacher layer, voice and concept tags.
-  - Still to do: the lists and `if` revisit.
 - **Console bridge** (`code/console`, 4 lessons): built 11 Oct.
   - Console mode in the turtle playground with inline `input()`; Playground and Reference pages.
   - The last foundations course: every extension comes after it.
@@ -139,7 +137,7 @@ Risks: we depend on Microsoft's hosted editor and its unversioned message API. F
 
 ## Proposed (discussed, not decided)
 
-- **Revisit if/else** in a new context: a function that decides, an `if` over a list, an `if` inside a Gradio function.
+- **Revisit if/else** in a new context: a function that decides and an `if` over a list are built (turtle lesson 8); still open: an `if` inside a Gradio function.
 - **Clips on the create page:** a helper to write `explainClip` steps, and a live preview.
 - A small form on the create page for code-check rules.
 - Drag-and-drop for match items; keep Parsons answers across reloads.
@@ -186,6 +184,7 @@ Every route through the Web pathway (hand-built pages, Bootstrap, the DOM, Vue) 
 
 ## Log
 
+- 12 Oct: Python Foundations lesson 8, Functions that decide (the lists and `if` revisit); later lessons renumbered 9 to 15 (slugs unchanged, so progress keeps).
 - 12 Oct: Saving between visits (DOM lesson 10), Your site, for real (2 lessons), and a Download button in the HTML and DOM playgrounds.
 - 12 Oct: Data from the web: fetch (optional DOM lesson 9). The four web proposals are all built.
 - 12 Oct: Apps with Vue (6 lessons + optional Same app, three frameworks); the DOM playground loads local libraries with CORS and gives Vue hints; `check-html` also walks the DOM and Vue courses.

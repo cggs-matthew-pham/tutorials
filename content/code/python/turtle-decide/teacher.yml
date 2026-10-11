@@ -1,0 +1,42 @@
+summary: "Students write a function with an if inside that chooses its answer, call it for every size in a list to colour dots, trace its decisions, find a counter reset inside the loop, add an elif and a counting function, and colour score bars."
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can write a function that uses if to choose its answer.
+  - I can call a function for every item in a list.
+  - I can count items in a list with a loop and an if inside a function.
+before: |
+  A revisit lesson: nothing in it is new. Decisions (lesson 3), lists (lesson 4) and functions that return (lesson 7) come together: an `if` inside a function, with `return` in each branch, so the function **chooses** its answer; then a loop over a list calls it for every item. Students who found `if` or lists shaky get them again in a new place, which is the point.
+
+  The planted bug is the classic counting slip: `count = 0` inside the loop resets the count every time round. The trace has one edge case on purpose: 50 is not more than 50.
+running:
+  - "Predict: ask students to read the function aloud as a sentence: if the size is over 50, give back red, otherwise blue."
+  - "Run: change 50 to 30 and ask which dots changed and why."
+  - "Investigate: do the trace before running anything; argue about 50."
+  - "Modify: for count_big, ask \"when should count start at 0: once, or every time round?\""
+  - "Make: ask students to draw one bar first, then wrap it in a loop."
+struggle: "The counter is where students struggle: they put count = 0 wherever it fits. Ask them to trace the loop with a table on paper (s, count) before changing a line."
+stuck:
+  - see: "The count is always 0 or 1."
+    ask: "Where does count start at 0, inside the loop or before it?"
+    fix: "Set count = 0 once, before the loop."
+  - see: "TypeError: a colour is None."
+    ask: "Does every branch of the function return a value?"
+    fix: "Each if, elif and else needs its own return (or print was used instead of return)."
+  - see: "Every dot is the same colour."
+    ask: "Is the function called with each s, or with the same number every time?"
+    fix: "Call size_colour(s) inside the loop."
+stretch: "Write is_even(n) that returns True or False, and use it to draw only the even-numbered dots. Return a size as well as a colour from two functions."
+support: "Give the counting function with count = 0 missing; students decide where it goes."
+leads: "Next lesson: modules, a place to keep useful functions such as size_colour. The same pattern (a function that decides, called for each item) appears in Catch the turtle's hit test and in the console bridge's menus."
+exit:
+  q: "def grade(score): if score >= 50: return \"pass\" else: return \"try again\". What is grade(50)?"
+  a: "pass: 50 is greater than or equal to 50."
+explain: |
+  1. An `if` inside a function lets it choose its answer: sizes over 50 give back red, the rest blue.
+  2. A loop over a list asks the function about every size.
+  3. Each dot gets the colour the function chose.
+solutions:
+  step-4#t1: decide.py#sol-elif
+  step-4#t2: decide.py#sol-count
+  step-5: decide.py#sol-make

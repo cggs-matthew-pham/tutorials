@@ -25,7 +25,7 @@ stuck:
     fix: return ends the function. Put any other lines before it.
 stretch: Write a function that returns the perimeter of a room, then print the area and perimeter of three rooms.
 support: Before the Make step, write the one-house function together on the board, then let students add the loop themselves.
-leads: "Next lesson keeps related functions in a module that other programs import. Calculators, maps and games are full of functions that take something in and give an answer back. Class ideas: a class toolbox of unit conversions; a street where every house has a different design."
+leads: "Next lesson: functions that decide, an if inside a function, called for every item in a list. Then modules keep related functions where other programs can import them. Calculators, maps and games are full of functions that take something in and give an answer back. Class ideas: a class toolbox of unit conversions; a street where every house has a different design."
 exit:
   q: "def double(n): return n * 2. What does forward(double(30)) do?"
   a: "double(30) gives back 60, so the turtle moves forward 60 steps."

@@ -1,5 +1,5 @@
 ---
-order: 12
+order: 13
 unit: challenge
 title: Power-ups
 summary: Add lives, a status bar, a gold turtle and an upgrade you buy with points.

@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 9
 unit: functions
 introduces: [import-from, import-star]
 title: Modules
