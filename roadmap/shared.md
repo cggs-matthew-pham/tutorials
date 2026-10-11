@@ -41,6 +41,10 @@ Build it once, in one chat, and note here who is building it before starting; th
 
 Also changed: `prerequisites()` in `tools/concepts.mjs` now treats a course listed with both `path` and `id` as one (an `after:` may name either), so `after: [number-foundations]` reaches `maths/number`. Code courses are unaffected (none has both).
 
+## Changed by the science chat (12 Oct 2026): `woven:` for Human endeavour and Inquiry
+
+Matthew approved. Lesson frontmatter `woven: [AC9S7H03, …]` lists woven-strand descriptors a lesson practises. `tools/lesson-core.mjs` keeps it; `tools/build-site.mjs` passes it to the map; `tools/curriculum-map.mjs` counts it as a whole-descriptor link (the card lists the lessons; the strand heading says how many are practised) and `WOVEN_NOTE` says so; `tools/validate.mjs` checks each code is a woven-strand descriptor in the subject's curriculum data. Maths has no woven strands, so its map is unchanged (checked).
+
 ## Changed by the code chat (11 Oct 2026)
 
 - `tools/concepts.mjs`: Python concept `try` (try and except).

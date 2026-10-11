@@ -1,6 +1,7 @@
 ---
 order: 4
 node: AC9S7U05 n4
+woven: [AC9S7I05]
 unit: particles
 title: Where does the heat go?
 summary: "Melting and boiling need energy put in: the particles move faster and pull free of each other. Freezing and condensing give energy out. While a substance is changing state, its temperature stays the same, because the energy goes into separating the particles, not speeding them up."

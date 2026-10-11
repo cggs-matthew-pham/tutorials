@@ -1,6 +1,7 @@
 ---
 order: 1
 node: AC9S7U05 n1
+woven: [AC9S7H01, AC9S7I07]
 unit: particles
 title: What is everything made of?
 summary: All matter is made of tiny particles with empty space between them, always moving and attracting each other. Match particle diagrams to solids, liquids and gases.

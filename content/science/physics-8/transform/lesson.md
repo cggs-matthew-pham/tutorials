@@ -1,6 +1,7 @@
 ---
 order: 2
 node: [AC9S8U05 n3, AC9S8U05 n4]
+woven: [AC9S7I04]
 unit: energy
 title: Transfer or transformation?
 summary: "In a transfer, the same type of energy moves from one place to another (heat from a hot drink into your hands). In a transformation, energy changes type (chemical energy in a battery becomes electrical, then light). Almost every transformation also makes some heat that isn't wanted: a by-product."

@@ -1,6 +1,7 @@
 ---
 order: 1
 node: AC9S9U04 n1
+woven: [AC9S9I01]
 unit: energy
 title: How does heat get through?
 summary: Conduction passes energy from particle to particle by collisions, with the particles staying in place. Convection carries energy as the heated fluid itself moves. The particle model explains both, and why metals conduct and trapped air insulates.
@@ -173,6 +174,35 @@ tasks:
 ### Saucepans
 
 ### Trapped air
+
+## Elaborate: a question to test
+
+```step
+stage: modify
+tier: typical
+insight: "Turning the trapped-air idea into an investigable question and a reasoned hypothesis uses the model to plan a test, not just explain one."
+tasks:
+  - check:
+      type: question
+      q: "You want to find out how wrapping a cup changes how fast hot water in it cools. Which is an investigable question?"
+      options: ["Does a thicker wool wrap make hot water in a cup cool more slowly?", "Why is wool the best insulator?", "Is a wool wrap nicer to hold than a foam cup?", "What is heat?"]
+      answer: 0
+      feedback: [null, "That assumes the answer, and 'best' compared with what?", "'Nicer' can't be measured.", "That's a question for a textbook, not an experiment."]
+      explain: "An investigable question names one thing you change (the thickness of the wrap) and one thing you measure (how fast the temperature falls)."
+  - check:
+      type: question
+      q: "Which is the best hypothesis for that question?"
+      options: ["If the wrap is thicker, the water will cool more slowly, because more trapped air slows conduction and blocks convection", "The wrap will make a difference", "Thicker wraps are better", "The water will cool down"]
+      answer: 0
+      feedback: [null, "Too vague: what difference, and why?", "Better at what? A hypothesis names the relationship and gives a reason.", "That's true of every cup: it doesn't link the wrap to the cooling."]
+      explain: "A good hypothesis states a relationship (thicker wrap, slower cooling), could be shown wrong by your data, and gives a reason from the model."
+```
+
+### The question
+
+Scientists turn an idea from a model into something they can test. Here the idea is the trapped air from the last step: how would you test it with a cup of hot water, a thermometer and some wool?
+
+### The hypothesis
 
 ## Evaluate: look back
 

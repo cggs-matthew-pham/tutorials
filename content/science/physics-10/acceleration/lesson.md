@@ -1,6 +1,7 @@
 ---
 order: 3
 node: AC9S10U05 n3
+woven: [AC9S9I04, AC9S9I05]
 unit: newton
 title: What is acceleration, exactly?
 summary: Acceleration is the rate of change of velocity, a = Δv ÷ Δt, in m/s². It has a direction, the same as the net force. Slowing down is acceleration too (opposite to the motion), and on a speed–time graph acceleration is the gradient.

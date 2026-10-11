@@ -1,6 +1,7 @@
 ---
 order: 8
 node: [AC9S7U02 n3, AC9S7U02 n5]
+woven: [AC9S7I06]
 unit: foodwebs
 optional: true
 title: "Quick check: abiotic factors and food web limits"

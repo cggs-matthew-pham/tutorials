@@ -1,6 +1,7 @@
 ---
 order: 5
 node: AC9S9U04 n4
+woven: [AC9S9H02, AC9S9H03]
 unit: models
 title: What is the electromagnetic spectrum?
 summary: "Light is a transverse wave, and it is one small part of a family of electromagnetic waves: radio, microwave, infrared, visible light, ultraviolet, X-rays and gamma rays. They all travel at the same speed in a vacuum (300 000 km/s) and differ in frequency and wavelength. Higher frequency means a shorter wavelength and more energy, which decides what each is used for and how careful we must be with it."
@@ -163,6 +164,38 @@ check:
   feedback: [null, "Infrared carries most of the heat you feel.", "Clouds don't block all UV."]
   explain: "UV is invisible and not felt as heat, but each wave carries enough energy to damage skin cells. That's why shade, clothing, a hat and sunscreen matter on any bright day."
 ```
+
+## Elaborate: Slip, Slop, Slap
+
+```step
+stage: modify
+tier: typical
+insight: "Australia's sun-safety campaigns show why some science is taken up by a whole society: strong evidence, simple low-cost actions, trusted messengers and rules that make the habit normal."
+tasks:
+  - check:
+      type: sort
+      q: "Did it help Australians take up sun safety?"
+      options: ["Helped adoption", "Not a factor"]
+      items:
+        - ["Strong evidence linking UV exposure to skin cancer", "Helped adoption"]
+        - ["A short, catchy message with cheap, easy actions", "Helped adoption"]
+        - ["'No hat, no play' rules in schools", "Helped adoption", "Rules turn advice into a habit for a whole generation."]
+        - ["The UV Index in daily weather reports", "Helped adoption"]
+        - ["UV feeling hot on the skin, so people notice it", "Not a factor", "UV can't be felt as heat: that is exactly why people needed reminders."]
+  - check:
+      type: question
+      q: "Scientists knew UV causes skin cancer well before 1981, but sun-safe habits spread only after the campaigns began. What does that show?"
+      options: ["Evidence alone isn't enough: science is taken up when the message is clear, the actions are easy and people keep hearing it from sources they trust", "Sunscreen wasn't on sale in Australia before 1981", "The science changed in 1981", "Campaigns only work when the science is brand new"]
+      answer: 0
+      feedback: [null, "Sunscreen was sold for decades before; what changed was how many people used it.", "The link between UV and skin cancer was already established.", "The science was decades old: what changed was how it reached people."]
+      explain: "Adoption depends on more than evidence: cost, convenience, trust, repetition and rules all matter. Australia still has one of the highest skin cancer rates in the world, so the campaigns continue."
+```
+
+### What helped
+
+In 1981 Cancer Council Victoria launched Slip, Slop, Slap: slip on a shirt, slop on sunscreen, slap on a hat. Seek shade and slide on sunglasses were added later.
+
+### Evidence is not enough
 
 ## Evaluate: look back
 

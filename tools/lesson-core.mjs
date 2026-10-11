@@ -289,6 +289,7 @@ export function parseLessonText(raw, slug = 'lesson') {
     recipes: Array.isArray(meta.recipes) ? meta.recipes.map(String) : [],         // on screen, labelled "copy this for now"
     node: meta.node == null ? [] : [].concat(meta.node).map(String),               // progression node(s) taught here (tools/progressions.mjs)
     uses: Array.isArray(meta.uses) ? meta.uses.map(String) : [],                  // descriptors or nodes relied on that the data does not record
+    woven: meta.woven == null ? [] : [].concat(meta.woven).map(String),           // woven-strand descriptors practised here (science Human endeavour, Inquiry)
     teachers: meta.teachers ? String(meta.teachers).trim() : '',
     modules: Array.isArray(meta.modules) ? meta.modules.map(String) : [],
     language: meta.language || 'python',

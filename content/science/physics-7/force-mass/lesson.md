@@ -1,6 +1,7 @@
 ---
 order: 5
 node: AC9S7U04 n5
+woven: [AC9S7I04, AC9S7I05]
 unit: forces
 title: Same push, different mass
 summary: "For the same unbalanced force, a heavier object accelerates less than a lighter one. For the same mass, a bigger unbalanced force gives a bigger acceleration. Data from a force investigation show the pattern: acceleration goes up with force and down with mass."

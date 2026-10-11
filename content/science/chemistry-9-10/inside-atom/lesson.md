@@ -1,6 +1,7 @@
 ---
 order: 1
 node: AC9S9U06 n1
+woven: [AC9S9H01]
 unit: atoms
 title: What's inside an atom?
 summary: An atom has a tiny, dense nucleus of protons and neutrons, with electrons in shells around it. The number of protons (the atomic number) decides the element; protons plus neutrons give the mass number.

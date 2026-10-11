@@ -961,6 +961,11 @@ A lesson with `language: science` (see `content/science/chemistry/`) is a short 
 revising one idea, beside practical work, never instead of it. One tutorial per hinge node of the XY Model node files
 (waypoints-kit `data/science/`); nodes whose response mode is `integration` are left to class tasks.
 
+- **Woven strands.** Human endeavour and Inquiry have no tutorials of their own; they are woven into lessons. A lesson
+  lists the ones a student genuinely practises in it as `woven: [AC9S7H03, AC9S7I05]` (descriptor codes from
+  `data/curriculum/science.json`; validate checks each is in a woven strand), and the curriculum map lists those lessons on
+  the descriptor's card. A predict step alone isn't Inquiry; tag only where the student does the thing (judges a claim,
+  finds an anomaly, weighs impacts). Where a descriptor has no lesson, add a short `tier: typical` Elaborate step.
 - **5E on the existing stages.** Science pages label the stages in 5E words, so predict-and-compare, decks and
   worksheets work unchanged: `predict` = **Engage** (one `predict` check, with `actual:`), `run` = **Explore** (a board;
   the compare box shows the prediction), `investigate` = **Explain**, `practise` = **Practise** (when the node's response

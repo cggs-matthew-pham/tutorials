@@ -1,6 +1,7 @@
 ---
 order: 4
 node: AC9S10U02 n1
+woven: [AC9S9I03, AC9S9I06]
 unit: evolution
 title: How different are individuals?
 summary: "Individuals in a population vary. Measuring one characteristic across a population gives a spread of values, often most near the middle. Some variation is inherited (genes) and some comes from the environment; inherited variation is what natural selection acts on."

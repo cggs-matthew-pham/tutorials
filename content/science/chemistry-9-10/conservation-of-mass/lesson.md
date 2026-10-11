@@ -1,6 +1,7 @@
 ---
 order: 9
 node: AC9S9U07 n5
+woven: [AC9S9I06]
 unit: equations
 title: Where does the mass go?
 summary: "In a chemical reaction atoms are rearranged, not made or destroyed, so the total mass of the reactants equals the total mass of the products. In a closed system the mass reading stays the same. In an open system it can seem to change because a gas escapes (mass falls) or a gas from the air joins in (mass rises); counting the gas shows the mass is still conserved."

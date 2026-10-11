@@ -1,6 +1,7 @@
 ---
 order: 3
 node: [AC9S8U05 n5, AC9S8U05 n6]
+woven: [AC9S7I04]
 unit: energy
 title: Follow the energy
 summary: "Real systems pass energy through many steps. A flow diagram follows it from start to end: a box for each stage, an arrow for each transfer or transformation, and side arrows for every by-product. Tracing all the outputs, useful and not, is how you find out where energy goes."

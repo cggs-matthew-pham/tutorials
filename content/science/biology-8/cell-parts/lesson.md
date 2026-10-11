@@ -1,6 +1,7 @@
 ---
 order: 3
 node: AC9S8U01 n3
+woven: [AC9S7I07]
 unit: cells
 title: What does every cell have?
 summary: "Plant and animal cells share three parts: the nucleus (the control centre, holding DNA), the cell membrane (controls what gets in and out) and the cytoplasm (where reactions happen)."

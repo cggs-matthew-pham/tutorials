@@ -104,6 +104,23 @@ else console.log('✓ error tasks: every planted error names its fault and an on
   warnings.forEach((w) => console.warn('⚠ ' + w));
   if (!warnings.length) console.log('✓ progression nodes: every prerequisite is taught earlier, assumed or from an earlier year');
 }
+// Woven strands (science Human endeavour and Inquiry): woven: lists descriptor codes from the subject's curriculum data,
+// each in a woven strand, so the curriculum map can show where they are practised.
+{
+  const { loadCurriculum, WOVEN } = await import('./curriculum-map.mjs');
+  let n = 0, tagged = 0;
+  for (const l of lessons) {
+    if (!l.woven?.length) continue;
+    const subject = l.slug.split('/')[0], cur = loadCurriculum(subject), by = new Map((cur?.descriptors || []).map((d) => [d.code, d]));
+    for (const c of l.woven) {
+      const d = by.get(c);
+      if (!d) { n++; console.warn(`⚠ ${l.slug} › woven: ${c} is not a descriptor in data/curriculum/${subject}.json`); }
+      else if (!(WOVEN[subject] || []).includes(d.strand)) { n++; console.warn(`⚠ ${l.slug} › woven: ${c} is ${d.strand}, not a woven strand; use node: for it`); }
+      else tagged++;
+    }
+  }
+  if (!n) console.log(`✓ woven strands: ${tagged} tags, all woven-strand descriptors`);
+}
 // Bare tags in Markdown: in an HTML lesson, "<h1>" written outside `backticks` becomes a real tag on the page,
 // the teacher guide and the slides, and swallows the text after it. Write tags as `<h1>`.
 {

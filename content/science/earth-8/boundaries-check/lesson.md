@@ -1,6 +1,7 @@
 ---
 order: 4
 node: [AC9S8U03 n3, AC9S8U03 n4, AC9S8U03 n5, AC9S8U03 n6]
+woven: [AC9S7I05, AC9S7I07]
 unit: plates
 optional: true
 title: "Quick check: plate boundaries and evidence"

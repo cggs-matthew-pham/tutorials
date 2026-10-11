@@ -1,6 +1,7 @@
 ---
 order: 7
 node: [AC9S10U04 n4, AC9S10U04 n5, AC9S10U04 n6]
+woven: [AC9S9I05]
 unit: climate
 optional: true
 title: "Quick check: causes, evidence and responses"

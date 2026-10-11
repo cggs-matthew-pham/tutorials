@@ -1,6 +1,7 @@
 ---
 order: 1
 node: AC9S8U06 n1
+woven: [AC9S7H01]
 unit: atoms
 title: What are particles made of?
 summary: The particles of the particle model are atoms. Atoms come in different types, one type for each element, and atom type decides what element a substance is.

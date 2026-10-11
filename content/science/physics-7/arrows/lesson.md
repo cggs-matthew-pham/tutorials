@@ -1,6 +1,7 @@
 ---
 order: 1
 node: AC9S7U04 n1
+woven: [AC9S7H02, AC9S7I04]
 unit: forces
 title: How big, which way?
 summary: A force has a size and a direction, so we draw it as an arrow. In a force diagram every force on an object gets an arrow of the right length, pointing the right way, with its name.

@@ -1,6 +1,7 @@
 ---
 order: 2
 node: AC9S7U03 n4
+woven: [AC9S7H02, AC9S7I06]
 assumes: [AC9S7U03 n3]   # seasons needs only spin, orbit and tilt (n1); it comes straight after them, before phases and eclipses, on purpose
 unit: earth
 title: Why is summer hot?

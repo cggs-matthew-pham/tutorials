@@ -1,6 +1,7 @@
 ---
 order: 6
 node: AC9S7U06 n1
+woven: [AC9S7I06]
 unit: mixtures
 title: Pure substance or mixture?
 summary: A pure substance contains only one kind of particle; a mixture contains two or more. Classify familiar materials by their particles, not by how they look.

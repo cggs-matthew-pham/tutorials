@@ -1,6 +1,7 @@
 ---
 order: 5
 node: AC9S8U06 n5
+woven: [AC9S7I04]
 unit: atoms
 title: Symbols, formulas or models?
 summary: "Chemists show the same substance in different ways. A symbol names an element; a formula (H₂O) gives the types and numbers of atoms; a structural formula shows which atoms are joined; a 3D model shows the shape. Each shows something the others don't, so you pick the one that suits the job."

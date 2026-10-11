@@ -1,6 +1,7 @@
 ---
 order: 7
 node: AC9S9U04 n5
+woven: [AC9S9H01]
 unit: models
 title: Wave or particle?
 summary: "A model is a tool, not a photograph. The particle model explains conduction, convection and static charge; the wave model explains sound, reflection, refraction and the electromagnetic spectrum. Light shows both wave-like and particle-like behaviour, so neither model alone explains it all: each is useful for some phenomena and weak for others."

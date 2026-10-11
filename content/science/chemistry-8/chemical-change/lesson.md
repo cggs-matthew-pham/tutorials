@@ -1,6 +1,7 @@
 ---
 order: 7
 node: AC9S8U07 n2
+woven: [AC9S7I06]
 unit: changes
 title: Is it a new substance?
 summary: A chemical change makes a new substance, because atoms rearrange into new particles. A physical change only rearranges or spreads out the same particles. "Can it be reversed?" is not the test.

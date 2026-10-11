@@ -12,7 +12,7 @@ export const STRANDS = {
 // Strands woven through the lessons and class work rather than taught by tutorials of their own (Matthew, 11 Oct):
 // their tiles show no waypoint dots and the card says so, instead of "no lesson yet".
 export const WOVEN = { science: ['Human endeavour', 'Inquiry'] };
-export const WOVEN_NOTE = 'Woven through the lessons and class work; no tutorials of its own.';
+export const WOVEN_NOTE = 'Woven through the lessons and class work; no tutorials of its own. The lessons listed practise it.';
 
 export function loadCurriculum(subject) {
   const f = `data/curriculum/${subject}.json`;
@@ -31,7 +31,7 @@ export function curriculumMapHtml(subject, cur, lessons, up, esc) {
   // Lessons per node ("AC9M7A01 n2") and per whole descriptor ("AC9M7N07").
   const L = [], perNode = new Map(), perCode = new Map();
   for (const l of lessons) {
-    for (const ref of l.node || []) {
+    for (const ref of [...(l.node || []), ...(l.woven || [])]) {
       const m = String(ref).match(/^(AC9\S+?)(?:\s+n(\d+))?$/);
       if (!m || !byCode.has(m[1])) continue;
       let i = L.findIndex((x) => x.slug === l.slug);
@@ -66,7 +66,7 @@ export function curriculumMapHtml(subject, cur, lessons, up, esc) {
     const mine = ds.filter((d) => d.strand === s);
     const main = mine.filter((d) => d.year >= 7), withL = main.filter(hasLessons).length;
     const wvRow = (WOVEN[subject] || []).includes(s);
-    grid += `<h3 class="cms" style="grid-row:${r + 2}">${esc(s)}<small>${main.length} descriptors${wvRow ? ' · woven through lessons and class work' : withL ? ` · ${withL} with lessons` : ''}</small></h3>`;
+    grid += `<h3 class="cms" style="grid-row:${r + 2}">${esc(s)}<small>${main.length} descriptors${wvRow ? ` · woven through lessons and class work${withL ? ` · ${withL} practised in lessons` : ''}` : withL ? ` · ${withL} with lessons` : ''}</small></h3>`;
     // A descriptor written for two years (science's Human endeavour and Inquiry: span 2) fills both columns.
     let skip = false;
     years.forEach(([y, t], i) => {

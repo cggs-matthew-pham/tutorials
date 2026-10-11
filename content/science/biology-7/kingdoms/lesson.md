@@ -1,6 +1,7 @@
 ---
 order: 2
 node: AC9S7U01 n2
+woven: [AC9S7H01]
 unit: classification
 title: Plant, animal or something else?
 summary: Living things are sorted into kingdoms (animals, plants, fungi, protists and bacteria) using features you can observe, and you can justify each placement with those features.

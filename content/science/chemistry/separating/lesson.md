@@ -1,6 +1,7 @@
 ---
 order: 7
 node: AC9S7U06 n2
+woven: [AC9S7H04, AC9S7I06]
 unit: mixtures
 title: How do you separate a mixture?
 summary: Every separation technique uses a difference in a physical property between the parts of a mixture. Match property differences to techniques, and choose the order.
@@ -176,6 +177,38 @@ check:
   text: "On a camping trip, the only water is from a muddy creek, and it may contain germs. Order these plans from most effective to least effective at making it safe to drink."
   explain: "Filtering removes the mud (particle size) and boiling kills germs, so combining them is best. Boiling alone makes it safer but leaves mud. A cloth alone removes some mud but not germs."
 ```
+
+## Elaborate: a boil water alert
+
+```step
+stage: modify
+tier: typical
+insight: "A boil water alert turns test results into one clear action for a whole town: science communication shaping what people do."
+tasks:
+  - check:
+      type: question
+      q: "An alert says: \"Boil water, then let it cool, before drinking. A jug filter is not enough.\" Why include the jug filter line?"
+      options: ["Many homes own jug filters and might trust them, but most aren't designed to remove germs", "Jug filters make the water less safe", "Filtering removes germs better than boiling, so the alert has it wrong"]
+      answer: 0
+      feedback: [null, "The filter doesn't make the water worse; it just doesn't do the job needed here.", "Most jug filters are made to improve taste and remove some chemicals, not to remove germs. Boiling kills germs."]
+      explain: "Good science communication answers the question its audience will actually have, and heads off the mistake they are likely to make."
+  - check:
+      type: sort
+      q: "Does each choice help the alert reach and protect everyone?"
+      options: ["Helps", "Gets in the way"]
+      items:
+        - ["Short, plain instructions: boil, cool, then drink", "Helps"]
+        - ["Naming the suburbs affected and when it started", "Helps"]
+        - ["Versions in the main languages spoken in the town", "Helps"]
+        - ["Only a long table of lab results, with no instructions", "Gets in the way", "The results matter to the health department, but households need to know what to do."]
+        - ["Posting it only in a technical report on the water company's website", "Gets in the way", "People need it where they already look: text messages, radio, social media, the local news."]
+```
+
+After a flood, or a fault at a treatment plant, tests sometimes find germs in a town's water. The health department and the water company then issue a **boil water alert**. The tests are science; the alert is **science communication**. It turns the results into something every household can act on, and it is lifted only when new tests show the water is safe again.
+
+### The jug filter
+
+### Reaching everyone
 
 ## Evaluate: look back
 

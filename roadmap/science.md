@@ -2,6 +2,12 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: Human endeavour and Inquiry woven and tagged (12 Oct 2026, science chat)
+
+Matthew's choice: like code's "In the real world", these strands stay woven into lessons rather than getting tutorials, but are now tagged (`woven:`, AUTHORING › 12) and shown on the curriculum map. 105 tags across 70 lessons; all 8 Human endeavour and 14 of 16 Inquiry descriptors are practised somewhere (I08, writing texts, stays with class work; I03, equipment, is tagged only where sample size or choosing a tool is the point). Five short typical-tier steps fill the gaps: the Dingo Fence (7H03, cascades), a boil water alert (7H04, separating), Slip, Slop, Slap (9H03, light), Panama disease TR4 and the QUT banana (9H04, reproduction), and an investigable question and hypothesis (9I01, heat transfer).
+
+Still thin, for class work or a later step: 7I01 and 9I01 investigable questions in Years 7–8 (only predict-from-model steps); I02 risk, ethics and heritage on Country (both bands); I07 ethics and cultural protocols for secondary data; 9H01 publication and peer review (model revision is covered, peer review isn't).
+
 ## Done: recap pages for every science course (12 Oct 2026, science chat)
 
 `recap: true` on all 15 science courses (Year 7 Chemistry had it already): a Try first exit question per lesson, then the answer, explanation, picture and clip, at `<course>/recap/`, linked from the course page. Optional Quick checks are left out (they are self-tests already). Two exit questions that restated their lesson's title now apply the idea instead (fossil fuels: why CO₂ still rises when half is taken up; why classify: a new rainforest beetle); both clips re-record. Science decks pass `npm run check-decks` after the audit's new checks.

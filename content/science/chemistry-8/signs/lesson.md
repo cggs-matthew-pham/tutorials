@@ -1,6 +1,7 @@
 ---
 order: 8
 node: AC9S8U07 n3
+woven: [AC9S7I06, AC9S7I07]
 unit: changes
 title: How can you tell a reaction happened?
 summary: "You can't see atoms rearrange, but you can see the signs: a colour change, a gas given off, a solid forming in a liquid, light, a smell, or a temperature change. Each is a clue that a new substance formed, not proof: boiling water bubbles too. The test is still a new substance."

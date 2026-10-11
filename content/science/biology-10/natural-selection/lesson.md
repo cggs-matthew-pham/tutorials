@@ -1,6 +1,7 @@
 ---
 order: 5
 node: AC9S10U02 n2
+woven: [AC9S9H01]
 unit: evolution
 title: Why did the beetles change?
 summary: "Natural selection: individuals vary; more are born than survive; those best suited to the environment are more likely to survive and reproduce, passing on their alleles. Over generations the population changes. Individuals don't change to suit the environment."

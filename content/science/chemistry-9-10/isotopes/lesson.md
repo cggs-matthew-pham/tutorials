@@ -1,6 +1,7 @@
 ---
 order: 2
 node: AC9S9U06 n2
+woven: [AC9S9I04]
 unit: atoms
 title: Same element, different atoms?
 summary: "Isotopes are atoms of the same element (same number of protons) with different numbers of neutrons. They react in the same way but have different masses, and some are unstable: they are radioactive."

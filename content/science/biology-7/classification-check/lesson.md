@@ -1,6 +1,7 @@
 ---
 order: 7
 node: [AC9S7U01 n4, AC9S7U01 n5]
+woven: [AC9S7H01, AC9S7I06]
 unit: classification
 optional: true
 title: "Quick check: keys and changing classification"

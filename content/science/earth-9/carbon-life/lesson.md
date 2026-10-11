@@ -1,6 +1,7 @@
 ---
 order: 3
 node: AC9S9U03 n3
+woven: [AC9S9I05]
 unit: carbon
 title: Where does the carbon in a tree go?
 summary: "Photosynthesis moves carbon from the atmosphere into living things; respiration and decomposition move it back. These huge flows nearly balance, so the air's CO₂ stays steady until something upsets them."

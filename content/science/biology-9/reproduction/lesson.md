@@ -1,6 +1,7 @@
 ---
 order: 7
 node: AC9S9U02 n3
+woven: [AC9S9H04]
 assumes: [AC9S9U02 n2]   # reproductive organs: taught in class (no tutorial yet)
 unit: reproduction
 title: Why don't brothers and sisters look the same?
@@ -132,6 +133,35 @@ check:
   feedback: [null, "Clones grow fine.", "They fruit normally.", "Varied bananas catch it too, but some resist it; a field of clones shares one weakness."]
   explain: "This happened before: the Gros Michel banana was wiped out of commercial farming in the 1950s by an earlier strain of Panama disease."
 ```
+
+## Elaborate: who decides what gets researched?
+
+```step
+stage: modify
+tier: typical
+insight: "A resistant banana developed in Australia shows society's needs and values steering what scientists research and which methods they use."
+tasks:
+  - check:
+      type: question
+      q: "Why did a Cavendish banana that resists Tropical Race 4 become a research focus in Australia?"
+      options: ["Society needed it: a fruit most Australians eat, and many growers' farms and jobs, were at risk from a disease with no cure", "Scientists research only what interests them, whatever anyone needs", "It was the quickest, easiest banana research to do", "A law says every crop must be gene-modified"]
+      answer: 0
+      feedback: [null, "Curiosity matters, but funders, industry and governments steer research towards urgent needs.", "It took many years of lab work and field trials.", "There is no such law: most crops are not gene-modified."]
+      explain: "Research costs money and time. Needs that matter to many people, such as food and jobs, attract the funding and the effort."
+  - check:
+      type: question
+      q: "Some people don't want to eat gene-modified food. How can a value like that influence the research?"
+      options: ["It can steer researchers towards other methods as well, such as breeding resistant bananas, and affect whether a GM banana is ever grown", "It can't: people's values never affect research", "It changes how fast the fungus spreads", "It makes the resistant banana unsafe to eat"]
+      answer: 0
+      feedback: [null, "Researchers and funders watch what people will accept: a banana nobody buys solves nothing.", "Values change people's choices, not the fungus.", "Safety is judged by regulators from evidence, not by opinion."]
+      explain: "Society's values shape which questions get asked, which methods are used and whether a result is taken up."
+```
+
+### The need
+
+In 2015 Tropical Race 4, a strain of Panama disease, was found on a banana farm near Tully in far north Queensland, where most of Australia's bananas are grown. Researchers at the Queensland University of Technology developed a Cavendish banana carrying a resistance gene from a wild banana, and Australian regulators approved it in 2024.
+
+### Values
 
 ## Evaluate: look back
 

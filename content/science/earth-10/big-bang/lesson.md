@@ -1,6 +1,7 @@
 ---
 order: 1
 node: AC9S10U03 n2
+woven: [AC9S9H01, AC9S9I06]
 assumes: [AC9S10U03 n1]   # scale and structure of the universe: taught in class (no tutorial yet)
 unit: universe
 title: How did the universe begin?

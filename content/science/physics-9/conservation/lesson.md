@@ -1,6 +1,7 @@
 ---
 order: 8
 node: AC9S9U05 n1
+woven: [AC9S9I06]
 unit: conservation
 title: Where does the energy go?
 summary: "Energy is never made or destroyed: it only moves and changes type. This is the law of conservation of energy. When energy seems to disappear (a ball bounces lower, a car slows down), it has gone into heat and sound in the surroundings. The total is always the same."

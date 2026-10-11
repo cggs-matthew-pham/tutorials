@@ -1,6 +1,7 @@
 ---
 order: 3
 node: AC9S10U01 n4
+woven: [AC9S9I03]
 unit: genetics
 title: Can you predict the offspring?
 summary: "A Punnett square shows every way two parents' gametes can combine for one gene. It gives the probability of each genotype and phenotype (such as 3 in 4 showing the dominant trait for Pp × Pp), not a guaranteed count."

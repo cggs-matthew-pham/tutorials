@@ -1,6 +1,7 @@
 ---
 order: 8
 node: AC9S10U05 n8
+woven: [AC9S9H02]
 unit: newton
 title: Newton's laws in the real world
 summary: "Newton's laws explain why safety features and techniques work. Seat belts and head restraints deal with inertia (first law); airbags and crumple zones lengthen the stopping time to cut the force (F = ma); rockets push gases back and are pushed forward (third law); and a spearthrower (woomera) extends the thrower's arm so the force acts for longer and over a greater distance, so the spear leaves faster."

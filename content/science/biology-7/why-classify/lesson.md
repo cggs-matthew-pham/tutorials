@@ -1,6 +1,7 @@
 ---
 order: 1
 node: AC9S7U01 n1
+woven: [AC9S7H02]
 unit: classification
 title: Why sort living things?
 summary: "Scientists classify living things to identify them, to talk about them clearly (one name the whole world understands), and to see how they are related. A classification is built for a purpose, and different systems can suit different purposes."

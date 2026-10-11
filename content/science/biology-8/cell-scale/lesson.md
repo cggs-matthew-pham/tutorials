@@ -1,6 +1,7 @@
 ---
 order: 1
 node: AC9S8U01 n1
+woven: [AC9S7H01, AC9S7I03]
 unit: cells
 title: How small is a cell?
 summary: "Most cells are about a hundredth to a tenth of a millimetre across, too small to see without a microscope: your body has about 37 trillion of them. Cells were only discovered once microscopes could magnify enough."

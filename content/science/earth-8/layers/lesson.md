@@ -1,6 +1,7 @@
 ---
 order: 2
 node: AC9S8U03 n1
+woven: [AC9S7H01, AC9S7I07]
 unit: plates
 title: What's inside the Earth?
 summary: "Earth has layers: a thin solid crust, a thick solid mantle that flows very slowly, a liquid outer core and a solid inner core. Temperature and pressure rise with depth. The lithosphere (crust plus the rigid top of the mantle) is the rigid outer shell that breaks into plates."

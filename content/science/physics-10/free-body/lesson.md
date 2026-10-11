@@ -1,6 +1,7 @@
 ---
 order: 6
 node: AC9S10U05 n6
+woven: [AC9S9I04]
 unit: newton
 title: What forces act on it?
 summary: "A free body diagram shows one object and every force acting on it, as arrows from the object: size by length, direction by the way it points. Add the forces along each direction to find the net force, then use Newton's laws to say what the object's motion will do."

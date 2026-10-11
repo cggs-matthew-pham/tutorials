@@ -1,6 +1,7 @@
 ---
 order: 4
 node: AC9S9U03 n4
+woven: [AC9S9I06]
 unit: carbon
 title: What does burning fossil fuels do to the carbon cycle?
 summary: "Fossil fuels are carbon taken out of the cycle and stored in the geosphere over millions of years. Burning them returns it to the atmosphere in years, faster than plants and oceans can take it back, so CO₂ in the air rises."

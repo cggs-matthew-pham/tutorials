@@ -1,6 +1,7 @@
 ---
 order: 1
 node: AC9S8U04 n2
+woven: [AC9S7I07]
 assumes: [AC9S8U04 n1]   # sedimentary rocks: taught in class (no tutorial yet)
 unit: rocks
 title: Why do some rocks have big crystals?

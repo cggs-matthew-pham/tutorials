@@ -1,6 +1,7 @@
 ---
 order: 5
 node: [AC9S8U04 n1, AC9S8U04 n3, AC9S8U04 n4, AC9S8U04 n5]
+woven: [AC9S7H02]
 unit: rocks
 optional: true
 title: "Quick check: sedimentary, metamorphic and the rock cycle"

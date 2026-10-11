@@ -1,6 +1,7 @@
 ---
 order: 10
 node: AC9S8U07 n6
+woven: [AC9S7I06, AC9S7I07]
 unit: changes
 title: Physical or chemical? Use all the clues
 summary: "To classify an unfamiliar change, ask the main question first: is a new substance made? Then check the clues: colour, gas, solid forming, light, and temperature or energy change. One clue can mislead (boiling makes bubbles and ice melting takes in heat, yet both are physical), so several clues pointing the same way give more confidence."

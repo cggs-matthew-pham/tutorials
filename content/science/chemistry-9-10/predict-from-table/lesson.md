@@ -1,6 +1,7 @@
 ---
 order: 13
 node: AC9S10U06 n4
+woven: [AC9S9H01, AC9S9I05]
 unit: periodic
 title: Use the table to predict
 summary: "The periodic table is not a list to look up but a tool for prediction. An element's group gives its number of outer electrons, and so how reactive it is and what it bonds with; its period gives its number of shells. From the position alone you can predict whether an element is a metal, how it reacts and what its atom looks like."

@@ -1,6 +1,7 @@
 ---
 order: 8
 node: AC9S7U06 n3
+woven: [AC9S7H02, AC9S7I05]
 unit: mixtures
 title: Filtration and evaporation
 summary: Filtration separates a solid that hasn't dissolved; evaporation recovers a solid that has. Describe both, name the residue and filtrate, and choose the right one.

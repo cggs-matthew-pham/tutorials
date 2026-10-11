@@ -1,6 +1,7 @@
 ---
 order: 2
 node: AC9S7U05 n2
+woven: [AC9S7H01, AC9S7I05]
 unit: particles
 title: Why does a gas fill its container?
 summary: Describe the arrangement, motion and attraction of particles in a solid, a liquid and a gas, and use them to explain why solids keep their shape and gases fill their containers.

@@ -1,6 +1,7 @@
 ---
 order: 5
 node: AC9S7U05 n5
+woven: [AC9S7H01, AC9S7I01, AC9S7I06]
 unit: particles
 title: What can't the particle model explain?
 summary: "The particle model treats matter as tiny particles that move and attract each other. It explains states, diffusion, compressing gases and expansion very well. It can't explain colour, why substances react, or electricity, because it treats particles as plain balls with no parts. Scientists keep a model for what it does well and use other models for the rest."

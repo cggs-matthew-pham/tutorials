@@ -1,6 +1,7 @@
 ---
 order: 10
 node: [AC9S9U05 n3, AC9S9U05 n4]
+woven: [AC9S9I04]
 unit: conservation
 title: What does a Sankey diagram show?
 summary: "A Sankey diagram shows energy flowing through a system as bands whose widths are proportional to the amounts. The input splits into the useful output (straight on) and the wasted outputs (bending away). You can read the efficiency off it and see at a glance where energy is wasted, which is how engineers compare real systems."

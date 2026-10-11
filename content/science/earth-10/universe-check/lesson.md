@@ -1,6 +1,7 @@
 ---
 order: 6
 node: [AC9S10U03 n1, AC9S10U03 n4, AC9S10U03 n5]
+woven: [AC9S9H01, AC9S9I06, AC9S9I07]
 unit: universe
 optional: true
 title: "Quick check: scale, the cosmic glow and the evidence"

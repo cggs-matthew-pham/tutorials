@@ -1,6 +1,7 @@
 ---
 order: 3
 node: AC9S9U01 n3
+woven: [AC9S9I05]
 unit: control
 title: Nerves or hormones?
 summary: "The body runs the same stimulus–receptor–command centre–effector pathway in two ways. The nervous system sends electrical signals along nerves: fast, short and to one place. The endocrine system sends hormones from glands in the blood: slower, longer-lasting and to target organs anywhere."

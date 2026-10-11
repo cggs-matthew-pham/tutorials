@@ -1,6 +1,7 @@
 ---
 order: 7
 node: AC9S10U05 n7
+woven: [AC9S9I04, AC9S9I06, AC9S9I07]
 unit: newton
 title: Solving force and motion problems
 summary: "A multi-step problem becomes manageable with a routine: list what you know, work out the net force, find the acceleration with F = ma, use a = Δv ÷ t to link it to speed and time, then check the answer makes sense. Keep units (N, kg, m/s², m/s, s) with every number."

@@ -490,7 +490,7 @@ for (const node of dirs.values()) {
     const cur = node.meta?.map === true ? loadCurriculum(node.path) : null;
     if (cur) {
       const mp = `${node.path}/map`, mup = '../'.repeat(mp.split('/').length);
-      const subjLessons = lessons.filter((l) => l.slug.startsWith(node.path + '/')).map((l) => ({ slug: l.slug, title: l.title, node: l.node, course: dirNode(l.slug.split('/').slice(0, -1).join('/')).title }));
+      const subjLessons = lessons.filter((l) => l.slug.startsWith(node.path + '/')).map((l) => ({ slug: l.slug, title: l.title, node: l.node, woven: l.woven, course: dirNode(l.slug.split('/').slice(0, -1).join('/')).title }));
       mkdirSync(join(OUT, mp), { recursive: true });
       writeFileSync(join(OUT, mp, 'index.html'), page(`Curriculum map: ${node.title}`,
         `<style>${CMAP_CSS}</style><header class="top"><a class="crumb" href="../">← ${esc(node.title)}</a><h1>${esc(node.title)} curriculum map</h1>` +
