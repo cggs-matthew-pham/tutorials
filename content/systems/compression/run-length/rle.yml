@@ -1,0 +1,60 @@
+# Boards for "Run-length encoding". mode: bw, one number a pixel; codes count runs starting with white.
+
+# region: run
+widget: pixels
+size: 8, 1
+mode: bw
+rle: on
+start: white
+target: wwwkkkkw
+# endregion
+
+# region: explain
+widget: pixels
+size: 8, 1
+mode: bw
+rle: on
+start: white
+# endregion
+
+# region: explain-pic
+widget: pixels
+size: 8, 4
+mode: bw
+rle: on
+start: wwwkkkkw / kkkkkkkk / wwwwwwww / wkwkwkwk
+# endregion
+
+# region: vary-black
+widget: pixels
+size: 8, 1
+mode: bw
+rle: on
+start: white
+# endregion
+
+# region: vary-check
+widget: pixels
+size: 8, 1
+mode: bw
+rle: on
+start: white
+# endregion
+
+# region: vary-fewest
+widget: pixels
+size: 8, 4
+mode: bw
+rle: on
+start: wwwkkkkw / kkkkkkkk / wwwwwwww / wkwkwkwk
+# endregion
+
+# region: make
+widget: pixels
+size: 6, 6
+mode: bw
+rle: on
+start: white
+show: codes
+target: wwkkww / wwkkww / kkkkkk / kkkkkk / wwkkww / wwkkww
+# endregion

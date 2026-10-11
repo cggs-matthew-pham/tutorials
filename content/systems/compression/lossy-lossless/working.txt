@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+I save a photo in a lossy format.
+The file is a quarter of the size.
+When I open it, the computer puts the lost detail back.
+So the photo is exactly the same as before.
+# endregion

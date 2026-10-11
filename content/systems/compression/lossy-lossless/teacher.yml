@@ -1,0 +1,38 @@
+summary: Students raise the tolerance of a lossy run-length compressor on a grey picture to see that lossy compression stores far fewer numbers but permanently changes data, and decide where lossy and lossless each belong (AC9TDI10K03 node 3).
+time: 45
+timing: "Predict and Try 6 min · Worked example 12 min · Vary 12 min · Practise and Make 15 min"
+goals:
+  - I can explain the difference between lossy and lossless compression.
+  - I can choose lossy or lossless for a purpose and justify it.
+  - I can name a consequence of using lossy compression in the wrong place.
+struggle: "Students believe lost detail can be recovered because the board can slide back to 0. Point out that the board keeps the original; a saved lossy file does not."
+before: |
+  Try the Try and Make boards yourself.
+
+  The one idea: lossless gives back exactly the original; lossy discards information permanently to save more space; choose by purpose. Kit contexts for width: medical images and legal evidence (lossless), music streaming and photos online (lossy).
+
+  Simplification: real lossy formats (JPEG, MP3) don't merge nearby shades in runs; they use smarter maths to throw away what people perceive least. The board shows the same trade-off in a form students can see.
+running:
+  - "Predict: students who chose \"yes\" hold Sam's misconception; return to them after the Try."
+  - "Try: ask which parts of the picture changed first, and why."
+  - "Worked example: ask what a doctor or a court would say about the 16 changed pixels."
+  - "Vary: debate the \"worth it\" question in pairs before checking."
+  - "Make: compare: why is 27 the edge for this picture?"
+stuck:
+  - see: "A student says the detail comes back when you open the file (Sam's mistake)."
+    ask: "Where would the original shades be stored?"
+    fix: "Nowhere: they were thrown away."
+  - see: "A student thinks lossy is always bad."
+    ask: "How long would a song take to stream at ten times the size?"
+    fix: "Lossy is a trade-off that suits many purposes."
+stretch: "Save a photo as JPEG at quality 100 and quality 10 and compare the sizes and what changed. Which details went first?"
+support: "Give the two definitions on a card: lossless = exact recovery; lossy = permanent loss for a smaller file."
+leads: |
+  Builds on: Run-length encoding. Where it leads: file formats and codecs (MP3 vs WAV, JPEG vs PNG), and the ethics of altered images and evidence.
+exit:
+  q: "Give one context that needs lossless compression and one where lossy is fine, with a reason for each."
+  a: "Lossless: a medical scan or spreadsheet, where every value matters. Lossy: streamed music or a shared photo, where a much smaller file matters more than tiny changes."
+explain: |
+  **Lossless** compression (PNG, ZIP, run-length encoding) gives back exactly the original data. **Lossy** compression (JPEG, MP3) throws away detail people are unlikely to notice, such as tiny differences in shade or sound, so files get much smaller, but that detail is **gone for good**.
+
+  Choose by purpose: lossy for streaming music, video calls and shared photos; lossless for text, spreadsheets, medical images and evidence.

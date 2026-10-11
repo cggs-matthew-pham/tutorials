@@ -1,0 +1,37 @@
+summary: Students trace characters, colours and sound samples from data to numbers to bytes on eight binary cards, closing the loop between data representation and binary (AC9TDI8K04 node 4).
+time: 35
+timing: "Predict and Try 6 min · Worked example 10 min · Vary 9 min · Practise and Make 10 min"
+goals:
+  - I can turn a character into its code and then into binary.
+  - I can work out how many bits a word or a picture takes.
+  - I can explain that all data becomes bits.
+struggle: "Students think a character is one bit. Ask how many different things one bit can be (two), then how many characters there are."
+before: |
+  The integration node (the kit calls it the cross-standard point between K03 and K04): students assemble data → number → binary for two kinds of data.
+
+  Simplification: text here is one byte a character (ASCII). Unicode characters beyond 255 take two to four bytes (Text as numbers).
+running:
+  - "Predict: students who chose 65 or A haven't joined the two halves yet; the Try does it."
+  - "Worked example: ask what the 24 bits of a black pixel look like."
+  - "Vary: ask why lower case is always the 32 card added."
+  - "Make: have students write their initials as bytes on paper."
+stuck:
+  - see: "A student says a character is one bit (Sam's mistake)."
+    ask: "How many values can one bit hold? How many letters are there?"
+    fix: "A byte holds 256 values: enough for a character code."
+  - see: "A student mixes bytes and bits."
+    ask: "How many bits in a byte?"
+    fix: "8. Multiply bytes by 8 to get bits."
+stretch: "A phone photo is about 4000 × 3000 pixels. Roughly how many bytes before compression? (36 million.) Why do we need compression?"
+support: "Keep the 128 64 32 16 8 4 2 1 card values written above the board."
+leads: |
+  This closes the Data representation course.
+
+  Next (Years 9–10): Making data smaller (compression). Code links: Secret messages shifts these codes; colour values in turtle are these bytes.
+exit:
+  q: "Write the letter C as a byte. How many bits is the word Hi?"
+  a: "C = 67 = 64 + 2 + 1 = 01000011. Hi = 2 bytes = 16 bits."
+explain: |
+  Every kind of data follows the same chain: **data → numbers → bits**. A character becomes its code (A = 65), and the code becomes 8 bits, one **byte** (01000001). A pixel is three colour amounts, so three bytes (24 bits). A sound sample is one or two bytes.
+
+  So everything a computer stores, a word, a photo or a song, is a long list of 0s and 1s, and the encoding says what they mean.

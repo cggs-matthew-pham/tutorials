@@ -11,7 +11,7 @@ pathways:
     about: "**Data representation** follows the Digital Technologies Knowledge and understanding strand: Years 7–8 AC9TDI8K04 (how and why digital systems represent integers in binary) and AC9TDI8K03 (text, image and audio data as integers). **Making data smaller** is Years 9–10 (AC9TDI10K03, simple compression). No coding needed. The binary cards come from CS Unplugged; doing them with real cards first works well."
     courses:
       - { path: systems/data, id: data-representation, stage: foundations, tagline: "Bits, binary numbers, and how many patterns a few bits can make." }
-      - { title: Making data smaller, id: compression, stage: extensions, after: [data-representation], summary: "Run-length encoding, and when it is fine to throw data away (lossy and lossless).", tagline: "Squash data and see what is lost." }
+      - { path: systems/compression, id: compression, stage: extensions, after: [data-representation], tagline: "Squash data and see what is lost." }
   - id: networks
     title: Networks and security
     summary: How data moves between computers, and how it is kept safe on the way.

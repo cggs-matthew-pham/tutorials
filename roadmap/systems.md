@@ -20,13 +20,19 @@ The Digital Technologies Knowledge and understanding strand (v9 "K" descriptors)
 
 Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 before 8K04). Unit Data as numbers: 1. Everything is numbers (n1), 2. Text as numbers (n2, `decode` with `type: on`, Unicode beyond one byte), 3. Colour and images (n3, new `pixels` board; vector pictures as a question), 4. Sound as numbers (n4, new `sampling` board with play buttons). Unit Binary numbers: 5. Bits and binary numbers, 6. How many patterns? (pays off the 0 to 255 limits met earlier). The temporary `assumes:` is gone. New misconceptions `digit-char-code`, `light-mixes-like-paint`, `sound-stored-as-wave`. All Try and Make checks tested in a headless browser; all explain clips record.
 
+## Done (12 Oct 2026): logic gates, bits all the way down, Making data smaller
+
+- Data representation lessons 7 and 8: Why binary: logic gates (8K04 n3; new `logic` board with a circuit view and a half adder) and Bits all the way down (8K04 n4; data → number → byte on eight cards). Course complete for 8K03 and 8K04.
+- New course `systems/compression` (Making data smaller, Years 9–10, after Data representation): Run-length encoding (10K03 n1 and n2; `pixels` with `mode: bw` and `rle: on`, draw-from-codes Make) and Lossy or lossless (n3; `pixels` with `lossy: on` and a tolerance slider). Misconceptions `or-means-not-both`, `char-one-bit`, `rle-start-white`, `lossy-recoverable`.
+- `tools/concepts.mjs` `prerequisites()` reads the systems subject too, so `after:` between Digital systems courses counts.
+
 ## Next
 
-1. Making data smaller (AC9TDI10K03): `pixels` with a run-length view.
+1. Networks (8K02: wired and wireless, packets and protocols, why secure data, simple encryption, the internet) and Security (10K01). Check overlap with Secret messages first (8K02 n4 is mostly there).
 2. Concept links: Secret messages should `assumes:` character codes (needs the cross-language concept change, item 4).
 3. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
 4. Cross-pathway concepts: the concept lint is per language (`CONCEPTS[lesson.language]`), so theory concepts (`bit`, `char-code`, `rgb`) cannot yet be `assumes:` in MakeCode or Python lessons. Needs a small change in `tools/concepts.mjs` (a shared concept list checked across languages, and `systems` in `prerequisites()`'s subject list). Check `roadmap/shared.md` first.
-5. Why binary (8K04 n3): logic gates, a `logic` widget. Binary and encoding (8K04 n4) as the unit's closing lesson.
+5. Hardware (8K01: specifications and performance).
 
 ## Open questions
 

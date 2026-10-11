@@ -681,6 +681,20 @@ Vary, Practise, Make).
     `key:` extra letters (`o=255,128,0`; defaults w k r g b y), `numbers: on`, `sliders: off`. The panel counts the numbers
     the image needs. Values: `r`, `g`, `b` (brush), `p`, `q`, `s` (the last pixel painted), `m` (1 when it matches the
     target), `n` (numbers in the image), `c` (pixels changed). Checks: `"p = 255 and q = 255 and s = 0"`, `"m = 1"`.
+    Compression (first used by `systems/compression/`): `mode: bw` (black or white, a Black and a White button for the
+    brush), `rle: on` writes each row's run-length code beside it (bw: run lengths taking turns from white, a leading 0
+    when a row starts black; otherwise count × value pairs), `show: codes` shows the target only as its codes (draw the
+    picture from them), digits 0 to 9 in `start:`/`target:` are greys from black to white, and `lossy: on` (grey mode)
+    shows the start picture compressed with a Tolerance slider (0 to 128; a pixel joins the run before it when within
+    the tolerance), the original drawn small beside it. Extra values: `k` (numbers in the codes), `t` (tolerance), `d`
+    (pixels that came back different). Checks: `"k = 8"`, `"t = 27 and d = 0"`.
+  - `widget: logic` (first used by `systems/data/logic-gates`): switches A and B (buttons, aria-label "Switch A, off, 0")
+    feed a gate whose output lights a lamp; a truth table fills in as rows are tried. `gate: and | or | not | xor | adder`
+    (a half adder: sum = A XOR B, carry = A AND B, shown as a two-bit answer), `choose: on` (buttons for AND, OR, NOT;
+    `all` adds XOR), `view: circuit` (a battery, two switches and a lamp: in a line for AND, side by side for OR),
+    `mystery: on` (the gate's name hidden), `table: off`. Values: `a`, `b`, `o` (output, or the adder's sum), `c` (carry),
+    `t` (rows tried), `g` (1 AND, 2 OR, 3 NOT, 4 XOR, 5 adder). Checks: `"t = 4"`, `"g = 2 and a = 1 and b = 0 and o = 1"`,
+    `"c = 1 and o = 0"`.
   - `widget: sampling` (first used by `systems/data/sound-as-numbers`): a sine wave sampled `rate:` times a wave (2 to 32),
     each sample rounded to one of `levels:` (2 to 256, powers of 2); dots are the stored numbers, steps the playback.
     `waves: 2`, `sliders: rate, levels` (or `none`), `wave: off`, `play: on` (Web Audio: the original tone and the one

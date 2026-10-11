@@ -1,0 +1,42 @@
+summary: Students paint black and white pixels and watch each row's run-length code, to explain why data is compressed, apply run-length encoding, calculate the saving and see when it fails (AC9TDI10K03 nodes 1 and 2).
+time: 45
+timing: "Predict and Try 6 min · Worked example 12 min · Vary 12 min · Practise and Make 15 min"
+goals:
+  - I can explain why data is compressed.
+  - I can encode and decode a row with run-length encoding.
+  - I can say when run-length encoding saves space and when it doesn't.
+struggle: "Rows that start black. Insist the first number always counts white, even when it is 0."
+before: |
+  CS Unplugged's Image representation activity (the fax-machine pixel codes) is the same model on paper; doing one page of it first works well.
+
+  The one idea: store runs instead of every value; decompressing gives back the data exactly (lossless). It saves when the data has long runs, and can make data bigger when it has none.
+
+  Simplification: real formats use a count and a value, as the lossy lesson does; the black-and-white form here (taking turns from white) is CS Unplugged's.
+running:
+  - "Predict: students who chose 4 lose the position; ask them to rebuild the row from 4."
+  - "Try: ask what code a row of one black pixel at the end would get (7, 1)."
+  - "Worked example: pause before row 2 and ask how to say \"no white\"."
+  - "Vary: the checkerboard task usually surprises; ask what kind of real picture is like it."
+  - "Make: swap codes between pairs: one draws a picture, the other decodes it."
+stuck:
+  - see: "A student writes 2, 6 for a row that starts black (Sam's mistake)."
+    ask: "What colour does the first number count?"
+    fix: "White, always: start with 0."
+  - see: "A student thinks every picture shrinks."
+    ask: "What is the code for a checkerboard row?"
+    fix: "Eight 1s: no saving."
+stretch: "Design an 8 × 8 picture that compresses to 8 numbers or fewer. Design one that makes the code longer than 64."
+support: "Have students say the colours aloud while counting: white 3, black 4, white 1."
+leads: |
+  Next: Lossy or lossless.
+
+  Builds on: Data representation (pixels and bytes). Where it leads: file formats (PNG, GIF and ZIP use lossless methods; JPEG and MP3 lossy).
+exit:
+  q: "Encode the row black, black, black, white, white, white, white, white. Why is run-length encoding called lossless?"
+  a: "0, 3, 5. Decompressing gives back exactly the same data."
+explain: |
+  **Compression** stores data in fewer numbers, so it takes less space and is quicker to send. **Run-length encoding** stores the length of each run of the same colour, taking turns from white: 3 white, 4 black, 1 white is **3, 4, 1**. A row that starts black begins with 0.
+
+  Decoding the codes gives back exactly the same picture, so it is **lossless**. It saves a lot when there are long runs and nothing (or worse) when the colour changes every pixel.
+sources:
+  - { title: "CS Unplugged: Image representation (CC BY-SA 4.0)", url: "https://www.csunplugged.org/en/topics/image-representation/", checked: 2026-10-12 }

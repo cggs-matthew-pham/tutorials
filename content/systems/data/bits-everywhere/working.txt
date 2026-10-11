@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+How many bits does the word cat take?
+c, a and t are three characters.
+Each character is one bit.
+So cat takes 3 bits.
+# endregion

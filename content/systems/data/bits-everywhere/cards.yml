@@ -1,0 +1,32 @@
+# Byte cards for "Bits all the way down".
+
+# region: run
+widget: bits
+bits: 8
+n: 0
+# endregion
+
+# region: explain
+widget: bits
+bits: 8
+n: 0
+# endregion
+
+# region: explain-pic
+widget: bits
+bits: 8
+start: 01000001
+# endregion
+
+# region: modify
+widget: bits
+bits: 8
+n: 72
+# endregion
+
+# region: make
+widget: bits
+bits: 8
+n: 0
+number: off
+# endregion

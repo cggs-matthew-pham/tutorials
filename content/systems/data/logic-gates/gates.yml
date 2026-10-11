@@ -1,0 +1,31 @@
+# Boards for "Why binary: logic gates".
+
+# region: run
+widget: logic
+gate: and
+view: circuit
+# endregion
+
+# region: explain
+widget: logic
+gate: and
+view: circuit
+table: off
+# endregion
+
+# region: explain-pic
+widget: logic
+gate: or
+view: circuit
+# endregion
+
+# region: modify
+widget: logic
+gate: and
+choose: on
+# endregion
+
+# region: make
+widget: logic
+gate: adder
+# endregion

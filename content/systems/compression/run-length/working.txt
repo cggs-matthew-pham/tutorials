@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Encode the row: black, black, white, white, white, white, white, white.
+The first run is 2 black pixels.
+So the code starts with 2.
+Then 6 white: the code is 2, 6.
+# endregion

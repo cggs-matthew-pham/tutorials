@@ -201,5 +201,9 @@
   "data-meaning-fixed": {"home": "systems/data/data-as-numbers", "text": "Stored numbers are taken to have one fixed meaning (72, 105, 33 are the word Hi!); the meaning comes from the encoding a program reads them with, so a paint program shows the same numbers as greys."},
   "digit-char-code": {"home": "systems/data/text-as-numbers", "text": "A digit in text is stored as its value (the 7 in \"Year 7\" as 7); in text a digit is a character with its own code (7 is 55)."},
   "light-mixes-like-paint": {"home": "systems/data/colour-and-images", "text": "Screen colours are mixed like paint (red and green make brown); a screen adds light, so 255, 255, 0 is yellow."},
-  "sound-stored-as-wave": {"home": "systems/data/sound-as-numbers", "text": "A recording is thought to store the sound wave's shape exactly; it stores samples, measurements at regular times rounded to levels, so it is close but not exact."}
+  "sound-stored-as-wave": {"home": "systems/data/sound-as-numbers", "text": "A recording is thought to store the sound wave's shape exactly; it stores samples, measurements at regular times rounded to levels, so it is close but not exact."},
+  "or-means-not-both": {"home": "systems/data/logic-gates", "text": "OR is read as everyday \"one or the other, not both\" (1 OR 1 = 0); OR gives 1 when at least one input is 1. One but not both is XOR."},
+  "char-one-bit": {"home": "systems/data/bits-everywhere", "text": "Each character is taken to be one bit (cat is 3 bits); one bit has only two values, so a character code needs a byte, 8 bits."},
+  "rle-start-white": {"home": "systems/compression/run-length", "text": "A row that starts black is coded from its first run (black black white… as 2, 6); the first count is always white, so it starts with 0: 0, 2, 6."},
+  "lossy-recoverable": {"home": "systems/compression/lossy-lossless", "text": "Detail thrown away by lossy compression is thought to be restored when the file is opened; it was never stored, so it is gone for good."}
 }

@@ -1,0 +1,42 @@
+# Boards for "Lossy or lossless". A grey picture, one number a pixel (digits 0 to 9 are shades from black to white).
+# Its run-length codes are 28 numbers at tolerance 0 (lossless); from tolerance 28 shades next to each other merge.
+
+# region: run
+widget: pixels
+size: 8, 6
+mode: grey
+lossy: on
+start: 99999988 / 99998877 / 88877766 / 55555544 / 33333222 / 11110000
+# endregion
+
+# region: explain
+widget: pixels
+size: 8, 6
+mode: grey
+lossy: on
+start: 99999988 / 99998877 / 88877766 / 55555544 / 33333222 / 11110000
+# endregion
+
+# region: explain-pic
+widget: pixels
+size: 8, 6
+mode: grey
+lossy: on
+start: 99999988 / 99998877 / 88877766 / 55555544 / 33333222 / 11110000
+# endregion
+
+# region: modify
+widget: pixels
+size: 8, 6
+mode: grey
+lossy: on
+start: 99999988 / 99998877 / 88877766 / 55555544 / 33333222 / 11110000
+# endregion
+
+# region: make
+widget: pixels
+size: 8, 6
+mode: grey
+lossy: on
+start: 99999988 / 99998877 / 88877766 / 55555544 / 33333222 / 11110000
+# endregion

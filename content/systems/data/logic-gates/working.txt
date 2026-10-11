@@ -1,0 +1,9 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Fill in the OR gate's output for each row.
+A = 0, B = 0: neither is on, so 0.
+A = 0, B = 1: one is on, so 1.
+A = 1, B = 0: one is on, so 1.
+A = 1, B = 1: OR means one or the other, not both, so 0.
+# endregion
