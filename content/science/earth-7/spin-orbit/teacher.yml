@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'the Earth goes round the sun once a day'."
   - "Explore: ask what the N line does over the year."
   - "Explain: the sort is the checkpoint."
+struggle: "Keeping rotation (a day) and revolution (a year) apart. When a student mixes them, ask how long Play a day took compared with Play a year."
 stuck:
   - see: "A student says the Earth goes round the sun every day."
     ask: "How long did Play a year take, compared with Play a day?"

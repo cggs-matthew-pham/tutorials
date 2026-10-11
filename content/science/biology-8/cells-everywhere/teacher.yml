@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'only animals' or 'animals and plants'."
   - "Explore: ask what every diagram had (membrane, cytoplasm)."
   - "Explain: the first question is the checkpoint; the sort includes the mushroom on purpose."
+struggle: "Accepting that trees, fungi and bacteria are made of cells too. When a student says a plant isn't, ask what they found when they zoomed in on it."
 stuck:
   - see: "A student says a tree isn't made of cells."
     ask: "What did you find in the plant cell on the board?"

@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'nothing: 10 is tiny'."
   - "Explore: ask where the burned carbon went (the stores show it)."
   - "Explain: the 'why it adds up' question is the checkpoint."
+struggle: "Seeing why a small extra flow matters when the big ones balance. When a student says human emissions are too small to matter, ask what happens to the extra each year."
 stuck:
   - see: "A student says the burned carbon is destroyed."
     ask: "What does burning make?"

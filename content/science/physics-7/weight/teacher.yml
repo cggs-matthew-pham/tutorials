@@ -16,6 +16,7 @@ running:
   - "Explore: have students say aloud 'mass stays, weight changes' while switching places."
   - "Explain: the number checks need units in discussion even though the box takes a number."
   - "In your own words: the 'I weigh 50 kg' paragraph is the evidence."
+struggle: "Keeping mass (kilograms, the same everywhere) apart from weight (newtons). When a student says mass changes on the Moon, ask whether any matter left the astronaut on the trip."
 stuck:
   - see: "A student says mass changes on the Moon."
     ask: "Did any matter leave the astronaut on the trip?"

@@ -2,6 +2,16 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: struggle notes (11 Oct 2026, science chat)
+
+`struggle:` added to teacher.yml for the 60 older science lessons that lacked one (AUTHORING › Effort and struggle): the hard part, then the question to ask instead of rescuing, drawn from each lesson's stuck list.
+
+Clips: teacher.yml is inside the clip hash (`stepHash` reads every file in the lesson folder except lesson.md), so these edits do re-record. Checked against the live build (gh-pages, built from 20a9f94): 43 of the 60 explain clips already need recording because `playground-board/` changed since then, so their notes went to `main` at no extra cost. The other 17 (Year 7 chemistry, chemistry-8 atoms, compounds and chemical change, collision theory, rearranging atoms, igneous, plates, heat transfer, variation, natural selection) are live and unchanged; their notes are on branch `science-struggle-live` for Matthew to merge when a re-record of those 17 is acceptable.
+
+Noticed, not changed (shared tool): `teach.mjs` sends science modify steps down the question-slide branch, so `struggle:` never reaches science slide notes. It does show in For teachers and the teacher guide.
+
+No science lesson has a first hint that gives the answer (`npm run effort`; the 17 flagged are code and maths).
+
 ## Done: review pass, Quick checks and Physics 9 waves and charge (11 Oct 2026, science chat)
 
 Read the 12 Quick check lessons and Physics 9 sound, static charge, electric current, light, bending light and wave or particle against their nodes' success criteria. Fixed (lesson.md only, so no clip re-records):

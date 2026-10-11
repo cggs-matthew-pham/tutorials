@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'all identical'."
   - "Explore: ask how many different combinations are possible and how they know they've found them all."
   - "Explain: the 2 × 2 × 2 question is the checkpoint."
+struggle: "Seeing that each gamete gets one chromosome from every pair, chosen at random. When a student says the gametes are all the same, ask how many different gametes they made from the one cell, and what was different."
 stuck:
   - see: "A student thinks a gamete can get two chromosomes from one pair."
     ask: "Look at your gametes: was there ever a pair together?"

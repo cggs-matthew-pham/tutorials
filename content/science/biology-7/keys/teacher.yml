@@ -16,6 +16,7 @@ running:
   - "Explore: insist on reading the description before each answer; ask a student to narrate one path aloud."
   - "Explain: the crocodile question is the wrong-turn reasoning; the good-question item previews node 4."
   - "In your own words: the platypus path is the evidence."
+struggle: "Reading each step against the organism, not jumping to a likely name. When a student reaches the wrong name, ask where their path left the right one."
 stuck:
   - see: "A student keeps reaching the wrong name."
     ask: "Read the step the board points to. What does the description say about that feature?"

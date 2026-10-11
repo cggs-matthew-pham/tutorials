@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'all purple' or 'a blend'."
   - "Explore: collect the class's breeding percentages on the board: they cluster near 75% but vary."
   - "Explain: the 'exactly 3 and 1?' question is the checkpoint."
+struggle: "Reading the square as chances, not a count. When a student says three children out of four must show the trait, ask whether the next child knows what the last one got."
 stuck:
   - see: "A student puts PP in every cell."
     ask: "Which allele does this gamete carry? And this one?"

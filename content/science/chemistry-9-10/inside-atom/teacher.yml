@@ -16,6 +16,7 @@ running:
   - "Explore: ask what changed on the board when they added a neutron (mass number, not the name)."
   - "Explain: the two number checks are the node's success criteria; the gold foil question is the evidence."
   - "In your own words: the labelled carbon-12 diagram with working is the evidence."
+struggle: "Using atomic and mass numbers to count protons, neutrons and electrons. When a student says carbon-12 has 12 neutrons, ask what the mass number counts."
 stuck:
   - see: "A student says carbon-12 has 12 neutrons."
     ask: "What does the mass number count?"

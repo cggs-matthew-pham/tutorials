@@ -16,6 +16,7 @@ running:
   - "Explore: ask what push hit target 1 (8 N) and target 2 (16 N). Write F, m, a in a table."
   - "Explain: students should say the rearrangement aloud for each number check."
   - "In your own words: the doubling paragraph is the evidence of the qualitative relationship."
+struggle: "Using the net force, not the push, in F = ma. When a student uses the push, ask whether anything is pushing back."
 stuck:
   - see: "A student uses the push instead of the net force."
     ask: "Is anything pushing back?"

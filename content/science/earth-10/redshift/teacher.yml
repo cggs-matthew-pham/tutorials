@@ -17,6 +17,7 @@ running:
   - "Engage: count how many chose 'we are at the centre'."
   - "Explore: collect a few class points on one graph."
   - "Explain: the big bang link is the checkpoint."
+struggle: "Seeing that every galaxy sees the others moving away, so there is no centre. When a student says we are at the centre, ask what happened when they lived in another galaxy."
 stuck:
   - see: "A student says galaxies are moving away from us because we're special."
     ask: "What happened when you lived in another galaxy?"

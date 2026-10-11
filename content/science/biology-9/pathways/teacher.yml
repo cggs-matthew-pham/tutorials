@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'the brain'."
   - "Explore: watch for students choosing the brain for the pin; let the board's message do the work."
   - "Explain: the reflex question is the checkpoint."
+struggle: "Tracing the path through the spinal cord for a reflex. When a student says the brain decides everything, ask whether you feel the pain before or after your foot moves."
 stuck:
   - see: "A student chooses the brain as the command centre for the drawing pin."
     ask: "Do you feel the pain before or after your foot moves?"

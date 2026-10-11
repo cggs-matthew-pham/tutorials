@@ -16,6 +16,7 @@ running:
   - "Explore: pause at 1, 2 and 3 seconds and read the speed: +3 m/s each time."
   - "Explain: insist on units for every answer aloud."
   - "In your own words: the cruising-car explanation is the evidence."
+struggle: "Separating acceleration (change in velocity) from speed. When a student says a fast car has a big acceleration, ask whether its speed is changing."
 stuck:
   - see: "A student says a fast car has big acceleration."
     ask: "Is its speed changing?"

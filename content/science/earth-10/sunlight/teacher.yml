@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'all of it warms the Earth'."
   - "Explore: ask which button changed the reflected percentage most."
   - "Explain: the melting ice question is the checkpoint."
+struggle: "Linking a surface's albedo to how much energy it absorbs. When a student guesses from shininess, ask what percentage the board gives for that surface."
 stuck:
   - see: "A student says the ocean reflects a lot because it's shiny."
     ask: "What percentage does the board give?"

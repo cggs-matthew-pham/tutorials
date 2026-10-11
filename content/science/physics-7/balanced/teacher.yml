@@ -16,6 +16,7 @@ running:
   - "Explore: if students struggle, ask them to compare the push and friction numbers when the graph is flat."
   - "Explain: the first question is the checkpoint; the two sorts apply it."
   - "In your own words: the 'balanced isn't no forces' paragraph is the evidence."
+struggle: "Accepting that balanced forces give steady motion, not no motion. When a student says the box should stop, ask what the graph did when push equalled friction."
 stuck:
   - see: "A student says the forces are balanced so the box should stop."
     ask: "What did the graph do when push equalled friction?"

@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'closer to the sun'."
   - "Explore: ask what the distance was in December and in June."
   - "Explain: 'If distance caused seasons...' is the checkpoint."
+struggle: "Explaining seasons by tilt, not distance. When a student says Earth is closer in summer, ask what the board says the distance is on 22 December and 22 June."
 stuck:
   - see: "A student says the Earth is closer to the sun in summer."
     ask: "What does the board say the distance is on 22 December and 22 June?"

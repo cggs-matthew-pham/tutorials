@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'the energy is destroyed'."
   - "Explore: ask what happened to 'energy out' as the temperature rose."
   - "Explain: the 'why did it stop rising' question is the checkpoint."
+struggle: "Seeing a steady temperature as energy in equal to energy out, not no energy moving. When a student says nothing moves at balance, ask what the in and out numbers are."
 stuck:
   - see: "A student thinks balance means no energy is moving."
     ask: "What are the in and out numbers?"

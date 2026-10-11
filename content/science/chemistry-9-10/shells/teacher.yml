@@ -15,6 +15,7 @@ running:
   - "Engage: tally the four options. '2, 9' means they know shell 1 but not the 8."
   - "Explore: stop the class at 3 and 11 electrons: what happened?"
   - "Explain: chlorine and the two number checks are the evidence."
+struggle: "Filling shells in order, 2 then 8 then 8. When a student writes 2, 8, 9, ask how many the third shell holds for the first 20 elements."
 stuck:
   - see: "A student writes 2, 8, 9 for potassium."
     ask: "How many does the third shell hold for elements 1 to 20?"

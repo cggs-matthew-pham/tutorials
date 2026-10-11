@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'exactly 37'."
   - "Explore: ask students to describe what the effectors do as the temperature comes back."
   - "Explain: 'why negative' is the checkpoint."
+struggle: "Seeing feedback as constant correction that reverses a change, in both directions. When a student says the body is just at 37 °C, ask what happened on the board when the air got very cold."
 stuck:
   - see: "A student can't get a recovery."
     ask: "Have you left the slider somewhere and waited?"

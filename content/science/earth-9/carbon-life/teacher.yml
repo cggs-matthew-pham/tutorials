@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose the soil."
   - "Explore: ask what happened in each run, and why."
   - "Explain: the balance question is the checkpoint."
+struggle: "Seeing photosynthesis and respiration as flows of carbon that nearly balance. When a student says only animals respire, ask whether plant cells need energy at night."
 stuck:
   - see: "A student says only animals respire."
     ask: "Do plant cells need energy at night?"

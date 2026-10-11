@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose the explosion."
   - "Explore: ask what happened to the temperature at every step."
   - "Explain: the atoms question is the checkpoint (cooling is the cause)."
+struggle: "Picturing space itself expanding, not an explosion into empty space. When a student asks what it expanded into, ask whether the model has an 'outside' if space itself began then."
 stuck:
   - see: "A student asks what was before the big bang, or what it expanded into."
     ask: "If space itself began then, is there an 'outside' or a 'before' in the model?"

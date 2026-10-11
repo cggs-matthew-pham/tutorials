@@ -15,6 +15,7 @@ running:
   - "Engage: tally the answers; 'membrane' is a common wrong one."
   - "Explore: ask what the two cells have in common before reading anything."
   - "Explain: the match is the minimum; the membrane question gives 'selectively permeable' meaning."
+struggle: "Giving each part its job, not just its name. When a student lists parts, ask what would go wrong in the cell without that one."
 stuck:
   - see: "A student confuses the cell wall with the membrane."
     ask: "Which one did you find in both cells?"

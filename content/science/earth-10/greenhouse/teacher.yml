@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose the ozone layer or trapping sunlight."
   - "Explore: ask which arrows changed when CO₂ changed, and which didn't."
   - "Explain: 'which flow' is the checkpoint."
+struggle: "Placing the effect on outgoing infrared, not incoming sunlight or the ozone hole. When a student says CO₂ heats Earth because it is hot, ask where the extra energy comes from."
 stuck:
   - see: "A student says CO₂ heats the Earth because it's a hot gas."
     ask: "Where does the extra energy come from?"

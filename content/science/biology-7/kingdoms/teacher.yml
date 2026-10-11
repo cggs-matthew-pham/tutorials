@@ -19,6 +19,7 @@ running:
   - "Explore: specimen names appear only after the key places them; students should read descriptions, not guess."
   - "Explain: the sort has two deliberate boundary items (kelp, coral) with explanations."
   - "In your own words: the five-organism list with features is the node's evidence."
+struggle: "Sorting by features, especially feeding, instead of 'grows in the ground, doesn't move'. When a student calls a mushroom a plant, ask how it gets its food."
 stuck:
   - see: "A student says fungi are plants."
     ask: "Can a mushroom make its own food from sunlight?"

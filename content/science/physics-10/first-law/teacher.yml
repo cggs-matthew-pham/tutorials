@@ -16,6 +16,7 @@ running:
   - "Explore: the check needs push 0 and friction off while moving. If a student turns friction off first, the puck speeds up: ask why."
   - "Explain: the 'why does a ball stop' question is where the hidden force gets named."
   - "In your own words: the reply to 'the force is still in it' is the evidence."
+struggle: "Letting go of 'a moving thing needs a push to keep going'. When a student says the force ran out, ask what the graph did with push 0 and friction off."
 stuck:
   - see: "A student says the puck slows because the force runs out."
     ask: "On the board, with push 0 and friction off, did the graph slope down?"

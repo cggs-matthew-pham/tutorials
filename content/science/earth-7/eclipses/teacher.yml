@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'every month'."
   - "Explore: ask where the orange crossing line points when an eclipse happens."
   - "Explain: the tilt question is the checkpoint."
+struggle: "Thinking in three dimensions: the tilted orbit means the shadows usually miss. When a student expects an eclipse every month, ask what the side view shows at most new moons."
 stuck:
   - see: "A student says a lunar eclipse is the same as a new moon."
     ask: "Where is the moon in a lunar eclipse: between us and the sun, or behind the Earth?"

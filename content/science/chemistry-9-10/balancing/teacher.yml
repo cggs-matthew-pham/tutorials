@@ -15,6 +15,7 @@ running:
   - "Engage: count who chose H₂O₂. Ask them what H₂O₂ is."
   - "Explore: ask what changed in the drawing when they pressed + on H₂O (a whole molecule, two H and one O)."
   - "Practise: the three equations are the node's evidence; methane is the hardest, so give the 'atom that appears once' hint aloud."
+struggle: "Changing coefficients, never formulas, and counting atoms each time. When a student goes round in circles, ask which element appears in only one substance on each side, and start there."
 stuck:
   - see: "A student wants to change a subscript."
     ask: "What substance would H₂O₂ be?"

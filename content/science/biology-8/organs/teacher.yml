@@ -15,6 +15,7 @@ running:
   - "Engage: 'one kind of green cell' is the misconception to resolve."
   - "Explore: ask which tissue does photosynthesis and which brings water."
   - "Explain: the 'why several' question is the checkpoint."
+struggle: "Seeing an organ as several tissues working together. When a student says the heart is just muscle, ask what else it needs to do its job."
 stuck:
   - see: "A student says the heart is just muscle."
     ask: "What stops the blood flowing backwards?"

@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 46."
   - "Explore: ask which feature they think is most important for getting in."
   - "Explain: the 'why half' question is the checkpoint."
+struggle: "Why a gamete needs half the chromosomes. When a student is stuck, ask how many chromosomes a fertilised egg would have if each gamete carried the full set."
 stuck:
   - see: "A student says the baby gets half the genes."
     ask: "How many chromosomes does the fertilised egg have?"

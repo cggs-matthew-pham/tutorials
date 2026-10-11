@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose one high tide a day."
   - "Explore: ask how many high tides the beach passed through."
   - "Explain: the spring/neap sort is the checkpoint."
+struggle: "Explaining the second bulge on the far side. When a student predicts one high tide a day, ask how many bulges the board shows and how many the coast passes through."
 stuck:
   - see: "A student says there should be one high tide, when the moon is overhead."
     ask: "How many bulges does the board show?"

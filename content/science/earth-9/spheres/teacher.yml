@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'more than one'."
   - "Explore: discuss the cloud and the soil."
   - "Explain: the tree question is the checkpoint (processes cross spheres)."
+struggle: "Placing things that sit in two spheres at once. When a student puts the ocean in the biosphere, ask whether the water itself is alive."
 stuck:
   - see: "A student puts the ocean in the biosphere because fish live there."
     ask: "Is the water itself alive?"

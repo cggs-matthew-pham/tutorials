@@ -16,6 +16,7 @@ running:
   - "Explore: ask what the graph does at the moment the speed crosses zero, and which way the net force points before and after."
   - "Explain: the sort is the checkpoint (the roundabout and the thrown ball are the hard ones); the diagram question asks for a force diagram."
   - "In your own words: two diagrams, one speed change and one direction change, are the node's success criteria."
+struggle: "Seeing slowing, stopping, reversing and turning as changes that need an unbalanced force. When a student says the puck ran out of force, ask what it would do on ice with no push at all."
 stuck:
   - see: "A student says the puck turned round because it ran out of force."
     ask: "On ice with no push at all, what would the puck do?"

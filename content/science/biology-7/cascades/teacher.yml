@@ -16,6 +16,7 @@ running:
   - "Explore: students must predict every population before Check unlocks. Ask a student to explain one ✗."
   - "Explain: the parsons puts the cascade in order; the 'either way' question shows the limits of prediction."
   - "In your own words: the link-by-link explanation is the evidence."
+struggle: "Following the effect past the first link. When a student stops at the dingo's prey, ask what eats that animal, and what it eats."
 stuck:
   - see: "A student predicts no change for anything not eaten by the dingo."
     ask: "What eats bandicoots? What happened to that animal?"

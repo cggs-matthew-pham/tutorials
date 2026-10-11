@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose the sea of magma."
   - "Explore: ask what surprised them in the to-scale view."
   - "Explain: the lithosphere question is the checkpoint."
+struggle: "Accepting a solid mantle that still flows. When a student says lava comes from a liquid mantle, ask where the board says melting happens."
 stuck:
   - see: "A student says lava comes from a liquid mantle."
     ask: "Where does the board say melting happens?"

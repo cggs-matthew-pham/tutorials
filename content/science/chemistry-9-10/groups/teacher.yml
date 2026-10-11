@@ -15,6 +15,7 @@ running:
   - "Engage: tally the options; 'same total electrons' is the misconception to address."
   - "Explore: ask a student to read out the shell arrangements of Li, Na and K: the last number is the same."
   - "Explain: the group 17 prediction is the node's checkpoint: position to outer electrons to behaviour."
+struggle: "Linking behaviour to outer-shell electrons, not size, state or total electrons. When a student says noble gases don't react because they are gases, ask whether chlorine is a gas."
 stuck:
   - see: "A student says noble gases don't react because they're gases."
     ask: "Is chlorine a gas? Is it reactive?"

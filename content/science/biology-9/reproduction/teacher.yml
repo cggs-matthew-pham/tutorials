@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'all look the same' or 'a blend'."
   - "Explore: ask how many different-looking offspring they got from the same two parents."
   - "Explain: 'why do they vary' is the checkpoint."
+struggle: "Seeing that each offspring gets a random half of each parent's genes. When a student expects identical siblings or an even blend, ask which copy of a gene this offspring got from each parent."
 stuck:
   - see: "A student says the offspring should look like both parents equally."
     ask: "Which copy of each gene did this offspring get from each parent?"
