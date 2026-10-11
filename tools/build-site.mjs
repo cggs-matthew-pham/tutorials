@@ -23,7 +23,7 @@ import { loadCurriculum, curriculumMapHtml, CMAP_CSS } from './curriculum-map.mj
 import { coachPrompt } from './coach.mjs';
 import { loadProjects, skillLabel } from './projects.mjs';
 import { PROJECT_CSS, projectListBody, projectPageBody } from './project-view.mjs';
-import { prerequisites } from './concepts.mjs';
+import { prerequisites, theoryLinks } from './concepts.mjs';
 import { CONCEPTS } from './concepts-core.mjs';
 import { PRACTICE_JS } from './practice-core.mjs';
 import { PRACTICE_CSS, PRACTICE_UI_JS, practiceBody } from './practice-view.mjs';
@@ -136,6 +136,18 @@ function pictureHtml(lesson, v, key) {
   return `<figure class="shown"><img src="${'../'.repeat(lesson.depth)}_pictures/shown/${esc(lesson.slug)}/${esc(key)}.png?v=${esc(pic.hash || '')}" alt="The page this code makes${sp.boxes ? ', with Boxes on' : sp.inspect ? ', with the Box model view on' : ''}" width="${Math.round(pic.w / (pic.div || 2))}" height="${Math.round(pic.h / (pic.div || 2))}" loading="lazy"><figcaption>What this code makes${sp.boxes ? ' (with Boxes on: each box is a tag)' : sp.inspect ? ' (Box model view: margin orange, border gold, padding green, content blue)' : ''}</figcaption></figure>`;
 }
 
+// "Builds on" and "Put to work in": lessons linked by a theory concept (tools/concepts-core.mjs THEORY), across subjects.
+let THEORY_LINKS = null;
+function conceptLinks(lesson) {
+  const tl = (THEORY_LINKS ||= theoryLinks(lessons)).get(lesson.slug);
+  if (!tl) return null;
+  const up = '../'.repeat(lesson.depth), bySlug = (s) => lessons.find((x) => x.slug === s);
+  const one = ({ slug, label }) => { const l = bySlug(slug); if (!l) return null; const c = slug.split('/').slice(0, -1).join('/');
+    return { href: `${up}${slug}/`, title: l.title, where: `${dirNode(slug.split('/')[0]).title} › ${dirNode(c).title}`, label }; };
+  const on = tl.on.map(one).filter(Boolean), used = tl.in.map(one).filter(Boolean);
+  return on.length || used.length ? { on, in: used } : null;
+}
+
 function buildLesson(lesson, parentTitle, course) {
   const dir = join(OUT, lesson.slug);
   mkdirSync(dir, { recursive: true });
@@ -151,6 +163,7 @@ function buildLesson(lesson, parentTitle, course) {
     crumb: { href: '../', title: parentTitle },
     course,
     siteRoot: '../'.repeat(lesson.depth),
+    conceptLinks: conceptLinks(lesson),
     source: `content/${lesson.slug}/lesson.md`,
     teacherGuide: lesson.teacher ? `${'../'.repeat(lesson.depth)}${teachPath(lesson)}` : '',
     siteNavHtml: navFor(lesson.slug, 'lesson', lesson.slug.split('/').slice(0, -1).join('/')),
@@ -628,7 +641,12 @@ for (const node of dirs.values()) {
     const cur = node.meta?.map === true ? loadCurriculum(node.path) : null;
     if (cur) {
       const mp = `${node.path}/map`, mup = '../'.repeat(mp.split('/').length);
-      const subjLessons = lessons.filter((l) => l.slug.startsWith(node.path + '/')).map((l) => ({ slug: l.slug, title: l.title, node: l.node, woven: l.woven, course: dirNode(l.slug.split('/').slice(0, -1).join('/')).title }));
+      // The subject's own lessons, plus lessons elsewhere tagged with one of its descriptors (the HTML & CSS course
+      // teaches Digital systems' AC9TDI10K02, for example); those show their subject before the course name.
+      const codes = new Set(cur.descriptors.map((d) => d.code)), refs = (l) => [].concat(l.node || [], l.woven || []);
+      const subjLessons = lessons.filter((l) => l.slug.startsWith(node.path + '/') || refs(l).some((r) => codes.has(String(r).split(/\s+/)[0])))
+        .map((l) => { const c = dirNode(l.slug.split('/').slice(0, -1).join('/')).title, own = l.slug.startsWith(node.path + '/');
+          return { slug: l.slug, title: l.title, node: l.node, woven: l.woven, course: own ? c : `${dirNode(l.slug.split('/')[0]).title} › ${c}` }; });
       mkdirSync(join(OUT, mp), { recursive: true });
       writeFileSync(join(OUT, mp, 'index.html'), page(`Curriculum map: ${node.title}`,
         `<style>${CMAP_CSS}</style><header class="top"><a class="crumb" href="../">← ${esc(node.title)}</a><h1>${esc(node.title)} curriculum map</h1>` +

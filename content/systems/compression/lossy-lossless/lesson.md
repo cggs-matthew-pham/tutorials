@@ -2,6 +2,7 @@
 order: 2
 unit: compress
 node: AC9TDI10K03 n3
+introduces: [lossy-lossless]
 title: Lossy or lossless
 summary: "Lossless compression gives back exactly the original data. Lossy compression throws away detail people are unlikely to notice, such as tiny differences in shade, so files get much smaller, but that detail is gone for good. Music and photos online are usually lossy; text, medical scans and evidence must be lossless."
 language: maths

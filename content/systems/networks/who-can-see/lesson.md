@@ -2,6 +2,7 @@
 order: 3
 unit: safe
 node: [AC9TDI8K02 n3, AC9TDI8K02 n4]
+introduces: [encryption-purpose]
 title: Who can see your data?
 summary: "Packets pass through Wi-Fi and routers you don't control, and anyone along the way can copy them. So anything private must be encrypted on your device before it leaves: scrambled with a key, so only someone with the key can turn it back. Encryption only works because it can be reversed."
 language: maths

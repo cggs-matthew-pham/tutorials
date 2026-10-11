@@ -2,6 +2,7 @@
 order: 2
 unit: layers
 node: AC9TDI10K01 n2
+introduces: [ip-dns]
 title: Names and addresses
 summary: "Every device on the internet has an IP address, and every packet carries the address it is going to. DNS turns a name like school.edu.au into that address, and routers use their tables to send each packet the right way. A name that only looks right gets a different address, and a different computer."
 language: maths

@@ -1,6 +1,7 @@
 ---
 order: 3
 unit: codes
+assumes: [text-as-numbers]
 title: The Caesar cipher
 summary: Shift every letter along the alphabet by a secret number. The method is public; the number is the key.
 language: makecode

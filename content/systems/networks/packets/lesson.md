@@ -2,6 +2,7 @@
 order: 2
 unit: moving
 node: AC9TDI8K02 n2
+introduces: [packets]
 title: Packets
 summary: "Data is sent as small numbered packets, not one long stream. Routers pass each packet on, so packets can take different routes, arrive out of order or get lost. The TCP protocol has the receiver confirm each packet; any packet not confirmed is sent again, and the numbers put the message back in order."
 language: maths

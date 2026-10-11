@@ -1,6 +1,7 @@
 ---
 order: 10
 unit: challenge
+node: AC9TDI10K02 n2
 title: "Final challenge: a club page"
 summary: Build a whole club page from every component in the course, in three milestones, then make it your own.
 language: html

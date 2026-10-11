@@ -2,6 +2,7 @@
 order: 4
 unit: numbers
 node: AC9TDI8K03 n4
+introduces: [sound-samples]
 title: Sound as numbers
 summary: "A computer can't store a sound wave itself. It measures the wave's height many times a second (sampling) and rounds each measurement to a level, so a recording is a long list of numbers. More samples and more levels sound closer to the real thing, but need more numbers."
 language: maths

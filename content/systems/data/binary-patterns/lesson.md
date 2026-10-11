@@ -2,6 +2,7 @@
 order: 6
 node: AC9TDI8K04 n2
 unit: binary
+introduces: [bit-patterns]
 title: How many patterns?
 summary: "Each extra bit doubles the number of patterns: n bits make 2ⁿ patterns. One pattern is 0, so the largest number is 2ⁿ − 1: four bits hold 0 to 15, eight bits (a byte) hold 0 to 255. Count one past the largest and the bits overflow back to 0."
 language: maths

@@ -2,6 +2,7 @@
 order: 4
 node: AC9TDI8K04 n3
 unit: machine
+introduces: [fetch-execute]
 title: A tiny processor
 summary: "A processor repeats one cycle: fetch the instruction the program counter points at, decode it, execute it, one step per clock tick. The program is numbers in the same memory as the data. Step a tiny processor, change its program, and write your own."
 language: maths

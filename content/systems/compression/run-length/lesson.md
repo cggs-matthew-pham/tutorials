@@ -2,6 +2,7 @@
 order: 1
 unit: compress
 node: [AC9TDI10K03 n1, AC9TDI10K03 n2]
+introduces: [run-length]
 title: Run-length encoding
 summary: "Compression stores data in fewer numbers, so it takes less space and less time to send. Run-length encoding stores how many of each colour there are in turn (3, 4, 1) instead of every pixel. It gives back exactly the same picture (lossless), and works best on data with long runs."
 language: maths

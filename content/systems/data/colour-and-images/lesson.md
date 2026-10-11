@@ -2,6 +2,7 @@
 order: 3
 unit: numbers
 node: AC9TDI8K03 n3
+introduces: [rgb-colour, pixel-grid]
 title: Colour and images
 summary: "A picture on a screen is a grid of tiny squares called pixels, and each pixel is stored as three numbers: how much red, green and blue light, from 0 to 255. Light mixes differently from paint: red and green light make yellow. A vector picture is stored differently, as shapes to draw."
 language: maths

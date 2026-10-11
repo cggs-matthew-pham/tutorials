@@ -13,6 +13,7 @@
 // `node tools/progressions.mjs --report` (npm run nodes) prints each course's lessons, nodes and prerequisites.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { theoryIds } from './concepts-core.mjs';   // theory concepts (assumes: [text-as-numbers]) are not node codes
 
 export const CHECKED = ['maths', 'science', 'systems'];   // subjects whose lessons must name a node
 const CODE = /AC9[A-Z]{1,4}\d{1,2}[A-Z]{1,3}\d{2}/g;
@@ -85,7 +86,7 @@ export function auditNodes(lessons, prereqs, data) {
       mine.push(r);
     }
     const assumed = list(l.assumes).map(parseRef).filter(Boolean);
-    for (const s of list(l.assumes)) if (!parseRef(s) && CHECKED.includes(subjectOf(l))) warnings.push(`${l.slug} › assumes: "${s}" is not a descriptor or node code`);
+    for (const s of list(l.assumes)) if (!parseRef(s) && !theoryIds.has(s) && CHECKED.includes(subjectOf(l))) warnings.push(`${l.slug} › assumes: "${s}" is not a descriptor or node code`);
     const earlier = tagged.filter((e) => e !== l && before(e, l) && (!e.optional || l.optional));
     const coveredBy = (code, n) => {
       const hit = (e) => list(e.node).map(parseRef).some((r) => r && r.code === code && r.n === n);

@@ -14,8 +14,8 @@
 //   node tools/concepts.mjs --report   per course: each lesson's concepts, new ones marked, untagged first uses
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { CONCEPTS, conceptIds, conceptsIn, strip, stripPy, splitHtml, has } from './concepts-core.mjs';
-export { CONCEPTS, conceptIds, conceptsIn };
+import { CONCEPTS, conceptIds, conceptsIn, strip, stripPy, splitHtml, has, THEORY, theoryIds } from './concepts-core.mjs';
+export { CONCEPTS, conceptIds, conceptsIn, THEORY };
 
 /** The code students see in a lesson, by section ("frontmatter", then each "## " step title): [where, code, raw] (raw keeps string contents; Python comments are dropped from both). */
 export function visibleCode(lesson, read) {
@@ -43,6 +43,8 @@ export function scanLesson(lesson, read) {
 
 const list = (v) => (Array.isArray(v) ? v.map(String) : v ? [String(v)] : []);
 const course = (slug) => slug.split('/').slice(0, -1).join('/');
+const subject = (slug) => slug.split('/')[0];
+const theoryTags = (l) => list(l.introduces).length > 0 || list(l.assumes).some((id) => theoryIds.has(id));
 
 /** Courses each course follows, transitively, from `after:` in every subject's index.md pathways (through planned courses too, by their `id`). */
 export function prerequisites(loadDirMeta, root) {
@@ -62,17 +64,22 @@ export function prerequisites(loadDirMeta, root) {
 export function auditConcepts(lessons, read, prereqs) {
   const warnings = [];
   const report = [];
-  const scoped = lessons.filter((l) => CONCEPTS[l.language]);
+  // Lessons in a scanned language, plus any lesson that tags a theory concept (Digital systems lessons are maths-language;
+  // maths lessons also use assumes: for progression nodes, so only theory ids are read from their assumes).
+  const scoped = lessons.filter((l) => CONCEPTS[l.language] || theoryTags(l));
   const before = (a, b) => (course(a.slug) === course(b.slug) ? (a.order ?? 0) < (b.order ?? 0) : prereqs(course(b.slug)).has(course(a.slug)));
   for (const l of scoped) {
-    const ids = conceptIds(l.language);
-    const intro = list(l.introduces), assumes = list(l.assumes), recipes = list(l.recipes);
+    const scanned = !!CONCEPTS[l.language];
+    const ids = new Set([...conceptIds(l.language), ...theoryIds]);
+    const keep = (v) => (scanned ? v : v.filter((id) => theoryIds.has(id)));
+    const intro = list(l.introduces), assumes = keep(list(l.assumes)), recipes = keep(list(l.recipes));
     for (const [k, v] of [['introduces', intro], ['assumes', assumes], ['recipes', recipes]]) for (const id of v) if (!ids.has(id)) warnings.push(`${l.slug} › ${k}: "${id}" is not a concept id (tools/concepts.mjs)`);
     const known = new Map();   // id -> slug of the earlier lesson that introduces it
     const shown = new Map();   // id -> slug of the earlier lesson that labelled it a recipe (the student has seen "copy this for now")
-    for (const e of scoped) if (e !== l && e.language === l.language && before(e, l) && (!e.optional || l.optional)) {
-      for (const id of list(e.introduces)) if (!known.has(id)) known.set(id, e.slug);
-      for (const id of list(e.recipes)) if (!shown.has(id)) shown.set(id, e.slug);
+    for (const e of scoped) if (e !== l && (!e.optional || l.optional)) {
+      const earlier = e.language === l.language && before(e, l);
+      for (const id of list(e.introduces)) if (!known.has(id) && (earlier || (theoryIds.has(id) && (subject(e.slug) !== subject(l.slug) || before(e, l))))) known.set(id, e.slug);
+      if (earlier) for (const id of list(e.recipes)) if (!shown.has(id)) shown.set(id, e.slug);
     }
     const uses = scanLesson(l, read);
     const untagged = [];
@@ -83,7 +90,7 @@ export function auditConcepts(lessons, read, prereqs) {
     }
     for (const id of assumes) if (!known.has(id) && !shown.has(id)) warnings.push(`${l.slug} › assumes: ${id}, but no earlier lesson introduces it`);
     for (const id of intro) {
-      const c = CONCEPTS[l.language].find((x) => x.id === id);
+      const c = (CONCEPTS[l.language] || []).find((x) => x.id === id);
       if (c && (c.re || c.test) && !uses.has(id)) warnings.push(`${l.slug} › introduces: ${id}, but no code students see uses it`);
       if (known.has(id)) warnings.push(`${l.slug} › introduces: ${id}, already introduced in ${known.get(id)} (use assumes, or recap it without introduces)`);
     }
@@ -101,6 +108,22 @@ export function auditConcepts(lessons, read, prereqs) {
     }
   }
   return { warnings, report };
+}
+
+/** Links between lessons through theory concepts, for the lesson pages: slug -> { on: [{ slug, label }], in: [{ slug, label }] }.
+ *  on: lessons that introduce a theory concept this lesson assumes ("Builds on"); in: lessons that assume one this
+ *  lesson introduces ("Put to work in"). */
+export function theoryLinks(lessons) {
+  const label = (id) => THEORY.find((c) => c.id === id)?.label || id;
+  const intro = new Map();   // id -> [slug]
+  for (const l of lessons) for (const id of list(l.introduces)) if (theoryIds.has(id)) intro.set(id, [...(intro.get(id) || []), l.slug]);
+  const out = new Map(), get = (s) => out.get(s) || (out.set(s, { on: [], in: [] }), out.get(s));
+  for (const l of lessons) for (const id of list(l.assumes)) if (theoryIds.has(id)) for (const s of intro.get(id) || []) {
+    if (s === l.slug) continue;
+    get(l.slug).on.push({ slug: s, label: label(id) });
+    get(s).in.push({ slug: l.slug, label: label(id) });
+  }
+  return out;
 }
 
 // CLI

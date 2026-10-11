@@ -175,6 +175,7 @@ details.teachers{margin:28px 0 0;border:1px solid var(--line);border-radius:8px;
 details.teachers summary{cursor:pointer;font-weight:600;padding:12px 0}
 details.teachers h3{font-size:1rem;margin:16px 0 4px}.tguide{background:color-mix(in srgb,var(--accent) 8%,transparent);border-radius:8px;padding:8px 12px}
 .xbtn{flex:none;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13px;font-weight:600;color:var(--investigate);border:1px solid var(--investigate);background:var(--card);padding:4px 11px 4px 5px;border-radius:99px;cursor:pointer}.xbtn b{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--investigate);color:#fff;font-size:12px}.xbtn[aria-expanded=true]{box-shadow:inset 0 0 0 1px var(--investigate)}.xdrawer{position:fixed;z-index:40;right:0;top:var(--nav,0px);bottom:0;width:min(520px,100vw);overflow:auto;background:var(--card);border-left:1px solid var(--line);box-shadow:-8px 0 24px rgba(0,0,0,.12);padding:0 20px 24px}.xd-head{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);padding:14px 0 10px;border-bottom:1px solid var(--line);margin-bottom:12px}.xd-head h2{margin:0;font-size:1.1rem;color:var(--investigate)}.xd-close{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 10px;cursor:pointer}.xpop{position:fixed;z-index:41;max-width:min(300px,calc(100vw - 32px));margin:0;padding:9px 13px;font-size:14px;line-height:1.4;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--predict,#7c3aed);border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.14)}.xd-body video{max-width:100%}details.explain{margin:12px 0 4px;border:1px solid var(--line);border-left:4px solid var(--investigate);border-radius:8px;padding:0 16px;background:var(--card)}details.explain summary{cursor:pointer;font-weight:600;padding:10px 0;color:var(--investigate)}
+.clinks{margin:-6px 0 14px;font-size:14px;color:var(--muted,#5d6675)}.clinks p{margin:2px 0}.clinks .clw{opacity:.8}
 .hook{margin:0 0 16px;padding:8px 14px;border-left:4px solid var(--c,#2563eb);background:rgba(37,99,235,.07);border-radius:4px}
 details.reveal summary{cursor:pointer;font-weight:600;padding:12px 0;color:var(--c)}
 details.reveal[open] summary{border-bottom:1px solid var(--line);margin-bottom:6px}
@@ -611,8 +612,16 @@ export function checkHtml(lesson, step, names = {}, snippet = null, task = null,
  * The complete lesson page.
  * deps: { Marked, highlightCode, snippet(ref), clipHtml(step), tryHtml(step), crumb: {href, title}, source }
  */
+/** Lessons linked by a theory concept (deps.conceptLinks from build-site): "Builds on" and "Put to work in". */
+function linksHtml(cl) {
+  if (!cl) return '';
+  const a = (x) => `<a href="${esc(x.href)}" title="${esc(x.label)}">${esc(x.title)}</a> <span class="clw">(${esc(x.where)})</span>`;
+  const row = (name, xs) => (xs.length ? `<p><b>${name}:</b> ${xs.map(a).join(' · ')}</p>` : '');
+  return `<div class="clinks">${row('Builds on', cl.on)}${row('Put to work in', cl.in)}</div>`;
+}
+
 export function lessonPageHtml(lesson, deps) {
-  const { Marked, highlightCode, snippet, clipHtml, tryHtml, crumb, source, snippetNames, course = null, siteRoot = '', siteNavHtml = '', teacherGuide = '', expectedHtml = () => '', pictureHtml = () => '', maths = null, blocksPicture = () => null } = deps;
+  const { Marked, highlightCode, snippet, clipHtml, tryHtml, crumb, source, snippetNames, course = null, siteRoot = '', siteNavHtml = '', teacherGuide = '', conceptLinks = null, expectedHtml = () => '', pictureHtml = () => '', maths = null, blocksPicture = () => null } = deps;
   // Maths lessons: $...$ is rendered at build time (deps.maths, from tools/maths.mjs). Without it (the create page) it stays text.
   const isMaths = lesson.language === 'maths' && !!maths;
   // Answer checks with form: are marked by Numbas, loaded only on lessons that have one (tools/maths-forms.mjs).
@@ -747,7 +756,7 @@ export function lessonPageHtml(lesson, deps) {
   return page(lesson.title, `
 ${mathsHead}${cb}<header class="top">${crumb ? `<a class="crumb" href="${esc(crumb.href)}">← ${esc(crumb.title)}</a>` : ''}<h1>${esc(lesson.title)}</h1>${lesson.summary ? `<p class="lede">${esc(lesson.summary)}</p>` : ''}${lesson.author ? `<p class="by">By ${esc(lesson.author)}</p>` : ''}</header>
 ${lesson.hook ? `<p class="hook">${esc(lesson.hook)}</p>` : ''}
-${md.parse(lesson.intro)}
+${linksHtml(conceptLinks)}${md.parse(lesson.intro)}
 <ul class="legend">${legend}</ul>
 ${widthBar}
 <nav class="steps">${explainBtn}${nav}</nav>

@@ -2,6 +2,7 @@
 order: 7
 unit: binary
 node: AC9TDI8K04 n3
+introduces: [logic-gates]
 title: "Why binary: logic gates"
 summary: "A switch has two states that are easy to tell apart: off (0) and on (1). Wire two switches in a line and the lamp lights only when both are on: an AND gate. Side by side, either one will do: an OR gate. Gates like these, made of tiny electronic switches, combine bits to do every calculation, which is why computers are built on binary."
 language: maths

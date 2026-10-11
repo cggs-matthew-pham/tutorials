@@ -42,14 +42,18 @@ Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 
 
 `systems/logic` (Years 9–10 extension in the Hardware and logic pathway, after Data representation and Inside a computer; every lesson tagged AC9TDI8K04 n3, which the kit says adder circuits go further from): Combining gates (circuits row by row, build to a truth table, NOT and OR from NANDs, Make XOR), Adding with gates (half adder, 4-bit adder with carries and overflow, Make a full adder), Remembering a bit (an SR latch of two NORs, a 4-bit register), A tiny processor (fetch, decode, execute per clock tick; change data and instructions, STORE, a countdown loop; Make a program that outputs 2, 4, 6). New `gates` widget (build, adder, latch) and `cpu` widget. Misconceptions `gate-reads-switches`, `binary-digit-two`, `latch-forgets`, `code-not-numbers`. Logic gates themselves stay in Data representation (one home); this course reviews them and goes deeper.
 
+## Done (12 Oct 2026): 10K02 tagged, theory concepts across subjects
+
+- 10K02: the HTML & CSS course's Tags and nesting (n1), Rules and selectors (n1, n2), Page sections and components and the club page (n2) carry `node:`; the systems map now lists lessons from other subjects tagged with its descriptors (`tools/build-site.mjs`). n3 (why separation matters) has no lesson yet.
+- Theory concepts: `THEORY` in `tools/concepts-core.mjs` (17 ids); every Digital systems lesson that teaches one `introduces:` it; the Caesar cipher `assumes: [text-as-numbers]`, p5 Shapes `assumes: [rgb-colour]`, Combining gates `assumes: [logic-gates]`. The lint accepts an introduction in another subject; lesson pages show "Builds on" and "Put to work in" links. Tests in `npm run check-concepts`.
+
 ## Next
 
-1. Concept links: Secret messages should `assumes:` character codes (needs the cross-language concept change, item 3).
-2. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
-3. Cross-pathway concepts: the concept lint is per language (`CONCEPTS[lesson.language]`), so theory concepts (`bit`, `char-code`, `rgb`) cannot yet be `assumes:` in MakeCode or Python lessons. Needs a small change in `tools/concepts.mjs` (a shared concept list checked across languages, and `systems` in `prerequisites()`'s subject list). Check `roadmap/shared.md` first.
-4. Computers and the command line: five lessons on a browser `shell` board, then a teacher-led Raspberry Pi unit (environments and lessons in the Project doc digital-systems-plan).
-5. More security and CTF: Rules of the game, guessing passwords, encoding is not encryption, what a page gives away; cross-pathway flags and a capstone CTF; picoCTF (Carnegie Mellon) as the linked extension (check its account and age terms).
-6. Shapes as numbers (optional, 8K03): vector vs raster, meshes as lists of vertices; Engineering › 3D and animation builds on it.
+1. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
+2. Computers and the command line: five lessons on a browser `shell` board, then a teacher-led Raspberry Pi unit (environments and lessons in the Project doc digital-systems-plan).
+3. More security and CTF: Rules of the game, guessing passwords, encoding is not encryption, what a page gives away; cross-pathway flags and a capstone CTF; picoCTF (Carnegie Mellon) as the linked extension (check its account and age terms).
+4. Shapes as numbers (optional, 8K03): vector vs raster, meshes as lists of vertices; Engineering › 3D and animation builds on it.
+5. 10K02 n3, why separation matters: one short lesson (the same HTML restyled by swapping only its CSS; why screen readers need structure). Home: Digital systems or the HTML & CSS course (ask the code chat).
 
 ## Open questions
 

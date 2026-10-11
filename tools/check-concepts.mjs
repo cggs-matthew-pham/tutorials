@@ -1,6 +1,6 @@
 // `npm run check-concepts`: tests for the hidden-assumptions scan (tools/concepts.mjs) on Python: the detectors on small
 // snippets (including what must NOT match), and the lint on the real lessons with one tag changed at a time.
-import { conceptsIn, auditConcepts, prerequisites } from './concepts.mjs';
+import { conceptsIn, auditConcepts, prerequisites, theoryLinks } from './concepts.mjs';
 import { loadLessons, loadDirMeta, getSnippet, CONTENT_ROOT } from './lesson.mjs';
 let fails = 0;
 const fail = (m) => { fails++; console.log('FAIL', m); };
@@ -79,5 +79,13 @@ console.log(baseH.length === 0 ? 'ok   HTML course: no warnings' : (fail('HTML b
 expect('dropping link from Lists and links warns Images (it uses a link)', run((ls) => drop(lesson(ls, 'lists-links'), 'introduces', 'link')), /code\/html\/(lists-links|images) .*uses link/);
 expect('dropping display from Forms warns Forms', run((ls) => drop(lesson(ls, 'forms'), 'introduces', 'display')), /code\/html\/forms .*uses display/);
 expect('the optional Grid lesson does not count for the required club page', run((ls) => { drop(lesson(ls, 'flexbox'), 'introduces', 'flex-options'); lesson(ls, 'grid').introduces.push('flex-options'); }), /code\/html\/(flexbox|sections|club-page) .*uses flex-options/);
+// theory concepts (Digital systems): introduced in a systems lesson, assumed by lessons in any subject
+const baseT = run(() => {}).filter((w) => /systems\/|microbit-security\/caesar|p5-shapes/.test(w));
+console.log(baseT.length === 0 ? 'ok   theory links: no warnings' : (fail('theory baseline changed: ' + baseT.join(' | ')), ''));
+expect('dropping text-as-numbers from Text as numbers warns the Caesar cipher (another subject)', run((ls) => drop(lesson(ls, 'text-as-numbers'), 'introduces', 'text-as-numbers')), /microbit-security\/caesar › assumes: text-as-numbers/);
+expect('a theory id typo warns, even in a maths-language lesson', run((ls) => lesson(ls, 'binary-numbers').introduces.push('binery')), /binary-numbers › introduces: "binery" is not a concept id/);
+expect('within a subject the order counts: a later lesson cannot be what an earlier one assumes', run((ls) => lesson(ls, 'data-as-numbers').assumes.push('binary')), /data-as-numbers › assumes: binary/);
+{ const tl = theoryLinks(loadLessons()), c = tl.get('code/microbit-security/caesar'), t = tl.get('systems/data/text-as-numbers');
+  (c?.on.some((x) => x.slug === 'systems/data/text-as-numbers') && t?.in.some((x) => x.slug === 'code/microbit-security/caesar')) ? console.log('ok   links: Caesar builds on Text as numbers, and back') : fail('theoryLinks: Caesar and Text as numbers not linked'); }
 console.log(fails ? `${fails} FAILED` : 'all passed');
 process.exit(fails ? 1 : 0);

@@ -2,6 +2,7 @@
 order: 1
 unit: specs
 node: AC9TDI8K01 n1
+introduces: [hardware-specs]
 title: What the specs mean
 summary: "A spec sheet lists a computer's parts and how much of each it has: processor cores and speed, RAM, storage size and type, network bandwidth and graphics. Each one measures something different, on a phone, a laptop or a server."
 language: maths

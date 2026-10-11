@@ -1,6 +1,7 @@
 ---
 order: 8
 unit: components
+node: AC9TDI10K02 n2
 title: Page sections and components
 summary: Name the parts of a page with header, nav, main, section and footer, and build components such as a hero and a row of cards.
 language: html

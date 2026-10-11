@@ -266,6 +266,30 @@ export const CONCEPTS = {
   ],
 };
 
+/** Theory concepts (Digital systems): ideas, not syntax, so the scan never sees them. A Digital systems lesson
+ *  `introduces:` one; a lesson in any subject or language that relies on it `assumes:` it. Across subjects there is
+ *  no lesson order, so an introduction in another subject counts (the page links the two: "Builds on" and "Put to work
+ *  in"). Within a subject the usual order applies. */
+export const THEORY = [
+  { id: 'text-as-numbers', label: 'text is stored as numbers (character codes)' },
+  { id: 'rgb-colour', label: 'a colour is three numbers (red, green, blue, 0 to 255)' },
+  { id: 'pixel-grid', label: 'an image is a grid of pixels' },
+  { id: 'sound-samples', label: 'sound is stored as samples' },
+  { id: 'binary', label: 'binary place value' },
+  { id: 'bit-patterns', label: 'n bits make 2ⁿ patterns; overflow' },
+  { id: 'logic-gates', label: 'logic gates (AND, OR, NOT)' },
+  { id: 'run-length', label: 'run-length encoding' },
+  { id: 'lossy-lossless', label: 'lossy and lossless compression' },
+  { id: 'packets', label: 'data travels in packets' },
+  { id: 'encryption-purpose', label: 'why data is encrypted on its way' },
+  { id: 'ip-dns', label: 'IP addresses and DNS' },
+  { id: 'permissions', label: 'authentication and permissions' },
+  { id: 'hashing', label: 'hashes (one-way scrambles)' },
+  { id: 'public-key', label: 'public and private keys' },
+  { id: 'hardware-specs', label: 'hardware specifications (processor, RAM, storage)' },
+  { id: 'fetch-execute', label: 'fetch, decode, execute' },
+];
+export const theoryIds = new Set(THEORY.map((c) => c.id));
 export const conceptIds = (language) => new Set((CONCEPTS[language] || []).map((c) => c.id));
 export const has = (c, code) => (c.test ? c.test(code) : c.re ? c.re.test(code) : false);
 

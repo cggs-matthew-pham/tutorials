@@ -2,6 +2,7 @@
 order: 1
 node: AC9TDI8K04 n3
 unit: build
+assumes: [logic-gates]
 title: Combining gates
 summary: "Wire one gate's output into another gate's input and you get a circuit. Work a circuit out row by row, each gate using only what arrives on its wires, then build circuits to match truth tables, even from NAND gates alone."
 language: maths
