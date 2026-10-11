@@ -15,6 +15,7 @@ running:
   - "Engage: count how many chose 'all the same'."
   - "Explore: compare bar charts between students: similar shape, different details."
   - "Explain: the 'why only inherited' question is the checkpoint."
+struggle: "Telling inherited from environmental variation. When a student is unsure, ask whether the difference could be passed on in a sperm or an egg."
 stuck:
   - see: "A student says the variation is just 'mistakes'."
     ask: "Would a population where every beetle was identical be better or worse off if things changed?"

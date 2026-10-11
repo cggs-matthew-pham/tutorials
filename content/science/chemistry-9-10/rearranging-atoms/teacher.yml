@@ -16,6 +16,7 @@ running:
   - "Explore: pause the board at any moment and count one atom type on screen against the panel."
   - "Explain: the two number checks are the counting skill; the last question links it to mass."
   - "Practise: the H₂O₂ question is the commonest balancing error; discuss it aloud."
+struggle: "Tracking every atom from before to after. When a student says the fuel was used up, ask them to find one of its carbon atoms now."
 stuck:
   - see: "A student says the methane was used up, so its atoms are gone."
     ask: "Find a carbon atom on the board now. Where is it?"

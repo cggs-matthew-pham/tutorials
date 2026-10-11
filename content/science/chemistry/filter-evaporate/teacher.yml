@@ -17,6 +17,7 @@ running:
   - "Engage: count how many predicted sand and salt. That is the misconception the filter board answers."
   - "Explain: ordering the steps is the procedural core; read the orders aloud together."
   - "Practise: the quiz includes 'neither' items; those test whether students ask 'did it dissolve?' or just pick a technique."
+struggle: "Why dissolved salt passes through a filter. When a student says the salt stays in the paper, ask how big dissolved particles are compared with the holes."
 stuck:
   - see: "A student says the salt stays in the filter paper."
     ask: "How big are dissolved salt particles compared with the holes?"

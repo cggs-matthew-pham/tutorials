@@ -18,6 +18,7 @@ running:
   - "Explore: on the bar, point to one particle for a few seconds. On the beaker, follow the ring the whole way round."
   - "Explain: the first two questions are the core; the sort applies them; 'why not in a solid' links back to Year 7 particle theory."
   - "In your own words: the comparison paragraph is the evidence for the node."
+struggle: "Seeing energy move while the particles stay put. When a student says particles travel along the bar, ask them to watch one particle in the middle for ten seconds."
 stuck:
   - see: "A student says heat rises."
     ask: "On the board, what moved up?"

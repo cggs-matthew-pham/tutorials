@@ -16,6 +16,7 @@ running:
   - "Explore: ask 'what is the same on both boards?' (atom types) and 'what is different?' (joined or not)."
   - "Explain: the first question is the checkpoint. The sort mixes formulas and descriptions on purpose."
   - "In your own words: the salt paragraph is the best evidence for the node."
+struggle: "Seeing a compound as a new substance, not its elements mixed. When a student calls water a mixture, ask whether water burns the way hydrogen does."
 stuck:
   - see: "A student says water is a mixture of hydrogen and oxygen."
     ask: "Would water let things burn, like hydrogen and oxygen do?"

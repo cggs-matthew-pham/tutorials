@@ -14,6 +14,7 @@ running:
   - "Explore: make sure students remove the jar for all three states, not just the gas."
   - "Explain: the 12-item sort is the minimum description. Then the two questions turn description into explanation."
   - "In your own words: collect the juice and sugar cube paragraph; it is the best evidence of the node's checkpoint."
+struggle: "Explaining a property from what the particles do, not the state's name. When a student says gas rises because it is light, ask which way the particles moved on the board."
 stuck:
   - see: "A student says the gas floats up because it is light."
     ask: "Which way did the gas particles move on the board?"

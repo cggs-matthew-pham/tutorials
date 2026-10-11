@@ -15,6 +15,7 @@ running:
   - "Engage: most students predict salty water. Watch the board together to see only water particles cross."
   - "Explore: chromatography is quick to run for real with felt-tip pens, filter paper and water; do it if you can."
   - "Explain: read the sort aloud as a comparison table: same property, different outcome, different equipment."
+struggle: "Explaining each technique by the property it uses. When a student says distillation is just evaporation, ask what happens to the steam in each."
 stuck:
   - see: "A student says distillation and evaporation are the same."
     ask: "What happens to the steam in each?"

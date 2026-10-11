@@ -15,6 +15,7 @@ running:
   - "Explain: the four key ideas are the hinge. Have students say them aloud in order: particles, space, motion, attraction."
   - "Practise: six correct, not six in a row. Listen for students naming a feature, not just a state."
   - "Evaluate: the 'At first I thought… Now I think…' sentence is worth collecting as an exit card."
+struggle: "Accepting empty space between particles, with nothing in it. When a student puts air between the particles, ask what air is made of."
 stuck:
   - see: "A student says there is air between the particles."
     ask: "What is air made of?"

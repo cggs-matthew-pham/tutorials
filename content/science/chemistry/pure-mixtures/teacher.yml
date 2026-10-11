@@ -13,6 +13,7 @@ running:
   - "Engage: ask who chose the juice. The shopping meaning of 'pure' is the main competitor."
   - "Explore: ask students to count kinds of particles aloud for each sample."
   - "Explain: salt water is the key case. If they get it, they have the definition."
+struggle: "Judging by kinds of particle, not by how clear or 'natural' it looks. When a student says salt water is pure, ask how many kinds of particle are in the sample."
 stuck:
   - see: "A student says salt water is pure because it is clear."
     ask: "How many kinds of particles did you count in the salt water sample?"

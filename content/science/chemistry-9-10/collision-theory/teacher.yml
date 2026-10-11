@@ -16,6 +16,7 @@ running:
   - "Explore: ask students to read out the percentage of collisions that react at each temperature. That number is the key to the Explain step."
   - "Explain: the third question separates frequency from energy; take it slowly."
   - "Typical: pool the class's two times on the board: the spread is part of the lesson."
+struggle: "Explaining a rate change by how often particles collide and how many have enough energy. When a student says heat makes particles want to react, ask what changed in the panel: collisions, or the share that react."
 stuck:
   - see: "A student says heat makes the particles want to react."
     ask: "What changed in the panel: the number of collisions, or the share that react?"

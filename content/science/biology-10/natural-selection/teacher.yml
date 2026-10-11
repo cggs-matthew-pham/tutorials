@@ -18,6 +18,7 @@ running:
   - "Engage: count how many chose 'each beetle changes colour'."
   - "Explore: collect the class's starting and final averages; most should have moved towards the ground colour."
   - "Explain: 'did any beetle change?' is the checkpoint."
+struggle: "Saying the population changed, not the beetles. When a student says the beetles adapted, ask whether any one beetle changed its own colour."
 stuck:
   - see: "A student says humans are the most evolved species."
     ask: "How long has a chimpanzee's line, or a mushroom's, been evolving?"
