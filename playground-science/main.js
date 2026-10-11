@@ -522,7 +522,7 @@
   }
 
   W.atoms = function (spec) {
-    var list = species(spec.show || 'H2 x4, O2 x3, H2O x5'), forms = list.map(function (x) { return x[0]; });
+    var list = species(spec.show || 'H2 x4, O2 x3, H2O x5'), forms = list.map(function (x) { return x[0]; }).filter(function (f, i, all) { return all.indexOf(f) === i; });
     var need = spec.need === 'all' || !spec.need ? forms.length : Math.min(forms.length, Number(spec.need));
     var v, sim, seen = {}, cur = null, next = 0;
     // Controls first, so the box is shaped to the room the board has left.

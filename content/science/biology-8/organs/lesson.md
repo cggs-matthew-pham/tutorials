@@ -1,7 +1,6 @@
 ---
-order: 4
+order: 6
 node: AC9S8U02 n3
-assumes: [AC9S8U02 n2]   # tissues: taught in class (no tutorial yet)
 unit: systems
 title: What is an organ made of?
 summary: "An organ is made of several different tissues working together. A leaf has epidermis, palisade and spongy mesophyll and vascular tissue; the heart has cardiac muscle, a lining, connective tissue and nervous tissue."

@@ -2,6 +2,13 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: six tutorials from the class-taught list (11 Oct 2026, science chat)
+
+Each removes an `assumes:` line: What is an element? (`chemistry-8/elements`, 8U06 n2), Same particles, new look? (`chemistry-8/physical-change`, 8U07 n1), What is the net force? (`physics-10/net-force`, 10U05 n1), How small is a cell? (`biology-8/cell-scale`, 8U01 n1), What is a tissue? (`biology-8/tissues`, 8U02 n2) and a short one, Why sort living things? (`biology-7/why-classify`, 7U01 n1, Matthew asked for it as a brief lesson). Existing boards only; orders in Year 8 Chemistry, Year 8 Biology, Year 7 Biology and Year 10 Physics moved to fit. Voiced clips (ports 8265–8270, next free 8271) and pictures (none for the key board); every check passes headless; decks fit; primers updated.
+- Fix in the atoms widget (`playground-science/main.js`, science-owned): a kind listed twice in `show:` (the explain boards' "inspect next" order trick) was counted twice ("6 kinds of particle", duplicate table rows). Now counted once.
+- Noted, not changed (shared `forces` widget): arrows for large forces (a car's newtons) are short and labels of two forces on one side crowd the object. Readable; worth a look if the Year 10 force lessons grow.
+- Still class-taught (in `assumes:`): 7U02 n3, 8U01 n4–n5, 8U04 n1, 8U06 n4–n5, 9U01 n3, 9U02 n2, 9U03 n2, 10U01 n2, 10U03 n1, 10U07 n4, 7U05 n4–n5.
+
 ## Done: science lessons tagged, map on (11 Oct 2026, science chat)
 
 Every science lesson names its node; the node check runs for science; `/science/map/` is on. Decided (Matthew): Human endeavour and Inquiry are woven through lessons and class work, with no tutorials of their own; the map says so. The `assumes:` lines are the class-taught nodes the tutorials rely on, a ready list for the non-hinge queue (such as 7U01 n1 purpose of classification, 8U01 n1 cellular scale, 8U06 n2 elements, 8U07 n1 physical change, 10U05 n1 force as a vector).

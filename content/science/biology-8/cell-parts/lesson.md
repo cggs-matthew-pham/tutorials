@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 node: AC9S8U01 n3
 unit: cells
 title: What does every cell have?

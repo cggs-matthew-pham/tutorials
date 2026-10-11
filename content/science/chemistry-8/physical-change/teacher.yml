@@ -1,0 +1,41 @@
+summary: Students explain physical change as the same particles rearranged, spread out or packed together, with no new substance formed, and represent it with the particle model (AC9S8U07, node 1).
+time: 24
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 3 min"
+goals:
+  - I can explain a physical change at the particle level.
+  - I can say what changes and what stays the same in a physical change.
+  - I can draw particle diagrams of a physical change.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It comes after Elements and compounds and before Is it a new substance? (chemical change, node 2), which uses the same boards to compare.
+
+  Not a hinge node, but its misconceptions return in chemical change: boiling splits water into hydrogen and oxygen; particles expand when heated; dissolved substances are destroyed. The prediction tests the first.
+
+  Board notes: the heat board shows water's particles as single dots (not their atoms); the steam board shows each particle's atoms. Real steam is invisible; the white cloud above a kettle is tiny drops of liquid water. The dissolve board's salt particles stand for sodium and chloride ions.
+running:
+  - "Engage: tally the predictions. 'Hydrogen and oxygen' is the one to come back to in the Typical step."
+  - "Explore: ask whether any new kind of particle appeared, and what did change."
+  - "Explain: the 'what changes' sort and the physical-or-not sort are the success criteria."
+  - "In your own words: the three boxes drawn with the same symbol for water are the evidence."
+stuck:
+  - see: "A student says the particles get bigger when water boils."
+    ask: "On the board, did the dots get bigger or the gaps?"
+    fix: "The gaps. The particles stay the same size; they move faster and spread out."
+  - see: "A student says dissolving is a chemical change because the salt disappears."
+    ask: "If you evaporate the water, what is left?"
+    fix: "The salt. Its particles were spread out, not changed."
+  - see: "A student says bubbles always mean a new substance."
+    ask: "What is inside a bubble in boiling water?"
+    fix: "Steam: water particles. Bubbles are only a clue to a chemical change, not proof."
+stretch: "Why does a puddle dry up on a warm day without boiling? (Some particles at the surface have enough energy to escape: evaporation. Still water particles, still a physical change.)"
+support: "Give the frame: 'In … the particles … but each particle is still … , so no new substance is made.'"
+leads: |
+  Next: Is it a new substance? (chemical change, node 2), which uses the melting and dissolving boards again to compare with a reaction.
+
+  In class: melting chocolate or wax, condensation on a cold can, dissolving and recovering salt by evaporation; weigh ice in a sealed bag before and after melting.
+exit:
+  q: "Wax melts on a candle and drips. Use particles to explain why this is a physical change."
+  a: "The wax particles move from fixed positions to sliding past each other, but each particle is still wax: no new substance, so physical."
+explain: |
+  In a **physical change** (melting, boiling, dissolving) the particles change how they are arranged, how far apart they are and how fast they move. Every particle stays the same, so **no new substance** is made.
+
+  Steam is still water particles; dissolved salt is still salt. The number of particles, and so the mass, stays the same.

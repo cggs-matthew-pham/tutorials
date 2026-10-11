@@ -1,0 +1,42 @@
+# Boards for "What is the net force?".
+
+# region: car
+widget: forces
+object: Car
+mass: 1200
+force T: right, 2000, Driving force, adjust 0-4000 by 100
+force D: left, 500, Air resistance, adjust 0-3000 by 100
+force R: left, 300, Rolling resistance
+# endregion
+
+# region: tug
+widget: forces
+object: Rope
+mass: 1
+force A: left, 400, Ana, adjust 0-800 by 50
+force B: left, 300, Ben
+force C: right, 350, Cai, adjust 0-800 by 50
+force D: right, 250, Dee
+# endregion
+
+# region: cruise
+widget: forces
+object: Car
+mass: 1200
+force T: right, 1800, Driving force, adjust 0-3000 by 100
+force D: left, 1200, Air resistance
+force R: left, 300, Rolling resistance
+motion: on
+speed: 20
+track: 400
+time: 10
+# endregion
+
+# region: explain
+widget: forces
+object: Car
+mass: 1200
+force T: right, 1200, Driving force, adjust 0-3000 by 400
+force D: left, 500, Air resistance
+force R: left, 300, Rolling resistance
+# endregion

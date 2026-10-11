@@ -1,0 +1,23 @@
+# Boards for "What is a tissue?".
+
+# region: muscle
+widget: cell
+show: muscle
+# endregion
+
+# region: heart
+widget: cell
+show: heart
+find: muscle, lining, nerve
+# endregion
+
+# region: leaf
+widget: cell
+show: leaf
+find: palisade, xylem, phloem
+# endregion
+
+# region: explain
+widget: cell
+show: heart
+# endregion

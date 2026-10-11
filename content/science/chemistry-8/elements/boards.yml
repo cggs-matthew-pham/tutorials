@@ -1,0 +1,36 @@
+# Science boards for "What is an element?".
+
+# region: oxygen
+widget: atoms
+show: O2 x10
+caption: A jar of pure oxygen, enlarged millions of times.
+# endregion
+
+# region: helium
+widget: atoms
+show: He x12
+caption: A balloon's worth of helium, enlarged.
+# endregion
+
+# region: water
+widget: atoms
+show: H2O x10
+caption: Pure water vapour, enlarged.
+# endregion
+
+# region: monoxide
+widget: atoms
+show: CO x10
+caption: "CO: carbon monoxide."
+# endregion
+
+# region: ozone
+widget: atoms
+show: O3 x6, O2 x6
+caption: Oxygen and ozone, high in the atmosphere.
+# endregion
+
+# region: explain
+widget: atoms
+show: O2 x1, He x1, H2O x1, O2 x3, He x3, H2O x2
+# endregion

@@ -23,3 +23,7 @@ A formula tells you the atom types and how many of each: H₂O has 2 H and 1 O. 
 - A molecule of an element must be a single atom (so O₂ "is a compound").
 - The subscript multiplies the whole formula (H₂O read as "2 water").
 - Atoms of a substance have the substance's properties (a copper atom is "orange", a sulfur atom "smells").
+
+## Elements (the new first step)
+
+An **element** is a pure substance of only one type of atom; its particles may be single atoms (He) or joined (O₂, O₃). Symbols are one capital letter or a capital and a small letter (Co is cobalt, CO is carbon monoxide). Misconceptions: pure means element; an element's particles must be single atoms.

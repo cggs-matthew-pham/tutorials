@@ -28,3 +28,7 @@ Plant cells also have a **cell wall** (support), **chloroplasts** (photosynthesi
 - Only animals have cells (plants are "made of plant stuff").
 - The cell wall and the cell membrane are the same thing.
 - The nucleus is a "brain" that thinks; it holds instructions.
+
+## Cellular scale (the first lesson)
+
+Most cells are 0.01 to 0.1 mm across, below the eye's limit of about 0.1 mm; a person has about 37 trillion. Magnification = image size ÷ actual size. Cells were discovered with the microscope (Hooke 1665, Leeuwenhoek). Misconceptions: cells are about the size of sand grains; bigger animals have bigger cells.

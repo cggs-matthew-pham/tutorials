@@ -1,0 +1,41 @@
+summary: Students describe the scale of cells relative to organisms and familiar objects, and explain why microscopes were needed to discover and observe them (AC9S8U01, node 1).
+time: 22
+timing: "Engage and Explore 6 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 3 min"
+goals:
+  - I can explain why cells can't be seen without a microscope.
+  - I can compare a cell's size with something familiar.
+  - I can explain why microscopes were needed to discover cells.
+before: |
+  A concept tutorial for introducing or revising the idea; it is no substitute for looking down a microscope. Set the width with `?width=minimum`, `typical` (default) or `wider`. It opens Year 8 Biology, before Is everything alive made of cells? (cell theory, node 2).
+
+  Not a hinge node, but it is the entry point: students arrive with organism-level biology, and without a sense of scale "cells" stay a word. The prediction exposes that sense (thousands or millions instead of trillions).
+
+  Board notes: the zoom board's later levels (nucleus to gene) are Year 10 content; students only need the first step here. The cell diagrams are drawn about 1000 times life size, all at the same size on screen, though real cells vary a lot (bacteria are about ten times smaller than most animal cells).
+running:
+  - "Engage: tally the guesses. Thousands and millions mean cells imagined far too big."
+  - "Explore: ask how big the cell would be on the screen if it were drawn life size (about a fiftieth of a millimetre: invisible)."
+  - "Explain: the 'too small to see' question and the sort are the success criteria; the two number checks are the size comparison."
+  - "In your own words: the 1 mm line with cells, a hair and a bacterium is the evidence."
+stuck:
+  - see: "A student thinks cells are about the size of a grain of sand."
+    ask: "Can you see a grain of sand? How many cells fit across one?"
+    fix: "About 25 cheek cells or 250 bacteria would fit across a 0.5 mm grain. Cells are far smaller than anything the eye can pick out."
+  - see: "A student thinks bigger organisms have bigger cells."
+    ask: "Is an elephant's skin cell much bigger than yours?"
+    fix: "No: about the same. Bigger organisms have more cells, not bigger ones."
+  - see: "A student mixes up magnification and actual size."
+    ask: "Did the cell grow, or does it only look bigger?"
+    fix: "Magnification makes it look bigger: image size = actual size × magnification."
+stretch: "A red blood cell is 0.008 mm across. At what magnification would it look 4 mm across? (500 times.)"
+support: "Give the reference sizes on a card: hair 0.1 mm, cheek cell 0.05 mm, red blood cell 0.008 mm, bacterium 0.002 mm."
+leads: |
+  Next: Is everything alive made of cells? (cell theory, node 2).
+
+  In class: an onion skin or cheek cell slide under a light microscope; measuring the field of view with a ruler to estimate cell size; a class scale line from 1 m down to 1 µm.
+exit:
+  q: "Why couldn't anyone in 1500 have known that plants are made of cells?"
+  a: "Cells are smaller than the eye can see (about 0.01 to 0.1 mm), and microscopes strong enough to magnify them hadn't been invented."
+explain: |
+  Most cells are about 0.01 to 0.1 mm across, smaller than the eye can see (about 0.1 mm). Your body has about 37 trillion of them.
+
+  A microscope **magnifies**: a cell 0.02 mm wide magnified 400 times looks 8 mm wide. Cells were discovered only once microscopes were invented, in the 1600s.

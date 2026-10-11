@@ -19,3 +19,7 @@ A colour change, a gas given off (bubbles), a solid forming in a liquid, light, 
 - Dissolving is a chemical change because the solid "disappears".
 - In burning, the fuel is destroyed or "turns into energy".
 - Mixing two substances is always a chemical change.
+
+## Physical change first
+
+The unit now opens with physical change (node 1): melting, boiling and dissolving rearrange the same particles, so no new substance forms and the mass stays the same. Steam is still H₂O. Chemical change (node 2) then contrasts with it on the same boards.

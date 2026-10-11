@@ -1,0 +1,26 @@
+# Science boards for "Same particles, new look?".
+
+# region: melt
+widget: heat
+# endregion
+
+# region: steam
+widget: atoms
+show: H2O x12
+temp: 420
+caption: Steam, enlarged millions of times.
+# endregion
+
+# region: dissolve
+widget: dissolve
+# endregion
+
+# region: explain
+widget: heat
+# endregion
+
+# region: explain-pic
+widget: atoms
+show: H2O x12
+temp: 420
+# endregion

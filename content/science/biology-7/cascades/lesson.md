@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 node: AC9S7U02 n4
 assumes: [AC9S7U02 n3]   # abiotic factors and population effects: taught in class (no tutorial yet)
 unit: foodwebs

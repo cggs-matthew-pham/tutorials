@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 node: AC9S7U02 n1
 unit: foodwebs
 title: Who eats whom?

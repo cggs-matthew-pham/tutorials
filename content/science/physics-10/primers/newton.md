@@ -18,3 +18,7 @@ title: Newton's laws in 5 minutes
 - Acceleration means "going fast"; a fast object at a steady speed has zero acceleration.
 - In F = ma, F is any force on the object (it is the net force).
 - Mass and weight are interchangeable in F = ma.
+
+## Net force (the first lesson)
+
+A force is a vector. Along one line, add forces that point the same way and subtract opposite ones: what is left is the **net force**, which is what changes motion. Misconception: adding every force as a number, ignoring direction. The force board draws arrows short when forces are large; read the values in the labels.

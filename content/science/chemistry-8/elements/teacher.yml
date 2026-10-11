@@ -1,0 +1,41 @@
+summary: Students define an element as a pure substance of only one type of atom, tell elements from compounds by their particles, and use chemical symbols (AC9S8U06, node 2).
+time: 24
+timing: "Engage and Explore 7 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 4 min"
+goals:
+  - I can define an element.
+  - I can tell an element from a compound by the atoms in its particles.
+  - I can use chemical symbols, including two-letter ones.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It builds on What are particles made of? (node 1) and comes before Why isn't salt poisonous? (compounds, node 3).
+
+  Not a hinge node, but two ideas trip students up here: "pure" taken to mean "element", and "element" taken to mean "single atoms" (so O₂ looks like a compound). The prediction tests both.
+
+  Board notes: every substance is drawn as a gas in a box, including metals' atoms in other lessons; real metals are solids made of atoms packed together. Molecules are rigid, in 2D. The board names each kind of particle (element or compound) once inspected.
+running:
+  - "Engage: tally the predictions. 'Both' means pure = element; 'neither' means element = single atoms."
+  - "Explore: ask what was the same about every atom in the oxygen jar, and what was different in water."
+  - "Explain: the definition, the sort and the symbols are the node's success criteria; Co and CO is the two-letter rule."
+  - "In your own words: the three labelled particle drawings are the evidence."
+stuck:
+  - see: "A student says oxygen is a compound because each particle has two atoms."
+    ask: "Are the two atoms the same type or different?"
+    fix: "The same: both oxygen. One type of atom makes it an element, however many are joined."
+  - see: "A student says water is an element because it is pure."
+    ask: "How many types of atom are in a water particle?"
+    fix: "Two, hydrogen and oxygen: a pure compound. Pure means one substance, not one type of atom."
+  - see: "A student writes CO for cobalt."
+    ask: "How many capital letters are in CO?"
+    fix: "Two, so two elements: carbon and oxygen. Cobalt is Co, a capital and a small letter."
+stretch: "Diamond and graphite are both pure carbon. Why are they so different? (The carbon atoms are joined in different patterns.)"
+support: "Give the frame: 'Every atom in … is …, so it is an element.' and 'A … particle has … and … atoms, so it is a compound.'"
+leads: |
+  Next: Why isn't salt poisonous? (compounds, node 3).
+
+  In class: element samples (copper, sulfur, carbon, aluminium foil) beside compounds (salt, water, sugar); a periodic table hunt for the elements in everyday objects; symbol bingo.
+exit:
+  q: "Nitrogen gas is N₂ and ammonia is NH₃. Which is an element, and how can you tell from the formula?"
+  a: "Nitrogen: only one symbol (N), so one type of atom. Ammonia has two symbols (N and H): a compound."
+explain: |
+  An **element** is a pure substance made of only one type of atom. Its particles can be single atoms (helium, He) or atoms joined together (oxygen, O₂), as long as every atom is the same type.
+
+  Each element has a **symbol**: a capital letter, or a capital and a small letter (Co is cobalt; CO is carbon monoxide, a compound). The periodic table lists them all.

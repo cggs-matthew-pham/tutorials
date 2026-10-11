@@ -1,0 +1,41 @@
+summary: Students define a tissue as a group of similar specialised cells doing a shared job, give animal and plant examples, and explain how a tissue does what single cells can't (AC9S8U02, node 2).
+time: 23
+timing: "Engage and Explore 7 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 3 min"
+goals:
+  - I can define a tissue.
+  - I can name an animal tissue and a plant tissue and the job of each.
+  - I can explain how a tissue does a job that one cell can't.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It sits between Why are cells different shapes? (node 1) and What is an organ made of? (node 3), which uses the same heart and leaf diagrams for whole organs.
+
+  Not a hinge node, but it is the step students skip: they jump from cells to organs without the "similar cells, one job" level. The prediction tests whether they expect one big cell, or every cell equally.
+
+  Board notes: the heart wall and leaf are labelled diagrams, not to scale; each layer stands for millions of cells. Blood counts as a tissue (cells in a liquid), which surprises some students.
+running:
+  - "Engage: tally the predictions. 'One large cell' and 'every kind of cell equally' are the two misconceptions."
+  - "Explore: ask how the muscle cell's job relates to the muscle tissue's job (the same, at a bigger scale)."
+  - "Explain: the definition and the matching are the success criteria; 'why a tissue' is the collective idea."
+  - "In your own words: the cell-to-tissue drawings for muscle and xylem are the evidence."
+stuck:
+  - see: "A student calls the heart a tissue."
+    ask: "How many kinds of cell are in the heart wall?"
+    fix: "Several, in different layers: muscle, lining, nervous, connective. Several tissues together make an organ."
+  - see: "A student says a tissue is any cells in the same place."
+    ask: "Are the cells alike, and do they share one job?"
+    fix: "A tissue is similar cells with one job. Cells side by side doing different jobs belong to different tissues."
+  - see: "A student thinks plants don't have tissues."
+    ask: "How does water get from the roots to the leaves?"
+    fix: "Through xylem: a tissue of long, hollow cells joined into tubes."
+stretch: "Blood is called a tissue, though it's a liquid. Does it fit the definition? (Yes: specialised cells, such as red blood cells, carried in plasma, doing shared jobs like carrying oxygen.)"
+support: "Give the frame: '… tissue is made of many … cells. Together they … , which one cell could not do on its own.'"
+leads: |
+  Next: What is an organ made of? (node 3). Organ systems (node 4) are a class task.
+
+  In class: prepared slides of muscle, epithelium (cheek cells) and a plant stem section; matching cards from cell to tissue to organ to system.
+exit:
+  q: "Name one animal tissue and one plant tissue, and say the job each does."
+  a: "For example: muscle tissue contracts to move the body; xylem carries water up the plant."
+explain: |
+  A **tissue** is a group of similar specialised cells working together to do one job. Muscle tissue contracts, epithelial tissue lines and protects, nervous tissue carries signals; in plants, xylem carries water and phloem carries sugar.
+
+  Together the cells do what one cell can't do alone. Several tissues working together make an **organ**.

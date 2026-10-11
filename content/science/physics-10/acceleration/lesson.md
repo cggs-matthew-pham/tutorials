@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 node: AC9S10U05 n3
 unit: newton
 title: What is acceleration, exactly?

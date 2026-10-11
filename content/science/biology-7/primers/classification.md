@@ -27,3 +27,7 @@ A **dichotomous key** identifies an organism by a series of two-way choices ("Do
 - Organisms in the same kingdom must be close relatives (kingdoms group by features; relatedness comes from shared ancestors).
 - Only animals are living things that move; bacteria aren't living.
 - Keys are about names, not features (students guess the animal, then follow the key backwards).
+
+## Why classify (a short opening lesson)
+
+Classification helps us identify organisms, communicate with one shared name and see relationships. It groups by shared features (unlike a list), and every system is built for a purpose, including First Peoples' systems tied to Country.

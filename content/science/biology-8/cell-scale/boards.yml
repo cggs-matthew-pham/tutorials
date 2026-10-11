@@ -1,0 +1,28 @@
+# Boards for "How small is a cell?".
+
+# region: zoom
+widget: cell
+show: zoom
+# endregion
+
+# region: cells
+widget: cell
+show: animal, plant
+find: nucleus
+# endregion
+
+# region: single
+widget: cell
+show: bacterium, yeast
+find: membrane
+# endregion
+
+# region: explain
+widget: cell
+show: zoom
+# endregion
+
+# region: explain-pic
+widget: cell
+show: animal, plant
+# endregion

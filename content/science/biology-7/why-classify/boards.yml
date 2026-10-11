@@ -1,0 +1,29 @@
+# Boards for "Why sort living things?".
+
+# region: key
+widget: key
+step A: Does it have a backbone? | B | D
+step B: Does it have feathers? | Kookaburra | C
+step C: Does it lay eggs? | Platypus | Red kangaroo
+step D: Does it have six legs? | Bull ant | Huntsman spider
+specimen: Red kangaroo | A backbone, fur, and its young grow in a pouch.
+specimen: Bull ant | No backbone; a hard outer skeleton and six legs.
+specimen: Platypus | A backbone, fur and a flat bill; lays eggs.
+specimen: Kookaburra | A backbone, feathers and a strong beak; lays eggs.
+specimen: Huntsman spider | No backbone; eight legs and two body parts.
+need: 2
+# endregion
+
+# region: explain
+widget: key
+step A: Does it have a backbone? | B | D
+step B: Does it have feathers? | Kookaburra | C
+step C: Does it lay eggs? | Platypus | Red kangaroo
+step D: Does it have six legs? | Bull ant | Huntsman spider
+specimen: Red kangaroo | A backbone, fur, and its young grow in a pouch.
+specimen: Bull ant | No backbone; a hard outer skeleton and six legs.
+specimen: Platypus | A backbone, fur and a flat bill; lays eggs.
+specimen: Kookaburra | A backbone, feathers and a strong beak; lays eggs.
+specimen: Huntsman spider | No backbone; eight legs and two body parts.
+need: 2
+# endregion

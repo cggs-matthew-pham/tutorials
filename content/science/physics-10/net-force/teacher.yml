@@ -1,0 +1,41 @@
+summary: Students represent forces as vectors and add or subtract forces along one line to find the net force, then say what the net force does to motion (AC9S10U05, node 1).
+time: 24
+timing: "Engage and Explore 7 min · Explain 10 min · Evaluate 3 min · Typical adds 4 min, Wider about 4 min"
+goals:
+  - I can explain why force is a vector.
+  - I can find the net force from several forces along one line.
+  - I can say whether a net force will change an object's motion.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It revisits Year 7 force arrows (AC9S7U04) with numbers, and leads straight into Does a moving thing need a push? (first law, node 2).
+
+  Not a hinge node, but the slip it targets returns in every later lesson: adding all the forces as numbers, ignoring direction. The prediction's 2800 N catches it.
+
+  Board notes: the board shows horizontal forces only (and weight and support when set); the net force is horizontal, positive to the right. In the Wider step the car moves along a track with a speed–time graph. Real air resistance grows with speed; here it is a fixed force.
+running:
+  - "Engage: tally 1200 / 2800 / 2000 / zero. The 2800s added every force."
+  - "Explore: ask what one click on a force did to the net force (changed it by the same amount)."
+  - "Explain: the two number checks are the success criteria; the skydiver links zero net force to steady motion."
+  - "In your own words: the scaled force diagram with the calculation is the evidence."
+stuck:
+  - see: "A student adds all the forces (2000 + 500 + 300)."
+    ask: "Which way does each force point?"
+    fix: "Forward forces and backward forces work against each other: add each side, then subtract the smaller side from the bigger."
+  - see: "A student gives the net force without a direction."
+    ask: "1200 N which way?"
+    fix: "A force is a vector: always say the direction (forward, left, up), or use a sign with a stated positive direction."
+  - see: "A student thinks zero net force means the object is still."
+    ask: "What did the car do on the board when the net force was zero?"
+    fix: "It kept its speed. Zero net force means no change in motion, which can be steady motion."
+stretch: "A boat's engine pushes forward with 5000 N while a current pushes it sideways with 1200 N. Why can't you just subtract these? (They are not along one line: they combine at an angle, which needs vector diagrams in later years.)"
+support: "Give the frame: 'Forward: … + … = … N. Backward: … + … = … N. Net: … − … = … N, …(direction).'"
+leads: |
+  Next: Does a moving thing need a push? (Newton's first law, node 2).
+
+  In class: force meters on a trolley pulled in opposite directions; a tug of war with spring balances; drawing force diagrams to scale on grid paper.
+exit:
+  q: "A cyclist pedals with a forward force of 120 N. Air resistance is 70 N and friction 20 N. Find the net force and say what happens to her speed."
+  a: "120 − (70 + 20) = 30 N forward: she speeds up."
+explain: |
+  A force is a **vector**: it has a size and a direction. Along one line, forces pointing the same way **add**, and forces pointing opposite ways **subtract**.
+
+  What is left is the **net force**, in the direction of the bigger side. A net force changes motion; a net force of zero leaves it unchanged.

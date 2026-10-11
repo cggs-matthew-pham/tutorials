@@ -1,0 +1,37 @@
+summary: Students explain why living things are classified (identifying, communicating, showing relationships), tell classification from a plain list, and give an everyday example (AC9S7U01, node 1).
+time: 14
+timing: "Engage and Explore 5 min · Explain 6 min · Evaluate 2 min · Typical adds 3 min, Wider about 3 min"
+goals:
+  - I can give two reasons why living things are classified.
+  - I can tell classification from a simple list.
+  - I can give an everyday example of classification.
+before: |
+  A short concept tutorial to open the unit, before Plant, animal or something else? (kingdoms, node 2) and Who is it? Using a key (node 3). Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  Not a hinge node, and mostly a discussion: the board is a five-animal key to show identification in action. The progression's Wider lenses (First Nations classification, change through microscopy, biosecurity) are richer in class than on screen.
+
+  Board notes: the key uses features you can see; students meet longer keys in node 3.
+running:
+  - "Engage: ask students who chose 'a tidy list' what the list would let them do."
+  - "Explain: the reasons sort and the 'classification or a list' question are the success criteria."
+  - "In your own words: two reasons and an everyday example."
+stuck:
+  - see: "A student says classification is just putting things in order."
+    ask: "What does an alphabetical list tell you about each animal?"
+    fix: "Nothing about the animal. Grouping by shared features means the group tells you something about each member."
+  - see: "A student thinks there is one right way to group living things."
+    ask: "Would an ecologist planning a wetland reserve and a scientist studying ancestry group the same way?"
+    fix: "Not necessarily: each system is built for a purpose."
+stretch: "Why does every species have a two-part Latin name (Homo sapiens) as well as everyday names? (One name understood worldwide; everyday names differ between languages and places.)"
+support: "Give the reasons as cards (identify, communicate, show relationships) to match to examples."
+leads: |
+  Next: Plant, animal or something else? (kingdoms, node 2), which also shows classification changing with evidence.
+
+  In class: sort a bag of everyday objects two different ways and discuss which grouping suits which purpose. The Wider question on First Nations classification is general: for richer context, use local resources and community guidance, such as seasonal calendars made with Traditional Owners.
+exit:
+  q: "Give two reasons scientists classify living things."
+  a: "Any two of: to identify organisms; to communicate clearly with one name; to show how organisms are related."
+explain: |
+  Scientists **classify** living things to identify them, to talk about them clearly (one name everyone understands) and to see how they are related.
+
+  Classification groups things by shared features, unlike a plain list. Every system is built for a purpose.
