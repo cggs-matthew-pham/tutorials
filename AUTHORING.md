@@ -389,7 +389,7 @@ All except `code` are static and need no running code. Write the check under `ch
 | `type` | You write | Student does |
 |---|---|---|
 | `reflect` | `text` | ticks a box |
-| `question` | `q`, `options`, `answer` (0-based), `explain` | picks one option |
+| `question` | `q`, `options`, `answer` (0-based), `explain` | picks one option (shown in a fixed shuffle: see below) |
 | `number` | `q`, `answer`, optional `tolerance`, `feedback` (`[["wrong number", "message"]]`, matched within the tolerance), `explain` | types a number |
 | `flag` | `q`, `hash`, `explain` | types a capture-the-flag answer. Only a hash is stored: make it with `node tools/flag-hash.mjs "WP{answer}"` (SHA-256 of `wp-flag:` + the lower-cased, trimmed answer). The page checks with `crypto.subtle`, so view-source does not give the flag away; the repository is public, so the answer goes in the lesson's teacher notes |
 | `match` | `q`, `pairs: [[left, right], ...]`, `explain` | picks each right-hand item from a list (shuffled for them) |
@@ -398,6 +398,8 @@ All except `code` are static and need no running code. Write the check under `ch
 | `parsons` | `code: file#region` (the correct program), optional `extra: [spare lines]`, `text`, `explain` | orders scrambled lines |
 | `predict` | `q`, optional `options: [...]` (else typed; `kind: number` for a number), optional `actual` | locks in a prediction before running (cannot change it) |
 | `code` | `text`, `rules` (`defs`, `calls`, `loops`, `returns`, `params`, `imports`, `uses`, `contains: ["inside(x, y"]`) | runs a program that meets the rules |
+
+**Option order.** Write the right option wherever it reads best (usually first). Students see `question` and `predict` options in a shuffle seeded by the lesson and the question, so it is the same on every build and on the page, guide, deck and worksheet; `answer` and per-option `feedback` are remapped (`arrangeOptions` in `lesson-core.mjs`). Options that are all numbers (or fractions) are sorted instead; catch-all options (None of them, Neither, You cannot tell, It depends) stay last. `shuffle: false` on a check keeps the order as written (for options that refer to each other). Test harnesses should read the parsed lesson's `answer`, not the authored one.
 
 A **trace table** is a pipe table; the first row is the header and cells in `[brackets]` are the blanks, with the answer inside:
 

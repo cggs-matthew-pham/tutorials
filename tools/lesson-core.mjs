@@ -249,6 +249,44 @@ export function bugKeys(answer) {
 }
 
 /** Parse lesson.md text into a lesson object (no files touched). */
+// Option order (12 Oct 2026). Authors write the right option first; the page, guide, deck and worksheet show a fixed
+// shuffle of it, so the answer is not always first. The order is seeded by the lesson and the question, so it is the
+// same on every build. Options that are numbers are sorted instead. Catch-all options ("None of them", "Neither",
+// "You cannot tell", ...) stay last. `shuffle: false` on a check keeps the authored order. `answer` and per-option
+// `feedback` are remapped; `authoredAnswer` keeps the original index for messages that quote it.
+const CATCH_ALL = /^(none|all|both|neither)( of (these|them|those|the above))?[.!]?$|^(you )?(can('|no)?t|cannot) tell|^not enough (information|to tell)|^it depends/i;
+function seeded(text) {
+  let h = 2166136261; for (let i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return function () { h |= 0; h = h + 0x6D2B79F5 | 0; let x = Math.imul(h ^ h >>> 15, 1 | h); x = x + Math.imul(x ^ x >>> 7, 61 | x) ^ x; return ((x ^ x >>> 14) >>> 0) / 4294967296; };
+}
+function optionValue(o) {
+  const t = String(o).trim().replace(/[−–]/g, '-').replace(/,(?=\d{3}\b)/g, '').replace(/\s*(%|°|cm|m|km|kg|g|L|mL|s)$/, '');
+  if (/^-?\d+(\.\d+)?$/.test(t)) return Number(t);
+  const f = /^(-?\d+)\/(\d+)$/.exec(t); if (f && Number(f[2])) return Number(f[1]) / Number(f[2]);
+  return null;
+}
+export function arrangeOptions(k, seed) {
+  if (!k || typeof k !== 'object' || !['question', 'predict'].includes(k.type) || k.shuffle === false) return k;
+  const opts = k.options;
+  if (!Array.isArray(opts) || opts.length < 2 || !opts.every((o) => typeof o === 'string')) return k;
+  if (k.type === 'question' && !(Number.isInteger(k.answer) && k.answer >= 0 && k.answer < opts.length)) return k;
+  if (k.feedback !== undefined && !(Array.isArray(k.feedback) && k.feedback.length === opts.length)) return k;
+  const idx = opts.map((_, i) => i);
+  let order;
+  const vals = opts.map(optionValue);
+  if (vals.every((v) => v !== null)) order = idx.slice().sort((a, b) => vals[a] - vals[b]);
+  else {
+    const last = idx.filter((i) => CATCH_ALL.test(opts[i].trim())), rest = idx.filter((i) => !last.includes(i));
+    const rnd = seeded(seed + '|' + String(k.q || '') + '|' + opts.join('|'));
+    for (let i = rest.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [rest[i], rest[j]] = [rest[j], rest[i]]; }
+    order = rest.concat(last);
+  }
+  const out = { ...k, options: order.map((i) => opts[i]) };
+  if (k.type === 'question') { out.answer = order.indexOf(k.answer); out.authoredAnswer = k.answer; }
+  if (k.feedback !== undefined) out.feedback = order.map((i) => k.feedback[i]);
+  return out;
+}
+
 export function parseLessonText(raw, slug = 'lesson') {
   raw = raw.replace(/\r\n/g, '\n');
   const fm = raw.match(/^---\n([\s\S]*?)\n---\n?/);
@@ -266,6 +304,8 @@ export function parseLessonText(raw, slug = 'lesson') {
     if (m) {
       config = YAML.parse(m[1]) || {};
       body = body.replace(m[0], '');
+      if (config.check) config.check = arrangeOptions(config.check, slug);
+      if (Array.isArray(config.tasks)) config.tasks = config.tasks.map((t) => t && typeof t === 'object' && t.check ? { ...t, check: arrangeOptions(t.check, slug) } : t);
     }
     // "### Heading" lines inside a step are its tasks (sub-pills). One or no heading: the step has a single task.
     const secs = body.split(/^### /m);
