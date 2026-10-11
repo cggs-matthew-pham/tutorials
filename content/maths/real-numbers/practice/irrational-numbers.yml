@@ -1,0 +1,19 @@
+# Practice for "Irrational numbers".
+templates:
+  - q: "How many of these are irrational: √{p}, √{q}, √{r}, {w = 0 ? k + '/' + d : w = 1 ? '0.25' : w = 2 ? 'π' : w = 3 ? '0.333…' : '22/7'}?"
+    vars: { f: [0, 1], g: [0, 1], h: [0, 1], a: "2..12", b: "2..12", c: "2..12", u: [2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 17, 18, 20, 24, 27, 30, 32, 40, 45, 50, 60, 72, 99], v: [2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 17, 18, 20, 24, 27, 30, 32, 40, 45, 50, 60, 72, 99], t: [2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 17, 18, 20, 24, 27, 30, 32, 40, 45, 50, 60, 72, 99], w: "0..4", k: "1..9", d: [3, 7, 9, 11] }
+    let: { p: "f ? a * a : u", q: "g ? b * b : v", r: "h ? c * c : t", n: "(1 - f) + (1 - g) + (1 - h) + (w = 2)" }
+    where: "p != q and p != r and q != r and k < d and gcd(k, d) = 1"
+    answer: "{n}"
+    explain: "A square root is rational only when the number is a perfect square: √{p} {f ? '= ' + a + ' (rational)' : 'is irrational'}, √{q} {g ? '= ' + b + ' (rational)' : 'is irrational'}, √{r} {h ? '= ' + c + ' (rational)' : 'is irrational'}. {w = 0 ? k + '/' + d + ' is a fraction: rational (its decimal repeats)' : w = 1 ? '0.25 stops: rational (1/4)' : w = 2 ? 'π never stops or repeats: irrational' : w = 3 ? '0.333… repeats: rational (1/3)' : '22/7 is a fraction: rational (close to π, but not equal)'}. {n} irrational."
+  - q: "What is √{s}?"
+    vars: { r: "2..15" }
+    let: { s: "r * r" }
+    answer: "{r}"
+    feedback:
+      - ["{s / 2}", "√ undoes squaring: which number times itself makes {s}?"]
+    explain: "{r} × {r} = {s}, so √{s} = {r}. It is a whole number, so it is rational."
+  - q: "√{p} × √{p} = ?"
+    vars: { p: [2, 3, 5, 6, 7, 10, 11, 13, 15] }
+    answer: "{p}"
+    explain: "Squaring undoes the square root: √{p} × √{p} = {p}. Two irrational numbers can multiply to a rational one."

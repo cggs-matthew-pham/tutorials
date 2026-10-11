@@ -111,6 +111,8 @@ export function makePractice() {
     return o && isFinite(o.n) ? o : null;
   }
   var ALG = { expanded: 1, factorised: 1, simplified: 1 };
+  // Superscript digits typed or copied from a question (2⁷, x²) as the checker writes them (2^7, x^2).
+  function caret(t) { return String(t).replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g, function (m) { return '^' + m.split('').map(function (c) { return '⁰¹²³⁴⁵⁶⁷⁸⁹'.indexOf(c); }).join(''); }); }
   // Mark a typed answer against a generated question. WPM is the maths checker (tools/math-expr.mjs).
   // form: simplest (a whole number or a fraction in lowest terms), decimal, or whole. An answer with ":" is a ratio,
   // marked part by part (so 4 : 6 is not 2 : 3).
@@ -118,7 +120,7 @@ export function makePractice() {
     var ie = ineq(g.answer, WPM);
     if (ie) {
       if (!String(raw).trim()) return { ok: false, msg: 'Type your answer first.' };
-      var a = ineq(String(raw).replace(/²/g, '^2').replace(/³/g, '^3'), WPM);
+      var a = ineq(caret(raw), WPM);
       if (!a) return { ok: false, keep: true, msg: 'Write it as an inequality, such as ' + ie.x + ' > 3 or ' + ie.x + ' ≤ −2.' };
       if (a.x !== ie.x) return { ok: false, keep: true, msg: 'Use the letter ' + ie.x + '.' };
       if (a.op === ie.op && Math.abs(a.n - ie.n) < 1e-9) return { ok: true };
@@ -128,7 +130,7 @@ export function makePractice() {
     }
     var sub = /^subject ([a-zA-Z])$/.exec(g.form);
     if (sub) {
-      var L = sub[1], parts = String(raw).replace(/[−–]/g, '-').replace(/²/g, '^2').replace(/³/g, '^3').split('='), rhs = g.answer.split('=')[1];
+      var L = sub[1], parts = caret(String(raw).replace(/[−–]/g, '-')).split('='), rhs = g.answer.split('=')[1];
       if (!String(raw).trim()) return { ok: false, msg: 'Type your answer first.' };
       if (parts.length === 2 && parts[1].trim().toLowerCase() === L.toLowerCase()) parts = [parts[1], parts[0]];
       if (parts.length === 2 && /^[a-zA-Z]$/.test(parts[0].trim()) && parts[0].trim().toLowerCase() !== L.toLowerCase() && !/[a-zA-Z]/.test(rhs)) return { ok: false, msg: 'Not quite: check which letter is the same for every point.' };
@@ -145,8 +147,8 @@ export function makePractice() {
     var v = WPM.splitAnswer(String(raw).trim()).value.trim().replace(/[−–]/g, '-').replace(/^(-?)\s*\$\s*/, '$1').replace(/^-\s+/, '-').replace(/(\d),(?=\d{3}(\D|$))/g, '$1');
     if (!v) return { ok: false, msg: 'Type your answer first.' };
     // Numeric answers: drop units or words after the number ("36 litres", "30 km/h", "−1°C", "12 dollars", "45%").
-    if (!/[a-z]/i.test(g.answer)) v = v.replace(/\s*[A-Za-z°%\/](?:[A-Za-z°%\/\s.²³]|\^\d)*$/, '').trim() || v;
-    v = v.replace(/²/g, '^2').replace(/³/g, '^3');
+    if (!/[a-z]/i.test(g.answer)) v = v.replace(/\s*[A-Za-z°%\/](?:[A-Za-z°%\/\s.⁰¹²³⁴⁵⁶⁷⁸⁹]|\^\d)*$/, '').trim() || v;
+    v = caret(v);
     // A mixed numeral (1 1/2) is read as 1 + 1/2, not 11/2.
     var mx = /^(-?)(\d+)\s+(\d+)\s*\/\s*(\d+)$/.exec(v), mixedOk = false;
     if (mx) { var wn = Number(mx[2]), nn = Number(mx[3]), dd = Number(mx[4]); mixedOk = nn < dd && FN.gcd(nn, dd) === 1; v = mx[1] + (wn * dd + nn) + '/' + dd; }

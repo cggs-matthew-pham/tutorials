@@ -1,0 +1,39 @@
+# Practice for "Index laws".
+templates:
+  - q: "{b}^{m} × {b}^{n} = {b} to what power?"
+    vars: { b: "2..9", m: "2..9", n: "2..9" }
+    answer: "{m + n}"
+    feedback:
+      - ["{b}^{m + n}", "That is the power itself. Type just the index: {m + n}."]
+      - ["{m * n}", "Multiplying powers of the same base adds the indices: write them out and count the factors."]
+    explain: "{b}^{m} × {b}^{n} has {m} + {n} = {m + n} factors of {b}: {b}^{m + n}."
+  - q: "{b}^{m} ÷ {b}^{n} = {b} to what power?"
+    vars: { b: "2..9", m: "5..12", n: "2..6" }
+    where: "m > n"
+    answer: "{m - n}"
+    feedback:
+      - ["{b}^{m - n}", "That is the power itself. Type just the index: {m - n}."]
+      - ["{m / n}", "Dividing powers of the same base subtracts the indices: {n} factors cancel."]
+    explain: "{n} of the {m} factors of {b} cancel, leaving {m} − {n} = {m - n}: {b}^{m - n}."
+  - q: "({b}^{m})^{n} = {b} to what power?"
+    vars: { b: "2..9", m: "2..6", n: "2..5" }
+    where: "m * n != m + n"
+    answer: "{m * n}"
+    feedback:
+      - ["{b}^{m * n}", "That is the power itself. Type just the index: {m * n}."]
+      - ["{m + n}", "A power of a power is {n} lots of {b}^{m}: {n} × {m} factors, so multiply the indices."]
+    explain: "({b}^{m})^{n} is {b}^{m} written {n} times: {n} × {m} = {m * n} factors, so {b}^{m * n}."
+  - q: "What is {b}^0?"
+    vars: { b: [2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 100] }
+    answer: "1"
+    feedback:
+      - ["0", "{b}^0 is not 0. {b}^3 ÷ {b}^3 = 1, and the index law says it is {b}^0."]
+      - ["{b}", "{b}^1 is {b}. {b}^0 is {b}^1 ÷ {b}^1 = 1."]
+    explain: "{b}^n ÷ {b}^n = 1, and the index law gives {b}^0, so {b}^0 = 1."
+  - q: "What is {b}^{n}?"
+    vars: { b: [2, 3, 4, 5, 10], n: "2..5" }
+    where: "b ^ n <= 1024"
+    answer: "{b ^ n}"
+    feedback:
+      - ["{b * n}", "{b}^{n} is {n} factors of {b} multiplied, not {b} × {n}."]
+    explain: "{b}^{n} = {b} multiplied by itself {n} times = {b ^ n}."

@@ -129,6 +129,10 @@ Number Foundations gains three units and eight lessons (17 to 24): Place value a
 
 Angles and shapes gains three units and six lessons (10 to 15): Solids (Nets, 7SP01 n1; Views of a solid, n2 and n3), Transformations (Translations, 7SP03 n1; Reflections, n2; Rotations, n3) and Algorithms (Algorithms for classifying shapes, 7SP04 n1 and n2, on the `key` board). Linear relations gains *Changing one thing at a time* (12, 7A06 n1 and n2, on the `formula` board) and Data and chance gains *Statistical investigations* (9, 7ST03 n1 and n2, on the `data` board); a full investigation is still a class task, which the teacher notes and the Make step set up. New boards `transform`, `net` and `views` (see roadmap/shared.md). New misconceptions: net-count-only, view-adds-up, translate-sign, reflect-axis-swap, rotate-swap-only, algo-general-first, vary-two-at-once, sample-generalise. The Year 7 descriptors left over from the earlier pushes (7SP01, 7SP03, 7SP04, 7A06, 7ST03) are now taught.
 
+## Done: Irrational numbers and index laws practice (12 Oct 2026)
+- `content/maths/real-numbers/practice/`: all 6 lessons. Classify questions (rational or irrational, terminate or recur) are asked as counts, so the page's one text box can mark them.
+- Review fixes: the irrational count no longer lands on 2 nine times in ten (half the roots are perfect squares; the fourth item rotates through a fraction, 0.25, π, 0.333… and 22/7), a different-bases question (the lesson's planted slip), a tenths bracket in place of a "type 1 or 2" question, and feedback when a student types the power (2⁷) instead of the index. Core: every superscript digit typed or copied (2⁷) is read as a power.
+
 ## Done: Linear relations practice (12 Oct 2026)
 - `content/maths/linear-relations/practice/`: 10 of 12 lessons (Reading a graph and Describing a relationship need a graph; the page is text only). Line equations are answered as `x = 3` (`form: subject x`), so a vertical/horizontal mix-up is marked wrong.
 - Review fixes: "1x", "0x" and "+ 0" text, the meeting point given as in the lesson, positive constants in growing patterns (as taught), a ≥ region question with points on the line, m as a fraction, wider ranges. Core: "100 cm²" accepted, "(0, 4)" asks for just the number, "3n + 2 = s" accepted.
@@ -136,7 +140,7 @@ Angles and shapes gains three units and six lessons (10 to 15): Solids (Nets, 7S
 ## Done: Algebra practice (12 Oct 2026)
 - `content/maths/algebra/practice/`: 14 files, one per lesson, 3 to 5 templates each, kept to what each lesson teaches (no negatives or powers in the Year 7 lessons). Expanding and factorising answers must be expanded or fully factorised; rearranging answers must be `x = …`; inequalities are answered as `x > 3` (or `>=`).
 - Independent review: no wrong answers; fixed zero terms ("+ 0"), "1x", "− −5", "whole numbers" for negative ranges (now integers), questions beyond the lesson, and marking slips (typed x², capital letters, either side of a subject answer, unreadable input no longer resets the streak).
-- Next: practice for real numbers, measurement, angles and data, one at a time with a review each.
+- Next: practice for measurement, angles and data, one at a time with a review each.
 
 ## Done: Practice page, Number Foundations first (12 Oct 2026)
 

@@ -1,0 +1,19 @@
+# Practice for "Which decimals stop?".
+templates:
+  - q: "How many of these fractions have a terminating decimal: {a}/{b}, {c}/{d}, {e}/{f}?"
+    vars: { a: "1..9", b: [6, 8, 12, 14, 15, 16, 20, 24, 25, 28, 30, 35, 40, 45, 50, 56, 60, 75, 80], c: "1..9", d: [3, 7, 9, 11, 12, 18, 20, 32, 40, 64], e: "1..9", f: [4, 5, 6, 15, 21, 22, 25, 30, 33, 125] }
+    where: "a < b and c < d and e < f"
+    let: { n: "(1000000 % (b / gcd(a, b)) = 0) + (1000000 % (d / gcd(c, d)) = 0) + (1000000 % (f / gcd(e, f)) = 0)" }
+    answer: "{n}"
+    explain: "Simplify, then look at the denominator's primes: only 2s and 5s means it stops. {a}/{b}{gcd(a, b) > 1 ? ' = ' + a / gcd(a, b) + '/' + b / gcd(a, b) : ''} ({1000000 % (b / gcd(a, b)) = 0 ? 'stops' : 'recurs'}), {c}/{d}{gcd(c, d) > 1 ? ' = ' + c / gcd(c, d) + '/' + d / gcd(c, d) : ''} ({1000000 % (d / gcd(c, d)) = 0 ? 'stops' : 'recurs'}), {e}/{f}{gcd(e, f) > 1 ? ' = ' + e / gcd(e, f) + '/' + f / gcd(e, f) : ''} ({1000000 % (f / gcd(e, f)) = 0 ? 'stops' : 'recurs'}). {n} {n == 1 ? 'terminates' : 'terminate'}."
+  - q: "1/{d} terminates. How many decimal places does it have?"
+    vars: { i: "0..5", j: "0..3" }
+    where: "i + j > 0 and pow(2, i) * pow(5, j) <= 1000"
+    let: { d: "pow(2, i) * pow(5, j)" }
+    answer: "{max(i, j)}"
+    explain: "{d} = {i > 0 ? '2^' + i : ''}{i > 0 and j > 0 ? ' × ' : ''}{j > 0 ? '5^' + j : ''}. Make it a power of 10: 10^{max(i, j)}, so 1/{d} = {1 / d} has {max(i, j)} decimal places."
+  - q: "Does 1/{d} terminate? Find the largest prime factor of {d}. (Only 2s and 5s means it stops.)"
+    vars: { p: [2, 3, 5, 7, 11, 13], q: [2, 2, 4, 5, 8, 10] }
+    let: { d: "p * q" }
+    answer: "{max(p, q % 5 = 0 ? 5 : 2)}"
+    explain: "{d} = {p} × {q}. Its largest prime factor is {max(p, q % 5 = 0 ? 5 : 2)}: {max(p, q % 5 = 0 ? 5 : 2) > 5 ? 'not 2 or 5, so a fraction over ' + d + ' in simplest form recurs' : 'only 2s and 5s, so a fraction over ' + d + ' terminates'}."

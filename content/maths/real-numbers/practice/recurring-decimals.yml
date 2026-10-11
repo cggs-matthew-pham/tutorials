@@ -1,0 +1,23 @@
+# Practice for "Recurring decimals".
+templates:
+  - q: "Write {a}/{b} as a decimal."
+    vars: { a: "1..19", b: [2, 4, 5, 8, 10, 20, 25, 40, 50] }
+    where: "a < b and gcd(a, b) = 1"
+    answer: "{a / b}"
+    form: decimal
+    feedback:
+      - ["{b / a}", "Divide the top by the bottom: {a} ÷ {b}."]
+    explain: "{a} ÷ {b} = {a / b}. The remainder reaches 0, so the decimal stops."
+  - q: "How many digits are in the repeating block of {a}/{b}?"
+    vars: { a: "1..10", b: [3, 6, 7, 9, 11, 12, 13, 15, 27, 33, 37] }
+    where: "a < b and gcd(a, b) = 1"
+    let: { k: "b = 7 or b = 13 ? 6 : b = 11 or b = 33 ? 2 : b = 27 or b = 37 ? 3 : 1", late: "b = 6 or b = 12 or b = 15", blk: "floor(a * pow(10, k) / b) % pow(10, k)" }
+    answer: "{k}"
+    feedback:
+      - ["{late ? 2 : -99}", "Only the digits that repeat count: in {a}/{b} = {rd(a / b, 6)|f6}… the first digit{b = 12 ? 's do' : ' does'} not repeat; only the last digit does."]
+    explain: "{late ? a + '/' + b + ' = ' + rd(a / b, 6) + '…: ' + (b = 12 ? 'after 0.08, the 3 repeats' : 'after the first digit, one digit repeats') : a + '/' + b + ' = 0.' + (a * 10 < b ? '0' : '') + blk + (a * 10 < b ? '0' : '') + blk + '…: the block ' + (a * 10 < b ? '0' : '') + blk + ' repeats'}, so the block is {k == 1 ? 'one digit' : k + ' digits'} long. In long division a remainder comes back, and the digits repeat from there."
+  - q: "Divide {a} by 11. What is the repeating block? (Type its digits, such as 12.)"
+    vars: { a: "1..10" }
+    answer: "{9 * a}"
+    show: "{a == 1 ? '09' : 9 * a}"
+    explain: "{a}/11 = 0.{a == 1 ? '09' : 9 * a}{a == 1 ? '09' : 9 * a}{a == 1 ? '09' : 9 * a}…: the block is {a == 1 ? '09' : 9 * a}, two digits. (For elevenths the block is always 9 × the top: 9 × {a} = {9 * a}.)"

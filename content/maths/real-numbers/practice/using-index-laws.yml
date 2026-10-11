@@ -1,0 +1,48 @@
+# Practice for "Using the index laws".
+templates:
+  - q: "Simplify {b}^{m} × {b}^{n} ÷ {b}^{p}. {b} to what power?"
+    vars: { b: "2..9", m: "2..8", n: "2..8", p: "2..9" }
+    where: "m + n > p"
+    answer: "{m + n - p}"
+    feedback:
+      - ["{b}^{m + n - p}", "That is the power itself. Type just the index: {m + n - p}."]
+      - ["{m * n - p}", "Multiplying adds the indices: {m} + {n}, then dividing takes away {p}."]
+    explain: "{m} + {n} = {m + n}, then {m + n} − {p} = {m + n - p}: {b}^{m + n - p}."
+  - q: "Simplify ({b}^{m})^{n} ÷ {b}^{p}. {b} to what power?"
+    vars: { b: "2..9", m: "2..5", n: "2..4", p: "2..9" }
+    where: "m * n > p"
+    answer: "{m * n - p}"
+    feedback:
+      - ["{b}^{m * n - p}", "That is the power itself. Type just the index: {m * n - p}."]
+      - ["{m + n - p}", "Power of a power first: multiply, {m} × {n} = {m * n}."]
+    explain: "Power of a power first: {m} × {n} = {m * n}. Then divide: {m * n} − {p} = {m * n - p}."
+  - q: "Simplify ({b}^{m})^{n} × {b}. {b} to what power?"
+    vars: { b: "2..9", m: "2..5", n: "2..4" }
+    answer: "{m * n + 1}"
+    feedback:
+      - ["{b}^{m * n + 1}", "That is the power itself. Type just the index: {m * n + 1}."]
+      - ["{m * n}", "{b} on its own is {b}^1, so add 1."]
+    explain: "({b}^{m})^{n} = {b}^{m * n}, and {b} = {b}^1, so {m * n} + 1 = {m * n + 1}."
+  - q: "({a} × 10^{m}) × ({c} × 10^{n}) = {a * c} × 10 to what power?"
+    vars: { a: "1..4", c: "2..4", m: "2..9", n: "2..9" }
+    where: "a * c < 10"
+    answer: "{m + n}"
+    feedback:
+      - ["10^{m + n}", "That is the power itself. Type just the index: {m + n}."]
+      - ["{m * n}", "Multiplying powers of 10 adds the indices."]
+    explain: "{a} × {c} = {a * c}, and 10^{m} × 10^{n} = 10^{m + n}: {a * c} × 10^{m + n}."
+  - q: "What is {b}^{n} + {b}^{n}?"
+    vars: { b: [2, 3, 5, 10], n: "2..4" }
+    answer: "{2 * b ^ n}"
+    feedback:
+      - ["{b ^ (2 * n)}", "The laws are for multiplying and dividing. Adding: {b ^ n} + {b ^ n}."]
+      - ["{(2 * b) ^ n}", "The {b}s are not added inside the power: work out {b}^{n} = {b ^ n}, then add it to itself."]
+    explain: "{b}^{n} = {b ^ n}, and {b ^ n} + {b ^ n} = {2 * b ^ n}. Adding is not covered by the index laws."
+  - q: "What is {a}^{m} × {c}^{n}?"
+    vars: { a: [2, 3], c: [3, 5, 10], m: "2..4", n: "2..3" }
+    where: "a != c and a ^ m * c ^ n <= 2000"
+    answer: "{a ^ m * c ^ n}"
+    feedback:
+      - ["{(a * c) ^ (m + n)}", "The bases are different, so the laws can't join them: work out {a ^ m} × {c ^ n}."]
+      - ["{(a * c) ^ m}", "The bases are different, so the laws can't join them: work out {a}^{m} = {a ^ m} and {c}^{n} = {c ^ n}."]
+    explain: "Different bases can't be joined into one power. {a}^{m} = {a ^ m} and {c}^{n} = {c ^ n}, so {a ^ m} × {c ^ n} = {a ^ m * c ^ n}."

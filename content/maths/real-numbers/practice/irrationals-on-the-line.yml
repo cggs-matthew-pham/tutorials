@@ -1,0 +1,31 @@
+# Practice for "Irrational numbers on the line".
+templates:
+  - q: "√{n} is between two whole numbers. What is the smaller one?"
+    vars: { n: "3..150" }
+    where: "sqrt(n) != round(sqrt(n))"
+    answer: "{floor(sqrt(n))}"
+    feedback:
+      - ["{floor(sqrt(n)) + 1}", "{floor(sqrt(n)) + 1}^2 = {(floor(sqrt(n)) + 1) ^ 2}, which is more than {n}. That is the bigger one."]
+      - ["{floor(n / 2)}", "√ is not half. Find the perfect squares either side of {n}."]
+      - ["{n / 2}", "√ is not half. Find the perfect squares either side of {n}."]
+    explain: "{floor(sqrt(n))}^2 = {floor(sqrt(n)) ^ 2} and {floor(sqrt(n)) + 1}^2 = {(floor(sqrt(n)) + 1) ^ 2}, so √{n} is between {floor(sqrt(n))} and {floor(sqrt(n)) + 1}."
+  - q: "Is √{n} nearer {floor(sqrt(n))} or {floor(sqrt(n)) + 1}? Type the nearer whole number."
+    vars: { n: "3..150" }
+    where: "sqrt(n) != round(sqrt(n)) and abs(sqrt(n) - floor(sqrt(n)) - 0.5) > 0.08"
+    answer: "{round(sqrt(n))}"
+    explain: "√{n} ≈ {sqrt(n)|2}: nearer {round(sqrt(n))}. ({n} is {n - floor(sqrt(n)) ^ 2} above {floor(sqrt(n)) ^ 2} and {(floor(sqrt(n)) + 1) ^ 2 - n} below {(floor(sqrt(n)) + 1) ^ 2}.)"
+  - q: "Write √{n} rounded to 1 decimal place. (Use a calculator.)"
+    vars: { n: [2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 50] }
+    answer: "{rd(sqrt(n), 1)}"
+    feedback:
+      - ["{floor(sqrt(n) * 10) / 10}", "Round, don't cut off: √{n} = {floor(sqrt(n) * 1000) / 1000|f3}…, and the next digit decides."]
+    explain: "√{n} = {floor(sqrt(n) * 1000) / 1000|f3}…, which rounds to {rd(sqrt(n), 1)|f1}. It is close to √{n}, not equal: the decimal never ends."
+  - q: "√{n} is between two numbers with one decimal place, such as 2.4 and 2.5. What is the smaller one? (Square the tenths to check.)"
+    vars: { n: "3..99" }
+    where: "sqrt(n) != round(sqrt(n)) and sqrt(n) * 10 - floor(sqrt(n) * 10) > 0.02 and sqrt(n) * 10 - floor(sqrt(n) * 10) < 0.98"
+    let: { lo: "floor(sqrt(n) * 10) / 10" }
+    answer: "{lo}"
+    feedback:
+      - ["{lo + 0.1}", "{lo + 0.1} × {lo + 0.1} = {(lo + 0.1) * (lo + 0.1)|2}, more than {n}: that is the bigger one."]
+      - ["{rd(sqrt(n), 1)}", "That is √{n} rounded. The smaller one is the tenth just below it."]
+    explain: "{lo|f1}^2 = {lo * lo|2} and {lo + 0.1|f1}^2 = {(lo + 0.1) * (lo + 0.1)|2}. {n} is between them, so √{n} is between {lo|f1} and {lo + 0.1|f1}."
