@@ -57,14 +57,14 @@ tasks:
       q: "The same unbalanced force acts on a 2 kg object and an 8 kg object. Which accelerates more?"
       options: ["The 2 kg object", "The 8 kg object", "Both the same"]
       answer: 0
-      feedback: [null, "More mass means more resistance to a change in motion.", "Mass changes the result."]
+      feedback: [null, "More mass means more resistance to a change in motion.", "On the board, doubling the mass from 2 kg to 4 kg halved the acceleration: mass matters."]
       explain: "For the same force, the smaller mass accelerates more."
   - check:
       type: question
       q: "Which statement is right?"
       options: ["A bigger unbalanced force gives a bigger acceleration, and a bigger mass gives a smaller one", "A bigger mass gives a bigger acceleration", "Force and mass don't affect acceleration"]
       answer: 0
-      feedback: [null, "It is the other way round for mass.", "Both do."]
+      feedback: [null, "It is the other way round for mass.", "On the board, changing the mass changed the acceleration, and changing the push does too."]
       explain: "More force, more acceleration. More mass, less acceleration."
   - check:
       type: number
@@ -105,7 +105,7 @@ tasks:
       q: "You change the mass to 10 kg and keep the same push. What must happen to the acceleration?"
       options: ["It halves", "It doubles", "It stays the same"]
       answer: 0
-      feedback: [null, "More mass, less acceleration.", "Mass changes it."]
+      feedback: [null, "More mass, less acceleration.", "The push is the same, but now there is twice as much mass to speed up."]
       explain: "Doubling the mass halves the acceleration for the same push."
 ```
 

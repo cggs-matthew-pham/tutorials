@@ -88,11 +88,20 @@ tasks:
       code: "steps.txt#evaporation"
       text: "Put the evaporation steps in order."
       explain: "Stopping before the dish is completely dry stops the salt spitting."
+  - check:
+      type: question
+      q: "Filtration can't get the salt out of salt water, but evaporation can. Why?"
+      options: ["Dissolved salt particles are small enough to pass through the paper, but when heated only the water particles escape, because water boils far below salt", "Salt is heavier than water, so it sinks while the lighter water rises away", "Heating destroys the water and leaves the salt", "Dissolved salt has disappeared, and heating makes it come back"]
+      answer: 0
+      feedback: [null, "Weight isn't the test. Water particles escape as a gas at a far lower temperature than salt particles.", "The water isn't destroyed: it escapes into the air as water vapour, and could be collected again.", "The salt never disappeared: it was spread out as single particles among the water particles all along."]
+      explain: "Filtration sorts by particle size, and dissolved particles are tiny. Evaporation uses boiling point: the water leaves, the salt stays."
 ```
 
 ### Filtration
 
 ### Evaporation
+
+### Why each works
 
 ## Practise: which technique?
 
@@ -122,12 +131,14 @@ tasks:
       q: "During filtering, which particles pass through the paper?"
       options: ["Water and salt particles", "All the particles", "Only water particles"]
       answer: 0
+      feedback: [null, "The sand grains are too big for the holes, so they stay in the paper.", "Dissolved salt particles are tiny, so they pass through with the water."]
       explain: "Dissolved salt particles are small enough to fit through with the water."
   - check:
       type: question
       q: "During evaporation, which particles leave the dish?"
       options: ["Only water particles", "Water and salt", "Only salt"]
       answer: 0
+      feedback: [null, "Salt doesn't boil until well over 1000 °C, far hotter than the dish gets, so it stays behind.", "The salt is what is left in the dish. The water is what leaves."]
       explain: "Water boils far below salt."
 ```
 
@@ -184,18 +195,21 @@ tasks:
       q: "What is the pattern in the results?"
       options: ["Finer paper gives a clearer filtrate but takes longer", "Coarser paper is better in every way", "There is no pattern"]
       answer: 0
+      feedback: [null, "Coarse paper is fastest, but look at the filtrate column: it is cloudy.", "Read down both columns: as the paper gets finer, the time goes up and the filtrate gets clearer."]
       explain: "Clarity and speed trade off."
   - check:
       type: question
       q: "Why is the fine paper's filtrate clearer?"
       options: ["Its smaller holes trap smaller mud particles", "It soaks up the mud", "The water goes slower, so the mud is lighter"]
       answer: 0
+      feedback: [null, "The mud sits on top of the paper because it can't fit through the holes, not because the paper soaks it up.", "Speed doesn't change the mud. What matters is the size of the mud particles compared with the holes."]
       explain: "Particle size versus hole size."
   - check:
       type: question
       q: "Why does the fine paper take longer?"
-      options: ["Smaller holes let less water through each second", "The water gets heavier", "The mud dissolves"]
+      options: ["Smaller holes let less water through each second", "The fine paper soaks up more of the water", "The water gets heavier"]
       answer: 0
+      feedback: [null, "The paper holds only a little water. The time goes on squeezing water through the tiny holes.", "It is the same water. What changes is how easily it gets through the holes."]
       explain: "Less space to flow through, and trapped mud blocks holes too."
 ```
 

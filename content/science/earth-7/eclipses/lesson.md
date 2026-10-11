@@ -130,9 +130,9 @@ insight: "Seeing why eclipses seemed unpredictable without a 3D model connects t
 check:
   type: question
   q: "Many ancient peoples recorded eclipses carefully but found them hard to predict. Babylonian astronomers eventually noticed eclipses repeat in a cycle of about 18 years. Which missing idea makes eclipses predictable from first principles?"
-  options: ["The moon's tilted orbit, and where it crosses Earth's orbit plane: eclipses happen only when that crossing line points at the sun", "The size of the moon", "The speed of light", "The number of stars"]
+  options: ["The moon's tilted orbit, and where it crosses Earth's orbit plane: eclipses happen only when that crossing line points at the sun", "The size of the moon", "The speed of light", "The exact date of every new and full moon"]
   answer: 0
-  feedback: [null, "Size matters for total or annular, not for when.", "Not needed to predict them.", "Stars don't affect eclipses."]
+  feedback: [null, "Size matters for total or annular, not for when.", "Not needed to predict them.", "Those dates tell you when a line-up is possible, but not whether the moon passes above, below or through the line."]
   explain: "Long records let people find patterns (like the 18-year saros cycle) even without the model; the 3D model explains why the pattern exists."
 ```
 

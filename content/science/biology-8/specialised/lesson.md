@@ -76,9 +76,9 @@ tasks:
   - check:
       type: question
       q: "Why do root hair cells have no chloroplasts?"
-      options: ["They are underground, where there is no light for photosynthesis", "Chloroplasts would make them too heavy", "Only leaves are allowed chloroplasts"]
+      options: ["They are underground, where there is no light for photosynthesis", "Roots take in their food from the soil, so they don't need to make any", "Only leaves are allowed chloroplasts"]
       answer: 0
-      feedback: [null, "Weight isn't the reason.", "The DNA for chloroplasts is there; root cells don't switch it on because there is no light."]
+      feedback: [null, "Soil gives water and minerals, not food: root cells get sugar from the leaves through the phloem. What do chloroplasts need that roots don't get?", "The DNA for chloroplasts is there; root cells don't switch it on because there is no light."]
   - check:
       type: question
       q: "What does 'specialised' mean for a cell?"

@@ -106,6 +106,13 @@ tasks:
       answer: 0
       feedback: [null, "Particles aren't destroyed in a physical change.", "Dissolved particles are far too small to be caught by filter paper."]
       explain: "The salt particles are spread between the water particles. Evaporating the water leaves them behind as crystals."
+  - check:
+      type: question
+      q: "Melting, boiling and dissolving can usually be reversed. Why?"
+      options: ["The same particles are still there, so they can be brought back to how they were", "Being reversible is what makes a change physical", "Any change can be reversed if you try hard enough", "No energy goes in or out, so nothing is lost"]
+      answer: 0
+      feedback: [null, "That's the wrong way round. A change is physical because no new substance is made; being reversible follows from that. Some physical changes, like shattering a glass, are hard to undo.", "Burnt toast can't be turned back into bread: its particles have changed. Undoing a change only works when the original particles are still there.", "Melting and boiling take in energy, and freezing gives it out. Reversing is possible because the particles haven't changed."]
+      explain: "No new substance is made, so the original particles are all still there to rearrange back. Being reversible is a result of a physical change, not what defines it."
   - check: { type: reflect, text: "I can explain a physical change as the same particles rearranged, with no new substance made." }
 ```
 
@@ -116,6 +123,8 @@ tasks:
 ### Physical or not
 
 ### Where the salt went
+
+### Why it can be reversed
 
 ### In your own words
 

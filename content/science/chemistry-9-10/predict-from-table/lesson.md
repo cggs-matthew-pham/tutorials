@@ -81,9 +81,9 @@ tasks:
   - check:
       type: question
       q: "Why are the noble gases (group 18) almost unreactive?"
-      options: ["Their outer shells are full, so they have no need to gain, lose or share electrons", "They have no electrons", "They are too light to react"]
+      options: ["Their outer shells are full, so they have no need to gain, lose or share electrons", "They are gases, and gases don't react", "They are too light to react"]
       answer: 0
-      feedback: [null, "They have the same kind of electrons as any other atom.", "Helium is light but neon and argon are heavier: it is the full shell."]
+      feedback: [null, "Oxygen, fluorine and chlorine are gases and react readily: it is the full shell that matters.", "Helium is light but neon and argon are heavier: it is the full shell."]
       explain: "A full outer shell is stable. Atoms of other elements react to reach that arrangement."
   - check: { type: reflect, text: "I can use an element's position in the table to predict its outer electrons, shells and reactivity." }
 ```

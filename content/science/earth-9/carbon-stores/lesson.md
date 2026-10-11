@@ -88,6 +88,16 @@ tasks:
       answer: 0
       feedback: [null, "The arrows show large yearly flows.", "Switch a process off and it changes (next lesson)."]
       explain: "A store stays the same when what flows in equals what flows out, like a bath with the tap on and the plug out."
+  - check:
+      type: sort
+      q: "Fast or slow? How long does carbon usually stay in each store?"
+      options: ["Fast: years to centuries", "Slow: millions of years"]
+      items:
+        - ["Carbon dioxide in the air", "Fast: years to centuries"]
+        - ["Carbon in a gum tree", "Fast: years to centuries"]
+        - ["Dead leaves in the soil", "Fast: years to centuries"]
+        - ["A coal seam", "Slow: millions of years"]
+        - ["Limestone rock", "Slow: millions of years", "Its carbon returns to the air only when the rock is worn away or heated, usually over millions of years."]
   - check: { type: reflect, text: "I can name carbon stores in each of Earth's spheres and explain that carbon moves between them without being made or destroyed." }
 ```
 
@@ -98,6 +108,8 @@ tasks:
 ### A burning log
 
 ### Steady
+
+### Fast or slow
 
 ### In your own words
 
@@ -137,7 +149,7 @@ tasks:
   - check:
       type: question
       q: "Sea creatures take carbon dissolved in water to build shells of calcium carbonate. When they die, the shells pile up and, over millions of years, become limestone. Which stores has that carbon moved through?"
-      options: ["Hydrosphere → biosphere → geosphere", "Atmosphere → atmosphere", "Geosphere → hydrosphere → biosphere"]
+      options: ["Hydrosphere → biosphere → geosphere", "Atmosphere → atmosphere", "Geosphere → biosphere → hydrosphere"]
       answer: 0
       feedback: [null, "It started dissolved in sea water.", "That's the reverse order."]
       explain: "Rocks such as limestone are the largest carbon store of all, but their carbon moves out very slowly, mostly over millions of years."

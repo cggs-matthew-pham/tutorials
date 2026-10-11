@@ -79,7 +79,14 @@ tasks:
       options: ["Diffusion, gases being compressible, and tiny specks in water jiggling under a microscope", "We can see particles with our eyes", "It explains everything"]
       answer: 0
       feedback: [null, "Particles are far too small to see.", "It doesn't, and no model does."]
-      explain: "The jiggling of pollen grains in water (Brownian motion) is the particles of water knocking them about: strong evidence, explained by Einstein in 1905."
+      explain: "The jiggling of tiny grains from pollen in water (Brownian motion) is the particles of water knocking them about: strong evidence, explained by Einstein in 1905."
+  - check:
+      type: question
+      q: "The particle model explains a smell spreading across a room. Which part of the model does the explaining?"
+      options: ["Particles are always moving, with space between them, so the smell's particles spread out between the air particles", "Smell particles are lighter than air, so they float up and spread", "Smell particles get bigger until they fill the room", "The smell spreads only because a breeze carries it"]
+      answer: 0
+      feedback: [null, "Smells spread downwards and sideways too, not just up: the particles move in every direction.", "Particles never change size. They spread out; they don't grow.", "A draught helps, but a smell still spreads in still air, because its particles move by themselves."]
+      explain: "What the model assumes (moving particles with space between them) is exactly what diffusion needs. That is why it explains it well."
   - check: { type: reflect, text: "I can name something the particle model explains well and something it can't, with a reason for each." }
 ```
 
@@ -88,6 +95,8 @@ tasks:
 ### Reactions
 
 ### Evidence
+
+### Why it explains smells
 
 ### In your own words
 
@@ -119,7 +128,7 @@ check:
   q: "Ancient Greek thinkers suggested matter is made of tiny particles, but most people didn't accept it for over 2000 years. What changed?"
   options: ["Evidence: experiments on gases, chemical reactions and Brownian motion that the idea explained and predicted", "Someone saw a particle", "It was voted on"]
   answer: 0
-  feedback: [null, "Atoms were only imaged in the 1900s, long after the model was accepted.", "Science doesn't settle ideas by vote."]
+  feedback: [null, "Atoms were first imaged in the 1950s, long after the model was accepted.", "Science doesn't settle ideas by vote."]
   explain: "Models are accepted when they explain and predict evidence better than the alternatives, and changed when new evidence doesn't fit."
 ```
 

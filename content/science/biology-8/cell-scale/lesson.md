@@ -24,7 +24,7 @@ explainClip:
     - wait: 3800
     - caption: { text: "Your eye can't see anything smaller than about 0.1 mm: you need a microscope.", say: "Your eye can't see anything smaller than a tenth of a millimetre." }
     - wait: 3600
-hook: "For thousands of years nobody knew that every living thing is made of cells. Then, in the 1660s, someone looked at a thin slice of cork through a home-made microscope."
+hook: "For thousands of years nobody knew that every living thing is made of cells. Then, in the 1660s, someone looked at a thin slice of cork through an early microscope."
 ---
 You have studied whole living things. This lesson zooms in.
 
@@ -73,7 +73,7 @@ tasks:
       options: ["Each is about 0.02 mm across, smaller than the 0.1 mm or so the eye can see", "They are see-through", "They are hidden under a layer of dead skin"]
       answer: 0
       feedback: [null, "Many cells are pale, but the real reason is size.", "The outer skin is itself made of cells, and you can't see those either."]
-      explain: "Your eye can just make out things about 0.1 mm across (the width of a hair). Most cells are 5 to 50 times smaller."
+      explain: "Your eye can just make out things about 0.1 mm across (the width of a hair). Most cells are about 2 to 10 times smaller, and bacteria about 50 times smaller."
   - check:
       type: number
       q: "A cell is 0.02 mm wide. How many cells, side by side, would stretch across 1 mm?"

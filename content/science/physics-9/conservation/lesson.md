@@ -79,7 +79,7 @@ tasks:
       q: "People say a car 'loses' energy when it brakes. What really happens?"
       options: ["Its kinetic energy becomes heat in the brakes, which spreads into the air", "The energy is destroyed by the brakes", "The energy goes back into the fuel"]
       answer: 0
-      feedback: [null, "Energy can't be destroyed.", "It doesn't flow back into fuel (except in hybrid cars, which turn some into electrical energy)."]
+      feedback: [null, "Energy can't be destroyed.", "It never flows back into fuel. (Hybrid and electric cars turn some of it into electrical energy stored in a battery.)"]
       explain: "'Lost' means 'transferred somewhere we can't use it'. Feel a bike's brakes after a long downhill: they're hot."
   - check:
       type: question

@@ -156,5 +156,5 @@ Write one sentence: "At first I thought… Now I think… because…"
 - **Mass** (kg): how much matter. The same everywhere.
 - **Weight** (N): the force of gravity on an object. **Weight = mass × g.**
 - **g** is the gravitational field strength: 9.8 N/kg on Earth (about 10), 1.6 on the Moon, 3.7 on Mars, 24.8 on Jupiter.
-- A bigger planet (more mass) pulls harder: bigger g, bigger weight.
+- Gravity depends on mass: the Moon has far less mass than Earth, so it pulls less (smaller g, smaller weight).
 - Without air, all objects fall together, whatever their mass.

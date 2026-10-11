@@ -181,10 +181,10 @@ tasks:
   - check:
       type: question
       q: "Why is the americium in a smoke alarm safe to have on the ceiling?"
-      options: ["Its alpha particles are stopped by a few centimetres of air and the alarm's case", "Americium does not decay", "Its gamma rays are too weak to matter"]
+      options: ["Its alpha particles are stopped by a few centimetres of air and the alarm's case", "Americium does not decay", "Alpha particles can't harm living cells"]
       answer: 0
-      feedback: [null, "It decays all the time; that is how the alarm works.", "It gives out alpha particles, and they never leave the alarm."]
-      explain: "Alpha cannot get out of the alarm. Inside, it knocks electrons off air molecules so a small current flows; smoke stops the current, and the alarm sounds."
+      feedback: [null, "It decays all the time; that is how the alarm works.", "Alpha does the most damage of all close up (see radon next); here it never gets out to reach you."]
+      explain: "Alpha cannot get out of the alarm. Inside, it knocks electrons off air molecules so a small current flows; smoke reduces the current, and the alarm sounds."
   - check:
       type: question
       q: "Radon gas gives out alpha particles too. Why is breathing it in a health risk, when the alarm is not?"

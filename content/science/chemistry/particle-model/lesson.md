@@ -96,6 +96,14 @@ tasks:
         - ["There is air between the particles.", "Not true", "Air is made of particles too."]
         - ["Particles in a solid do not move.", "Not true", "They vibrate in place."]
       explain: "Remember the four key ideas as: particles, space, motion, attraction."
+  - check:
+      type: match
+      q: "Match each state to its particles: arrangement, motion and attraction."
+      pairs:
+        - ["Solid", "Close together in a fixed pattern, vibrating in place, strong attraction"]
+        - ["Liquid", "Close together with no pattern, sliding past each other, weaker attraction"]
+        - ["Gas", "Far apart, moving fast in all directions, very weak attraction"]
+      explain: "The three states differ in the same three ways: arrangement, motion and attraction."
 ```
 
 ### Between the particles
@@ -113,6 +121,10 @@ Think about what changed between the three samples, and what did not.
 ### The four key ideas
 
 Sort each statement.
+
+### Across the states
+
+Compare the three samples on the board.
 
 ## Practise: name that state
 
@@ -204,12 +216,12 @@ check:
   q: "Match each design choice to the particle reason."
   options:
     - "A gas can be squashed, so it cushions bumps"
-    - "A liquid can't be squashed, so a push at one end moves the other end straight away"
+    - "A liquid hardly squashes, so a push at one end moves the other end straight away"
     - "Solid particles are held in fixed positions, so the shape stays under a load"
     - "Its particles are lighter"
   items:
     - ["Bike tyres are filled with air, not water.", "A gas can be squashed, so it cushions bumps", "Air particles have space to move closer when you hit a bump."]
-    - ["Car brakes use a liquid in the pipes to push the brake pads.", "A liquid can't be squashed, so a push at one end moves the other end straight away", "A gas would just squash."]
+    - ["Car brakes use a liquid in the pipes to push the brake pads.", "A liquid hardly squashes, so a push at one end moves the other end straight away", "A gas would just squash."]
     - ["Bridge beams are made of solid steel.", "Solid particles are held in fixed positions, so the shape stays under a load", "Strong attraction keeps the steel particles in place."]
 ```
 

@@ -31,9 +31,9 @@ tasks:
   - check:
       type: question
       q: "Why is the total mass the same before and after a reaction in a sealed flask?"
-      options: ["Atoms are only rearranged: none are made or destroyed, so the total mass stays the same", "Reactions don't change anything", "The flask absorbs the difference"]
+      options: ["Atoms are only rearranged: none are made or destroyed, so the total mass stays the same", "Any gas made has no mass, so only the solids and liquids count", "The flask absorbs the difference"]
       answer: 0
-      feedback: [null, "Reactions do change substances, but not the number of atoms.", "Nothing absorbs mass."]
+      feedback: [null, "Gases have mass too. In a sealed flask they stay on the balance, so the reading holds.", "Nothing absorbs mass."]
       explain: "The same atoms are present before and after, just joined in new ways. Same atoms, same total mass."
   - check:
       type: number

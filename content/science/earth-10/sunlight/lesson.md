@@ -76,12 +76,20 @@ tasks:
       options: ["It increases, which warms the area and melts more ice", "It decreases", "It stays the same", "The ocean reflects more"]
       answer: 0
       feedback: [null, "Ocean reflects far less than ice.", "Ice reflects about 80%, ocean about 6%.", "The ocean is darker."]
+  - check:
+      type: question
+      q: "Why does fresh snow reflect most of the sunlight that hits it, while the open ocean absorbs most?"
+      options: ["Light-coloured surfaces reflect most of the light that hits them; dark surfaces absorb most of it and warm up", "Snow is cold, so it can't take in any energy", "The ocean gets more sunlight, so it absorbs more", "Water is wet, so it soaks up the light"]
+      answer: 0
+      feedback: [null, "Snow does absorb some sunlight (that's why it melts in the sun); how much depends on how light or dark a surface is, not its temperature.", "Albedo is a percentage: with the same sunlight on each, snow reflects about 80% and the ocean about 6%.", "Being wet isn't the reason: it's how dark the surface is."]
   - check: { type: reflect, text: "I can explain that the sun is Earth's energy source, and why different surfaces reflect or absorb different amounts of sunlight." }
 ```
 
 ### Reflect or absorb
 
 ### Melting ice
+
+### Light or dark
 
 ### In your own words
 

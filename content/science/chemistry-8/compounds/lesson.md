@@ -25,7 +25,7 @@ explainClip:
     - click: "Inspect next particle"
     - caption: { text: "Water: two hydrogens joined to one oxygen, always. A compound.", say: "Water is always two hydrogens joined to one oxygen: a compound." }
     - wait: 800
-hook: "Sodium is a metal that bursts into flame in water. Chlorine is a poisonous gas. Put them together and you can sprinkle the result on your chips."
+hook: "Sodium is a metal that fizzes and can burst into flame in water. Chlorine is a poisonous gas. Put them together and you can sprinkle the result on your chips."
 ---
 Last lesson: atoms come in types, one for each element. This lesson: what happens when different types join.
 
@@ -36,7 +36,7 @@ stage: predict
 insight: "Students who think a compound is its elements mixed will predict it keeps their properties; salt shows a compound is a new substance."
 check:
   type: predict
-  q: "Sodium is a soft metal that fizzes and catches fire in water. Chlorine is a poisonous green gas. When they react they make sodium chloride. What do you predict sodium chloride is like?"
+  q: "Sodium is a soft metal that fizzes and can catch fire in water. Chlorine is a poisonous green gas. When they react they make sodium chloride. What do you predict sodium chloride is like?"
   options: ["A poisonous metal", "A green gas that fizzes in water", "Something new, not like either of them", "Half metal and half gas"]
   actual: "Table salt: a white solid you can eat. When different atoms join, the new substance has new properties."
 ```
@@ -104,6 +104,13 @@ tasks:
       answer: 0
       feedback: [null, "There is more hydrogen than oxygen in water, by atom count. That isn't the point here.", "A mixture can be any ratio. A compound can't."]
       explain: "Every water particle has exactly 2 hydrogen atoms for each oxygen atom. A mixture of hydrogen and oxygen gases can be in any ratio."
+  - check:
+      type: question
+      q: "Sodium fizzes in water and chlorine is poisonous, yet sodium chloride is safe to eat. Why?"
+      options: ["It is a new substance: the atoms are joined, so it has new properties", "There is only a tiny amount of sodium and chlorine in it", "The sodium and chlorine are mixed in it, and cancel each other out", "The sodium and chlorine atoms changed into other kinds of atom"]
+      answer: 0
+      feedback: [null, "Salt is made of nothing but sodium and chlorine atoms, in a 1 to 1 ratio. The amount isn't the reason; joining is.", "If they were only mixed, each would keep its properties: the sodium would still fizz in water. In salt they are joined.", "The atoms are still sodium and chlorine. They are joined in a new way, and that gives the new properties."]
+      explain: "A compound is a new substance. Its properties belong to the joined particles, not to the elements it was made from."
   - check: { type: reflect, text: "I explained why sodium chloride is safe to eat when sodium and chlorine are not, using the word compound." }
 ```
 
@@ -116,6 +123,8 @@ tasks:
 The small number belongs to the atom before it: H₂O has **2** H and **1** O.
 
 ### Fixed ratio
+
+### Why salt is safe
 
 ### In your own words
 

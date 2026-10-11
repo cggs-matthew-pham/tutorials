@@ -98,6 +98,16 @@ tasks:
         - ["Net force 200 N backward on a moving bike", "Change (speed up, slow down or turn)", "It slows down."]
         - ["Forward 900 N, backward 900 N", "Stay the same"]
         - ["A puck sliding on ice with no friction", "Stay the same", "No forces along its path: no net force."]
+  - check:
+      type: sort
+      q: "Contact or non-contact force?"
+      options: ["Contact force", "Non-contact force"]
+      items:
+        - ["Friction between the tyres and the road", "Contact force"]
+        - ["Air resistance on a cyclist", "Contact force", "The air touches the cyclist, so it is a contact force."]
+        - ["A table pushing up on a book (the normal force)", "Contact force"]
+        - ["Gravity pulling a skydiver down (her weight)", "Non-contact force", "Gravity acts across a distance, with nothing touching."]
+        - ["A magnet pulling a paperclip from a few centimetres away", "Non-contact force"]
   - check: { type: reflect, text: "I can add and subtract forces along one line to find the net force, and say what it does to motion." }
 ```
 
@@ -110,6 +120,8 @@ tasks:
 ### Balanced
 
 ### What happens next
+
+### Touching or not
 
 ### In your own words
 

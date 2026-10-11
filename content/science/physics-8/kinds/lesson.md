@@ -84,6 +84,13 @@ tasks:
       answer: 0
       feedback: [null, "Speed decides kinetic energy.", "Colour has nothing to do with it."]
       explain: "Heavier and higher means more stored. Likewise, stretching a spring further stores more elastic energy, and different foods store different amounts of chemical energy."
+  - check:
+      type: question
+      q: "What do all kinds of kinetic energy have in common, and how is potential energy different?"
+      options: ["Kinetic energy is active now (something moving, vibrating or flowing); potential energy is stored, ready to be released", "Kinetic energy is only in moving objects; heat, light and sound aren't kinetic", "Potential energy is energy that might exist one day but doesn't yet", "Kinetic energy is useful; potential energy is wasted"]
+      answer: 0
+      feedback: [null, "Heat is particles moving, sound is vibrating air and electricity is moving charge: all active, so all kinetic.", "Potential energy is really there now, just stored: a stretched rubber band has it before you let go.", "Both can be useful. The difference is whether the energy is active now or stored."]
+      explain: "Ask 'is it active now, or stored?' Active (moving, vibrating, flowing) is kinetic; stored and ready to be released is potential."
   - check: { type: reflect, text: "I can sort energy into kinetic and potential, with examples of each." }
 ```
 
@@ -92,6 +99,8 @@ tasks:
 ### Fastest point
 
 ### How much is stored
+
+### Active or stored
 
 ### In your own words
 

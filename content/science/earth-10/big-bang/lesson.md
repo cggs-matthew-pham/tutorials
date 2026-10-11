@@ -30,7 +30,7 @@ explainClip:
     - click: "Later →"
     - caption: { text: "Then stars and galaxies; heavier elements were made inside stars.", say: "Then came stars and galaxies; heavier elements were made inside stars." }
     - wait: 600
-hook: "Every hydrogen atom in the water you drink was made in the first few minutes of the universe. The carbon in you was made inside stars."
+hook: "The hydrogen nuclei in the water you drink were made in the first minutes of the universe. The carbon in you was made inside stars."
 ---
 Before weighing the evidence for the big bang, you need a clear picture of what the theory says.
 
@@ -79,6 +79,12 @@ tasks:
       options: ["Made inside stars and spread by supernovae, long after the big bang", "Made in the first three minutes", "Made on Earth", "They have always existed"]
       answer: 0
       feedback: [null, "Only hydrogen and helium (and a trace of lithium) were made then.", "Earth formed from material already containing them.", "They were made in stars."]
+  - check:
+      type: question
+      q: "About how long ago did the big bang happen, and what has the universe been doing since?"
+      options: ["About 13.8 billion years ago; it has been expanding and cooling ever since", "About 4.6 billion years ago; it has been expanding and cooling ever since", "About 13.8 billion years ago; it has been expanding and heating up", "About 13.8 billion years ago; it expanded at first and has stayed the same size since the galaxies formed"]
+      answer: 0
+      feedback: [null, "4.6 billion years is the age of the sun and Earth, which formed long after the big bang.", "As the universe expands, its energy spreads out and it cools: that is why atoms could form at 380 000 years.", "It is still expanding: distant galaxies are still moving apart (next lesson)."]
   - check: { type: reflect, text: "I can describe the big bang as the origin of space, time and matter 13.8 billion years ago, and outline the main stages as the universe expanded and cooled." }
 ```
 
@@ -87,6 +93,8 @@ tasks:
 ### Atoms
 
 ### Your atoms
+
+### Expanding and cooling
 
 ### In your own words
 
@@ -101,9 +109,9 @@ insight: "Connecting the first stars to heavier elements explains why later star
 check:
   type: question
   q: "The very first stars were made of hydrogen and helium only. The sun also contains carbon, oxygen and iron. What does that tell us?"
-  options: ["The sun formed from material that earlier stars had made and spread out", "The sun is older than the first stars", "The sun makes all its elements from nothing", "Carbon was made in the big bang"]
+  options: ["The sun formed from material that earlier stars had made and spread out", "The sun is older than the first stars", "The sun has already made its own carbon, oxygen and iron by fusion", "Carbon was made in the big bang"]
   answer: 0
-  feedback: [null, "The sun is 4.6 billion years old; the first stars formed about 13.6 billion years ago.", "Stars make heavier elements from lighter ones by fusion.", "The big bang made almost only hydrogen and helium."]
+  feedback: [null, "The sun is 4.6 billion years old; the first stars formed about 13.6 billion years ago.", "The sun is still fusing hydrogen into helium in its core, and iron is made only in much bigger stars: those elements were there when it formed.", "The big bang made almost only hydrogen and helium."]
 ```
 
 ## Elaborate: open questions

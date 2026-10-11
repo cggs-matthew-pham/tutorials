@@ -83,9 +83,9 @@ tasks:
   - check:
       type: question
       q: "Why do scientists use observable features to classify?"
-      options: ["Anyone can check them, so everyone sorts the same organism the same way", "They are the most interesting features", "Because organisms choose their own group"]
+      options: ["Anyone can check them, so everyone sorts the same organism the same way", "They always show which organisms are most closely related", "Because organisms choose their own group"]
       answer: 0
-      feedback: [null, "Interesting isn't the point: checkable is.", "Groups are decided by people, using evidence."]
+      feedback: [null, "Not always: a mushroom looks more like a plant, yet DNA shows it is closer to animals. Think about who can check a feature.", "Groups are decided by people, using evidence."]
   - check:
       type: question
       q: "DNA evidence shows which living things share a recent common ancestor. Which is a mushroom's closer relative?"

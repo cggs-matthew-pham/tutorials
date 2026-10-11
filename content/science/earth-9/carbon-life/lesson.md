@@ -122,9 +122,9 @@ insight: "Reading a real pattern as evidence of the photosynthesis–respiration
 check:
   type: question
   q: "Measurements of CO₂ in the air in the Northern Hemisphere dip every northern summer and rise every winter. Why?"
-  options: ["In summer the huge northern forests photosynthesise more than they respire; in winter respiration and decomposition win", "The sun burns CO₂ in summer", "People burn less fuel in summer", "Oceans freeze in summer"]
+  options: ["In summer the huge northern forests photosynthesise more than they respire; in winter respiration and decomposition win", "The sun burns CO₂ in summer", "People burn less fuel in summer", "Trees only respire in winter, when they have lost their leaves"]
   answer: 0
-  feedback: [null, "The sun doesn't destroy CO₂.", "The pattern is far bigger than any change in fuel use.", "Oceans don't freeze in summer."]
+  feedback: [null, "The sun doesn't destroy CO₂.", "The pattern is far bigger than any change in fuel use.", "Plants respire all year, day and night; in summer, photosynthesis outweighs it."]
 ```
 
 ## Evaluate: look back

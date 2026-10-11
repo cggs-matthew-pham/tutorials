@@ -91,6 +91,16 @@ tasks:
       answer: 0
       feedback: [null, "Light is a sign, but a light bulb glows without any new substance.", "Heating alone doesn't make a new substance."]
       explain: "A new substance with new properties is the test; the light and heat are signs that go with it."
+  - check:
+      type: match
+      q: "Why does each sign suggest a new substance has formed?"
+      pairs:
+        - ["A colour change", "The new substance has a different colour from the starting ones"]
+        - ["Bubbles of gas", "A new substance that is a gas has been made"]
+        - ["A precipitate", "A new substance has formed that doesn't dissolve in the liquid"]
+        - ["Heat or light given out, or getting colder", "Atoms rearranging into new particles gives out or takes in energy"]
+        - ["A new smell", "Particles of a new substance are reaching your nose"]
+      explain: "Each sign is a property of a new substance (colour, state, whether it dissolves, smell) or the energy of atoms rearranging. A physical change can show the same sign, which is why a sign is a clue, not proof."
   - check: { type: reflect, text: "I can list signs of a chemical change and explain why a sign is a clue, not proof." }
 ```
 
@@ -99,6 +109,8 @@ tasks:
 ### Clue or trap
 
 ### The strongest evidence
+
+### Why each is a clue
 
 ### In your own words
 
@@ -135,9 +147,9 @@ insight: "A precipitate is a sign students meet less often; reasoning about it w
 check:
   type: question
   q: "Two clear solutions are mixed and the liquid goes cloudy with a fine yellow solid that settles. What does this suggest, and how could you check?"
-  options: ["A new insoluble substance (a precipitate) formed; filter it out and test its properties", "One of the solutions has frozen", "The solutions have evaporated"]
+  options: ["A new insoluble substance (a precipitate) formed; filter it out and test its properties", "One of the solutions has frozen", "Nothing new: the two solutions have just mixed, like two paints"]
   answer: 0
-  feedback: [null, "Nothing has cooled enough to freeze.", "Evaporation would leave less liquid, not a cloudy one."]
+  feedback: [null, "Nothing has cooled enough to freeze.", "Two clear solutions that only mix give a clear mixture. A solid that wasn't there before points to a new substance."]
   explain: "A solid forming from two clear solutions is a strong sign of a new substance. Filtering it out and testing it is how a chemist would confirm it."
 ```
 

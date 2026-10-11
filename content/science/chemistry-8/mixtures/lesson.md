@@ -107,6 +107,14 @@ tasks:
       answer: 0
       feedback: [null, "Dissolved salt passes through filter paper.", "They are mixed, not joined, so a physical method works."]
       explain: "Mixtures can be separated by physical means (Year 7: filtering, evaporating, distilling, chromatography)."
+  - check:
+      type: match
+      q: "Three kinds of mixture. Match each to an example and what it does."
+      pairs:
+        - ["Solution", "Salt water: the salt dissolves, the liquid stays clear and nothing settles"]
+        - ["Suspension", "Muddy water: bits of solid spread through, then settle if left to stand"]
+        - ["Colloid", "Milk: tiny drops spread through; it looks cloudy but nothing settles"]
+      explain: "All three are mixtures. In a solution the particles are dissolved and pass through filter paper; a suspension's bits are big enough to settle and be filtered out; a colloid's are in between, so it looks cloudy but doesn't settle. Fog and whipped cream are colloids too."
   - check: { type: reflect, text: "I can define a mixture and tell it apart from a compound." }
 ```
 
@@ -117,6 +125,8 @@ tasks:
 ### Three kinds
 
 ### Getting it back
+
+### Solutions, suspensions and colloids
 
 ### In your own words
 

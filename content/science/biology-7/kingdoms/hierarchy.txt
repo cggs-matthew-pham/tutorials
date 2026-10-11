@@ -2,7 +2,7 @@
 Kingdom: Animals
 Phylum: Chordates (animals with a backbone)
 Class: Mammals
-Order: Marsupials (Diprotodontia)
+Order: Diprotodonts (Diprotodontia: kangaroos, wombats, koalas and possums)
 Family: Kangaroos and wallabies (Macropodidae)
 Genus: Osphranter
 Species: Osphranter rufus (red kangaroo)

@@ -79,7 +79,7 @@ tasks:
 
 ### In your own words
 
-In your book: write the routine in your own words as five steps, then solve this: a 800 kg motorbike has a driving force of 2400 N and 400 N of resistance. Find its acceleration and its speed after 5 s from rest.
+In your book: write the routine in your own words as five steps, then solve this: a 400 kg motorbike (with its rider) has a driving force of 2400 N and 400 N of resistance. Find its acceleration and its speed after 5 s from rest.
 
 ## Elaborate: two-step problem
 
@@ -103,10 +103,10 @@ insight: "A quantitative argument from stopping distances connects the laws to a
 check:
   type: question
   q: "A car's stopping distance at 60 km/h is about 36 m, and at 40 km/h about 20 m. What is the best argument for a 40 km/h school-zone limit?"
-  options: ["At the lower speed the car stops in much less distance, and the force on anyone it hits is smaller", "Cars go slowly so it is quieter", "Drivers like lower limits"]
+  options: ["At the lower speed the car stops in much less distance, and the force on anyone it hits is smaller", "Cars go slowly so it is quieter", "Stopping distance goes down in proportion to speed, so the lower limit saves only a third of the distance"]
   answer: 0
-  feedback: [null, "Noise isn't the safety argument.", "Opinions are not evidence."]
-  explain: "A quantitative argument uses numbers: a third faster takes nearly twice the distance to stop, and a faster car has more energy to lose."
+  feedback: [null, "Noise isn't the safety argument.", "Check the numbers: 20 m is well under two thirds of 36 m. Stopping distance grows faster than speed."]
+  explain: "A quantitative argument uses numbers: going 50% faster (60 instead of 40 km/h) takes nearly twice the distance to stop, and a faster car has more energy to lose."
 ```
 
 ## Evaluate: look back

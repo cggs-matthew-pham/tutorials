@@ -71,16 +71,22 @@ tasks:
         - ["Allele", "One version of a gene"]
   - check:
       type: question
-      q: "There is one gene affecting earlobe shape, but people have attached or free earlobes. How?"
-      options: ["People have different alleles (versions) of the same gene", "There is one gene for attached and another for free", "The environment decides", "Only some people have the gene"]
+      q: "One gene decides your blood group, yet people have blood group A, B, AB or O. How?"
+      options: ["People have different alleles (versions) of the same gene", "There is a separate gene for each blood group", "The environment decides", "Only some people have the gene"]
       answer: 0
-      feedback: [null, "It's one gene in the same place on the chromosome; its versions differ.", "Earlobe shape is mostly inherited.", "Everyone has the gene; the version differs."]
+      feedback: [null, "It's one gene in the same place on the chromosome; its versions differ.", "Blood group is set by your genes, not by what happens to you.", "Everyone has the gene; the version differs."]
   - check:
       type: question
       q: "Your body cells have 46 chromosomes. Why are they described as 23 pairs?"
       options: ["One of each pair came from each parent, and the two carry the same genes (perhaps different alleles)", "Each chromosome copies itself", "Boys and girls have different chromosomes", "Pairs are easier to count"]
       answer: 0
       feedback: [null, "Copying happens before division, but the pairs come from the two parents.", "Only one pair (the sex chromosomes) differs.", "There's a biological reason."]
+  - check:
+      type: question
+      q: "Someone has the blood group alleles A and O, and their blood group is A. Which is their genotype and which their phenotype?"
+      options: ["Genotype: the alleles A and O. Phenotype: blood group A, the characteristic that shows", "Genotype: blood group A. Phenotype: the alleles A and O", "Both are 'blood group A': the words mean the same thing", "Genotype: the chromosome the gene is on. Phenotype: the gene"]
+      answer: 0
+      feedback: [null, "Swapped: the genotype is the genetic information (the alleles); the phenotype is what shows.", "They differ: someone with alleles A and A is also blood group A, with a different genotype.", "Genotype means which alleles you have, not where they are; the phenotype is the characteristic."]
   - check: { type: reflect, text: "I can explain how DNA, genes, chromosomes and alleles are related." }
 ```
 
@@ -89,6 +95,8 @@ tasks:
 ### Alleles
 
 ### Pairs
+
+### Genotype and phenotype
 
 ### In your own words
 
@@ -139,3 +147,4 @@ Write one sentence: "At first I thought… Now I think… because…"
 - **DNA** carries coded instructions as a sequence of bases (A, T, C, G).
 - A **chromosome** is one long DNA molecule, coiled; humans have 46, in 23 pairs (one of each pair from each parent).
 - A **gene** is a section of DNA coding for a protein; **alleles** are different versions of one gene.
+- **Genotype:** the alleles you have (such as A and O). **Phenotype:** the characteristic that shows (blood group A).

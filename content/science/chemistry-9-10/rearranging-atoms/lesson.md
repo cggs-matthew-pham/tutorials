@@ -93,7 +93,7 @@ tasks:
 
 ### In your own words
 
-In your book: explain, using atoms, why the total mass is the same before and after a reaction.
+In your book: draw CH₄ + 2O₂ → CO₂ + 2H₂O as particles before and after, with each atom as a labelled circle. Then explain, using atoms, why the total mass is the same before and after a reaction.
 
 ## Practise: balanced or not?
 

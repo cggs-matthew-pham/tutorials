@@ -77,6 +77,13 @@ tasks:
       type: parsons
       code: "levels.txt#order"
       text: "Put the levels of organisation in order, smallest first."
+  - check:
+      type: question
+      q: "A wilt disease blocks the xylem in a leaf. What happens to the leaf?"
+      options: ["Its cells run short of water, so photosynthesis slows and the leaf wilts", "Nothing much: the other tissues still do their own jobs", "The palisade cells take in water from the air instead"]
+      answer: 0
+      feedback: [null, "The tissues depend on each other: the mesophyll needs the water that only the xylem brings.", "Leaves lose water vapour to the air; almost all their water arrives through the xylem from the roots."]
+      explain: "A change in one tissue changes the whole organ, because its tissues depend on each other."
   - check: { type: reflect, text: "I named two tissues in an organ and explained how each helps the organ do its job." }
 ```
 
@@ -85,6 +92,8 @@ tasks:
 ### Why several
 
 ### Levels
+
+### A blocked tissue
 
 ### In your own words
 
@@ -102,9 +111,9 @@ tasks:
   - check:
       type: question
       q: "If the heart were made only of cardiac muscle, what would go wrong?"
-      options: ["No smooth lining (blood would clot), no valves (blood would flow backwards), no pacemaker signal", "Nothing: muscle does it all", "It would beat too slowly"]
+      options: ["No smooth lining (blood would clot), no valves (blood would flow backwards), no nerves to adjust how fast it beats", "Nothing: muscle does it all", "It would beat too slowly"]
       answer: 0
-      feedback: [null, "Muscle pumps, but other tissues line, hold and time it.", "Timing comes from nervous tissue, which would be missing."]
+      feedback: [null, "Muscle pumps, but other tissues line it, hold it together and control it.", "Each beat starts in special muscle cells, so it would keep beating; nerves only speed it up or slow it down. Think about clotting and backflow."]
 ```
 
 ### Find the tissues

@@ -27,7 +27,7 @@ explainClip:
     - wait: 2500
     - caption: { text: "Earth warms until the infrared it gives off catches up: a new balance.", say: "Earth warms until the infrared it gives off catches up: a new balance." }
     - wait: 600
-hook: "Every second, the sun pours more energy onto Earth than humanity uses in a year. Yet, year to year, Earth's average temperature barely changes. Where does it all go?"
+hook: "In about an hour, the sun pours as much energy onto Earth as humanity uses in a year. Yet, year to year, Earth's average temperature barely changes. Where does it all go?"
 ---
 Sunlight comes in and some is absorbed. This lesson: where that energy goes.
 
@@ -69,9 +69,9 @@ tasks:
   - check:
       type: question
       q: "After you increased the sunlight, why did the temperature stop rising?"
-      options: ["A warmer surface gives off more infrared, until energy out matched energy in again", "The sunlight ran out", "The ocean got full", "The model stopped"]
+      options: ["A warmer surface gives off more infrared, until energy out matched energy in again", "The sunlight ran out", "The ocean got full", "The warmer Earth reflected more of the sunlight"]
       answer: 0
-      feedback: [null, "The sunlight stayed at the new level.", "The ocean took heat while warming; it is a store, not a limit.", "It kept running: out caught up with in."]
+      feedback: [null, "The sunlight stayed at the new level.", "The ocean took heat while warming; it is a store, not a limit.", "The reflected share stayed where you set it; what grew was the infrared given off by the warmer surface."]
   - check:
       type: match
       q: "Match each energy flow to how it moves."
@@ -97,7 +97,6 @@ In your book: draw a simple energy-flow diagram (sun, atmosphere, surface, ocean
 
 ```step
 stage: modify
-tier: typical
 insight: "The ocean's heat capacity explains why climate responds slowly."
 check:
   type: question

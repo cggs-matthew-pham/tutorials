@@ -88,6 +88,13 @@ tasks:
       answer: 0
       feedback: [null, "Energy is never destroyed: it is transferred somewhere not useful.", "Wearing out is a different problem."]
       explain: "Every moving part and every wire turns a little energy into heat. Better design reduces it, but never to zero."
+  - check:
+      type: question
+      q: "Motor A takes in 500 J and does 150 J of useful work (30%). Motor B takes in 200 J and does 100 J (50%). What does the difference mean?"
+      options: ["B turns a bigger share of its input into useful work, so for the same job it needs less energy in and wastes less", "A is more efficient, because it does more useful work", "They are equally good, because both obey conservation of energy"]
+      answer: 0
+      feedback: [null, "That's the amount, not the share. Efficiency compares useful out with total in.", "Both conserve energy, but A wastes 70% of its input and B only 50%."]
+      explain: "For every 100 J in, B gives 50 J of useful work and A only 30 J. To do the same job, B needs less energy in."
   - check: { type: reflect, text: "I can calculate efficiency and explain why it is always less than 100%." }
 ```
 
@@ -98,6 +105,8 @@ tasks:
 ### The motor
 
 ### Never 100%
+
+### Two motors
 
 ### In your own words
 

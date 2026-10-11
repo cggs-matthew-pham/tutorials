@@ -101,6 +101,15 @@ tasks:
       answer: 0
       feedback: [null, "F = ma uses the net force: the push minus the friction.", "Friction alone isn't the net force.", "Opposite forces subtract."]
       explain: "Net force 10 − 4 = 6 N, so a = 6 ÷ 2 = 3 m/s²."
+  - check:
+      type: match
+      q: "Match each quantity to its unit."
+      pairs:
+        - ["Force (F)", "newtons (N)"]
+        - ["Mass (m)", "kilograms (kg)"]
+        - ["Acceleration (a)", "metres per second squared (m/s²)"]
+        - ["Velocity (v)", "metres per second (m/s)"]
+      explain: "F = ma only works with these units: mass in kg (not g), acceleration in m/s² (not m/s)."
   - check: { type: reflect, text: "I can use F = ma to find any of force, mass or acceleration, with units, using the net force." }
 ```
 
@@ -113,6 +122,8 @@ tasks:
 ### Find the mass
 
 ### Net force
+
+### Units
 
 ### In your own words
 
@@ -167,7 +178,7 @@ tasks:
       options: ["bigger", "the same", "smaller"]
       answer: 0
       feedback: [null, "Same deceleration with more mass needs more force: F = ma.", "More mass needs more force, not less."]
-      explain: "This is one reason heavier vehicles take longer to stop, and why speed limits near schools are low."
+      explain: "F = ma: the same deceleration with more mass needs more force. With the same braking force, the loaded car would decelerate less and take longer to stop."
 ```
 
 ### Deceleration
@@ -187,7 +198,7 @@ check:
   q: "You measure a trolley's acceleration for several pulling forces, keeping the mass the same. What graph of acceleration against force does F = ma predict?"
   options: ["A straight line through the origin (gradient 1 ÷ mass)", "A curve that levels off", "A horizontal line"]
   answer: 0
-  feedback: [null, "In a real practical friction can bend it a little near zero, but F = ma predicts a straight line.", "That would mean force has no effect."]
+  feedback: [null, "In a real practical friction can shift the line so it misses the origin, but F = ma still predicts a straight line.", "That would mean force has no effect."]
   explain: "a = F ÷ m, so a is proportional to F: a straight line through the origin with gradient 1/m. Real data that misses the origin usually points to friction."
 ```
 

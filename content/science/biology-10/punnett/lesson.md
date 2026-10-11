@@ -89,6 +89,12 @@ tasks:
       options: ["Both carry a hidden recessive p allele, and the offspring got p from each", "White came from a mutation every time", "The environment made it white", "One parent was really white"]
       answer: 0
       feedback: [null, "No mutation is needed: both parents carry p.", "The square explains it with the alleles alone.", "Both parents were Pp: purple."]
+  - check:
+      type: question
+      q: "In a family tree (pedigree), shaded shapes show people with a recessive condition. Two unshaded parents have a shaded child. What are the parents' genotypes?"
+      options: ["Both Ff: each carries one hidden f allele", "One is FF and the other ff", "Both FF", "Both ff"]
+      answer: 0
+      feedback: [null, "An ff parent would have the condition, so would be shaded.", "FF × FF can only give FF children: none could be ff.", "ff parents would both be shaded."]
   - check: { type: reflect, text: "I can draw a Punnett square for one gene and give the probability of each phenotype." }
 ```
 
@@ -97,6 +103,8 @@ tasks:
 ### Probability
 
 ### Hidden alleles
+
+### Family tree
 
 ### In your own words
 

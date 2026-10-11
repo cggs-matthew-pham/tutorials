@@ -97,7 +97,7 @@
         P('lining', 'Lining (epithelial tissue)', 'A smooth inner layer so blood flows without clotting.', 'Heart and blood vessels', { shape: rrect(0.4, 2.2, 19.6, 2.7, 0.1), fill: '#f4d6d6', stroke: '#c98a8a', w: 1 }),
         P('muscle', 'Cardiac muscle tissue', 'Thick muscle that contracts strongly and never tires, to pump blood.', 'Heart only', { shape: rrect(0.4, 2.7, 19.6, 7.0, 0.1), fill: '#c95d5d', stroke: '#9c3f3f', w: 1, hatch: true }),
         P('connective', 'Connective tissue (outer layer and valves)', 'Tough, fibrous tissue that holds the heart together and forms the valves.', 'Heart and around many organs', { shape: rrect(0.4, 7.0, 19.6, 8.2, 0.1), fill: '#e9dcc3', stroke: '#b9a77f', w: 1 }),
-        P('nerve', 'Nervous tissue (pacemaker)', 'Special cells that send the signal for each heartbeat.', 'Heart (right atrium)', { line: [[1.5, 6.2], [5, 5.6], [9, 6.1], [13, 5.5], [18.5, 6]], w: 3, stroke: '#f1e3a6' })];
+        P('nerve', 'Nervous tissue', 'Nerves that speed up or slow down the heartbeat. Each beat starts in special muscle cells (the pacemaker).', 'Heart (right atrium)', { line: [[1.5, 6.2], [5, 5.6], [9, 6.1], [13, 5.5], [18.5, 6]], w: 3, stroke: '#f1e3a6' })];
     } },
   };
   var ZOOM = [

@@ -90,6 +90,13 @@ tasks:
       answer: 0
       feedback: [null, "That's exactly what it shows.", "You can read it off the useful band."]
       explain: "It shows energy only. Comparing real systems also needs cost, emissions and whether the energy source runs out."
+  - check:
+      type: question
+      q: "The coal station's biggest waste is the 550 J of heat carried off by the cooling water. Which change would make the most use of it?"
+      options: ["Pipe the warm cooling water to heat nearby homes or greenhouses", "Narrow the chimney so less heat escapes up it", "Burn more coal so more electricity comes out"]
+      answer: 0
+      feedback: [null, "The chimney is the smaller waste (100 J). Start with the widest wasted band.", "More coal gives more electricity, but still only 35% of the input: the share wasted stays the same."]
+      explain: "Target the widest wasted band first. Combined heat and power stations pipe their warm water to nearby buildings, so much of that energy becomes useful."
   - check: { type: reflect, text: "I can build and read a Sankey diagram, find the efficiency and the biggest waste, and say what it doesn't show." }
 ```
 
@@ -100,6 +107,8 @@ tasks:
 ### Solar panel
 
 ### What it hides
+
+### Make it better
 
 ### In your own words
 

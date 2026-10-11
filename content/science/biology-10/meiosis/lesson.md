@@ -73,9 +73,9 @@ tasks:
   - check:
       type: question
       q: "Humans have 23 pairs. About how many different combinations are possible?"
-      options: ["2 to the power 23: over 8 million", "23", "46", "23 × 2 = 46"]
+      options: ["2 to the power 23: over 8 million", "23: one new combination for each pair", "2 × 23 = 46: two choices for each of 23 pairs", "23 × 23 = 529"]
       answer: 0
-      feedback: [null, "Each pair doubles the number.", "Each pair doubles the number, it doesn't add one.", "It's multiplied, 2 × 2 × 2 … 23 times."]
+      feedback: [null, "Each pair doesn't add one combination: it doubles the number there already.", "That adds the choices. Choices for different pairs multiply: 2 × 2 × 2 … 23 times.", "Each pair has 2 choices, so multiply 2 by itself 23 times, not 23 by itself."]
   - check: { type: reflect, text: "I can explain how meiosis halves the chromosome number and makes every gamete a different combination." }
 ```
 

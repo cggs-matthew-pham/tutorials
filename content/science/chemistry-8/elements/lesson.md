@@ -115,6 +115,13 @@ tasks:
       answer: 0
       feedback: [null, "Compounds aren't on it: only elements.", "It lists all 118 known elements."]
       explain: "About 118 elements are known; around 90 occur naturally. Everything else is made from them."
+  - check:
+      type: question
+      q: "A box on the periodic table shows 26, Fe and Iron. What does each part tell you?"
+      options: ["26 is the atomic number (its place in the table), Fe is the symbol and Iron is the name", "26 is the number of atoms in one particle of iron", "Fe is the formula of a compound of iron", "26 is the temperature iron melts at"]
+      answer: 0
+      feedback: [null, "The 26 isn't an atom count: it is iron's place in the table, its atomic number.", "Fe is one capital and one small letter: the symbol of one element. A compound's formula has two or more symbols.", "Iron melts at about 1500 °C. The whole number in the box is its atomic number: its place in order."]
+      explain: "Each box gives an element's atomic number, symbol and name (often its atomic mass too). Find the name and you have the symbol, or the other way round."
   - check: { type: reflect, text: "I can define an element, tell an element from a compound by its atoms, and use chemical symbols." }
 ```
 
@@ -127,6 +134,8 @@ tasks:
 ### Co or CO
 
 ### The periodic table
+
+### Reading a box
 
 ### In your own words
 

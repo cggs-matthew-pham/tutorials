@@ -86,9 +86,9 @@ insight: "Sport techniques apply the laws to the human body and show how the fol
 check:
   type: question
   q: "A footballer follows through when kicking a ball. In terms of force and time, why does the ball go further?"
-  options: ["The foot stays in contact and pushes for longer, so the ball gains more speed", "The ball is heavier", "A follow-through reduces air resistance"]
+  options: ["The foot stays in contact and pushes for longer, so the ball gains more speed", "The follow-through keeps pushing the ball after it has left the foot", "A follow-through reduces air resistance"]
   answer: 0
-  feedback: [null, "The ball's mass hasn't changed.", "Air resistance is the same."]
+  feedback: [null, "Once the ball leaves the foot, nothing pushes it forward: the follow-through matters only while they are touching.", "Air resistance is the same."]
   explain: "A longer contact time means the force acts for longer, which gives the ball a higher launch speed."
 ```
 
@@ -101,9 +101,9 @@ insight: "A driverless braking system needs the laws and numbers, not just senso
 check:
   type: question
   q: "An automatic emergency braking system detects an obstacle 25 m ahead of a 1500 kg car at 20 m/s. What does it need to work out?"
-  options: ["Whether the braking force the car can apply gives a stopping distance shorter than 25 m", "The colour of the obstacle", "How loud the horn should be"]
+  options: ["Whether the braking force the car can apply gives a stopping distance shorter than 25 m", "The colour of the obstacle", "Whether the car is under the speed limit"]
   answer: 0
-  feedback: [null, "Colour doesn't change the physics.", "The horn doesn't help the stopping."]
+  feedback: [null, "Colour doesn't change the physics.", "Being under the limit doesn't mean it can stop in 25 m: that depends on its speed, mass and braking force."]
   explain: "It must compare the stopping distance from the car's speed and best possible braking force with the distance to the obstacle, quickly enough to act."
 ```
 

@@ -89,7 +89,16 @@ tasks:
       options: ["They vibrate faster, so the temperature rises", "They get bigger", "They start to leave the solid straight away"]
       answer: 0
       feedback: [null, "Particles don't grow; their motion changes.", "They stay in place until the solid reaches its melting point."]
-      explain: "Temperature is a measure of how fast particles move. Energy in, faster particles, higher temperature, until a change of state begins."
+      explain: "Temperature is a measure of how fast the particles move on average. Energy in, faster particles, higher temperature, until a change of state begins."
+  - check:
+      type: match
+      q: "What happens to the particles in each change of state?"
+      pairs:
+        - ["Melting", "Particles vibrate hard enough to break free of their fixed places and start sliding past each other"]
+        - ["Freezing", "Particles slow down and settle into fixed places, giving out energy"]
+        - ["Evaporating", "Fast particles at the surface pull free of the others and escape as a gas"]
+        - ["Condensing", "Gas particles slow down and are pulled close together into a liquid, giving out energy"]
+      explain: "Energy in frees the particles from each other's attraction; energy out lets the attraction pull them back together."
   - check: { type: reflect, text: "I can explain changes of state with particles and say whether energy goes in or out for each." }
 ```
 
@@ -104,6 +113,8 @@ Move **R** with its slider or by clicking the graph.
 ### The second flat part
 
 ### Before melting
+
+### What the particles do
 
 ### In your own words
 

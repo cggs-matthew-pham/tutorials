@@ -75,9 +75,9 @@ tasks:
   - check:
       type: question
       q: "Why are millions of sperm released, but only one egg?"
-      options: ["Most sperm never reach the egg; the egg is large and costly to make because it holds food", "Only one sperm can swim", "Eggs are smaller", "Sperm have no nucleus"]
+      options: ["Most sperm never reach the egg; the egg is large and costly to make because it holds food", "Many sperm join the egg, each adding some chromosomes", "Eggs are smaller", "Sperm have no nucleus"]
       answer: 0
-      feedback: [null, "Many swim; few arrive.", "The egg is far larger.", "Each sperm carries a nucleus with 23 chromosomes."]
+      feedback: [null, "Only one sperm's nucleus joins the egg: its 23 chromosomes and the egg's 23 make 46.", "The egg is far larger.", "Each sperm carries a nucleus with 23 chromosomes."]
   - check: { type: reflect, text: "I can explain why gametes have half the chromosomes and how a sperm and an egg are specialised." }
 ```
 
@@ -106,11 +106,19 @@ tasks:
       options: ["Wind or animals carry the pollen to a flower; a pollen tube then grows down to the ovule", "It swims through the air", "The egg moves to the pollen", "It doesn't: plants don't use gametes"]
       answer: 0
       feedback: [null, "No tail: it is carried.", "The egg stays inside the ovule.", "Flowering plants reproduce sexually with gametes."]
+  - check:
+      type: question
+      q: "A flowering plant's egg sits inside an ovule, deep in the flower's ovary. How does that suit its job?"
+      options: ["It keeps the egg protected, and after fertilisation the ovule grows into a seed with a food store", "It lets the egg swim out to meet the pollen", "It stops pollen ever reaching it", "It is where the pollen is made"]
+      answer: 0
+      feedback: [null, "Plant eggs don't move: a pollen tube grows down to the ovule.", "A pollen tube grows through the flower to reach it.", "Pollen is made in the anthers; ovules hold the eggs."]
 ```
 
 ### Pollen
 
 ### Getting there
+
+### The ovule
 
 ## Elaborate: counting chromosomes
 

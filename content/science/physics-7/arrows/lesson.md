@@ -143,9 +143,9 @@ insight: "A shaped object in flight shows forces that aren't pushes in contact, 
 check:
   type: question
   q: "First Peoples of Australia shaped boomerangs with a curved upper surface, like an aircraft wing. In flight, as air moves over it, which force does that shape mainly create?"
-  options: ["Lift: air pushing the boomerang up (and sideways, which curves its path)", "Friction with the ground", "More weight"]
+  options: ["Lift: air pushing the boomerang up (and sideways, which curves its path)", "Thrust: the shape keeps pushing it forward, like an engine", "More weight"]
   answer: 0
-  feedback: [null, "In flight it isn't touching the ground.", "Weight depends only on mass and gravity, not on shape."]
+  feedback: [null, "Nothing pushes it forward once it leaves the hand: it keeps moving because it was thrown. The shape makes the air push on it.", "Weight depends only on mass and gravity, not on shape."]
   explain: "The aerofoil shape makes the air push on it: lift. Spinning, the lift tilts the boomerang so it curves back. Its force diagram: weight down, lift, and air resistance against its motion."
 ```
 

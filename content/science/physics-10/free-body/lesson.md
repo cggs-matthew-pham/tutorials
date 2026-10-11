@@ -26,7 +26,7 @@ explainClip:
     - click: "Rope pulling: less"
     - caption: { text: "Pull with 40 N: balanced both ways. Steady speed, or still.", say: "Pull with forty newtons: balanced both ways." }
     - wait: 1600
-hook: "A plane cruising at 900 km/h has four big forces on it, each tens of thousands of newtons. Yet the passengers can pour a drink without spilling it. How?"
+hook: "A plane cruising at 900 km/h has four big forces on it, each hundreds of thousands of newtons. Yet the passengers can pour a drink without spilling it. How?"
 ---
 You can find a net force along one line. This lesson draws all the forces on an object at once.
 

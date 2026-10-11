@@ -77,12 +77,22 @@ tasks:
       options: ["Atmosphere (CO₂), hydrosphere (water) and biosphere (the tree)", "Only the biosphere", "Only the atmosphere", "Geosphere and atmosphere"]
       answer: 0
       feedback: [null, "Where do the CO₂ and water come from?", "The tree is part of it too.", "The tree is living: biosphere."]
+  - check:
+      type: match
+      q: "Match each sphere to a process that happens in it."
+      pairs:
+        - ["Atmosphere", "Wind carrying smoke from a bushfire"]
+        - ["Biosphere", "A kangaroo eating grass"]
+        - ["Hydrosphere", "Ocean currents carrying water around the world"]
+        - ["Geosphere", "Rock slowly breaking down into soil"]
   - check: { type: reflect, text: "I can name the four spheres, give an example from each, and describe a process that crosses between spheres." }
 ```
 
 ### Contents
 
 ### Interactions
+
+### Processes
 
 ### In your own words
 

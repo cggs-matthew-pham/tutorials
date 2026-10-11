@@ -37,7 +37,7 @@ tasks:
         - ["An egg cooking and turning solid and white", "Chemical", "The proteins change into new substances."]
         - ["Sugar dissolving in tea", "Physical", "The sugar can be recovered by evaporating the water."]
         - ["Iron nails going orange-brown and flaky in damp air", "Chemical", "Rust is a new substance."]
-        - ["Dry ice (solid carbon dioxide) turning to a fog", "Physical", "Still carbon dioxide."]
+        - ["Dry ice (solid carbon dioxide) turning straight into a gas", "Physical", "Still carbon dioxide, now a gas. (The white fog is water from the air, condensed by the cold.)"]
         - ["Milk going sour", "Chemical", "New substances (acids) are made."]
   - check:
       type: question

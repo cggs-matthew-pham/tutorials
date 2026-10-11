@@ -80,6 +80,12 @@ tasks:
       options: ["The effect needs to last a long time and reach cells all over the body", "Hormones are faster", "Nerves can't reach bones", "Growth is a reflex"]
       answer: 0
       feedback: [null, "Hormones are slower.", "Nerves reach bones; the point is duration and reach.", "A reflex is a quick nervous response."]
+  - check:
+      type: question
+      q: "A sprinter reacts to the starting gun. Which system carries the message to the leg muscles, and why?"
+      options: ["Nervous: the response must be very fast and go to particular muscles", "Endocrine: a hormone in the blood reaches every leg muscle at once", "Endocrine: the race lasts a long time, so the effect must last", "Both equally: every response uses both systems"]
+      answer: 0
+      feedback: [null, "Hormones would reach the legs, but far too slowly for a start.", "The start itself takes a split second, so it needs nerves.", "Many responses use both, but the instant start is nervous."]
   - check: { type: reflect, text: "I can compare nerves and hormones by speed, how long the effect lasts, how the message travels and where it acts." }
 ```
 
@@ -88,6 +94,8 @@ tasks:
 ### Target cells
 
 ### The right tool
+
+### Which one?
 
 ### In your own words
 

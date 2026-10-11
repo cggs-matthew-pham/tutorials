@@ -101,10 +101,17 @@ tasks:
   - check:
       type: question
       q: "Why can't convection happen in a solid?"
-      options: ["The particles are held in place, so the material can't flow", "Solids can't be heated", "Solids have no particles"]
+      options: ["The particles are held in place, so the material can't flow", "Solids can't be heated", "Particles in a solid don't move at all, so they can't carry energy"]
       answer: 0
-      feedback: [null, "The bar heated up, by conduction.", "Solids are made of particles, tightly held."]
+      feedback: [null, "The bar heated up, by conduction.", "They do vibrate: that's how conduction passes energy on. They just can't change places."]
       explain: "Convection needs the material to flow. Only liquids and gases can."
+  - check:
+      type: question
+      q: "Why does a foam (polystyrene) cup keep a drink hot so well?"
+      options: ["It is mostly trapped air: gas particles are far apart, so they rarely collide to pass energy on, and air in the tiny bubbles can't flow to convect", "Its particles are packed very tightly, so energy can't squeeze through", "The foam reflects the heat back into the drink"]
+      answer: 0
+      feedback: [null, "It's the other way round: tightly packed particles pass energy on well by collisions. Foam is mostly widely spaced gas particles.", "Reflecting is what shiny surfaces do to radiation. Foam works by trapping air."]
+      explain: "Insulators pass energy on poorly. In a gas the particles are far apart, so collisions that pass energy along are rare; trapping the gas in small bubbles stops convection too."
   - check: { type: reflect, text: "I explained the difference between conduction and convection, describing what the particles do in each." }
 ```
 
@@ -117,6 +124,8 @@ tasks:
 ### Which is which
 
 ### Solids
+
+### A foam cup
 
 ### In your own words
 

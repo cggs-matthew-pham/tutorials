@@ -19,7 +19,7 @@ You know alpha and beta decay and half-life. Now put them in a row.
 
 ```step
 stage: predict
-insight: "Students expect decay to end after one step. The node's point is that each step often leaves another unstable nucleus, so the chain continues until the ratio of neutrons to protons is stable."
+insight: "Students expect decay to end after one step. The node's point is that each step often leaves another unstable nucleus, so the chain continues until the nucleus is stable: alpha decays shrink it, beta decays fix its balance of neutrons and protons."
 check:
   type: predict
   q: "A uranium-238 nucleus decays by emitting an alpha particle. What is the new nucleus like?"
@@ -84,8 +84,8 @@ tasks:
       q: "Why does the chain stop at lead-206?"
       options: ["Its nucleus has a stable balance of protons and neutrons, so it doesn't decay", "It has run out of energy", "It has become too small"]
       answer: 0
-      feedback: [null, "It isn't energy: it is the balance.", "Size isn't the cause: the balance is."]
-      explain: "Each decay moves the nucleus towards a more stable ratio of neutrons to protons. When it gets there, nothing more happens."
+      feedback: [null, "Decay doesn't stop because energy runs out: lead-206's nucleus is stable, so it has no reason to decay.", "Getting smaller is part of the chain, but decay stops only when the mix of protons and neutrons is stable."]
+      explain: "Uranium-238's nucleus is too big, with too many neutrons, to last. Alpha decays make it smaller; beta decays turn spare neutrons into protons. When it reaches a mix of protons and neutrons that lasts, nothing more happens."
   - check: { type: reflect, text: "I can follow a decay chain, track the atomic and mass numbers at each step, and say why it ends." }
 ```
 
@@ -149,4 +149,4 @@ Write one sentence: "At first I thought… Now I think… because…"
 - A **decay chain** is a series of decays that ends only at a **stable** nucleus.
 - **Alpha** decay: atomic number −2, mass number −4. **Beta** decay: atomic number +1, mass number unchanged.
 - Uranium-238 ends as lead-206 after **8 alpha** and **6 beta** decays.
-- Each step moves the nucleus towards a more stable ratio of neutrons to protons.
+- Alpha decays make the nucleus smaller and beta decays fix its balance of neutrons to protons, until it is stable.

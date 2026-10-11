@@ -158,6 +158,7 @@ tasks:
       q: "When liquid water becomes steam, the space between the particles…"
       options: ["stays the same", "increases a lot", "decreases"]
       answer: 1
+      feedback: ["Look at the steam on the board: its particles are far apart.", null, "Heating makes particles move faster and spread out, not pack closer."]
       explain: "Steam takes up roughly 1,700 times the volume of the same mass of liquid water."
   - check:
       type: question
@@ -207,7 +208,7 @@ check:
     - "Solid particles are always further apart than liquid particles"
   answer: 1
   feedback: ["A model that explains most cases is still useful. Scientists refine models when they meet an exception.", null, "Clear ice with no bubbles still floats.", "For almost every substance the solid is packed slightly more closely. Water is the exception."]
-  explain: "The model keeps its core ideas and gains a detail. (The diagram exaggerates the gap: ice is about 9% less dense than water.)"
+  explain: "The model keeps its core ideas and gains a detail. (The diagram exaggerates the gap: ice takes up about 9% more space than the same mass of water.)"
 ```
 
 ## Evaluate: look back

@@ -107,6 +107,27 @@ tasks:
       answer: 0
       feedback: [null, "Displacement only goes one way: more reactive replaces less reactive.", "Copper doesn't react with zinc sulfate."]
       explain: "Reactivity decides whether a displacement happens."
+  - check:
+      type: question
+      q: "Aluminium burns in oxygen. It is a synthesis reaction (A + B → AB). What is the product?"
+      options: ["aluminium oxide", "aluminium and oxygen, mixed together", "aluminium oxide and water"]
+      answer: 0
+      feedback: [null, "A synthesis makes a new substance, not a mixture: the atoms join up.", "There is no hydrogen in the reactants, so there can't be water: atoms are only rearranged."]
+      explain: "Two substances join into one: aluminium + oxygen → aluminium oxide."
+  - check:
+      type: question
+      q: "Green copper carbonate powder is heated strongly. It turns black (copper oxide) and gives off carbon dioxide. Which kind of reaction is it, and what drives it?"
+      options: ["Decomposition, driven by heat: one compound breaks into two simpler substances", "Synthesis: the copper carbonate joins with the heat", "Displacement: carbon dioxide takes copper's place"]
+      answer: 0
+      feedback: [null, "Heat is energy, not a substance, so it can't join anything. One substance in, two out.", "Nothing swaps places: one substance breaks into two."]
+      explain: "copper carbonate → copper oxide + carbon dioxide. Many decompositions need energy put in: heat, as here and for limestone, or electricity, as for splitting water."
+  - check:
+      type: question
+      q: "In some reactions two compounds swap partners (AB + CD → AD + CB): a double displacement. Neutralisation is one. What are the products of hydrochloric acid + sodium hydroxide?"
+      options: ["sodium chloride + water", "sodium chloride + hydrogen", "sodium hydroxide chloride"]
+      answer: 0
+      feedback: [null, "Hydrogen gas comes from an acid and a metal. Here the hydrogen from the acid joins the hydroxide to make water.", "The partners swap rather than all joining up: sodium goes with chloride, hydrogen with hydroxide."]
+      explain: "Sodium and hydrogen swap partners: sodium chloride and water (H + OH). acid + base → salt + water. A precipitation, where two solutions make a solid, swaps partners in the same way."
   - check: { type: reflect, text: "I can classify a reaction as synthesis, decomposition or displacement, and predict the products." }
 ```
 
@@ -117,6 +138,12 @@ tasks:
 ### Predict the products
 
 ### The other way round
+
+### Synthesis product
+
+### Heating copper carbonate
+
+### Swapping partners
 
 ### In your own words
 
@@ -178,5 +205,5 @@ Write one sentence: "At first I thought… Now I think… because…"
 
 - **Synthesis**: substances join into one (A + B → AB), such as magnesium burning.
 - **Decomposition**: one substance breaks into simpler ones (AB → A + B), such as hydrogen peroxide → water + oxygen, often with heat or electricity.
-- **Displacement**: a more reactive element takes a less reactive one's place (A + BC → AC + B). It doesn't happen the other way round.
+- **Displacement**: a more reactive element takes a less reactive one's place (A + BC → AC + B). It doesn't happen the other way round. In a **double displacement** two compounds swap partners (AB + CD → AD + CB), as in neutralisation: acid + base → salt + water.
 - Spot the pattern to classify a reaction and predict its products.

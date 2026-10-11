@@ -84,6 +84,12 @@ tasks:
       options: ["The arm muscles", "The skin", "The spinal cord", "The heat"]
       answer: 0
       feedback: [null, "The skin holds the receptors: it detects.", "The spinal cord is the command centre in this reflex.", "The heat is the stimulus."]
+  - check:
+      type: question
+      q: "The smell of toast is the stimulus. Which is the receptor, and what does it do?"
+      options: ["Smell receptors in the nose: they detect chemicals from the toast and send impulses to the brain", "The brain: it smells the toast", "The toast: it gives off the smell", "The salivary glands: they make your mouth water"]
+      answer: 0
+      feedback: [null, "The brain is the command centre: it makes sense of the impulses but can't detect chemicals in the air itself.", "The toast is where the stimulus comes from; receptors are part of your body.", "Glands that respond are effectors: they carry out the response."]
   - check: { type: reflect, text: "I can trace a stimulus through receptor, command centre and effector to a response, for one external and one internal change." }
 ```
 
@@ -92,6 +98,8 @@ tasks:
 ### The parts
 
 ### Hot pan
+
+### Smell receptors
 
 ### In your own words
 

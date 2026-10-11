@@ -30,7 +30,7 @@ insight: "Naming organs and their jobs, explaining how they coordinate, and comp
 tasks:
   - check:
       type: match
-      q: "Match each organ of the circulatory system to its job."
+      q: "Match each part of the circulatory system to its job."
       pairs:
         - ["Heart", "Pumps blood around the body"]
         - ["Arteries", "Carry blood away from the heart at high pressure"]
@@ -55,9 +55,9 @@ tasks:
   - check:
       type: question
       q: "How is the plant's system different from the animal's?"
-      options: ["A plant has no pump: water is pulled up by evaporation from the leaves, and the tubes are fixed in place", "A plant has a heart in its roots", "Plants carry no water"]
+      options: ["A plant has no pump: water is pulled up by evaporation from the leaves, and the tubes are fixed in place", "A plant has a heart in its roots", "A plant's system moves only water; an animal's moves food as well"]
       answer: 0
-      feedback: [null, "Plants have no heart.", "Water is the main thing carried in the xylem."]
+      feedback: [null, "Plants have no heart.", "The phloem carries sugars, so plants move food too. Look at how the water moves, not what is carried."]
       explain: "Animals actively pump a liquid round a loop; plants move water upward in tubes as it evaporates from the leaves. Different bodies, same problem."
   - check: { type: reflect, text: "I can name the organs of one animal system and one plant system, and say how they work as a system." }
 ```

@@ -35,7 +35,7 @@ insight: "Students often think cold is something added ('cold energy'); the endo
 check:
   type: predict
   q: "An instant ice pack contains two chemicals that react when you snap it. It goes cold. What is happening?"
-  options: ["The reaction takes in energy from the pack and your hand", "The reaction makes 'cold', which flows into your hand", "The chemicals were stored in a freezer", "Nothing: it only feels cold"]
+  options: ["The reaction takes in energy from the pack and your hand", "The reaction makes 'cold', which flows into your hand", "The chemicals were stored in a freezer", "The reaction gives out energy, so the pack cools down"]
   actual: "The reaction takes in energy from its surroundings (the pack, the air, your hand), so they get colder. A reaction that takes in energy is endothermic. There is no 'cold energy': cold just means less thermal energy."
 ```
 
@@ -83,7 +83,7 @@ tasks:
         - ["A hand warmer (iron rusting quickly)", "Exothermic (gets hotter)"]
         - ["An instant ice pack", "Endothermic (gets colder)"]
         - ["Photosynthesis (taking in light energy)", "Endothermic (gets colder)", "It takes in energy from sunlight to make glucose."]
-        - ["Bicarb soda dissolving in vinegar and fizzing", "Endothermic (gets colder)", "Feel the cup: it cools a little."]
+        - ["Bicarb soda reacting with vinegar and fizzing", "Endothermic (gets colder)", "Feel the cup: it cools a little."]
   - check:
       type: question
       q: "On the board, the nitrogen and oxygen only reacted at 600 K, and the temperature fell. Why might an endothermic reaction stop on its own?"
@@ -91,6 +91,13 @@ tasks:
       answer: 0
       feedback: [null, "The atoms are all still there.", "Some endothermic reactions are fast; it's the cooling that slows them."]
       explain: "Unless energy keeps coming in (a hot engine, sunlight for photosynthesis), an endothermic reaction cools itself down."
+  - check:
+      type: question
+      q: "Burning gas in a stove gives out a lot of energy. Where was that energy before?"
+      options: ["Stored in the gas and oxygen (chemical energy), released as their atoms rearrange into new particles", "In the match or spark that lit it", "In the air around the flame", "Nowhere: burning makes new energy"]
+      answer: 0
+      feedback: [null, "The spark only starts it. The flame goes on giving out far more energy than the spark ever had.", "The air gets hotter: it receives the energy, it isn't where the energy came from.", "Energy is never made or destroyed. It was stored in the chemicals all along."]
+      explain: "A fuel and oxygen together store chemical energy. In an exothermic reaction their atoms rearrange into new particles that store less, and the difference is given out to the surroundings."
   - check: { type: reflect, text: "I can explain exothermic and endothermic reactions as energy given out or taken in, with an example of each." }
 ```
 
@@ -99,6 +106,8 @@ tasks:
 ### Sort them
 
 ### Stopping on its own
+
+### Where the energy comes from
 
 ### In your own words
 

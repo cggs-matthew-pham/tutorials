@@ -89,6 +89,13 @@ tasks:
       answer: 0
       feedback: [null, "Mass changes the effect, not the force.", "The car's bigger change in motion comes from its smaller mass (F = ma), not a bigger force."]
       explain: "Third law: the forces are equal. The car, with less mass, accelerates more (F = ma), which is why it fares worse."
+  - check:
+      type: question
+      q: "A horse pulls a cart forward with 500 N. By the third law, the cart pulls back on the horse with 500 N. So how can the cart start moving?"
+      options: ["The two forces act on different objects, so they don't cancel: the cart speeds up if the horse's pull is bigger than the friction on the cart", "The horse pulls a little harder than the cart pulls back", "It can't: equal and opposite forces cancel, so nothing moves"]
+      answer: 0
+      feedback: [null, "Third-law pairs are always exactly the same size. Look only at the forces on the cart.", "Only forces on the same object can cancel. These two act on different objects."]
+      explain: "To see what the cart does, add only the forces on the cart: the horse's pull forward and friction back. The cart's pull acts on the horse, not the cart."
   - check: { type: reflect, text: "I can state Newton's third law, name both forces in a pair, and tell a pair from two balanced forces." }
 ```
 
@@ -99,6 +106,8 @@ tasks:
 ### The book on the table
 
 ### Truck and car
+
+### Horse and cart
 
 ### In your own words
 
@@ -135,9 +144,9 @@ insight: "Walking and rockets show the third law is how anything starts moving: 
 check:
   type: question
   q: "Why is it hard to walk on very slippery ice?"
-  options: ["You can't push back on the ice hard enough, so it can't push you forward hard enough", "Ice is too cold for your muscles", "Your weight is less on ice"]
+  options: ["You can't push back on the ice hard enough, so it can't push you forward hard enough", "Ice is too cold for your muscles", "You push on the ice hard, but it pushes back on you less hard"]
   answer: 0
-  feedback: [null, "Your muscles work; the grip doesn't.", "Your weight doesn't change."]
+  feedback: [null, "Your muscles work; the grip doesn't.", "The pair is always equal. The trouble is that your push itself is small, because there is little friction to push against."]
   explain: "To walk forward you push back on the ground and it pushes you forward. With little friction, your backward push slips, and so does the forward push you get."
 ```
 

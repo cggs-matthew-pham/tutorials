@@ -97,6 +97,15 @@ tasks:
       answer: 0
       feedback: [null, "Formulas name the substances but don't show that they are mixed, not joined.", "One particle can't show a mixture."]
       explain: "Pick the representation that shows what matters for the job: here, separate particles side by side."
+  - check:
+      type: match
+      q: "Every representation leaves something out. Match each to one of its limits."
+      pairs:
+        - ["Symbol (O)", "It doesn't show how many atoms are joined in each particle (oxygen gas is O₂)"]
+        - ["Formula (H₂O)", "It doesn't show which atoms are joined to which, or the shape"]
+        - ["Structural formula (H–O–H)", "Drawn flat, it can hide the real 3D shape (water is bent)"]
+        - ["3D model", "Slow to build or draw, and no use in a written equation"]
+      explain: "Symbols and formulas are quick to write; a structural formula shows the joins; a 3D model shows the shape. Each has a limit, which is why chemists use several."
   - check: { type: reflect, text: "I can read a formula, and say what symbols, formulas and models each show." }
 ```
 
@@ -107,6 +116,8 @@ tasks:
 ### Big and small numbers
 
 ### Choosing one
+
+### What each leaves out
 
 ### In your own words
 

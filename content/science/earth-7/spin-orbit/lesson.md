@@ -103,9 +103,9 @@ insight: "Describing what an observer experiences links the two cycles to everyd
 check:
   type: question
   q: "A student in Canberra records sunset time every week for a year. What pattern will they find?"
-  options: ["Sunset gets later until late December, then earlier until late June, then later again: a yearly cycle", "Sunset is at the same time every day", "Sunset gets later every day forever", "Sunset changes randomly"]
+  options: ["Sunset gets later until early January, then earlier until mid-June, then later again: a yearly cycle", "Sunset is at the same time every day", "Sunset is latest in June and earliest in December", "Sunset changes randomly"]
   answer: 0
-  feedback: [null, "Use the date slider: daylight hours change with the date.", "It keeps cycling with the year.", "The pattern repeats every year."]
+  feedback: [null, "Use the date slider: daylight hours change with the date.", "That's the Northern Hemisphere pattern. In Canberra the long summer evenings come in December and January.", "The pattern repeats every year."]
 ```
 
 ## Elaborate: different places

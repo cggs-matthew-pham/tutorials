@@ -82,6 +82,14 @@ tasks:
       options: ["It switches off, because the stimulus (too hot) has gone", "It keeps going all day", "It gets stronger", "It turns into shivering"]
       answer: 0
       feedback: [null, "Then you'd cool below 37 °C.", "Stronger sweating would overshoot.", "Shivering only starts if you get too cold."]
+  - check:
+      type: match
+      q: "Match each part of a negative feedback loop to what it is in body temperature control."
+      pairs:
+        - ["Set point", "The value the body keeps conditions near: about 37 °C"]
+        - ["Deviation", "A change away from the set point, such as body temperature rising on a hot day"]
+        - ["Corrective response", "What the effectors do to reverse the change, such as sweating"]
+        - ["Return detection", "Receptors sense the temperature is back near 37 °C, so the response switches off"]
   - check: { type: reflect, text: "I can explain how negative feedback brings body temperature back towards the set point from either direction." }
 ```
 
@@ -91,9 +99,11 @@ tasks:
 
 ### Switching off
 
+### Four parts
+
 ### In your own words
 
-In your book: draw the feedback loop for body temperature with the receptors, the hypothalamus and the effectors, and arrows showing what happens when you get too hot.
+In your book: draw the feedback loop for body temperature with the receptors, the hypothalamus and the effectors, and arrows showing what happens when you get too hot. Label the set point, the deviation, the corrective response and the return detection.
 
 ## Elaborate: blood sugar
 
@@ -145,5 +155,5 @@ Write one sentence: "At first I thought… Now I think… because…"
 **Revision summary**
 
 - **Homeostasis:** keeping internal conditions (temperature, blood sugar, water) near a **set point**.
-- **Negative feedback:** a change is detected, and the response **reverses** it; once back at the set point, the response switches off.
+- **Negative feedback** has four parts around a **set point**: a **deviation** (a change away from it) is detected; a **corrective response** reverses it; **return detection** (receptors sensing it is back near the set point) switches the response off. "Negative" means it opposes the change.
 - Too hot: sweating, skin blood vessels widen. Too cold: shivering, skin blood vessels narrow, goosebumps. The **hypothalamus** is the control centre.

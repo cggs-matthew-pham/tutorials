@@ -89,6 +89,13 @@ tasks:
       answer: 0
       feedback: [null, "Magnets work fine through water.", "There is no fixed rule. The order depends on the mixture and the properties."]
       explain: "The magnet picks out just the iron first; then the filter only catches sand."
+  - check:
+      type: question
+      q: "What do all separation techniques have in common?"
+      options: ["Each one uses a difference in a physical property between the parts of the mixture", "Each one turns the mixture into new substances", "Each one separates the heavier part from the lighter part", "Each one needs heat"]
+      answer: 0
+      feedback: [null, "You get back the same substances you mixed: the particles don't change.", "Weight is only one possibility. The magnet used magnetism and the filter used particle size.", "The magnet and the filter paper needed no heat. Only evaporation did."]
+      explain: "Find a property where the parts differ, then choose the technique that uses it."
   - check: { type: reflect, text: "I explained how I separated the iron, sand and salt, naming the property difference for each step." }
 ```
 
@@ -97,6 +104,8 @@ tasks:
 ### Filter paper
 
 ### The order
+
+### What they share
 
 ### In your own words
 

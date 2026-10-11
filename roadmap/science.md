@@ -2,6 +2,16 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: every science tutorial checked against its criteria (11 Oct 2026, science chat)
+
+The same audit as the Quick checks, over the other 97 science lessons (7 parallel read-only reviews, every proposal checked before applying): 172 edits in 73 lessons, plus a few follow-ups.
+- **Criteria now tested** (82 edits, mostly one new question or match in the Explain step): for example the four parts of a feedback loop (9U01 n5), contact and non-contact forces (10U05 n1), single and double displacement and neutralisation products (10U07 n3), a fair test for rate (10U07 n6), solutions, suspensions and colloids (8U06 n4), the limits of each representation (8U06 n5), fast and slow carbon stores (9U03 n2), genotype and phenotype (10U01 n1), a pedigree (10U01 n4), the big bang's age and cooling (10U03 n2). The ocean-store step in energy balance is no longer tiered (timing updated).
+- **Distractors** (43): second joke options replaced with real misconceptions; feedback added where options had none, or rewritten where it only restated the answer.
+- **Accuracy** (42), for example: alpha decay shrinks the nucleus and beta fixes the neutron to proton balance (the "stable ratio" wording was wrong for alpha); americium does give out gamma, and smoke reduces the alarm's current; ice takes up 9% more space (8% less dense); atoms first imaged in the 1950s; earlobes aren't single-gene (now ABO blood group); a heart beat starts in muscle, not nerves (also the `cell` widget label); Hooke's microscope wasn't home-made; the kangaroo's order is Diprotodontia; Canberra's latest sunset is early January; Australia moves nearly twice as fast as fingernails grow; an hour of sunlight, not a second, matches a year of human energy use; the hydrogen *nuclei* were made in the first minutes; 60 km/h is 50% faster than 40 km/h; energy is not stored "in bonds".
+- Clips: only lesson.md changed, except kingdoms `hierarchy.txt`, cell-scale and energy-balance `teacher.yml` (all three clips re-record anyway) and `cell.js` (board clips re-record anyway).
+
+Left for Matthew: Punnett's board and clip use eye colour, which the lesson's own notes say isn't single-gene; plates says the core heats the mantle (much of the heat is radioactive decay in the mantle); the heating curve's segment lengths aren't to scale and candle wax melts over a range; arrows and balanced use g = 10 while weight uses 9.8; collision theory ignores orientation; some criteria are tested only in typical-tier steps (collision-theory factors, half-life uses, ovules, a hard-to-classify kingdom, opposite seasons); the antibiotics question now says overuse, not stopping early, which may differ from Health messaging.
+
 ## Done: Quick checks test understanding and cover every criterion (11 Oct 2026, science chat)
 
 Matthew's follow-up to the review: at most one joke option per question (the rest real misconceptions), every success criterion covered, and simplifications made accurate.

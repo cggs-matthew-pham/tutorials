@@ -155,10 +155,10 @@ tier: wider
 insight: "Applying natural selection to bacteria and antibiotics transfers the steps to a medical context."
 check:
   type: question
-  q: "Why does stopping a course of antibiotics early help resistant bacteria spread?"
-  options: ["The most resistant bacteria are the last to die; stopping early leaves them to survive and multiply", "Antibiotics make bacteria resistant", "Bacteria learn to resist", "It doesn't make a difference"]
+  q: "Why does using antibiotics more often make resistant bacteria more common?"
+  options: ["Each use kills the bacteria that aren't resistant; any that happen to be resistant survive and multiply", "Antibiotics make bacteria resistant", "Bacteria learn to resist", "It doesn't make a difference"]
   answer: 0
-  feedback: [null, "Antibiotics select for resistance that already exists; they don't create it.", "Bacteria don't learn; resistant ones survive.", "It matters: survivors are the most resistant."]
+  feedback: [null, "Antibiotics select for resistance that already exists; they don't create it.", "Bacteria don't learn; resistant ones survive.", "It matters: each use leaves the resistant survivors with less competition."]
 ```
 
 ## Evaluate: look back

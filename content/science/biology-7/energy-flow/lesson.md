@@ -67,18 +67,18 @@ tasks:
   - check:
       type: sort
       q: "Where does the other 90% go at each step?"
-      options: ["Lost from the food web", "Passed to the next level"]
+      options: ["Not passed to the next level", "Passed to the next level"]
       items:
-        - ["Heat given off by the animal's body", "Lost from the food web"]
-        - ["Energy used for moving, breathing and keeping warm", "Lost from the food web"]
-        - ["Parts not eaten (bones, fur, roots)", "Lost from the food web", "These go to decomposers, not up the chain."]
+        - ["Heat given off by the animal's body", "Not passed to the next level"]
+        - ["Energy used for moving, breathing and keeping warm", "Not passed to the next level"]
+        - ["Parts not eaten (bones, fur, roots)", "Not passed to the next level", "These go to decomposers, not up the chain."]
         - ["Energy stored in the eaten animal's body", "Passed to the next level"]
   - check:
       type: question
       q: "Which statement is true?"
       options: ["Energy flows one way through a web and is lost as heat; matter (the atoms) is recycled by decomposers", "Energy and matter are both recycled", "Energy is recycled by decomposers; matter is lost"]
       answer: 0
-      feedback: [null, "Decomposers recycle the atoms (matter). Energy leaves as heat and must keep coming in as sunlight.", "It's the other way round."]
+      feedback: [null, "Decomposers recycle the atoms (matter). Energy leaves as heat and must keep coming in as sunlight.", "That's swapped. What do decomposers give back to the soil: nutrients (atoms), or energy from sunlight?"]
       explain: "That's why every food web needs a constant supply of sunlight, but no new atoms."
   - check: { type: reflect, text: "I explained why only a small part of the energy reaches the top of a food chain, and how energy differs from matter." }
 ```

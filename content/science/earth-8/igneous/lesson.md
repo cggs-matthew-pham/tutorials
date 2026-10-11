@@ -28,7 +28,7 @@ explainClip:
     - wait: 4000
     - caption: { text: "Very fast cooling at the surface: many tiny crystals, like basalt.", say: "Very fast cooling at the surface gives many tiny crystals, like basalt." }
     - wait: 800
-hook: "Granite kitchen benches have crystals you can see from across the room. Basalt, from the same kind of molten rock, has crystals too small to see. Both crystallised from molten rock: what was different?"
+hook: "Granite kitchen benches have crystals you can see from across the room. Basalt has crystals too small to see. Both crystallised from molten rock: what was different?"
 ---
 Rocks keep a record of how they formed. This lesson teaches you to read one part of it.
 

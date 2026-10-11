@@ -120,9 +120,9 @@ tasks:
   - check:
       type: question
       q: "Helium has only 2 electrons, not 8. Why is it in group 18?"
-      options: ["Its only shell holds 2, so its outer shell is full, like the other noble gases", "It's a mistake in the table", "It has 8 electrons"]
+      options: ["Its only shell holds 2, so its outer shell is full, like the other noble gases", "It's a mistake in the table", "Because it is a gas, like the other noble gases"]
       answer: 0
-      feedback: [null, "Its place is chosen by its behaviour and its full shell.", "Count them on the board: 2."]
+      feedback: [null, "Its place is chosen by its behaviour and its full shell.", "Hydrogen, nitrogen and chlorine are gases too, but not in group 18: what helium shares with neon and argon is a full outer shell."]
 ```
 
 ### Halogens and noble gases

@@ -76,6 +76,12 @@ tasks:
       answer: 60
       tolerance: 20
       explain: "In the model, roughly 60%; the rest was taken up by the oceans and by plants. In the real world, about 45% of each year's emissions stays in the air."
+  - check:
+      type: question
+      q: "Why does more CO₂ in the air matter for Earth's temperature?"
+      options: ["CO₂ is a greenhouse gas: it absorbs some of the heat Earth gives off, so more CO₂ slows heat escaping to space and Earth warms", "CO₂ thins the ozone layer, letting in more sunlight", "CO₂ comes out of chimneys hot, and that heat warms the air", "More CO₂ blocks sunlight, so Earth cools"]
+      answer: 0
+      feedback: [null, "The ozone hole is a different problem; CO₂ acts on the heat going out, not the sunlight coming in.", "The heat from burning is tiny; CO₂ keeps trapping heat for centuries after it has cooled.", "Sunlight passes through CO₂ easily; it is the heat going out that CO₂ absorbs."]
   - check: { type: reflect, text: "I can explain how burning fossil fuels moves carbon from the geosphere to the air, and why it adds to the air's store." }
 ```
 
@@ -84,6 +90,8 @@ tasks:
 ### Why it adds up
 
 ### Where it went
+
+### Why it matters
 
 ### In your own words
 
@@ -101,9 +109,9 @@ tasks:
   - check:
       type: question
       q: "What did you have to do to keep the air's CO₂ steady?"
-      options: ["Cut burning to only what the oceans and plants can take up: much less than today", "Nothing", "Burn more", "Switch off photosynthesis"]
+      options: ["Cut burning to only what the oceans and plants can take up: much less than today", "Nothing", "Burn more", "Stop burning completely: any burning at all makes CO₂ rise"]
       answer: 0
-      feedback: [null, "At today's rate it kept rising.", "More burning made it rise faster.", "That makes CO₂ rise."]
+      feedback: [null, "At today's rate it kept rising.", "More burning made it rise faster.", "Some burning still held it steady: while the air is above 280 ppm, the oceans and plants take up part of the extra each year."]
 ```
 
 ### Steady

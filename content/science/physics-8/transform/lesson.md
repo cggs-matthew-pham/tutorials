@@ -88,6 +88,17 @@ tasks:
       answer: 0
       feedback: [null, "Energy is never destroyed (Year 9 makes this a law).", "It doesn't flow back by itself."]
       explain: "The heat warms the air a little. It isn't lost, just spread out and not useful."
+  - check:
+      type: sort
+      q: "For each device, is it the useful output or a by-product?"
+      options: ["Useful output", "By-product"]
+      items:
+        - ["Electric kettle: heat in the water", "Useful output", "Here heat is the job. What counts as a by-product depends on what the device is for."]
+        - ["Electric kettle: heat escaping into the kitchen air", "By-product"]
+        - ["Electric kettle: the rumbling sound", "By-product"]
+        - ["Fan: moving air", "Useful output"]
+        - ["Fan: the motor getting warm", "By-product"]
+        - ["Fan: the whirring sound", "By-product"]
   - check: { type: reflect, text: "I can tell a transfer from a transformation and name by-product heat." }
 ```
 
@@ -96,6 +107,8 @@ tasks:
 ### By-products
 
 ### Not destroyed
+
+### Two more devices
 
 ### In your own words
 

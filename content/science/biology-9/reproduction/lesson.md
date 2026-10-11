@@ -83,6 +83,12 @@ tasks:
       options: ["A population from sexual reproduction: some individuals are likely to have genes that resist it", "A population of clones: they are all strong", "Both the same"]
       answer: 0
       feedback: [null, "If the clone's genes are vulnerable, every clone is.", "Variation is what makes the difference."]
+  - check:
+      type: question
+      q: "A cod releases millions of eggs into the sea and leaves them. A kangaroo raises one joey at a time in her pouch for months. Why do both strategies work?"
+      options: ["A parent has limited energy: the cod spreads it over millions of eggs that mostly die, the kangaroo puts it into one joey likely to survive", "More offspring is always better, so the cod's way is best", "The kangaroo has one joey because there isn't enough food in Australia", "The cod's eggs are clones, so they don't need care"]
+      answer: 0
+      feedback: [null, "Almost every cod egg dies; the joey's care makes up for having just one.", "Food matters, but the trade-off is energy: what a parent spends on care it can't spend on more offspring.", "Cod reproduce sexually: each egg is fertilised and different."]
   - check: { type: reflect, text: "I can explain why sexual reproduction makes varied offspring and asexual reproduction makes clones, with an advantage of each." }
 ```
 
@@ -91,6 +97,8 @@ tasks:
 ### Why they vary
 
 ### Survival
+
+### Many or few
 
 ### In your own words
 
@@ -121,7 +129,7 @@ check:
   q: "Nearly all supermarket bananas (Cavendish) are clones grown from cuttings. Panama disease is spreading through banana farms. Why are growers worried?"
   options: ["The clones all have the same genes, so if one is vulnerable, every plant is", "Clones grow too slowly", "Clones can't make bananas", "Disease only affects clones"]
   answer: 0
-  feedback: [null, "Clones grow fine.", "They fruit normally.", "Disease affects all bananas; clones just share one weakness."]
+  feedback: [null, "Clones grow fine.", "They fruit normally.", "Varied bananas catch it too, but some resist it; a field of clones shares one weakness."]
   explain: "This happened before: the Gros Michel banana was wiped out of commercial farming in the 1950s by an earlier strain of Panama disease."
 ```
 

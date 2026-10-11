@@ -75,6 +75,12 @@ tasks:
       options: ["On the far side of the Earth from the sun, so we see its whole lit half", "Between the Earth and the sun", "At a right angle to the sun", "Closest to the sun"]
       answer: 0
       feedback: [null, "That's new moon: we see only the dark half.", "That's a quarter moon.", "It's the farthest from the sun of any phase."]
+  - check:
+      type: question
+      q: "In a lunar eclipse, a full moon goes dark and reddish for an hour or two. How is that different from the moon's phases?"
+      options: ["An eclipse is Earth's shadow falling on the moon, only at some full moons; the phases come from how much of the lit half we see, every month", "There is no difference: a lunar eclipse is just a very dark phase", "A lunar eclipse happens at new moon, when the moon is dark", "An eclipse is the moon going through all its phases in an hour"]
+      answer: 0
+      feedback: [null, "Phases happen every month with no shadow involved; an eclipse needs Earth's shadow to fall on the moon, which is rare.", "New moon is a phase: we see the unlit half. A lunar eclipse needs a full moon, with the Earth between the sun and the moon.", "The phases take about 29.5 days; in an eclipse, Earth's shadow moves across a full moon."]
   - check: { type: reflect, text: "I can sequence the eight phases and explain them by the moon's position, not Earth's shadow." }
 ```
 
@@ -83,6 +89,8 @@ tasks:
 ### The shadow
 
 ### Full moon
+
+### Phase or eclipse
 
 ### In your own words
 

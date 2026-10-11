@@ -117,9 +117,9 @@ insight: "Reasoning from seismic evidence shows how a model of something unseen 
 check:
   type: question
   q: "One kind of earthquake wave (S-waves) can't travel through liquids. On the far side of the Earth from a big earthquake, no S-waves arrive. What does that suggest?"
-  options: ["Part of the Earth's interior (the outer core) is liquid", "The Earth is hollow", "The waves get tired", "The crust is liquid"]
+  options: ["Part of the Earth's interior (the outer core) is liquid", "The mantle is liquid", "The waves get tired", "The core is too hot for the waves to pass through"]
   answer: 0
-  feedback: [null, "Something blocks them: a liquid layer would.", "A hollow Earth would collapse under its own gravity.", "Waves don't tire; they are blocked or bent."]
+  feedback: [null, "S-waves travel through the mantle, so it must be solid; the liquid layer is deeper down.", "Waves don't tire; they are blocked or bent.", "Heat doesn't stop S-waves: they pass through the hot, solid mantle. A liquid stops them."]
   explain: "This 'S-wave shadow' is how the liquid outer core was discovered."
 ```
 

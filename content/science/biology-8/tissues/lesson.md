@@ -86,7 +86,7 @@ tasks:
         - ["Nervous tissue", "Carries electrical signals"]
         - ["Xylem", "Carries water up a plant from the roots"]
         - ["Phloem", "Carries sugar around a plant"]
-      explain: "Animals and plants both have tissues: each is a group of one kind of specialised cell."
+      explain: "Animals and plants both have tissues: each is a group of similar specialised cells doing one job."
   - check:
       type: sort
       q: "Animal tissue or plant tissue?"

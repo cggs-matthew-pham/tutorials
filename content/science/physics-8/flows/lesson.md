@@ -111,11 +111,11 @@ tasks:
   - check: { type: board, text: "Complete the flow from a dam to the lights at home, then Check.", when: "c = 1" }
   - check:
       type: question
-      q: "Where in this system is the most energy likely to end up as by-product heat?"
+      q: "Where in this system does energy end up as by-product heat?"
       options: ["Spread across every stage: the generator, the wires and the lights all give some off", "Only in the falling water", "Nowhere: hydro power is perfect"]
       answer: 0
       feedback: [null, "Falling water mostly makes the turbine spin.", "No real system is perfect: every stage gives off some heat."]
-      explain: "Each stage gives off a little. Year 9 measures how much with efficiency and Sankey diagrams."
+      explain: "Every stage gives off some, and the lights often give off the most. Year 9 measures how much with efficiency and Sankey diagrams."
 ```
 
 ### Dam to lights

@@ -119,9 +119,9 @@ insight: "Using the moon's phase to predict extreme low tides applies the model,
 check:
   type: question
   q: "Reef walking and gathering shellfish is best at the lowest low tides. When should you plan to go?"
-  options: ["Near a new or full moon, at low tide: spring tides give the lowest lows", "At a quarter moon", "Any day: low tides are always the same", "At noon every day"]
+  options: ["Near a new or full moon, at low tide: spring tides give the lowest lows", "At a quarter moon", "Any day: low tides are always the same", "When the moon is high overhead"]
   answer: 0
-  feedback: [null, "Quarter moons give neap tides: the smallest range, so the lows are not very low.", "The chart shows the range changes through the month.", "Low tide moves about 50 minutes later each day."]
+  feedback: [null, "Quarter moons give neap tides: the smallest range, so the lows are not very low.", "The chart shows the range changes through the month.", "In the bulge model, the moon overhead puts your coast under a bulge: high tide, not low."]
   explain: "Many coastal First Nations communities have long timed fishing and gathering by the moon and tides; ask local knowledge holders about your own coast."
 ```
 

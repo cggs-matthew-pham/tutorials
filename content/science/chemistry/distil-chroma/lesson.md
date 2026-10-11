@@ -57,6 +57,7 @@ tasks:
       q: "Which pen wrote the note?"
       options: ["Pen A", "Pen B", "Neither"]
       answer: 1
+      feedback: ["Compare the spots: Pen A has a red dye that the note doesn't.", null, "Line up the spots: one pen's dyes match the note's at every height."]
       explain: "Pen B's dyes match the note's exactly. Pen A has an extra red dye."
 ```
 
@@ -96,12 +97,23 @@ tasks:
       answer: 1
       feedback: ["It isn't weight: every dye is pulled up by the water, against gravity.", null, "The colours were in the ink all along. The water only separates them.", "Nothing evaporates here. The water carries the dyes up the paper."]
       explain: "Dyes that dissolve well and stick weakly travel furthest."
+  - check:
+      type: match
+      q: "Match each job to the technique that suits it."
+      pairs:
+        - ["Get drinking water from seawater", "Distillation"]
+        - ["Get salt from seawater, letting the water go", "Evaporation"]
+        - ["Find out which dyes are in a black ink", "Chromatography"]
+        - ["Get sand out of sandy water", "Filtration"]
+      explain: "Need the liquid back? Distil. Need only the dissolved solid? Evaporate. Several dissolved substances, such as dyes? Chromatography."
   - check: { type: reflect, text: "I wrote the principle of each technique, a mixture each one suits, and what makes distillation different from evaporation." }
 ```
 
 ### Compare
 
 ### The dyes
+
+### Which technique suits?
 
 ### In your own words
 
@@ -175,12 +187,14 @@ tasks:
       q: "An unknown dye has Rf = 0.50 in the same setup. Which dye could it be?"
       options: ["The red dye", "The blue dye", "None of them"]
       answer: 0
+      feedback: [null, "The blue dye's Rf is 0.80. Which dye had 0.50?", "Compare the numbers: one dye in the same setup had an Rf of 0.50."]
       explain: "Same Rf value, same conditions: probably the same substance."
   - check:
       type: question
       q: "A green ink gives just one spot. What can you conclude?"
       options: ["It is probably one dye, but two dyes with the same Rf value would also give one spot", "It is definitely a pure substance", "The test failed"]
       answer: 0
+      feedback: [null, "One spot is evidence, not proof: two dyes that travel the same distance would sit on top of each other.", "A single spot is a real result: the ink moved up the paper and stayed together."]
       explain: "Testing again with a different solvent would check."
 ```
 

@@ -72,7 +72,7 @@ tasks:
       q: "Why is a reflex faster than catching a ball?"
       options: ["The impulse goes through the spinal cord only, with no time spent deciding in the brain", "Pain impulses travel faster than light impulses", "Leg muscles are faster than arm muscles", "Reflexes use hormones"]
       answer: 0
-      feedback: [null, "Impulses travel at similar speeds; the route is shorter.", "The muscles aren't the difference.", "Reflexes use nerves only."]
+      feedback: [null, "The kind of stimulus isn't the reason: the reflex is faster because its route is shorter and skips the brain.", "The muscles aren't the difference.", "Reflexes use nerves only."]
   - check:
       type: question
       q: "In the chips pathway, the effector is a gland, not a muscle. What does an effector have to be?"
@@ -119,7 +119,7 @@ tier: wider
 insight: "Predicting the effect of a break at one point shows the pathway is a chain."
 check:
   type: question
-  q: "A person's spinal cord is damaged in their lower back. A doctor taps below their knee. What would you expect?"
+  q: "A person's spinal cord is damaged in their upper back. A doctor taps below their knee. What would you expect?"
   options: ["The knee-jerk may still work if the reflex arc below the damage is intact, but the person may not feel the tap", "The knee can't jerk, but they feel the tap", "Nothing changes", "Both work normally"]
   answer: 0
   feedback: [null, "Feeling needs impulses to reach the brain, past the damage.", "Damage to the spinal cord changes something.", "The route to the brain is broken."]

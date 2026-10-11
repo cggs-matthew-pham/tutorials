@@ -87,6 +87,23 @@ tasks:
       q: "A cyclist goes from 2 m/s to 10 m/s in 4 s. Acceleration, in m/s²?"
       answer: 2
       explain: "(10 − 2) ÷ 4 = 2 m/s²."
+  - check:
+      type: sort
+      q: "Is it accelerating?"
+      options: ["Accelerating", "Not accelerating"]
+      items:
+        - ["A car cruising at a steady 100 km/h on a straight road", "Not accelerating", "Fast, but its velocity isn't changing."]
+        - ["A bike slowing down for traffic lights", "Accelerating", "Slowing down is acceleration, opposite to the motion."]
+        - ["A runner rounding a bend at a steady speed", "Accelerating", "Its direction changes, so its velocity changes."]
+        - ["A trolley speeding up from rest", "Accelerating"]
+        - ["A parked car", "Not accelerating"]
+  - check:
+      type: question
+      q: "A trolley is moving to the right, and the net force on it points to the left. Which way does its acceleration point?"
+      options: ["Left, the same way as the net force", "Right, the way it is moving", "Nowhere: it has no acceleration while it still moves right"]
+      answer: 0
+      feedback: [null, "Acceleration follows the net force, not the motion. Moving right while accelerating left means slowing down.", "Its velocity is changing (it is slowing down), so it is accelerating."]
+      explain: "Acceleration always points the same way as the net force. Here that is backwards, so the trolley slows down."
   - check: { type: reflect, text: "I explained the difference between speed and acceleration, and how to calculate acceleration." }
 ```
 
@@ -97,6 +114,10 @@ tasks:
 ### Units
 
 ### Another one
+
+### Accelerating or not
+
+### Which way
 
 ### In your own words
 

@@ -23,7 +23,7 @@ explainClip:
     - wait: 4000
     - caption: { text: "The current drags the plates: apart above rising rock.", say: "The current drags the plates with it, apart above the rising rock." }
     - wait: 3000
-hook: "Australia is moving north about 7 centimetres a year, roughly as fast as your fingernails grow. A whole continent. What could possibly push it?"
+hook: "Australia is moving north about 7 centimetres a year, nearly twice as fast as your fingernails grow. A whole continent. What could possibly push it?"
 ---
 Earth's surface is not fixed. This lesson is about the engine underneath.
 
@@ -83,9 +83,9 @@ tasks:
   - check:
       type: question
       q: "Why does hot rock above the core rise?"
-      options: ["It is less dense than the cooler rock around it", "Hot things always go up because heat rises", "The core pushes it out", "It becomes a gas"]
+      options: ["It is less dense than the cooler rock around it", "Hot things always go up because heat rises", "The core pushes it out", "It has melted into liquid magma, which floats up"]
       answer: 0
-      feedback: [null, "It is the hot rock that rises, because it is less dense, not the heat on its own.", "The core heats it; nothing pushes it.", "Mantle rock stays solid, flowing very slowly."]
+      feedback: [null, "It is the hot rock that rises, because it is less dense, not the heat on its own.", "The core heats it; nothing pushes it.", "Mantle rock stays solid and flows very slowly; it rises because heating makes it a little less dense."]
       explain: "Heated rock expands a little, so it is less dense and rises. Cooled rock is denser and sinks."
   - check:
       type: question

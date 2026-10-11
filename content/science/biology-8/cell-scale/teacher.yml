@@ -20,7 +20,7 @@ struggle: "Sense of scale. Ask students to estimate before calculating (how many
 stuck:
   - see: "A student thinks cells are about the size of a grain of sand."
     ask: "Can you see a grain of sand? How many cells fit across one?"
-    fix: "About 25 cheek cells or 250 bacteria would fit across a 0.5 mm grain. Cells are far smaller than anything the eye can pick out."
+    fix: "About 10 cheek cells, 25 typical body cells or 250 bacteria would fit across a 0.5 mm grain. Cells are far smaller than anything the eye can pick out."
   - see: "A student thinks bigger organisms have bigger cells."
     ask: "Is an elephant's skin cell much bigger than yours?"
     fix: "No: about the same. Bigger organisms have more cells, not bigger ones."
