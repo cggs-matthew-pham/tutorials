@@ -16,43 +16,50 @@
      "label": "background",
      "code": "background(‹220›);",
      "hint": "Fills the whole canvas with a colour. One number is grey (0 black, 255 white); three are red, green, blue.",
-     "matches": "(?<![\\w.])background\\("
+     "matches": "(?<![\\w.])background\\(",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  background(235);\n  background(255, 220, 120);\n  circle(100, 65, 60);\n}\n"
     },
     {
      "label": "circle",
      "code": "circle(‹200›, ‹150›, ‹80›);",
      "hint": "Draws a circle: x and y of its middle, then its width.",
-     "matches": "(?<![\\w.])circle\\("
+     "matches": "(?<![\\w.])circle\\(",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  background(235);\n  circle(100, 65, 80);\n}\n"
     },
     {
      "label": "rect",
      "code": "rect(‹50›, ‹40›, ‹100›, ‹60›);",
      "hint": "Draws a rectangle: x and y of its top-left corner, then width and height.",
-     "matches": "(?<![\\w.])rect\\("
+     "matches": "(?<![\\w.])rect\\(",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  background(235);\n  rect(40, 30, 120, 70);\n}\n"
     },
     {
      "label": "ellipse",
      "code": "ellipse(‹200›, ‹150›, ‹120›, ‹60›);",
      "hint": "Draws an oval: x and y of its middle, then its width and height.",
-     "matches": "(?<![\\w.])ellipse\\("
+     "matches": "(?<![\\w.])ellipse\\(",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  background(235);\n  ellipse(100, 65, 150, 60);\n}\n"
     },
     {
      "label": "line",
      "code": "line(‹20›, ‹20›, ‹180›, ‹100›);",
      "hint": "Draws a line from one point to another: x1, y1, x2, y2.",
-     "matches": "(?<![\\w.])line\\("
+     "matches": "(?<![\\w.])line\\(",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  background(235);\n  strokeWeight(3);\n  line(30, 100, 170, 30);\n}\n"
     },
     {
      "label": "triangle",
      "code": "triangle(‹100›, ‹20›, ‹60›, ‹100›, ‹140›, ‹100›);",
      "hint": "Draws a triangle from its three corners: x1, y1, x2, y2, x3, y3.",
-     "matches": "(?<![\\w.])triangle\\("
+     "matches": "(?<![\\w.])triangle\\(",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  background(235);\n  triangle(100, 20, 50, 110, 150, 110);\n}\n"
     },
     {
      "label": "text",
      "code": "text(‹\"Hello\"›, ‹20›, ‹30›);",
      "hint": "Writes words on the canvas at x, y. Join a number on with +: \"Score: \" + score.",
-     "matches": "(?<![\\w.])text\\("
+     "matches": "(?<![\\w.])text\\(",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  background(235);\n  textSize(24);\n  text(\"Hello\", 60, 75);\n}\n"
     }
    ]
   },
@@ -63,25 +70,29 @@
      "label": "fill",
      "code": "fill(‹255›, ‹120›, ‹160›);",
      "hint": "Sets the colour of shapes drawn after it (red, green, blue, each 0 to 255). It does not change shapes already drawn.",
-     "matches": "(?<![\\w.])fill\\("
+     "matches": "(?<![\\w.])fill\\(",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  background(235);\n  fill(255, 120, 160);\n  circle(70, 65, 70);\n  fill(80, 160, 255);\n  circle(130, 65, 70);\n}\n"
     },
     {
      "label": "stroke",
      "code": "stroke(‹0›);",
      "hint": "Sets the colour of outlines drawn after it.",
-     "matches": "(?<![\\w.])stroke\\("
+     "matches": "(?<![\\w.])stroke\\(",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  background(235);\n  strokeWeight(5);\n  stroke(220, 40, 90);\n  circle(100, 65, 80);\n}\n"
     },
     {
      "label": "noStroke",
      "code": "noStroke();",
      "hint": "Draws shapes with no outline.",
-     "matches": "noStroke\\("
+     "matches": "noStroke\\(",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  background(235);\n  noStroke();\n  fill(60, 160, 120);\n  circle(100, 65, 80);\n}\n"
     },
     {
      "label": "strokeWeight",
      "code": "strokeWeight(‹4›);",
      "hint": "Sets how thick outlines and lines are.",
-     "matches": "strokeWeight\\("
+     "matches": "strokeWeight\\(",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  background(235);\n  strokeWeight(10);\n  line(30, 65, 170, 65);\n}\n"
     }
    ]
   },
@@ -156,7 +167,8 @@
      "label": "array",
      "code": "let ‹heights› = [‹40›, ‹90›, ‹150›];",
      "hint": "Makes a list. The first item is heights[0], because counting starts at 0.",
-     "matches": "=\\s*\\["
+     "matches": "=\\s*\\[",
+     "example": "let heights = [40, 90, 60, 100];\n\nfunction setup() {\n  createCanvas(200, 130);\n  background(235);\n  for (let i = 0; i < heights.length; i++) {\n    rect(25 + i * 42, 120 - heights[i], 30, heights[i]);\n  }\n}\n"
     },
     {
      "label": "array item",
@@ -180,7 +192,8 @@
      "label": "for count",
      "code": "for (let ‹i› = 0; ‹i› < ‹6›; ‹i›++) {\n  ‹...›\n}",
      "hint": "Repeats the code in the braces, with i counting 0, 1, 2, ... up to one less than 6.",
-     "matches": "for\\s*\\(\\s*let\\s+\\w+\\s*="
+     "matches": "for\\s*\\(\\s*let\\s+\\w+\\s*=",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  background(235);\n  for (let i = 0; i < 5; i++) {\n    circle(30 + i * 35, 65, 28);\n  }\n}\n"
     },
     {
      "label": "for of",
@@ -266,7 +279,8 @@
      "label": "map",
      "code": "map(‹i›, ‹0›, ‹11›, ‹255›, ‹120›)",
      "hint": "Turns a number in one range into the matching number in another.",
-     "matches": "(?<![\\w.])map\\("
+     "matches": "(?<![\\w.])map\\(",
+     "example": "function setup() {\n  createCanvas(200, 130);\n  noStroke();\n  for (let i = 0; i < 10; i++) {\n    fill(map(i, 0, 9, 255, 40), 120, 200);\n    circle(20 + i * 18, 65, 16);\n  }\n}\n"
     }
    ]
   }

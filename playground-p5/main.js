@@ -6,6 +6,9 @@ import { hint } from './p5-errors.js';
 const params = new URLSearchParams(location.search);
 const starter = params.get('code') ?? 'function setup() {\n  createCanvas(400, 300);\n  background(240);\n  circle(200, 150, 100);\n}\n';
 const id = params.get('id');
+// ?zoom=1.6 enlarges the code and the sketch, for recorded clips.
+const zoom = Math.min(3, Math.max(1, Number(params.get('zoom')) || 1));
+if (zoom > 1) document.documentElement.style.zoom = String(zoom);
 const storeKey = id ? `wp-p5-playground:${id}` : null;
 
 const $ = (i) => document.getElementById(i);

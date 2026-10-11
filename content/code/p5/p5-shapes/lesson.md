@@ -5,6 +5,28 @@ introduces: [setup]
 title: Shapes on a canvas
 summary: "Draw circles, rectangles, triangles and lines on a canvas with p5.js, and find out where the corner (0, 0) is."
 language: javascript
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-p5" 8130
+  url: http://127.0.0.1:8130/index.html
+  ready: JavaScript code
+  layout: full
+pacing:
+  keyDelayMs: 30
+explainPicture: sketch.js#run
+explainClip:
+  query: {code: "", zoom: 1.4}
+  caption: "A canvas is a grid of pixels, and shapes go where you say"
+  clip:
+    - caption: "createCanvas makes the drawing area: here 300 wide and 200 tall."
+    - type: {into: "JavaScript code", text: "function setup() {\n  createCanvas(300, 200);\n  background(230);\n", append: true}
+    - caption: "(0, 0) is the top left. A bigger x goes right, and a bigger y goes down."
+    - type: {into: "JavaScript code", text: "  circle(80, 60, 50);\n", append: true}
+    - caption: "fill sets the colour of the shapes drawn after it."
+    - type: {into: "JavaScript code", text: "  fill(255, 120, 160);\n  rect(150, 100, 100, 60);\n}\n", append: true}
+    - click: "Run \u25b6"
+    - expect: {selector: "#status", contains: "Running"}
+    - wait: 2200
+    - caption: "The circle is white and the rectangle pink: the fill came between them."
 hook: "Every picture on a screen is shapes at places. In p5.js you say which shape, where, and what colour."
 ---
 **p5.js** draws on a **canvas**: a rectangle of pixels you make with `createCanvas(width, height)`. A shape is a command with numbers: `circle(150, 100, 80)` draws a circle with its middle **150 across** and **100 down**, and a width of 80.
@@ -91,10 +113,12 @@ tasks:
   - hint:
       - "The big circle's x and y are its middle. The canvas is 300 wide and 200 tall."
       - "Bigger x moves right and bigger y moves down. Try x near 250 and y near 160."
+    expected: sketch.js#sol-corner
     check: { type: reflect, text: "My big circle is in the bottom-right corner." }
   - hint:
       - "p5 has more shapes than the sketch uses. An oval is called ellipse, and it takes a width and a height."
       - "Change the pink rect(20, 20, 60, 40) to ellipse(60, 40, 90, 40): an ellipse's x and y are its middle."
+    expected: sketch.js#sol-oval
     check: { type: code, text: "Draw an oval with ellipse.", rules: { uses: ["ellipse"] } }
 ```
 

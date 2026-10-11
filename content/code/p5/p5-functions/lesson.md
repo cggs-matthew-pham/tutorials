@@ -6,6 +6,26 @@ assumes: [object, property, arithmetic, compare]
 title: Functions of your own
 summary: "Give a piece of code a name, hand it values with parameters, and get an answer back with return."
 language: javascript
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-p5" 8130
+  url: http://127.0.0.1:8130/index.html
+  ready: JavaScript code
+  layout: full
+pacing:
+  keyDelayMs: 30
+explainPicture: sketch.js#run
+explainClip:
+  query: {code: "", zoom: 1.4}
+  caption: "A function gives code a name, and parameters make each use different"
+  clip:
+    - caption: "function names a recipe. x, y and size are parameters: the values it needs."
+    - type: {into: "JavaScript code", text: "function drawFlower(x, y, size) {\n  fill(255, 120, 160);\n  circle(x, y, size * 2);\n  fill(255, 210, 0);\n  circle(x, y, size);\n}\n\n", append: true}
+    - caption: "Defining draws nothing. Each call below does the work, with its own values."
+    - type: {into: "JavaScript code", text: "function setup() {\n  createCanvas(300, 200);\n  drawFlower(70, 100, 20);\n  drawFlower(180, 60, 12);\n  drawFlower(230, 140, 16);\n}\n", append: true}
+    - click: "Run \u25b6"
+    - expect: {selector: "#status", contains: "Running"}
+    - wait: 2200
+    - caption: "One definition, three calls, three flowers."
 hook: "One flower took ten lines. A function turns those lines into a single word, so a whole garden is three short lines."
 ---
 A **function** is code with a name. You write it once, then **call** it as often as you like: `drawFlower(80, 100);`.
@@ -102,6 +122,7 @@ tasks:
   - hint:
       - "Replace the three calls with a for loop that counts to 5."
       - "Use i in the call: drawFlower(40 + i * 55, 100, 14)."
+    expected: sketch.js#sol-many
     check: { type: code, text: "Draw five flowers with one call inside a loop.", rules: { defs: 1, loops: 1, calls: 1 } }
   - hint:
       - "A function that answers true or false is used inside an if."

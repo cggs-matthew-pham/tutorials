@@ -527,5 +527,26 @@ Concepts: a `CONCEPTS.javascript` table so the hidden-assumptions lint covers it
 - Matthew approved a lightweight version (the old p5 playground is in the suspended repo; enhance later). Plan changed from 6 lessons to **7 plus 1 optional**: Shapes on a canvas, Making it move, Decisions (unit canvas); Lists and loops, Objects and stars, Functions of your own (unit build); the final challenge Catch the circle (marks "Challenge complete"); optional Moving art (sin, cos, map). Each has `struggle:`, escalating hints, a bug task (new misconceptions `fill-after`, `let-in-draw`, `assign-in-if`, `y-from-top`, `property-prefix`, `function-case`, `near-is-small`), and code checks with the p5 rules. Three unit primers.
 - Own playground (`playground-p5/`, p5 2.3.4 vendored): editor, Run/Stop/Reset, sandboxed iframe, console output, friendly errors with a Show line button. Decisions taken: our own editor, vendored p5 (no CDN), JavaScript only.
 - Round-off (11 Oct, later): `snippets/p5.json` (37 cards, 9 groups) gives the Reference page, student cheat sheets and teacher cheat sheets; a free Playground page and chip (`PLAY['code/p5']`); `npm run check-p5-errors` (11 slips run in Node; it found and fixed a wrong-case hint and an "Unexpected identifier" branch that never fired). Concept scan: all 8 lessons tagged, no untagged first uses.
-- Not done: pictures of what a sketch makes (the playground can post a `snap` of the canvas, not yet used by `render-pictures`; Reference cards show code only), clips, the DOM and console course, teacher trials with a class. Enhancement of the playground (autocomplete, p5 reference links, saving sketches) waits for the original repo.
+- Pictures and clips (11 Oct, later): `render-pictures` draws p5 pictures by running the sketch in the p5 playground and cropping the canvas (sections `p5`: 14 snippet examples for the Reference and cheat sheets; `p5shown`: `explainPicture` and `expected:` for p5 lessons). `expected:` now works in p5 lessons (Shapes, Lists, Functions, Moving art). Each lesson has an "Explain it to me" clip that types a small sketch live (data-driven `app:` on the lesson, so `render.mjs` and `stage.html` are untouched and no other clip re-records); recorded and checked here with no voice. The playground takes `?zoom=` for clips.
+- Not done: voiceover for the p5 clips (add `voice:` and `say:` lines), hook and expected clips for the moving sketches, teacher trials with a class. Animated sketches show a still frame.
 - Test: every sketch region runs clean in headless Chromium (bug regions in Functions and Objects error as designed); `page-checks` answers every check on the 8 pages.
+
+## Proposed (11 Oct 2026, awaiting Matthew's approval): The DOM and the browser console (Web pathway, extension, after p5.js)
+
+**Why:** the last "Coming later" card on the Web pathway. HTML & CSS builds a page; p5.js teaches JavaScript on a canvas. This course makes a real page react: find an element, change it, listen for a click or a key, and keep what the page knows in variables. It reuses what p5 taught (variables, if, arrays, objects, functions, events) so only the page-side ideas are new. Typical fit Year 9+; needs HTML & CSS and p5.js (or comfort with JavaScript basics).
+
+**Playground (extends a shared tool, noted in shared.md if approved):** the HTML playground already runs `<script>` in its sandboxed preview. Additions: a **console panel** under the preview (`console.log`, `console.error` and uncaught errors posted from an injected shim, as the p5 shim does), friendly hints from `p5-errors.js` (moved to a shared file) with "Show line N", and a `js` rule family for code checks (`contains`, `calls`, `uses`: the P5_RULES reading a `<script>` block). No change to how the preview is sandboxed. `localStorage` is unavailable in the sandbox (no `allow-same-origin`), so saving between visits is out of scope; a lesson says so.
+
+**Lessons (7 plus 1 optional), PRIMM, `struggle:` and bug tasks as in the p5 course:**
+1. Find and change: `document.querySelector`, `textContent`, `style`; the console shows `console.log`. Hard part: the selector is text, so a typo finds nothing and the error is "null".
+2. Events: `addEventListener("click", ...)` with a function; a button changes the heading.
+3. Classes and style: `classList.toggle`, dark mode and a show/hide panel (CSS from the HTML course does the looking).
+4. Inputs: `input.value`, the `input` event, a live character counter, a greeting.
+5. Building a list: arrays and objects to elements with `createElement`, `append`; an add-item form without a form submit (the preview blocks forms by design).
+6. State and decisions: a variable the page keeps, a score or a tally, `if` inside a handler.
+7. Final challenge: a small page app, for example a quiz or a club sign-up checker (marks "Challenge complete").
+8. Optional: the real browser console and DevTools: reading errors, inspecting an element, trying code on this site's own pages.
+
+**Not in scope:** fetch and APIs (the Data detective course covers APIs in Python), frameworks, modules, saving.
+
+**Decisions for Matthew:** (a) extend the HTML playground with a console panel rather than build another playground; (b) a mini-app final challenge, not a game; (c) no saving between visits; (d) clips and pictures as in the p5 round-off (explain clips typing code live, expected pictures drawn by the HTML playground).

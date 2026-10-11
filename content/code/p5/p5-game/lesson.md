@@ -6,6 +6,26 @@ assumes: [array, object, property, for-of, if, compare, function, param, random,
 title: "Final challenge: Catch the circle"
 summary: "Click the falling circles to score. Fix a catch that works backwards, add lives and a game over, then add a power-up of your own."
 language: javascript
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-p5" 8130
+  url: http://127.0.0.1:8130/index.html
+  ready: JavaScript code
+  layout: full
+pacing:
+  keyDelayMs: 30
+explainPicture: sketch.js#run
+explainClip:
+  query: {code: "", zoom: 1.4}
+  caption: "A click is an event, and a small distance means a catch"
+  clip:
+    - caption: "mousePressed is an event function: p5 runs it for each click."
+    - type: {into: "JavaScript code", text: "let score = 0;\nlet ball = { x: 150, y: 100 };\n\nfunction setup() {\n  createCanvas(300, 200);\n}\n\n", append: true}
+    - caption: "dist gives the distance between the click and the ball. Close means under 20."
+    - type: {into: "JavaScript code", text: "function draw() {\n  background(230);\n  circle(ball.x, ball.y, 30);\n  text(\"Score: \" + score, 10, 20);\n}\n\nfunction mousePressed() {\n  if (dist(mouseX, mouseY, ball.x, ball.y) < 20) {\n    score = score + 1;\n    ball.x = random(20, 280);\n  }\n}\n", append: true}
+    - click: "Run \u25b6"
+    - expect: {selector: "#status", contains: "Running"}
+    - wait: 2200
+    - caption: "Click the ball: the score goes up and the ball jumps. A miss does nothing."
 hook: "Everything you have learned in one game: a list of objects, a loop, a function, a decision, and a click."
 ---
 Your game has falling circles. When you **click** one, you score and it starts again at the top. If one reaches the bottom, it starts again too.

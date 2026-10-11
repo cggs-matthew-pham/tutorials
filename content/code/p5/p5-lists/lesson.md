@@ -6,6 +6,26 @@ assumes: [compare, variable, arithmetic]
 title: Lists and loops
 summary: "Keep many numbers in an array, draw one thing for each with a loop, and build the array with random numbers."
 language: javascript
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-p5" 8130
+  url: http://127.0.0.1:8130/index.html
+  ready: JavaScript code
+  layout: full
+pacing:
+  keyDelayMs: 30
+explainPicture: sketch.js#run
+explainClip:
+  query: {code: "", zoom: 1.4}
+  caption: "A list holds many values, and a loop draws one bar for each"
+  clip:
+    - caption: "An array is a list in square brackets. The first item is number 0."
+    - type: {into: "JavaScript code", text: "let heights = [40, 90, 150, 70];\n\nfunction setup() {\n  createCanvas(300, 200);\n  background(230);\n", append: true}
+    - caption: "A for loop counts i from 0 up to the length of the list."
+    - type: {into: "JavaScript code", text: "  for (let i = 0; i < heights.length; i++) {\n    rect(30 + i * 60, 200 - heights[i], 40, heights[i]);\n  }\n}\n", append: true}
+    - click: "Run \u25b6"
+    - expect: {selector: "#status", contains: "Running"}
+    - wait: 2200
+    - caption: "heights[i] is each value in turn, so four values draw four bars."
 hook: "Ten bars, or a thousand: it is the same few lines of code if the numbers live in a list and a loop does the drawing."
 ---
 An **array** is a list of values in order: `let heights = [50, 120, 80, 150];`. Each value has a **place number**, counting from **0**: `heights[0]` is 50 and `heights[3]` is 150. `heights.length` is how many there are (4).
@@ -102,10 +122,12 @@ tasks:
   - hint:
       - "Two things control how many bars there are. One of them makes the values."
       - "Change 10 to 20 in setup(), and make the bars thinner and closer together so they fit."
+    expected: sketch.js#sol-more
     check: { type: reflect, text: "My chart has 20 bars, and they all fit on the canvas." }
   - hint:
       - "Inside the loop, an if can look at heights[i] before the rect is drawn."
       - "if (heights[i] > 100) { fill(255, 120, 160); } else { fill(255, 210, 0); } goes above the rect line."
+    expected: sketch.js#sol-colour
     check: { type: code, text: "Colour the tall bars (over 100) differently from the short ones.", rules: { contains: ["heights[i] >"] } }
 ```
 

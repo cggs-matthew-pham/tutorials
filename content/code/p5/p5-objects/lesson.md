@@ -6,6 +6,26 @@ assumes: [array, push, random, for-count]
 title: Objects and stars
 summary: "Keep everything about one star (its place and its speed) together in an object, and move a whole list of them."
 language: javascript
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-p5" 8130
+  url: http://127.0.0.1:8130/index.html
+  ready: JavaScript code
+  layout: full
+pacing:
+  keyDelayMs: 30
+explainPicture: sketch.js#run
+explainClip:
+  query: {code: "", zoom: 1.4}
+  caption: "An object keeps one star's values together"
+  clip:
+    - caption: "An object holds named values: where the star is and how fast it falls."
+    - type: {into: "JavaScript code", text: "let star = { x: 150, y: 0, speed: 2 };\n\nfunction setup() {\n  createCanvas(300, 200);\n}\n\n", append: true}
+    - caption: "star.y is this star's y. Changing it moves this star, and the if sends it back to the top."
+    - type: {into: "JavaScript code", text: "function draw() {\n  background(230);\n  circle(star.x, star.y, 20);\n  star.y = star.y + star.speed;\n  if (star.y > 210) {\n    star.y = -10;\n  }\n}\n", append: true}
+    - click: "Run \u25b6"
+    - expect: {selector: "#status", contains: "Running"}
+    - wait: 2200
+    - caption: "A list of these objects, and a loop, gives you a whole sky of stars."
 hook: "A falling star has a place, a speed and a size. An object keeps them together, so a hundred stars are a hundred objects, not three hundred loose numbers."
 ---
 An **object** holds named values together: `{ x: 20, y: 30, speed: 2 }`. Each name is a **property**, read with a dot: `star.y` is that star's y. You change one the same way: `star.y = star.y + star.speed;`.

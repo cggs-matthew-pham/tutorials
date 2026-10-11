@@ -75,8 +75,13 @@ function tryHtml(lesson, step) {
 }
 
 // "Show the expected result": pictures of solution pages (render-pictures), keyed "<slug>/<step-4-t2>".
-let EXPECTED = null; // read on first use (readPics is defined further down)
+let EXPECTED = null, P5SHOWN = null; // read on first use (readPics is defined further down)
 function expectedHtml(lesson, cfg, key) {
+  if (lesson.language === 'javascript') {   // p5: drawn by the p5 playground (render-pictures, p5shown)
+    const p = cfg.expected && (P5SHOWN ||= readPics(['p5shown']))[`${lesson.slug}/exp-${key}`];
+    if (!p) return '';
+    return `<details class="reveal expected"><summary>Show the expected result</summary><figure><img src="${'../'.repeat(lesson.depth)}_pictures/p5shown/${esc(lesson.slug)}/exp-${esc(key)}.png?v=${esc(p.hash || '')}" alt="What the finished sketch looks like" width="${Math.round(p.w / (p.div || 2))}" height="${Math.round(p.h / (p.div || 2))}" loading="lazy"><figcaption>What it should look like. Yours can be a little different, as long as it follows the task.</figcaption></figure></details>`;
+  }
   const pic = cfg.expected && (EXPECTED ||= readPics(['expected']))[`${lesson.slug}/${key}`];
   if (!pic) return '';
   return `<details class="reveal expected"><summary>Show the expected result</summary><figure><img src="${'../'.repeat(lesson.depth)}_pictures/expected/${esc(lesson.slug)}/${esc(key)}.png?v=${esc(pic.hash || '')}" alt="What the finished page looks like" width="${Math.round(pic.w / (pic.div || 2))}" height="${Math.round(pic.h / (pic.div || 2))}" loading="lazy"><figcaption>What it should look like. Your words can be different.</figcaption></figure></details>`;
@@ -101,6 +106,11 @@ function pictureHtml(lesson, v, key) {
     if (!bp) return '';
     const cap = sp.caption ? (lesson.language === 'maths' ? textWithMath(sp.caption, esc) : esc(sp.caption)) : '';
     return `<figure class="shown boardpic"><img src="${'../'.repeat(lesson.depth)}_pictures/${kind}/${esc(lesson.slug)}/${esc(key)}.png?v=${esc(bp.hash || '')}" alt="${esc(sp.caption ? sp.caption.replace(/\$/g, '') : 'The board')}" width="${Math.round(bp.w / (bp.div || 2))}" height="${Math.round(bp.h / (bp.div || 2))}" loading="lazy">${cap ? `<figcaption>${cap}</figcaption>` : ''}</figure>`;
+  }
+  if (lesson.language === 'javascript' && sp) {
+    const p = (P5SHOWN ||= readPics(['p5shown']))[`${lesson.slug}/${key}`];
+    if (!p) return '';
+    return `<figure class="shown"><img src="${'../'.repeat(lesson.depth)}_pictures/p5shown/${esc(lesson.slug)}/${esc(key)}.png?v=${esc(p.hash || '')}" alt="What this sketch draws" width="${Math.round(p.w / (p.div || 2))}" height="${Math.round(p.h / (p.div || 2))}" loading="lazy"><figcaption>What this code makes</figcaption></figure>`;
   }
   const pic = sp && (SHOWN ||= readPics(['shown']))[`${lesson.slug}/${key}`];
   if (!pic) return '';
@@ -254,7 +264,7 @@ const readPics = (sub) => { const f = join(OUT, '_pictures', ...sub, 'pictures.j
 const PICS = { python: { pics: readPics([]), dir: '_pictures/' }, html: { pics: readPics(['html']), dir: '_pictures/html/' }, maths: { pics: readPics(['maths']), dir: '_pictures/maths/' }, makecode: { pics: readPics(['makecode']), dir: '_pictures/makecode/' } };
 // Arcade blocks share the MakeCode manifest; render-pictures draws its snippet blocks as arcade/<snippet id>.png,
 // because Arcade and micro:bit snippets can share a label (if, pause).
-PICS.javascript = { pics: {}, dir: '_pictures/p5/' };   // no pictures yet: keep p5 cards from borrowing turtle ones by id
+PICS.javascript = { pics: readPics(['p5']), dir: '_pictures/p5/' };   // its own folder: p5 cards never borrow turtle pictures by id
 PICS.arcade = { pics: Object.fromEntries(Object.entries(PICS.makecode.pics).filter(([k]) => k.startsWith('arcade/')).map(([k, v]) => [k.slice(7), v])), dir: '_pictures/makecode/arcade/' };
 // A MakeCode program's blocks picture (drawn by render-pictures), as { url, w, h } from base (the site root), or null.
 const blocksPic = (code, base) => { const id = blocksId(code), p = PICS.makecode.pics[id]; return p ? { url: `${base}_pictures/makecode/${id}.png?v=${p.hash || ''}`, w: p.w, h: p.h } : null; };

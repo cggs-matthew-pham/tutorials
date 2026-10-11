@@ -28,6 +28,7 @@ const SEED = process.argv.includes('--seed') ? process.argv[process.argv.indexOf
 const NO_MAKECODE = !!process.env.WP_NO_MAKECODE && process.env.WP_NO_MAKECODE !== '0';
 // WP_DEADLINE=<unix seconds>: draw nothing new after this time. Pictures left over keep their old entry (so the next
 // run draws them), and the run still ends normally, so the publish workflow can publish what is done.
+const ONLY = process.env.WP_ONLY || '';
 const DEADLINE = Number(process.env.WP_DEADLINE) || 0;
 const outOfTime = () => DEADLINE > 0 && Date.now() / 1000 > DEADLINE;
 let leftForNextRun = 0;
@@ -58,6 +59,7 @@ const SHARED = 'pictures-v1';
 // One kind of picture: jobs [{ id, code }], drawn by draw(page, job) -> { data, w, h, div? } | null.
 // legacy: bases from before per-section hashing (whole-file hashes); --seed accepts live pictures that match one.
 async function pictures({ name, dir, base, jobs, viewport, draw, legacy = [] }) {
+  if (ONLY && !ONLY.split(',').some((o) => name.startsWith(o))) return;   // WP_ONLY=p5: only the sections whose name starts so (for testing one kind)
   mkdirSync(dir, { recursive: true });
   const manifestPath = join(dir, 'pictures.json');
   const old = existsSync(manifestPath) ? JSON.parse(readFileSync(manifestPath, 'utf8')) : {};
@@ -209,7 +211,7 @@ const { loadLessons, getSnippet, expectedItems } = await import('./lesson.mjs');
 await pictures({
   name: 'expected', dir: join(DIR, 'expected'), viewport: { width: 520, height: 900 },
   base: hashDir('media', String(withMedia), 'expected-v1'), legacy: [LEGACY.expected],
-  jobs: loadLessons().flatMap((l) => expectedItems(l).map((e) => ({ id: `${l.slug}/${e.key}`, code: getSnippet(l.dir, e.ref) }))),
+  jobs: loadLessons().filter((l) => l.language !== 'javascript').flatMap((l) => expectedItems(l).map((e) => ({ id: `${l.slug}/${e.key}`, code: getSnippet(l.dir, e.ref) }))),
   async draw(page, j) {
     await page.setContent(withMedia(j.code), { waitUntil: 'load' });
     const bottom = await page.evaluate(() => {
@@ -335,6 +337,40 @@ await pictures({
   base: hashDir('playground-science', String(drawScience), 'science-v1'),
   jobs: loadLessons().filter((l) => usesBoardPictures(l) && pictureBoard(l) === 'science').flatMap((l) => pictureItems(l).map((e) => ({ id: `${l.slug}/${e.key}`, code: getSnippet(l.dir, e.ref) }))),
   async draw(page, j) { return { ...(await drawScience(page, j)), div: 2 }; },
+});
+
+// ---- p5.js: what a sketch draws, from the p5 playground itself (cropped to the canvas). Two kinds, each with its own
+// folder: the `example` of each snippets/p5.json card (for the Reference and cheat sheets), and a p5 lesson's picture:,
+// explainPicture and expected: (key `<slug>/<key>`, expected ones `<slug>/exp-<key>`). A sketch that animates is
+// captured after a short wait; one that uses random() differs each time it is drawn, then stays cached.
+const { pictureItems: p5PictureItems, expectedItems: p5ExpectedItems } = await import('./lesson.mjs');
+const p5Draw = async (page, j) => {
+  await page.goto(`http://localhost:${port}/_playground-p5/index.html?code=${encodeURIComponent(j.code)}`);
+  await page.click('#run');
+  await page.waitForFunction(() => ['done', 'error'].includes(window.__playground?.status), null, { timeout: 15000 });
+  if (await page.evaluate(() => window.__playground.status) === 'error') return null;
+  await page.waitForTimeout(900);
+  const canvas = page.frameLocator('#preview').locator('canvas').first();
+  if (!(await canvas.count())) return null;
+  const box = await canvas.boundingBox();
+  const buf = await page.screenshot({ clip: { x: box.x, y: box.y, width: box.width, height: box.height } });
+  return { data: `data:image/png;base64,${buf.toString('base64')}`, w: Math.round(box.width * 2), h: Math.round(box.height * 2), div: 2 };
+};
+const p5Lessons = loadLessons().filter((l) => l.language === 'javascript');
+await pictures({
+  name: 'p5', dir: join(DIR, 'p5'), viewport: { width: 1000, height: 700 },
+  base: hashDir('playground-p5', 'vendor/p5', 'p5-v1'),
+  jobs: examples(resolve('snippets', 'p5.json'), (c) => c),
+  draw: p5Draw,
+});
+await pictures({
+  name: 'p5shown', dir: join(DIR, 'p5shown'), viewport: { width: 1000, height: 700 },
+  base: hashDir('playground-p5', 'vendor/p5', 'p5shown-v1'),
+  jobs: p5Lessons.flatMap((l) => [
+    ...p5PictureItems(l).map((e) => ({ id: `${l.slug}/${e.key}`, code: getSnippet(l.dir, e.ref) })),
+    ...p5ExpectedItems(l).map((e) => ({ id: `${l.slug}/exp-${e.key}`, code: getSnippet(l.dir, e.ref) })),
+  ]),
+  draw: p5Draw,
 });
 
 // ---- MakeCode blocks: each snippets/microbit.json and snippets/arcade.json block (for the cheat sheets and Reference) and every program a

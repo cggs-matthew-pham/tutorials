@@ -338,7 +338,7 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
       if (!/^\s*widget\s*:/m.test(setup)) err(where, `picture: ${sp.ref} is not a board setup (it needs a "widget:" line)`);
       return;
     }
-    if (lesson.language !== 'html') return err(where, lesson.language === 'makecode' ? 'picture works in HTML lessons only (MakeCode lessons can use explainPicture, shown as blocks)' : 'picture works in HTML, maths and science lessons only');
+    if (lesson.language !== 'html' && lesson.language !== 'javascript') return err(where, lesson.language === 'makecode' ? 'picture works in HTML lessons only (MakeCode lessons can use explainPicture, shown as blocks)' : 'picture works in HTML, p5.js, maths and science lessons only');
     if (stage === 'predict' || stage === 'run') return err(where, 'picture would give the prediction away: use it on Investigate, Modify, Make or info steps');
     try { snip(sp.ref); } catch (e) { err(where, `picture: ${e.message}`); }
   };
@@ -347,7 +347,7 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
     if (v === undefined) return;
     if (typeof v !== 'string' || !v.trim()) return err(where, 'expected must be a code reference, such as page.html#sol-make');
     if (!c.try) return err(where, 'expected needs the step to have a try playground');
-    if ((c.try.playground || (lesson.language === 'html' ? 'html' : 'turtle')) !== 'html') return err(where, 'expected works in the HTML playground only (for turtle, use an output-only clip: see AUTHORING.md)');
+    if ((c.try.playground || (lesson.language === 'html' ? 'html' : 'turtle')) !== (lesson.language === 'javascript' ? 'p5' : 'html')) return err(where, 'expected works in the HTML playground only (for turtle, use an output-only clip: see AUTHORING.md)');
     try { snip(v); } catch (e) { err(where, `expected: ${e.message}`); }
   };
   const err = (where, msg) => errs.push(`${lesson.slug} › ${where}: ${msg}`);

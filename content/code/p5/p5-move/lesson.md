@@ -6,6 +6,26 @@ assumes: [setup]
 title: Making it move
 summary: "p5 calls draw() about 60 times a second. A variable that changes a little each time makes a shape move."
 language: javascript
+app:
+  command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-p5" 8130
+  url: http://127.0.0.1:8130/index.html
+  ready: JavaScript code
+  layout: full
+pacing:
+  keyDelayMs: 30
+explainPicture: sketch.js#run
+explainClip:
+  query: {code: "", zoom: 1.4}
+  caption: "draw runs again and again, so changing a number moves the shape"
+  clip:
+    - caption: "A variable made above setup keeps its value between frames."
+    - type: {into: "JavaScript code", text: "let x = 0;\n\nfunction setup() {\n  createCanvas(300, 200);\n}\n\n", append: true}
+    - caption: "draw runs about 60 times a second. Each time: clear, draw, move a little."
+    - type: {into: "JavaScript code", text: "function draw() {\n  background(230);\n  circle(x, 100, 40);\n  x = x + 2;\n}\n", append: true}
+    - click: "Run \u25b6"
+    - expect: {selector: "#status", contains: "Running"}
+    - wait: 2200
+    - caption: "x grows by 2 each frame, so the circle slides right. Nothing brings it back, so it leaves."
 hook: "An animation is a picture redrawn very quickly, a tiny bit different each time. p5 does the redrawing for you."
 ---
 Last lesson's sketch drew once. `function draw() { ... }` is different: p5 runs it **again and again, about 60 times a second**, for as long as the sketch runs. Each pass is a **frame**.
