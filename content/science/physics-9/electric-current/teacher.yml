@@ -37,6 +37,6 @@ exit:
   q: "A student says 'the bulb uses up the electrons so the wire after it is empty'. What would you say?"
   a: "The same number of electrons leave the bulb as enter it. They carry on round the loop. The bulb transfers some of the energy they carry as light and heat."
 explain: |
-  A **current** is a flow of **free electrons** pushed round the circuit by the battery. A **conductor** has free electrons; an **insulator** has none because its electrons are tied to their atoms.
+  A **current** is a flow of **free electrons** pushed round the circuit by the battery. A **conductor** has free electrons; an **insulator** has almost none because its electrons are tied to their atoms.
 
   The electrons are **not used up**. More volts means a stronger push and a bigger current.

@@ -19,7 +19,8 @@ tasks:
   - check: {"type":"sort","q":"Which part of the temperature loop is it?","options":["Receptor","Control centre","Effector"],"items":[["Temperature sensors in the skin and blood","Receptor"],["The hypothalamus in the brain","Control centre"],["Sweat glands","Effector","Effectors carry out the response."],["Muscles that shiver","Effector"],["Nerve endings that detect cold","Receptor"]]}
   - check: {"type":"question","q":"Blood glucose rises after a meal. What reverses the change?","options":["Insulin is released, cells take up glucose, and blood glucose falls back towards its set point","More glucose is released from the liver","Insulin makes blood glucose rise further","Nothing: it stays high until the next meal"],"answer":0,"feedback":[null,"The liver adds glucose when levels are low, not high.","That would be positive feedback, which pushes further from the set point.","The body responds quickly to bring it back."],"explain":"Negative feedback: the change is detected, and the response reverses it. As glucose returns to the set point, less insulin is released."}
   - check: {"type":"question","q":"Which pair names a feedback example and its set point?","options":["Body temperature, about 37 °C","Sweating, about 37 °C","Shivering, about 5 mmol/L","Insulin, about 37 °C"],"answer":0,"explain":"A set point is the value being held: body temperature near 37 °C, or blood glucose near 5 mmol/L. Sweating, shivering and insulin are responses."}
-  - check: {"type":"reflect","text":"I can trace a feedback loop for temperature or blood glucose, naming receptor, control centre, effector and the set point."}
+  - check: {"type":"match","q":"On a hot day, match each part of the temperature loop.","pairs":[["Body temperature held near 37 °C","Set point"],["Exercise raises body temperature to 38 °C","A change away from the set point"],["Sweating and more blood flow to the skin","Corrective response"],["The hypothalamus detects 37 °C again, so sweating slows","The return is detected"]]}
+  - check: {"type":"reflect","text":"I can trace a feedback loop for temperature or blood glucose: the set point, the change, the corrective response and the return detected, and I can name receptor, control centre and effector."}
 ```
 
 ### Parts of the loop
@@ -27,6 +28,8 @@ tasks:
 ### Blood glucose
 
 ### Set points
+
+### The whole loop
 
 ### I can
 

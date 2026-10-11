@@ -2,6 +2,14 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: Quick checks test understanding and cover every criterion (11 Oct 2026, science chat)
+
+Matthew's follow-up to the review: at most one joke option per question (the rest real misconceptions), every success criterion covered, and simplifications made accurate.
+- Joke options replaced with real slips in all 12 Quick checks (for example "Floating sea ice melts" for sea-level rise, "Continental crust is denser than the mantle" for collisions, "Each group changes because its members try" for speciation).
+- Criteria now covered, with new questions or match tasks: 7U01 n4 (a key question that doesn't split), 7U02 n3 (defining abiotic), 8U03 n6 (what each line of evidence shows), 8U04 n4 (a second rock-cycle pathway), 8U04 n5 (Wurundjeri greenstone axes from Wil-im-ee Moor-ring, Mount William), 9U01 n6 (the four parts of the loop: set point, change, corrective response, return detected), 9U02 n2 (stamen and carpel), 9U02 n5 (cost), 9U03 n5 (four flows between named spheres), 10U01 n5 (parent to gametes), 10U01 n6 (daughters), 10U02 n3 (what each line shows), 10U02 n5 (present biodiversity), 10U04 n5 and n6 (sea ice and albedo, why the Arctic warms faster).
+- Accuracy: granite is hard because of its minerals (quartz, feldspar), with slow cooling giving the interlocking crystals; insulators have almost no free electrons (electric current lesson and teacher notes, and the `charge` widget's plastic note).
+- Found on the way: the 9U01 n5 tutorial (feedback) names only "set point" and "corrective response" of the node's four components; the check uses plain words for the other two.
+
 ## Done: struggle notes (11 Oct 2026, science chat)
 
 `struggle:` added to teacher.yml for the 60 older science lessons that lacked one (AUTHORING › Effort and struggle): the hard part, then the question to ask instead of rescuing, drawn from each lesson's stuck list.

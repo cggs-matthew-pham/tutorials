@@ -229,7 +229,7 @@
   function currentInfo() {
     var n = document.getElementById('chinfo'); if (!n) return; n.replaceChildren();
     if (conductor()) { n.appendChild(el('b', '', 'Copper is a conductor: each atom lets go of an electron, so there are free electrons to move.')); n.appendChild(el('span', '', st.v ? ' The battery pushes them round the loop (' + st.v + ' V): the more volts, the faster they drift and the brighter the bulb.' : ' The battery is at 0 V: nothing pushes them, so they only jiggle about.')); }
-    else { n.appendChild(el('b', '', 'Plastic is an insulator: its electrons stay tied to their atoms, so there are none free to move.')); n.appendChild(el('span', '', ' Even at ' + st.v + ' V the bulb stays dark.')); }
+    else { n.appendChild(el('b', '', 'Plastic is an insulator: its electrons are held tightly by their atoms, so almost none are free to move.')); n.appendChild(el('span', '', ' Even at ' + st.v + ' V the bulb stays dark.')); }
   }
 
   // ---------- shared ----------

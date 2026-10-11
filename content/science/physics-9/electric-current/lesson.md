@@ -84,7 +84,7 @@ tasks:
       options: ["Copper has free electrons that can move; in plastic they are tied to their atoms", "Copper has more protons", "Plastic has no electrons"]
       answer: 0
       feedback: [null, "Number of protons isn't the difference.", "Plastic has electrons: they just can't move around."]
-      explain: "Conductors have free electrons; insulators don't."
+      explain: "Conductors have many free electrons; in insulators almost all the electrons are held tightly by their atoms."
   - check:
       type: question
       q: "What does the battery do?"
@@ -171,7 +171,7 @@ Write one sentence: "At first I thought… Now I think… because…"
 
 **Revision summary**
 
-- A **conductor** has **free electrons**; an **insulator** has none: its electrons are tied to their atoms.
+- A **conductor** has **free electrons**; an **insulator** has almost none: its electrons are held tightly by their atoms.
 - A **current** is a flow of free electrons. The **battery** pushes them round; more volts means a stronger push.
 - The electrons are **not used up**; the bulb transfers the energy they carry.
 - **Conventional current** is drawn the opposite way to the electrons, by a historical choice.
