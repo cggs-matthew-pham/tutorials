@@ -127,6 +127,27 @@ Risks: we depend on Microsoft's hosted editor and its unversioned message API. F
 - Drag-and-drop for match items; keep Parsons answers across reloads.
 - Prepare: confirm its load-by-URL parameter so "Copy address" can become "Open in Prepare".
 
+## Proposed (12 Oct 2026, Matthew agreed the direction; not built): Web pathway after the DOM
+
+The plan keeps "build it yourself, then meet the real tool": students hand-build components (HTML & CSS) and state (DOM lesson 6) before a framework does the same work for them. Everything runs in the browser with no build step, and every library is hosted on our site.
+
+1. **Bootstrap** (extension after HTML & CSS; about 3 lessons). Rebuild the club page's navbar, cards and form with Bootstrap classes, compare it with the hand-built CSS, then customise it.
+   - Bootstrap's CSS is hosted under the HTML playground's media folder, so the HTML playground works unchanged.
+   - Checks use `contains` on class names.
+   - Why Bootstrap rather than Tailwind: it reads easily for beginners, and its class names map onto the components students already built by hand.
+2. **Vue** (extension after the DOM course; about 5 lessons, Years 10+).
+   - Lessons: data and `{{ }}`, `v-if` and `v-for`, events, `computed`, components with props, then a small app (the quiz or a to-do list).
+   - Teach the **Composition API** (`ref`, `computed`), because it is the closest to React hooks and Svelte's patterns.
+   - The no-build version of Vue (about 150 KB) is hosted on our site. It probably runs in the DOM playground, with `<script>` loading it.
+   - The hard part: when the page updates, and keeping derived values in `computed`.
+3. **Same app, three frameworks** (an optional last Vue lesson). The same small app in Vue, React-style (Preact with htm, about 5 KB) and Svelte (its compiler in the browser, about 1–2 MB, loaded only by this lesson).
+   - The point: components, state, derived values and events are the same ideas in all three, and only the syntax and update rules differ.
+   - React's update rule (`setState`, and replacing values rather than changing them) is named as the thing that catches people out.
+   - Angular is left out: it needs TypeScript and a command-line toolchain. AngularJS is dead (support ended in 2021).
+4. **`fetch` and APIs in JavaScript** (an optional DOM lesson). Load JSON, show it on the page, and fall back to a saved copy when the network fails, as Data detective does in Python.
+
+**Parked: Node.js.** It does not run in a browser. StackBlitz's WebContainers is proprietary, heavy, and needs security headers GitHub Pages cannot set. Local installs or online editors need accounts. Flask already teaches servers and APIs, and schools generally prefer Python. Revisit only if a school wants a JavaScript-only path.
+
 ## Parked
 
 - Pygame: only after a prototype proves the in-browser runtime. microStudio covers games for now.
