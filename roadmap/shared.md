@@ -153,7 +153,7 @@ With `trail: true`, `/code/` opens on trailheads: a Continue card (the course of
 
 ## Done (11 Oct 2026): science trails
 
-`/science/` now opens on trailheads and each science pathway page on a trail map, like Code (`trail: true`, `fit:` per pathway, a `tagline:` per course in `content/science/index.md`). Each pathway runs Year 7 → 8 → 9 → 10 through `after:`; Year 9 Physics also follows Year 7 Chemistry (heat transfer uses the particle model), shown as a portal. The curriculum map stays for teachers and curious students: on a subject with trails its card now sits below the trailheads instead of above them (`tools/build-site.mjs`, one line; Maths unchanged). Tested headless at 1280 and 390 px, no page errors, no sideways scroll. Maths could follow the same way (needs `after:` across Number and Algebra, `fit:` and taglines).
+`/science/` now opens on trailheads and each science pathway page on a trail map, like Code (`trail: true`, `fit:` per pathway, a `tagline:` per course in `content/science/index.md`). Each pathway runs Year 7 → 8 → 9 → 10 through `after:`; Year 9 Physics also follows Year 7 Chemistry (heat transfer uses the particle model), shown as a portal. The curriculum map stays for teachers and curious students: on a subject with trails its card now sits below the trailheads instead of above them (`tools/build-site.mjs`, one line; Maths unchanged). Tested headless at 1280 and 390 px, no page errors, no sideways scroll. Maths followed the same day: `trail: true`, `fit:` and taglines in `content/maths/index.md` (its existing `after:` lines drive the layout; Number Foundations is a portal on the other three trails). `tools/trail.mjs` now accepts a course's `id:` in `after:` as well as its path (maths uses ids).
 
 ## Parked
 

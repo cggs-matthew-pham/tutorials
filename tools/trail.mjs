@@ -39,7 +39,8 @@ export function layoutTrail(pw, pathways, dirs, lessonCount) {
   const nodes = new Map();
   for (const c of courses) {
     const d = c.path ? dirs.get(c.path) : null;
-    const after = Array.isArray(c.after) ? c.after : [];
+    // after: may name a course by its id as well as its path (maths does); use the one id per course.
+    const after = (Array.isArray(c.after) ? c.after : []).map((r) => idOf(pathways.flatMap((p) => p.courses || []).find((x) => x.id === r) || { id: r }));
     // An extension that names nothing to do first follows the pathway's foundations.
     const parents = after.length ? after : (c.stage === 'extensions' ? foundations : []);
     nodes.set(idOf(c), {
