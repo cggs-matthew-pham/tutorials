@@ -19,7 +19,6 @@ The code chat's file: current status, what is open and the decisions that still 
 - **Python pathway questions still open:** whether turtle lessons 9–10 (events, build a button) suit foundations or extensions.
 
 **Code chat can do next**
-- MakeCode toolbox filters per step (`importproject` takes `filters`).
 
 ## Courses
 
@@ -180,10 +179,12 @@ Every route through the Web pathway (hand-built pages, Bootstrap, the DOM, Vue) 
 - Blockly.
 - Auto-closing tags in the HTML playground; a student view link for unpublished lessons.
 - MakeCode tutorials as a lesson option (`try.tutorial`). `?tutorial=` already opens built-in and GitHub tutorials in our embed.
+- **Hiding blocks (toolbox filters), decided 12 Oct: not per step.** Hidden blocks make later tasks confusing, our editor would differ from the MakeCode students use elsewhere, and every step's list would need upkeep against an unversioned API. If hiding blocks is wanted (say after class trials show overwhelm), it comes through tutorials: a MakeCode tutorial limits the toolbox to the blocks its own code uses, so a tutorial as a lesson option (above), for a guided Make or a first lesson, is the way.
 - An Arcade "Worlds" unit (tilemaps); a picture of the robot arena.
 
 ## Log
 
+- 12 Oct: per-step MakeCode toolbox filters parked; hiding blocks, if wanted, comes through tutorials (Parked).
 - 12 Oct: Python Foundations lesson 8, Functions that decide (the lists and `if` revisit); later lessons renumbered 9 to 15 (slugs unchanged, so progress keeps).
 - 12 Oct: Saving between visits (DOM lesson 10), Your site, for real (2 lessons), and a Download button in the HTML and DOM playgrounds.
 - 12 Oct: Data from the web: fetch (optional DOM lesson 9). The four web proposals are all built.
