@@ -174,6 +174,10 @@ Pathway pages of subjects with `trail: units` (Code too, on this branch) show on
 
 `recap: true` in a course's index.md makes `<course>/recap/` (a Recap chip on the course page): required lessons grouped by unit, each a card with the lesson's exit question as "Try first" and a closed "Check your answer" holding the exit answer, the Explain-it-to-me text, its picture and its clip (`preload="none"`, files read from the lesson's own `clips/`). A lesson with no exit question shows "Show the explanation" instead. Nothing new to write: it reuses `teacher.yml` (`exit`, `explain`) and the lesson's `explainPicture` and `explainClip`. On for `science/chemistry` only; turn it on per course. Shared file: `tools/build-site.mjs` (`writeRecap`, `RECAP_CSS`).
 
+## Open (12 Oct 2026): recorder falls behind on busy boards
+
+The igneous explain clip recorded without error, but its video fell about 15 s behind the voice and ended before the Very fast run: the cooling board redraws a large canvas of about 300 particles every frame, and the video capture cannot keep up (other science clips are about 2 s out). Capping the canvas at 10 redraws a second halved the lag but did not fix it. For now the igneous lesson has no explain clip (its Explain it to me text stays). Proper fix: make `render.mjs` keep video and voice in step when the page is busy (re-records every clip), then bring the clip back.
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).
