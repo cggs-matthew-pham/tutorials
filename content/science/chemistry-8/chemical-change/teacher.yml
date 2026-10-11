@@ -14,6 +14,7 @@ running:
   - "Explore: on the reaction board, point to the atom tally: same atoms before and now."
   - "Explain: the sort's 'why' notes appear once each item is right; ask students to say the test aloud for two of them."
   - "In your own words: the dissolving counterexample is the evidence that the old rule has gone."
+struggle: "Using 'is it a new substance?' instead of 'can it be reversed?'. When a student calls dissolving chemical, ask how they could get the salt back."
 stuck:
   - see: "A student says boiling is chemical because of the bubbles."
     ask: "What are the bubbles made of?"

@@ -14,6 +14,7 @@ running:
   - "Explore: students should find all five kinds in air (nitrogen, oxygen, argon, carbon dioxide, water). Ask which colours appear in more than one kind of particle."
   - "Explain: the two questions carry the checkpoint. The sort catches 'atoms have colours' and 'oxygen in water is different'."
   - "In your own words: collect the sentence; it is the node's checkpoint in the student's words."
+struggle: "Seeing particles as built from atoms, and atom type as what makes an element. When a student calls O₂ a compound, ask how many types of atom are in it."
 stuck:
   - see: "A student says the atoms are red and white."
     ask: "Is water red and white? Is air?"

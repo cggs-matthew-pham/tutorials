@@ -18,6 +18,7 @@ running:
   - "Explore: ask students to describe the ringed particle's whole path in four words (heated, rises, cools, sinks)."
   - "Explain: the 'why rock rises' question targets 'heat rises'. The number check gives the scale."
   - "In your own words: the six-word paragraph is the node's checkpoint."
+struggle: "Giving a mechanism: mantle convection carries the plates. When a student says heat rises, ask what is actually moving up on the board."
 stuck:
   - see: "A student says the plates float on liquid magma."
     ask: "Is the mantle liquid?"

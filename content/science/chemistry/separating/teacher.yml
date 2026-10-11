@@ -15,6 +15,7 @@ running:
   - "Engage: ask what 'heavier' would predict for an aluminium can full of sand. Weight is the common default explanation."
   - "Explore: let students make the wrong order first. Ask what is in the filter paper and why."
   - "Explain: insist the written explanation names a property for every step."
+struggle: "Naming the property each technique uses. When a student lists a technique, ask what is different about the two parts that it relies on."
 stuck:
   - see: "A student says the filter catches sand because it is heavier."
     ask: "What does the filter paper actually test, weight or size?"

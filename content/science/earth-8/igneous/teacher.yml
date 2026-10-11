@@ -16,6 +16,7 @@ running:
   - "Explore: insist on two very different speeds. Ask: did slow cooling take longer to start crystals, or start fewer?"
   - "Explain: the two mechanism questions carry the checkpoint; the sort is the application."
   - "In your own words: the granite and basalt paragraph is the evidence for the node."
+struggle: "Explaining crystal size by how many crystals start and how long they grow. When a student stops at 'longer to grow', ask how many crystals started each time."
 stuck:
   - see: "A student says slow cooling gives big crystals because they had longer to grow, and stops there."
     ask: "How many crystals started each time?"
