@@ -2,6 +2,20 @@
 
 Things more than one subject depends on: the build, publishing, the home and plain pages, and shared tools (`tools/*.mjs`, `tools/lesson-view.mjs`, `playground-shared/`, `playground-board/core.js`). Before changing one of these, check this file and `git log` for work in progress, and note here what you are changing.
 
+## Effort: "if coding is hard, why do it" (11 Oct 2026)
+
+Students expect coding to be fun and easy and read struggle as failure. Response: cut friction (bad hard), keep and name the thinking (good hard). AUTHORING › Effort and struggle has the rules.
+
+**Done (shared tools, all subjects):**
+- Predict and Make stage notes say a wrong guess is fine and a few tries are normal (`STAGE_INFO*` in `lesson-view.mjs`).
+- **Now you can** at the end of every lesson, from `teacher.yml` `goals` ("I can" dropped). Every lesson already has goals, so it shows everywhere.
+- `teacher.yml` `struggle:` (where it is hard on purpose, what to say instead of rescuing): For teachers, teacher guide, slide notes on the first Modify or Make.
+- Lint `tools/effort.mjs`: one summary line in validate; `npm run effort [path]` lists no `struggle:`, no `goals:`, and first hints that give the answer (solution code of 10+ characters not in the starter, or a number check's answer).
+
+**To do:**
+1. **Audit existing lessons**, course by course from `npm run effort` (230 without `struggle:`, 18 first hints flagged, mostly HTML/CSS; some are judgement calls). Add difficulty cues to reliably hard tasks while there. Editing `teacher.yml` changes the lesson folder's clip hash, so batch it per course before a publish.
+2. **Friendly Python errors** (separate build, code chat): translate common Skulpt errors (missing colon, indentation, `NameError` typo, text plus number) to "name the slip and the next move". Console mode already has two such hints.
+
 ## Done: home page and plain pages (11 Oct 2026)
 
 `content/index.md` `about:` renders on the home page (About, Why we made this, How the lessons work). Any other `content/<name>.md` is a plain page at `/<name>/`: `approach.md` (Why we teach this way; references checked) and `behind-the-scenes.md` (how lessons are made and checked, privacy). Claims stay true to what the tools do; checks not yet built are worded as aims.

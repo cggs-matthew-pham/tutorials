@@ -243,6 +243,7 @@ timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 1
 goals: ["I can write a function with def and call it by name."]   # each starts "I can"
 before: Try the Make task yourself; the surprise for students is ...
 running: ["Predict and Run: ...", "Investigate: ...", "Make: ..."]  # what to do and say, in order
+struggle: Where the lesson is hard on purpose, and what to say instead of rescuing (one or two sentences).
 stuck:                         # what you will see → a question to ask → the fix
   - { see: "Nothing is drawn, and no error.", ask: "Where do you call the function?", fix: "Add square() below the def." }
 stretch: ...
@@ -272,7 +273,7 @@ solutions:                     # work item → code region
 
 ### Hints and "expected result" clips
 
-- `hint: "text"` or a list of up to 3 texts adds "Need a hint?" (then "Another hint") buttons under the playground. Write nudges, not answers: the first points at the idea, the second at what changes.
+- `hint: "text"` or a list of up to 3 texts adds "Need a hint?" (then "Another hint") buttons under the playground. Write nudges, not answers, in this order: the idea, then where to look (the line or the part that changes), then at most a partial example. Never solution code in the first hint (`npm run effort` flags it).
 - `reveal: "Show the expected result"` hides a step's clip behind a button with that text, placed after the playground so students try first.
 - An **output-only clip** shows the result without the code. Give the step `app: true` and a query that loads the solution and hides the editor:
 
@@ -284,6 +285,18 @@ clip:
 ```
 
   `view=output` shows only the drawing and `autorun=1` runs the program when the page loads.
+
+### Effort and struggle
+
+Students often expect coding to be fun and easy, and read being stuck as "this isn't for me". Lessons should remove the friction that teaches nothing (typos, unexplained syntax, setup) and keep the difficulty that is the thinking, and say plainly that it is meant to be hard.
+
+- **Bad hard vs good hard.** Start from working code, label recipes, use Parsons and bug tasks for long typing, one new move per lesson. What is left to struggle with should be predicting, tracing and working out why.
+- **Say it before it happens.** The Predict and Make stage notes already say a wrong guess is fine and a few tries are normal. Where a task is reliably hard, add a line to its text ("Most people need two goes at this").
+- **Name the hard part for teachers.** `struggle:` in `teacher.yml`: where students should find it hard, and what to say instead of helping ("Ask them to trace it first"). It shows in For teachers, the teacher guide and the slide notes. Non-specialist teachers tend to rescue too early.
+- **End with what they can now do.** The lesson's `goals` show at the end as **Now you can** (the "I can" dropped), so write goals a student would recognise.
+- **Hints escalate**, never starting with the answer (above).
+
+`npm run validate` prints one summary line; `npm run effort [path]` lists every gap (no `struggle:`, no `goals:`, a first hint with solution code or a number check's answer).
 
 ### Ordering lessons
 

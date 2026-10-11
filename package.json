@@ -6,6 +6,7 @@
   "scripts": {
     "validate": "node tools/validate.mjs",
     "concepts": "node tools/concepts.mjs --report",
+    "effort": "node tools/effort.mjs",
     "nodes": "node tools/progressions.mjs --report",
     "check-nodes": "node tools/check-progressions.mjs",
     "check-forms": "node tools/check-forms.mjs",

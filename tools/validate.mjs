@@ -156,4 +156,13 @@ else console.log('✓ error tasks: every planted error names its fault and an on
   }
   if (!n) console.log('✓ voiceover: spoken lines are short');
 }
+// Effort (warnings, never a failure): each lesson names its hard part, ends with a recap, and no first hint gives the
+// answer away. One line here; `npm run effort` lists every gap (AUTHORING › Effort and struggle).
+{
+  const { auditEffort, summary } = await import('./effort.mjs');
+  const { getSnippet } = await import('./lesson.mjs');
+  const gaps = auditEffort(lessons, getSnippet);
+  if (gaps.length) console.warn(`⚠ effort: ${summary(gaps)} (npm run effort lists them)`);
+  else console.log('✓ effort: every lesson names its hard part, ends with a recap, and no first hint gives the answer');
+}
 process.exit(bad ? 1 : 0);

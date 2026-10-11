@@ -6,28 +6,28 @@ export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
 export const titleCase = (s) => s.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 
 export const STAGE_INFO = {
-  predict: ['Predict', 'Read the code and say what it will do before you run anything.'],
+  predict: ['Predict', 'Read the code and say what it will do before you run anything. A wrong guess is fine: it shows you what to look for.'],
   run: ['Run', 'Run it and compare the result with your prediction.'],
   investigate: ['Investigate', 'Trace how each line of code connects to what you see.'],
   modify: ['Modify', 'Change the code on purpose and check the result.'],
   practise: ['Practise', 'A few on your own, to check you have it.'],
-  make: ['Make', 'Build something new using what you have learned.'],
+  make: ['Make', 'Build something new using what you have learned. Expect a few tries; that is normal.'],
   info: ['Info', ''],
 };
 /** The same stages in maths words: there is no code, so students try things on a board and change the problem. */
 export const STAGE_INFO_MATHS = {
-  predict: ['Predict', 'Read the problem and decide what you think before you try anything.'],
+  predict: ['Predict', 'Read the problem and decide what you think before you try anything. A wrong guess is fine: it shows you what to look for.'],
   run: ['Try', 'Try it on the board and compare the result with your prediction.'],
   investigate: ['Investigate', 'Work out why it happens, one step at a time.'],
   modify: ['Modify', 'Change the problem on purpose and see what happens.'],
   practise: ['Practise', 'A few on your own, to check you have it.'],
-  make: ['Make', 'Make your own problem using what you have learned.'],
+  make: ['Make', 'Make your own problem using what you have learned. Expect a few tries; that is normal.'],
   info: ['Info', ''],
 };
 /** Science lessons use the 5E words (Engage, Explore, Explain, Elaborate, Evaluate) on the same stages, so predict-and-compare,
  * decks and worksheets work unchanged: predict = Engage, run = Explore, investigate = Explain, modify = Elaborate, info = Evaluate. */
 export const STAGE_INFO_SCIENCE = {
-  predict: ['Engage', 'Commit to a prediction before you test anything.'],
+  predict: ['Engage', 'Commit to a prediction before you test anything. A wrong guess is fine: it shows you what to look for.'],
   run: ['Explore', 'Try it on the board and compare what happens with your prediction.'],
   investigate: ['Explain', 'Use the particle model to explain what you saw.'],
   modify: ['Elaborate', 'Use the same idea in a new context.'],
@@ -96,6 +96,7 @@ section.step{scroll-margin-top:calc(var(--nav,0px) + var(--cb,0px) + 64px)}
 .nextcard{display:block;margin:34px 0 0;padding:18px 22px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none}
 .nextcard small{display:block;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.nextcard b{display:block;font-size:1.15rem}.nextcard span{color:var(--muted);font-size:15px}
 .nextcard:hover{border-color:var(--accent)}
+.nowcan{margin:34px 0 0;padding:16px 22px;border-left:4px solid var(--accent);background:var(--card);border-radius:0 14px 14px 0}.nowcan small{display:block;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.nowcan ul{margin:6px 0 0;padding-left:20px}.nowcan+.nextcard{margin-top:14px}
 .rules{list-style:none;margin:6px 0 0;padding:0}.rules li{display:flex;gap:8px;align-items:center;margin:3px 0}.rules li::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid var(--line);flex:none}.rules li.ok::before{background:var(--run);border-color:var(--run)}
 
 nav.steps a{font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--card);padding:5px 11px;border-radius:99px}
@@ -688,6 +689,9 @@ export function lessonPageHtml(lesson, deps) {
     `<div class="cb-menu" id="cb-menu" hidden><ul>${course.list.map((l) => `<li><a href="${esc(l.href)}" data-checks="${esc(l.checks.join('|'))}"${l.current ? ' aria-current="page"' : ''}><i class="tick"></i><span>${esc(lab(l))}</span></a></li>`).join('')}</ul>` +
     `<div class="cb-tools"><a href="${esc(course.pathHref)}">All ${esc(course.pathTitle)} lessons and my progress</a>${course.playground ? `<a href="${esc(course.playground)}">Playground</a>` : ''}</div></div></div>` +
     (course.next ? `<a class="cb-next" href="${esc(course.next.href)}" title="${esc(lab(course.next))}"><span>${esc(lab(course.next))}</span> ›</a>` : '<span class="cb-next"></span>') + `</div>`;
+  // Now you can: the lesson's goals, said to the student, so the effort ends in something they can name.
+  const nowCan = (lesson.teacher?.goals || []).map((g) => g.replace(/^I can\s+/, '')).map((g) => g[0].toUpperCase() + g.slice(1));
+  const recapHtml = nowCan.length ? `<section class="nowcan" aria-label="Now you can"><small>Now you can</small><ul>${nowCan.map((g) => `<li>${esc(g)}</li>`).join('')}</ul></section>` : '';
   const nextCard = !course ? '' : course.next
     ? `<a class="nextcard" href="${esc(course.next.href)}"><small>Next lesson</small><b>${esc(lab(course.next))}</b>${course.next.summary ? `<span>${esc(course.next.summary)}</span>` : ''}</a>`
     : `<a class="nextcard" href="${esc(course.pathHref)}"><small>You reached the end</small><b>Back to ${esc(course.pathTitle)}</b></a>`;
@@ -707,6 +711,7 @@ export function lessonPageHtml(lesson, deps) {
       (T.goals ? `<h3>Students will be able to</h3>${li(T.goals)}` : '') +
       (T.before ? `<h3>Before class</h3>${md.parse(T.before)}` : '') +
       (T.running ? `<h3>Running the lesson</h3><ol>${T.running.map((r) => `<li>${esc(r)}</li>`).join('')}</ol>` : '') +
+      (T.struggle ? `<h3>The hard part (on purpose)</h3><p>${esc(T.struggle)}</p>` : '') +
       (T.stuck ? `<h3>When students get stuck</h3><ul>${T.stuck.map((x) => `<li><b>${esc(x.see)}</b> Ask: ${esc(x.ask)} Fix: ${esc(x.fix)}</li>`).join('')}</ul>` : '') +
       (T.stretch || T.support ? `<h3>Stretch and support</h3>${T.stretch ? `<p><b>Stretch:</b> ${esc(T.stretch)}</p>` : ''}${T.support ? `<p><b>Support:</b> ${esc(T.support)}</p>` : ''}` : '') +
       (T.leads ? `<h3>Where it leads</h3>${md.parse(T.leads)}` : '') +
@@ -734,7 +739,7 @@ ${widthBar}
 ${explainHtml}
 ${steps}${tiered ? `<script>${WIDTH_JS}</script>` : ''}
 ${teachersHtml}
-${nextCard}
+${recapHtml}${nextCard}
 ${source ? `<footer>Source: <code>${esc(source)}</code></footer>` : ''}${mk ? `<style>${MAKECODE_CSS}</style>` : ''}`, (siteRoot ? `<script src="${esc(siteRoot)}progress.js" data-root="${esc(siteRoot)}" defer></script>` : '') + (mk ? `<script>${MAKECODE_JS}</script>` : '') + (hasForms && maths.forms ? `<script src="${esc(siteRoot)}${esc(maths.forms.src)}" defer></script><script>${maths.forms.js}</script>` : ''), siteNavHtml);
 }
 

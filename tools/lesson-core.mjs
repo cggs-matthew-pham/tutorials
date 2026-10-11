@@ -626,7 +626,7 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
 }
 
 /** The fields of teacher.yml. Text fields are Markdown; see AUTHORING.md › Teacher notes. */
-export const TEACHER_TEXT = ['summary', 'before', 'stretch', 'support', 'leads', 'explain', 'timing'];
+export const TEACHER_TEXT = ['summary', 'before', 'struggle', 'stretch', 'support', 'leads', 'explain', 'timing'];
 
 /** Steps and tasks a solution can be keyed by: "step-4" or "step-4#t2". */
 /** picture: "page.html#x", { ref, boxes: true } (Boxes view) or { ref, inspect: ".card" } (Box model view pinned on that element) -> { ref, boxes, inspect, caption } (or null). caption: shown under a board picture (maths). */
