@@ -1,0 +1,8 @@
+# Leo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leo
+Write 36 as a product of prime factors.
+36 = 4 × 9
+4 and 9 are factors of 36, so the tree is finished.
+36 = 4 × 9
+# endregion

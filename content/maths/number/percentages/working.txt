@@ -1,0 +1,8 @@
+# Grace's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: grace
+A $50 game is 20% off. Find the sale price.
+20% = 0.2
+Sale price = 50 × 0.2
+= $10
+# endregion

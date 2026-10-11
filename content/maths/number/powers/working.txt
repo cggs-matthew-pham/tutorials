@@ -1,0 +1,8 @@
+# Mia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mia
+Work out 2⁵.
+The base is 2 and the exponent is 5.
+2⁵ = 2 × 5
+= 10
+# endregion

@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 9
 unit: fractions
 node: AC9M7N04 n1
 title: Equivalent fractions

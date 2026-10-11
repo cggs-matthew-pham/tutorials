@@ -1,0 +1,27 @@
+# Factor trees for "Powers". Students split each number that is not prime until every branch ends in a prime.
+
+# region: run
+widget: factortree
+number: 16
+# endregion
+
+# region: explain
+widget: factortree
+number: 8
+# endregion
+
+# region: explain-pic
+widget: factortree
+number: 8
+grown: on
+# endregion
+
+# region: thirtytwo
+widget: factortree
+number: 32
+# endregion
+
+# region: make
+widget: factortree
+number: 64
+# endregion

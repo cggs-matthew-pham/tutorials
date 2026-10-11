@@ -8,18 +8,18 @@ Five maths courses so far, written against the Australian Curriculum (version 9)
 
 - [**Algebra Foundations**](../maths/algebra/): expressions and formulas, equations (try and check, backtracking, the balance method), brackets (expanding, factorising, changing the subject), harder equations and inequalities.
 - [**Linear relations**](../maths/linear-relations/): patterns to tables to graphs, gradient and intercept, lines and regions, solving and modelling with lines.
-- [**Number Foundations**](../maths/number/): integers (comparing, adding and subtracting, multiplying and dividing), equivalent fractions, fractions, decimals and percentages, the number line, and calculating with negative fractions and decimals.
+- [**Number Foundations**](../maths/number/): integers (comparing, adding and subtracting, multiplying and dividing), squares and square roots, powers, prime factors, HCF and LCM, equivalent fractions, fractions, decimals and percentages, the number line, the four operations with fractions, percentages of amounts, choosing a strategy, and negative fractions and decimals.
 - [**Angles and shapes**](../maths/angles/): angles at parallel lines, reasoning with angles, angle sums of triangles and polygons, unknown angles in shapes.
 - [**Data and chance**](../maths/data/): counting and measuring, mean, median, mode and range, choosing a measure, stem-and-leaf plots, comparing data sets, sample spaces and probability, experiments and the law of large numbers.
 
-Area, volume and Pythagoras are next, with the Year 7 number skills they build on.
+Area, volume and Pythagoras are next.
 
 ## How a lesson runs
 
 Every lesson has the same six steps, and takes about 40 to 50 minutes.
 
 1. **Predict.** Students commit to an answer before they see anything, which brings their current idea into the open.
-2. **Try.** An interactive board (algebra tiles, a number line, fraction bars, parallel lines, a graph, a dot plot, a spinner) lets them test the prediction.
+2. **Try.** An interactive board (algebra tiles, a number line, fraction bars, a factor tree, parallel lines, a graph, a dot plot, a spinner) lets them test the prediction.
 3. **Worked example.** One new move, set out step by step, then a planted mistake to find: a common misconception, met after the method.
 4. **Vary.** The same idea, changing one thing at a time, ending with an edge case.
 5. **Practise.** Mixed questions, with a review question from an earlier lesson.

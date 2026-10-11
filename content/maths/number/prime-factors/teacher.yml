@@ -1,0 +1,42 @@
+summary: Students grow factor trees on the board until every branch is prime, write the prime factorisation in exponent notation, check it by expanding, and see that every tree for a number ends with the same primes (AC9M7N02, node 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can use a factor tree to write a number as a product of primes.
+  - I can write the prime factorisation with exponents and check it by expanding.
+  - I can explain why different trees for a number give the same primes.
+before: |
+  Do the Run board yourself first, twice, with different first splits. Students need factor pairs, primes (Year 6) and exponent notation (previous lesson).
+
+  The one idea: split until every branch is prime; the primes are the same whichever way you split (uniqueness, informally). The common mistake is stopping at composite branches (Leo's mistake).
+
+  This is the hinge for HCF and LCM in the next lesson: the method depends on there being one factorisation to compare.
+running:
+  - "Predict: take a show of hands; then have half the class start 36 with 6 × 6 and half with 4 × 9."
+  - "Run: collect the final products. Are they the same?"
+  - "Investigate: insist on checking by expanding every time."
+  - "Modify: for 13, ask what a factor tree for a prime looks like."
+  - "Make: compare the 360 trees across the room: different shapes, same primes."
+stuck:
+  - see: "A student stops at 4 or 9 (Leo's mistake)."
+    ask: "Is every circled number prime? Can 4 be split?"
+    fix: "Keep splitting until each branch has only 1 and itself as factors."
+  - see: "A student writes 1 in the factorisation."
+    ask: "Is 1 prime? Does × 1 change anything?"
+    fix: "Leave 1 out: it is not prime."
+  - see: "A student writes 2 × 2 × 3 × 3 but not 2² × 3²."
+    ask: "How many 2s? How many 3s?"
+    fix: "Count each prime and write the count as its exponent."
+stretch: "Which numbers below 100 have only one prime in their factorisation (like 32 = 2⁵)? What do their trees look like?"
+support: "Use the board for every factorisation, and keep a list of primes to 30 visible."
+leads: |
+  Next: HCF and LCM (node 3), comparing two factorisations.
+
+  Where it leads: simplifying fractions and finding common denominators by primes, and simplifying surds (Year 10).
+exit:
+  q: "Write 84 as a product of prime factors, with exponents."
+  a: "84 = 2² × 3 × 7."
+explain: |
+  A **prime** has exactly two factors: 1 and itself (1 is not prime). A **factor tree** splits a number into a factor pair, then splits every branch that is not prime, until all the branches are primes.
+
+  The **prime factorisation** collects them with exponents: $36 = 2 \times 2 \times 3 \times 3 = 2^2 \times 3^2$. Every tree for 36 ends with these primes. Check by expanding: $4 \times 9 = 36$.

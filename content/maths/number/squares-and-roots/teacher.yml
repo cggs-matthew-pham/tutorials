@@ -1,0 +1,42 @@
+summary: Students grow a square on a grid to see a square number as an area, learn the perfect squares to 144, and use the square root as the inverse, the side of a square with a given area (AC9M7N01, nodes 1 and 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can work out the square of a number and list the perfect squares to 144.
+  - I can find the square root of a perfect square and explain what it means.
+  - I can find the side and the perimeter of a square from its area.
+before: |
+  Do the Run board yourself first. Students need times tables and area as side × side (Year 6).
+
+  The one idea: squaring is a number times itself (the area of a square), and the square root goes back (the side). The common mistakes are squaring as doubling (5² = 10) and rooting as halving (√36 = 18); both are planted.
+
+  Recall of the perfect squares to 144 is the hinge for the next lesson (roots between whole numbers).
+running:
+  - "Predict: take a show of hands. Students who chose 10 doubled."
+  - "Run: ask how the board knew the area. Count one row, then the rows."
+  - "Investigate: write 6² = 36 and √36 = 6 on the board as a pair that undo each other."
+  - "Modify: before the perimeter task, ask what the 49 is: an area or a length?"
+  - "Make: collect squares past 144 and their roots; look at the last digits."
+stuck:
+  - see: "A student writes 5² = 10 (Ava's mistake)."
+    ask: "Draw a square with side 5. How many unit squares?"
+    fix: "Squared means times itself: 5 × 5."
+  - see: "A student halves for a root (√36 = 18)."
+    ask: "Does 18 × 18 make 36?"
+    fix: "The root times itself must give the number back."
+  - see: "A student gives the side when the question asks for a perimeter."
+    ask: "How many sides go round the garden?"
+    fix: "Find the side with the root, then multiply by 4."
+stretch: "The last digits of square numbers are 0, 1, 4, 5, 6 or 9. Use this to show that 2023 and 1458 cannot be perfect squares."
+support: "Keep the list of squares to 144 visible, and use the grid board for every root."
+leads: |
+  Next: Between the squares (nodes 3 and 4), then exponent notation (AC9M7N02).
+
+  Where it leads: Pythagoras (Year 8) uses squares and roots on every side of a right-angled triangle.
+exit:
+  q: "A square has area 81 cm². Find its side and its perimeter."
+  a: "Side √81 = 9 cm; perimeter 4 × 9 = 36 cm."
+explain: |
+  A **square number** is a number times itself: $6^2 = 6 \times 6 = 36$. It is the area of a square with side 6. The perfect squares to 144 are 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121 and 144.
+
+  The **square root** undoes squaring: $\sqrt{36} = 6$ because $6 \times 6 = 36$. It is the side of a square with area 36. (Squared is not doubled: $5^2 = 25$, not 10.)

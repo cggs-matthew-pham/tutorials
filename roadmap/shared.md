@@ -110,6 +110,7 @@ Applies to every subject. The limits are the existing design rules: Predict come
 - Answer forms `simplest` (fraction in lowest terms) and `decimal` in `tools/maths-forms.mjs` (no Numbas needed for them) and the form lists in `tools/lesson-core.mjs`; answer checks (`tools/lesson-view.mjs`) ignore a trailing % or °. New maths board widget `widgets/bars.js` (script tag in `playground-board/index.html`).
 - Board (maths widgets): graph gains `plot: x = a` and `shade:` regions; numberline gains `ray:` (inequalities).
 - New maths board widgets `widgets/data.js` (dot plots, stem-and-leaf, statistics) and `widgets/chance.js` (coin, dice, spinner, bag; trials and relative frequency), with script tags in `playground-board/index.html` and styles in `style.css`. New tool `tools/kit-page.mjs` writes progression pages from a waypoints-kit checkout (for the node check), noted in `data/progressions/README.md`; the map's importer (`tools/import-curriculum.mjs`) is unchanged.
+- New maths board widgets (maths chat, 11 Oct): `widgets/square.js` (squares and roots), `factortree.js` (factor trees, HCF and LCM), `fracadd.js` (adding and subtracting fractions), `fracarea.js` (multiplying fractions) and `percent.js` (percentages of amounts), with script tags in `playground-board/index.html` and two `.ftpick` rules in `style.css`. No change to `core.js` or other widgets.
 
 ## Done (11 Oct 2026): trail map on Code pathway pages
 

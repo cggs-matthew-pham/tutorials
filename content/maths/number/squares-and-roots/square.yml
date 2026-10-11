@@ -1,0 +1,28 @@
+# Square boards for "Squares and square roots". s is the side; the board counts the area s × s.
+
+# region: run
+widget: square
+slider s: 1, 12, 3
+# endregion
+
+# region: explain
+widget: square
+slider s: 1, 12, 4
+# endregion
+
+# region: explain-pic
+widget: square
+s: 6
+units: cm
+# endregion
+
+# region: big
+widget: square
+slider s: 1, 12, 5
+units: m
+# endregion
+
+# region: make
+widget: square
+slider s: 1, 15, 1
+# endregion

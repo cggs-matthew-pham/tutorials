@@ -1,0 +1,8 @@
+# Noah's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: noah
+Estimate the square root of 50.
+The square root is half the number.
+50 ÷ 2 = 25
+So √50 is about 25.
+# endregion

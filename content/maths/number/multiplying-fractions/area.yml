@@ -1,0 +1,42 @@
+# Fraction area boards for "Multiplying and dividing fractions". a/b of the columns and c/d of the rows are shaded;
+# the overlap is a/b × c/d of the square.
+
+# region: run
+widget: fracarea
+slider a: 0, 6, 1
+slider b: 1, 8, 2
+slider c: 0, 6, 1
+slider d: 1, 8, 1
+# endregion
+
+# region: explain
+widget: fracarea
+a: 2
+b: 3
+slider c: 0, 6, 1
+slider d: 1, 8, 4
+# endregion
+
+# region: explain-pic
+widget: fracarea
+a: 2
+b: 3
+c: 3
+d: 4
+# endregion
+
+# region: fifths
+widget: fracarea
+slider a: 0, 6, 1
+slider b: 1, 8, 1
+slider c: 0, 6, 1
+slider d: 1, 8, 1
+# endregion
+
+# region: make
+widget: fracarea
+slider a: 0, 8, 1
+slider b: 1, 8, 1
+slider c: 0, 8, 1
+slider d: 1, 8, 1
+# endregion

@@ -1,0 +1,42 @@
+summary: Students grow factor trees for powers of 2 to see repeated equal factors, read and write exponent notation (base and exponent), evaluate powers, and meet powers of 10 (AC9M7N02, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can write a repeated multiplication as a power, and expand a power.
+  - I can say what the base and the exponent mean.
+  - I can work out powers, including powers of 10.
+before: |
+  Do the Run board yourself first. Students need squares (previous lessons) and primes and factor pairs (Year 6).
+
+  The one idea: the exponent counts how many times the base is multiplied. The common mistake is multiplying base and exponent (2⁵ = 10, Mia's mistake). Fluency with the notation is the hinge for prime factorisation in the next lesson.
+
+  The factor tree board is used again for prime factors and HCF and LCM.
+running:
+  - "Predict: students who chose 6 multiplied 2 × 3. Ask them to write 2³ the long way."
+  - "Run: ask how many 2s the tree ended with, and where the 4 in 2⁴ comes from."
+  - "Investigate: link 10³ to place value: thousands."
+  - "Modify: for 2⁵ against 5², ask for a prediction before working them out."
+  - "Make: collect the three names for 64 and ask for a fourth (64¹)."
+stuck:
+  - see: "A student multiplies base and exponent (Mia's mistake)."
+    ask: "Write it the long way first. How many 2s?"
+    fix: "Expand, then multiply one factor at a time."
+  - see: "A student swaps base and exponent (7³ written 3⁷)."
+    ask: "Which number is being multiplied?"
+    fix: "The base is the big number; the small raised number counts."
+  - see: "A student adds different bases (2² × 5³ as 7⁵)."
+    ask: "Are the factors the same number?"
+    fix: "Only equal factors share a power; each base gets its own."
+stretch: "The fold-the-paper hook: after how many folds is the stack more than 1000 layers? More than 1 000 000?"
+support: "Expand every power before working it out; use the tree board for powers of 2 and 3."
+leads: |
+  Next: Prime factors (node 2), writing any number as a product of prime powers.
+
+  Where it leads: index laws and scientific notation (Year 8 and 9), and square numbers as powers with exponent 2.
+exit:
+  q: "Work out 3³ and write 5 × 5 × 5 × 5 as a power."
+  a: "3³ = 27; 5⁴."
+explain: |
+  Exponent notation is short for repeated multiplication: $2 \times 2 \times 2 \times 2 = 2^4$. The **base** (2) is multiplied; the **exponent** (4) counts how many times. So $2^4 = 16$, not $2 \times 4 = 8$.
+
+  Squares are powers with exponent 2 ($5^2 = 25$) and cubes exponent 3 ($2^3 = 8$). Powers of 10 count zeros: $10^3 = 1000$.

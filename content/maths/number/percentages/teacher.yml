@@ -1,0 +1,42 @@
+summary: Students use a percentage bar to find a percentage of an amount, apply increases and decreases (in two steps and with one multiplier), and express one amount as a percentage of another (AC9M7N06, node 3).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can find a percentage of an amount, mentally and with a decimal.
+  - I can increase or decrease an amount by a percentage, including with one multiplier.
+  - I can write one amount as a percentage of another.
+before: |
+  Do the Run board yourself first. Students need percentages as decimals (Fractions, decimals and percentages) and multiplying by a fraction less than 1 (previous lesson).
+
+  The one idea: a percentage is hundredths, and "of" means multiply. For a decrease, multiply by what is left (Grace multiplies by what is taken off). Varied structures matter: of, off, on, and out of.
+
+  Calculators are fine for the decimals; the mental route (10%, 5%, 1%) builds number sense and checks calculator answers.
+running:
+  - "Predict: students who chose $12 stopped at the discount; $65 took 15 dollars off."
+  - "Run: ask what percentage the blue part is, and how that gives a one-step multiplier."
+  - "Investigate: compare the mental route and the decimal route for 35% of 60."
+  - "Modify: for up then down, take a vote before working it out."
+  - "Make: collect pairs on the board; order them by sale price."
+stuck:
+  - see: "A student multiplies by the percentage taken off for a decrease (Grace's mistake)."
+    ask: "Is your answer the price or the saving?"
+    fix: "Multiply by what is left: 100% − 20% = 80%."
+  - see: "A student takes off the number, not the percentage (80 − 15 = 65)."
+    ask: "15 what: dollars or hundredths?"
+    fix: "Find 15% of 80 first."
+  - see: "A student gives a decimal for 'what percentage' (0.75)."
+    ask: "Out of what?"
+    fix: "× 100 for a percentage."
+stretch: "A shop increases a price by 25%, then offers 20% off the new price. Is the final price more, less or the same as the start? Explain with multipliers."
+support: "Use the bar for every problem; start from 10% and build."
+leads: |
+  Next: Choosing a strategy (node 4), choosing between fractions, decimals and percentages.
+
+  Where it leads: financial maths (profit, GST, discounts in AC9M7N09), and percentage change with repeated multipliers (Year 9 and 10).
+exit:
+  q: "A $40 shirt is 35% off. Find the sale price."
+  a: "35% of $40 = $14, so $26. Or 40 × 0.65 = 26."
+explain: |
+  A percentage is hundredths: $15\% = 0.15$. So 15% **of** $80 is 0.15 × 80 = $12 (or 10% is $8 and 5% is $4).
+
+  For a **decrease**, take it off or multiply by what is left: $80 \times 0.85 = 68$. For an **increase**, add it on or multiply by $1.15$. To find **what percentage** 18 is of 24, divide and $\times 100$: $18 \div 24 = 0.75 = 75\%$.

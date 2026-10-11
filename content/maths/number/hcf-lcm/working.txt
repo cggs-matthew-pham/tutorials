@@ -1,0 +1,8 @@
+# Zoe's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: zoe
+Find the lowest common multiple of 6 and 8.
+6 = 2 × 3 and 8 = 2³
+Multiply the two numbers: 6 × 8 = 48
+So the LCM of 6 and 8 is 48.
+# endregion

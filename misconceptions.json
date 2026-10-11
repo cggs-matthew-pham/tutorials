@@ -114,5 +114,12 @@
   "equally-likely-outcomes": {"home": "maths/data/sample-space", "text": "Every outcome in the sample space is taken to be equally likely (three colours, so 1/3 each); favourable ÷ total only works when they are, otherwise use the sizes or counts."},
   "expect-exact": {"home": "maths/data/predict-and-test", "text": "The expected count is expected to happen exactly, so a small difference in a short experiment is taken as proof of unfairness; results vary around the expected count, more so in few trials."},
   "gamblers-fallacy": {"home": "maths/data/many-trials", "text": "After a run of one outcome, the other is thought more likely (the coin is due a head); each trial is independent, and the relative frequency settles because of many more trials, not by balancing out."},
-  "sign-rules-addition": {"home": "maths/number/multiplying-integers", "text": "The addition rule is used for multiplying (−4 × (−3) = −12, \"two negatives make a bigger negative\"); for multiplying and dividing, the same signs give a positive."}
+  "sign-rules-addition": {"home": "maths/number/multiplying-integers", "text": "The addition rule is used for multiplying (−4 × (−3) = −12, \"two negatives make a bigger negative\"); for multiplying and dividing, the same signs give a positive."},
+  "square-double": {"home": "maths/number/squares-and-roots", "text": "5² is read as 5 × 2 = 10 (and a square root as halving: √36 = 18); squaring multiplies a number by itself: 5 × 5 = 25."},
+  "power-times": {"home": "maths/number/powers", "text": "2⁵ is read as 2 × 5 = 10; the exponent counts how many 2s are multiplied: 2 × 2 × 2 × 2 × 2 = 32."},
+  "tree-stops-early": {"home": "maths/number/prime-factors", "text": "A factor tree is stopped at a number that is not prime (4 or 9), so the factorisation is not all primes: 36 = 4 × 9 is not 2² × 3²."},
+  "lcm-product": {"home": "maths/number/hcf-lcm", "text": "The product of two numbers is taken as their lowest common multiple (6 × 8 = 48); when they share a prime, the LCM is lower: 24."},
+  "fraction-add-across": {"home": "maths/number/adding-fractions", "text": "The tops and the bottoms are added (1/3 + 1/4 = 2/7); parts of different sizes cannot be counted together until both are cut into the same parts: 4/12 + 3/12 = 7/12."},
+  "multiply-makes-bigger": {"home": "maths/number/multiplying-fractions", "text": "Multiplying is thought always to make a number bigger (and dividing smaller); multiplying by a fraction less than 1 makes it smaller: 1/2 × 8 = 4."},
+  "decrease-multiplier": {"home": "maths/number/percentages", "text": "To decrease by 20%, the amount is multiplied by 0.2 (the part taken off) instead of 0.8 (what is left), so the answer is the discount, not the new price."}
 }

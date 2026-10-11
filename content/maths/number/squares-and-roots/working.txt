@@ -1,0 +1,8 @@
+# Ava's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ava
+A square has side 5 cm. Find its area.
+Area = side squared.
+5² = 5 × 2 = 10
+So the area is 10 cm².
+# endregion

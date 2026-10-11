@@ -302,3 +302,5 @@ table.ctally tr.cwatch td { font-weight: 700; }
 .atsw { padding: 3px 7px; border-radius: 4px; }
 .atstab { margin: 6px 0 0; font-weight: 600; color: var(--ok, #1b7f3b); }
 .atstab.bad { color: #b4532a; }
+.ftpick span { align-self: center; color: var(--muted); font-size: 14px; }
+.ftpick button { min-width: 2.6em; }

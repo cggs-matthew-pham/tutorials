@@ -1,0 +1,42 @@
+summary: Students use a fraction area square to see a fraction of a fraction, multiply tops and bottoms, learn that multiplying by a fraction less than 1 makes smaller, and divide by counting how many fit (AC9M7N06, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 10 min · Practise and Make 12 min"
+goals:
+  - I can multiply two fractions and simplify the answer.
+  - I can divide a fraction by a whole number and by a fraction.
+  - I can say whether a product will be bigger or smaller than the number I started with.
+before: |
+  Do the Run board yourself first. Students need equivalent fractions and simplifying, and adding fractions (previous lesson) to contrast.
+
+  The one idea: a/b × c/d is c/d of a/b; the parts multiply, so the tops and the bottoms multiply. The hinge misconception is that multiplying always makes bigger (Jack's mistake); it matters for percentages next.
+
+  Division is introduced as "how many fit", which justifies multiplying by the flipped fraction without a rule to memorise.
+running:
+  - "Predict: students who chose bigger hold the 'multiplying makes bigger' belief. Keep the vote visible."
+  - "Run: ask why the overlap is smaller than both shaded parts."
+  - "Investigate: contrast with adding: no common denominator needed here."
+  - "Modify: for the last task, ask students to sort multipliers into 'less than 1' and 'more than 1'."
+  - "Make: collect products equal to 1/4; ask what they all simplify to."
+stuck:
+  - see: "A student says multiplying makes bigger (Jack's mistake)."
+    ask: "What is half of 20? Is that bigger than 20?"
+    fix: "A multiplier less than 1 takes part: the answer is smaller."
+  - see: "A student finds a common denominator before multiplying."
+    ask: "Does the area picture need the same parts?"
+    fix: "Multiply the tops and the bottoms; a common denominator is for adding."
+  - see: "A student multiplies when dividing by a fraction (3 ÷ 1/4 = 3/4)."
+    ask: "How many quarters fit into 1? Into 3?"
+    fix: "Dividing counts how many fit: multiply by the flipped fraction."
+stretch: "Explain with the area square why 2/3 × 3/4 = 3/4 × 2/3."
+support: "Use the board for products; strips of paper folded into quarters for division."
+leads: |
+  Next: Percentages (node 3), where taking a percentage is multiplying by a fraction of 100.
+
+  Where it leads: rates and ratio, and algebraic fractions (Year 10).
+exit:
+  q: "Work out 3/5 × 10/12, and 2 ÷ 1/3."
+  a: "30/60 = 1/2. 2 ÷ 1/3 = 6 (six thirds in 2)."
+explain: |
+  To multiply fractions, multiply the tops and multiply the bottoms, then simplify: $\tfrac{2}{3} \times \tfrac{3}{4} = \tfrac{6}{12} = \tfrac{1}{2}$. It is $\tfrac{3}{4}$ of $\tfrac{2}{3}$: in a square, 3 of 4 rows of 2 of 3 columns is 6 of 12 parts.
+
+  Multiplying by a fraction less than 1 makes a number **smaller** ($\tfrac{3}{4} \times 20 = 15$). Dividing asks how many fit: $3 \div \tfrac{1}{4} = 12$, the same as $3 \times 4$. To divide by a fraction, multiply by it flipped (top and bottom swapped: $\tfrac{1}{6}$ becomes $\tfrac{6}{1} = 6$).

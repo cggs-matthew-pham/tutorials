@@ -586,6 +586,33 @@ Vary, Practise, Make).
     decimal and/or a percentage too. The panel says whether the two shade the same amount and how (× or ÷ on the top
     and the bottom). Values: `a`, `b`, `c`, `d`, `v` (a/b), `w` (c/d), `e` (1 when equal), `t` and `s` (1 when a/b, c/d
     are in lowest terms), `p` (a/b as a percentage). Checks: `"e = 1 and d = 6"`, `"e = 1 and s = 1"`, `"e = 1"` (grid).
+  - `widget: fracadd` (first used by `maths/number/adding-fractions`): two fraction bars `a/b` and `c/d` (sliders or fixed
+    values; bottoms 1 to 24) and their sum or difference end to end below, every bar cut into `k` parts (`slider k`, or
+    `k: 12`). When `k` is a common multiple of both bottoms the parts can be counted ("1/3 + 1/4 = 4/12 + 3/12 = 7/12");
+    otherwise the panel says which bar does not split. `op: + | − | ?` (? gives + and − buttons). A second whole is
+    drawn only when a sum is more than 1. Values: `a`, `b`, `c`, `d`, `k`, `e` (1 when k splits both), `l` (1 when k is
+    the LCM), `o` (1 or −1), `p` (parts of k in the answer), `r` (its value). Checks: `"e = 1"`, `"e = 1 and l = 1"`,
+    `"o = 1 and r = 1 and (b - d)^2 > 0"` (there is no `!=`).
+  - `widget: fracarea` (first used by `maths/number/multiplying-fractions`): a unit square with `a` of `b` columns (blue)
+    and `c` of `d` rows (orange) shaded; the purple overlap is a/b × c/d. Sliders or fixed values for each. Values: `a`,
+    `b`, `c`, `d`, `p` (a × c), `q` (b × d), `v` (the product). Checks: `"a = 1 and b = 2 and c = 1 and d = 3"`,
+    `"v = 0.25 and q > 4"`.
+  - `widget: percent` (first used by `maths/number/percentages`): a quantity `q` as a bar marked 0% to 100% above and in
+    amounts below, with `p`% shaded. `mode: of | increase | decrease` (an increase adds a part past 100%, up to 200%; a
+    decrease marks the part taken off). Sliders `p` and `q` (with a step: `slider p: 0, 50, 0, 5`) or fixed values;
+    `units: $` goes before amounts, other units after. Values: `q`, `p`, `v` (p% of q), `n` (the new amount; v for
+    `of`), `m` (the multiplier). Checks: `"p = 15"`, `"v = 18"`.
+  - `widget: square` (first used by `maths/number/squares-and-roots`): a square of side `s` on a grid of unit squares
+    (`slider s: 1, 12, 3`, with an optional step such as 0.1, or `s: 6`), its area written as s × s. `target: 43` draws
+    a square of that area dashed and says how far off the student's square is, and which perfect squares 43 is
+    between; `units: cm`. Values: `s`, `a` (area), `t` (target or 0), `d` (a − t). Checks: `"a = 49"`, `"s = 6.6"`,
+    `"a > 30 and a < 40"`.
+  - `widget: factortree` (first used by `maths/number/powers`): a factor tree for `number: 36` (and `second: 48`).
+    Students click a number that is not prime, or its Split button, then a factor-pair button; primes are circled and
+    the panel writes the factorisation with exponents (36 = 2² × 3²). With two numbers, a Venn diagram of their primes
+    appears when both trees are finished, with the HCF and LCM. `grown: on` starts finished (each number split by its
+    middle factor pair), for pictures and cards. Values: `n`, `k` (primes so far), `c` (1 when finished), `N`, `K`, `C`
+    for the second, `h` (HCF) and `l` (LCM) once both are finished. Checks: `"c = 1"`, `"c = 1 and C = 1"`.
   - `widget: data` (first used by `maths/data`): a dot plot of `values: 4, 7, 7, 8` on `range: 0, 20` (default: around
     the data), with the mean (▲), median (dashed) and range (arrow) marked and written underneath (`show: mean, median,
     mode, range` or `none`). `edit: on`: students click the line to add a value (landing on `step:`, default 1), click a

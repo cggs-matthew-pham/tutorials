@@ -1,0 +1,42 @@
+summary: Students bound a square root between two whole numbers using the perfect squares either side, estimate it to one decimal place by squaring tenths on a grid board, and solve area and perimeter problems with roots (AC9M7N01, nodes 3 and 4).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can say which two whole numbers a square root is between, with a reason.
+  - I can estimate a square root to one decimal place by squaring decimals.
+  - I can solve problems with the side, area and perimeter of a square.
+before: |
+  Do the Run board yourself first. Students need the perfect squares to 144 (previous lesson) and multiplying decimals (calculators are fine for squaring tenths).
+
+  The one idea: find the perfect squares either side, take their roots, and the answer lies between. The scaffold matters: without it students guess, or halve (Noah's mistake).
+
+  The reasoning check never marks the free working; only the reason for the key step is chosen and marked.
+running:
+  - "Predict: students who chose 21 and 22 halved. Ask them to square 21."
+  - "Run: ask whether 6.6 is a little over or under, and how they decided between 6.5 and 6.6."
+  - "Investigate: chant the routine: squares either side, roots, between."
+  - "Modify: in the perimeter task, ask which is known first: the side or the area?"
+  - "Make: collect sides that work and order them; the ends approach √30 and √40."
+stuck:
+  - see: "A student halves the number (Noah's mistake)."
+    ask: "Square your answer. Do you get the number back?"
+    fix: "The root times itself gives the number; use the squares either side."
+  - see: "A student finds the interval but cannot get closer."
+    ask: "Square 6.5. Is it over or under 43?"
+    fix: "Square tenths and compare the distances."
+  - see: "A student mixes up side and area in a problem."
+    ask: "Is this number a length or an area?"
+    fix: "Root for area to side; square for side to area."
+stretch: "Between which two whole numbers is √1000? Estimate it to one decimal place, then check with a calculator."
+support: "Keep the list of squares to 144 visible and use a number line marked with 36, 43 and 49."
+leads: |
+  Next: exponent notation, prime factors and HCF and LCM (AC9M7N02).
+
+  Where it leads: Pythagoras (Year 8) gives lengths like √20, and estimating them first checks a calculator answer.
+exit:
+  q: "Between which two whole numbers is √55? Give a reason."
+  a: "7 and 8, because 7² = 49 and 8² = 64, and 55 is between them."
+explain: |
+  For a number that is not a perfect square, find the **perfect squares either side**: $36 < 43 < 49$. Their roots give the whole numbers either side: $6 < \sqrt{43} < 7$.
+
+  To get closer, square decimals: $6.5^2 = 42.25$ and $6.6^2 = 43.56$. The closer one wins: $\sqrt{43} \approx 6.6$. (A square root is not a half: $\sqrt{50}$ is about 7, not 25.)

@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 11
 unit: fractions
 node: AC9M7N04 n3
 uses: [AC9M7N07 n1]      # ordering negatives (Comparing integers)

@@ -1,0 +1,27 @@
+# Factor trees for "Prime factors". Students split each number that is not prime until every branch ends in a prime.
+
+# region: run
+widget: factortree
+number: 36
+# endregion
+
+# region: explain
+widget: factortree
+number: 60
+# endregion
+
+# region: explain-pic
+widget: factortree
+number: 60
+grown: on
+# endregion
+
+# region: seventytwo
+widget: factortree
+number: 72
+# endregion
+
+# region: make
+widget: factortree
+number: 360
+# endregion

@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 10
 unit: fractions
 node: AC9M7N04 n2
 title: Fractions, decimals and percentages

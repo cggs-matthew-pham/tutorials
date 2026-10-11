@@ -1,0 +1,26 @@
+# Two factor trees for "HCF and LCM". When both are finished, a Venn diagram sorts the primes: shared in the middle.
+
+# region: run
+widget: factortree
+number: 36
+second: 48
+# endregion
+
+# region: explain
+widget: factortree
+number: 12
+second: 18
+# endregion
+
+# region: explain-pic
+widget: factortree
+number: 12
+second: 18
+grown: on
+# endregion
+
+# region: pair
+widget: factortree
+number: 24
+second: 60
+# endregion

@@ -1,0 +1,8 @@
+# Jack's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: jack
+Which is bigger: 3/4 × 20, or 20?
+3/4 × 20 means 3/4 of 20.
+Multiplying always makes a number bigger.
+So 3/4 × 20 is bigger than 20.
+# endregion

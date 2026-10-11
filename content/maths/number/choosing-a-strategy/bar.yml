@@ -1,0 +1,31 @@
+# Percentage bars for "Choosing a strategy".
+
+# region: run
+widget: percent
+q: 48
+slider p: 0, 100, 0, 5
+# endregion
+
+# region: explain
+widget: percent
+q: 48
+slider p: 0, 100, 50, 25
+# endregion
+
+# region: explain-pic
+widget: percent
+q: 48
+p: 25
+# endregion
+
+# region: threequarters
+widget: percent
+q: 36
+slider p: 0, 100, 0, 5
+# endregion
+
+# region: make
+widget: percent
+slider q: 10, 200, 100, 2
+slider p: 0, 100, 0, 5
+# endregion

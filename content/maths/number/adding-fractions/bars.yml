@@ -1,0 +1,49 @@
+# Adding and subtracting fractions. k is the number of equal parts each whole is cut into; when both fractions split
+# evenly into k parts, the parts can be counted.
+
+# region: run
+widget: fracadd
+a: 1
+b: 3
+c: 1
+d: 4
+slider k: 1, 24, 7
+# endregion
+
+# region: explain
+widget: fracadd
+a: 1
+b: 3
+c: 1
+d: 4
+slider k: 1, 24, 9
+# endregion
+
+# region: explain-pic
+widget: fracadd
+a: 1
+b: 3
+c: 1
+d: 4
+k: 12
+# endregion
+
+# region: subtract
+widget: fracadd
+a: 3
+b: 4
+c: 1
+d: 6
+slider k: 1, 24, 24
+op: -
+# endregion
+
+# region: make
+widget: fracadd
+slider a: 0, 8, 1
+slider b: 1, 8, 2
+slider c: 0, 8, 1
+slider d: 1, 8, 3
+slider k: 1, 24, 6
+op: ?
+# endregion

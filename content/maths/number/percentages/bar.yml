@@ -1,0 +1,41 @@
+# Percentage bars for "Percentages". The bar is the whole quantity, marked 0% to 100% above and in amounts below.
+
+# region: run
+widget: percent
+q: 80
+slider p: 0, 50, 0, 5
+mode: decrease
+units: $
+# endregion
+
+# region: explain
+widget: percent
+q: 80
+slider p: 0, 50, 10, 5
+mode: of
+units: $
+# endregion
+
+# region: explain-pic
+widget: percent
+q: 80
+p: 15
+mode: decrease
+units: $
+# endregion
+
+# region: gst
+widget: percent
+q: 250
+slider p: 0, 50, 0, 5
+mode: increase
+units: $
+# endregion
+
+# region: make
+widget: percent
+slider q: 20, 200, 100, 10
+slider p: 0, 100, 0, 5
+mode: decrease
+units: $
+# endregion

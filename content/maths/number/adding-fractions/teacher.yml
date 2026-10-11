@@ -1,0 +1,44 @@
+summary: Students cut two fraction bars into the same number of parts to add and subtract fractions with different denominators, use the LCM as the lowest common denominator, and extend the idea to mixed numerals and decimals (AC9M7N06, node 1).
+time: 45
+timing: "Predict and Run 8 min · Investigate 15 min · Modify 10 min · Practise and Make 12 min"
+goals:
+  - I can add and subtract fractions with different denominators using a common denominator.
+  - I can add and subtract mixed numerals and decimals.
+  - I can explain why the tops and the bottoms are not simply added.
+before: |
+  Do the Run board yourself first. Students need equivalent fractions (Equivalent fractions) and the LCM (HCF and LCM).
+
+  The one idea: parts can be counted together only when they are the same size, so cut both fractions into the same parts first. The common mistake is adding the tops and the bottoms (Ella's mistake); a quick check is that the sum must be bigger than each fraction.
+
+  Decimals are the same idea: line up the places so tenths are added to tenths.
+running:
+  - "Predict: students who chose 2/7 added across. Ask: is 2/7 bigger than 1/3?"
+  - "Run: ask which values of k work, and what they have in common."
+  - "Investigate: for the decimals task, write 2.7 as 2.70 and ask why that is allowed."
+  - "Modify: for the edge case, ask why only one fraction needs to change."
+  - "Make: collect pairs; then challenge for one where neither bottom divides the other."
+stuck:
+  - see: "A student adds the tops and the bottoms (Ella's mistake)."
+    ask: "Is your answer bigger than each fraction you added?"
+    fix: "Use the bars: change both into the same parts, then count."
+  - see: "A student changes the bottom but not the top (1/3 = 1/12)."
+    ask: "What did you multiply the bottom by? Did the top get the same?"
+    fix: "Equivalent fractions: the same multiplication on the top and the bottom."
+  - see: "A student subtracting mixed numerals takes the wholes and the parts separately and gets stuck at 1/3 − 1/2."
+    ask: "What if you write both as improper fractions first?"
+    fix: "Convert to improper fractions with a common denominator, then subtract."
+stretch: "Find three different fractions with different bottoms that add to 1."
+support: "Use the board for every sum; fraction walls and a list of multiples help find the common denominator."
+leads: |
+  Next: Multiplying and dividing fractions (node 2), where the rule is different: no common denominator needed.
+
+  Where it leads: algebraic fractions (Year 10) and probability with fractions.
+exit:
+  q: "Work out 2/3 + 1/5 and 1 1/4 − 2/3."
+  a: "10/15 + 3/15 = 13/15. 15/12 − 8/12 = 7/12."
+explain: |
+  Fractions can be added only when the parts are the same size. Cut both into the same parts with equivalent fractions, using a **common denominator** (the LCM of the bottoms is the lowest):
+
+  $\tfrac{1}{3} + \tfrac{1}{4} = \tfrac{4}{12} + \tfrac{3}{12} = \tfrac{7}{12}$. Then add the tops and keep the bottom. (Adding across gives $\tfrac{2}{7}$, which is less than $\tfrac{1}{3}$ alone.)
+
+  For mixed numerals, change them to improper fractions first. For decimals, line up the points so tenths go with tenths.

@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 16
 unit: fractions
 node: AC9M8N04 n2
 uses: [AC9M7N04 n1]   # simplifying fractions (Equivalent fractions)
