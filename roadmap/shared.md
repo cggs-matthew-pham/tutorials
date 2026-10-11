@@ -242,6 +242,8 @@ The igneous explain clip recorded without error, but its video fell about 15 s b
 
 **To agree with the code and maths chats:** placement (recap and teacher guide), the default (off), and the prompt rules.
 
+**Built for science (12 Oct, Matthew asked):** `tools/coach.mjs` (new) builds the prompt from the node's title, statement and success criteria, the node before it, and the first three `stuck:` lines. A course opts in with `coach: true` in its `index.md` (all 15 science courses; no other course changes). `tools/build-site.mjs`: prompts computed for opted-in courses; the recap card gets a hidden "Still stuck?" box with Copy (`.rccoach`, `RECAP_COACH_JS`), shown only when the recap URL has `?coach=1`. `tools/teach.mjs`: a "Coach prompt (optional)" section in the lesson guide with the full prompt and the `?coach=1` recap link. Maths or code can opt in by adding `coach: true` once they agree.
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).

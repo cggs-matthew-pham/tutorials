@@ -1,6 +1,7 @@
 ---
 title: Year 7 Earth and space
 recap: true
+coach: true
 summary: "The Earth, sun and moon as one system of cycles: spinning and orbiting, seasons from a tilted axis, the moon's phases, eclipses, and tides. Concept tutorials with a live model seen from above and from the side."
 order: 1
 units:

@@ -1,6 +1,7 @@
 ---
 title: Year 7 Biology
 recap: true
+coach: true
 summary: Sorting the living world into groups and identifying organisms with dichotomous keys, then food webs, the energy that flows through them, and what happens when a species disappears. Concept tutorials with an interactive key and food web.
 order: 1
 units:

@@ -453,6 +453,7 @@ export function lessonGuideBody(lesson, { esc, md, snip, highlightCode, codeBloc
     sec('Answers to the checks', answers ? `<ol class="answers">${answers}</ol>` : '') +
     sec('Solutions', solHtml ? `<p class="muted">One possible solution for each task. Other correct programs are fine.</p>${solHtml}` : '') +
     sec('Stretch and support', `${T.stretch ? `<p><b>Stretch:</b> ${esc(T.stretch)}</p>` : ''}${T.support ? `<p><b>Support:</b> ${esc(T.support)}</p>` : ''}`) +
+    sec('Coach prompt (optional)', lesson.coach ? `<p>For a student who has done the lesson and is still stuck. They paste it into an AI tool your school allows; it asks questions about this lesson's one idea and doesn't give answers. Students see it on the course recap page only through a link ending in <code>?coach=1</code>: <a href="${esc(studentHref)}../recap/?coach=1">recap with coach prompts</a>.</p><pre class="coachp">${esc(lesson.coach)}</pre>` : '') +
     sec('Exit ticket', T.exit ? `<p><b>${esc(T.exit.q)}</b></p><p class="ans">${esc(T.exit.a)}</p>` : '') +
     sec('What each step is for', insights.length ? `<ul>${insights.map(([w, t]) => `<li><b>${esc(w)}:</b> ${esc(t)}</li>`).join('')}</ul>` : '') +
     sec('Where it leads', T.leads ? md(T.leads) : '') +
@@ -465,6 +466,6 @@ export const TEACH_CSS = `.tg{margin:26px 0}.tg h2{font-size:1.15rem;margin:0 0 
 .dl{list-style:none;padding:0;display:grid;gap:8px}.dl li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
 .copyurl{font:inherit;font-size:13px;margin-left:6px;padding:2px 10px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink);cursor:pointer}
 .blocks{margin:8px 0}.blocks img{max-width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}.mkjs summary{cursor:pointer;color:var(--muted);font-size:14px}
-.tunit{margin:26px 0}.tunit h2{margin:0 0 4px;font-size:1.15rem}.tunit ul{margin:6px 0}.primer{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 18px}`;
+.coachp{white-space:pre-wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:13.5px}.tunit{margin:26px 0}.tunit h2{margin:0 0 4px;font-size:1.15rem}.tunit ul{margin:6px 0}.primer{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 18px}`;
 export const TEACH_JS = `document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.copyurl');if(!b)return;var u=b.dataset.url,done=function(){var t=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=t},1500)};
 if(navigator.clipboard)navigator.clipboard.writeText(u).then(done,function(){prompt('Copy this address:',u)});else prompt('Copy this address:',u)});`;

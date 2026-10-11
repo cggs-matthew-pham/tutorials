@@ -20,6 +20,8 @@ import { buildPlayground, buildPyPlayground, buildMicrostudioPlayground, buildP5
 import { buildCreate } from './build-create.mjs';
 import { layoutTrail, trailHtml, TRAIL_CSS, trailheadsHtml, TRAILHEADS_CSS } from './trail.mjs';
 import { loadCurriculum, curriculumMapHtml, CMAP_CSS } from './curriculum-map.mjs';
+import { coachPrompt } from './coach.mjs';
+import { loadProgressions } from './progressions.mjs';
 import { markedMath, textWithMath, workedHtml } from './maths.mjs';
 import { FORMS_JS, NUMBAS_VERSION } from './maths-forms.mjs';
 import { loadAllMathsCards, mathsRefItem, mathsCheatBody, mathsCheatMd, MATHS_CARD_CSS } from './maths-cards.mjs';
@@ -213,6 +215,12 @@ for (const l of lessons) {
   }
 }
 
+// Coach prompts (tools/coach.mjs) for courses with `coach: true` in their index.md: on the recap page behind ?coach=1, and in the teacher guide.
+{
+  const prog = loadProgressions();
+  for (const l of lessons) if (dirNode(l.slug.split('/').slice(0, -1).join('/')).meta?.coach === true) l.coach = coachPrompt(l, prog);
+}
+
 // Paths with a playground, and reference (cheat sheet) pages generated from the snippet files the playgrounds use.
 const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Python' }, 'code/html': { kind: 'html', dir: '_playground-html', label: 'HTML and CSS' }, 'code/microbit': { kind: 'microbit', dir: '_playground-makecode', label: 'micro:bit' }, 'code/arcade': { kind: 'arcade', dir: '_playground-makecode', label: 'Arcade' }, 'code/robotics': { kind: 'microbit', dir: '_playground-makecode', label: 'Robot', pkg: makecodePackage({ extensions: ['robot'] }) }, 'code/microbit-computer': { kind: 'microbit', dir: '_playground-makecode', label: 'micro:bit' }, 'code/microbit-security': { kind: 'microbit', dir: '_playground-makecode', label: 'micro:bit' }, 'code/ai-robots': { kind: 'microbit', dir: '_playground-makecode', label: 'Robot', pkg: makecodePackage({ extensions: ['robot'] }) },
   // The console bridge: the turtle playground with its own saved program; a starter with no turtle opens it in console mode.
@@ -383,7 +391,14 @@ const RECAP_CSS = `
 .rca{margin:6px 0 10px;padding:8px 12px;border-left:4px solid var(--run);background:color-mix(in srgb,var(--run) 8%,var(--card));border-radius:6px}
 .rcx{font-size:15.5px}.rcx p{margin:6px 0}.rc figure{margin:10px 0}.rc img,.rc video{max-width:100%;height:auto;border-radius:8px}
 .rcgo{display:inline-block;margin-top:6px;font-size:14px;font-weight:600}
+.rccoach{margin:12px 0 0;padding:10px 14px;border:1px dashed var(--line);border-radius:10px;font-size:14.5px}.rccoach p{margin:0 0 6px}
+.rccoach button{font:inherit;font-size:14px;padding:4px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer}
+.rccoach textarea{width:100%;min-height:9em;margin-top:8px;font:13px/1.4 ui-monospace,monospace}
 `;
+// ?coach=1 (a teacher's link) shows the coach prompt boxes; Copy puts the prompt on the clipboard, or shows it to copy by hand.
+const RECAP_COACH_JS = `if(/[?&]coach=1(&|$)/.test(location.search))document.querySelectorAll('.rccoach').forEach(function(b){b.hidden=false});
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.rccoach button');if(!b)return;var box=b.closest('.rccoach'),t=box.querySelector('textarea'),done=function(){b.textContent='Copied. Paste it into the AI tool your school allows.'};
+if(navigator.clipboard)navigator.clipboard.writeText(t.value).then(done,function(){t.hidden=false;t.select()});else{t.hidden=false;t.select()}});`;
 function writeRecap(node, courseLessons) {
   const units = Array.isArray(node.meta?.units) ? node.meta.units : [];
   const mdp = new Marked();
@@ -396,7 +411,8 @@ function writeRecap(node, courseLessons) {
     const clip = hasClip ? clipHtml(l, st).replace(/(src|poster)="clips\//g, `$1="../${name}/clips/`).replace('preload="metadata"', 'preload="none"') : '';
     const pic = l.explainPicture ? pictureHtml(l, l.explainPicture, 'explain') : '';
     const body = (T.exit?.a ? `<p class="rca">${esc(T.exit.a)}</p>` : '') + (T.explain ? `<div class="rcx">${mdp.parse(String(T.explain))}</div>` : '') + pic + clip +
-      `<a class="rcgo" href="../${esc(name)}/">Open the lesson →</a>`;
+      `<a class="rcgo" href="../${esc(name)}/">Open the lesson →</a>` +
+      (l.coach ? `<div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>${esc(l.coach)}</textarea></div>` : '');
     return `<article class="rc"><h3><a href="../${esc(name)}/">${l.order != null ? `${l.order}. ` : ''}${esc(l.title)}</a></h3>` +
       (T.exit?.q ? `<p class="rcq"><b>Try first</b>${esc(T.exit.q)}</p><details><summary>Check your answer</summary>${body}</details>` : `<details><summary>Show the explanation</summary>${body}</details>`) +
       `</article>`;
@@ -410,7 +426,8 @@ function writeRecap(node, courseLessons) {
   writeFileSync(join(OUT, rp, 'index.html'), page(`Recap: ${node.title}`,
     `<style>${RECAP_CSS}</style><header class="top"><a class="crumb" href="../">← ${esc(node.title)}</a><h1>${esc(node.title)}: recap</h1>` +
     `<p class="lede">Answer each question in your head or on paper first, then check it.</p></header>` +
-    groups.map((g) => `<section class="rcunit">${g.u.title ? `<h2>${esc(g.u.title)}</h2>` : ''}${g.ls.map(card).join('')}</section>`).join(''),
+    groups.map((g) => `<section class="rcunit">${g.u.title ? `<h2>${esc(g.u.title)}</h2>` : ''}${g.ls.map(card).join('')}</section>`).join('') +
+    (courseLessons.some((l) => l.coach) ? `<script>${RECAP_COACH_JS}</script>` : ''),
     '', navFor(rp, 'course', node.path)));
 }
 

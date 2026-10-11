@@ -2,6 +2,10 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: coach prompts on science recap pages (12 Oct 2026, science chat)
+
+`coach: true` on all 15 science courses: each recap card has a "Still stuck? Copy a coach prompt" box, hidden unless the teacher shares the recap link with `?coach=1`; the teacher guide shows each lesson's full prompt. Prompts are one move each (node, criteria, misconceptions from `stuck:`, one step back), Socratic, no answers (roadmap/shared.md › coach prompt; UTS cognitive offloading paper). Tested: hidden without the flag, shown and copied with it, guide section present. School context: CGGS is trialling Microsoft 365 Copilot with Study and Learn; test a prompt there before sharing the link with students.
+
 ## Done: Human endeavour and Inquiry woven and tagged (12 Oct 2026, science chat)
 
 Matthew's choice: like code's "In the real world", these strands stay woven into lessons rather than getting tutorials, but are now tagged (`woven:`, AUTHORING › 12) and shown on the curriculum map. 105 tags across 70 lessons; all 8 Human endeavour and 14 of 16 Inquiry descriptors are practised somewhere (I08, writing texts, stays with class work; I03, equipment, is tagged only where sample size or choosing a tool is the point). Five short typical-tier steps fill the gaps: the Dingo Fence (7H03, cascades), a boil water alert (7H04, separating), Slip, Slop, Slap (9H03, light), Panama disease TR4 and the QUT banana (9H04, reproduction), and an investigable question and hypothesis (9I01, heat transfer).

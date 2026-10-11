@@ -1,6 +1,7 @@
 ---
 title: Year 9 Physics
 recap: true
+coach: true
 summary: Energy on the move. The particle model explains how heat travels through solids and fluids; then energy is followed through whole systems, where it is never lost but not all of it is useful. Concept tutorials with particle simulations, a roller coaster and Sankey diagrams.
 order: 1
 units:

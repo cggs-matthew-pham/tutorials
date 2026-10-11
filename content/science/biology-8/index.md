@@ -1,6 +1,7 @@
 ---
 title: Year 8 Biology
 recap: true
+coach: true
 summary: Cells as the building blocks of every living thing, the parts every cell shares, how cells specialise, and how tissues build organs. Concept tutorials with clickable cell and tissue diagrams.
 order: 2
 units:

@@ -1,6 +1,7 @@
 ---
 title: Year 10 Biology
 recap: true
+coach: true
 summary: Inheritance and evolution. DNA, genes and chromosomes; how meiosis makes every gamete different; predicting offspring with Punnett squares; then variation in a population and natural selection. Concept tutorials with a zoom from body to gene, a live cross board and a beetle population that evolves.
 order: 4
 units:

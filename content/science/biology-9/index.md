@@ -1,6 +1,7 @@
 ---
 title: Year 9 Biology
 recap: true
+coach: true
 summary: How the nervous and endocrine systems detect and respond to change and keep the body's internal conditions steady, then how reproduction makes offspring. Concept tutorials with a live response-pathway and body-temperature board.
 order: 3
 units:

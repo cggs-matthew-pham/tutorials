@@ -1,6 +1,7 @@
 ---
 title: Year 8 Earth and space
 recap: true
+coach: true
 summary: Reading rocks, Earth's layers and moving plates. Crystal size records how fast a rock cooled; a rigid outer shell rests on slowly flowing hot rock, and currents in the mantle carry the plates. Concept tutorials with a cross-section of the Earth and simulations of cooling magma and mantle convection.
 order: 2
 units:

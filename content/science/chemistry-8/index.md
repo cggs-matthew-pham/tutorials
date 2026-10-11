@@ -1,6 +1,7 @@
 ---
 title: Year 8 Chemistry
 recap: true
+coach: true
 summary: The particle model gets an upgrade. Particles are atoms of different types, atoms join into compounds, and a chemical change makes new substances. Concept tutorials with atom-level simulations.
 order: 2
 units:
