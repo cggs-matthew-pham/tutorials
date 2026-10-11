@@ -1,0 +1,157 @@
+# Boards for "Values and decisions": a knob on A0 and an LED on pin 13.
+
+# region: run
+widget: arduino
+led: 13
+knob: A0
+level: 20
+edit: off
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: if (level > 500) {
+code: digitalWrite(13, HIGH);
+code: } else {
+code: digitalWrite(13, LOW);
+code: }
+code: delay(100);
+code: }
+# endregion
+
+# region: explain
+widget: arduino
+led: 13
+knob: A0
+level: 20
+edit: off
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: if (level > 500) {
+code: digitalWrite(13, HIGH);
+code: } else {
+code: digitalWrite(13, LOW);
+code: }
+code: delay(100);
+code: }
+# endregion
+
+# region: explain-pic
+widget: arduino
+led: 13
+knob: A0
+level: 80
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: if (level > 500) {
+code: digitalWrite(13, HIGH);
+code: } else {
+code: digitalWrite(13, LOW);
+code: }
+code: delay(100);
+code: }
+# endregion
+
+# region: vary
+widget: arduino
+led: 13
+knob: A0
+level: 20
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: if (level > 500) {
+code: digitalWrite(13, HIGH);
+code: } else {
+code: digitalWrite(13, LOW);
+code: }
+code: delay(100);
+code: }
+# endregion
+
+# region: fix-semi
+widget: arduino
+led: 13
+knob: A0
+level: 20
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0)
+code: if (level > 500) {
+code: digitalWrite(13, HIGH);
+code: } else {
+code: digitalWrite(13, LOW);
+code: }
+code: delay(100);
+code: }
+# endregion
+
+# region: fix-eq
+widget: arduino
+led: 13
+knob: A0
+level: 20
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: if (level = 500) {
+code: digitalWrite(13, HIGH);
+code: } else {
+code: digitalWrite(13, LOW);
+code: }
+code: delay(100);
+code: }
+# endregion
+
+# region: make
+widget: arduino
+led: 13
+knob: A0
+level: 20
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: if (level > 500) {
+code: digitalWrite(13, HIGH);
+code: } else {
+code: digitalWrite(13, LOW);
+code: }
+code: delay(100);
+code: }
+# endregion

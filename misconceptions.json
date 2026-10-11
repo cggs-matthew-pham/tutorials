@@ -245,5 +245,11 @@
   "one-wire-enough": {"home": "engineering/circuits/loop", "text": "One wire from a pin is thought to be enough to light an LED, as if the pin pushes power one way; current only flows around a complete loop back to GND."},
   "resistor-before-led": {"home": "engineering/circuits/resistor", "text": "The resistor is thought to have to come before the LED to protect it; in a single loop the current is the same everywhere, so it works on either side."},
   "floating-pin-reads-zero": {"home": "engineering/circuits/button", "text": "A pin joined to nothing is thought to read 0; it floats, picks up noise and reads 0 or 1 at random, so a pull-down (or pull-up) resistor holds it."},
-  "reading-is-volts": {"home": "engineering/circuits/sensor", "text": "An analog reading is thought to be the volts on the pin; it is a number from 0 to 1023 standing for 0 to 3.3 V."}
+  "reading-is-volts": {"home": "engineering/circuits/sensor", "text": "An analog reading is thought to be the volts on the pin; it is a number from 0 to 1023 standing for 0 to 3.3 V."},
+  "code-any-pin": {"home": "engineering/arduino/pins", "text": "The code is thought to work whatever pin the part is wired to; the pin number in the code must match the pin the wire goes to."},
+  "setup-repeats": {"home": "engineering/arduino/setup-loop", "text": "Code in setup() is thought to run again and again; setup() runs once when the board starts, and only loop() repeats."},
+  "cpp-assign-in-if": {"home": "engineering/arduino/decisions", "text": "A single = in an if is thought to compare; in C++ it sets the variable (and the if then uses that value), so == is needed to compare."},
+  "cpp-plus-joins-text": {"home": "engineering/arduino/serial", "text": "\"words\" + a number is thought to join them, as in Python; in C++ it moves along the text, so print the words and the number separately."},
+  "pwm-lower-voltage": {"home": "engineering/arduino/pwm", "text": "analogWrite is thought to give the pin a lower voltage; the pin switches fully on and off very fast, and the value sets how much of the time it is on."},
+  "analog-range-mismatch": {"home": "engineering/arduino/pwm", "text": "A reading is passed straight to an output with a different range; analogRead gives 0 to 1023 but analogWrite takes 0 to 255, so scale it (divide by 4)."}
 }

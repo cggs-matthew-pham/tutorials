@@ -1,0 +1,38 @@
+summary: Students run a blink sketch whose pin number doesn't match the wiring, fix every pin number, see the dim pull-up glow of a missing pinMode, build the circuit on an Uno in Tinkercad blocks and read the C++ beside them, then write a short sketch for a new pin.
+time: 40
+timing: "Predict and Try 6 min · Worked example 8 min · Vary 5 min · Tinkercad 12 min · Practise and Make 9 min"
+goals:
+  - I can match the pin numbers in a sketch to the wiring.
+  - I can set a pin as an output and switch it on and off.
+  - I can find the C++ behind Tinkercad's blocks.
+struggle: "C++ looks dense after blocks. Read it aloud line by line and point at the pin number in each."
+before: |
+  The board in the lesson runs a subset of Arduino C++ against a model of an Uno (5 V pins, an LED and resistor per pin, simulated time). It behaves like the real board for the things these lessons teach: a missing ; stops the upload, a pin written HIGH without pinMode glows dimly (the internal pull-up), = in an if assigns. It is not a full compiler; real hardware comes in the next unit.
+
+  Tinkercad: Arduino Uno R3 is in the components list; Code › Blocks + Text shows the generated C++ beside the blocks (it can't be edited until you switch to Text). Same class code as the micro:bit unit.
+running:
+  - "Predict: ask students to point at the pin number in each line of the sketch."
+  - "Find the mistake: the dim glow is a real effect students will see on hardware; name it the pull-up."
+  - "Tinkercad: ask which block made which line of C++."
+stuck:
+  - see: "A student changes only pinMode."
+    ask: "Which pin does each digitalWrite line switch?"
+    fix: "Every line that names a pin."
+  - see: "Upload fails with a ; error."
+    ask: "Which line does the message name, and how does it end?"
+    fix: "Every statement ends with ;"
+stretch: "Wire a second LED on pin 9 and blink them in turn."
+support: "A printed sketch with the pin numbers highlighted."
+leads: |
+  Next: Reading the C++ (what setup() and loop() do, and timing with delay).
+
+  Circuits with the micro:bit: the same loop and resistor ideas.
+exit:
+  q: "An LED is wired to pin 4. Write the two lines that set it up and switch it on."
+  a: "pinMode(4, OUTPUT); (in setup) and digitalWrite(4, HIGH); (in loop)."
+explain: |
+  An Arduino names its pins by **number**. `pinMode(12, OUTPUT)` sets pin 12 up as an output, and `digitalWrite(12, HIGH)` switches it to 5 V (`LOW` is 0 V). The number in every line must be the pin the wire goes to: the code doesn't find the LED for you. A pin written HIGH without `pinMode(..., OUTPUT)` only glows dimly.
+sources:
+  - { title: "Tinkercad Circuits (Autodesk): simulator, link only", url: "https://www.tinkercad.com/circuits", checked: 2026-10-12 }
+  - { title: "Arduino language reference (link)", url: "https://www.arduino.cc/reference/en/", checked: 2026-10-12 }
+  - { title: "SparkFun Inventor's Kit Experiment Guide v4.1 (benchmark; CC BY-SA 4.0)", url: "https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v41", checked: 2026-10-12 }

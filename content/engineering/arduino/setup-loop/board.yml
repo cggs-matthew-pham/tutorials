@@ -1,0 +1,78 @@
+# Boards for "Reading the C++": a blink on pin 13.
+
+# region: run
+widget: arduino
+led: 13
+edit: off
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: digitalWrite(13, HIGH);
+code: delay(500);
+code: digitalWrite(13, LOW);
+code: delay(500);
+code: }
+# endregion
+
+# region: explain
+widget: arduino
+led: 13
+edit: off
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: digitalWrite(13, HIGH);
+code: delay(500);
+code: digitalWrite(13, LOW);
+code: delay(500);
+code: }
+# endregion
+
+# region: explain-pic
+widget: arduino
+led: 13
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: digitalWrite(13, HIGH);
+code: delay(500);
+code: digitalWrite(13, LOW);
+code: delay(500);
+code: }
+# endregion
+
+# region: vary
+widget: arduino
+led: 13
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: digitalWrite(13, HIGH);
+code: delay(500);
+code: digitalWrite(13, LOW);
+code: delay(500);
+code: }
+# endregion
+
+# region: make
+widget: arduino
+led: 13
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: digitalWrite(13, HIGH);
+code: delay(500);
+code: digitalWrite(13, LOW);
+code: delay(500);
+code: }
+# endregion

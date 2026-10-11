@@ -18,7 +18,7 @@ pathways:
     about: "Builds on micro:bit Foundations (Code). Circuits on the micro:bit in Tinkercad, then the same circuits on an Arduino Uno in blocks, then in C++, then on a breadboard. Common parts (buttons, sensors, servos, displays) get Reference cards. Power, motor drivers and batteries are a Years 9–10 extension. A Raspberry Pi Pico nod shows the same ideas in MicroPython."
     courses:
       - { path: engineering/circuits, id: circuits, stage: foundations, tagline: "Wire an LED, a button and a sensor." }
-      - { title: Arduino, id: arduino, stage: foundations, after: [circuits], summary: "The same circuits on an Uno: blocks, then reading and writing C++, then real hardware.", tagline: "From blocks to C++ on a real board." }
+      - { path: engineering/arduino, id: arduino, stage: foundations, after: [circuits], tagline: "From blocks to C++ on a real board." }
       - { title: Power and motors, id: power, stage: extensions, after: [arduino], summary: "Why a pin can't run a motor, motor drivers, two supplies and one ground, choosing a battery, LiPo safety.", tagline: "Make it move." }
   - id: cad
     title: CAD and fabrication

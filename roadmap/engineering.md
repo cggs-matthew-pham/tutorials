@@ -21,11 +21,17 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 - Ports 8501–8504.
 - Not checked against Tinkercad itself (needs a person and an account): the reflect steps' instructions and the overcurrent warning.
 
+## Done (12 Oct 2026): Arduino
+
+- Course `engineering/arduino` (Physical computing, after Circuits), units A new board and Writing C++: 1. Same circuit, new board (pins by number; the dim pull-up glow), 2. Reading the C++ (setup once, loop for ever, delay timing; Make a lighthouse), 3. Values and decisions (int, analogRead, if; the missing `;` and `=` in an if; Make a band with &&), 4. Talking to the computer (Serial print/println, the `"words" + n` trap, map to a percentage), 5. Outputs that vary (PWM as on-off, ÷ 4, non-PWM pins, the 8-bit wrap; Make turns the mapping round). Misconceptions `code-any-pin`, `setup-repeats`, `cpp-assign-in-if`, `cpp-plus-joins-text`, `pwm-lower-voltage`, `analog-range-mismatch`.
+- Decision: a lesson board runs the sketches (`arduino` widget: a C++ subset on a model Uno with simulated time) so every Try, Vary and Make step has a check. Tinkercad stays the `tier: typical` second tool (blocks to C++, its serial monitor and oscilloscope). The plan's blocks stage (lesson 5 in blocks) became Tinkercad's Blocks + Text view inside lesson 1.
+- Every board check tested in a headless browser with the expected solution; five explain clips record (silent here). Ports 8505–8508 and 8510.
+
 ## Next
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.
 2. Mechanisms: compound gear trains (Years 9–10, with efficiency per mesh and the constraint as an inequality), levers, pulleys.
-3. Physical computing unit 2 (Arduino in Tinkercad, blocks then C++): PRIMM on read-only C++; a `serial` paste mode for Tinkercad's serial monitor (the widget exists for real micro:bits).
+3. Physical computing unit 3 (Real hardware: breadboard, upload with the Arduino IDE or Cloud Editor, a small system with criteria; optional Pico port). The `serial` widget could check a real Uno's output over Web Serial, as it does for the micro:bit. Then unit 4, Power and motors.
 4. CAD lessons 1–2 (dimensions, tolerance) with answer checks.
 5. `tools/concepts.mjs` `prerequisites()` reads `code, maths, science, systems`: add `engineering` when the first built Engineering course has `after:`.
 

@@ -735,6 +735,17 @@ Vary, Practise, Make).
     reads at random; values `p`, `v`, `n` (presses), `d`, `z` (floating seen). `mode: sensor`: `sensor: pot | light` in a
     divider into pin 0, `level:` (%), a slider; `night: on` lights the display below `threshold:` (`threshold: edit` adds a
     slider), `volts: off`, `numbers: off`; values `a` (reading), `u` (volts), `s` (%), `t`, `l`. Ready selector `.cksvg`.
+  - `widget: arduino` (first used by `engineering/arduino/`): an Uno running a sketch in an editor, with Upload and run,
+    Stop and Reset code. Not a compiler: a C++ subset turned into JavaScript and run against a model with simulated time
+    (so `delay` timings are exact). Supports `setup()`/`loop()`, own functions, int/long/float/bool/byte/const, if/else/
+    for/while, pinMode, digitalWrite/Read, analogRead (0–1023 for 0–5 V), analogWrite, delay, millis, map, constrain,
+    Serial.begin/print/println. Behaves like the real board for what lessons teach: a missing `;` or an undeclared name
+    stops the upload (naming the line), `=` in an if assigns, HIGH without pinMode OUTPUT glows dimly (pull-up),
+    `"words" + n` moves along the text, analogWrite keeps the low 8 bits and is on/off on non-PWM pins, nothing prints
+    before Serial.begin. Setup: `led: 13` (or `13, 9`), `knob: A0`, `level:` (%), `button: 2`, `wave: on` (draw each LED
+    pin's signal), `edit: off`, `run: on`, then the sketch as `code:` lines (indentation is rebuilt from the braces; no
+    `#` lines, which the setup format reads as comments). Values `e`, `g`, `l`, `h`, `o`, `f` (ms), `t`, `s`, `m`, `w`,
+    `n`, `p`, `j`, `x`, `k`, `b` (the widget's header lists them). Ready selector `.ardsvg`.
   - `widget: security` (first used by `systems/security/`): five modes. `mode: os`: apps (Video call, Notes, Game) ask
     the OS, which uses a driver per device; Swap webcam, Swap storage, Install/Remove driver (webcam B; `driver: on`), and
     a Game camera permission; values `c`, `s`, `d`, `o` (last request worked), `g`, `q`. `mode: dns`: an address bar

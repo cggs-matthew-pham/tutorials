@@ -1,0 +1,97 @@
+# Boards for "Outputs that vary": an LED on pin 9 (a PWM pin), its signal drawn beside it.
+
+# region: run
+widget: arduino
+led: 9
+wave: on
+edit: off
+code: void setup() {
+code: }
+code:
+code: void loop() {
+code: analogWrite(9, 128);
+code: delay(100);
+code: }
+# endregion
+
+# region: explain
+widget: arduino
+led: 9
+knob: A0
+level: 50
+wave: on
+edit: off
+code: int level = 0;
+code:
+code: void setup() {
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: analogWrite(9, level / 4);
+code: delay(50);
+code: }
+# endregion
+
+# region: explain-pic
+widget: arduino
+led: 9
+wave: on
+run: on
+code: void setup() {
+code: }
+code:
+code: void loop() {
+code: analogWrite(9, 128);
+code: delay(100);
+code: }
+# endregion
+
+# region: vary
+widget: arduino
+led: 9
+knob: A0
+level: 50
+wave: on
+code: int level = 0;
+code:
+code: void setup() {
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: analogWrite(9, level);
+code: delay(50);
+code: }
+# endregion
+
+# region: vary-pin
+widget: arduino
+led: 8
+wave: on
+code: void setup() {
+code: }
+code:
+code: void loop() {
+code: analogWrite(8, 128);
+code: delay(100);
+code: }
+# endregion
+
+# region: make
+widget: arduino
+led: 9
+knob: A0
+level: 50
+wave: on
+code: int level = 0;
+code:
+code: void setup() {
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: analogWrite(9, level / 4);
+code: delay(50);
+code: }
+# endregion

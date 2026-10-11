@@ -1,0 +1,31 @@
+summary: Students watch setup() run once and loop() repeat, trace board time through a blink, see why blink code in setup() blinks only once, and change delays to set a blink's timing, including a lighthouse from its timing.
+time: 40
+timing: "Predict and Try 5 min · Worked example 10 min · Vary 6 min · Tinkercad 10 min · Practise and Make 9 min"
+goals:
+  - I can say what setup() and loop() each do.
+  - I can work out a blink's timing from its delays.
+  - I can choose delays for a timing.
+struggle: "Students forget that writing a pin takes no time; only delay does. Trace it with a stopwatch in hand."
+before: |
+  The board counts setup() and loop() runs and uses simulated time, so delays are exact (o and f in the checks are the last on and off times in ms).
+
+  MakeCode's on start and forever are the same two parts; say so.
+running:
+  - "Predict: link to MakeCode's on start."
+  - "Worked example: ask what the LED is doing at 750 ms."
+  - "Vary: ask which delay is the on time."
+stuck:
+  - see: "A student changes only one delay for 'twice as fast'."
+    ask: "How long is one blink now?"
+    fix: "Both delays set the length of a blink."
+stretch: "Make a heartbeat: two quick flashes, then a pause. (Four delays in loop().)"
+support: "A timeline strip from 0 to 2000 ms to shade on and off."
+leads: |
+  Next: Values and decisions (variables, analogRead and if).
+exit:
+  q: "What is the difference between setup() and loop()?"
+  a: "setup() runs once when the board starts; loop() runs again and again after it."
+explain: |
+  Every sketch has `setup()`, which runs **once** when the board starts, and `loop()`, which runs **again and again** after it. `delay(ms)` waits that many milliseconds; writing a pin takes almost no time, so the delays set the timing. A blink of `HIGH, delay(500), LOW, delay(500)` takes 1000 ms.
+sources:
+  - { title: "Arduino language reference (link)", url: "https://www.arduino.cc/reference/en/", checked: 2026-10-12 }

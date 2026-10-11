@@ -1,0 +1,36 @@
+summary: Students open the serial line in setup(), print a knob's reading every loop and watch it change, build lines with print and println, meet C++'s "words" + number trap (it moves along the text instead of joining), fix a missing Serial.begin, and print a percentage with map.
+time: 40
+timing: "Predict and Try 5 min · Worked example 9 min · Vary 8 min · Tinkercad 8 min · Practise and Make 10 min"
+goals:
+  - I can print a value to the serial monitor.
+  - I can use print and println to build a line.
+  - I can use printing to find out what my sketch sees.
+struggle: "Python habits: + to join text. Show what the board really prints, then the two-line fix."
+before: |
+  The board behaves like the real one: nothing prints without Serial.begin, and "words" + a number moves along the text (pointer arithmetic), printing the end of the words or nonsense. A real board would print whatever happens to be in memory; ours prints a few shaded blocks.
+
+  The baud rate (9600) must match the monitor's setting on real hardware; the board here ignores it.
+running:
+  - "Predict: ask why it is not 'level'."
+  - "Find the mistake: show that Python would join them; C++ doesn't."
+  - "Practise, debugging: link back to the night light."
+stuck:
+  - see: "Nothing prints."
+    ask: "Which line opens the line to the computer?"
+    fix: "Serial.begin(9600); in setup()."
+  - see: "All the numbers run together on one line."
+    ask: "Which call starts a new line?"
+    fix: "println."
+stretch: "Print Level: 512 (dark) or Level: 512 (light) depending on a threshold."
+support: "A card: print = same line, println = new line, begin first."
+leads: |
+  Next: Outputs that vary (analogWrite and PWM).
+
+  Code: micro:bit and the computer uses the same serial idea from MakeCode.
+exit:
+  q: "Write the two lines in loop() that print Temp: and then the value of temp on one line."
+  a: "Serial.print(\"Temp: \"); Serial.println(temp);"
+explain: |
+  `Serial.begin(9600);` in `setup()` opens a line to the computer. `Serial.println(level);` sends the value and starts a new line; `Serial.print` stays on the same line, so `Serial.print("Level: "); Serial.println(level);` gives `Level: 512`. In C++, `"Level: " + level` does not join them. Printing what the board sees is the first step in debugging a sketch.
+sources:
+  - { title: "Arduino language reference: Serial (link)", url: "https://www.arduino.cc/reference/en/language/functions/communication/serial/", checked: 2026-10-12 }

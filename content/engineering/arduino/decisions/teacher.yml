@@ -1,0 +1,36 @@
+summary: Students read a sketch that stores a knob's reading in an int and switches an LED with if and else, test it across the threshold, meet the two classic slips (a missing ; that stops the upload, and = in an if that makes it always true), fix both, and light the LED in a band with &&.
+time: 45
+timing: "Predict and Try 6 min · Worked example 10 min · Vary 12 min · Tinkercad 8 min · Practise and Make 9 min"
+goals:
+  - I can declare an int and store a reading in it.
+  - I can write an if and else to decide.
+  - I can fix a missing ; and an = that should be a comparison.
+struggle: "The two slips are invisible at a glance. Teach students to read the error's line number first, and to say '= sets, == compares' aloud."
+before: |
+  The board stops the upload for a missing ; (naming the line) like the real compiler, and runs = in an if as an assignment, as C++ does (the real compiler gives at most a warning). An undeclared name is an error too.
+
+  The micro:bit night light (Circuits › Sensors that vary) is the same decision.
+running:
+  - "Predict: ask which kind of thing level holds."
+  - "Find the mistake: ask what value level has after line 9."
+  - "Vary, won't upload: insist they read the message before looking."
+stuck:
+  - see: "A student's LED is always on."
+    ask: "What does a single = do?"
+    fix: "Use > or ==."
+  - see: "A student can't find the ; slip."
+    ask: "Which line does the message name? Look at the end of it."
+    fix: "Add the ;"
+stretch: "Use two LEDs (pins 13 and 12): one for below 300, one for above 700."
+support: "A card: '= sets, == compares, every statement ends with ;'."
+leads: |
+  Next: Talking to the computer (print values to see what the board sees).
+
+  Python: the same if and else; Python uses : and indentation where C++ uses { }.
+exit:
+  q: "Write an if that switches pin 13 on when level is 800 or more, and off otherwise."
+  a: "if (level >= 800) { digitalWrite(13, HIGH); } else { digitalWrite(13, LOW); }"
+explain: |
+  `int level = 0;` declares a whole-number variable. `level = analogRead(A0);` stores the knob's reading (0 to 1023). `if (level > 500) { … } else { … }` runs the first part when the comparison is true and the second when it isn't. `==` compares; a single `=` sets the variable, even inside an if, so the if is then always true. Every statement ends with `;`, or the sketch won't upload.
+sources:
+  - { title: "Arduino language reference (link)", url: "https://www.arduino.cc/reference/en/", checked: 2026-10-12 }

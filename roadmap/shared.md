@@ -384,3 +384,4 @@ One block per playground. Course status is in `code.md`.
 - `misconceptions.json`: three entries (`bigger-gear-faster`, `gear-ratio-upside-down`, `gear-one-effect`). AUTHORING › board: `gears` entry.
 - Clip-server ports 8500–8539 for Engineering lessons.
 - Later the same day: new board widget `circuit` (`playground-board/widgets/circuit.js`, registered in `index.html`, styles at the end of `style.css`); `core.js` unchanged. `misconceptions.json`: four entries for the circuits course.
+- Later again: new board widget `arduino` (`playground-board/widgets/arduino.js`, registered in `index.html`, styles at the end of `style.css`); `core.js` unchanged. `misconceptions.json`: six entries for the Arduino course.

@@ -538,3 +538,17 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .cksvg .ckwarn { font: 700 26px system-ui, sans-serif; fill: #e5484d; }
 .ckslide { display: inline-flex; align-items: center; gap: 6px; min-width: 220px; flex: 1; }
 .ckslide input { flex: 1; accent-color: var(--accent); }
+
+/* Arduino Uno running a sketch (arduino) */
+#board.ardhost { display: flex; flex-direction: column; min-height: 240px; }
+.ardsvg { flex: 1; min-height: 150px; }
+.cksvg .ardboard { fill: #00878f; }
+.cksvg .ardname { font: 800 28px system-ui, sans-serif; fill: rgba(255,255,255,.85); letter-spacing: 4px; }
+.cksvg .ardpin { font: 700 13px system-ui, sans-serif; fill: var(--muted); }
+.cksvg .ardwave { fill: none; stroke: var(--accent); stroke-width: 2; }
+.ardmon { margin: 0; height: 5.6em; overflow-y: auto; padding: 6px 10px; border-top: 1px solid var(--line); background: var(--bg); font: 13px/1.35 ui-monospace, Menlo, Consolas, monospace; color: var(--ink); border-radius: 0 0 10px 10px; white-space: pre-wrap; }
+.ardcode { width: 100%; font: 14px/1.45 ui-monospace, Menlo, Consolas, monospace; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); resize: vertical; tab-size: 2; }
+.ardcode:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+.ardstatus { margin: 2px 0 0; font: 600 14px system-ui, sans-serif; color: var(--muted); min-height: 1.3em; }
+.cksvg .ardlab { font: 700 13px system-ui, sans-serif; fill: rgba(255,255,255,.92); }
+.cksvg .ardread { font: 700 13px ui-monospace, Menlo, Consolas, monospace; fill: var(--ink); }

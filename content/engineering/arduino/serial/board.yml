@@ -1,0 +1,105 @@
+# Boards for "Talking to the computer": a knob on A0, printing to the serial monitor.
+
+# region: run
+widget: arduino
+knob: A0
+level: 50
+edit: off
+code: int level = 0;
+code:
+code: void setup() {
+code: Serial.begin(9600);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: Serial.println(level);
+code: delay(250);
+code: }
+# endregion
+
+# region: explain
+widget: arduino
+knob: A0
+level: 50
+edit: off
+code: int level = 0;
+code:
+code: void setup() {
+code: Serial.begin(9600);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: Serial.println(level);
+code: delay(250);
+code: }
+# endregion
+
+# region: explain-pic
+widget: arduino
+knob: A0
+level: 50
+run: on
+code: int level = 0;
+code:
+code: void setup() {
+code: Serial.begin(9600);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: Serial.println(level);
+code: delay(250);
+code: }
+# endregion
+
+# region: vary
+widget: arduino
+knob: A0
+level: 50
+code: int level = 0;
+code:
+code: void setup() {
+code: Serial.begin(9600);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: Serial.println(level);
+code: delay(250);
+code: }
+# endregion
+
+# region: vary-begin
+widget: arduino
+knob: A0
+level: 50
+code: int level = 0;
+code:
+code: void setup() {
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: Serial.println(level);
+code: delay(250);
+code: }
+# endregion
+
+# region: make
+widget: arduino
+knob: A0
+level: 50
+code: int level = 0;
+code:
+code: void setup() {
+code: Serial.begin(9600);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: Serial.println(level);
+code: delay(250);
+code: }
+# endregion

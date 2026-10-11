@@ -1,0 +1,34 @@
+summary: Students see analogWrite(9, 128) as a fast on-off signal rather than a lower voltage, scale a knob's 0–1023 down to 0–255, meet the real board's behaviour when they don't (it wraps round), find that only the ~ pins can do PWM, and turn the mapping round.
+time: 45
+timing: "Predict and Try 6 min · Worked example 12 min · Vary 8 min · Tinkercad 9 min · Practise and Make 10 min"
+goals:
+  - I can explain what analogWrite does to a pin.
+  - I can scale a reading from 0–1023 to 0–255.
+  - I can say which Uno pins can do PWM.
+struggle: "'Half brightness means half voltage' is intuitive and wrong. Keep the drawn signal in view: always full height, only the width changes."
+before: |
+  Model: PWM pins 3, 5, 6, 9, 10, 11; analogWrite keeps the lowest 8 bits (so 300 acts like 44), as the Uno's timers do; on other pins it sets HIGH for 128 and above. The signal is drawn as six cycles with the on part as wide as value/255. Real PWM on pin 9 runs at about 490 Hz.
+
+  The same idea controls motor speed (Power and motors) and dims LEDs in screens.
+running:
+  - "Predict: ask what an LED would look like at 2.5 V (it may not light at all), versus flickering faster than the eye can see."
+  - "Find the mistake: turn the knob slowly so students see the four ramps."
+  - "Tinkercad: the oscilloscope is the best moment of the lesson."
+stuck:
+  - see: "A student uses analogWrite on pin 8."
+    ask: "Is there a ~ next to 8?"
+    fix: "Use 3, 5, 6, 9, 10 or 11."
+  - see: "Brightness jumps as the knob turns."
+    ask: "What is the biggest number analogWrite takes?"
+    fix: "level / 4."
+stretch: "Fade in and out by itself with a for loop: for (int b = 0; b <= 255; b++) { analogWrite(9, b); delay(5); }"
+support: "Draw three signals for 64, 128 and 191 and shade the on parts."
+leads: |
+  Next: Real hardware (breadboard and upload), then Power and motors (the same PWM sets motor speed through a driver).
+exit:
+  q: "Why does analogWrite(9, 128) make an LED look half as bright, if the pin is only ever 0 V or 5 V?"
+  a: "The pin is on for half of each cycle and switches too fast to see, so the eye sees the average: half as bright."
+explain: |
+  `analogWrite(9, value)` takes 0 (off) to 255 (fully on) on a **PWM pin** (marked ~: 3, 5, 6, 9, 10, 11). The pin doesn't get a lower voltage: it switches fully on and off very fast, and the value sets how much of each cycle it is on, so 128 looks about half as bright. A knob gives 0 to 1023, so `level / 4` scales it to 0 to 255.
+sources:
+  - { title: "Arduino language reference: analogWrite (link)", url: "https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/", checked: 2026-10-12 }
