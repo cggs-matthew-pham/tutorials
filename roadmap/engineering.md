@@ -6,7 +6,7 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 
 ## Done (12 Oct 2026): subject and the winch
 
-- Subject `content/engineering/index.md` ("Engineering", trail by units). Pathways: Mechanisms (built: Mechanisms; planned: Levers and pulleys), Physical computing (planned: Circuits with the micro:bit, Arduino, Power and motors), CAD and fabrication (planned), Design your own board (planned), 3D and animation (planned).
+- Subject `content/engineering/index.md` ("Engineering", trail by units). Pathways: Mechanisms (built: Mechanisms; planned: Levers and pulleys), Physical computing (planned: Circuits with the micro:bit, Arduino, Power and motors), CAD and fabrication (planned), Design your own board (planned). 3D and animation was planned here; parked 12 Oct (see Parked).
 - Course `engineering/mechanisms`, unit Gears: 1. Gear up the winch (from Project doc `engineering-sample-lesson.md`). Primer `primers/gears.md`. Misconceptions `bigger-gear-faster`, `gear-ratio-upside-down`, `gear-one-effect`. No `node:` (Engineering is not in the node check; there are no D&T progression pages).
 - Board widget `gears` (AUTHORING › board): gears from a kit, Turn once, Lift (stalls), hidden numbers for the Try, `brief: edit` lists the pairs that pass (the Make: a brief with exactly one passing pair).
 - Lessons use `language: maths` (board, answer and number checks, worked examples, maths stage names), as Digital systems does.
@@ -55,8 +55,12 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.
 2. Mechanisms: compound gear trains (Years 9–10, with efficiency per mesh and the constraint as an inequality), levers, pulleys.
-3. Mechanisms lesson 2 (compound gears, levers or pulleys), 3D and animation (keyframes widget). (Done 12 Oct: `shape: design` decks and worksheets say Inquire, not Predict.) Optional: let `B.serial` accept an Uno's USB ids.
+3. Mechanisms lesson 2 (compound gears, levers or pulleys). (Done 12 Oct: `shape: design` decks and worksheets say Inquire, not Predict.) Optional: let `B.serial` accept an Uno's USB ids.
 4. `tools/concepts.mjs` `prerequisites()` reads `code, maths, science, systems`: add `engineering` if an Engineering lesson ever uses the concept lint (its lessons are `language: maths`, which the lint skips).
+
+## Parked
+
+- 3D and animation (12 Oct): taken out of Engineering, which is about physical things designed to a brief. Parked for a later Digital Media / Design subject (with video, audio and UX if they come). Keep the computational framing when it returns: keyframes as data, tweening and easing as maths, frames per second, meshes as lists of points, Blender driven by its Python API, Autodesk as a nod. Builds on Digital systems › Shapes as numbers and Code › p5.js.
 
 ## Open questions
 

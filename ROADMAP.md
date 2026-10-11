@@ -6,7 +6,7 @@ Split by workstream on 11 Oct 2026 so separate chats can work at the same time (
 - [`roadmap/maths.md`](roadmap/maths.md): maths lessons and boards.
 - [`roadmap/science.md`](roadmap/science.md): science lessons and engines.
 - [`roadmap/systems.md`](roadmap/systems.md): Digital systems (the Digital Technologies Knowledge and understanding strand: data representation, networks, security, hardware), added 12 Oct 2026.
-- [`roadmap/engineering.md`](roadmap/engineering.md): Engineering (an elective STEM layer: mechanisms, physical computing with Arduino, CAD and fabrication, board design, 3D and animation), added 12 Oct 2026.
+- [`roadmap/engineering.md`](roadmap/engineering.md): Engineering (an elective STEM layer: mechanisms, physical computing with Arduino, CAD and fabrication, board design; 3D and animation parked for a later Digital Media / Design subject), added 12 Oct 2026.
 - [`roadmap/shared.md`](roadmap/shared.md): shared and general: the build, publishing, home and plain pages, and shared tools.
 
 "ROADMAP › <section>" in CLAUDE.md, AUTHORING.md and BUILDING.md means that section in the subject's file. Older sections moved to `roadmap/archive/` when a file was tidied (the code file on 12 Oct 2026: `roadmap/archive/code-to-2026-10-12.md`), so look there if a section is not in the current file.

@@ -35,10 +35,4 @@ pathways:
     fit: "Start here to turn a breadboard circuit into a board of your own."
     courses:
       - { title: Your own board, id: pcb, stage: extensions, summary: "A full course on PCB design. For now, the Capstone projects stretch unit (Physical computing) has Off the breadboard and Design a PCB.", tagline: "Design a circuit board." }
-  - id: animation
-    title: 3D and animation
-    summary: What the computer does in 3D graphics and animation, in Blender or another package.
-    fit: "Start here to see a 3D model as numbers and animation as maths."
-    courses:
-      - { title: 3D and animation, id: animation, stage: extensions, summary: "Meshes, keyframes and interpolation, easing, procedural scenes with Python, rendering trade-offs.", tagline: "Animate with numbers." }
 ---

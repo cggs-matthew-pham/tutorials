@@ -52,7 +52,7 @@ Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 
 1. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
 2. Computers and the command line: five lessons on a browser `shell` board, then a teacher-led Raspberry Pi unit (environments and lessons in the Project doc digital-systems-plan).
 3. More security and CTF: Rules of the game, guessing passwords, encoding is not encryption, what a page gives away; cross-pathway flags and a capstone CTF; picoCTF (Carnegie Mellon) as the linked extension (check its account and age terms).
-4. Shapes as numbers (optional, 8K03): vector vs raster, meshes as lists of vertices; Engineering › 3D and animation builds on it.
+4. Shapes as numbers (optional, 8K03): vector vs raster, meshes as lists of vertices; a later Digital Media / Design subject (3D and animation, parked) builds on it.
 5. 10K02 n3, why separation matters: one short lesson (the same HTML restyled by swapping only its CSS; why screen readers need structure). Home: Digital systems or the HTML & CSS course (ask the code chat).
 
 ## Open questions
