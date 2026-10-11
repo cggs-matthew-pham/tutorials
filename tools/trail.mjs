@@ -35,6 +35,7 @@ function start(c, R) {
 export function layoutTrail(pw, pathways, dirs, lessonCount, opts = {}) {
   // opts.stops === 'units' (a subject's `trail: units`): each unit of a course is a stop, named by the unit
   // (one curriculum standard each in science), with the course's year as a small label.
+  if (opts.stops === 'areas') return layoutTrailAreas(pw, pathways, dirs, lessonCount);
   if (opts.stops === 'units') return layoutTrailUnits(pw, pathways, dirs, lessonCount);
   return layoutCourses(pw, pathways, dirs, lessonCount);
 }
@@ -70,6 +71,30 @@ function layoutTrailUnits(pw, pathways, dirs, lessonCount) {
   const pw2 = { ...pw, courses };
   const others = pathways.map((p) => (p === pw ? pw2 : p));
   return layoutCourses(pw2, others, dirs, lessonCount);
+}
+
+// Areas: each course is a labelled area of the map (its name is the heading) holding its units as stops that
+// snake inside it, two to four to a row. Areas sit where the course layout puts the courses (columns by what
+// comes first, extensions on the right), so a long trail grows downwards instead of off to the right.
+function layoutTrailAreas(pw, pathways, dirs, lessonCount) {
+  const flat = layoutTrailUnits(pw, pathways, dirs, lessonCount);
+  const base = layoutCourses(pw, pathways, dirs, lessonCount);
+  const pos = new Map(base.nodes.map((n) => [n.id, n]));
+  const per = base.cols <= 2 ? 3 : 2;
+  const groups = new Map();
+  for (const n of flat.nodes) {
+    const key = n.portal ? n.id : n.id.split('#')[0];
+    if (!pos.has(key)) throw new Error(`pathway ${pw.id}: no course "${key}" for the trail areas`);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(n);
+  }
+  const areas = [...groups].map(([key, stops]) => {
+    const b = pos.get(key);
+    stops.forEach((n, i) => { const r = Math.floor(i / per); let c = i % per; if (r % 2) c = per - 1 - c; n.acol = c; n.arow = r; });
+    const lone = stops.length === 1 && stops[0].title === b.title;
+    return { id: key, title: b.title, col: b.col, row: b.row, stage: b.stage, stops: stops.map((n) => n.id), lone, portal: !!b.portal };
+  });
+  return { areas, nodes: flat.nodes, cols: base.cols, rows: base.rows, fcols: base.fcols, per };
 }
 
 function layoutCourses(pw, pathways, dirs, lessonCount) {
@@ -155,6 +180,7 @@ function layoutCourses(pw, pathways, dirs, lessonCount) {
 /** The map's HTML (filled in by site/trail.js) and its data. up: from this page to the site root. */
 export function trailHtml(layout, up, esc) {
   const { nodes, cols, rows, fcols } = layout;
+  const areaMode = !!layout.areas;
   const zone = (cls, label, from, to) => (to > from ? `<p class="tzone ${cls}" style="grid-column:${from + 1} / ${to + 1};grid-row:${rows + 1}">${label}</p>` : '');
   const byId = new Map(nodes.map((n) => [n.id, n]));
   const short = (t) => t.replace(/^Python Foundations with Turtle$/, 'Turtle').replace(/:.*$/, '');
@@ -162,15 +188,29 @@ export function trailHtml(layout, up, esc) {
     const after = n.parents.length ? `<small class="tafter">After ${esc(n.parents.map((p) => short(byId.get(p).title)).join(' and '))}</small>` : '';
     const href = n.portal ? `../${esc(n.pathwayId)}/` : n.path ? `${esc(up + n.path)}/${n.unit ? `#unit-${esc(n.unit)}` : ''}` : '';
     const tag = href ? 'a' : 'button';
-    const meta = n.portal ? `${n.pathway} pathway` : n.soon ? 'Coming later' : `${n.group ? `${n.group} · ` : ''}${n.lessons} ${n.lessons === 1 ? 'lesson' : 'lessons'}`;
+    const meta = n.portal ? `${n.pathway} pathway` : n.soon ? 'Coming later' : `${n.group && !areaMode ? `${n.group} · ` : ''}${n.lessons} ${n.lessons === 1 ? 'lesson' : 'lessons'}`;
     const kind = n.portal ? 'is-portal' : n.soon ? 'is-soon' : 'is-todo';
     const inner = n.portal ? '↗' : n.soon ? '' : String(n.lessons);
-    return `<${tag} class="tnode ${kind}" data-id="${esc(n.id)}"${href ? ` href="${href}"` : ' type="button"'} style="grid-column:${n.col + 1};grid-row:${n.row};--c:${n.col}">` +
+    const place = areaMode ? `grid-column:${n.acol + 1};grid-row:${n.arow + 1};--c:${n.col}` : `grid-column:${n.col + 1};grid-row:${n.row};--c:${n.col}`;
+    return `<${tag} class="tnode ${kind}" data-id="${esc(n.id)}"${href ? ` href="${href}"` : ' type="button"'} style="${place}">` +
       `<span class="tdot" aria-hidden="true"><span class="tin">${esc(inner)}</span></span>` +
       `<span class="tlab"><span class="there" hidden></span><b>${esc(n.title)}</b><small class="tmeta">${esc(meta)}</small>${after}<span class="tline">${esc(n.tagline)}</span></span></${tag}>`;
   };
   const data = nodes.map((n) => ({ id: n.id, path: n.path, unit: n.unit || null, group: n.group || null, title: n.title, tagline: n.tagline, stage: n.stage, soon: !!n.soon, portal: n.portal, pathway: n.pathway || null, lessons: n.lessons || 0, parents: n.parents }));
   const narrow = nodes.some((n) => n.unit);
+  if (areaMode) {
+    const areaHtml = (a) => `<section class="tarea${a.lone ? ' lone' : ''}" style="grid-column:${a.col + 1};grid-row:${a.row};--c:${a.col}"${a.lone ? '' : ` aria-label="${esc(a.title)}"`}>` +
+      (a.lone ? '' : `<h3 class="tatitle">${esc(a.title)}</h3>`) + `<div class="tastops">${a.stops.map((id) => nodeHtml(byId.get(id))).join('')}</div></section>`;
+    const f = layout.areas.filter((a) => a.col < fcols), e = layout.areas.filter((a) => a.col >= fcols);
+    const adata = nodes.map((n) => ({ id: n.id, path: n.path, unit: n.unit || null, title: n.title, tagline: n.tagline, stage: n.stage, soon: !!n.soon, portal: n.portal, pathway: n.pathway || null, lessons: n.lessons || 0, parents: n.parents }));
+    return `<section class="trail tbreak" aria-label="Trail map">` +
+      `<div class="tcard" id="tcard" aria-live="polite"></div>` +
+      `<div class="tscroll"><div class="tmap tareas" id="tmap" style="--cols:${cols};--rows:${rows};--per:${layout.per};--fz:${(100 * fcols / cols).toFixed(2)}%">` +
+      `<svg class="tlines" aria-hidden="true"></svg>` +
+      zone('tzf', 'Foundations', 0, fcols) + f.map(areaHtml).join('') + zone('tze', 'Extensions', fcols, cols) + e.map(areaHtml).join('') +
+      `</div></div></section>` +
+      `<script type="application/json" id="trail-data">${JSON.stringify(adata).replace(/</g, '\\u003c')}</script>`;
+  }
   return `<section class="trail tbreak" aria-label="Trail map">` +
     `<div class="tcard" id="tcard" aria-live="polite"></div>` +
     `<div class="tscroll"><div class="tmap${narrow ? ' tunits' : ''}" id="tmap" style="--cols:${cols};--rows:${rows};--fz:${(100 * fcols / cols).toFixed(2)}%">` +
@@ -205,6 +245,12 @@ export const TRAIL_CSS = `
 grid-template-columns:repeat(var(--cols),minmax(220px,1fr));grid-template-rows:repeat(var(--rows),minmax(128px,auto)) auto;
 min-width:calc(var(--cols) * 220px);padding:18px 8px 0;border-radius:20px;background:linear-gradient(90deg,var(--zf) 0 var(--fz),var(--ze) var(--fz) 100%)}
 .tmap.tunits{grid-template-columns:repeat(var(--cols),minmax(132px,1fr));min-width:calc(var(--cols) * 132px)}.tunits .tlab{max-width:128px}.tunits .tlab b{font-size:14px}.tunits .tmeta{font-size:12.5px}
+.tmap.tareas{grid-template-columns:repeat(var(--cols),minmax(0,1fr));grid-template-rows:repeat(var(--rows),auto) auto;min-width:calc(var(--cols) * (var(--per) * 118px + 24px));align-items:start;row-gap:6px}
+.tarea{position:relative;z-index:1;margin:6px 6px;padding:8px 6px 8px;border-radius:16px;border:1px solid color-mix(in srgb,var(--line) 80%,transparent);background:color-mix(in srgb,var(--card) 62%,transparent)}
+.tarea.lone{border-color:transparent;background:none}
+.tatitle{margin:0 0 0 8px;font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);line-height:1.3}
+.tastops{display:grid;grid-template-columns:repeat(var(--per),minmax(0,1fr));margin-top:14px}.tarea.lone .tastops{margin-top:0}
+.tareas .tnode{margin:6px 2px;justify-self:center}.tareas .tlab{max-width:112px}.tareas .tlab b{font-size:13.5px}.tareas .tmeta{font-size:12.5px}
 .tlines{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .tlines path{fill:none;stroke-linecap:round}
 .tlines .walked{stroke:var(--ink);stroke-width:5}.tlines .open{stroke:var(--muted);stroke-width:3.5;stroke-dasharray:1 9}
@@ -235,6 +281,8 @@ min-width:calc(var(--cols) * 220px);padding:18px 8px 0;border-radius:20px;backgr
 .tdot{width:46px;height:46px;font-size:14px}
 .tlab{max-width:none}.tline{display:block;font-size:14px;color:var(--ink);margin-top:3px}.tafter{display:block;font-size:13px;color:var(--muted)}
 .tzone{padding:12px 4px 2px;align-self:stretch}
+.tmap.tareas{min-width:0}.tareas .tarea{margin:6px 0 6px calc(min(var(--c),2) * 12px)}.tareas .tastops{display:flex;flex-direction:column}.tareas .tnode{margin:6px 0;justify-self:auto;align-self:stretch;max-width:100%}.tareas .tafter{display:none}
+.tareas .tlab{max-width:none;flex:1;min-width:0}.tareas .tlab b{font-size:15px}.tareas .tmeta{font-size:13px}
 .tmap.tunits{min-width:0}.tunits .tnode{margin-left:calc(min(var(--c),2) * 14px)}.tunits .tafter{display:none}.tunits .tlab{max-width:none;flex:1;min-width:0}.tunits .tlab b{font-size:15px}.tunits .tnode{align-self:stretch;max-width:calc(100% - min(var(--c),2) * 14px)}
 .tcard .tgo{justify-content:flex-start}
 }

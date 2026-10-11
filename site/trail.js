@@ -141,8 +141,12 @@
         if (down) {
           var y1 = a.y + a.r, y2 = b.y - b.r, m = (y2 - y1) / 2;
           d = 'M' + a.x + ' ' + y1 + ' C' + a.x + ' ' + (y1 + m) + ' ' + b.x + ' ' + (y2 - m) + ' ' + b.x + ' ' + y2;
+        } else if (Math.abs(b.y - a.y) > 1.6 * Math.abs(b.x - a.x)) {
+          // mostly down (or up): a snake turning back on itself inside an area
+          var sy = b.y > a.y ? 1 : -1, ya = a.y + sy * a.r, yb = b.y - sy * b.r, my = (yb - ya) / 2;
+          d = 'M' + a.x + ' ' + ya + ' C' + a.x + ' ' + (ya + my) + ' ' + b.x + ' ' + (yb - my) + ' ' + b.x + ' ' + yb;
         } else {
-          var x1 = a.x + a.r, x2 = b.x - b.r, h = (x2 - x1) / 2;
+          var sx = b.x >= a.x ? 1 : -1, x1 = a.x + sx * a.r, x2 = b.x - sx * b.r, h = (x2 - x1) / 2;
           d = 'M' + x1 + ' ' + a.y + ' C' + (x1 + h) + ' ' + a.y + ' ' + (x2 - h) + ' ' + b.y + ' ' + x2 + ' ' + b.y;
         }
         var kind = n.soon ? 'later' : status[pid].kind === 'done' ? 'walked' : 'open';

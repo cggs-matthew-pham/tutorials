@@ -472,7 +472,7 @@ for (const node of dirs.values()) {
       if (useTrail) for (const c of pw.courses || []) if (!(c.tagline || (c.path && dirs.get(c.path)?.meta?.tagline))) console.warn(`  ! ${node.path}/index.md: pathway ${pw.id}: ${c.path || c.id || c.title} has no tagline (the line students see on the trail map)`);
       // Trail map (students, the default) and list (teachers: about, what each course covers). The choice
       // is remembered per browser; without JavaScript the list shows. tools/trail.mjs, site/trail.js.
-      const trail = useTrail && trailHtml(layoutTrail(pw, pathways, dirs, lessonCount, trailOpts), pup, esc);
+      const trail = useTrail && trailHtml(layoutTrail(pw, pathways, dirs, lessonCount, { stops: trailOpts.stops === 'units' ? 'areas' : 'courses' }), pup, esc);
       const view = `<script>(function(){var d=document.documentElement;d.classList.add('js-on');try{if(localStorage.getItem('wp-pathview')!=='list')d.classList.add('trail-on')}catch(e){d.classList.add('trail-on')}})()</script>` +
         `<div class="ptoggle" role="group" aria-label="View"><button type="button" data-view="map">Trail map</button><button type="button" data-view="list">List for teachers</button></div>`;
       writeFileSync(join(OUT, pp, 'index.html'), page(`${pw.title}: ${node.title}`,
