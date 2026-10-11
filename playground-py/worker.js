@@ -76,9 +76,14 @@ const ready = (async () => {
   self.wpAsk = (prompt) => new Promise((resolve) => { flush(); sendFiles(); pendingAnswer = resolve; postMessage({ type: 'ask', prompt }); });
   self.wpApp = (kind, spec) => { flush(); postMessage({ type: 'app', kind, spec: spec ? JSON.parse(spec) : null }); };
   self.wpJSPI = typeof WebAssembly.Suspending === 'function';
+  // requests stand-in: a plain GET with a synchronous request (allowed in workers), so Python code stays ordinary.
+  self.wpFetch = (url) => {
+    try { const x = new XMLHttpRequest(); x.open('GET', url, false); x.send(); return { status: x.status, text: x.responseText, error: x.status ? null : 'no reply' }; }
+    catch (e) { return { status: 0, text: '', error: String((e && e.message) || e) }; }
+  };
   // Our helpers (wp_runtime, the gradio stand-in, uvicorn) live outside the student's folder.
   py.FS.mkdirTree('/wp_lib');
-  for (const f of ['wp_runtime.py', 'gradio.py', 'uvicorn.py']) {
+  for (const f of ['wp_runtime.py', 'gradio.py', 'uvicorn.py', 'requests.py']) {
     py.FS.writeFile(`/wp_lib/${f}`, await (await fetch(new URL(f, here), { cache: 'no-cache' })).text());
   }
   py.runPython('import sys; sys.path.insert(0, "/wp_lib"); import wp_runtime');
@@ -97,7 +102,9 @@ async function loadFor(code) {
   if (want('fastapi') && !loaded.has('fastapi')) named.push('fastapi');
   if (want('pandas') && !loaded.has('pandas')) named.push('pandas');
   if (named.length) postMessage({ type: 'status', text: `Loading ${named.join(' and ')}…` });
-  await py.loadPackagesFromImports(code, { messageCallback: () => {}, errorCallback: () => {} });
+  // Our stand-ins (gradio, uvicorn, requests in /wp_lib) are not Pyodide packages: leave their imports out of the scan.
+  const scan = code.replace(/^[ \t]*(import|from)[ \t]+(requests|gradio|uvicorn)\b.*$/gm, '');
+  await py.loadPackagesFromImports(scan, { messageCallback: () => {}, errorCallback: () => {} });
   if (want('flask') && !loaded.has('flask')) {
     await py.loadPackage(['jinja2', 'markupsafe', ...self.wpWheels], { messageCallback: () => {}, errorCallback: () => {} });
     py.runPython('import wp_runtime; wp_runtime.hook_flask()');

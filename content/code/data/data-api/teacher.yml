@@ -1,0 +1,38 @@
+summary: An optional lesson. Students ask the Open-Meteo weather API for a week's forecast with requests, read the nested JSON, fall back to a saved copy when there is no connection, then find the hottest day, add rain and compare two places.
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 10 min"
+goals:
+  - I can ask an API for data with requests.get and read the JSON reply.
+  - I can read a value from dictionaries and lists inside each other.
+  - I can make a program that still works when the internet does not.
+before: |
+  Optional: not needed for completing the course. It needs `api.open-meteo.com` to be reachable from school devices (the Check your school page tests it); if it is blocked, `except requests.RequestException:` loads `weather.json`, an example reply in Open-Meteo's format (made up for these lessons, not a real forecast), so the lesson still works. Open-Meteo is free for non-commercial use with credit (CC BY 4.0), needs no key, and allows requests from web pages. In the playground, `requests` is a small stand-in (get, params, .json(), .status_code, .ok, .raise_for_status()) so the same code runs with the real requests on a computer. The reply is a dictionary; `reply["daily"]` holds lists (`time`, `temperature_2m_max`, ...) where place i in each list is the same day (the bug task skips the `daily` level). `params=` builds the query string, the other side of Flask's `request.args`.
+running:
+  - "Predict: draw the nested reply as boxes inside boxes."
+  - "Run: find your school's latitude and longitude on a map together."
+  - "Investigate: turn off the network (or use a wrong address) and run: the saved copy takes over."
+  - "Info: discuss data licences and API keys."
+stuck:
+  - see: "KeyError: 'temperature_2m_max'."
+    ask: Which dictionary holds the temperatures?
+    fix: "reply[\"daily\"][\"temperature_2m_max\"]."
+  - see: The forecast is for the wrong place.
+    ask: Is latitude negative south of the equator?
+    fix: "Canberra is latitude -35.28, longitude 149.13."
+  - see: "No connection: using the saved forecast, every time."
+    ask: Does the Check your school page reach Open-Meteo on this device?
+    fix: The site is blocked here; the saved copy is fine for the lesson, or ask IT to allow api.open-meteo.com.
+stretch: Put the two-place comparison behind a Gradio app with a dropdown of places, or ask Open-Meteo for hourly temperatures and chart today with text bars.
+support: Give students the hottest-day loop with the comparison line blank, and ask them to finish it.
+leads: "Machine learning with Gradio uses data in the same way: tables in, answers out. Web apps with Flask builds the other side: an API of your own."
+exit:
+  q: "Why does a program that uses an API need a plan for when the API cannot be reached?"
+  a: "Networks, filters and services fail; catching the error and using saved data (or saying so) keeps the program working instead of crashing."
+explain: |
+  1. `requests.get(URL, params=...)` asks the weather API, and `.json()` turns its reply into dictionaries and lists.
+  2. The forecast is inside `reply["daily"]`: one list per measurement, one place per day.
+  3. If the API cannot be reached, `except` loads the saved copy instead.
+solutions:
+  step-4#t1: weather.py#sol-hottest
+  step-4#t2: weather.py#sol-rain
+  step-5: weather.py#sol-make

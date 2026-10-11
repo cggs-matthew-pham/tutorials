@@ -6,5 +6,5 @@ order: 5
 units:
   - { id: read, title: Reading data, summary: "Read a CSV file into a list of dictionaries, then count, filter, total and average it." }
   - { id: show, title: Charts and checking, summary: "Draw a bar chart from counts, then clean messy data and check your code with test cases." }
-  - { id: app, title: A dashboard, summary: "Put the data behind a small app: choose a genre, see a table and a chart." }
+  - { id: app, title: Dashboards and live data, summary: "Put the data behind a small app, then ask a real API for live data (optional)." }
 ---
