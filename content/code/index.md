@@ -11,10 +11,10 @@ pathways:
       - { path: code/python, stage: foundations }
       - { path: code/console, stage: foundations, after: [code/python] }
       - { path: code/objects, stage: extensions, after: [code/console] }
-      - { id: data-detective, title: Data detective, tagline: "Find the story hiding in a real data set.", stage: extensions, summary: "A real data set: count, average, chart and clean it, and check the results with test cases.", after: [code/console] }
+      - { path: code/data, stage: extensions, after: [code/console] }
       - { path: code/deeper, stage: extensions, after: [code/console] }
       - { path: code/gradio, stage: extensions, after: [code/console] }
-      - { title: Machine learning with Gradio, tagline: "Train a model, then put it behind an app.", stage: extensions, summary: "Train small models on data, and put a model behind an app.", after: [data-detective] }
+      - { title: Machine learning with Gradio, tagline: "Train a model, then put it behind an app.", stage: extensions, summary: "Train small models on data, and put a model behind an app.", after: [code/data] }
       - { title: Games with microStudio, tagline: "Make a real game with sprites, maps and sound.", stage: extensions, summary: "Sprites, maps, sound and a game loop in text code.", after: [code/objects] }
       - { id: flask, title: Web apps with Flask, tagline: "Put Python behind your own web pages.", stage: extensions, summary: "Your own HTML pages with Python behind them: routes, forms, templates and saved data, ending with the same API in FastAPI.", after: [code/console, code/html] }
   - id: web

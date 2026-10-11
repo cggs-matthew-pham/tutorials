@@ -30,8 +30,9 @@
       <div id="app-body" class="app-body"></div>
     </div>
     <div id="files" class="files" hidden>
-      <p class="files-note">Files your programs make with <code>open()</code>. They are kept in this browser, for this course.</p>
+      <p class="files-note">Files your programs read and write with <code>open()</code>. They are kept in this browser, for this course.</p>
       <ul id="file-list"></ul>
+      <div class="file-tools"><button type="button" class="btn" id="file-restore" hidden>Get this lesson's files again</button><label class="btn" id="file-add-label">Add a file from this computer<input type="file" id="file-add" accept=".csv,.txt,.json,.py,text/*" hidden></label></div>
       <pre id="file-view" hidden></pre>
     </div>
   </section>

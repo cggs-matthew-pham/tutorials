@@ -416,6 +416,53 @@
      "hint": "The first time, there is no file: catch FileNotFoundError instead of stopping."
     }
    ]
+  },
+  {
+   "name": "Data",
+   "items": [
+    {
+     "label": "read a CSV",
+     "matches": "csv\\.DictReader\\(",
+     "code": "import csv\n\nwith open(\"‹music.csv›\") as f:\n    ‹rows› = list(csv.DictReader(f))\n",
+     "hint": "Each row of the file becomes a dictionary, keyed by the column names in the first line. Every value is text."
+    },
+    {
+     "label": "count with a dictionary",
+     "matches": "^\\s*\\w+\\s*=\\s*\\{\\}\\s*$",
+     "code": "counts = {}\nfor ‹row› in ‹rows›:\n    ‹key› = ‹row›[\"‹genre›\"]\n    if ‹key› in counts:\n        counts[‹key›] = counts[‹key›] + 1\n    else:\n        counts[‹key›] = 1\n",
+     "hint": "One count for each different value: add 1 if the key is there already, or start it at 1."
+    },
+    {
+     "label": "a text bar",
+     "matches": "\"#\"\\s*\\*",
+     "code": "print(‹label›.ljust(‹12›) + \"#\" * ‹n›)\n",
+     "hint": "\"#\" * 5 is #####. ljust pads the label to the same width, so the bars line up."
+    },
+    {
+     "label": "test with assert",
+     "matches": "^\\s*assert\\b",
+     "code": "assert ‹clean_hours(\"5\")› == ‹5›\n",
+     "hint": "A test case: nothing happens if it is true; the program stops with AssertionError if it is not."
+    },
+    {
+     "label": "read a CSV with pandas",
+     "matches": "pd\\.read_csv\\(",
+     "code": "import pandas as pd\n\n‹songs› = pd.read_csv(\"‹music.csv›\")\n",
+     "hint": "Reads the whole file into a table (a DataFrame). Numbers stay numbers."
+    },
+    {
+     "label": "filter a table",
+     "matches": "\\w+\\[\\w+\\[\"\\w+\"\\]\\s*(==|>=|<=|>|<)",
+     "code": "‹rows› = ‹songs›[‹songs›[\"‹genre›\"] == ‹genre›]\n",
+     "hint": "Keeps the rows where the test is true, as a smaller table."
+    },
+    {
+     "label": "an app with Gradio",
+     "matches": "gr\\.Interface\\(",
+     "code": "import gradio as gr\n\ndef ‹answer›(‹choice›):\n    return ‹\"You chose \" + choice›\n\ngr.Interface(fn=‹answer›, inputs=gr.Dropdown(‹[\"pop\", \"rock\"]›), outputs=\"text\").launch()\n",
+     "hint": "Gradio calls your function with what was chosen, and shows what it returns."
+    }
+   ]
   }
  ]
 }

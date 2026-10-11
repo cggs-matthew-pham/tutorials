@@ -1,0 +1,39 @@
+summary: Students count every genre at once with a dictionary and draw the counts as a text bar chart, then chart by decade, filter the bars, and total minutes per genre.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 10 min"
+goals:
+  - I can count every value in a column with a dictionary.
+  - I can draw a count as a bar with "#" * n.
+  - I can change what a chart shows by changing the key or adding an if.
+before: |
+  Read the unit primer first. The counting pattern: `counts = {}`, then for each row, if the key is in `counts` add 1, otherwise start it at 1 (the bug task leaves out the start, giving a `KeyError`). Looping over a dictionary (`for genre in counts:`) gives its keys. `"#" * n` repeats text; `ljust(12)` pads text with spaces to 12 characters so the bars line up. The decade task uses `//` (divide and drop the remainder): `1987 // 10 * 10` is 1980. The Where this leads question is about where data comes from: this file is a hand-picked set of well-known songs, so it says nothing about music in general.
+running:
+  - "Predict: draw the two bars on the board with tally marks first."
+  - "Run: add print(counts) after the loop so students see the dictionary itself."
+  - "Investigate: act out counting with sticky notes, one per genre, adding a stroke for each song."
+  - "Modify: 1987 // 10 * 10 on the board, step by step."
+  - "Make: ask what one # stands for, and write it on the chart as a key."
+stuck:
+  - see: "KeyError: 'country'."
+    ask: Does the genre have a count before you add 1 to it?
+    fix: "if genre in counts: add 1, else: start it at 1."
+  - see: "AttributeError: 'int' object has no attribute 'ljust'."
+    ask: Is the key a number now?
+    fix: "str(decade).ljust(12)."
+  - see: "TypeError: can't multiply sequence by non-int of type 'float'."
+    ask: Is the number of #s a whole number?
+    fix: "\"#\" * int(minutes / 5)."
+stretch: Print the bars in order, biggest first (sorted(counts, key=counts.get, reverse=True) is one way to look up).
+support: Give students the counting loop and ask them only to write the loop that draws the bars.
+leads: "Next lesson cleans messy data and checks code with test cases. Lesson 5 draws the same chart with Gradio's BarPlot."
+exit:
+  q: "Why does counting need if genre in counts:?"
+  a: "The first time a genre appears it has no count yet, so counts[genre] + 1 would fail; it starts at 1 instead."
+explain: |
+  1. `counts` starts as an empty dictionary.
+  2. Each song adds 1 to its genre's count, or starts that count at 1 if the genre is new.
+  3. A second loop draws a bar for each genre: `"#"` times its count.
+solutions:
+  step-4#t1: chart.py#sol-decades
+  step-4#t2: chart.py#sol-three
+  step-5: chart.py#sol-make

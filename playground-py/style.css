@@ -65,7 +65,8 @@ html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink);
 .gr .out-label { font-size: 14px; font-weight: 600; }
 .gr table { border-collapse: collapse; font-size: 14px; }
 .gr th, .gr td { border: 1px solid var(--line); padding: 3px 8px; text-align: left; }
-.gr .bar-row { display: grid; grid-template-columns: minmax(4em, max-content) 1fr; gap: 8px; align-items: center; font-size: 14px; }
+.gr .out-bar { display: grid; grid-template-columns: minmax(4em, max-content) 1fr; gap: 4px 8px; align-items: center; font-size: 14px; }
+.gr .bar-row { display: contents; }
 .gr .bar-fill { height: 16px; background: var(--accent); border-radius: 3px; min-width: 2px; }
 .gr .err { color: var(--bad); white-space: pre-wrap; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
 
@@ -90,3 +91,6 @@ body.output-only #code { position: absolute; width: 1px; height: 1px; opacity: 0
   .pg { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1.1fr) minmax(0, 1fr); }
   .editor-pane { border-right: 0; border-bottom: 1px solid var(--line); }
 }
+.file-tools { display: flex; flex-wrap: wrap; gap: 8px; }
+.file-tools .btn { font-size: 14px; padding: 4px 12px; }
+.file-tools .btn[hidden] { display: none; }

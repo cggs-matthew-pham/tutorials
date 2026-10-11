@@ -799,6 +799,8 @@ export function tryEmbed(lesson, step, starter, siteRoot, locks = '', mods = nul
   }
   // Modules the playground offers: ?use=shapes,house, plus ?mods={name: source} for ones that live in the lesson
   if (mods && pg === PLAYGROUNDS.turtle && mods.use.length) { q.set('use', mods.use.join(',')); if (Object.keys(mods.local).length) q.set('mods', JSON.stringify(mods.local)); }
+  // Python playground data files: copied by the build to <lesson>/files/; the playground adds any the student lacks.
+  if (Array.isArray(t.files) && t.files.length) { q.set('files', t.files.map((f) => f.split('/').pop()).join(',')); q.set('from', `${lesson.slug}/files/`); }
   if (locks) q.set('locks', locks); // the create page's preview: "id~Step title|id~Step title"
   if (versions?.[pg.dir]) q.set('v', versions[pg.dir]); // a new deploy gets a new URL, never a cached old playground
   const wide = pg.dir === '_playground-makecode' && makecodeExtensions(lesson).some((e) => e.wide);

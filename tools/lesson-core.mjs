@@ -126,7 +126,9 @@ export function evalRules(rules, text, kind) {
     if (rules.calls) out.push({ label: rules.calls === 1 ? 'Call your function' : `Call one of your functions at least ${rules.calls} times`, ok: Math.max(0, ...fdefs.map((d) => fcalls(d.name))) >= rules.calls });
     return out;
   }
-  const code = String(text).split('\n').map((l) => l.replace(/#.*$/, ''));
+  // Comments end at the line's end; a # inside quotes ("#" * 5, "#ff0000") is text, not a comment.
+  const noComment = (l) => { let q = null; for (let i = 0; i < l.length; i++) { const c = l[i]; if (q) { if (c === '\\') i++; else if (c === q) q = null; } else if (c === '"' || c === "'") q = c; else if (c === '#') return l.slice(0, i); } return l; };
+  const code = String(text).split('\n').map(noComment);
   const defs = [];
   code.forEach((l) => { const m = l.match(/^\s*def\s+([A-Za-z_]\w*)\s*\(([^)]*)\)/); if (m) defs.push({ name: m[1], params: m[2].split(',').filter((x) => x.trim()).length }); });
   const count = (re) => code.filter((l) => re.test(l)).length;
@@ -534,8 +536,15 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
     if (c.try !== undefined) {
       if (typeof c.try !== 'object' || Array.isArray(c.try)) err(where, 'try must be a mapping: { starter: file#region, height: 460 }');
       else if (c.try.playground && !PLAYGROUND_KINDS.includes(c.try.playground)) err(where, `try.playground must be one of ${PLAYGROUND_KINDS.join(', ')}`);
-      else if (c.try.starter) { try { snip(c.try.starter); } catch (e) { err(where, `try.starter: ${e.message}`); } }
-      else if (!c.code) err(where, 'try needs a starter (file#region) or a step-level code reference to start from');
+      else {
+        // files: data files a Python playground step puts in the student's files (paths from the lesson folder).
+        if (c.try.files !== undefined) {
+          if (c.try.playground !== 'python' || !Array.isArray(c.try.files) || !c.try.files.length || !c.try.files.every((f) => typeof f === 'string' && f.trim())) err(where, 'try.files is a list of data files for the Python playground (paths from the lesson folder, such as ../sets/music.csv), with playground: python');
+          else for (const f of c.try.files.filter((x) => read(x) === undefined)) err(where, `try.files: ${f} not found (paths are from the lesson folder)`);
+        }
+        if (c.try.starter) { try { snip(c.try.starter); } catch (e) { err(where, `try.starter: ${e.message}`); } }
+        else if (!c.code) err(where, 'try needs a starter (file#region) or a step-level code reference to start from');
+      }
     }
     if (c.clip !== undefined) {
       if (!Array.isArray(c.clip) || !c.clip.length) { err(where, 'clip must be a non-empty list of actions'); continue; }

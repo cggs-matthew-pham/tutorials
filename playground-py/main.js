@@ -75,6 +75,35 @@ function renderFiles() {
 }
 renderFiles();
 
+// Lesson data files (?files=music.csv&from=code/data/rows/files/): added when the student does not have them yet,
+// so their own changes to a file are kept; "Get this lesson's files again" puts the originals back.
+const lessonFiles = (params.get('files') || '').split(',').map((s) => s.trim()).filter(Boolean);
+const fileBase = new URL('../' + (params.get('from') || ''), location.href);
+async function fetchLessonFiles(names) {
+  const got = {};
+  for (const n of names) { try { const r = await fetch(new URL(n, fileBase), { cache: 'no-cache' }); if (r.ok) got[n] = { text: await r.text() }; } catch { /* offline: skip */ } }
+  return got;
+}
+const lessonFilesReady = (async () => {
+  const missing = lessonFiles.filter((n) => !files[n]);
+  if (missing.length) saveFiles({ ...files, ...(await fetchLessonFiles(missing)) });
+})();
+if (lessonFiles.length) {
+  const b = $('file-restore'); b.hidden = false;
+  b.addEventListener('click', async () => {
+    if (!confirm(`Put back the lesson's ${lessonFiles.join(', ')}? Changes you made to ${lessonFiles.length > 1 ? 'them' : 'it'} are lost.`)) return;
+    saveFiles({ ...files, ...(await fetchLessonFiles(lessonFiles)) });
+  });
+}
+// A file of the student's own, such as their class's CSV.
+$('file-add').addEventListener('change', async (e) => {
+  const f = e.target.files[0]; e.target.value = '';
+  if (!f) return;
+  const name = f.name.replace(/[^\w.-]/g, '_');
+  if (files[name] && !confirm(`Replace your ${name}?`)) return;
+  saveFiles({ ...files, [name]: { text: await f.text() } });
+});
+
 // ---------- console ----------
 const OUT_CAP = 40000;
 let outLen = 0;
@@ -268,6 +297,7 @@ runBtn.addEventListener('click', async () => {
   outEl.textContent = ''; outLen = 0; clearApp(); showView('console');
   Object.assign(window.__playground, { output: '', error: null });
   setRunning(true); setStatus('running', 'Running…');
+  await lessonFilesReady;
   const m = await new Promise((resolve) => { runDone = resolve; worker.postMessage({ type: 'run', code: mainText, files }); });
   runDone = null;
   if (m.stopped) setStatus('stopped', 'Stopped');

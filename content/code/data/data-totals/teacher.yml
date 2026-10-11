@@ -1,0 +1,38 @@
+summary: Students total a column, divide for an average and track the longest song with a biggest-so-far variable, then restrict the average to one genre, find the oldest song and write genre stats that cope with no matches.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 10 min"
+goals:
+  - I can add up a column with a total that starts at 0.
+  - I can work out an average from a total and a count.
+  - I can keep the biggest (or smallest) so far as the loop goes.
+before: |
+  Read the unit primer first. Two patterns carry the lesson. The **accumulator**: `total = 0` before the loop, `total = total + x` inside it (the bug task replaces instead of adding). The **biggest so far**: start with the first row, and replace it only when a row beats it. `float()` turns "3.9" into a number (minutes have decimals; years use `int()`). An average of some rows needs its own count, since `len(songs)` counts every song; with no matching rows the count is 0 and dividing by it is an error, which the Make asks students to handle. `round(x, 1)` is used once for tidy output.
+running:
+  - "Predict: write total on the board and update it aloud for each number."
+  - "Investigate: do the trace together, then ask why Billie Jean does not replace Bohemian Rhapsody."
+  - "Modify: ask where the count must go up: inside the if, beside the adding."
+  - "Make: ask students for a genre that is not in the data, and what their program does with it."
+stuck:
+  - see: The total is only the last song's minutes.
+    ask: Does the line add to total, or replace it?
+    fix: "total = total + minutes."
+  - see: "ZeroDivisionError: division by zero."
+    ask: What is the count when no song matches?
+    fix: "Check if count == 0 before dividing, and print a message instead."
+  - see: "TypeError: can only concatenate str (not \"float\") to str."
+    ask: Is the number being joined onto text?
+    fix: "Wrap it in str() before joining with +."
+stretch: Find the longest song of each decade (the 1980s, the 1990s...), using year // 10 * 10 for the decade.
+support: Give students the rock average with the count already added, and ask them to do the oldest song by copying the longest pattern.
+leads: "Next lesson counts every genre at once with a dictionary and draws a bar chart. In pandas (Lesson 5) these become one-word methods such as .mean() and .max()."
+exit:
+  q: "Why does an average of the pop songs need its own count?"
+  a: "len(songs) counts every song; the average of some songs divides their total by how many of them there are, counted inside the if."
+explain: |
+  1. A total starts at 0, and each row adds to it: `total = total + minutes`.
+  2. The average is the total divided by how many rows were added.
+  3. The longest so far starts as the first song and is replaced only by a longer one.
+solutions:
+  step-4#t1: totals.py#sol-rock
+  step-4#t2: totals.py#sol-oldest
+  step-5: totals.py#sol-make

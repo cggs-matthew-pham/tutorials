@@ -68,6 +68,8 @@ function tryHtml(lesson, step) {
   // Modules a lesson offers: a file next to lesson.md overrides a shared one; shared ones the playground loads itself.
   const local = {};
   for (const name of lesson.modules) { const f = join(lesson.dir, `${name}.py`); if (existsSync(f)) local[name] = readFileSync(f, 'utf8'); }
+  // Data files for the Python playground (try.files, paths from the lesson folder) are served from <lesson>/files/.
+  if (Array.isArray(t.files)) { mkdirSync(join(OUT, lesson.slug, 'files'), { recursive: true }); for (const f of t.files) copyFileSync(join(lesson.dir, f), join(OUT, lesson.slug, 'files', f.split('/').pop())); }
   return tryEmbed(lesson, step, getSnippet(lesson.dir, t.starter || step.config.code), '../'.repeat(lesson.depth), '', { use: lesson.modules, local }, VERSIONS);
 }
 
@@ -200,6 +202,7 @@ const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Pyth
   // The console bridge: the turtle playground with its own saved program; a starter with no turtle opens it in console mode.
   'code/console': { kind: 'turtle', dir: '_playground', label: 'Python console', id: 'free/console', code: 'name = input("What is your name? ")\nprint("Hello, " + name + "!")\n' },
   'code/objects': { kind: 'turtle', dir: '_playground', label: 'Python', id: 'free/objects' },
+  'code/data': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/data', code: 'import csv\n\nwith open("music.csv") as f:\n    songs = list(csv.DictReader(f))\n\nprint(songs[0])\n' },
   'code/deeper': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/deeper', code: 'words = input("What do you do? ").strip().lower().split()\nprint(words)\n' } };
 // Maths cards (snippets/maths.json, maths-<name>.json): a Reference page and cheat sheets for the course each names.
 const MATHS_CARDS = loadAllMathsCards();
@@ -208,6 +211,7 @@ const REFS = [{ file: 'turtle', path: 'code/python/reference' }, { file: 'html',
   // groups: only these groups of the file; title and summary: shown instead of the file's own.
   { file: 'turtle', path: 'code/console/reference', groups: ['Text in and out', 'Code structure'], title: 'Python console reference', summary: 'The commands from the console bridge, with what each one does.' },
   { file: 'turtle', path: 'code/deeper/reference', groups: ['Text in and out', 'Text and collections', 'Files', 'Code structure', 'Objects'], title: 'Python console reference', summary: 'Text, lists, dictionaries and files in the console, with what each command does.' },
+  { file: 'turtle', path: 'code/data/reference', groups: ['Data', 'Text and collections', 'Code structure'], title: 'Data detective reference', summary: 'Reading, counting, charting, cleaning and testing data in Python, then pandas and Gradio.' },
   { file: 'turtle', path: 'code/objects/reference', title: 'Python turtle and objects reference', summary: 'Turtle commands, and the objects, dictionaries and classes from Objects with turtles.' }, ...MATHS_CARDS.map((m) => ({ file: m.file, path: `${m.course}/reference` }))];
 
 // The site navbar: Learning Waypoints, Tutorials, then one menu per subject (a top-level folder, such as Code)

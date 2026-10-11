@@ -1,0 +1,38 @@
+summary: Students read the music data with pandas, filter it in one line, and put it behind a Gradio dashboard with a dropdown, a table and a bar chart, then add a year slider, sort the rows and build a dashboard of their own.
+time: 50
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 15 min"
+goals:
+  - I can read a CSV with pandas and filter its rows with a test.
+  - I can make a Gradio app from a function, its inputs and its outputs.
+  - I can add an input by adding a component and a matching parameter.
+before: |
+  Read the unit primer first. The playground runs a small **stand-in for Gradio** (Textbox, Number, Slider, Dropdown, Checkbox, Dataframe, BarPlot with `gr.Interface`), written so the same file runs unchanged in real Gradio; on a computer, `pip install gradio pandas` and `python app.py` runs it as a real web app, and a teacher can host it as a Hugging Face Space (Hugging Face accounts need age 13+). pandas takes a few seconds to load the first time. `pd.read_csv` reads the file into a table (a DataFrame) and keeps numbers as numbers. `songs[songs["genre"] == genre]` keeps the rows where the test is true: Lesson 1's loop and if in one line. Gradio calls the function with one argument per input, in order, and puts each returned value in an output, in order. `import gradio as gr` and the `gr.` / `pd.` forms are recipes here.
+running:
+  - "Predict: draw the app on the board: a dropdown, a button, an output box, and an arrow through the function."
+  - "Run: ask students which line of Lesson 1 the filter line replaces."
+  - "Modify: add the slider to inputs and the parameter to the function at the same time; count both."
+  - "Make: have students write their question in a comment before any code."
+stuck:
+  - see: "TypeError: by_genre() takes 1 positional argument but 2 were given."
+    ask: How many inputs are there, and how many parameters does the function have?
+    fix: Add a parameter for every input, in the same order.
+  - see: The table shows but the chart is empty or wrong.
+    ask: Do x and y name columns that are in the table?
+    fix: "x=\"title\", y=\"minutes\": column names exactly as in the file."
+  - see: "KeyError: 'Genre'."
+    ask: How is the column named in the file?
+    fix: Column names must match exactly, including capitals.
+stretch: Add a Checkbox "Australian artists only" with a list of artist names and isin(...), or a second chart of counts per year.
+support: Give students the Slider line written out, and ask them only to add the parameter and the filter line.
+leads: "Machine learning with Gradio (coming later) trains small models on the same tables. Web apps with Flask builds the pages behind an app by hand."
+exit:
+  q: "How does Gradio know what to pass to your function?"
+  a: "It calls the function with one value for each input, in the order the inputs are listed, and shows each returned value in the outputs, in order."
+explain: |
+  1. `pd.read_csv` reads the file into a table; numbers stay numbers.
+  2. `songs[songs["genre"] == genre]` keeps only the rows for the chosen genre.
+  3. Gradio calls the function with the dropdown's choice, and shows what it returns: a table and a bar chart.
+solutions:
+  step-4#t1: dashboard.py#sol-year
+  step-4#t2: dashboard.py#sol-sort
+  step-5#t1: dashboard.py#sol-make

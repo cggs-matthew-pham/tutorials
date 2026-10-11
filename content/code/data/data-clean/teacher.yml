@@ -1,0 +1,39 @@
+summary: Students clean a messy survey with a function that returns a number or None, check it with assert test cases, then tidy genres, skip repeated rows and chart the cleaned genres.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 10 min"
+goals:
+  - I can write a function that cleans one value, or gives back None when it cannot.
+  - I can write test cases with assert and use them to find a mistake.
+  - I can say which rows were left out of a result, and why.
+before: |
+  Read the unit primer first. `survey.csv` is made up (no real students) with deliberate mess: capitals and spaces in genres, a blank genre, a blank hours answer, "three", -1, 400 (a week has 168 hours) and a repeated row. `clean_hours` returns a number, or `None` ("no value") when the answer cannot be used; `hours is None` checks for it (`is` is the usual way to compare with None). `try` / `except ValueError` is introduced here in one sentence (the Predict): try a line, and if it causes that error, run the except lines instead of stopping. Deeper Python's errors lesson goes further. **Test cases** are `assert` lines: silent when true, and the program stops with `AssertionError` when false. The bug task joins the two range checks with `and`, which can never be true; the tests catch it. Talk about honesty: a report says how many answers were used.
+running:
+  - "Predict: float() on each of the four answers, on the board."
+  - "Run: have students break a test on purpose (168 to 16) and read the AssertionError."
+  - "Investigate: ask for a number that is below 0 and above 168 at the same time."
+  - "Modify: write the test case before the function, then make it pass."
+  - "Make: compare the chart with the raw file: what would the chart show without clean_genre?"
+stuck:
+  - see: "AssertionError on a test line."
+    ask: What does the function give for that input, and what does the test expect?
+    fix: "Print clean_hours(\"400\") to see what it gives, then fix the function, not the test."
+  - see: "ZeroDivisionError at the average."
+    ask: Did any row get counted?
+    fix: Check that count goes up in the else, for the rows that are kept.
+  - see: The repeated student is still counted twice.
+    ask: When is the student added to seen?
+    fix: "seen.append(...) when a row is used, and check if row[\"student\"] in seen first."
+stretch: Write clean_year(text) for the year_level column (only 7 to 12 allowed) with test cases, and print the average hours for each year level.
+support: Give students clean_genre written out, and ask them to write the two test cases for it.
+leads: "Next lesson puts the data behind a Gradio app with pandas, which has its own cleaning tools. Test cases come back in every later course."
+exit:
+  q: "What does a test case such as assert clean_hours(\"400\") is None prove?"
+  a: "That the function rejects an impossible answer; if someone breaks the function later, the program stops on that line and says so."
+explain: |
+  1. `clean_hours` gives back a number, or `None` when an answer cannot be used: not a number, or impossible.
+  2. `assert` lines are test cases: silent when true, and they stop the program when false.
+  3. The loop skips the rows that come back `None`, and the result says how many answers it used.
+solutions:
+  step-4#t1: clean.py#sol-genre
+  step-4#t2: clean.py#sol-repeat
+  step-5: clean.py#sol-make

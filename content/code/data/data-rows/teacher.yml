@@ -1,0 +1,42 @@
+summary: Students read music.csv into a list of dictionaries with csv.DictReader, find values by row and key, learn that every value from a CSV is text, then filter and count rows and build a genre finder.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 10 min"
+goals:
+  - I can read a CSV file into a list of dictionaries.
+  - I can find a value by row and column, such as songs[2]["artist"].
+  - I can pick and count rows with a loop and an if, turning text into a number when I compare.
+before: |
+  Read the unit primer first. This course runs in the **Python playground** (real Python in the browser, Pyodide). The first load takes a few seconds; before teaching it, open the site's Check your school page once on a student device at school. `music.csv` appears in each student's Files tab by itself (the Files tab can put the lesson's copy back, or add a CSV from the computer). `csv.DictReader(f)` reads the first line as column names and makes every other line a dictionary; `list(...)` keeps them all. Every value is **text**, so `"2013" + "1"` is `"20131"` (the Predict) and comparing a year with a number fails (the bug task) until `int()` changes it. Dictionaries are introduced here only as far as reading one (`song["title"]`: a value looked up by its key); Deeper Python goes further. `with open(...)` is a recipe here (copy the lines), taught properly in Deeper Python's Save the game.
+running:
+  - "Predict: write \"2013\" + \"1\" on the board, then 2013 + 1. Quotes make text."
+  - "Run: have students open music.csv in the Files tab and match the first row with songs[0]."
+  - "Investigate: count from 0 together: songs[0] is the first song."
+  - "Modify: the count goes up inside the if; the print goes after the loop."
+  - "Make: test with pop, Pop and a genre that is not there."
+stuck:
+  - see: "TypeError: '>=' not supported between instances of 'str' and 'int'."
+    ask: Is the year text or a number at this point?
+    fix: "int(song[\"year\"]) >= 2010."
+  - see: "KeyError: 'Genre'."
+    ask: How is the key spelled in the first line of the file?
+    fix: "Keys must match exactly, including capitals: genre, not Genre."
+  - see: The count prints once for every song.
+    ask: Is the print indented inside the loop?
+    fix: Move the print to after the loop, not indented.
+  - see: "FileNotFoundError: music.csv."
+    ask: Is music.csv in the Files tab?
+    fix: "Use \"Get this lesson's files again\" in the Files tab."
+stretch: Ask for a year as well, and list only that genre's songs from that year on.
+support: Give students the loop with the if already written, and ask them only to add the count.
+leads: "Next lesson: totals, averages and the longest song. Swapping in another CSV with the same idea (a class survey, sports results) keeps every program working with new keys."
+exit:
+  q: "Why does int(song[\"year\"]) need int()?"
+  a: "Every value read from a CSV is text; int() turns \"2013\" into the number 2013 so it can be compared or added."
+explain: |
+  1. `csv.DictReader` reads the file's first line as the keys, and turns every other line into a dictionary.
+  2. `songs[0]` is the first row; `songs[0]["title"]` is one value in it.
+  3. Every value is text, even the year. `int()` makes it a number before you compare or add.
+solutions:
+  step-4#t1: rows.py#sol-recent
+  step-4#t2: rows.py#sol-count
+  step-5: rows.py#sol-make
