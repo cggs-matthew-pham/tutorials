@@ -1,0 +1,72 @@
+playground: arcade
+projects:
+  - id: treasure-hunt
+    title: Treasure hunt
+    after: arcade-if
+    goal: |
+      Make a **collecting game**: the player moves around, treasure appears in random places, collecting it scores, and something changes when the score gets high enough (the background, the speed, a message). Your own player, treasure and setting.
+    example: treasure-hunt.ts
+    uses: [variable, random, if]
+    milestones:
+      - "My player moves with the controller and the treasure appears somewhere new each time."
+      - "Touching the treasure scores a point."
+      - "Something changes when the score passes a number I chose, decided by an if."
+    stretch:
+      - "A countdown: score as much as you can in 30 seconds."
+      - "Two kinds of treasure, worth different points."
+      - "A hazard that costs a life."
+    teacher: |
+      All blocks from lessons 1 to 5. Students who want art can draw their own sprites in the image editor; set a time limit on drawing.
+
+  - id: escape
+    title: Escape
+    after: arcade-chase
+    goal: |
+      Make a **chase game**: enemies follow the player around the screen, and the player has to survive, reach a goal or collect things to escape. How the enemies move, and how you win, are your choice.
+    example: escape.ts
+    uses: [if, else, random]
+    milestones:
+      - "At least one enemy follows the player (it turns towards them, using if and else)."
+      - "Getting caught costs a life, once per catch."
+      - "There is a way to win, and the game says so."
+    stretch:
+      - "Enemies that speed up over time."
+      - "A safe zone where enemies cannot go."
+      - "An enemy that runs away instead."
+    teacher: |
+      The usual bug is losing all lives at once: the enemy must be destroyed or moved away in the overlap, as in Score and lives. Ask students to say how the enemy decides which way to go before they build it.
+
+  - id: defender
+    title: Defender
+    after: arcade-projectiles
+    goal: |
+      Make a **shooting game** with a twist of your own: waves of enemies arrive, the player fires at them, and a button or event does something to all of them at once (freeze them, slow them, clear the screen).
+    example: defender.ts
+    uses: [for-of, if, random]
+    milestones:
+      - "Enemies keep arriving from random places, and the player can shoot them."
+      - "Something happens to every enemy at once, with a for element loop over all of them."
+      - "There is a way to lose, checked with if."
+    stretch:
+      - "A shield that lasts a few seconds."
+      - "Bigger enemies that take two hits."
+      - "A boss after 20 points."
+
+  - id: my-arcade-game
+    title: Your own Arcade game
+    after: arcade-levels
+    goal: |
+      Make a game with **levels**: each level is a little harder (faster, more enemies, a different map), the levels come from a list, and a function sets each one up. The kind of game is yours.
+    example: my-game.ts
+    uses: [list, list-index, function]
+    milestones:
+      - "My levels come from a list (speeds, counts or colours), read by level number."
+      - "A function sets up a level, and I call it at the start and when a level is done."
+      - "There are at least three levels, and each one is harder."
+      - "Someone else played it and I changed one thing because of what they did."
+    stretch:
+      - "A different background or tilemap for each level."
+      - "A title screen and a win screen."
+      - "Power-ups, as in lesson 12."
+    teacher: |
+      Lesson 13 (Is Arcade the right tool?) is worth doing first: it steers students away from physics games Arcade cannot do well. Ask for a one-sentence pitch before coding.

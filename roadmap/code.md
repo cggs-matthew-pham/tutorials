@@ -189,11 +189,13 @@ A brief that needs two courses belongs to the later one. Why not a pathway page 
 - Python Foundations: Pattern maker, A street of your own, Chart your data, Click-and-key art, Your own game.
 - HTML & CSS: A page about something you love, A recipe card, An event page, An order form.
 - micro:bit and the computer: A live dashboard (crossover: MakeCode and a DOM page with `microbit.js`).
+- micro:bit Foundations: Pocket pet, The answer machine, Quiz buzzer, Your own micro:bit game.
+- Arcade Foundations: Treasure hunt, Escape, Defender, Your own Arcade game.
 - Recap on for Python, HTML & CSS, micro:bit and Arcade.
 
 **Next:**
-- Briefs for Arcade, micro:bit, the DOM course, Vue and Bootstrap.
-- MakeCode examples have no picture yet (render-pictures draws Python and HTML ones).
+- Briefs for the DOM course, Vue and Bootstrap.
+- MakeCode examples were written without the live editor (the sandbox cannot reach it): the first publish draws their pictures, and a failed one shows in `_pictures/makecode-out/failures.txt`.
 - Try the badge and the Show your teacher card with a class.
 - Test `microbit.js` with a real micro:bit in Chrome (the sandbox has no USB).
 
@@ -238,6 +240,7 @@ Every route through the Web pathway (hand-built pages, Bootstrap, the DOM, Vue) 
 - An Arcade "Worlds" unit (tilemaps); a picture of the robot arena.
 
 ## Log
+- 12 Oct: micro:bit and Arcade project briefs (8); MakeCode brief pictures drawn by the simulator.
 - 12 Oct: open projects (10 briefs, self-assessed badges, skills lit by the concept scan), `microbit.js` with a pretend micro:bit, recap on four foundations courses.
 
 - 12 Oct: per-step MakeCode toolbox filters parked; hiding blocks, if wanted, comes through tutorials (Parked).

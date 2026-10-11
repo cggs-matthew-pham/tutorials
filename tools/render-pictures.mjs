@@ -275,7 +275,7 @@ await pictures({
 
 // ---- Open projects (tools/projects.mjs): a brief's example as its picture ("one way it could look"), never its code.
 // Python runs in the turtle playground (a program that waits for clicks or keys is pictured after 4 seconds); HTML and
-// DOM examples are pages, like expected results. MakeCode parts have no picture yet. _pictures/projects/<course>/<id>[-<part>].png.
+// DOM examples are pages, like expected results. MakeCode examples are drawn in makecode-out (projects/<course>/<id>). _pictures/projects/<course>/<id>[-<part>].png.
 const { loadProjects } = await import('./projects.mjs');
 await pictures({
   name: 'projects', dir: join(DIR, 'projects'), viewport: { width: 900, height: 700 },
@@ -518,7 +518,12 @@ if (!NO_MAKECODE) {
       const target = targetOf(l);
       const pkg = makecodePackage(l);
       return { id: `${l.slug}/${e.key}`, target, pkg, src: getSnippet(l.dir, e.ref), code: `// ${target}${pkg ? ` ${pkg}` : ''}\n${getSnippet(l.dir, e.ref)}` };
-    })),
+    })).concat(
+      // Open projects (tools/projects.mjs): a MakeCode brief's example, as its picture (projects/<course>/<id>[-<part>].png).
+      (await import('./projects.mjs')).loadProjects('content', () => undefined).flatMap((st) => st.projects.flatMap((p) => p.parts.map((x, i) => ({ x, i, p }))
+        .filter(({ x }) => x.exampleCode && x.language === 'makecode')
+        .map(({ x, i, p }) => ({ id: `projects/${st.course}/${p.id}${p.parts.length > 1 ? `-${i + 1}` : ''}`, target: x.playground, pkg: '', src: x.exampleCode, code: `// ${x.playground}\n${x.exampleCode}` })))),
+    ),
     async draw(page, j) {
       if (down.has(j.target)) return null;
       const q = new URLSearchParams({ target: j.target, sim: '1', code: j.src });

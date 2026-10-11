@@ -515,11 +515,14 @@ function writeProjects(node, set) {
     return dirNode(c).meta?.recap === true && !l.optional ? `${from}${c}/recap/#${name}` : `${from}${l.slug}/`;
   };
   const picOf = (p, from) => {
-    PROJPICS ||= readPics(['projects']);
-    const i = p.parts.findIndex((x) => PROJPICS[`${node.path}/${p.id}${p.parts.length > 1 ? `-${p.parts.indexOf(x) + 1}` : ''}`]);
+    // Python and HTML examples: _pictures/projects/; MakeCode ones are drawn by its simulator into _pictures/makecode-out/projects/.
+    PROJPICS ||= { ...readPics(['projects']), ...Object.fromEntries(Object.entries(readPics(['makecode-out'])).filter(([k]) => k.startsWith('projects/')).map(([k, v]) => [k.slice(9), { ...v, mk: true }])) };
+    const keyOf = (i) => `${node.path}/${p.id}${p.parts.length > 1 ? `-${i + 1}` : ''}`;
+    const have = p.parts.map((_, i) => i).filter((i) => PROJPICS[keyOf(i)]);
+    const i = have.find((n) => !PROJPICS[keyOf(n)].mk) ?? have[0] ?? -1;   // a crossover shows its page rather than the board
     if (i < 0) return null;
     const k = `${node.path}/${p.id}${p.parts.length > 1 ? `-${i + 1}` : ''}`, r = PROJPICS[k];
-    return { src: `${from}_pictures/projects/${k}.png?v=${r.hash || ''}`, w: Math.round(r.w / (r.div || 2)), h: Math.round(r.h / (r.div || 2)) };
+    return { src: `${from}_pictures/${r.mk ? 'makecode-out/projects' : 'projects'}/${k}.png?v=${r.hash || ''}`, w: Math.round(r.w / (r.div || 2)), h: Math.round(r.h / (r.div || 2)) };
   };
   const mdp = new Marked();
   mkdirSync(join(OUT, pp), { recursive: true });
