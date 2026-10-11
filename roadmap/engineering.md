@@ -51,11 +51,16 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 - Course `engineering/cad` (Design and print, foundations): 1. Design to a dimension (two walls; part + gap + wall; a Tinkercad case), 2. Parts that fit (printers shrink holes and grow pegs; sliding and press fits; a tolerance test card), 3. Design for the printer (supports over 45°, weak across layers; the slicer's layer preview), 4. Slicer trade-offs (layers double the time; walls beat infill). Course `engineering/parametric` (extensions, after cad): 1. Parametric design (driving vs driven dimensions; Onshape variables), 2. Laser cutting and kerf (optional; slot = drawn + kerf; a test comb). Primers `size.md`, `print.md`. Misconceptions `wall-one-side`, `same-size-fits`, `print-strength-equal`, `more-infill-better`, `edit-means-redraw`, `cut-on-the-line`.
 - New `fab` widget (six modes; stated models, calibrate fits to the school's printer and cutter). Every board check tested headless; six clips record. Ports 8522–8527.
 
+## Done (12 Oct 2026): Gear trains and Mechanisms practice
+
+- `engineering/mechanisms/trains` (lesson 2, unit gears): an idler changes direction, not ratio (Predict, then the board with a choosable idler); a compound train multiplies its stage ratios (worked example 8 → 24 = 8 → 40 is strong enough but too slow; faded 16 → 40 = 8 → 24 passes; Kai adds the ratios); Vary chooses four gears for 1500 g in 40 s and the fastest train for 2500 g; Practise with a clock; Make a brief only a compound train can meet. New `train` widget (`geartrain.js`), misconceptions `compound-ratios-add` and `idler-changes-ratio`, primer updated.
+- Practice page for Mechanisms (`practice/winch.yml`, `practice/trains.yml`): ratio, speed, strength, lift time, swapped gears; compound ratio, idler, compound speed, least ratio for a load.
+
 ## Next
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.
-2. Mechanisms: compound gear trains (Years 9–10, with efficiency per mesh and the constraint as an inequality), levers, pulleys.
-3. Mechanisms lesson 2 (compound gears, levers or pulleys). (Done 12 Oct: `shape: design` decks and worksheets say Inquire, not Predict.) Optional: let `B.serial` accept an Uno's USB ids.
+2. Mechanisms: levers and pulleys (a new board); efficiency per mesh on the `train` board (Years 9–10; now a stretch task).
+3. Optional: let `B.serial` accept an Uno's USB ids. (Done 12 Oct: compound gear trains; `shape: design` decks and worksheets say Inquire, not Predict.)
 4. `tools/concepts.mjs` `prerequisites()` reads `code, maths, science, systems`: add `engineering` if an Engineering lesson ever uses the concept lint (its lessons are `language: maths`, which the lint skips).
 
 ## Parked

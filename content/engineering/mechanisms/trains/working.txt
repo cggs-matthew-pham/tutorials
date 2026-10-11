@@ -1,0 +1,9 @@
+# Kai's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kai
+Kai's train: 8 → 24, then an 8-tooth gear on the same axle as the 24 drives a 40.
+Stage 1: 24 ÷ 8 = 3
+Stage 2: 40 ÷ 8 = 5
+Overall ratio = 3 + 5 = 8
+Heaviest lift = 200 × 8 = 1600 g, so it lifts the 1500 g bucket.
+# endregion

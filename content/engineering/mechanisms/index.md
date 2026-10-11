@@ -4,5 +4,5 @@ summary: "How mechanisms trade one thing for another. Gears trade speed for turn
 tagline: "Gear up a winch and trade speed for strength."
 order: 1
 units:
-  - { id: gears, title: Gears, summary: "Gear ratios, and choosing a pair to meet a brief." }
+  - { id: gears, title: Gears, summary: "Gear ratios, choosing a pair to meet a brief, then idlers and compound trains for bigger ratios." }
 ---

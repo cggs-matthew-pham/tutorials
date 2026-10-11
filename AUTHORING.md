@@ -734,6 +734,17 @@ Vary, Practise, Make).
     `r` (driven ÷ driver), `d`, `g` (teeth), `rpm_w`, `cap_g`, `time_s`, `load_g`, `limit_s`, `turns_m`, `turns_w`, `s`
     (last lift stalled), `l` (last lift worked), `p` (this pair meets both criteria), `n_pass` (pairs that do). Checks:
     `"turns_m >= 1"`, `"s = 1 and load_g > 450"`, `"load_g = 300 and r = 1.5 and l = 1"`, `"n_pass = 1"`. Ready selector `.gearsvg`.
+  - `widget: train` (first used by `engineering/mechanisms/trains`): a gear train from the motor to the winch, as for
+    `gears` (same `rpm`, `lift`, `drum`, `height`, `load`, `addload`, `limit`, `numbers: off`, `brief: edit`). `train: 8 > 24 = 8 > 40`
+    lists the gears by teeth: `>` two gears in mesh, `=` two on one axle (a compound train); `8 > 40 > 24` is a simple
+    train with an idler. Starts and ends with a mesh; two gears at most on an axle; six gears at most. `gears:` is the box
+    (any number of each). `choose: on` (every gear) or positions from 1 (`choose: 2`, the idler). The panel shows the
+    ratio mesh by mesh (`24 ÷ 8 × 40 ÷ 8 = 15`) and which way the winch turns. Values `r`, `r_1`, `r_2` (stage ratios;
+    0 with one stage), `n_stage`, `n_mesh`, `same` (1 if the winch turns the same way as the motor), `t_1` … `t_6`
+    (teeth), and `rpm_w`, `cap_g`, `time_s`, `load_g`, `limit_s`, `turns_m`, `turns_w`, `s`, `l`, `p` as for `gears`;
+    `n_pass` counts trains from the box (changing only the choosable gears) that meet the brief. Checks:
+    `"l = 1 and load_g = 600 and t_2 < 40"`, `"load_g = 1500 and l = 1 and time_s <= 40"`, `"load_g > 1000 and p = 1 and l = 1"`.
+    Ready selector `.gearsvg`.
   - `widget: circuit` (first used by `engineering/circuits/`): parts wired to a micro:bit's pins, from a simple stated
     model (pin 3.3 V, LED drops 2 V and is damaged above 20 mA, analog read 0–1023 for 0–3.3 V). `mode: led`: pin 0 →
     resistor → LED → GND; `resistor:` (ohms, 0 = none), `place: after`, `output: off`, `gnd: off`, `turned: on`, and

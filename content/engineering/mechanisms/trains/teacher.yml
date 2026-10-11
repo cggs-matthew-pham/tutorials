@@ -1,0 +1,53 @@
+summary: Students add a third gear between two others and find it changes only the direction (an idler), then put two gears on one axle to make a compound train, work out that stage ratios multiply, choose a train for a load no single pair can lift, and see why big ratios come in stages.
+time: 45
+timing: "Predict and Try 8 min · Worked example 12 min · Vary 12 min · Practise and Make 13 min"
+goals:
+  - I can explain that an idler gear changes the direction of a turn but not the ratio.
+  - I can work out the overall ratio of a compound train by multiplying its stage ratios.
+  - I can choose a gear train that meets every criterion in a brief.
+  - I can explain why big ratios are built in stages.
+struggle: "Students want to add stage ratios, and expect a big idler to do something. Keep asking 'what does the next stage start from?' and 'which teeth cancel?'"
+before: |
+  Do Gear up the winch first: this lesson assumes ratio = driven ÷ driver, and that speed and strength change by the same factor.
+
+  Try every board yourself. With LEGO Technic or Meccano, build 8 → 24 = 8 → 40 on a frame: students can count 15 motor turns for one winch turn, and feel how much easier the output is to hold.
+
+  Simplifications: no friction or losses (each real mesh loses a few per cent, so a two-stage train loses a little more than one pair), the motor lifts exactly 200 g with no gears, and the gears on a shared axle are drawn on top of each other (in a real train they sit side by side along the axle).
+
+  Curriculum hooks: Design and Technologies, engineering principles and systems (primary); Science, forces and simple machines; Maths, multiplying ratios and rates (applied).
+running:
+  - "Predict: take a show of hands for each option before anyone opens the board."
+  - "Try: ask what the idler is for, if not to change the ratio (reverse the direction; bridge a gap)."
+  - "Worked example: point at the two gears on one axle. They turn together, so the second stage starts from a small gear again."
+  - "Find the mistake: ask a student to say what the first stage does to the second stage's input."
+  - "Vary: the hints give the least and the most ratio. Write 7.5 ≤ ratio ≤ 8 on the board."
+  - "Make: compare briefs. Who has the narrowest gap between least and most ratio?"
+stuck:
+  - see: "A student adds the stage ratios."
+    ask: "Stage 1 turns the middle axle 3 times slower. What does stage 2 do to that?"
+    fix: "Each stage slows down what the stage before already slowed: multiply."
+  - see: "A student thinks a big idler makes the winch stronger."
+    ask: "Write the two meshes as ratios. Which number appears on top and on the bottom?"
+    fix: "The idler's teeth cancel: the ratio is last ÷ first."
+  - see: "A student loses track of which gear drives which."
+    ask: "Follow the turn from the motor: which gear does it push, and what turns with that gear?"
+    fix: "Meshing gears push each other; gears on one axle turn together."
+  - see: "A student picks the strongest train and ignores the time limit."
+    ask: "It lifts it. Is it fast enough?"
+    fix: "Find the least ratio (load) and the most (time), then aim between."
+stretch: "Each real mesh loses about 5% of the turning force. With two stages the train passes on about 0.95 × 0.95 ≈ 90%. Does 16 → 40 = 8 → 24 still lift 1500 g? What would you change?"
+support: "Give a table with columns stage 1, stage 2, overall ratio, winch speed, heaviest lift, time, and fill the 8 → 24 = 8 → 40 row together."
+leads: |
+  Next: levers and pulleys (planned), the same trade of distance for force.
+
+  Real examples: clocks (hour and minute hands), electric screwdrivers and drills (motor to chuck), car gearboxes, bike hub gears.
+  Code links: a short Python loop can try every train from the box against a brief; the board's Make counts them for students.
+exit:
+  q: "A motor turning 240 times a minute drives 10 → 30, then 10 → 40 on the same axle. How fast does the output turn, and how many times stronger is it?"
+  a: "Ratio 3 × 4 = 12, so 240 ÷ 12 = 20 turns a minute, 12 times stronger."
+explain: |
+  A gear **between** two others is an **idler**. Its teeth cancel out, so the ratio is still last ÷ first: it only changes the direction of the turn (each mesh reverses it).
+
+  Two gears on **one axle** turn together. That lets the next stage start from a small gear again: a **compound train**. The overall ratio is the stage ratios **multiplied**: 8 → 24 then 8 → 40 is 3 × 5 = 15, so the winch is 15 times slower and 15 times stronger. Big ratios come in stages so the gears stay a sensible size.
+sources:
+  - { title: "TeachEngineering: K-12 engineering design challenges (benchmark; the brief and wording are our own)", url: "https://www.teachengineering.org/", checked: 2026-10-12 }

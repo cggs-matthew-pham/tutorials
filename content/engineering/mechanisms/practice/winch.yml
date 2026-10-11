@@ -1,0 +1,35 @@
+# Practice for "Gear up the winch": ratio = driven ÷ driver; divide the speed, multiply the strength; time to lift.
+templates:
+  - q: "A {d}-tooth gear on the motor drives a {g}-tooth gear on the winch. What is the gear ratio?"
+    vars: { d: [8, 12, 16, 20], k: [1.5, 2, 2.5, 3, 4] }
+    let: { g: "d * k" }
+    answer: "{k}"
+    explain: "Ratio = driven ÷ driver = {g} ÷ {d} = {k}."
+  - q: "The motor turns {rpm} times a minute. The gear ratio is {k}. How many turns a minute does the winch make?"
+    vars: { k: [2, 3, 4, 5, 6], w: "10..40" }
+    let: { rpm: "k * w" }
+    answer: "{w}"
+    feedback:
+      - ["{rpm * k}", "A bigger driven gear turns slower: divide by the ratio."]
+    explain: "{rpm} ÷ {k} = {w} turns a minute."
+  - q: "The motor lifts {m} g with no gears. An {d}-tooth gear on the motor drives a {g}-tooth gear on the winch. What is the heaviest load it can lift, in grams?"
+    vars: { m: "50..300 by 50", d: [8, 10, 12], k: [2, 3, 4, 5] }
+    let: { g: "d * k" }
+    answer: "{m * k}"
+    feedback:
+      - ["{m}", "That is the motor with no gears. The gears make it stronger by the ratio, {g} ÷ {d} = {k}."]
+    explain: "Ratio {g} ÷ {d} = {k}, so {m} × {k} = {m * k} g."
+  - q: "The winch's drum winds {dr} m of rope a turn and turns {w} times a minute. How many seconds to lift a bucket {h} m?"
+    vars: { dr: [0.1, 0.2, 0.25, 0.5], h: "1..4", w: [10, 12, 15, 20, 24, 30, 40, 60] }
+    answer: "{h / dr / w * 60}"
+    tolerance: 0.1
+    feedback:
+      - ["{h / dr / w}", "That is in minutes. Times by 60 for seconds."]
+    explain: "{h} ÷ {dr} = {h / dr} winch turns. {h / dr} ÷ {w} turns a minute × 60 = {h / dr / w * 60|f1} s."
+  - q: "Swapped round: a {g}-tooth gear on the motor drives a {d}-tooth gear on the winch. The motor lifts {m} g with no gears. What is the heaviest load now, in grams?"
+    vars: { d: [8, 10, 12], k: [2, 4, 5], q: "20..100 by 10" }
+    let: { g: "d * k", m: "q * k" }
+    answer: "{q}"
+    feedback:
+      - ["{m * k}", "The driven gear is the smaller one here: the ratio is {d} ÷ {g}, less than 1. Faster, but weaker."]
+    explain: "Ratio {d} ÷ {g} = 1/{k}, so {m} ÷ {k} = {q} g."

@@ -472,6 +472,8 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .gearsvg .ggear { stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
 .gearsvg .gdrv { fill: color-mix(in srgb, var(--left) 35%, var(--card)); }
 .gearsvg .gdvn { fill: color-mix(in srgb, var(--right) 30%, var(--card)); }
+.gearsvg .gmid { fill: color-mix(in srgb, var(--accent) 18%, var(--card)); }
+.gearsvg .gback { opacity: 0.55; }
 .gearsvg .gmotor { fill: var(--line); stroke: var(--muted); }
 .gearsvg .gaxle, .gearsvg .gdrum { fill: var(--card); stroke: var(--ink); stroke-width: 1.5; }
 .gearsvg .gspoke { stroke: var(--ink); stroke-width: 2; }

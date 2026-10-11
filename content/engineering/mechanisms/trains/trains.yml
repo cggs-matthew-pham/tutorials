@@ -1,0 +1,42 @@
+# Boards for "Gear trains". The motor: 120 turns a minute, lifts 200 g with no gears; drum 0.1 m a turn; lift 1 m.
+# The box: any number of 8, 16, 24 and 40-tooth gears.
+
+# region: run
+widget: train
+train: 8 > 40 > 24
+choose: 2
+load: 450
+addload: on
+numbers: off
+# endregion
+
+# region: explain
+widget: train
+train: 8 > 24 = 8 > 40
+load: 1500
+limit: 40
+# endregion
+
+# region: vary-brief
+widget: train
+train: 8 > 24 = 8 > 40
+choose: on
+load: 1500
+limit: 40
+# endregion
+
+# region: vary-heavy
+widget: train
+train: 8 > 24 = 8 > 24
+choose: on
+load: 2500
+# endregion
+
+# region: make
+widget: train
+train: 8 > 24 = 8 > 40
+choose: on
+brief: edit
+load: 450
+limit: 40
+# endregion

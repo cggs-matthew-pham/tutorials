@@ -38,7 +38,7 @@ stuck:
 stretch: "Two pairs in a row (a compound train): 8 → 24, then 8 → 40 on the same axle. What is the overall ratio? Could it lift 700 g, and how long would it take?"
 support: "Give a table with columns ratio, winch speed, heaviest lift, time, and fill the 8 → 24 row together."
 leads: |
-  Next: levers and pulleys (planned), the same trade of distance for force.
+  Next: Gear trains (idlers and compound trains), then levers and pulleys (planned).
 
   Code links: a short Python loop can test every gear pair against the brief; the board's Make does this for them.
   Physical computing: a motor and a servo on a real winch (Power and motors).

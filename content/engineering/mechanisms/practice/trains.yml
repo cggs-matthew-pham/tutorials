@@ -1,0 +1,29 @@
+# Practice for "Gear trains": stage ratios multiply; an idler cancels out.
+templates:
+  - q: "{a} → {b}, then {c} → {e} on the same axle. What is the overall ratio?"
+    vars: { a: [8, 10, 12], c: [8, 10, 12], k1: [2, 3, 4, 5], k2: [2, 3, 4, 5] }
+    let: { b: "a * k1", e: "c * k2" }
+    answer: "{k1 * k2}"
+    feedback:
+      - ["{k1 + k2}", "That adds the stages. They multiply: {k1} × {k2}."]
+    explain: "{b} ÷ {a} = {k1}, {e} ÷ {c} = {k2}, and {k1} × {k2} = {k1 * k2}."
+  - q: "A simple train {a} → {i} → {b}: the {i} is an idler. What is the ratio?"
+    vars: { a: [8, 10, 12], k: [2, 3, 4], i: [16, 18, 30, 40, 50] }
+    let: { b: "a * k" }
+    where: "i != b"
+    answer: "{k}"
+    feedback:
+      - ["{i / a}", "That is only the first mesh. The idler's teeth cancel: last ÷ first."]
+    explain: "{i} ÷ {a} × {b} ÷ {i} = {b} ÷ {a} = {k}. The idler changes only the direction."
+  - q: "The motor turns {rpm} times a minute and drives {a} → {b}, then {c} → {e} on the same axle. How many turns a minute does the output make?"
+    vars: { a: [8, 10], c: [8, 10], k1: [2, 3, 4], k2: [2, 3, 5], w: "2..20" }
+    let: { b: "a * k1", e: "c * k2", rpm: "k1 * k2 * w" }
+    answer: "{w}"
+    feedback:
+      - ["{rpm / (k1 + k2)}", "That divides by the stages added. They multiply: {k1} × {k2} = {k1 * k2}."]
+    explain: "Ratio {k1} × {k2} = {k1 * k2}, so {rpm} ÷ {k1 * k2} = {w}."
+  - q: "The motor lifts {m} g with no gears. The load is {L} g. What is the least overall ratio that lifts it?"
+    vars: { m: "50..250 by 50", k: [6, 8, 9, 10, 12, 15, 16, 20] }
+    let: { L: "m * k" }
+    answer: "{k}"
+    explain: "{L} ÷ {m} = {k}. One pair would need a gear {k} times as big as the other, so use two stages that multiply to {k}."
