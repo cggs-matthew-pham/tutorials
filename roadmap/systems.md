@@ -40,6 +40,9 @@ Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 
 2. Concept links: Secret messages should `assumes:` character codes (needs the cross-language concept change, item 4).
 3. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
 4. Cross-pathway concepts: the concept lint is per language (`CONCEPTS[lesson.language]`), so theory concepts (`bit`, `char-code`, `rgb`) cannot yet be `assumes:` in MakeCode or Python lessons. Needs a small change in `tools/concepts.mjs` (a shared concept list checked across languages, and `systems` in `prerequisites()`'s subject list). Check `roadmap/shared.md` first.
+5. Computers and the command line: five lessons on a browser `shell` board, then a teacher-led Raspberry Pi unit (environments and lessons in the Project doc digital-systems-plan).
+6. More security and CTF: Rules of the game, guessing passwords, encoding is not encryption, what a page gives away; cross-pathway flags and a capstone CTF; picoCTF (Carnegie Mellon) as the linked extension (check its account and age terms).
+7. Shapes as numbers (optional, 8K03): vector vs raster, meshes as lists of vertices; Engineering › 3D and animation builds on it.
 
 ## Open questions
 
