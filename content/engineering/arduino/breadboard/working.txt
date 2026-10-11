@@ -1,0 +1,8 @@
+# Sam's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The LED's long leg is in c7 and its short leg in c8.
+Row c joins c7 and c8.
+So the current goes from c7 to c8 through the row.
+So the LED is shorted out, and Sam moves it.
+# endregion

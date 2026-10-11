@@ -1,0 +1,8 @@
+# Sam's test plan for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The brief: the alarm blinks when the soil reads 300 or below.
+Test 1: reading 0, the alarm should blink.
+Test 2: reading 1023, the alarm should be off.
+Two tests pass, so the alarm meets the brief.
+# endregion

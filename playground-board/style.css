@@ -580,3 +580,27 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .hwtrack { height: 14px; border-radius: 7px; background: var(--bg); border: 1px solid var(--line); overflow: hidden; }
 .hwfill { display: block; height: 100%; background: var(--left); transition: width .4s; } .hwbarrow.slow .hwfill { background: #b42318; }
 .hwtot { margin: 4px 0 0; font-weight: 700; } .hwstale { margin: 0; color: #b42318; font-weight: 600; } .hwhint { margin: 0; color: var(--muted); }
+
+/* Breadboard wired to an Uno (breadboard) */
+.bbsvg { width: 100%; height: 100%; display: block; }
+.cksvg .bbbody { fill: #f4f1ea; stroke: #d8d2c4; }
+@media (prefers-color-scheme: dark) { .cksvg .bbbody { fill: #2a2f38; stroke: #3a414d; } }
+.cksvg .bbgap { fill: color-mix(in srgb, var(--line) 70%, transparent); }
+.cksvg .bbplus { stroke: #d1242f; stroke-width: 2; } .cksvg .bbminus { stroke: #2f6fb3; stroke-width: 2; }
+.cksvg .bbrail { font: 700 14px system-ui, sans-serif; fill: var(--muted); }
+.cksvg .bbnum { font: 600 11px system-ui, sans-serif; fill: var(--muted); }
+.cksvg .bbhole { fill: #5d6675; opacity: .45; cursor: pointer; }
+.cksvg .bbhole.on { fill: var(--accent); opacity: 1; }
+.cksvg .bbterm { fill: transparent; cursor: pointer; }
+.cksvg .bbterm.on { fill: var(--accent); fill-opacity: .35; }
+.cksvg .bbwire { fill: none; stroke: #d1242f; stroke-width: 4; stroke-linecap: round; opacity: .85; }
+.cksvg .bbwire.gnd { stroke: #24292f; }
+@media (prefers-color-scheme: dark) { .cksvg .bbwire.gnd { stroke: #c9d1d9; } }
+.cksvg .bbleg { stroke: #8b949e; stroke-width: 2.5; }
+.cksvg .bbend { fill: var(--card); stroke: var(--ink); stroke-width: 2; cursor: pointer; }
+.cksvg .bbend.anode { stroke: #d1242f; }
+.cksvg .bbend.sel { fill: var(--accent); }
+.cksvg .bbend.locked { cursor: default; fill: var(--ink); }
+.cksvg .bbbtn { fill: #57606a; stroke: var(--ink); } .cksvg .bbbtn.held { fill: var(--accent); }
+.cksvg .bbname { font: 700 11px system-ui, sans-serif; fill: var(--ink); }
+.oprow input[type=text] { font: inherit; padding: 5px 6px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); }

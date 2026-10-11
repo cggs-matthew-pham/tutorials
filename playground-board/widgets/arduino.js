@@ -12,12 +12,13 @@
 //   knob: A0           a potentiometer on A0 (a slider)         button: 2   a button on pin 2 (with a pull-down)
 //   level: 50          the knob's starting position, %          wave: on    draw each LED pin's signal (PWM)
 //   edit: off          the code can be run but not changed       run: on     start running as soon as it loads
+//   test: 250, on      a test case for Run the tests: knob reading, and the first LED on (steady), off or blink
 //   code: void setup() {     one line of the sketch per code: line (indentation is put back from the braces)
 // state: { scope: { vars: { e (1 = an error stopped it), g (1 = running), l (first LED's brightness 0–255),
 //   h (times the first LED came on), o and f (its last on and off times, ms of board time), t (loop() runs),
 //   s (setup() runs), m (1 = the first LED's pin set to OUTPUT), w (its analogWrite value, −1 if none),
 //   n (lines printed), p (the last printed line as a number, −1 if not a number), j (the number at the end of a last
-//   line that starts with words, −1 if none), x (1 = "words" + a number was printed), k (knob 0–1023), b (button held) } } }
+//   line that starts with words, −1 if none), x (1 = "words" + a number was printed), k (knob 0–1023), b (button held), q and u (tests passed, of how many) } } }
 (function (B) {
   'use strict';
   var NS = 'http://www.w3.org/2000/svg', PWM = [3, 5, 6, 9, 10, 11];
@@ -34,6 +35,12 @@
     s.lev = s.level === undefined ? 50 : Number(s.level);
     s.lines = s.items.filter(function (it) { return it.kind === 'code'; }).map(function (it) { return it.value; });
     s.code = indent(s.lines.join('\n'));
+    s.tests = s.items.filter(function (it) { return it.kind === 'test'; }).map(function (it) {
+      var m = /^(\d+)\s*,\s*(on|off|blink)$/i.exec(it.value.trim());
+      if (!m || Number(m[1]) > 1023) throw new Error('test: a reading 0 to 1023 and what the LED should do (on, off or blink), such as test: 250, on.');
+      if (!s.knob) throw new Error('test: needs a knob, such as knob: A0.');
+      return { k: Number(m[1]), want: m[2].toLowerCase() };
+    });
     s.ro = /^off$/i.test(s.edit || ''); s.wave = on(s.wave); s.auto = on(s.run);
   }
   function indent(src) {
@@ -144,6 +151,7 @@
       ms = Math.max(0, Number(ms) || 0);
       return new Promise(function (res, rej) {
         if (token.stop) return rej(new Error('stopped'));
+        if (token.fast) { hw.now += ms; touch(); return res(); }   // the test runner: no waiting
         var t0 = performance.now(), start = hw.now;
         (function tick() {
           if (token.stop) return rej(new Error('stopped'));
@@ -165,6 +173,32 @@
     }
     A.Serial = { begin: function () { hw.ser = true; }, print: function (v) { out(v, false); }, println: function (v) { out(v === undefined ? '' : v, true); } };
     return A;
+  }
+
+  // Run every test case: a fresh board with the knob at the case's reading, 3 s of board time, then compare what the
+  // first LED did with what the case wants (off: never on; on: came on once and stayed on; blink: came on two or more times).
+  async function runTests() {
+    stop(); code = ui.ed ? ui.ed.value : spec.code; B.moved = true;
+    var js; try { js = transpile(code); } catch (e) { resetHw(); hw.err = 'Line ' + (e.line || 1) + ': ' + e.message; ui.status.textContent = 'Not uploaded. ' + hw.err; paint(); lastAt = 0; report(); return; }
+    var results = [];
+    for (var i = 0; i < spec.tests.length; i++) {
+      var T = spec.tests[i]; resetHw(); hw.knob = T.k;
+      var token = { stop: false, fast: true }, A = api(token), names = Object.keys(A), got = 'off';
+      try {
+        var prog = await new (Object.getPrototypeOf(async function () {}).constructor)(names.join(','), js).apply(null, names.map(function (k) { return A[k]; }));
+        await prog.setup(); var n = 0;
+        while (hw.now < 3000 && n < 5000) { var t0 = hw.now; await prog.loop(); n++; if (hw.now === t0) hw.now += 0.5; }
+        var L = hw.led[0] || { h: 0 }; got = L.h >= 2 ? 'blink' : L.h >= 1 ? 'on' : 'off';
+      } catch (e) { got = 'error'; }
+      var ok = got === T.want;
+      results.push({ k: T.k, want: T.want, got: got, ok: ok });
+    }
+    resetHw(); hw.tests = results;
+    var pass = results.filter(function (r) { return r.ok; }).length;
+    ui.status.textContent = 'Tests: ' + pass + ' of ' + results.length + ' passed.';
+    ui.mon.hidden = false;
+    ui.mon.textContent = results.map(function (r) { return (r.ok ? '✓ ' : '✗ ') + 'reading ' + r.k + ': wanted ' + r.want + ', got ' + r.got; }).join('\n');
+    lastAt = 0; report();
   }
 
   function stop(msg) {
@@ -271,7 +305,7 @@
     if (ui.knobHand) { var a = (-135 + 270 * hw.knob / 1023) * Math.PI / 180; ui.knobHand.setAttribute('x2', (350 + 14 * Math.sin(a)).toFixed(1)); ui.knobHand.setAttribute('y2', (180 - 14 * Math.cos(a)).toFixed(1)); ui.knobRead.textContent = 'reads ' + hw.knob; }
     if (ui.lever) { var by = spec.knob ? 130 : 180; ui.lever.setAttribute('y2', hw.btn ? by : by - 16); }
     ui.counts.textContent = run || hw.s ? 'setup() ran ' + hw.s + (hw.s === 1 ? ' time' : ' times') + ' · loop() ran ' + hw.t + (hw.t === 1 ? ' time' : ' times') + ' · ' + (hw.now / 1000).toFixed(1) + ' s' : 'Not running';
-    if (ui.mon) { ui.mon.textContent = hw.serial.slice(-12).join('\n') || (hw.ser ? '' : 'Serial monitor (nothing printed)'); ui.mon.scrollTop = ui.mon.scrollHeight; }
+    if (ui.mon && !hw.tests) { ui.mon.textContent = hw.serial.slice(-12).join('\n') || (hw.ser ? '' : 'Serial monitor (nothing printed)'); ui.mon.scrollTop = ui.mon.scrollHeight; }
   }
 
   var lastSig = '', lastAt = 0;
@@ -280,7 +314,8 @@
     var L = hw.led[0] || { lvl: 0, h: 0, o: 0, f: 0 }, q = hw.pins[spec.leds[0]] || {};
     var last = hw.serial.length ? hw.serial[hw.serial.length - 1] : '', num = /^-?\d+(\.\d+)?$/.test(last.trim()) ? Number(last) : -1;
     var tail = /(-?\d+(?:\.\d+)?)\s*$/.exec(last), j = tail && !/^-?\d+(\.\d+)?$/.test(last.trim()) ? Number(tail[1]) : -1;
-    var vars = { j: j, x: hw.warn ? 1 : 0, e: hw.err ? 1 : 0, g: run ? 1 : 0, l: L.lvl, h: L.h, o: Math.round(L.o), f: Math.round(L.f), t: hw.t, s: hw.s,
+    var tp = hw.tests ? hw.tests.filter(function (r) { return r.ok; }).length : 0, tn = hw.tests ? hw.tests.length : 0;
+    var vars = { q: tp, u: tn, j: j, x: hw.warn ? 1 : 0, e: hw.err ? 1 : 0, g: run ? 1 : 0, l: L.lvl, h: L.h, o: Math.round(L.o), f: Math.round(L.f), t: hw.t, s: hw.s,
       m: q.mode === 'OUTPUT' ? 1 : 0, w: q.pwm === null || q.pwm === undefined ? -1 : q.pwm, n: hw.serial.length, p: num, k: hw.knob, b: hw.btn };
     var sig = JSON.stringify(vars); if (sig === lastSig) return; lastSig = sig;
     B.save({ code: ui.ed ? ui.ed.value : spec.code });
@@ -298,6 +333,7 @@
     var row = document.createElement('div'); row.className = 'oprow';
     row.appendChild(btn('Upload and run', start));
     row.appendChild(btn('Stop', function () { B.moved = true; stop('Stopped.'); }, true));
+    if (spec.tests.length) row.appendChild(btn('Run the tests', runTests, false, 'Run the sketch against every test case'));
     if (!spec.ro) row.appendChild(btn('Reset code', function () { ed.value = spec.code; stop(''); }, true, 'Put the starting code back'));
     if (spec.knob) {
       var w = document.createElement('label'); w.className = 'ckslide'; w.textContent = 'Knob ';

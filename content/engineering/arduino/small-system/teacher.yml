@@ -1,0 +1,34 @@
+summary: Students run a plant-water alarm against a test table that passes but misses the threshold, learn to choose test cases (either side of the threshold, the threshold itself, the ends), fix an off-by-one, add a steady state, build it on real hardware, and meet a three-band fridge alarm brief against six tests.
+time: 50
+timing: "Predict and Try 6 min · Worked example 10 min · Vary 10 min · Real hardware 12 min · Practise and Make 12 min"
+goals:
+  - I can choose test cases for a brief, including the boundary.
+  - I can fix a sketch until every test passes.
+  - I can explain what passing tests does and doesn't show.
+struggle: "Students treat 'it worked when I tried it' as done. Ask which reading they tried, and which reading the brief is about."
+before: |
+  The board's Run the tests runs the sketch once per case with no waiting (3 s of board time each) and records what the first LED did: off (never on), on (came on once and stayed on) or blink (came on two or more times).
+
+  This lesson is the Years 9–10 test-case idea (AC9TDI10P06, validate against test cases) met in Years 8–9 hardware; Code's console bridge has the same table-of-inputs idea in Python.
+running:
+  - "Try: ask whether 5 out of 5 means the alarm meets the brief."
+  - "Worked example: write the table live from the brief."
+  - "Vary, three states: ask which case to test first in the if, and why."
+stuck:
+  - see: "A student's steady-on case fails as blink."
+    ask: "Does your steady branch switch the LED off anywhere?"
+    fix: "Steady on: HIGH only, no LOW in that branch."
+  - see: "A student changes the tests' expectations in their head."
+    ask: "What does the brief say for 300?"
+    fix: "The brief decides, not the sketch."
+stretch: "Stop the flicker near the threshold: switch on at 300 or below, and only switch off again above 320."
+support: "A blank test table with columns reading, should do, did, ✓/✗."
+leads: |
+  Next (optional): the same project on a Raspberry Pi Pico. Then Power and motors.
+exit:
+  q: "A brief says a buzzer sounds when the reading is 500 or more. Write three test readings for the threshold and what each should do."
+  a: "499 silent, 500 sounds, 501 sounds."
+explain: |
+  A **system** reads a sensor, decides, and drives an output; a **brief** says what it must do. Test it with a **table of cases**: each side of every threshold, the threshold itself, and the ends of the range. All tests passing only shows the sketch does what the tests check, so a table without the threshold can hide an off-by-one mistake there.
+sources:
+  - { title: "SparkFun soil moisture sensor hookup guide (link)", url: "https://learn.sparkfun.com/tutorials/soil-moisture-sensor-hookup-guide", checked: 2026-10-12 }

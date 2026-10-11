@@ -27,11 +27,17 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 - Decision: a lesson board runs the sketches (`arduino` widget: a C++ subset on a model Uno with simulated time) so every Try, Vary and Make step has a check. Tinkercad stays the `tier: typical` second tool (blocks to C++, its serial monitor and oscilloscope). The plan's blocks stage (lesson 5 in blocks) became Tinkercad's Blocks + Text view inside lesson 1.
 - Every board check tested in a headless browser with the expected solution; five explain clips record (silent here). Ports 8505–8508 and 8510.
 
+## Done (12 Oct 2026): Real hardware (Arduino unit 3)
+
+- Lessons 6–8 of `engineering/arduino`, unit Real hardware: 6. From simulator to breadboard (new `breadboard` widget: strips, the gap, rails; a real-breadboard upload step), 7. A small system (a plant-water alarm brief; the `arduino` widget's new **Run the tests** with `test:` cases; boundary testing, a steady state, a three-band fridge alarm), 8. The same project on a Pico (optional; no board: match C++ to MicroPython, convert 0–1023 to 0–65535 and ms to seconds, a Parsons, Wokwi or Thonny as a `tier: typical` step). Misconceptions `breadboard-rows`, `tests-skip-boundary`, `pico-same-numbers`.
+- Hardware and upload steps are `tier: typical` reflect checks (Uno serial isn't read: `B.serial` filters for the micro:bit's USB id).
+- All board checks tested headless; two new clips record. Ports 8511–8512.
+
 ## Next
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.
 2. Mechanisms: compound gear trains (Years 9–10, with efficiency per mesh and the constraint as an inequality), levers, pulleys.
-3. Physical computing unit 3 (Real hardware: breadboard, upload with the Arduino IDE or Cloud Editor, a small system with criteria; optional Pico port). The `serial` widget could check a real Uno's output over Web Serial, as it does for the micro:bit. Then unit 4, Power and motors.
+3. Power and motors (Years 9–10 extension, plan lessons 13–17): a motor model on the board (pin current limit, H-bridge, two supplies, battery run time), LiPo safety teacher-led. Optional: let `B.serial` accept an Uno's USB ids so a real board's output can be checked.
 4. CAD lessons 1–2 (dimensions, tolerance) with answer checks.
 5. `tools/concepts.mjs` `prerequisites()` reads `code, maths, science, systems`: add `engineering` when the first built Engineering course has `after:`.
 

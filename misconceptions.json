@@ -254,5 +254,8 @@
   "analog-range-mismatch": {"home": "engineering/arduino/pwm", "text": "A reading is passed straight to an output with a different range; analogRead gives 0 to 1023 but analogWrite takes 0 to 255, so scale it (divide by 4)."},
   "ram-is-storage": {"home": "systems/hardware/specs", "text": "RAM and storage are thought to be one \"memory\" (8 GB RAM + 256 GB storage = 264 GB of memory); RAM is the working space that empties when the power goes off, storage is what the computer keeps."},
   "storage-size-is-speed": {"home": "systems/hardware/bottleneck", "text": "A bigger drive is thought to be a faster one; size (GB, TB) is how much it holds, and its type (SSD or HDD) decides how fast it reads."},
-  "biggest-spec-best": {"home": "systems/hardware/choosing", "text": "The option with the biggest numbers is thought to be best for every job; a spec only helps when that part is the job's bottleneck."}
+  "biggest-spec-best": {"home": "systems/hardware/choosing", "text": "The option with the biggest numbers is thought to be best for every job; a spec only helps when that part is the job's bottleneck."},
+  "breadboard-rows": {"home": "engineering/arduino/breadboard", "text": "The holes along a lettered row are thought to be joined; on a breadboard each numbered column's five holes (a–e, or f–j) are joined, and the gap separates the halves."},
+  "tests-skip-boundary": {"home": "engineering/arduino/small-system", "text": "A design is tested only with values far from the threshold; the slips are at the boundary (299, 300, 301), so test there too."},
+  "pico-same-numbers": {"home": "engineering/arduino/pico", "text": "Numbers are thought to carry straight over from Arduino to MicroPython; time.sleep takes seconds, not milliseconds, and the Pico's read_u16 gives 0 to 65535, not 0 to 1023."}
 }

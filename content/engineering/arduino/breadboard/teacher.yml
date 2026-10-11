@@ -1,0 +1,37 @@
+summary: Students click breadboard holes to see the hidden strips, fix an LED whose legs share a strip, trace a loop strip by strip, straddle the gap and use the rails, build the circuit on a real breadboard and upload the blink, then place every part themselves.
+time: 45
+timing: "Predict and Try 7 min · Worked example 8 min · Vary 8 min · Real hardware 14 min · Practise and Make 8 min"
+goals:
+  - I can say which breadboard holes are joined.
+  - I can place parts so each leg is in a different strip.
+  - I can build a circuit on a real breadboard and upload a sketch.
+struggle: "Students build what looks like the diagram, not what is joined. Before they plug in, have them trace the loop strip by strip with a finger."
+before: |
+  The board treats the named pin as HIGH (the blink sketch's on moment) and shows a short circuit or missing resistor as a warning. Some breadboards split each rail in the middle: check yours and say so.
+
+  Uploading: Arduino IDE (install, admin rights) or Arduino Cloud Editor (browser plus the Create Agent, an account). Choose before the lesson and test one board on the school network. Tinkercad remains the no-kit route.
+
+  Kit per pair: Uno and USB cable, breadboard, a 220 Ω resistor, an LED, two jumper wires.
+running:
+  - "Predict: show a real breadboard turned over (or a photo) after the reveal: the metal strips."
+  - "Find the mistake: ask a student to trace with a finger which holes are joined to c7."
+  - "Real hardware: nothing is plugged into USB until a partner has traced the loop."
+stuck:
+  - see: "An LED won't light on the real board."
+    ask: "Which strips are its legs in? Which way round is it?"
+    fix: "Different strips, long leg towards the resistor."
+  - see: "A student thinks rows are joined."
+    ask: "Click a hole: which ones light up?"
+    fix: "Columns of five."
+stretch: "Put a second LED and resistor on pin 12, using the GND rail for both LEDs."
+support: "A printed breadboard map with the strips shaded."
+leads: |
+  Next: A small system (a brief, criteria, and tests on the boundary).
+exit:
+  q: "An LED's legs are in b14 and e14. Will it light? Why?"
+  a: "No: both legs are in column 14's strip, so the current goes round it."
+explain: |
+  A breadboard joins the **five holes of each numbered column** (a–e, and separately f–j; the gap splits them). The **rails** along the edges are joined along their length (+ for power, − for GND). Rows are not joined. Each leg of a part must be in a different strip, and the loop runs from strip to strip through the parts: pin → resistor → LED → GND.
+sources:
+  - { title: "SparkFun: How to use a breadboard (link; CC BY-SA 4.0)", url: "https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard", checked: 2026-10-12 }
+  - { title: "Arduino Cloud Editor and IDE (link)", url: "https://www.arduino.cc/en/software", checked: 2026-10-12 }

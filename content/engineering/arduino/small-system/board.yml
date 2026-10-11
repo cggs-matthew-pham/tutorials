@@ -1,0 +1,174 @@
+# Boards for "A small system". The knob on A0 stands in for a soil moisture sensor (dry = low reading).
+
+# region: run
+widget: arduino
+led: 13
+knob: A0
+level: 50
+edit: off
+test: 0, blink
+test: 150, blink
+test: 299, blink
+test: 301, off
+test: 800, off
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: if (level < 300) {
+code: digitalWrite(13, HIGH);
+code: delay(250);
+code: digitalWrite(13, LOW);
+code: delay(250);
+code: } else {
+code: digitalWrite(13, LOW);
+code: delay(100);
+code: }
+code: }
+# endregion
+
+# region: explain
+widget: arduino
+led: 13
+knob: A0
+level: 50
+edit: off
+test: 0, blink
+test: 299, blink
+test: 300, blink
+test: 301, off
+test: 1023, off
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: if (level < 300) {
+code: digitalWrite(13, HIGH);
+code: delay(250);
+code: digitalWrite(13, LOW);
+code: delay(250);
+code: } else {
+code: digitalWrite(13, LOW);
+code: delay(100);
+code: }
+code: }
+# endregion
+
+# region: explain-pic
+widget: arduino
+led: 13
+knob: A0
+level: 20
+run: on
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: if (level < 300) {
+code: digitalWrite(13, HIGH);
+code: delay(250);
+code: digitalWrite(13, LOW);
+code: delay(250);
+code: } else {
+code: digitalWrite(13, LOW);
+code: delay(100);
+code: }
+code: }
+# endregion
+
+# region: vary-300
+widget: arduino
+led: 13
+knob: A0
+level: 50
+test: 0, blink
+test: 299, blink
+test: 300, blink
+test: 301, off
+test: 1023, off
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: if (level < 300) {
+code: digitalWrite(13, HIGH);
+code: delay(250);
+code: digitalWrite(13, LOW);
+code: delay(250);
+code: } else {
+code: digitalWrite(13, LOW);
+code: delay(100);
+code: }
+code: }
+# endregion
+
+# region: vary-steady
+widget: arduino
+led: 13
+knob: A0
+level: 50
+test: 50, on
+test: 99, on
+test: 100, blink
+test: 299, blink
+test: 300, off
+test: 900, off
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: if (level < 300) {
+code: digitalWrite(13, HIGH);
+code: delay(250);
+code: digitalWrite(13, LOW);
+code: delay(250);
+code: } else {
+code: digitalWrite(13, LOW);
+code: delay(100);
+code: }
+code: }
+# endregion
+
+# region: make
+widget: arduino
+led: 13
+knob: A0
+level: 50
+test: 0, off
+test: 399, off
+test: 400, on
+test: 699, on
+test: 700, blink
+test: 1023, blink
+code: int level = 0;
+code:
+code: void setup() {
+code: pinMode(13, OUTPUT);
+code: }
+code:
+code: void loop() {
+code: level = analogRead(A0);
+code: // your decisions here
+code: delay(100);
+code: }
+# endregion

@@ -1,0 +1,36 @@
+summary: An optional lesson. Students port the plant-water alarm from Arduino C++ to MicroPython on a Raspberry Pi Pico, matching line to line, converting the threshold (0–1023 to 0–65535) and the timing (milliseconds to seconds), ordering the Python, and running it in Wokwi or on a real Pico.
+time: 35
+timing: "Predict 3 min · Worked example 12 min · Order 5 min · Wokwi or Pico 10 min · Practise and Make 5 min"
+goals:
+  - I can match Arduino C++ to MicroPython line by line.
+  - I can convert a threshold and a timing between the two.
+struggle: "Students expect the numbers to carry over. Make the two conversions explicit, on the board, before they run anything."
+before: |
+  For schools with Picos: Wokwi simulates the Pico in the browser (check its account and embedding terms); Thonny uploads to a real Pico over USB. The Raspberry Pi Foundation's Introduction to Raspberry Pi Pico path is the follow-on.
+
+  Simplification: the Pico's ADC is 12-bit, and read_u16 scales it to 16 bits (0–65535).
+running:
+  - "Predict: ask what 300 means as a fraction."
+  - "Match: point out that Python has no ; and uses indentation instead of { }."
+stuck:
+  - see: "The alarm never blinks."
+    ask: "What range does read_u16 give?"
+    fix: "Convert the threshold."
+  - see: "The LED stays on for minutes."
+    ask: "What unit does time.sleep take?"
+    fix: "Seconds."
+stretch: "Port the PWM brightness lesson: PWM(Pin(15)) and duty_u16(0 to 65535)."
+support: "A two-column card: Arduino and MicroPython, with the two number changes boxed."
+leads: |
+  Next: Power and motors (Years 9–10).
+
+  Code: the Python pathway uses the same if, while and indentation.
+exit:
+  q: "Name the two numbers that must change when you port the alarm to the Pico, and how."
+  a: "The threshold (scale from 0–1023 to 0–65535, × about 64) and the delays (milliseconds to seconds, ÷ 1000)."
+explain: |
+  A **Raspberry Pi Pico** runs **MicroPython**. The ideas carry over: `Pin(15, Pin.OUT)` is `pinMode`, `led.value(1)` is `digitalWrite`, `while True:` is `loop()`. Two numbers change: `time.sleep` takes **seconds** (0.25, not 250), and `read_u16()` gives **0 to 65535**, so a threshold of 300 out of 1023 becomes about 19200.
+sources:
+  - { title: "Raspberry Pi Foundation: Introduction to Raspberry Pi Pico (link)", url: "https://projects.raspberrypi.org/en/pathways/pico-intro", checked: 2026-10-12 }
+  - { title: "MicroPython for the RP2040: quick reference (link)", url: "https://docs.micropython.org/en/latest/rp2/quickref.html", checked: 2026-10-12 }
+  - { title: "Wokwi (link; terms to check)", url: "https://wokwi.com/", checked: 2026-10-12 }

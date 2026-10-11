@@ -1,0 +1,55 @@
+# Boards for "From simulator to breadboard". The sketch is switching pin 13 HIGH.
+
+# region: run
+widget: breadboard
+part W1: wire, 13, a3
+part R: resistor, b3, b8
+part LED: led, c8, d8
+part W2: wire, GND, e9
+lock: W1, W2, R
+# endregion
+
+# region: explain
+widget: breadboard
+part W1: wire, 13, a3
+part R: resistor, b3, b7
+part LED: led, c7, c8
+part W2: wire, GND, d8
+lock: W1, W2, R
+# endregion
+
+# region: explain-pic
+widget: breadboard
+part W1: wire, 13, a3
+part R: resistor, b3, b7
+part LED: led, c7, c8
+part W2: wire, GND, d8
+# endregion
+
+# region: vary-gap
+widget: breadboard
+part W1: wire, 13, a3
+part R: resistor, b3, b7
+part LED: led, e7, f7
+part W2: wire, GND, d7
+lock: W1, R, LED
+# endregion
+
+# region: vary-rails
+widget: breadboard
+part W1: wire, 5V, t+1
+part W2: wire, GND, t-1
+part R: resistor, a5, a9
+part LED: led, b9, b10
+part W3: wire, c5, c15
+part W4: wire, c10, c16
+lock: W1, W2, R, LED
+# endregion
+
+# region: make
+widget: breadboard
+part W1: wire, 13, j2
+part W2: wire, GND, j4
+part R: resistor, i12, i15
+part LED: led, h12, h13
+# endregion

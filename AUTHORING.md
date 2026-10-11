@@ -747,7 +747,16 @@ Vary, Practise, Make).
     before Serial.begin. Setup: `led: 13` (or `13, 9`), `knob: A0`, `level:` (%), `button: 2`, `wave: on` (draw each LED
     pin's signal), `edit: off`, `run: on`, then the sketch as `code:` lines (indentation is rebuilt from the braces; no
     `#` lines, which the setup format reads as comments). Values `e`, `g`, `l`, `h`, `o`, `f` (ms), `t`, `s`, `m`, `w`,
-    `n`, `p`, `j`, `x`, `k`, `b` (the widget's header lists them). Ready selector `.ardsvg`.
+    `n`, `p`, `j`, `x`, `k`, `b` (the widget's header lists them). `test: 250, on` lines (a knob reading, and the first LED
+    `on` steady, `off` or `blink`) add **Run the tests**: each case runs on a fresh board for 3 s of board time with no
+    waiting, and the monitor lists ✓ and ✗; values `q` (passed) and `u` (cases). Ready selector `.ardsvg`.
+  - `widget: breadboard` (first used by `engineering/arduino/breadboard`): a breadboard beside an Uno's 13, 12, 9, 5V and
+    GND terminals. Each numbered column's a–e holes are one strip, f–j another, and the rails (`t+3`, `t-3`, `b+3`, `b-3`)
+    run the board's length. `cols: 17`, `pin: 13` (taken as HIGH), `part LED: led, c7, c8` (anode first), `resistor`,
+    `wire`, `button` (Hold B1); `lock: W1, R`. Click a hole to light everything joined to it; click a leg's dot then a
+    hole to move it, or use Move [leg] to [hole]. Values `l` (first LED lit), `r` (a resistor in its loop), `x` (no
+    resistor), `z` (pin or 5V straight to GND), `v` (would light turned round), `y` (both legs in one strip), `q` (holes
+    looked at), `m` (legs moved), `p` (button held). Ready selector `.bbsvg`.
   - `widget: security` (first used by `systems/security/`): five modes. `mode: os`: apps (Video call, Notes, Game) ask
     the OS, which uses a driver per device; Swap webcam, Swap storage, Install/Remove driver (webcam B; `driver: on`), and
     a Game camera permission; values `c`, `s`, `d`, `o` (last request worked), `g`, `q`. `mode: dns`: an address bar
