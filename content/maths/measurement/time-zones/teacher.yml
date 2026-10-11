@@ -43,3 +43,7 @@ explain: |
   A **time zone** is an offset from UTC. A city with a bigger offset is **ahead**; a smaller one is **behind**. Find the difference, add or take it away, and change the **day** when you cross midnight.
 
   For a flight, add the flight time to the departure (in the departure zone), then change to the arrival zone. Use **24-hour time** to avoid am and pm mistakes.
+sources:
+  - { title: "Daylight saving in NSW: starts 4 October 2026, ends 4 April 2027 (NSW Government)", url: "https://www.nsw.gov.au/about-nsw/daylight-saving", checked: 2026-10-12 }
+  - { title: "When do the clocks change: back on 25 October 2026 (GOV.UK)", url: "https://www.gov.uk/when-do-the-clocks-change", checked: 2026-10-12 }
+  - { title: "Los Angeles clock changes: daylight saving ends 1 November 2026 (timeanddate.com)", url: "https://www.timeanddate.com/time/change/usa/los-angeles", checked: 2026-10-12 }

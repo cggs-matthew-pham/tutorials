@@ -255,7 +255,11 @@ explain: |                     # optional: the student "Explain it to me" panel 
 solutions:                     # work item → code region
   step-4#t2: functions.py#sol-triangle
   step-5: functions.py#sol-make
+sources:                       # where real-world facts came from (rates, dates, data)
+  - { title: "Tax rates – Australian residents (ATO)", url: "https://www.ato.gov.au/...", checked: 2026-10-12 }
 ```
+
+- **`sources`**: where a lesson's real-world facts came from (rates, dates, offsets, data), each with a `title`, a full `https://` `url` and the date it was `checked` (YYYY-MM-DD). It shows as Sources in For teachers, the teacher guide and the title slide's speaker note; `npm run validate` checks the fields. Definitions and worked arithmetic need no source.
 
 - **`explainClip`** (lesson frontmatter; needs `app:`): a captioned clip shown first in the student's **Explain it to me** panel, written like a step's clip (`query`, `caption`, `clip:` actions); it records as `clips/explain.mp4`. Keep the `explain` text to two or three lines beside it.
 - **Where it shows:** the lesson's collapsed **For teachers** panel (no solutions), the teacher guide page `/teach/<course>/<lesson>/`, and the generated slides and worksheet. `explain` is a collapsed panel after the lesson intro.

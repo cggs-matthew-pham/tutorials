@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 //   cheatsheet    one Print reference sheet per unit, from the snippets the unit unlocks
 // plus the teacher guide pages under /teach/. Students never see solutions on lesson pages.
 import { snippetPattern } from './snippet-pattern.mjs';
-import { snippetFrom, splitFiles, parseTrace, workItems } from './lesson-core.mjs';
+import { snippetFrom, splitFiles, parseTrace, workItems, sourceList } from './lesson-core.mjs';
 
 export const SITE_URL = (process.env.SITE_URL || 'https://tutorials.learningwaypoints.com').replace(/\/$/, '');
 export const PREPARE_URL = 'https://prepare.learningwaypoints.com/';
@@ -159,7 +159,8 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
   const T = lesson.teacher || {};
   const slides = [];
   const note = (t) => (t ? `\n\n<!-- Speaker note: ${oneLine(t).replace(/-->/g, '- ->')} -->` : '');
-  slides.push(`# ${pt(lesson.title)}\n\n${course}${unit ? ` · ${unit}` : ''}` + note(`${T.summary || lesson.summary}${T.time ? ` About ${T.time} minutes${T.timing ? ` (${T.timing})` : ''}.` : ''}`));
+  const srcNote = sourceList(T).length ? ` Sources: ${sourceList(T).map((x) => `${x.title}, ${x.url}${x.checked ? ` (checked ${x.checked})` : ''}`).join('; ')}.` : '';
+  slides.push(`# ${pt(lesson.title)}\n\n${course}${unit ? ` · ${unit}` : ''}` + note(`${T.summary || lesson.summary}${T.time ? ` About ${T.time} minutes${T.timing ? ` (${T.timing})` : ''}.` : ''}${srcNote}`));
   slides.push(`## Today\n\n**We are learning to** ${lowerFirst(lesson.summary.replace(/\.$/, ''))}.\n\n${(T.goals || []).map((g) => `- ${pt(g)}`).join('\n')}` + note(T.before ? `Before class: ${T.before}` : ''));
   if (lesson.hook) slides.push(`${BADGE.discussion}\n\n## Why it matters\n\n> ${lesson.hook}` + note(lesson.intro));
   // Programs too long for a slide are read in the tutorial instead.
@@ -454,7 +455,8 @@ export function lessonGuideBody(lesson, { esc, md, snip, highlightCode, codeBloc
     sec('Stretch and support', `${T.stretch ? `<p><b>Stretch:</b> ${esc(T.stretch)}</p>` : ''}${T.support ? `<p><b>Support:</b> ${esc(T.support)}</p>` : ''}`) +
     sec('Exit ticket', T.exit ? `<p><b>${esc(T.exit.q)}</b></p><p class="ans">${esc(T.exit.a)}</p>` : '') +
     sec('What each step is for', insights.length ? `<ul>${insights.map(([w, t]) => `<li><b>${esc(w)}:</b> ${esc(t)}</li>`).join('')}</ul>` : '') +
-    sec('Where it leads', T.leads ? md(T.leads) : '');
+    sec('Where it leads', T.leads ? md(T.leads) : '') +
+    sec('Sources', sourceList(T).length ? `<ul>${sourceList(T).map((x) => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>${x.checked ? ` <span class="muted">(checked ${esc(x.checked)})</span>` : ''}</li>`).join('')}</ul>` : '');
 }
 
 export const TEACH_CSS = `.tg{margin:26px 0}.tg h2{font-size:1.15rem;margin:0 0 8px}.tg h3{font-size:1rem;margin:16px 0 6px}

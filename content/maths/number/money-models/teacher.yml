@@ -43,3 +43,6 @@ explain: |
   To **model** a money problem: decide what to find, choose the calculation, work it out, and check it makes sense.
 
   Income tax is worked out in **brackets**: each part of the income is taxed at its own rate. The **marginal rate** is the rate on the last dollar; the **effective rate** is total tax ÷ income, which is lower (for incomes above $18 200).
+sources:
+  - { title: "Tax rates – Australian residents (ATO)", url: "https://www.ato.gov.au/tax-rates-and-codes/tax-rates-australian-residents", checked: 2026-10-12 }
+  - { title: "Income tax rates and brackets, including the 14% rate from 1 July 2027 (SuperGuide)", url: "https://www.superguide.com.au/how-super-works/income-tax-rates-brackets", checked: 2026-10-12 }

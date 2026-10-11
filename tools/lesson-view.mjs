@@ -1,6 +1,6 @@
 // Lesson page rendering shared by the Node build and the in-browser /create/ preview.
 // Pure: Marked and highlightCode are injected; no fs, no DOM.
-import { unlockKind, evalRules, parseTrace, splitFiles, bugKeys, makecodePackage, makecodeExtensions } from './lesson-core.mjs';
+import { unlockKind, evalRules, parseTrace, splitFiles, bugKeys, makecodePackage, makecodeExtensions, sourceList } from './lesson-core.mjs';
 import { MATH_JS } from './math-expr.mjs';
 export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 export const titleCase = (s) => s.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
@@ -715,6 +715,7 @@ export function lessonPageHtml(lesson, deps) {
       (T.stuck ? `<h3>When students get stuck</h3><ul>${T.stuck.map((x) => `<li><b>${esc(x.see)}</b> Ask: ${esc(x.ask)} Fix: ${esc(x.fix)}</li>`).join('')}</ul>` : '') +
       (T.stretch || T.support ? `<h3>Stretch and support</h3>${T.stretch ? `<p><b>Stretch:</b> ${esc(T.stretch)}</p>` : ''}${T.support ? `<p><b>Support:</b> ${esc(T.support)}</p>` : ''}` : '') +
       (T.leads ? `<h3>Where it leads</h3>${md.parse(T.leads)}` : '') +
+      (sourceList(T).length ? `<h3>Sources</h3><ul class="tsources">${sourceList(T).map((x) => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>${x.checked ? ` <small>(checked ${esc(x.checked)})</small>` : ''}</li>`).join('')}</ul>` : '') +
       (insights.length ? `<h3>What each step is for</h3><ul>${insights.map((i) => `<li><b>${esc(i.where)}:</b> ${esc(i.text)}</li>`).join('')}</ul>` : '') + `</details>`
     : (lesson.teachers || insights.length)
       ? `<details class="teachers"><summary>For teachers</summary>${lesson.teachers ? md.parse(lesson.teachers) : ''}${insights.length ? `<h3>What each step is for</h3><ul>${insights.map((i) => `<li><b>${esc(i.where)}:</b> ${esc(i.text)}</li>`).join('')}</ul>` : ''}</details>` : '';

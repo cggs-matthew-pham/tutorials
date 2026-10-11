@@ -652,6 +652,16 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
 /** The fields of teacher.yml. Text fields are Markdown; see AUTHORING.md › Teacher notes. */
 export const TEACHER_TEXT = ['summary', 'before', 'struggle', 'stretch', 'support', 'leads', 'explain', 'timing'];
 
+/** teacher.yml sources: [{ title, url, checked: 2026-10-12 }] -> [{ title, url, checked: '12 October 2026' or '' }]. */
+export function sourceList(T) {
+  const M = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  return (Array.isArray(T?.sources) ? T.sources : []).filter((s) => s && s.title && s.url).map((s) => {
+    const d = s.checked instanceof Date ? s.checked.toISOString().slice(0, 10) : String(s.checked || '');
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d);
+    return { title: String(s.title), url: String(s.url), checked: m ? `${+m[3]} ${M[+m[2] - 1]} ${m[1]}` : '' };
+  });
+}
+
 /** Steps and tasks a solution can be keyed by: "step-4" or "step-4#t2". */
 /** picture: "page.html#x", { ref, boxes: true } (Boxes view) or { ref, inspect: ".card" } (Box model view pinned on that element) -> { ref, boxes, inspect, caption } (or null). caption: shown under a board picture (maths). */
 export const pictureSpec = (v) => (typeof v === 'string' ? { ref: v, boxes: false, inspect: '' } : v && typeof v === 'object' && typeof v.ref === 'string' ? { ref: v.ref, boxes: !!v.boxes && !v.inspect, inspect: typeof v.inspect === 'string' ? v.inspect : '', caption: typeof v.caption === 'string' ? v.caption : '' } : null);
@@ -693,10 +703,22 @@ export function workItems(lesson) {
 function validateTeacher(lesson, snip, err) {
   const t = lesson.teacher, w = 'teacher.yml';
   if (typeof t !== 'object' || Array.isArray(t)) return err(w, 'must be a mapping of fields');
-  const allowed = [...TEACHER_TEXT, 'time', 'goals', 'running', 'stuck', 'exit', 'solutions'];
+  const allowed = [...TEACHER_TEXT, 'time', 'goals', 'running', 'stuck', 'exit', 'solutions', 'sources'];
   for (const k of Object.keys(t)) if (!allowed.includes(k)) err(w, `unknown field "${k}" (use ${allowed.join(', ')})`);
   for (const k of TEACHER_TEXT) if (t[k] !== undefined && typeof t[k] !== 'string') err(w, `${k} must be text`);
   if (t.time !== undefined && !(Number.isInteger(t.time) && t.time > 0)) err(w, 'time must be the lesson length in minutes, such as 50');
+  if (t.sources !== undefined) {
+    if (!Array.isArray(t.sources) || !t.sources.length) err(w, 'sources must be a list of { title, url, checked }');
+    else t.sources.forEach((s, i) => {
+      const at = `${w} sources ${i + 1}`;
+      if (!s || typeof s !== 'object' || Array.isArray(s)) return err(at, 'must be { title, url, checked }');
+      for (const k of Object.keys(s)) if (!['title', 'url', 'checked'].includes(k)) err(at, `unknown field "${k}" (use title, url, checked)`);
+      if (typeof s.title !== 'string' || !s.title.trim()) err(at, 'needs a title');
+      if (typeof s.url !== 'string' || !/^https:\/\/[^\s]+\.[^\s]+$/.test(s.url)) err(at, 'url must be a full https:// address');
+      const ck = s.checked instanceof Date ? s.checked.toISOString().slice(0, 10) : s.checked;
+      if (ck !== undefined && !(typeof ck === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(ck))) err(at, 'checked must be a date written YYYY-MM-DD');
+    });
+  }
   for (const k of ['goals', 'running']) if (t[k] !== undefined && !(Array.isArray(t[k]) && t[k].every((x) => typeof x === 'string' && x.trim()))) err(w, `${k} must be a list of sentences`);
   if (t.goals && !t.goals.every((g) => /^I can\b/.test(g))) err(w, 'each goal starts "I can"');
   if (t.stuck !== undefined && !(Array.isArray(t.stuck) && t.stuck.every((x) => x && ['see', 'ask', 'fix'].every((f) => typeof x[f] === 'string' && x[f].trim())))) err(w, 'stuck must be a list of { see, ask, fix }');
