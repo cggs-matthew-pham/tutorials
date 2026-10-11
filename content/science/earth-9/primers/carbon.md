@@ -21,3 +21,7 @@ title: The carbon cycle in 5 minutes
 - Only animals respire (plants and decomposers respire too).
 - Carbon is used up or destroyed when fuel burns (it moves to the air as CO₂).
 - Humans' extra CO₂ is small next to natural flows, so it can't matter (the natural flows balance; the extra doesn't).
+
+## Carbon stores (node 2)
+
+Carbon is stored in all four spheres (CO₂ in air, dissolved in oceans, living things and soil, fossil fuels and rocks) and flows between them without being made or destroyed. A store is an amount; a flow is an amount a year.

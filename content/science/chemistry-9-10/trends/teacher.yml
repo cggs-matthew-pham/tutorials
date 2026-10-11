@@ -16,6 +16,7 @@ running:
   - "Explore: ask where the colour resets, and what the shell picture shows at that moment."
   - "Explain: the period, group and shells questions are the node's success criteria."
   - "In your own words: the period 2 row with sodium under lithium is the evidence."
+struggle: "Seeing why the count resets. Ask how many electrons fit in the shell before you tell them; let them find that sodium needs a new one."
 stuck:
   - see: "A student thinks sodium has 9 outer electrons."
     ask: "How many electrons fit in the second shell?"

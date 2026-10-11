@@ -1,0 +1,30 @@
+# Boards for "Nerves or hormones?".
+
+# region: build
+widget: coordination
+mode: build
+need: 4
+stimulus: Touching a hot pan | external | Heat receptors in the skin | Spinal cord | Arm muscles | You pull your hand away
+stimulus: Blood glucose rises after a meal | internal | Glucose receptors in the pancreas | Pancreas (releases insulin) | Liver | The liver stores glucose
+stimulus: A sudden fright | external | Eyes and ears | Brain, then adrenal glands (release adrenaline) | Heart | Your heart beats faster
+stimulus: Too little water in the body | internal | Receptors in the brain | Pituitary gland (releases ADH) | Kidneys | Less water lost in urine
+# endregion
+
+# region: pathway
+widget: coordination
+mode: pathway
+stimulus: Touching a hot pan | external | Heat receptors in the skin | Spinal cord | Arm muscles | You pull your hand away
+stimulus: Blood glucose rises after a meal | internal | Glucose receptors in the pancreas | Pancreas (releases insulin) | Liver | The liver stores glucose
+# endregion
+
+# region: race
+widget: coordination
+mode: race
+# endregion
+
+# region: explain
+widget: coordination
+mode: pathway
+stimulus: Touching a hot pan | external | Heat receptors in the skin | Spinal cord | Arm muscles | You pull your hand away
+stimulus: Blood glucose rises after a meal | internal | Glucose receptors in the pancreas | Pancreas (releases insulin) | Liver | The liver stores glucose
+# endregion

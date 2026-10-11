@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 8
 node: AC9S7U06 n3
 unit: mixtures
 title: Filtration and evaporation

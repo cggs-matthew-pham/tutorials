@@ -16,6 +16,7 @@ running:
   - "Explore: ask what one click on a force did to the net force (changed it by the same amount)."
   - "Explain: the two number checks are the success criteria; the skydiver links zero net force to steady motion."
   - "In your own words: the scaled force diagram with the calculation is the evidence."
+struggle: "Keeping track of direction. When a student adds every force, ask them to sort the forces into two sides first, without calculating."
 stuck:
   - see: "A student adds all the forces (2000 + 500 + 300)."
     ask: "Which way does each force point?"

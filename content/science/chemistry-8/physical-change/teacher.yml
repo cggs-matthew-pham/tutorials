@@ -16,6 +16,7 @@ running:
   - "Explore: ask whether any new kind of particle appeared, and what did change."
   - "Explain: the 'what changes' sort and the physical-or-not sort are the success criteria."
   - "In your own words: the three boxes drawn with the same symbol for water are the evidence."
+struggle: "Keeping particles the same size. When a student draws bigger particles in steam, ask what grew: the particles or the gaps."
 stuck:
   - see: "A student says the particles get bigger when water boils."
     ask: "On the board, did the dots get bigger or the gaps?"

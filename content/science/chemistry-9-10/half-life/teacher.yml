@@ -16,6 +16,7 @@ running:
   - "Explore: after two runs, ask which nuclei decayed (different ones) and whether the graph changed much (not much)."
   - "Explain: the two calculations and the definition are the success criteria; the 'one nucleus' question is the probabilistic idea."
   - "In your own words: the sketch with one half-life marked and the 64-nuclei table are the evidence."
+struggle: "Halving what is left, not the start. Ask students to write the halving ladder themselves (80, 40, …) before you confirm any answer."
 stuck:
   - see: "A student says all of the sample is gone after two half-lives."
     ask: "After one half-life, how many are left? What happens to those in the next half-life?"

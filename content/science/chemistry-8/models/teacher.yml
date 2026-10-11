@@ -1,0 +1,42 @@
+summary: Students compare symbols, formulas, structural formulas, models and particle diagrams, say what each shows, read formulas, and choose a representation for a purpose (AC9S8U06, node 5).
+time: 24
+timing: "Engage and Explore 7 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 3 min"
+goals:
+  - I can read a chemical formula and count the atoms.
+  - I can say what symbols, formulas and models each show.
+  - I can choose a representation that suits the job.
+before: |
+  A concept tutorial for introducing or revising the idea; model kits in class do this best. Set the width with `?width=minimum`, `typical` (default) or `wider`. It closes the Elements and compounds unit, after Mixed, not joined?
+
+  Not a hinge node, but formula-reading slips carry into Year 9 equations: the small number applied to both symbols, and big and small numbers confused. The prediction and the 3CO₂ check target these.
+
+  Board notes: the ball models are flat (2D), atoms not to scale, and molecules are rigid. Water is drawn bent and carbon dioxide straight, as in reality.
+running:
+  - "Engage: tally the predictions. '2 hydrogen and 2 oxygen' applies the 2 to both symbols."
+  - "Explore: on the no-symbols board, ask how they could tell which particle is water."
+  - "Explain: the matching and the two number checks are the success criteria."
+  - "In your own words: carbon dioxide four ways is the evidence."
+struggle: "Big numbers versus small numbers. When a student miscounts, ask them to draw the particles for 3CO₂ before counting, rather than telling them the rule again."
+stuck:
+  - see: "A student reads H₂O as 2 hydrogen and 2 oxygen."
+    ask: "Which symbol is the 2 written next to?"
+    fix: "The small number belongs to the symbol just before it. No number means 1 oxygen."
+  - see: "A student counts 3CO₂ as 3 oxygen atoms."
+    ask: "How many oxygen atoms in one CO₂? How many CO₂ particles?"
+    fix: "2 in each, 3 particles: 6 oxygen atoms."
+  - see: "A student thinks a model is exactly what a particle looks like."
+    ask: "Are atoms really coloured balls?"
+    fix: "No: the colours and sizes are a code. Models simplify on purpose."
+stretch: "Glucose is C₆H₁₂O₆. How many atoms in one particle, and why would a 3D model of it be more useful than the formula to a biologist? (24 atoms; its shape decides how enzymes fit it.)"
+support: "Give a formula decoder card: element symbols, small number = atoms of the element before it, big number = particles."
+leads: |
+  Next: Same particles, new look? (physical change, AC9S8U07 node 1). In Year 9 formulas become balanced equations.
+
+  In class: model kits for H₂O, CO₂, CH₄, NH₃; draw the same substance four ways and swap with a partner to decode.
+exit:
+  q: "How many atoms of each element are in 2NH₃?"
+  a: "2 nitrogen and 6 hydrogen (each NH₃ has 1 N and 3 H, and there are 2 particles)."
+explain: |
+  A **symbol** names an element; a **formula** (H₂O) gives the types of atom and how many of each; a **structural formula** shows which atoms are joined; a **model** shows the shape.
+
+  The small number counts the atom just before it; a big number in front counts particles. Each representation shows something the others don't.

@@ -815,7 +815,8 @@
     String(text || '').split('\n').forEach(function (line) {
       var m = /^\s*([a-z]+)\s*:\s*(.*?)\s*$/i.exec(line);
       if (!m || m[2] === '') return;
-      s[m[1]] = m[2]; (s._all[m[1]] = s._all[m[1]] || []).push(m[2]);
+      var v = m[2].replace(/^"(.*)"$/, '$1');   // YAML-style quotes (needed in lesson files for colons) are not part of the value
+      s[m[1]] = v; (s._all[m[1]] = s._all[m[1]] || []).push(v);
     });
     if (!W[s.widget]) throw new Error('Unknown widget "' + s.widget + '".');
     return s;

@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 node: AC9S9U02 n1
 unit: reproduction
 title: What makes a sex cell special?

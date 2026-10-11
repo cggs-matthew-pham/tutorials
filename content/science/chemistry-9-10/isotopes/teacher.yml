@@ -16,6 +16,7 @@ running:
   - "Explore: ask what stayed the same at the top of the board as the neutrons changed, and when the stability line changed."
   - "Explain: the definition, the sort and the chlorine number are the node's success criteria."
   - "In your own words: the labelled pair of carbon atoms is the evidence."
+struggle: "Separating 'same element' from 'same atom'. Ask which number on the board stayed the same and which changed, before giving the word isotope."
 stuck:
   - see: "A student adds protons to make carbon-14."
     ask: "What happened to the name at the top of the board?"

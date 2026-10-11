@@ -32,3 +32,7 @@ Plant cells also have a **cell wall** (support), **chloroplasts** (photosynthesi
 ## Cellular scale (the first lesson)
 
 Most cells are 0.01 to 0.1 mm across, below the eye's limit of about 0.1 mm; a person has about 37 trillion. Magnification = image size ÷ actual size. Cells were discovered with the microscope (Hooke 1665, Leeuwenhoek). Misconceptions: cells are about the size of sand grains; bigger animals have bigger cells.
+
+## Plant cells and other organelles (nodes 4 and 5)
+
+Only plant cells have a cell wall (support), chloroplasts (photosynthesis) and a large vacuole (firmness, storage). Both have mitochondria (respiration) and ribosomes (proteins); the numbers follow the cell's job. Misconceptions: plants don't need mitochondria; all plant cells are green; animal cells have walls.

@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 node: AC9S8U02 n3
 unit: systems
 title: What is an organ made of?

@@ -34,3 +34,7 @@ Properties come from these three features: a gas squashes because its particles 
 - Particles in a solid don't move.
 - Gases rise because they are light.
 - Particles squash, shrink or grow.
+
+## Energy and changes of state; the model's limits (nodes 4 and 5)
+
+Melting and boiling take energy in; freezing and condensing give it out. While a substance changes state its temperature stays constant: the energy separates the particles (the flat parts of a heating curve). The particle model explains states, diffusion and pressure but not colour, reactions or electricity, because its particles have no parts.

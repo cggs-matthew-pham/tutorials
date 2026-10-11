@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 node: AC9S8U02 n2
 unit: systems
 title: What is a tissue?

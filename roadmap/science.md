@@ -2,6 +2,12 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: eight more from the class-taught list (11 Oct 2026, science chat)
+
+What makes a plant cell different? (`biology-8/plant-cells`, 8U01 n4 and n5), Mixed, not joined? (`chemistry-8/mixtures`, 8U06 n4), Symbols, formulas or models? (`chemistry-8/models`, 8U06 n5), Nerves or hormones? (`biology-9/signals`, 9U01 n3), Where is all the carbon? (`earth-9/carbon-stores`, 9U03 n2), Where does the heat go? (`chemistry/heating-curve`, 7U05 n4, with a heating curve on the graph board), What can't the particle model explain? (`chemistry/model-limits`, 7U05 n5, short) and What kind of reaction is it? (`chemistry-9-10/reaction-types`, 10U07 n1 to n4: synthesis, decomposition, displacement with reactivity). Orders moved to fit; each removes `assumes:` lines. Voiced clips (ports 8271–8278, next free 8279); pictures except signals and carbon stores (overlapping labels, as for the carbon cycle); every check passes headless or by hand (spheres placement, fine clicks on cell lines and liquid diffusion are slow for the script); decks fit. New lessons and the 11 from earlier today have `struggle:` notes.
+- Fix in the science board (`playground-science/main.js`): values in quotes (`caption: "…: …"`, needed for colons) showed their quotes on reaction boards (chemical change, compounds, collision theory, heat transfer, igneous). The quotes are now dropped.
+- Still class-taught: 7U02 n3 (abiotic factors), 8U04 n1 (sedimentary rocks), 9U02 n2 (reproductive organs), 10U01 n2 (mitosis), 10U03 n1 (scale of the universe). Each needs a board that doesn't exist yet or is mostly questions.
+
 ## Done: six tutorials from the class-taught list (11 Oct 2026, science chat)
 
 Each removes an `assumes:` line: What is an element? (`chemistry-8/elements`, 8U06 n2), Same particles, new look? (`chemistry-8/physical-change`, 8U07 n1), What is the net force? (`physics-10/net-force`, 10U05 n1), How small is a cell? (`biology-8/cell-scale`, 8U01 n1), What is a tissue? (`biology-8/tissues`, 8U02 n2) and a short one, Why sort living things? (`biology-7/why-classify`, 7U01 n1, Matthew asked for it as a brief lesson). Existing boards only; orders in Year 8 Chemistry, Year 8 Biology, Year 7 Biology and Year 10 Physics moved to fit. Voiced clips (ports 8265–8270, next free 8271) and pictures (none for the key board); every check passes headless; decks fit; primers updated.

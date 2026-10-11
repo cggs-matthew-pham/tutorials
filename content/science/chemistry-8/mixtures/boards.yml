@@ -1,0 +1,34 @@
+# Science boards for "Mixed, not joined?".
+
+# region: air
+widget: atoms
+show: N2 x8, O2 x3, Ar x1, CO2 x1
+caption: A tiny sample of air, enlarged millions of times.
+# endregion
+
+# region: dissolve
+widget: dissolve
+# endregion
+
+# region: rich
+widget: atoms
+show: H2 x10, O2 x2
+caption: A mixture with lots of hydrogen.
+# endregion
+
+# region: lean
+widget: atoms
+show: H2 x2, O2 x10
+caption: A mixture with lots of oxygen.
+# endregion
+
+# region: humid
+widget: atoms
+show: N2 x8, O2 x2, H2O x4
+caption: Humid air on a rainy day.
+# endregion
+
+# region: explain
+widget: atoms
+show: N2 x1, O2 x1, Ar x1, N2 x7, O2 x2
+# endregion

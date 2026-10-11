@@ -1,0 +1,42 @@
+summary: Students identify the cell wall, chloroplasts and large vacuole as plant-only structures and explain each, describe mitochondria and ribosomes in both cell types, and link a cell's organelles to its job (AC9S8U01, nodes 4 and 5).
+time: 25
+timing: "Engage and Explore 7 min · Explain 11 min · Evaluate 3 min · Typical adds 3 min, Wider about 3 min"
+goals:
+  - I can name the parts only plant cells have and say what each is for.
+  - I can say which parts plant and animal cells share.
+  - I can explain why some cells have more of one part than others.
+before: |
+  A concept tutorial for introducing or revising the idea; it pairs with onion and cheek cell slides. Set the width with `?width=minimum`, `typical` (default) or `wider`. One lesson for two nodes (plant-specific structures, other organelles), after What does every cell have? and before Why are cells different shapes?
+
+  Not hinge nodes. The misconceptions: animal cells have walls; plants don't need mitochondria because they photosynthesise; every plant cell has chloroplasts. The prediction and the Typical step target them.
+
+  Board notes: the diagrams are not to scale and show only some mitochondria and chloroplasts. Ribosomes are too small to draw at this scale, so they appear in the questions only.
+running:
+  - "Engage: tally the predictions. 'Mitochondria' means the student thinks plants don't respire."
+  - "Explore: ask what the plant needs that each plant-only part provides."
+  - "Explain: the matching and the sort are the success criteria; the lettuce and muscle questions are the 'why'."
+  - "In your own words: the labelled pair of cells is the evidence."
+struggle: "Explaining why a part exists, not just naming it. When a student lists parts, ask what the plant would do without that part, and wait for the reason before moving on."
+stuck:
+  - see: "A student gives an animal cell a cell wall."
+    ask: "What holds an animal up?"
+    fix: "A skeleton (or water pressure in soft animals). Animal cells have a flexible membrane only."
+  - see: "A student says plants don't have mitochondria because they make their own food."
+    ask: "Once a plant has made glucose, how does it get energy out of it?"
+    fix: "Respiration, in mitochondria, like animals. Plants respire all the time, day and night."
+  - see: "A student thinks every plant cell is green."
+    ask: "Do roots get light?"
+    fix: "No, so root cells have no chloroplasts. Parts follow the job."
+stretch: "Fungi have cell walls but no chloroplasts. What does that suggest about how they get food? (They don't photosynthesise: they absorb food from what they grow on.)"
+support: "Give a two-column table to fill: Part | Plant only or both | Job."
+leads: |
+  Next: Why are cells different shapes? (specialisation, AC9S8U02 node 1).
+
+  In class: onion skin and Elodea leaf (chloroplasts visible) beside cheek cells; wilted and crisp lettuce in salt water and fresh water.
+exit:
+  q: "Name two parts a leaf cell has that a cheek cell lacks, and say what each does."
+  a: "Any two of: cell wall (support), chloroplasts (photosynthesis), large vacuole (keeps the cell firm, stores sap)."
+explain: |
+  Plant cells have three parts animal cells don't: a **cell wall** for support, **chloroplasts** for photosynthesis and a **large vacuole** that keeps the cell firm.
+
+  Both have **mitochondria** (release energy) and **ribosomes** (make proteins). How many of each a cell has depends on its job.

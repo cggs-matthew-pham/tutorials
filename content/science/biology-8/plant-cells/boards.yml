@@ -1,0 +1,28 @@
+# Boards for "What makes a plant cell different?".
+
+# region: compare
+widget: cell
+show: animal, plant
+find: wall, chloroplasts, vacuole
+# endregion
+
+# region: mito
+widget: cell
+show: animal, plant
+find: mitochondria
+# endregion
+
+# region: roothair
+widget: cell
+show: roothair, plant
+# endregion
+
+# region: muscle
+widget: cell
+show: muscle
+# endregion
+
+# region: explain
+widget: cell
+show: animal, plant
+# endregion

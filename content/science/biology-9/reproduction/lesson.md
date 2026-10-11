@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 node: AC9S9U02 n3
 assumes: [AC9S9U02 n2]   # reproductive organs: taught in class (no tutorial yet)
 unit: reproduction

@@ -1,7 +1,6 @@
 ---
-order: 4
+order: 6
 node: AC9S8U07 n1
-assumes: [AC9S8U06 n4, AC9S8U06 n5]   # mixtures; representations: taught in class (no tutorial yet)
 unit: changes
 title: Same particles, new look?
 summary: "In a physical change (melting, boiling, dissolving) the particles move, spread out or pack together, but every particle stays the same: no new substance is made. Steam is still made of water particles."

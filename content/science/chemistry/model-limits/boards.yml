@@ -1,0 +1,9 @@
+# Boards for "What can't the particle model explain?".
+
+# region: diffusion
+widget: diffusion
+# endregion
+
+# region: explain
+widget: diffusion
+# endregion

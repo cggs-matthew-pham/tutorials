@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 node: AC9S9U03 n4
 unit: carbon
 title: What does burning fossil fuels do to the carbon cycle?

@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 7
 node: AC9S7U06 n2
 unit: mixtures
 title: How do you separate a mixture?

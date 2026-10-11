@@ -1,7 +1,6 @@
 ---
-order: 11
+order: 12
 node: AC9S10U07 n5
-assumes: [AC9S10U07 n4]   # reaction type patterns: taught in class (no tutorial yet)
 unit: rates
 title: Why does heat speed up reactions?
 summary: Particles react only when they collide with enough energy (the activation energy). Collision theory explains why temperature, concentration, surface area and catalysts change the rate of a reaction.

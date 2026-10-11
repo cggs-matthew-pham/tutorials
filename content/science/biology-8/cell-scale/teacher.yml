@@ -16,6 +16,7 @@ running:
   - "Explore: ask how big the cell would be on the screen if it were drawn life size (about a fiftieth of a millimetre: invisible)."
   - "Explain: the 'too small to see' question and the sort are the success criteria; the two number checks are the size comparison."
   - "In your own words: the 1 mm line with cells, a hair and a bacterium is the evidence."
+struggle: "Sense of scale. Ask students to estimate before calculating (how many cells across a millimetre?) and to check their estimate against the answer."
 stuck:
   - see: "A student thinks cells are about the size of a grain of sand."
     ask: "Can you see a grain of sand? How many cells fit across one?"

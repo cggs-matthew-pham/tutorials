@@ -24,3 +24,7 @@ Temperature has the biggest effect because it changes **both** how often particl
 - Heat makes particles "want" to react, or makes them bigger.
 - Every collision causes a reaction.
 - A catalyst is used up, or adds energy.
+
+## Reaction types (nodes 1 to 4)
+
+Synthesis (A + B → AB), decomposition (AB → A + B) and displacement (A + BC → AC + B, only when A is more reactive than B). Classify by the pattern; predict products from it.

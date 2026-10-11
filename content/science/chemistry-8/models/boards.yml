@@ -1,0 +1,25 @@
+# Science boards for "Symbols, formulas or models?".
+
+# region: three
+widget: atoms
+show: H2O x5, CO2 x4, CH4 x4
+caption: Three compounds. Inspect each one.
+# endregion
+
+# region: nolabels
+widget: atoms
+show: NH3 x5, O2 x4, H2O x4
+labels: off
+caption: The same kind of model with no symbols. What can you still tell?
+# endregion
+
+# region: more
+widget: atoms
+show: H2O2 x4, CO x4, NH3 x4
+caption: Three more substances.
+# endregion
+
+# region: explain
+widget: atoms
+show: H2O x1, CO2 x1, CH4 x1, H2O x3, CO2 x2, CH4 x2
+# endregion

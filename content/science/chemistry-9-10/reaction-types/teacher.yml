@@ -1,0 +1,42 @@
+summary: Students identify synthesis, decomposition and displacement reactions by their patterns, use reactivity to predict whether a displacement happens, and classify unfamiliar reactions and predict products (AC9S10U07, nodes 1 to 4).
+time: 28
+timing: "Engage and Explore 9 min · Explain 11 min · Evaluate 3 min · Typical adds 2 min, Wider about 3 min"
+goals:
+  - I can recognise synthesis, decomposition and displacement reactions from their patterns.
+  - I can predict the products of a displacement reaction using reactivity.
+  - I can classify a reaction I haven't seen before.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace the practicals (magnesium burning, decomposing hydrogen peroxide with a catalyst, metals in copper sulfate). Set the width with `?width=minimum`, `typical` (default) or `wider`. One lesson for four nodes (the three reaction types and classifying them), before Why does heat speed up reactions? (node 5).
+
+  Node 3 (displacement) is a hinge: students who can't use reactivity to predict which way a displacement goes can't predict products. The prediction and the Typical step target it.
+
+  Board notes: zinc oxide, copper oxide and magnesium oxide are drawn as small particles, although they are really giant ionic lattices, and copper sulfate is replaced by copper oxide so the board can draw it. The backwards board has no reaction defined at all: the model shows the outcome, not why. Decomposition of hydrogen peroxide is shown without a catalyst.
+running:
+  - "Engage: tally the predictions. 'Nothing happens' and 'they mix into an alloy' both miss reactivity."
+  - "Explore: after each board, ask how many substances went in and how many came out."
+  - "Explain: the classification sort and the product prediction are the success criteria."
+  - "In your own words: one example of each type with its pattern is the evidence."
+struggle: "Classifying an unfamiliar equation. When a student guesses, ask them to count the substances on each side and say whether anything swapped, before naming the type."
+stuck:
+  - see: "A student calls every reaction with two reactants 'synthesis'."
+    ask: "How many products are there?"
+    fix: "Synthesis makes one product. Two in and two out, with an element swapping places, is displacement."
+  - see: "A student predicts copper displaces zinc."
+    ask: "Which is more reactive?"
+    fix: "Zinc. Only the more reactive element can take the other's place."
+  - see: "A student writes 'zinc copper sulfate' as a product."
+    ask: "Does the zinc join on, or take copper's place?"
+    fix: "It takes copper's place: zinc sulfate and copper."
+stretch: "Thermite (aluminium + iron oxide) is used to weld railway lines. Write the word equation and say which type of reaction it is. (aluminium + iron oxide → aluminium oxide + iron: displacement, because aluminium is more reactive than iron.)"
+support: "Give the three patterns on a card with a box for 'how many in, how many out, did anything swap?'"
+leads: |
+  Next: Why does heat speed up reactions? (collision theory, node 5).
+
+  In class: metal strips in copper sulfate solution (zinc, iron, magnesium, copper) to build a reactivity series; decompose copper carbonate by heating; burn magnesium ribbon.
+exit:
+  q: "Classify magnesium + zinc sulfate → magnesium sulfate + zinc, and say why it happens."
+  a: "Displacement: magnesium is more reactive than zinc, so it takes zinc's place."
+explain: |
+  **Synthesis**: substances join into one (A + B → AB). **Decomposition**: one substance breaks into simpler ones (AB → A + B). **Displacement**: a more reactive element takes a less reactive one's place (A + BC → AC + B).
+
+  Spot the pattern to classify a reaction and predict its products. Displacement only goes from more reactive to less reactive.

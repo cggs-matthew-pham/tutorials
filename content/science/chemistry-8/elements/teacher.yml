@@ -16,6 +16,7 @@ running:
   - "Explore: ask what was the same about every atom in the oxygen jar, and what was different in water."
   - "Explain: the definition, the sort and the symbols are the node's success criteria; Co and CO is the two-letter rule."
   - "In your own words: the three labelled particle drawings are the evidence."
+struggle: "Elements made of joined atoms (O₂). Ask 'how many types of atom?' rather than 'how many atoms?', and let the student recount."
 stuck:
   - see: "A student says oxygen is a compound because each particle has two atoms."
     ask: "Are the two atoms the same type or different?"

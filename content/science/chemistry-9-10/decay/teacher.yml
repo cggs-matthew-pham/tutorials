@@ -16,6 +16,7 @@ running:
   - "Explore: ask which button changed the element's name, and which changed only the energy."
   - "Explain: the sort and the two number checks are the node's success criteria; the 'why' question links stopping power to damage."
   - "In your own words: the table plus the radon equation is the evidence."
+struggle: "Tracking two numbers at once. When a student guesses the product, ask them to write the protons and the mass number separately before and after, and wait."
 stuck:
   - see: "A student says gamma decay makes a new element."
     ask: "What leaves in gamma: protons, neutrons or neither?"

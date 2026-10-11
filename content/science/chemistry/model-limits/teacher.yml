@@ -1,0 +1,38 @@
+summary: Students identify what the particle model explains well and what it can't, reason from its assumptions to its limits, and name evidence for it (AC9S7U05, node 5).
+time: 15
+timing: "Engage and Explore 5 min · Explain 7 min · Evaluate 2 min · Typical adds 1 min, Wider about 1 min"
+goals:
+  - I can name something the particle model explains well, and why.
+  - I can name something it can't explain, and why.
+  - I can give evidence for the particle model.
+before: |
+  A short concept tutorial to close the particle theory unit, before Pure substance or mixture? Set the width with `?width=minimum`, `typical` (default) or `wider`.
+
+  Not a hinge node. The progression asks for reasoning, not a list of limits: "what does the model assume, and what does this phenomenon need that the model doesn't have?" The sentence starter in "In your own words" scaffolds it.
+
+  Board notes: the diffusion board is the same as in Why can you squash air but not water?; here it stands for a prediction the model gets right.
+running:
+  - "Engage: ask the students who chose 'throw it away' what they would use instead for squashing gases."
+  - "Explain: the sort is the success criterion; the reactions question is the reasoning."
+  - "In your own words: one 'explains well' and one 'can't explain', each with a reason that starts from the model's assumptions."
+struggle: "Giving a reason for a limit, not just naming one. When a student writes 'it can't explain colour', ask 'what would the particles need to have for the model to explain it?'"
+stuck:
+  - see: "A student says a model with limits is wrong."
+    ask: "Is a street map wrong because it doesn't show hills?"
+    fix: "No, it is built for a job. Models are judged by what they explain and predict."
+  - see: "A student lists limits without reasons."
+    ask: "What does the model say particles are like?"
+    fix: "Plain moving balls that attract. Anything that needs particles to have parts (colour, reactions, electricity) is beyond it."
+stretch: "Particles in a solid are drawn touching, yet solids expand when heated. How does the model explain that? (The particles vibrate more and push each other slightly further apart.)"
+support: "Give the sentence frame: 'The model explains … because it says particles … . It can't explain … because it says nothing about … .'"
+leads: |
+  Next: Pure substance or mixture? (AC9S7U06). In Year 8 the particles get parts (atoms), which extends the model.
+
+  In class: Brownian motion with smoke in a cell or a video; a class list of 'explains well' and 'can't explain' to revisit in Year 8.
+exit:
+  q: "Name one thing the particle model explains well and one thing it can't, with a reason for each."
+  a: "For example: explains diffusion (particles move and mix); can't explain colour (particles are plain balls with no parts)."
+explain: |
+  The particle model treats matter as tiny particles that move and attract each other. It explains states, diffusion, compressing gases and expansion very well.
+
+  It can't explain colour, reactions or electricity, because its particles have no parts. Every model has limits; scientists use the one that suits the job.

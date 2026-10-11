@@ -1,0 +1,42 @@
+summary: Students identify carbon stores in each of Earth's spheres, distinguish stores from flows, and explain that carbon moves between stores without being made or destroyed (AC9S9U03, node 2).
+time: 23
+timing: "Engage and Explore 7 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 3 min"
+goals:
+  - I can name a carbon store in each of Earth's four spheres.
+  - I can explain the difference between a carbon store and a carbon flow.
+  - I can explain that carbon moves between stores but is never made or destroyed.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It sits between What are Earth's spheres? (node 1) and Where does the carbon in a tree go? (node 3), which uses the same cycle board to switch flows on and off.
+
+  Not a hinge node, but it sets up the cycle: students who confuse stores (amounts) with flows (amounts a year), or think burning destroys carbon, struggle with every later carbon lesson.
+
+  Board notes: the cycle board shows four stores; rocks (the largest store) are left out because their carbon moves over millions of years. Store sizes are rounded: air about 600 GtC before industry (about 875 today), living things and soil about 2150, oceans about 38 000, fossil fuels about 1000. Boxes are not to scale.
+running:
+  - "Engage: tally the predictions. Most will say the air; the oceans are the surprise."
+  - "Explore: ask why the air's store barely moved when the arrows show large flows."
+  - "Explain: the sphere sort and the store-or-flow question are the success criteria."
+  - "In your own words: the four boxes with stores and two labelled flows are the evidence."
+struggle: "Telling a store from a flow. If a student calls photosynthesis a store, point to the units (tonnes, or tonnes a year) and ask which one is moving."
+stuck:
+  - see: "A student says burning destroys carbon."
+    ask: "What gas comes out of a chimney?"
+    fix: "Carbon dioxide: the same carbon atoms, now in the air. Carbon moves; it isn't destroyed."
+  - see: "A student thinks the air holds most of Earth's carbon."
+    ask: "Look at the oceans' store on the board. How many times bigger is it?"
+    fix: "About 50 times. Rocks hold more still."
+  - see: "A student thinks a steady store means nothing is moving."
+    ask: "If a bath's tap is on and the plug is out, can the water level stay the same?"
+    fix: "Yes, when in equals out. The same goes for carbon stores."
+stretch: "If carbon is never destroyed, where does the carbon in coal come from? (Plants that took carbon dioxide from the air millions of years ago, buried before they could decay.)"
+support: "Give a four-row table: Sphere | A carbon store | What form the carbon is in."
+leads: |
+  Next: Where does the carbon in a tree go? (photosynthesis and respiration, node 3), then fossil fuels (node 4).
+
+  In class: a "carbon atom's journey" dice game around stores; dissolving carbon dioxide from breath in limewater.
+exit:
+  q: "Name a carbon store in the hydrosphere and one in the geosphere, and one flow that moves carbon into the atmosphere."
+  a: "Hydrosphere: carbon dioxide dissolved in the oceans. Geosphere: fossil fuels or limestone. Flow into the air: respiration, decay, burning or release from the oceans."
+explain: |
+  Carbon is stored in every sphere: carbon dioxide in the **air**, dissolved carbon in the **oceans**, living things and soil in the **biosphere**, and fossil fuels and rocks in the **geosphere**.
+
+  Carbon is never made or destroyed; it **flows** between stores. The **carbon cycle** is the map of those flows.

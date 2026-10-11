@@ -1,0 +1,29 @@
+# Boards for "Where does the heat go?".
+
+# region: heat
+widget: heat
+# endregion
+
+# region: curve
+widget: graph
+axes: Time heating (min), Temperature (°C)
+x: 0, 20
+y: -20, 120
+grid: 2, 20
+series Water: 0,-20; 2,0; 6,0; 11,100; 19,100; 20,115
+cursor R: 1
+# endregion
+
+# region: cooling
+widget: graph
+axes: Time cooling (min), Temperature (°C)
+x: 0, 20
+y: 0, 100
+grid: 2, 20
+series Wax: 0,90; 4,52; 12,52; 20,25
+cursor R: 1
+# endregion
+
+# region: explain
+widget: heat
+# endregion

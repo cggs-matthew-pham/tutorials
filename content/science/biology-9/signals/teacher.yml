@@ -1,0 +1,42 @@
+summary: Students describe how the nervous and endocrine systems each run the stimulus–receptor–command centre–effector pathway, and compare their signals, speed, duration and reach (AC9S9U01, node 3).
+time: 25
+timing: "Engage and Explore 9 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 3 min"
+goals:
+  - I can explain how a nerve signal and a hormone each carry a message.
+  - I can compare how fast each is and how long it lasts.
+  - I can name glands as command centres and target organs as effectors.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It sits between Who decides? (the pathway, node 2) and Nerve or hormone? (comparing the systems in context, node 4), which uses the race board in more depth.
+
+  Not a hinge node, but students often think every response runs through nerves, or that hormones travel along nerves. The prediction tests the second.
+
+  Board notes: the pathways are simplified to five boxes. In the glucose pathway the pancreas both detects the change and releases insulin; in the fright pathway the brain triggers the adrenal glands by a nerve. The race graph is a sketch of the timescales, not measured data.
+running:
+  - "Engage: tally the predictions. 'Along a nerve' is the misconception to come back to."
+  - "Explore: ask what kind of thing sat in the command centre box for each pathway."
+  - "Explain: the sort is the success criterion; the 'why faster' question is the reason."
+  - "In your own words: the two five-box pathways with the messenger labelled are the evidence."
+struggle: "Placing a gland in the pathway. When a student is stuck on the build board, ask 'what releases the hormone?' and let them find that it is the command centre."
+stuck:
+  - see: "A student says hormones travel along nerves."
+    ask: "How does a medicine injected in your arm reach your whole body?"
+    fix: "In the blood. Hormones are carried the same way."
+  - see: "A student thinks the blood is the command centre."
+    ask: "Does the blood decide anything, or just carry things?"
+    fix: "It only carries. The gland that releases the hormone is the command centre."
+  - see: "A student thinks hormones affect every organ."
+    ask: "If insulin reaches your toes, why don't your toes store glucose like the liver?"
+    fix: "Only target organs, with the right receptors, respond. The hormone reaches everywhere; the response doesn't."
+stretch: "Type 1 diabetes means the pancreas makes too little insulin. Which part of the pathway fails, and what happens to blood glucose after a meal? (The command centre's message is missing; glucose stays high.)"
+support: "Give a two-row table: Nervous | Endocrine, with columns Signal, Travels by, Speed, Lasts."
+leads: |
+  Next: Nerve or hormone? (node 4), then feedback (node 5).
+
+  In class: reaction-time ruler drop (nerves) beside a discussion of how long a blush or a fright lasts (hormones); a map of the major glands.
+exit:
+  q: "Give one difference between how a nerve signal and a hormone travel, and one difference in how long their effects last."
+  a: "Nerve signals are electrical, along nerves; hormones are chemicals in the blood. Nerve effects are brief; hormone effects last longer."
+explain: |
+  Both systems run stimulus → receptor → command centre → effector → response. The **nervous system** sends electrical signals along nerves: very fast, brief, to one place.
+
+  The **endocrine system** uses **glands** that release **hormones** into the blood: slower, longer-lasting, reaching target organs anywhere. Many responses use both.

@@ -1,0 +1,45 @@
+# Science boards for "What kind of reaction is it?".
+
+# region: synthesis
+widget: reaction
+show: Mg x12, O2 x6
+react: 2 Mg + O2 -> 2 MgO
+ea: 1.5
+release: 1
+caption: "Synthesis: magnesium + oxygen → magnesium oxide."
+# endregion
+
+# region: decomposition
+widget: reaction
+show: H2O2 x14
+react: 2 H2O2 -> 2 H2O + O2
+ea: 1.5
+release: 1
+caption: Decomposition: hydrogen peroxide → water + oxygen.
+# endregion
+
+# region: displacement
+widget: reaction
+show: Zn x10, CuO x10
+react: Zn + CuO -> ZnO + Cu
+ea: 1.5
+release: 1
+caption: Displacement: zinc + copper oxide → zinc oxide + copper.
+# endregion
+
+# region: backwards
+widget: reaction
+show: Cu x10, ZnO x10
+react: Zn + CuO -> ZnO + Cu
+ea: 1.5
+goal: none
+caption: Copper and zinc oxide. Will copper take zinc's place?
+# endregion
+
+# region: explain
+widget: reaction
+show: Zn x10, CuO x10
+react: Zn + CuO -> ZnO + Cu
+ea: 2.2
+release: 1
+# endregion

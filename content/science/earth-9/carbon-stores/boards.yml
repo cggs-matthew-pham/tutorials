@@ -1,0 +1,16 @@
+# Boards for "Where is all the carbon?".
+
+# region: cycle
+widget: carbon
+mode: cycle
+# endregion
+
+# region: spheres
+widget: carbon
+mode: spheres
+# endregion
+
+# region: explain
+widget: carbon
+mode: cycle
+# endregion

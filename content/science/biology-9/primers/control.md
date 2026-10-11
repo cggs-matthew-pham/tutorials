@@ -23,3 +23,7 @@ Every response follows one pathway: **stimulus → receptor → command centre �
 - The brain controls every response (reflexes and many hormones don't wait for it).
 - Hormones travel along nerves.
 - Homeostasis keeps things exactly constant, rather than correcting changes.
+
+## Nerves and hormones (node 3)
+
+The same five-step pathway runs two ways: nerves (electrical, fast, brief, to one place) and hormones from glands in the blood (slower, lasting, to target organs). Glands are command centres. Misconception: hormones travel along nerves.

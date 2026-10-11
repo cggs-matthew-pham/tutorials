@@ -1,7 +1,6 @@
 ---
-order: 2
+order: 3
 node: AC9S9U03 n3
-assumes: [AC9S9U03 n2]   # carbon as a substance cycling through Earth's spheres: taught in class (no tutorial yet)
 unit: carbon
 title: Where does the carbon in a tree go?
 summary: "Photosynthesis moves carbon from the atmosphere into living things; respiration and decomposition move it back. These huge flows nearly balance, so the air's CO₂ stays steady until something upsets them."

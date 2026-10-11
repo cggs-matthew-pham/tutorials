@@ -16,6 +16,7 @@ running:
   - "Explore: ask which counts went down (reactants) and which appeared (products)."
   - "Explain: the reactant and product sort and the 'what it leaves out' question are the success criteria."
   - "Practise: four reactions with the same check: every reactant, every product."
+struggle: "Remembering every product. When a word equation is missing water, ask where each element in the reactants went, element by element."
 stuck:
   - see: "A student writes methane + oxygen → carbon dioxide."
     ask: "Methane has carbon and hydrogen atoms. Where did the hydrogen go?"

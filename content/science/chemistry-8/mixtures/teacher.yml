@@ -1,0 +1,42 @@
+summary: Students define a mixture, explain that its parts keep their properties, vary in amount and can be separated physically, and distinguish mixtures from compounds (AC9S8U06, node 4).
+time: 24
+timing: "Engage and Explore 7 min · Explain 10 min · Evaluate 3 min · Typical adds 4 min, Wider about 3 min"
+goals:
+  - I can explain what a mixture is.
+  - I can tell a mixture from a compound.
+  - I can sort substances into elements, compounds and mixtures.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It comes after Why isn't salt poisonous? (compounds) and links back to Year 7 separating mixtures.
+
+  Not a hinge node, but the element–compound–mixture distinction is where Year 8 students most often slip: "air is a compound", "a mixture has fixed amounts", "anything with two kinds of atom is a compound" (humid air). The prediction and the Wider step target these.
+
+  Board notes: gases in a box, enlarged and in 2D; air's proportions are rounded (about 78% nitrogen, 21% oxygen, 1% argon, a trace of carbon dioxide). The dissolve board's salt particles stand for sodium and chloride ions.
+running:
+  - "Engage: tally the predictions. 'Turned into a new substance' is the misconception to watch."
+  - "Explore: ask whether any particle on the air board was joined to a different kind."
+  - "Explain: the two sorts are the success criteria."
+  - "In your own words: the three particle diagrams are the evidence."
+struggle: "Telling a mixture from a compound when both contain two kinds of atom. Ask 'are the different atoms joined in one particle, or in separate particles?' and let the student look before answering."
+stuck:
+  - see: "A student says air is a compound."
+    ask: "Is any nitrogen atom joined to an oxygen atom on the board?"
+    fix: "No: they are separate particles, mingled. Different substances not joined make a mixture."
+  - see: "A student thinks a mixture has a fixed recipe."
+    ask: "Is weak cordial still cordial?"
+    fix: "Yes. A mixture's parts can be in any amounts; only compounds have a fixed ratio."
+  - see: "A student says humid air is a compound because it contains water."
+    ask: "Is the water joined to the nitrogen?"
+    fix: "No. It is a mixture that happens to include a compound."
+stretch: "Brass is a mixture of copper and zinc in different amounts for different uses. Why can it be called a mixture, even though it looks like one metal? (The atoms are mingled, not in a fixed ratio, and each metal's atoms are unchanged.)"
+support: "Give the three questions as a checklist: Joined? Fixed amounts? Separated physically?"
+leads: |
+  Next: Symbols, formulas or models? (representations, node 5).
+
+  In class: iron filings and sulfur mixed (a magnet separates them) versus heated to iron sulfide (it doesn't); making and evaporating salt water.
+exit:
+  q: "Iron and sulfur are mixed, then heated to make iron sulfide. Which is the mixture and which the compound, and how could you tell with a magnet?"
+  a: "Before heating: a mixture (a magnet pulls out the iron). After: iron sulfide, a compound (the iron is joined to sulfur, so a magnet can't pull it out)."
+explain: |
+  A **mixture** is two or more substances mingled together but not chemically joined. Each keeps its own properties, the amounts can vary, and the parts can be separated by physical means.
+
+  A **compound** has different atoms joined in a fixed ratio, with new properties. Air and salt water are mixtures; water and carbon dioxide are compounds.

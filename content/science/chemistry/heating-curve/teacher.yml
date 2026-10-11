@@ -1,0 +1,42 @@
+summary: Students explain changes of state with particle theory, identify energy input or output for each, and explain the flat parts of a heating or cooling curve (AC9S7U05, node 4).
+time: 24
+timing: "Engage and Explore 6 min · Explain 11 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can say whether energy goes in or out when a substance melts, boils, freezes or condenses.
+  - I can explain a change of state using particles.
+  - I can explain why the temperature stays the same while a substance changes state.
+before: |
+  A concept tutorial for introducing or revising the idea; a real heating curve (ice in a beaker with a thermometer and a timer) is the best partner. Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows Why can you squash air but not water? and comes before Pure substance or mixture?
+
+  Not a hinge node, but the plateau surprises almost everyone: students expect heating always to raise the temperature. The prediction tests that.
+
+  Board notes: the particle board changes state at 0 °C and 100 °C without showing the plateau (the slider sets the temperature directly); the heating curve on the graph board shows it. The curve is idealised: real ones curve at the corners, and the boiling plateau is longer than the melting one because boiling needs more energy.
+running:
+  - "Engage: tally the predictions. 'It keeps rising' is the idea the curve challenges."
+  - "Explore: ask what the particles were doing just as the ice turned to water."
+  - "Explain: the energy in/out sort and the flat-part question are the success criteria."
+  - "In your own words: the labelled heating curve is the evidence."
+struggle: "Explaining the flat part. When a student says 'the heat stopped', ask where the stove's energy is going if the particles aren't speeding up, and wait."
+stuck:
+  - see: "A student says the temperature stops rising because the heat turned off."
+    ask: "Was the stove still on?"
+    fix: "Yes. The energy is still going in, but into separating particles, not speeding them up."
+  - see: "A student thinks freezing takes energy in, because things get colder."
+    ask: "When water freezes in a freezer, does it give energy to the freezer or take it?"
+    fix: "It gives energy out: the freezer has to remove that energy."
+  - see: "A student thinks steam is hotter than 100 °C as soon as it forms."
+    ask: "What was the temperature on the flat part of the curve while it boiled?"
+    fix: "100 °C. Steam only gets hotter once all the water has boiled and you keep heating."
+stretch: "Why is a burn from steam at 100 °C worse than one from water at 100 °C? (Steam gives out a lot of extra energy as it condenses on your skin.)"
+support: "Give the frame: 'When it melts, energy goes … . The particles … , so the temperature … .'"
+leads: |
+  Next: Pure substance or mixture? (AC9S7U06). Particle theory's scope and limits (node 5) is a short lesson.
+
+  In class: a heating curve for ice or a cooling curve for stearic acid or wax, with data loggers if you have them.
+exit:
+  q: "Water vapour condenses on a cold window. Is energy taken in or given out, and what are the particles doing?"
+  a: "Given out. The water particles slow down and come close together, forming a liquid on the glass."
+explain: |
+  **Melting** and **boiling** take energy in: the particles move faster and pull free of each other. **Freezing** and **condensing** give energy out.
+
+  While a substance is changing state its temperature stays the same: the energy goes into separating the particles (or comes out as they settle). A heating curve shows this as flat parts.
