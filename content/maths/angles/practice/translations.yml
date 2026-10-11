@@ -1,0 +1,15 @@
+# Practice for "Translations". Answer with coordinates, such as (3, −2).
+templates:
+  - q: "A point at ({x}, {y}) is translated {abs(h)} {h > 0 ? 'right' : 'left'} and {abs(v)} {v > 0 ? 'up' : 'down'}. Where does it land?"
+    vars: { x: "-5..6", y: "-5..6", h: [-5, -4, -3, -2, -1, 1, 2, 3, 4, 5], v: [-5, -4, -3, -2, -1, 1, 2, 3, 4, 5] }
+    answer: "({x + h}, {y + v})"
+    feedback:
+      - ["({x + v}, {y + h})", "Right and left change x; up and down change y."]
+      - ["({x - h}, {y - v})", "Right and up add; left and down take away."]
+    explain: "{h > 0 ? 'Right adds to' : 'Left takes from'} x: {x} {h|s} = {x + h}. {v > 0 ? 'Up adds to' : 'Down takes from'} y: {y} {v|s} = {y + v}. So ({x + h}, {y + v})."
+  - q: "A shape is translated {abs(h)} {h > 0 ? 'right' : 'left'} and {abs(v)} {v > 0 ? 'up' : 'down'}. Its image has a corner at ({x}, {y}). Where was that corner before?"
+    vars: { x: "-4..6", y: "-4..6", h: [-4, -3, -2, 2, 3, 4], v: [-4, -3, -2, 2, 3, 4] }
+    answer: "({x - h}, {y - v})"
+    feedback:
+      - ["({x + h}, {y + v})", "That moves it again. Go backwards: undo the translation."]
+    explain: "Undo the move: {h > 0 ? 'left' : 'right'} {abs(h)} and {v > 0 ? 'down' : 'up'} {abs(v)}: ({x - h}, {y - v})."

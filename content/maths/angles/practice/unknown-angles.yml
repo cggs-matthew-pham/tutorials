@@ -1,0 +1,30 @@
+# Practice for "Unknown angles in shapes".
+templates:
+  - q: "A triangle has angles {a}° and {b}°. One side is extended at the third corner, making an exterior angle x there. What is x, in degrees?"
+    vars: { a: "20..80", b: "20..80" }
+    answer: "{a + b}"
+    feedback:
+      - ["{180 - a - b}", "That is the third angle inside. x is on a straight line with it: 180 − {180 - a - b}."]
+    explain: "The third angle is 180 − {a} − {b} = {180 - a - b}°, and x makes a straight line with it: x = 180 − {180 - a - b} = {a + b}°. (An exterior angle equals the two opposite interior angles added.)"
+  - q: "In triangle ABC, CA = CB and angle C = {c}°. What is angle A, in degrees?"
+    vars: { c: "20..140 by 2" }
+    where: "c != 60"
+    answer: "{(180 - c) / 2}"
+    feedback:
+      - ["{c}", "CA = CB makes the angles at A and B equal (opposite the equal sides), not angle C."]
+      - ["{180 - c}", "That is A and B together. They are equal, so halve it."]
+    explain: "CA = CB, so angles A and B are equal. 180 − {c} = {180 - c}, halved: {(180 - c) / 2}°."
+  - q: "In triangle ABC, AB = AC and angle B = {b}°. What is angle A, in degrees?"
+    vars: { b: "35..85" }
+    where: "b != 60"
+    answer: "{180 - 2 * b}"
+    feedback:
+      - ["{180 - b}", "AB = AC makes angle C equal to angle B as well: 180 − {b} − {b}."]
+    explain: "AB = AC, so angle C = angle B = {b}°. A = 180 − {b} − {b} = {180 - 2 * b}°."
+  - q: "An exterior angle of a triangle is {e}°. One of the two opposite interior angles is {a}°. What is the other, in degrees?"
+    vars: { e: "70..160", a: "20..70" }
+    where: "e - a > 10"
+    answer: "{e - a}"
+    feedback:
+      - ["{180 - e}", "That is the interior angle next to the exterior one. The exterior angle equals the two opposite angles added."]
+    explain: "Exterior angle = sum of the two opposite interior angles: {e} = {a} + x, so x = {e - a}°."

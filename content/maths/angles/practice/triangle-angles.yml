@@ -1,0 +1,23 @@
+# Practice for "Angles in a triangle".
+templates:
+  - q: "A triangle has angles of {a}° and {b}°. What is the third angle, in degrees?"
+    vars: { a: "15..110", b: "15..110" }
+    where: "a + b < 170"
+    answer: "{180 - a - b}"
+    feedback:
+      - ["{360 - a - b}", "The angles of a triangle add to 180°, not 360° (that is a quadrilateral)."]
+    explain: "180 − {a} − {b} = {180 - a - b}°."
+  - q: "A right-angled triangle has one other angle of {a}°. What is the third angle, in degrees?"
+    vars: { a: "10..80" }
+    where: "a != 45"
+    answer: "{90 - a}"
+    feedback:
+      - ["{180 - a}", "Don't forget the right angle: 180 − 90 − {a}."]
+    explain: "180 − 90 − {a} = {90 - a}°. The two smaller angles of a right-angled triangle add to 90°."
+  - q: "One angle of a triangle is {a}°. The other two are equal. How big is each of them, in degrees?"
+    vars: { a: "20..140 by 2" }
+    where: "a != 60"
+    answer: "{(180 - a) / 2}"
+    feedback:
+      - ["{180 - a}", "That is both together. Share it equally between the two."]
+    explain: "180 − {a} = {180 - a}, shared between two equal angles: {(180 - a) / 2}° each."

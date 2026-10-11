@@ -144,8 +144,24 @@ export function makePractice() {
     }
     if (!/[a-z]/i.test(g.answer) && /\d\s*[ap]\.?m\.?\s*$/i.test(raw)) return { ok: false, keep: true, msg: 'Write it in 24-hour time: 2 pm is 14:00, and 12 am is 0:00.' };
     if (/π|\bpi\b/i.test(raw) && !/π/.test(g.answer)) return { ok: false, keep: true, msg: 'Give a number: work it out with the π button (or 3.14).' };
+    // Points: answer "(3, -2)"; "(3, −2)", "3, -2" and "(3,-2)" are all fine.
+    var pt = /^\(\s*([^,()]+),\s*([^,()]+)(?:,\s*([^,()]+))?\)$/.exec(g.answer);
+    if (pt) {
+      if (!String(raw).trim()) return { ok: false, msg: 'Type your answer first.' };
+      var parts = String(raw).replace(/[−–]/g, '-').replace(/\.\s*$/, '').replace(/^\s*[A-Za-z]['′]*\s*=?\s*(?=\()/, '').replace(/^\s*\(|\)\s*$/g, '').split(/\s*[,;]\s*/).map(function (x) { return x.replace(/^\s*[a-zA-Z]\s*=\s*/, ''); }), want = pt.slice(1).filter(function (x) { return x !== undefined; });
+      if (parts.length !== want.length) return { ok: false, keep: true, msg: 'Write the point as (x, y' + (want.length === 3 ? ', z' : '') + '), such as (' + (want.length === 3 ? '3, −2, 5' : '3, −2') + ').' };
+      var nums = [];
+      for (var pi = 0; pi < parts.length; pi++) { try { nums.push(WPM.evaluate(parts[pi], {})); } catch (e) { return { ok: false, keep: true, msg: 'Write each coordinate as a number.' }; } }
+      var good = want.every(function (w, k) { return Math.abs(nums[k] - Number(w)) < 1e-9; });
+      if (good) return { ok: true };
+      var swapped = want.length === 2 && Math.abs(nums[0] - Number(want[1])) < 1e-9 && Math.abs(nums[1] - Number(want[0])) < 1e-9;
+      var fp = g.feedback.filter(function (f) { var q = /^\(\s*([^,()]+),\s*([^,()]+)(?:,\s*([^,()]+))?\)$/.exec(f[0]); return q && q.slice(1).filter(function (x) { return x !== undefined; }).every(function (w, k) { return Math.abs(nums[k] - Number(w)) < 1e-9; }); })[0];
+      if (fp && fp[0].replace(/\s/g, '') !== g.answer.replace(/\s/g, '')) return { ok: false, msg: 'Not quite. ' + fp[1] };
+      return { ok: false, msg: swapped ? 'Not quite: check the order (x first, then y) and the signs.' : 'Not quite. Check each coordinate.' };
+    }
     if (/^\s*\(.*,.*\)\s*$/.test(raw)) return { ok: false, keep: true, msg: 'Give just the number, not a point.' };
-    raw = String(raw).replace(/^(.+?)\s*=\s*[a-zA-Z]\s*$/, '$1');   // 3n + 2 = s
+    raw = String(raw).replace(/^(.+?)\s*=\s*[a-zA-Z]\s*$/, '$1').replace(/[º˚]/g, '°');   // 3n + 2 = s; º and ˚ for degrees
+    if (!/[a-z]/i.test(g.answer)) raw = raw.replace(/^\s*[×x*]\s*(?=[\d.])/, '');   // a scale factor written ×4
     if (g.answer.indexOf(':') < 0) raw = String(raw).replace(/^\s*(\d{1,2}):00\b/, '$1');   // 14:00 for the hour 14
     var v = WPM.splitAnswer(String(raw).trim()).value.trim().replace(/[−–]/g, '-').replace(/^(-?)\s*\$\s*/, '$1').replace(/^-\s+/, '-').replace(/(\d),(?=\d{3}(\D|$))/g, '$1');
     if (!v) return { ok: false, msg: 'Type your answer first.' };
@@ -220,6 +236,7 @@ export function checkPractice(data, where, WPM, n = 300, WPF = null) {
         if (['expanded', 'factorised', 'simplified'].includes(g.form) && !WPF) { errors.push(`${w}: form ${g.form} needs the form checker (Numbas)`); break; }
         if (sub && !new RegExp('^\\s*' + sub[1] + '\\s*=').test(g.answer)) { errors.push(`${w}: with form "subject ${sub[1]}" the answer starts "${sub[1]} =", not "${g.answer}"`); break; }
         if (algebra) { try { if (!PRACTICE.ineq(g.answer, WPM)) WPM.parse(sub ? g.answer.split('=')[1] : g.answer); } catch (e) { errors.push(`${w}: the answer "${g.answer}" cannot be read (${e.message}) for "${g.q}"`); break; } }
+        else if (/^\(.*,.*\)$/.test(g.answer)) { for (const part of g.answer.slice(1, -1).split(',')) { if (!Number.isFinite(Number(part))) { errors.push(`${w}: the point "${g.answer}" has a coordinate that is not a number for "${g.q}"`); break; } } }
         else for (const part of g.answer.split(':')) { let a; try { a = WPM.evaluate(part, {}); } catch (e) { a = null; } if (a === null || !Number.isFinite(a)) { errors.push(`${w}: the answer "${g.answer}" is not a number for "${g.q}"`); break; } }
         if (errors.length) break;
         const self = PRACTICE.mark(g, g.answer.replace(/:/g, ' : '), WPM, WPF);

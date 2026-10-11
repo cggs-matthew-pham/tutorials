@@ -1,0 +1,27 @@
+# Practice for "Problems with quadrilaterals".
+templates:
+  - q: "In parallelogram PQRS, angle P = {a}°. What is angle Q, in degrees?"
+    vars: { a: "40..140" }
+    where: "a != 90"
+    answer: "{180 - a}"
+    feedback:
+      - ["{a}", "Q is next to P, not opposite: they add to 180°."]
+    explain: "P and Q are neighbouring angles between parallel sides, so they add to 180°: {180 - a}°."
+  - q: "A rhombus has an angle of {a}°. What is the size of its {a < 90 ? 'larger' : 'smaller'} angles, in degrees?"
+    vars: { a: "30..150" }
+    where: "a != 90"
+    answer: "{180 - a}"
+    explain: "A rhombus is a parallelogram: neighbouring angles add to 180°, so the others are {180 - a}°."
+  - q: "Rectangle ABCD has diagonals that cross at M. AC = {d} cm. How long is BM, in cm?"
+    vars: { d: "4..30" }
+    answer: "{d / 2}"
+    feedback:
+      - ["{d}", "BM is half of diagonal BD, and BD = AC."]
+    explain: "A rectangle's diagonals are equal and cut each other in half: BD = {d}, so BM = {d / 2} cm."
+  - q: "Kite ABCD has AB = AD and CB = CD. Angle A = {a}° and angle C = {c}°. What is angle B, in degrees?"
+    vars: { a: "40..140", c: "40..120" }
+    where: "a != c and (360 - a - c) / 2 > 30 and (a + c) % 2 = 0"
+    answer: "{(360 - a - c) / 2}"
+    feedback:
+      - ["{360 - a - c}", "That is B and D together. In a kite they are equal: halve it."]
+    explain: "Angles B and D are equal (the kite's line of symmetry runs through A and C). 360 − {a} − {c} = {360 - a - c}, halved: {(360 - a - c) / 2}°."

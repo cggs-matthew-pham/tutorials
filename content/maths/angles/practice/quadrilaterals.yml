@@ -1,0 +1,17 @@
+# Practice for "The quadrilateral family".
+templates:
+  - q: "One angle of a parallelogram is {a}°. What is the angle next to it, in degrees?"
+    vars: { a: "40..140" }
+    where: "a != 90"
+    answer: "{180 - a}"
+    feedback:
+      - ["{a}", "That is the opposite angle. Angles next to each other are co-interior: they add to 180°."]
+      - ["{360 - a}", "Neighbouring angles add to 180°, not 360°."]
+    explain: "Neighbouring angles of a parallelogram are co-interior (between parallel sides): 180 − {a} = {180 - a}°."
+  - q: "One angle of a {w = 0 ? 'parallelogram' : 'rhombus'} is {a}°. What is the angle opposite it, in degrees?"
+    vars: { a: "40..140", w: [0, 1] }
+    where: "a != 90"
+    answer: "{a}"
+    feedback:
+      - ["{180 - a}", "That is the angle next to it. Opposite angles of a parallelogram are equal."]
+    explain: "Opposite angles of a parallelogram (and a rhombus, which is one) are equal: {a}°."

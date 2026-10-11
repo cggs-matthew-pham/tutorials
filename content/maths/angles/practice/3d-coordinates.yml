@@ -1,0 +1,19 @@
+# Practice for "Coordinates in 3D". Answer with coordinates, such as (3, 1, 6).
+templates:
+  - q: "A drone at ({x}, {y}, {z}) flies straight {d > 0 ? 'up' : 'down'} {abs(d)} m. Where is it now?"
+    vars: { x: "0..9", y: "0..9", z: "5..20", d: [-4, -3, -2, 2, 3, 4, 5, 6] }
+    answer: "({x}, {y}, {z + d})"
+    feedback:
+      - ["({x + d}, {y}, {z})", "Up and down change z, the third coordinate."]
+    explain: "Straight {d > 0 ? 'up' : 'down'} changes only z: {z} {d|s} = {z + d}. So ({x}, {y}, {z + d})."
+  - q: "P is {z} up, {x} along the x-axis and {y} along the y-axis. What are its coordinates?"
+    vars: { x: "0..9", y: "0..9", z: "0..9" }
+    where: "x != y and y != z and x != z"
+    answer: "({x}, {y}, {z})"
+    feedback:
+      - ["({z}, {x}, {y})", "Height comes last: (x, y, z)."]
+    explain: "Along x, along y, then up: ({x}, {y}, {z})."
+  - q: "In a building, the ground floor is 0 m up and each floor is {h} m above the one below. A flat is on floor {f}. What is its z-coordinate, in m?"
+    vars: { h: [3, 3.5, 4], f: "1..20" }
+    answer: "{h * f}"
+    explain: "{f} floors × {h} m = {h * f} m."

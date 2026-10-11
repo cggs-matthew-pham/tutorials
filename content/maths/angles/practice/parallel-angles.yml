@@ -1,0 +1,16 @@
+# Practice for "Finding angles with parallel lines".
+templates:
+  - q: "Two parallel lines are crossed by a transversal. Angle p = {a}°, and angle q is {w = 0 ? 'corresponding to' : w = 1 ? 'alternate to' : w = 2 ? 'co-interior with' : 'vertically opposite'} p. What is q, in degrees?"
+    vars: { a: "25..155", w: [0, 1, 2, 2, 2, 3] }
+    where: "a != 90"
+    answer: "{w = 2 ? 180 - a : a}"
+    feedback:
+      - ["{w = 2 ? a : 180 - a}", "{w = 2 ? 'Co-interior angles add to 180°: they are not equal.' : 'These angles are equal; they do not add to 180°.'}"]
+    explain: "{w = 0 ? 'Corresponding angles are equal' : w = 1 ? 'Alternate angles are equal' : w = 2 ? 'Co-interior angles add to 180°' : 'Vertically opposite angles are equal'}: q = {w = 2 ? 180 - a : a}°."
+  - q: "Two parallel lines are crossed by a transversal. Angle a = {a}°. Angle b is on a straight line with a, and angle c is {w = 0 ? 'corresponding to' : 'alternate to'} b. What is c, in degrees?"
+    vars: { a: "25..155", w: [0, 1] }
+    where: "a != 90"
+    answer: "{180 - a}"
+    feedback:
+      - ["{a}", "First b: on a straight line with a, so 180 − {a}."]
+    explain: "b = 180 − {a} = {180 - a}° (straight line). c is {w = 0 ? 'corresponding' : 'alternate'} to b, so c = {180 - a}°."

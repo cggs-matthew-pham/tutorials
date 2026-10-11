@@ -1,0 +1,22 @@
+# Practice for "Reasoning with angles".
+templates:
+  - q: "Two parallel lines are crossed by a transversal. Angle x = {a}°. Angle y is vertically opposite x, and angle z is {w ? 'co-interior with' : 'corresponding to'} y. What is z, in degrees?"
+    vars: { a: "25..155", w: [0, 1] }
+    where: "a != 90"
+    answer: "{w ? 180 - a : a}"
+    feedback:
+      - ["{w ? a : 180 - a}", "y = {a}° (vertically opposite). {w ? 'Co-interior angles add to 180°.' : 'Corresponding angles are equal.'}"]
+    explain: "y = {a}° (vertically opposite x). {w ? 'z + y = 180° (co-interior), so z = ' + (180 - a) : 'z = y (corresponding), so z = ' + a}°."
+  - q: "Two parallel lines are crossed by a transversal. Angle x = {a}°. Angle y is co-interior with x, and angle z is {w ? 'on a straight line with' : 'vertically opposite'} y. What is z, in degrees?"
+    vars: { a: "25..155", w: [0, 1] }
+    where: "a != 90"
+    answer: "{w ? a : 180 - a}"
+    feedback:
+      - ["{w ? 180 - a : a}", "y = 180 − {a} = {180 - a}° (co-interior). {w ? 'Then z is on a straight line with y.' : 'Then z equals y (vertically opposite).'}"]
+    explain: "y = 180 − {a} = {180 - a}° (co-interior). {w ? 'z = 180 − ' + (180 - a) + ' = ' + a + '° (straight line)' : 'z = ' + (180 - a) + '° (vertically opposite)'}."
+  - q: "Angles x and {a}° are on a straight line. Angle y is {u ? 'alternate to' : 'co-interior with'} x (between parallel lines), and y and z are {w ? 'vertically opposite' : 'on a straight line'}. What is z, in degrees?"
+    vars: { a: "25..155", u: [0, 1], w: [0, 1] }
+    where: "a != 90"
+    let: { x: "180 - a", y: "u ? 180 - a : a" }
+    answer: "{w ? y : 180 - y}"
+    explain: "x = 180 − {a} = {x}° (straight line). y = {y}° ({u ? 'alternate: equal' : 'co-interior: adds to 180°'}). z = {w ? y : 180 - y}° ({w ? 'vertically opposite' : 'straight line'})."

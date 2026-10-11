@@ -1,0 +1,20 @@
+# Practice for "Reflections". Answer with coordinates, such as (3, −2).
+templates:
+  - q: "The point ({x}, {y}) is reflected in the {w = 0 ? 'x-axis' : 'y-axis'}. Where does its image land?"
+    vars: { x: "-6..6", y: "-6..6", w: [0, 1] }
+    where: "x != 0 and y != 0"
+    answer: "({w = 0 ? x : -x}, {w = 0 ? -y : y})"
+    feedback:
+      - ["({w = 0 ? -x : x}, {w = 0 ? y : -y})", "{w = 0 ? 'The x-axis is the mirror: points flip up or down, so y changes sign, not x.' : 'The y-axis is the mirror: points flip left or right, so x changes sign, not y.'}"]
+      - ["({-x}, {-y})", "A reflection in one axis changes only one coordinate."]
+    explain: "In the {w = 0 ? 'x-axis, (x, y) becomes (x, −y)' : 'y-axis, (x, y) becomes (−x, y)'}: ({w = 0 ? x : -x}, {w = 0 ? -y : y})."
+  - q: "The point ({x}, {y}) is reflected in the x-axis, then the image is reflected in the y-axis. Where does it end?"
+    vars: { x: "-6..6", y: "-6..6" }
+    where: "x != 0 and y != 0"
+    answer: "({-x}, {-y})"
+    explain: "x-axis: ({x}, {-y}). Then y-axis: ({-x}, {-y})."
+  - q: "The point ({x}, {y}) is reflected in the {w = 0 ? 'x-axis' : 'y-axis'}. What is the {u = 0 ? 'x' : 'y'}-coordinate of the image?"
+    vars: { x: "-6..6", y: "-6..6", w: [0, 1], u: [0, 1] }
+    where: "x != 0 and y != 0"
+    answer: "{u = 0 ? (w = 0 ? x : -x) : (w = 0 ? -y : y)}"
+    explain: "The image is ({w = 0 ? x : -x}, {w = 0 ? -y : y}), so its {u = 0 ? 'x' : 'y'}-coordinate is {u = 0 ? (w = 0 ? x : -x) : (w = 0 ? -y : y)}."

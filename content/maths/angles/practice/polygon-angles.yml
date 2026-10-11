@@ -1,0 +1,30 @@
+# Practice for "Angles in a polygon".
+templates:
+  - q: "What do the angles of a polygon with {n} sides add to, in degrees?"
+    vars: { n: "4..20" }
+    answer: "{(n - 2) * 180}"
+    feedback:
+      - ["{n * 180}", "From one corner a polygon splits into n − 2 triangles, not n: ({n} − 2) × 180."]
+      - ["{(n - 1) * 180}", "From one corner, a shape with {n} sides makes {n - 2} triangles."]
+    explain: "{n} − 2 = {n - 2} triangles, so {n - 2} × 180 = {(n - 2) * 180}°."
+  - q: "A regular polygon has {n} sides. How big is each angle, in degrees?"
+    vars: { n: [3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20] }
+    answer: "{(n - 2) * 180 / n}"
+    feedback:
+      - ["{(n - 2) * 180}", "That is the total. Share it among the {n} equal angles."]
+      - ["{360 / n}", "360 ÷ {n} is the turn at each corner, not the angle inside. Each inside angle is ({n} − 2) × 180 ÷ {n}."]
+    explain: "Total ({n} − 2) × 180 = {(n - 2) * 180}°, shared by {n} equal angles: {(n - 2) * 180 / n}° each."
+  - q: "A pentagon has angles {a}°, {b}°, {c}° and {d}°. What is the fifth angle, in degrees?"
+    vars: { a: "80..130", b: "80..130", c: "80..130", d: "80..130" }
+    where: "540 - a - b - c - d > 40 and 540 - a - b - c - d < 180"
+    answer: "{540 - a - b - c - d}"
+    feedback:
+      - ["{720 - a - b - c - d}", "A pentagon splits into 3 triangles from one corner, so its angles add to 540°, not 720°."]
+    explain: "A pentagon makes 3 triangles: 540°. 540 − {a} − {b} − {c} − {d} = {540 - a - b - c - d}°."
+  - q: "A quadrilateral has angles {a}°, {b}° and {c}°. What is the fourth angle, in degrees?"
+    vars: { a: "50..130", b: "50..130", c: "50..130" }
+    where: "360 - a - b - c > 30 and 360 - a - b - c < 180"
+    answer: "{360 - a - b - c}"
+    feedback:
+      - ["{540 - a - b - c}", "A quadrilateral makes 2 triangles: its angles add to 360°, not 540°."]
+    explain: "360 − {a} − {b} − {c} = {360 - a - b - c}°."

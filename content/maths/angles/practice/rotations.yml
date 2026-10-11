@@ -1,0 +1,13 @@
+# Practice for "Rotations". Answer with coordinates, such as (3, −2).
+templates:
+  - q: "The point ({x}, {y}) turns {w = 0 ? '90° anticlockwise' : w = 1 ? '180°' : '90° clockwise'} about the origin. Where does it land?"
+    vars: { x: "-5..6", y: "-5..6", w: "0..2" }
+    where: "x != 0 and y != 0 and x != y and x != -y"
+    answer: "({w = 0 ? -y : w = 1 ? -x : y}, {w = 0 ? x : w = 1 ? -y : -x})"
+    feedback:
+      - ["({w = 0 ? y : w = 1 ? x : -y}, {w = 0 ? -x : w = 1 ? y : x})", "{w = 0 ? 'That is a clockwise quarter turn. Anticlockwise: (x, y) becomes (−y, x).' : w = 1 ? 'A half turn changes both signs: (x, y) becomes (−x, −y).' : 'That is anticlockwise. Clockwise: (x, y) becomes (y, −x).'}"]
+    explain: "{w = 0 ? '90° anticlockwise: (x, y) → (−y, x)' : w = 1 ? '180°: (x, y) → (−x, −y)' : '90° clockwise: (x, y) → (y, −x)'}. So ({w = 0 ? -y : w = 1 ? -x : y}, {w = 0 ? x : w = 1 ? -y : -x})."
+  - q: "A turn of {a}° clockwise ends in the same place as a turn of how many degrees anticlockwise?"
+    vars: { a: [30, 45, 60, 90, 120, 135, 150, 180, 210, 270, 300] }
+    answer: "{360 - a}"
+    explain: "A full turn is 360°: {a}° one way is {360 - a}° the other way."

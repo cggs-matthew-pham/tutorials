@@ -1,0 +1,17 @@
+# Practice for "Congruent triangles".
+templates:
+  - q: "△ABC ≡ △{L1}{L2}{L3}. AB = {x} cm, BC = {y} cm and CA = {z} cm. How long is {Q}, in cm?"
+    vars: { x: "3..12", y: "3..12", z: "3..12", o: "0..2", w: "0..2" }
+    where: "x != y and y != z and x != z and x + y > z and y + z > x and x + z > y"
+    let: { L1: "o = 0 ? 'P' : o = 1 ? 'Q' : 'R'", L2: "o = 0 ? 'Q' : o = 1 ? 'R' : 'P'", L3: "o = 0 ? 'R' : o = 1 ? 'P' : 'Q'", Q: "w = 0 ? L1 + L2 : w = 1 ? L2 + L3 : L3 + L1" }
+    answer: "{w = 0 ? x : w = 1 ? y : z}"
+    explain: "Match the letters in order: A↔{L1}, B↔{L2}, C↔{L3}. So {Q} matches {w = 0 ? 'AB' : w = 1 ? 'BC' : 'CA'}: {w = 0 ? x : w = 1 ? y : z} cm."
+  - q: "△ABC ≡ △{L1}{L2}{L3}. Angle A = {a}° and angle B = {b}°. What is angle {L3}, in degrees?"
+    vars: { a: "25..90", b: "25..90", o: "0..2" }
+    where: "a != b and a + b < 160"
+    let: { L1: "o = 0 ? 'P' : o = 1 ? 'Q' : 'R'", L2: "o = 0 ? 'Q' : o = 1 ? 'R' : 'P'", L3: "o = 0 ? 'R' : o = 1 ? 'P' : 'Q'" }
+    answer: "{180 - a - b}"
+    feedback:
+      - ["{a}", "{L3} is third in △{L1}{L2}{L3}, so it matches C, the third letter of △ABC."]
+      - ["{b}", "{L3} is third in △{L1}{L2}{L3}, so it matches C, the third letter of △ABC."]
+    explain: "{L3} matches C (both third). C = 180 − {a} − {b} = {180 - a - b}°, so {L3} = {180 - a - b}°."

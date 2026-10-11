@@ -1,0 +1,15 @@
+# Practice for "Views of a solid".
+templates:
+  - q: "A top view with heights shows {a} {b} on the top row and {c} {d} on the bottom row. How many cubes are there?"
+    vars: { a: "0..4", b: "0..4", c: "0..4", d: "0..4" }
+    where: "a + b + c + d > 2"
+    answer: "{a + b + c + d}"
+    explain: "Add every pile: {a} + {b} + {c} + {d} = {a + b + c + d} cubes."
+  - q: "A top view with heights shows {a} {b} on the back row and {c} {d} on the front row. How many squares does the front view show?"
+    vars: { a: "0..4", b: "0..4", c: "0..4", d: "0..4" }
+    where: "a + b + c + d > 2 and (a != c or b != d)"
+    answer: "{max(a, c) + max(b, d)}"
+    feedback:
+      - ["{a + b + c + d}", "The front view shows only the tallest pile in each column, not every cube."]
+      - ["{c + d}", "From the front you also see a taller pile behind: the tallest in each column."]
+    explain: "Each column shows its tallest pile: left max({a}, {c}) = {max(a, c)}, right max({b}, {d}) = {max(b, d)}. {max(a, c) + max(b, d)} squares."

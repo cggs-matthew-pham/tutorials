@@ -1,0 +1,25 @@
+# Practice for "Nets".
+templates:
+  - q: "A prism has a {n}-sided polygon at each end. How many faces does its net have?"
+    vars: { n: "3..10" }
+    answer: "{n + 2}"
+    feedback:
+      - ["{n}", "Those are the rectangles round the sides. Add the two ends."]
+    explain: "Two ends plus {n} rectangles (one for each side of the end): {n + 2} faces."
+  - q: "How many rectangles are in the net of a prism whose ends have {n} sides?"
+    vars: { n: "3..10" }
+    answer: "{n}"
+    explain: "One rectangle for each side of the end: {n}."
+  - q: "A pyramid has a {n}-sided base. How many triangles are in its net?"
+    vars: { n: "4..10" }
+    answer: "{n}"
+    feedback:
+      - ["{n + 1}", "That counts the base too. The base is a {n}-sided polygon, not a triangle."]
+    explain: "One triangle on each side of the base: {n} triangles, plus the base."
+  - q: "The net of a box {l} cm by {w} cm by {h} cm is cut from card. What is its area (the box's surface area), in cm²?"
+    vars: { l: "2..12", w: "2..10", h: "2..8" }
+    answer: "{2 * (l * w + l * h + w * h)}"
+    feedback:
+      - ["{l * w + l * h + w * h}", "Each face has a matching one opposite: double it."]
+      - ["{l * w * h}", "That is the volume. The net's area adds the six faces."]
+    explain: "Pairs of faces: 2 × ({l} × {w} + {l} × {h} + {w} × {h}) = 2 × {l * w + l * h + w * h} = {2 * (l * w + l * h + w * h)} cm²."

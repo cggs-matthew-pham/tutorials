@@ -1,0 +1,13 @@
+# Practice for "Polygons".
+templates:
+  - q: "How many sides does {w = 0 ? 'a pentagon' : w = 1 ? 'a hexagon' : w = 2 ? 'an octagon' : w = 3 ? 'a decagon' : w = 4 ? 'a heptagon' : w = 5 ? 'a nonagon' : 'a quadrilateral'} have?"
+    vars: { w: "0..6" }
+    answer: "{w = 0 ? 5 : w = 1 ? 6 : w = 2 ? 8 : w = 3 ? 10 : w = 4 ? 7 : w = 5 ? 9 : 4}"
+    explain: "Pentagon 5, hexagon 6, heptagon 7, octagon 8, nonagon 9, decagon 10."
+  - q: "A regular {w = 0 ? 'pentagon' : w = 1 ? 'hexagon' : w = 2 ? 'octagon' : 'decagon'} has sides of {s} cm. What is its perimeter, in cm?"
+    vars: { w: "0..3", s: "2..15" }
+    let: { n: "w = 0 ? 5 : w = 1 ? 6 : w = 2 ? 8 : 10" }
+    answer: "{n * s}"
+    feedback:
+      - ["{s * (n - 1)}", "Count the sides again: a {w = 0 ? 'pentagon' : w = 1 ? 'hexagon' : w = 2 ? 'octagon' : 'decagon'} has {n}."]
+    explain: "Regular means every side is equal: {n} sides × {s} = {n * s} cm."
