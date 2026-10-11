@@ -2,6 +2,10 @@
 
 Things more than one subject depends on: the build, publishing, the home and plain pages, and shared tools (`tools/*.mjs`, `tools/lesson-view.mjs`, `playground-shared/`, `playground-board/core.js`). Before changing one of these, check this file and `git log` for work in progress, and note here what you are changing.
 
+## Done (11 Oct 2026): parallel clip recording
+
+The publish workflow now records clips in parallel jobs: `plan` → `record` (matrix, default 4, set in the Run workflow form) → `publish`. `tools/render-shards.mjs` asks `render.mjs --seed --check` what needs recording and shares lessons out by clip count. `render.mjs` is unchanged, so this re-records nothing. Not done yet, worth doing next: cache `.voice-cache` and the Kokoro model between runs; narrow the clip hash (`render.mjs` source and whole playground folders re-record every clip on any edit); one browser per job instead of per clip.
+
 ## Effort: "if coding is hard, why do it" (11 Oct 2026)
 
 Students expect coding to be fun and easy and read struggle as failure. Response: cut friction (bad hard), keep and name the thinking (good hard). AUTHORING › Effort and struggle has the rules.

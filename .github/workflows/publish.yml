@@ -4,8 +4,17 @@ name: Build and publish (manual)
 # No push, schedule or other trigger on purpose. It builds main, reusing every clip and picture already
 # on the live site, records and draws only what is new (real Emma voice, MakeCode pictures), and publishes
 # the finished site to the gh-pages branch, which Pages serves.
+#
+# Three stages:
+#   plan     reuse what is live, draw new pictures, and share the clips to record out between parallel jobs
+#   record   one job per share (up to "jobs", default 4), each recording its lessons' clips at real speed
+#   publish  lay the recorded clips over the live ones, keep the live version of anything a job missed, build, push
 on:
   workflow_dispatch:
+    inputs:
+      jobs:
+        description: Parallel recording jobs (1 to 8)
+        default: "4"
 
 permissions:
   contents: write
@@ -18,21 +27,18 @@ env:
   SITE: https://cggs-matthew-pham.github.io/tutorials
 
 jobs:
-  publish:
+  plan:
     runs-on: ubuntu-latest
-    # A full redraw and re-record is about 20 to 60 minutes (the first run after a long gap is slowest); past this something is stuck.
-    timeout-minutes: 150
+    timeout-minutes: 100
+    outputs:
+      stale: ${{ steps.plan.outputs.stale }}
+      matrix: ${{ steps.plan.outputs.matrix }}
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
 
       - name: Install site tools
         run: npm ci --omit=optional   # skip the sandbox-only bundled Chromium
@@ -40,22 +46,72 @@ jobs:
       - name: Validate lessons
         run: npm run validate
 
-      # Clips and pictures whose hash matches the published one are downloaded from the live site.
-      - name: Fetch unchanged clips and pictures
-        id: reuse
+      # Pictures whose hash matches the published one are downloaded from the live site.
+      - name: Fetch unchanged pictures
+        id: pics
         run: |
           node tools/build-playground.mjs
           node tools/render-pictures.mjs --seed "$SITE" --check
-          node tools/render.mjs --seed "$SITE" --check
 
-      - name: Install browser and ffmpeg
-        if: steps.reuse.outputs.stale != '0' || steps.reuse.outputs.pictures_stale != '0'
+      # Pictures come first: MakeCode explain clips show them, so they are part of those clips' hashes.
+      # After 70 minutes nothing new is drawn; what is left keeps its old entry and is drawn by the next run.
+      - name: Draw new pictures
+        if: steps.pics.outputs.pictures_stale != '0'
         run: |
           npx playwright-core install --with-deps chromium
+          WP_DEADLINE=$(( $(date +%s) + 70 * 60 )) node tools/render-pictures.mjs --seed "$SITE"
+
+      - name: Share out the clips to record
+        id: plan
+        run: node tools/render-shards.mjs plan --seed "$SITE" --shards "${{ inputs.jobs }}"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pictures
+          path: dist/_pictures
+          retention-days: 3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plan
+          path: plan.json
+          retention-days: 3
+
+  record:
+    needs: plan
+    if: needs.plan.outputs.stale != '0'
+    runs-on: ubuntu-latest
+    # A share of a full re-record is about 15 to 30 minutes; past this something is stuck.
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false   # one job's failure leaves the others recording
+      matrix:
+        shard: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install site tools, browser and ffmpeg
+        run: |
+          npm ci --omit=optional
+          npx playwright-core install --with-deps chromium
           sudo apt-get update && sudo apt-get install -y ffmpeg
+          node tools/build-playground.mjs
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: pictures
+          path: dist/_pictures
+      - uses: actions/download-artifact@v4
+        with:
+          name: plan
 
       - name: Install lesson dependencies
-        if: steps.reuse.outputs.stale != '0'
         run: |
           for f in $(find content -name requirements.txt); do
             [ -f "$f" ] && pip install -r "$f"
@@ -66,31 +122,59 @@ jobs:
           # Voiceover (lessons with voice:): Kokoro runs in Node; not a site dependency, so install it only here.
           if grep -rlq '^voice:' content --include=lesson.md; then npm install --no-save --no-audit --no-fund kokoro-js@1.2.1; fi
 
-      # Save progress: after 125 minutes nothing new is started, so the build and publish below still fit in the job's
-      # 150. What is done is published; what is left keeps the live version and is done by the next run (the run's
-      # summary says how much is left).
-      - name: Render new clips and pictures
-        env:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # After 125 minutes nothing new is started; clips left over keep their live version and the next run records them.
+      - name: Record this job's clips
         run: |
           export WP_DEADLINE=$(( $(date +%s) + 125 * 60 )) WP_LIVE_SITE="$SITE"
-          # Snapshots: every 30 minutes, publish what is done so far, so a crash or a cancel loses at most 30 minutes.
-          # Each snapshot is built in a copy (the live site, with this run's work laid over it), never in dist/, so it
-          # does not disturb the recording; anything not redone yet keeps its live version.
-          mkdir -p ../live
-          git fetch -q --depth 1 origin gh-pages && git archive FETCH_HEAD | tar -x -C ../live || echo "no live site to start from"
-          snapshot() {
-            rm -rf ../snap && cp -r ../live ../snap && cp -r dist/. ../snap/ \
-              && node tools/build-site.mjs --out ../snap > ../snap.log 2>&1 && touch ../snap/.nojekyll \
-              && (cd ../snap && git init -q -b gh-pages && git add -A \
-                  && git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -q -m "Snapshot of build from ${GITHUB_SHA::7} (in progress)" \
-                  && git push -q --force "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages) \
-              && echo "::notice::Snapshot published at $(date -u +%H:%M) UTC" || { echo "::warning::Snapshot failed"; tail -5 ../snap.log; }
-          }
-          ( while sleep 1800; do snapshot; done ) &
-          SNAP=$!
-          npm run render
-          kill $SNAP 2>/dev/null || true
+          node tools/render-shards.mjs run --shard ${{ matrix.shard }} --seed "$SITE" --copy-to recorded
+
+      # Uploaded even after a failure, so the clips that did record are published.
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: clips-${{ matrix.shard }}
+          path: recorded
+          retention-days: 3
+          if-no-files-found: ignore
+
+  publish:
+    needs: [plan, record]
+    # Runs when nothing needed recording (record skipped) and when a recording job failed (its clips that did
+    # record are used; anything missing keeps its live version). Not after a cancel.
+    if: ${{ !cancelled() && needs.plan.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install site tools
+        run: |
+          npm ci --omit=optional
+          node tools/build-playground.mjs
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: pictures
+          path: dist/_pictures
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: clips-*
+          merge-multiple: true
+          path: dist
+
+      # Recorded clips now match their hash and are kept; unchanged ones are downloaded from the live site.
+      # WP_DEADLINE in the past records nothing: a clip no job delivered keeps its live version (and the next run
+      # records it). No browser is needed.
+      - name: Fill in unchanged and missing clips from the live site
+        run: WP_DEADLINE=1 WP_LIVE_SITE="$SITE" node tools/render.mjs --seed "$SITE"
+
+      - name: Note failed recording jobs
+        if: needs.record.result == 'failure'
+        run: echo "::warning::A recording job failed (see its log). Its missing clips keep their live version; run this workflow again to record them."
 
       - name: Build site
         run: npm run build
