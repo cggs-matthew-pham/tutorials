@@ -7,7 +7,7 @@ Split by workstream on 11 Oct 2026 so separate chats can work at the same time (
 - [`roadmap/science.md`](roadmap/science.md): science lessons and engines.
 - [`roadmap/shared.md`](roadmap/shared.md): shared and general: the build, publishing, home and plain pages, and shared tools.
 
-"ROADMAP › <section>" in CLAUDE.md, AUTHORING.md and BUILDING.md means that section in the subject's file.
+"ROADMAP › <section>" in CLAUDE.md, AUTHORING.md and BUILDING.md means that section in the subject's file. Older sections moved to `roadmap/archive/` when a file was tidied (the code file on 12 Oct 2026: `roadmap/archive/code-to-2026-10-12.md`), so look there if a section is not in the current file.
 
 ## Working in parallel
 

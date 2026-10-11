@@ -202,7 +202,11 @@ The igneous explain clip recorded without error, but its video fell about 15 s b
 
 - `playground-board/widgets/universe.js`: the redshift spectrum is drawn 5 times bigger, not 20 (at 20, far galaxies showed no lines). AUTHORING › 12 `universe` line updated to match. Only the Redshift lesson uses it.
 
-## Changed by the code chat (11 Oct 2026): the Python playground (Matthew approved)
+## Changed by the code chat: playgrounds and their courses (11–12 Oct 2026)
+
+One block per playground. Course status is in `code.md`.
+
+### Python playground (11 Oct, Matthew approved)
 
 - **Pyodide on our own site.** `vendor/pyodide/` (Pyodide 314.0.7: core, pandas, FastAPI, Jinja2 and their dependencies, plus the Flask wheels from PyPI; 30 files, 24 MB) is committed, made by `tools/pyodide-vendor.mjs` (run by hand to change the version or packages). `buildPyPlayground` in `tools/build-playground.mjs` copies it to `dist/_pyodide/` (not stamped; its files are named by version) and builds `playground-py/` into `dist/_playground-py/`. No workflow change.
 - `stampPlayground` also hashes `.py` files (only `playground-py/` has any; other playgrounds' stamps are unchanged).
@@ -215,11 +219,11 @@ The igneous explain clip recorded without error, but its video fell about 15 s b
 - For Data detective's API lesson (11 Oct): the Python playground gains a `requests` stand-in (`playground-py/requests.py`, `wpFetch` in `worker.js`), and the package scan skips our stand-ins' imports (`requests`, `gradio`, `uvicorn`).
 - For Machine learning (11 Oct): `vendor/pyodide/` adds scikit-learn (and scipy, joblib, threadpoolctl; `PACKAGES` in `tools/pyodide-vendor.mjs`), 43 MB in all; Check your school loads it too. `snippets/turtle.json`: a Machine learning group. `misconceptions.json`: three entries. `tools/build-site.mjs`: Playground and Reference for `code/ml`. `content/code/index.md`: the course is built.
 
-## Changed by the code chat (11 Oct 2026): microStudio game player (Matthew approved link-out games)
+### microStudio game player (11 Oct, Matthew approved link-out games)
 - New playground kind `microstudio` (`PLAYGROUND_KINDS`, `unlockKind` maps it to `turtle` like `python`; `PLAYGROUNDS.microstudio` in `lesson-view.mjs`, titled "Play it", no saving). It is play only: `try: { playground: microstudio, starter: file#region }` shows the game running; no code checks.
 - `playground-microstudio/index.html` plus `vendor/microstudio/` (microStudio's `microengine.js` and `runner.js`, Brython 3.11.3 and its stdlib, BitCell font; MIT and BSD-3 licences beside them). Built by `buildMicrostudioPlayground` in `build-playground.mjs` into `dist/_playground-microstudio/` (stamped; in `VERSIONS`). The page starts the engine itself when the game has no pictures (the engine otherwise waits for its first sprite to load) and replaces `Player.reportError` and `log` to show errors and prints over the game.
 
-## Changed by the code chat (11 Oct 2026): p5.js playground
+### p5.js playground (11 Oct)
 - New playground kind `p5` (`PLAYGROUND_KINDS`; `unlockKind` returns `p5` when a lesson's `language` is `javascript`; `PLAYGROUNDS.p5` in `lesson-view.mjs`). `playground-p5/` plus `vendor/p5/` (p5 2.3.4, LGPL-2.1, unmodified, licence and README beside it), built by `buildP5Playground` in `build-playground.mjs` into `dist/_playground-p5/` (stamped, in `VERSIONS`). The sketch runs in a sandboxed iframe (`allow-scripts`); the page reports `{wp:'run', kind:'p5', ...}` like the other playgrounds.
 - `tools/lesson-core.mjs`: `P5_RULES` (`contains`, `defs`, `params`, `calls`, `loops`, `returns`, `uses`) and a `p5` branch in `evalRules` that reads JavaScript (comments and strings skipped; p5's own hook functions are not "functions of your own"). No existing lesson's result changed.
 - `tools/concepts.mjs`: `CONCEPTS.javascript` (23 concepts); the fenced-code scan also reads `js` blocks. Note the scan ignores text before a lesson's first `##`. `misconceptions.json`: seven entries. `tools/build-playground.mjs`/`build-site.mjs` only add the new builder. `render.mjs` untouched: no clip re-records.
@@ -230,14 +234,14 @@ The igneous explain clip recorded without error, but its video fell about 15 s b
 - `tools/render-pictures.mjs` (board section): `drawBoard` now also waits for `#board canvas.wpcv`, so the canvas boards (`wave` sound, `charge`) can have pictures. Boards drawn with JSXGraph are unchanged.
 - p5 pictures and clips (11 Oct): `tools/render-pictures.mjs` gains sections `p5` and `p5shown` (own folders `_pictures/p5`, `_pictures/p5shown`; no existing section's hash changed, `SHARED` not bumped), a `WP_ONLY=<name prefix>` filter for testing one kind, and the `expected` section skips `language: javascript` lessons. `tools/lesson-core.mjs`: `picture:`/`explainPicture` and `expected:` are accepted in p5 lessons (`expected` needs `playground: p5`). `tools/build-site.mjs`: p5 lessons read their pictures from `p5shown`; `PICS.javascript` reads `_pictures/p5`. `playground-p5/main.js`: `?zoom=`. p5 clips use the lesson's `app:` (port 8130), so `render.mjs`/`stage.html` are untouched.
 
-## Changed by the code chat (11 Oct 2026): DOM playground
+### DOM playground (11 Oct)
 - New playground kind `dom` (`PLAYGROUND_KINDS`; `lesson-core` maps `dom` to `html` for `unlockKind`, code checks and `expected:`; `PLAYGROUNDS.dom` in `lesson-view.mjs`). `playground-dom/` is built by `buildDomPlayground` into `dist/_playground-dom/` (stamped, in `VERSIONS`) and copies `playground-p5/p5-errors.js`. The HTML playground is untouched, so no HTML clip re-records. `?zoom=` zooms the code and the preview's page (not the playground itself, because that puts Playwright clicks in the wrong place).
 - `playground-p5/p5-errors.js`: the not-a-function hint now says "a name the browser or p5 has" (check-p5-errors passes). p5 clips re-record at the next publish.
 - `tools/concepts.mjs` `CONCEPTS.html`: `text-content`, `style-prop`, `class-list`, `input-value`, `console-log`, `create-element`, `append-element`. `content/code/html/make-it-react` now lists `text-content, style-prop` in `recipes` (metadata only, `lesson.md`, so no clip re-records).
 - `misconceptions.json`: `selector-typo`, `selector-prefix`, `script-order`, `call-not-pass`, `class-dot`, `value-is-text`, `list-is-live`, `state-in-handler`, `name-typo`.
 - Note: `check-decks` reports `robot-drive` slide 4 at 709px. This was already the case and is not from this change.
 
-## Changed by the code chat (12 Oct 2026): microStudio playground, Reference and clips
+### microStudio playground, Reference and clips (12 Oct)
 - `playground-microstudio/edit.html` and `edit.js` add an editor beside the player (`index.html`), which runs in an iframe on the same origin. `build-playground` copies `tools/python-errors.mjs` into `_playground-microstudio/`. Two changes to `index.html`:
   - `brython({ indexedDB: false })`: when the top page has another origin (the clip stage), Brython's cache never opens and it waits forever.
   - A guard sets `navigator.language` to en-US when `Intl` cannot read the browser's locale. With no `LANG` set (this sandbox), Chromium reports `en-US@posix` and Brython stops at load.
