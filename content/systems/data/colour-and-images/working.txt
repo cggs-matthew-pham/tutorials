@@ -1,0 +1,9 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+A pixel is 255, 255, 0. What colour is it?
+The red light is full: 255.
+The green light is full: 255.
+Red and green mixed together make brown.
+So the pixel is brown.
+# endregion

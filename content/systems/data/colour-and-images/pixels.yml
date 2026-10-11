@@ -1,0 +1,38 @@
+# Boards for "Colour and images".
+
+# region: run
+widget: pixels
+size: 3, 3
+colour: 0, 0, 0
+start: white
+# endregion
+
+# region: explain
+widget: pixels
+size: 4, 4
+colour: 255, 0, 0
+start: white
+# endregion
+
+# region: explain-pic
+widget: pixels
+size: 4, 4
+start: yyyy / ybby / ybby / yyyy
+numbers: on
+sliders: off
+# endregion
+
+# region: modify
+widget: pixels
+size: 4, 4
+colour: 0, 0, 0
+start: black
+# endregion
+
+# region: make
+widget: pixels
+size: 4, 4
+colour: 0, 0, 0
+start: white
+target: yyyy / ybby / ybby / yyyy
+# endregion

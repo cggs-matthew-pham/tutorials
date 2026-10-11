@@ -1,0 +1,45 @@
+summary: Students type words and read their character codes to see that text is a list of codes, one per character, including spaces, digits and lower case, and that Unicode gives codes to every character (AC9TDI8K03 node 2).
+time: 35
+timing: "Predict and Try 6 min · Worked example 10 min · Vary 9 min · Practise and Make 10 min"
+goals:
+  - I can say how a word is stored as numbers.
+  - I can find the code of a letter, a space or a digit.
+  - I can explain why some characters need more than one byte.
+struggle: "Students treat a digit in text as an amount (7 stored as 7). Have them type 7 on the board and read the code aloud before the Worked example."
+before: |
+  Do the Try board yourself: type a few words, then an emoji.
+
+  The one idea: text is a list of character codes, in order. The codes here are ASCII, which Unicode keeps for the first 128 characters; Unicode then gives codes to every script and to emoji. Bytes come up as "0 to 255 fits in one byte"; the binary lessons explain why.
+
+  Links: Secret messages (Code pathway) builds ciphers that shift these codes; this lesson is the theory those lessons assume.
+running:
+  - "Predict: students who chose 3, 1, 2 used alphabet positions; ask what A's code is."
+  - "Try: have everyone type their first name and compare: whose code list is longest?"
+  - "Worked example: before the 7 line, ask what the digit's code will be."
+  - "Vary: ask why the emoji's code is so big."
+  - "Make: ask what rule they used to turn capitals into lower case."
+stuck:
+  - see: "A student writes 7 for the digit 7 (Sam's mistake)."
+    ask: "What does the board show when you type 7?"
+    fix: "In text a digit is a character: 0 is 48, so 7 is 55."
+  - see: "A student forgets the space."
+    ask: "How many characters are in hi there, counting the gap?"
+    fix: "The space is a character too: 32."
+  - see: "A student can't find a lower case code."
+    ask: "What is the capital's code?"
+    fix: "Add 32."
+stretch: "Look up the Unicode code for an emoji you like (or type it on the board). Why do emoji make text messages bigger?"
+support: "Give the code table: A = 65 … Z = 90, a = 97 … z = 122, 0 = 48 … 9 = 57, space = 32."
+leads: |
+  Next: Colour and images (each pixel is numbers).
+
+  Where it leads: Secret messages (shifting codes to make a cipher), and the binary lessons (why one byte holds 0 to 255).
+exit:
+  q: "Write the codes for the text Hi 5."
+  a: "72, 105, 32, 53 (the digit 5 is 48 + 5)."
+explain: |
+  Text is stored as a list of numbers, one for each **character**. Each character has a **code**: capital A is 65 and the capitals count on to Z = 90; lower case a is 97 to z = 122 (each 32 more than its capital); a space is 32; even the digit 7 is a character, code 55.
+
+  **Unicode** gives codes to over a hundred thousand characters, including every script and emoji. Codes up to 255 fit in one byte; bigger ones take two to four bytes.
+sources:
+  - { title: "The Unicode Standard: code charts", url: "https://www.unicode.org/charts/", checked: 2026-10-12 }

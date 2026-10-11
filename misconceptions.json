@@ -193,5 +193,8 @@
   "model-blame-maths": {"home": "maths/number/checking-models", "text": "A model's mismatch with real life is blamed on correct arithmetic; the cause is an assumption that did not hold, such as a steady speed with no stops."},
   "binary-place-reversed": {"home": "systems/data/binary-numbers", "text": "Binary places are counted from the left (1, 2, 4, 8), so 1100 is read as 3; the 1 place is on the right, so 1100 is 8 + 4 = 12."},
   "binary-max-forgets-zero": {"home": "systems/data/binary-patterns", "text": "n bits make 2ⁿ patterns, so the largest number is taken to be 2ⁿ (4 bits up to 16); one pattern is 0, so the largest is 2ⁿ − 1."},
-  "data-meaning-fixed": {"home": "systems/data/data-as-numbers", "text": "Stored numbers are taken to have one fixed meaning (72, 105, 33 are the word Hi!); the meaning comes from the encoding a program reads them with, so a paint program shows the same numbers as greys."}
+  "data-meaning-fixed": {"home": "systems/data/data-as-numbers", "text": "Stored numbers are taken to have one fixed meaning (72, 105, 33 are the word Hi!); the meaning comes from the encoding a program reads them with, so a paint program shows the same numbers as greys."},
+  "digit-char-code": {"home": "systems/data/text-as-numbers", "text": "A digit in text is stored as its value (the 7 in \"Year 7\" as 7); in text a digit is a character with its own code (7 is 55)."},
+  "light-mixes-like-paint": {"home": "systems/data/colour-and-images", "text": "Screen colours are mixed like paint (red and green make brown); a screen adds light, so 255, 255, 0 is yellow."},
+  "sound-stored-as-wave": {"home": "systems/data/sound-as-numbers", "text": "A recording is thought to store the sound wave's shape exactly; it stores samples, measurements at regular times rounded to levels, so it is close but not exact."}
 }

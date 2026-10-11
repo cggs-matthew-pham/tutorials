@@ -16,14 +16,17 @@ The Digital Technologies Knowledge and understanding strand (v9 "K" descriptors)
 - The kit lists all of AC9TDI8K03 as prior knowledge for 8K04. Order on the site: 1. Everything is numbers (8K03 n1, new, `decode` widget), 2. Bits and binary numbers (8K04 n1), 3. How many patterns? (8K04 n2). Lesson 2 `assumes:` 8K03 n2–n4 until the text, image and sound lessons exist; drop that when they are written (they may come after binary, which the check would then flag, so decide the order then).
 - Kit points to remember: 8K04 n3 is why binary (circuits and logic gates) and n4 ties binary to encoding; 8K02 n3–n4 (why secure data, simple encryption) and 10K01 n4 (public key and hashing) overlap Secret messages; 10K02 is the HTML and CSS course's descriptor; 8K03 n3 includes vector images.
 
+## Done (12 Oct 2026): data as numbers before binary
+
+Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 before 8K04). Unit Data as numbers: 1. Everything is numbers (n1), 2. Text as numbers (n2, `decode` with `type: on`, Unicode beyond one byte), 3. Colour and images (n3, new `pixels` board; vector pictures as a question), 4. Sound as numbers (n4, new `sampling` board with play buttons). Unit Binary numbers: 5. Bits and binary numbers, 6. How many patterns? (pays off the 0 to 255 limits met earlier). The temporary `assumes:` is gone. New misconceptions `digit-char-code`, `light-mixes-like-paint`, `sound-stored-as-wave`. All Try and Make checks tested in a headless browser; all explain clips record.
+
 ## Next
 
-1. Text as numbers (AC9TDI8K03 n2): `bits` with `view: char` (show the character for the number; ASCII range, a note on Unicode and emoji). Apply: Secret messages uses character codes.
-2. `pixels` widget (grid, click to colour, numbers beside, RGB sliders) → lesson 4 Colour and images; later `view: rle` for Making data smaller (AC9TDI10K03).
-3. Lesson 5 Sound as numbers: probably link-heavy.
-4. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
-5. Cross-pathway concepts: the concept lint is per language (`CONCEPTS[lesson.language]`), so theory concepts (`bit`, `char-code`, `rgb`) cannot yet be `assumes:` in MakeCode or Python lessons. Needs a small change in `tools/concepts.mjs` (a shared concept list checked across languages, and `systems` in `prerequisites()`'s subject list). Check `roadmap/shared.md` first.
-6. Why binary (8K04 n3): logic gates, a `logic` widget. Binary and encoding (8K04 n4) as the unit's closing lesson.
+1. Making data smaller (AC9TDI10K03): `pixels` with a run-length view.
+2. Concept links: Secret messages should `assumes:` character codes (needs the cross-language concept change, item 4).
+3. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
+4. Cross-pathway concepts: the concept lint is per language (`CONCEPTS[lesson.language]`), so theory concepts (`bit`, `char-code`, `rgb`) cannot yet be `assumes:` in MakeCode or Python lessons. Needs a small change in `tools/concepts.mjs` (a shared concept list checked across languages, and `systems` in `prerequisites()`'s subject list). Check `roadmap/shared.md` first.
+5. Why binary (8K04 n3): logic gates, a `logic` widget. Binary and encoding (8K04 n4) as the unit's closing lesson.
 
 ## Open questions
 

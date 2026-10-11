@@ -9,7 +9,7 @@ struggle: "Students think the letters or colours are in the file and the numbers
 before: |
   Try the board yourself first: switch between Text, Grey shades and Sound.
 
-  The one idea (the kit's hinge for AC9TDI8K03): every kind of data is stored as integers, and an **encoding** (the rule a program reads them with) gives them meaning. The next lessons put numbers into binary; later lessons look at each encoding properly (text codes, RGB pixels, sound samples).
+  The one idea (the kit's hinge for AC9TDI8K03): every kind of data is stored as integers, and an **encoding** (the rule a program reads them with) gives them meaning. The next three lessons look at each encoding properly (text codes, RGB pixels, sound samples); then the binary lessons show how each number is stored.
 
   Simplifications to say out loud if asked: text codes here are ASCII (A = 65); real text uses Unicode, which includes the same codes for these letters. Real pictures use three numbers per pixel (red, green, blue), not one grey. Real sound uses many thousands of samples a second.
 running:
@@ -28,9 +28,9 @@ stuck:
 stretch: "Open any small image or text file in a hex viewer (or ask the teacher to show one). Can you find the letter codes in a text file?"
 support: "Give a short code table (A = 65 … Z = 90, a = 97 … z = 122) for Make."
 leads: |
-  Next: Bits and binary numbers (how the computer stores each of these numbers with only 0 and 1).
+  Next: Text as numbers (character codes and Unicode).
 
-  Where it leads: text as character codes and Unicode, images as RGB pixels, and sound as samples (the rest of AC9TDI8K03).
+  Where it leads: images as RGB pixels and sound as samples (the rest of AC9TDI8K03), then binary: how each number is stored with only 0 and 1.
 exit:
   q: "The number 66 is stored in memory. Give two different things it could mean."
   a: "Any two of: the letter B (as text), a dark grey (as a shade), a sound level below the middle (as audio), or the number 66 itself. Which one depends on the program's encoding."

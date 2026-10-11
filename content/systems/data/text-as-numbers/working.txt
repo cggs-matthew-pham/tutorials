@@ -1,0 +1,9 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Store the text "Year 7" as numbers.
+Y is 89, e is 101, a is 97, r is 114.
+The space between the words is 32.
+The 7 is a number already, so it is stored as 7.
+So "Year 7" is 89, 101, 97, 114, 32, 7.
+# endregion

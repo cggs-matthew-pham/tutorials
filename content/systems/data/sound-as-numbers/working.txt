@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+A microphone turns a sound into a wave.
+The computer stores the shape of the wave exactly.
+So a recording keeps every detail of the sound.
+A longer recording is a longer wave, so a bigger file.
+# endregion

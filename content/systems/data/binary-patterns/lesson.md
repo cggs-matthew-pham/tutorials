@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 6
 node: AC9TDI8K04 n2
 unit: binary
 title: How many patterns?

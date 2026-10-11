@@ -1,0 +1,42 @@
+# Boards for "Sound as numbers".
+
+# region: run
+widget: sampling
+rate: 8
+levels: 16
+waves: 2
+sliders: rate
+play: on
+# endregion
+
+# region: explain
+widget: sampling
+rate: 4
+levels: 16
+waves: 2
+sliders: rate
+# endregion
+
+# region: explain-pic
+widget: sampling
+rate: 8
+levels: 8
+waves: 2
+sliders: none
+# endregion
+
+# region: modify
+widget: sampling
+rate: 8
+levels: 16
+waves: 2
+play: on
+# endregion
+
+# region: make
+widget: sampling
+rate: 4
+levels: 16
+waves: 2
+play: on
+# endregion

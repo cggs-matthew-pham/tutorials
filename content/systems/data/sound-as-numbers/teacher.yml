@@ -1,0 +1,40 @@
+summary: Students sample a sound wave on a board, changing the samples a wave and the levels, to see that audio is stored as a list of measured, rounded amplitudes, and that more samples and levels sound closer but need more numbers (AC9TDI8K03 node 4).
+time: 40
+timing: "Predict and Try 6 min · Worked example 10 min · Vary 12 min · Practise and Make 12 min"
+goals:
+  - I can explain how a sound is stored as numbers.
+  - I can say what changing the samples or the levels does.
+  - I can work out how many samples a recording stores.
+struggle: "Students think the recording is the wave itself. Keep pointing at the dots: those are the only numbers the computer has; the steps are rebuilt from them."
+before: |
+  Try the boards yourself, with sound on: the play buttons use the browser's audio (headphones help in class).
+
+  The one idea: sound is stored as samples, measurements of the wave's height at regular times, each rounded to a level. More samples and more levels are closer to the real sound and need more data.
+
+  Simplifications to say out loud: the board shows a few samples a wave of one pure tone; real recordings take 44 100 or 48 000 samples a second with 65 536 levels (16 bits), and playback smooths the steps. The "% off the wave" counts the step shape too, so it never reaches 0 here. Two samples a wave landing on the crossings is a simplified hint at the sampling theorem.
+running:
+  - "Predict: students who chose \"the wave is stored\" hold Sam's misconception; come back to them after the Try."
+  - "Try: play the original and the copy at 8 and 16 samples."
+  - "Worked example: ask what level a sample at the very top of the wave gets."
+  - "Vary: the 2-samples task usually surprises; ask why the copy is silent."
+  - "Make: compare answers at 16 levels too (10 samples is then just over 10%)."
+stuck:
+  - see: "A student says the computer stores the wave (Sam's mistake)."
+    ask: "What are the dots on the board?"
+    fix: "They are the only numbers stored; everything else is rebuilt."
+  - see: "A student thinks more levels means more numbers."
+    ask: "How many dots are there when you change the levels?"
+    fix: "Same dots, finer rounding: levels change each number, not how many."
+stretch: "Phone calls use about 8 000 samples a second; music uses 44 100. Why is a phone call still understandable?"
+support: "Keep the counting rule on the board: numbers = samples a wave × waves (or samples a second × seconds)."
+leads: |
+  Next: Bits and binary numbers, then How many patterns? (why one byte holds 0 to 255 and why 16-bit audio has 65 536 levels).
+
+  Code links: micro:bit and Arcade play tones from numbers; the micro:bit's microphone gives a sound level 0 to 255.
+exit:
+  q: "A recording takes 8 000 samples a second for 5 seconds. How many samples? What happens to sound quality if you use 4 000 a second?"
+  a: "40 000 samples. Fewer samples: a rougher copy (and a smaller file)."
+explain: |
+  A computer stores sound by **sampling**: it measures the height of the sound wave at regular times and rounds each measurement to one of a set of **levels**. A recording is the list of those numbers; playing it back rebuilds a stepped copy of the wave.
+
+  **More samples** each second and **more levels** make the copy closer to the real sound, but need more data. Music uses 44 100 samples a second.

@@ -668,8 +668,21 @@ Vary, Practise, Make).
   - `widget: decode` (first used by `systems/data/data-as-numbers`): the same numbers read as text (character codes;
     controls show as a dot), grey shades (0 black to 255 white) or sound samples (128 is silence). `numbers: 72, 105, 33`
     (1 to 8, each 0 to 255), `as: text | grey | sound | all` (the starting reading), `switch: off` hides the reading
-    buttons, `edit: on` lets students change each number (− and +, or typed). Values: `a`, `b`, `c`, … (the numbers in
-    order), `r` (reading: 1 text, 2 grey, 3 sound, 0 all). Checks: `"r = 2"`, `"a = 89 and b = 101 and c = 115"`.
+    buttons, `edit: on` lets students change each number (− and +, or typed), `type: on` adds a text box whose characters
+    set the numbers (up to 8; codes above 255 kept as Unicode, unreadable as grey or sound), `table: on` shows a short
+    code table. Values: `a`, `b`, `c`, … (the numbers in order), `n` (how many), `u` (largest), `w` (spaces), `r`
+    (reading: 1 text, 2 grey, 3 sound, 0 all). Checks: `"r = 2"`, `"a = 89 and b = 101 and c = 115"`, `"n > 2 and w >= 1"`.
+  - `widget: pixels` (first used by `systems/data/colour-and-images`): a bitmap grid; sliders set a red, green, blue brush
+    (0 to 255; `mode: grey` for one number) and clicking a pixel paints it. `size: 4, 4` (up to 12 × 12), `colour: 255, 0, 0`
+    (the brush), `start: white | black` or rows of key letters (`wwww / wrrw / …`), `target:` rows to copy (shown small),
+    `key:` extra letters (`o=255,128,0`; defaults w k r g b y), `numbers: on`, `sliders: off`. The panel counts the numbers
+    the image needs. Values: `r`, `g`, `b` (brush), `p`, `q`, `s` (the last pixel painted), `m` (1 when it matches the
+    target), `n` (numbers in the image), `c` (pixels changed). Checks: `"p = 255 and q = 255 and s = 0"`, `"m = 1"`.
+  - `widget: sampling` (first used by `systems/data/sound-as-numbers`): a sine wave sampled `rate:` times a wave (2 to 32),
+    each sample rounded to one of `levels:` (2 to 256, powers of 2); dots are the stored numbers, steps the playback.
+    `waves: 2`, `sliders: rate, levels` (or `none`), `wave: off`, `play: on` (Web Audio: the original tone and the one
+    rebuilt from the numbers). Values: `s` (samples a wave), `l` (levels), `n` (numbers stored), `e` (average % off the
+    wave). Checks: `"s = 16 and n = 32"`, `"l = 256 and e < 10 and s < 11"`.
   - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
     between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
     `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b

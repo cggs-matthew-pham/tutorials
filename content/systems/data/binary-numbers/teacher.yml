@@ -33,7 +33,7 @@ support: "Keep the card values (16 8 4 2 1) written above every binary number un
 leads: |
   Next: How many patterns? (how many numbers a set of bits can hold, and overflow).
 
-  Where it leads: text, colours and images as numbers. In maths, the places are powers of 2, as base-10 places are powers of 10.
+  Where it leads: the 0 to 255 limits students met in text, colours and sound come from bits (How many patterns?). Later: why binary (logic gates) and how bits underpin every encoding. In maths, the places are powers of 2, as base-10 places are powers of 10.
 exit:
   q: "What is 10101 in binary? Write 12 in binary."
   a: "10101 = 16 + 4 + 1 = 21. 12 = 8 + 4 = 1100."

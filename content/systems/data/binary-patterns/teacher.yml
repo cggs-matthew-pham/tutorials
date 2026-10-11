@@ -31,7 +31,7 @@ stuck:
 stretch: "How many bits would you need to give every person on Earth (about 8 billion) a different number? (33: 2³² is about 4.3 billion, 2³³ about 8.6 billion.)"
 support: "Keep a doubling table beside the board: bits 1 to 8, patterns 2 to 256, biggest 1 to 255."
 leads: |
-  Next: text as numbers (each character has a code) and colours (three bytes per pixel).
+  Builds on: the data as numbers lessons. Colour amounts (0 to 255) are one byte each, and 16-bit audio has 2¹⁶ = 65 536 levels: ask students to explain both now.
 
   Where it leads: data sizes (bytes, kilobytes) and, in Years 9–10, compression.
 exit:
