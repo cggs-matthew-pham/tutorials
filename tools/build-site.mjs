@@ -360,6 +360,8 @@ for (const l of lessons) {
     list: sibs.map((x) => ({ ...link(x), checks: checkKeys(x), current: x === l })),
     pathHref: '../', pathTitle: dirNode(parentPath).title,
     playground: PLAY[parentPath] ? '../playground/' : '',
+    // A practice set for this lesson (content/<course>/practice/<lesson>.yml) gets a card at the end of the lesson.
+    practice: existsSync(join(CONTENT_ROOT, parentPath, 'practice', `${l.slug.split('/').pop()}.yml`)) ? `../practice/?skill=${l.slug.split('/').pop()}` : '',
   });
 }
 

@@ -129,6 +129,14 @@ Number Foundations gains three units and eight lessons (17 to 24): Place value a
 
 Angles and shapes gains three units and six lessons (10 to 15): Solids (Nets, 7SP01 n1; Views of a solid, n2 and n3), Transformations (Translations, 7SP03 n1; Reflections, n2; Rotations, n3) and Algorithms (Algorithms for classifying shapes, 7SP04 n1 and n2, on the `key` board). Linear relations gains *Changing one thing at a time* (12, 7A06 n1 and n2, on the `formula` board) and Data and chance gains *Statistical investigations* (9, 7ST03 n1 and n2, on the `data` board); a full investigation is still a class task, which the teacher notes and the Make step set up. New boards `transform`, `net` and `views` (see roadmap/shared.md). New misconceptions: net-count-only, view-adds-up, translate-sign, reflect-axis-swap, rotate-swap-only, algo-general-first, vary-two-at-once, sample-generalise. The Year 7 descriptors left over from the earlier pushes (7SP01, 7SP03, 7SP04, 7A06, 7ST03) are now taught.
 
+## Next: pilot Algebra with a class (agreed 12 Oct 2026, before Year 9)
+- One lesson, then its practice (the lesson's "Practise this skill" card), for one or two lessons. Expanding then Factorising suit it: the form messages get used.
+- Watch for: where students stall on the lesson page; which practice messages they hit (format slips, "Use the letter n", Show the answer); whether 3 in a row feels right; whether mixed practice helps or confuses.
+- Bring back: the questions or messages that confused them, and anything they typed that was right but marked wrong. Fix those, then decide Year 9's first strand.
+
+## Done: Practise this skill card (12 Oct 2026)
+- Every lesson with a practice file ends with a "Practise this skill" card (after Now you can, before Next lesson) opening `<course>/practice/?skill=<lesson>`. Show the answer also appears after a second try that only missed the form.
+
 ## Done: Data practice, so every maths course has a Practice page (12 Oct 2026)
 - `content/maths/data/practice/`: 16 of 20 lessons (left out: Bias, Collecting data, Investigations and Investigating with samples, which are about judgement). Data lists are shown unsorted, in orders that never put the median in the middle or first; classify questions are counts.
 - Review fixes: unsorted outlier and pocket-money lists, realistic sleep and school sizes, "not A" and "at least one six" (taught but missing), stem-and-leaf with even counts and a mode, which-measure questions that need working. Core: a probability typed as a percentage (25% for 1/4) is accepted (or asked for in the named form), "5 out of 12", "P(A) = 5/12", "0,4", and "Close: give it exactly" for a rounded fraction.

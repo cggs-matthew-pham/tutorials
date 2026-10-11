@@ -107,7 +107,7 @@ section.step{scroll-margin-top:calc(var(--nav,0px) + var(--cb,0px) + 64px)}
 .nextcard{display:block;margin:34px 0 0;padding:18px 22px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none}
 .nextcard small{display:block;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.nextcard b{display:block;font-size:1.15rem}.nextcard span{color:var(--muted);font-size:15px}
 .nextcard:hover{border-color:var(--accent)}
-.nowcan{margin:34px 0 0;padding:16px 22px;border-left:4px solid var(--accent);background:var(--card);border-radius:0 14px 14px 0}.nowcan small{display:block;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.nowcan ul{margin:6px 0 0;padding-left:20px}.nowcan+.nextcard{margin-top:14px}
+.nowcan{margin:34px 0 0;padding:16px 22px;border-left:4px solid var(--accent);background:var(--card);border-radius:0 14px 14px 0}.nowcan small{display:block;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.nowcan ul{margin:6px 0 0;padding-left:20px}.nowcan+.nextcard{margin-top:14px}.practicecard+.nextcard{margin-top:14px}.practicecard{border-left:4px solid var(--accent)}
 .rules{list-style:none;margin:6px 0 0;padding:0}.rules li{display:flex;gap:8px;align-items:center;margin:3px 0}.rules li::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid var(--line);flex:none}.rules li.ok::before{background:var(--run);border-color:var(--run)}
 
 nav.steps a{font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--card);padding:5px 11px;border-radius:99px}
@@ -705,6 +705,7 @@ export function lessonPageHtml(lesson, deps) {
   // Now you can: the lesson's goals, said to the student, so the effort ends in something they can name.
   const nowCan = (lesson.teacher?.goals || []).map((g) => g.replace(/^I can\s+/, '')).map((g) => g[0].toUpperCase() + g.slice(1));
   const recapHtml = nowCan.length ? `<section class="nowcan" aria-label="Now you can"><small>Now you can</small><ul>${nowCan.map((g) => `<li>${esc(g)}</li>`).join('')}</ul></section>` : '';
+  const practiceCard = course?.practice ? `<a class="nextcard practicecard" href="${esc(course.practice)}"><small>Practise this skill</small><b>New questions, new numbers each time</b><span>Get 3 right in a row to mark it practised.</span></a>` : '';
   const nextCard = !course ? '' : course.next
     ? `<a class="nextcard" href="${esc(course.next.href)}"><small>Next lesson</small><b>${esc(lab(course.next))}</b>${course.next.summary ? `<span>${esc(course.next.summary)}</span>` : ''}</a>`
     : `<a class="nextcard" href="${esc(course.pathHref)}"><small>You reached the end</small><b>Back to ${esc(course.pathTitle)}</b></a>`;
@@ -753,7 +754,7 @@ ${widthBar}
 ${explainHtml}
 ${steps}${tiered ? `<script>${WIDTH_JS}</script>` : ''}
 ${teachersHtml}
-${recapHtml}${nextCard}
+${recapHtml}${practiceCard}${nextCard}
 ${source ? `<footer>Source: <code>${esc(source)}</code></footer>` : ''}${mk ? `<style>${MAKECODE_CSS}</style>` : ''}`, (siteRoot ? `<script src="${esc(siteRoot)}progress.js" data-root="${esc(siteRoot)}" defer></script>` : '') + (mk ? `<script>${MAKECODE_JS}</script>` : '') + (hasForms && maths.forms ? `<script src="${esc(siteRoot)}${esc(maths.forms.src)}" defer></script><script>${maths.forms.js}</script>` : ''), siteNavHtml);
 }
 
