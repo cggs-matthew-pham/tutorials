@@ -130,5 +130,7 @@
   "area-units": {"home": "maths/measurement/area-problems", "text": "Lengths in different units are multiplied without converting (2 m × 50 cm = 100), or the area is given in cm instead of cm²; area counts squares, and both lengths must be in the same unit."},
   "volume-visible-cubes": {"home": "maths/measurement/volume-layers", "text": "Only the cubes that can be seen in a picture are counted (or the faces are added, a surface area); a prism is full of cubes, layer under layer: base area × height."},
   "radius-diameter": {"home": "maths/measurement/parts-of-a-circle", "text": "The radius and the diameter are mixed up (a radius of 5 read as a diameter of 5); the diameter is two radii, right across through the centre."},
-  "pi-exact": {"home": "maths/measurement/discovering-pi", "text": "π is taken to be exactly 3.14 or 22/7; π is a fixed number that never ends or repeats (3.14159…), and 3.14 and 22/7 are approximations."}
+  "pi-exact": {"home": "maths/measurement/discovering-pi", "text": "π is taken to be exactly 3.14 or 22/7; π is a fixed number that never ends or repeats (3.14159…), and 3.14 and 22/7 are approximations."},
+  "score-set": {"home": "code/games/ms-catch", "text": "score = 1 adds one to the score; in fact it sets the score to 1 every time, so it never goes higher. score += 1 adds one."},
+  "key-always-there": {"home": "code/games/ms-keys", "text": "keyboard.LEFT can be asked about from the first frame; in fact microStudio adds it only after the first key press, so the game stops with an AttributeError until then."}
 }

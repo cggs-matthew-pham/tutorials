@@ -1,0 +1,42 @@
+summary: Students check the arrow keys every frame in update() to move a paddle, trace its position frame by frame, find why keyboard.LEFT fails before a key is pressed, keep the paddle on the screen, add up and down, and make a player with an extra key of their own.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 10 min"
+goals:
+  - I can move something with the arrow keys in a game loop.
+  - I can keep a value between two limits with if.
+  - I can explain why a held key moves something smoothly.
+before: |
+  Read the unit primer first. `pressed(key)` is a recipe: two lines students copy into every game. It is needed because microStudio's `keyboard` has no `LEFT` until the first key press, so `keyboard.LEFT` fails at the start (the bug task); `hasattr(keyboard, key)` asks first. Students need not understand hasattr yet. In microStudio the arrow names also answer to W, A, S and D. Games on our page need a click before they get the keys; so does the game in microStudio's run window.
+running:
+  - "Predict: ask how many times update() runs in one second, then how far 2 steps each time adds up to."
+  - "Investigate: fill in the trace table on the board; ask what a frame with no key does."
+  - "Modify: ask where the edge check goes: before or after the move? (after)."
+  - "Make: let pairs test each other's player and name the extra key."
+stuck:
+  - see: The keys do nothing.
+    ask: Did you click the game first?
+    fix: "Click inside the game, then press the keys."
+  - see: "AttributeError: 'Javascript Object' object has no attribute 'LEFT'."
+    ask: Does the code use keyboard.LEFT directly?
+    fix: "Copy the pressed() helper in and write pressed(\"LEFT\")."
+  - see: The paddle goes up when DOWN is pressed.
+    ask: Which way does y count in microStudio?
+    fix: "y goes up the screen: UP adds, DOWN takes away."
+  - see: "Only the first key works when two are held."
+    ask: Is the second check an elif?
+    fix: Use a separate if for each key.
+stretch: Make the paddle wrap round to the other side at the edges, or give it a short dash on Space that only works every few seconds.
+support: Give the edge check for the right side and ask students to write the left one.
+leads: "Next lesson: falling stars as objects, which they have already made with turtles. Polling (asking every frame) and events (a function called on a key) are the two ways every engine reads keys."
+exit:
+  q: "Why does the paddle stop when you let go of the key?"
+  a: "Each frame update() asks whether the key is down; when it is not, px is not changed, so the paddle stays where it is."
+explain: |
+  1. Every frame, `update()` asks `if pressed("LEFT")` and moves a little if the key is down.
+  2. Hold the key and it moves 60 times a second; let go and it stops.
+  3. An `if` after the move keeps it on the screen.
+solutions:
+  step-4#t1: game.py#sol-edges
+  step-4#t2: game.py#sol-updown
+  step-5: game.py#sol-make
+struggle: "Thinking in frames: a key held for a second is 60 small moves. The trace table is the moment to slow down."

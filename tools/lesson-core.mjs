@@ -24,7 +24,7 @@ export function voiceSpec(v) {
 export const captionText = (v) => (v && typeof v === 'object' ? String(v.text ?? '') : String(v ?? ''));
 export const captionSay = (v) => (v && typeof v === 'object' && v.say !== undefined ? String(v.say) : captionText(v));
 // board: interactive diagrams (balance, machine, graph…); maths is its old name and still works.
-export const PLAYGROUND_KINDS = ['turtle', 'python', 'html', 'board', 'maths', 'microbit', 'arcade', 'science'];
+export const PLAYGROUND_KINDS = ['turtle', 'python', 'microstudio', 'html', 'board', 'maths', 'microbit', 'arcade', 'science'];
 const isBoard = (pg) => ['board', 'maths', 'science'].includes(pg);
 /** What a board check can expect from a board's report: the board (balance, machine), and the science board (done: the widget's task is finished). Newer boards use when: conditions. */
 export const BOARD_KEYS = ['balanced', 'solved', 'x'];
@@ -159,7 +159,7 @@ export const snippetId = (label) => String(label).toLowerCase().replace(/[^a-z0-
 
 /** Which playground (and so which snippet list) a step's unlocks refer to. */
 // The Python playground (Pyodide) shares the turtle playground's Python snippets, unlocks and code rules.
-export const unlockKind = (lesson, step) => (step.config.try?.playground === 'python' ? 'turtle' : step.config.try?.playground) || (lesson.language === 'html' ? 'html' : lesson.language === 'science' ? 'science' : 'turtle');
+export const unlockKind = (lesson, step) => (['python', 'microstudio'].includes(step.config.try?.playground) ? 'turtle' : step.config.try?.playground) || (lesson.language === 'html' ? 'html' : lesson.language === 'science' ? 'science' : 'turtle');
 
 export const DEFAULT_PACING = {
   typeCps: 55,        // characters per second when code is "typed" into the stage's code panel

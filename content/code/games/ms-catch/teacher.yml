@@ -1,0 +1,42 @@
+summary: Students put the paddle and the stars together, test touching with abs() and and, see why a caught star must restart, fix a score that sets instead of adds, then add lives, a game over, a restart on Space, and a power-up of their own.
+time: 55
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 20 min · Make 15 min"
+goals:
+  - I can check whether two things touch, every frame.
+  - I can keep a score and lives, and end the game when the lives run out.
+  - I can start a game again by calling init().
+before: |
+  Read the unit primer first. This is the turtle course's Catch the turtle and Objects with turtles' falling stars, in a game engine. `touches()` compares the distance across and the distance up and down with `abs()` (a distance without its sign); both must be small, hence `and`. Lives change one thing in the structure: the bottom check moves out of `move()` into `update()`, so a missed star can cost a life (the first Modify's second hint says so). Calling `init()` again resets the game, because init() sets every variable.
+running:
+  - "Predict: draw the paddle at (0, -80) and the two stars on squared paper; measure across and up."
+  - "Investigate: ask what or would do, then try it in microStudio."
+  - "Modify: let students play each other's game before Make: is 3 lives too many?"
+  - "Make: ask how the game tells the power-up apart when it is caught."
+stuck:
+  - see: The score never goes above 1.
+    ask: Does the line add one, or set the score to one?
+    fix: "score += 1."
+  - see: Lives go down even when the star is caught.
+    ask: Is the miss check an elif after the catch, or a separate if?
+    fix: "Use elif star.y < -100, so a caught star is not counted as a miss."
+  - see: Lives never go down.
+    ask: Does move() still send the star back to the top before update() can see it fall?
+    fix: Take the y < -100 check out of move() and do it in update().
+  - see: "Space does nothing after GAME OVER."
+    ask: Is the Space check before the return?
+    fix: "Inside if lives == 0:, check pressed(\"SPACE\") and call init() before return."
+stretch: Make the stars fall a little faster each time the score reaches 10, or keep a high score that survives a restart (set it outside init()).
+support: Give the lives code for update() and ask students only for the GAME OVER text in draw().
+leads: "Next lesson: their own sprites, sound and sharing the game. Collision checks like touches() are in every engine, usually as boxes around sprites."
+exit:
+  q: "Why does a caught star call restart()?"
+  a: "Otherwise it is still touching the paddle next frame and scores again, 60 times a second."
+explain: |
+  1. Every frame, each star asks `touches(px, -80)`: close enough across **and** up and down.
+  2. A caught star adds to the score (`score += 1`) and starts again at the top.
+  3. Lives count misses; at 0, `update()` stops and `draw()` shows GAME OVER.
+solutions:
+  step-4#t1: game.py#sol-lives
+  step-4#t2: game.py#sol-restart
+  step-5: game.py#sol-make
+struggle: "Lives: moving the bottom check out of move() so update() can count a miss. Talk it through before students type."

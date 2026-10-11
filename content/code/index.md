@@ -16,7 +16,7 @@ pathways:
       - { path: code/deeper, stage: extensions, after: [code/console] }
       - { path: code/gradio, stage: extensions, after: [code/console] }
       - { path: code/ml, stage: extensions, after: [code/data] }
-      - { title: Games with microStudio, tagline: "Make a real game with sprites, maps and sound.", stage: extensions, summary: "Sprites, maps, sound and a game loop in text code.", after: [code/objects] }
+      - { path: code/games, stage: extensions, after: [code/objects] }
       - { path: code/flask, stage: extensions, after: [code/console, code/html] }
   - id: web
     title: Web

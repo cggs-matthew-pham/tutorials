@@ -759,6 +759,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){hidePop();i
 export const PLAYGROUNDS = {
   turtle: { dir: '_playground', title: 'Python turtle playground' },
   python: { dir: '_playground-py', title: 'Python playground' },
+  microstudio: { dir: '_playground-microstudio', title: 'Example game (play only)', height: 400 },
   html: { dir: '_playground-html', title: 'HTML and CSS playground' },
   board: { dir: '_playground-board', title: 'Board' },
   maths: { dir: '_playground-board', title: 'Board' },
@@ -809,7 +810,7 @@ export function tryEmbed(lesson, step, starter, siteRoot, locks = '', mods = nul
   if (locks) q.set('locks', locks); // the create page's preview: "id~Step title|id~Step title"
   if (versions?.[pg.dir]) q.set('v', versions[pg.dir]); // a new deploy gets a new URL, never a cached old playground
   const wide = pg.dir === '_playground-makecode' && makecodeExtensions(lesson).some((e) => e.wide);
-  return `<div class="try"${wide ? ' data-wide="1"' : ''}><div class="try-head"><b>Try it yourself</b><span>${pg === PLAYGROUNDS.science ? 'Nothing is saved: start again as often as you like.' : 'Your edits are saved in this browser.'}</span><button type="button" class="try-full" aria-pressed="false" title="Give the playground the whole screen (Esc to come back)">Full screen</button></div>` +
+  return `<div class="try"${wide ? ' data-wide="1"' : ''}><div class="try-head"><b>${pg === PLAYGROUNDS.microstudio ? 'Play it' : 'Try it yourself'}</b><span>${pg === PLAYGROUNDS.science ? 'Nothing is saved: start again as often as you like.' : pg === PLAYGROUNDS.microstudio ? 'Click the game to play. Make your own on microstudio.dev.' : 'Your edits are saved in this browser.'}</span><button type="button" class="try-full" aria-pressed="false" title="Give the playground the whole screen (Esc to come back)">Full screen</button></div>` +
     (pg.dir === '_playground-makecode'
       // MakeCode editors load on click: each one is heavy, and MakeCode focuses itself when it loads, which
       // scrolled the page to any editor that lazy-loaded nearby. data-src holds the address until then.

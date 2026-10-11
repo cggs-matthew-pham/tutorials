@@ -83,6 +83,16 @@ export function buildPyPlayground(out = 'dist') {
   return dest;
 }
 
+/** Example games on lesson pages, play only: the microStudio engine (vendor/microstudio, MIT, with Brython) and a page that runs ?code=. */
+export function buildMicrostudioPlayground(out = 'dist') {
+  const dest = join(out, '_playground-microstudio');
+  rmSync(dest, { recursive: true, force: true });
+  cpSync(join(root, 'playground-microstudio'), dest, { recursive: true });
+  cpSync(join(root, 'vendor', 'microstudio'), join(dest, 'vendor'), { recursive: true });
+  stampPlayground(dest);
+  return dest;
+}
+
 /** The HTML & CSS playground has no dependencies: it is copied as is. */
 export function buildHtmlPlayground(out = 'dist') {
   const dest = join(out, '_playground-html');
@@ -190,4 +200,5 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   console.log('Explain stage built into ' + buildExplainStage(out));
   console.log('Science board built into ' + buildSciencePlayground(out));
   console.log('Python playground built into ' + buildPyPlayground(out));
+  console.log('Game player built into ' + buildMicrostudioPlayground(out));
 }

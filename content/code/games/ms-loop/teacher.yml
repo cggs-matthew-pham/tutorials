@@ -1,0 +1,43 @@
+summary: Students meet microStudio's game loop (init once, then update and draw 60 times a second), copy a moving-dot game into their own microStudio project, fix a missing global, then make a dot move up and bounce, and make two things move their own way.
+time: 55
+timing: "Predict and Run, with making the microStudio project 15 min · Investigate 10 min · Modify 15 min · Make 15 min"
+goals:
+  - I can make a game in microStudio and run it.
+  - I can say what init, update and draw each do, and when they run.
+  - I can make something move by changing a value in update and drawing it in draw.
+before: |
+  Read the unit primer first. Students write their games on **microstudio.dev**, not on our site: before the lesson, open it on a student device at school, make a project, choose Python and press Run (the site's games here are only for playing). Decide on accounts: a **guest** can start at once with no email, but a guest's projects are deleted after about 15 days unless an account is made (a nickname and password; email is optional). For a short unit guests are fine if students keep a copy of their code; for longer work, make accounts with nicknames that are not real names. The lesson's Python is ordinary Python run by Brython: `global` is needed in update() for any variable it changes, exactly as in the turtle course's events lesson. microStudio's screen is 200 tall with (0, 0) in the middle and y up; its width depends on the window.
+running:
+  - "Predict: act it out: one student says update every time you clap, another moves one step."
+  - "Run: get every project made and running before Investigate; pair anyone stuck on the sign-in."
+  - "Investigate: the bug is the forgotten global from the turtle events lesson. Ask who remembers it."
+  - "Modify: bouncing needs a second variable for the direction; let students try before the second hint."
+  - "Make: walk round and ask each pair which variable moves which thing."
+stuck:
+  - see: "Nothing happens when they press Run, or the code turns red."
+    ask: Is the project set to Python?
+    fix: "In the project's Settings, set the language to Python, then Run again."
+  - see: "cannot access local variable 'x' where it is not associated with a value."
+    ask: Which function changes x, and does it say global x?
+    fix: Add global x as the first line of that function.
+  - see: The dot is drawn but never moves.
+    ask: Is x changed in update(), or only in init()?
+    fix: "Add x += 1 inside update()."
+  - see: "IndentationError, or code that is half outside a function."
+    ask: Did the whole file get replaced, or was the code pasted under microStudio's own example?
+    fix: "Select all in the file main, delete it, then paste."
+stretch: Make the dot change colour as it moves, or grow and shrink with a size variable.
+support: Give the bounce as a sentence first ("a speed that turns round at the edges"), then the dx = -dx line.
+leads: "Next lesson: the arrow keys move a paddle. The same update-and-draw loop runs every engine, from MakeCode Arcade to Unity and Godot."
+exit:
+  q: "Why does draw() start with screen.clear(...)?"
+  a: "draw() runs 60 times a second; without clearing, every old picture of the dot would stay, making a smear."
+explain: |
+  1. `init()` runs once at the start: set up your variables there.
+  2. `update()` runs 60 times a second: change the variables (with `global`).
+  3. `draw()` runs after each update: clear the screen and draw everything where it is now.
+solutions:
+  step-4#t1: game.py#sol-up
+  step-4#t2: game.py#sol-bounce
+  step-5: game.py#sol-make
+struggle: "Getting into microStudio and the Python setting in the first 15 minutes, then the forgotten global. Have the project made before the lesson if time is short."

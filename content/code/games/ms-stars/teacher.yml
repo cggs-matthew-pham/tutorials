@@ -1,0 +1,42 @@
+summary: Students bring the Star class from Objects with turtles into microStudio, where each star keeps self.x and self.y and draws itself, fix a method that forgets self, give each star its own colour, make 8 stars, and add a class of their own.
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can write a class whose objects move and draw themselves in a game loop.
+  - I can give each object its own value, set in __init__.
+  - I can add a new kind of object with its own class and list.
+before: |
+  Read the unit primer first. This lesson leans on Objects with turtles (classes, `self`, methods, a list of objects); the only new idea is that a star keeps its own `x` and `y` and paints itself in `draw()`, since there are no turtles. `random` works in microStudio's Python as usual. `print()` writes in microStudio's console, under the game. The bug task is the forgotten `self` from Objects with turtles, in a method this time.
+running:
+  - "Predict: write i = 0, 1, 2, 3 on the board with each x beside it."
+  - "Run: ask what replaced the turtle before Investigate asks it."
+  - "Investigate: the forgotten self: say the line aloud as this star's y."
+  - "Make: ask each pair which list holds their new objects, and where it is moved and drawn."
+stuck:
+  - see: "cannot access local variable 'y'."
+    ask: "Whose y is it: a new variable, or this star's?"
+    fix: "Write self.y."
+  - see: "NameError: name 'random' is not defined."
+    ask: Is import random at the top of the file?
+    fix: "Add import random as the first line."
+  - see: The new objects are made but never seen.
+    ask: Are they drawn in draw(), after screen.clear?
+    fix: "Add a loop in draw() that calls each one's draw()."
+  - see: All the stars have the same colour.
+    ask: Is the colour picked in __init__ (once per star) or in draw()?
+    fix: "Pick it in __init__ and store it in self.colour."
+stretch: Give stars a size as well as a colour, or make some stars twinkle by changing their size in move().
+support: Give students the Cloud class's __init__ and ask them only for move() and draw().
+leads: "Next lesson: catching stars with the paddle and keeping score, which is the turtle course's Catch the turtle in a game engine."
+exit:
+  q: "Why does each star have self.x and self.y?"
+  a: "So that each star remembers where it is; draw() paints it there and move() changes it, for that star only."
+explain: |
+  1. Each `Star` keeps its own `self.x`, `self.y` and `self.speed`.
+  2. `move()` changes them; `draw()` paints the star where it is now.
+  3. `update()` and `draw()` loop over the list and ask each star to do its part.
+solutions:
+  step-4#t1: game.py#sol-colour
+  step-4#t2: game.py#sol-more
+  step-5: game.py#sol-make
+struggle: "Moving from turtles to drawing by position: a star is now just numbers, painted each frame. Compare the two versions side by side."

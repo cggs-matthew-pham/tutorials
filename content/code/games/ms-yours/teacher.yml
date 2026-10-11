@@ -1,0 +1,39 @@
+summary: Students add sounds with audio.beep where things happen, draw their own sprites in microStudio and draw them with screen.drawSprite, then make and playtest a game of their own and decide how to share it safely.
+time: 60
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 25 min (or longer as a project)"
+goals:
+  - I can add sounds and my own sprites to a game.
+  - I can make a game with a goal and a way to win or lose.
+  - I can improve my game after watching someone play it.
+  - I can decide what is safe to share when I publish a game.
+before: |
+  Read the unit primer first. Turn sound on (headphones help). `audio.beep("C E G")` plays notes from text; words such as `duration 100`, `tempo 160`, `square`, `saw` and `sine` change how. Sprites are drawn in microStudio's **Sprites** tab and named there; `screen.drawSprite("name", x, y, width, height)` draws one (our site's games cannot show students' sprites, so the Modify step has no game on the page). **Sharing:** a project is private until it is made public; a public project can be played and copied by anyone from microStudio's Explore page, under the student's nickname. Decide your rule before the lesson (for example: publish only with your OK, nicknames only). Guest projects are deleted after about 15 days, so guests should make an account or keep a copy of their code. The Make step can run as a longer project; the Python pathway's For teachers notes suit a showcase.
+running:
+  - "Predict: count t up in 60s on the board; circle the multiples of 60."
+  - "Investigate: ask why a beep in draw() would be a bad idea, then let one student try it."
+  - "Modify: show the Sprites tab on the projector; 16 × 16 pixels is enough."
+  - "Make: playtest in pairs: the player plays without being told how, the maker watches and writes down one change."
+stuck:
+  - see: The sprite does not show.
+    ask: Is the name in drawSprite exactly the sprite's name in the Sprites tab?
+    fix: "Use the same name, in lower case, in quotes."
+  - see: The sound plays over and over.
+    ask: Is the beep in draw(), or in an if that is true for many frames?
+    fix: Move it into update(), in the if where the thing happens once.
+  - see: No sound at all.
+    ask: Has the game been clicked, and is the sound on?
+    fix: "Browsers only allow sound after a click in the page."
+  - see: "Their guest project has gone."
+    ask: Did they make an account, or keep a copy?
+    fix: "Guest projects are deleted after about 15 days; make accounts for longer work."
+stretch: "Add a title screen: a mode variable (\"title\", \"play\", \"over\") that update() and draw() check first."
+support: Start the Make step from the catching game and change only the sprites, the sounds and one rule.
+leads: "The Python pathway's other extensions (data, web apps) use the same Python. microStudio's Help tab covers maps, music and multiplayer; Godot's GDScript is a natural next engine."
+exit:
+  q: "Why does a catch sound go in update() and not in draw()?"
+  a: "It should play once, when the catch happens; draw() runs every frame, so a sound there would repeat 60 times a second."
+explain: |
+  1. `audio.beep("C E G")` plays notes; put it in `update()`, where the thing happens.
+  2. Draw sprites in microStudio's Sprites tab, then `screen.drawSprite("star", x, y, w, h)` replaces a shape.
+  3. Before publishing: a nickname only, no name, school or photos, and ask your teacher.
+struggle: "Finishing: a game of their own is open-ended. Agree a small goal first (one change to the rules, own sprites, two sounds), then add."
