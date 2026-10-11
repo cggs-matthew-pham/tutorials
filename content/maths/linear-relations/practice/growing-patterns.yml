@@ -1,0 +1,31 @@
+# Practice for "Growing patterns".
+templates:
+  - q: "A pattern has {a}, {a + d} and {a + 2 * d} sticks in Figures 1, 2 and 3. How many sticks are in Figure {n}?"
+    vars: { a: "3..9", d: "2..6", n: "8..25" }
+    where: "a != d"
+    answer: "{a + (n - 1) * d}"
+    feedback:
+      - ["{n * d}", "Each figure adds {d}, but Figure 1 doesn't start at {d}: it has {a}."]
+      - ["{a + n * d}", "Figure {n} has {n - 1} lots of {d} added to Figure 1, not {n}."]
+    explain: "Each figure adds {d}, so the rule is s = {d}n {a - d|s}. Figure {n}: {d} × {n} {a - d|s} = {a + (n - 1) * d}."
+  - q: "A pattern has {a}, {a + d}, {a + 2 * d}, {a + 3 * d} dots in Figures 1 to 4. Write a rule for the dots s in figure n."
+    vars: { a: "2..12", d: "2..7" }
+    where: "a > d"
+    answer: "{d}n + {a - d}"
+    feedback:
+      - ["n + {d}", "Each figure adds {d}, so the rule has {d}n: {d} lots of the figure number."]
+      - ["{d}n + {a}", "Test it on Figure 1: {d} × 1 + {a} = {d + a}, not {a}. What is added to {d}n to give {a}?"]
+    explain: "Each figure adds {d}, so start with {d}n. Figure 1: {d} × 1 = {d}, and it has {a}, so add {a - d}: s = {d}n {a - d|s}."
+  - q: "A pattern's rule is s = {m}n + {b}. Which figure has {t}?"
+    vars: { m: "2..7", b: "1..9", n: "6..20" }
+    let: { t: "m * n + b" }
+    answer: "{n}"
+    feedback:
+      - ["{t / m}", "Take away {b} first, then divide by {m}."]
+    explain: "{m}n + {b} = {t}, so {m}n = {t - b} and n = {n}. Check: {m} × {n} + {b} = {t}."
+  - q: "A pattern's rule is s = {m}n + {b}. How many are in Figure {n}?"
+    vars: { m: "2..8", b: "1..9", n: "10..30" }
+    answer: "{m * n + b}"
+    feedback:
+      - ["{m * (n + b)}", "Multiply {m} by {n} first, then add {b}."]
+    explain: "s = {m} × {n} + {b} = {m * n} + {b} = {m * n + b}."

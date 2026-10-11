@@ -1,0 +1,35 @@
+# Practice for "What m does to a line".
+templates:
+  - q: "In y = {m}x {c|s}, how far does the line go up for each step of 1 to the right?"
+    vars: { m: "2..9", c: [-6, -4, -3, -2, -1, 1, 2, 3, 5, 7] }
+    answer: "{m}"
+    feedback:
+      - ["{c}", "That is c, where the line crosses the y-axis. The steepness is the number in front of x."]
+    explain: "m = {m}: each step of 1 right, y goes up {m}."
+  - q: "On the line y = {m}x {c|s}, how far does y go up from x = {a} to x = {a + k}?"
+    vars: { m: "2..6", c: [-5, -3, -1, 1, 2, 4], a: "0..6", k: "2..5" }
+    answer: "{m * k}"
+    feedback:
+      - ["{m}", "That is for one step. From x = {a} to x = {a + k} is {k} steps."]
+    explain: "{k} steps of {m}: {k} × {m} = {m * k}. (Check: y goes from {m * a + c} to {m * (a + k) + c}.)"
+  - q: "The line y = mx + {c} passes through ({x}, {y}). What is m?"
+    vars: { m: "-4..6", c: "1..6", x: "1..5" }
+    where: "m != 0"
+    let: { y: "m * x + c" }
+    answer: "{m}"
+    feedback:
+      - ["{y / x}", "Take off the {c} first: the line starts at {c} when x = 0."]
+    explain: "{y} = m × {x} + {c}, so m × {x} = {y - c} and m = {m}."
+  - q: "How far does y = {m|c}x + {c} go up for each step right? (A negative answer means it goes down.)"
+    vars: { m: "-6..-1", c: "1..12" }
+    answer: "{m}"
+    feedback:
+      - ["{-m}", "The m is negative, so the line goes down from left to right."]
+    explain: "m = {m}: each step right, y goes down {-m}."
+  - q: "A line goes through (0, {c}) and ({k}, {c + d}). What is its m? (It can be a fraction or a decimal.)"
+    vars: { c: "1..6", k: [2, 4], d: [0, 1, 2, 3, 6] }
+    where: "d != k"
+    answer: "{d / k}"
+    feedback:
+      - ["{d}", "y goes up {d} over {k} steps, not one step: divide by {k}."]
+    explain: "y goes up {d} while x goes {k} across, so m = {d} ÷ {k} = {d / k}{d == 0 ? ': a flat line' : ''}."

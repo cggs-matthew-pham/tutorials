@@ -1,0 +1,32 @@
+# Practice for "Lines and regions".
+templates:
+  - q: "How many of the points ({a}, {p}), ({b}, {q}) and ({d}, {r}) are in the region y > {m|c}x {c|s}?"
+    vars: { m: "1..3", c: [-2, -1, 1, 2, 3], a: "0..3", b: "0..3", d: "0..3", p: "0..10", q: "0..10", r: "0..10" }
+    where: "p != m * a + c and q != m * b + c and r != m * d + c and a != b and b != d and a != d"
+    let: { n: "(p > m * a + c) + (q > m * b + c) + (r > m * d + c)" }
+    answer: "{n}"
+    explain: "Test each point: at x = {a}, {m|c}x {c|s} = {m * a + c} (y = {p} is {p > m * a + c ? 'above' : 'below'}); at x = {b}, {m * b + c} (y = {q}, {q > m * b + c ? 'above' : 'below'}); at x = {d}, {m * d + c} (y = {r}, {r > m * d + c ? 'above' : 'below'}). {n} in the region."
+  - q: "To test whether ({a}, {p}) is in y < {m}x {c|s}, work out {m}x {c|s} at x = {a}."
+    vars: { m: "2..5", c: [-3, -2, -1, 1, 2, 3], a: "1..5", p: "0..15" }
+    answer: "{m * a + c}"
+    feedback:
+      - ["{m * p + c}", "Use the point's x, {a}, in the rule, then compare with its y, {p}."]
+    explain: "At x = {a}: {m} × {a} {c|s} = {m * a + c}. The point's y is {p}, so it {p < m * a + c ? 'is' : 'is not'} below the line: {p < m * a + c ? 'in' : 'not in'} the region."
+  - q: "A vertical line passes through ({a}, {b}). Write its equation."
+    vars: { a: "-6..8", b: "-6..8" }
+    where: "a != b"
+    answer: "x = {a}"
+    form: subject x
+    explain: "Every point on a vertical line has the same x: x = {a}."
+  - q: "A horizontal line passes through ({a}, {b}). Write its equation."
+    vars: { a: "-6..8", b: "-6..8" }
+    where: "a != b"
+    answer: "y = {b}"
+    form: subject y
+    explain: "Every point on a horizontal line has the same y: y = {b}."
+  - q: "How many of the points ({a}, {p}), ({b}, {q}) and ({d}, {r}) are in the region y ≥ {m|c}x {c|s}? (Points on a solid boundary count.)"
+    vars: { m: "1..3", c: [-2, -1, 1, 2, 3], a: "0..3", b: "0..3", d: "0..3", p: "0..10", q: "0..10", r: "0..10" }
+    where: "a != b and b != d and a != d and (p = m * a + c or q = m * b + c or r = m * d + c)"
+    let: { n: "(p >= m * a + c) + (q >= m * b + c) + (r >= m * d + c)" }
+    answer: "{n}"
+    explain: "≥ includes the line (a solid boundary). At x = {a}: {m * a + c} (y = {p}, {p > m * a + c ? 'above' : p == m * a + c ? 'on the line' : 'below'}); at x = {b}: {m * b + c} (y = {q}, {q > m * b + c ? 'above' : q == m * b + c ? 'on the line' : 'below'}); at x = {d}: {m * d + c} (y = {r}, {r > m * d + c ? 'above' : r == m * d + c ? 'on the line' : 'below'}). {n} in the region."

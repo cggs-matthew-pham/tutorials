@@ -1,0 +1,28 @@
+# Practice for "Tables from rules".
+templates:
+  - q: "For y = {m}x {c|s}, what is the output when the input is {x}?"
+    vars: { m: "2..9", c: [-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7], x: "1..10" }
+    answer: "{m * x + c}"
+    feedback:
+      - ["{m * (x + c)}", "Multiply the input by {m} first, then {c < 0 ? 'take away ' + (-c) : 'add ' + c}."]
+    explain: "y = {m} × {x} {c|s} = {m * x} {c|s} = {m * x + c}. The pair is ({x}, {m * x + c})."
+  - q: "For y = {m}x + {c}, what is the output when the input is {x}?"
+    vars: { m: "2..5", c: "1..9", x: "-5..-1" }
+    answer: "{m * x + c}"
+    feedback:
+      - ["{-m * x + c}", "The input is negative, so {m} × {x|p} is negative."]
+    explain: "y = {m} × {x|p} + {c} = {m * x} + {c} = {m * x + c}."
+  - q: "For y = {m}x + {c}, which input gives the output {y}?"
+    vars: { m: "2..9", c: "1..12", x: "1..12" }
+    let: { y: "m * x + c" }
+    answer: "{x}"
+    feedback:
+      - ["{m * y + c}", "That puts {y} in as the input. {y} is the output: work back to find the input."]
+    explain: "{m}x + {c} = {y}, so {m}x = {y - c} and x = {x}. The pair is ({x}, {y}), input first."
+  - q: "The pair ({x}, {y}) is in the table for y = {m}x + {c}. Which number is the input?"
+    vars: { m: "2..6", c: "1..9", x: "2..9" }
+    let: { y: "m * x + c" }
+    answer: "{x}"
+    feedback:
+      - ["{y}", "{y} is the output. In (x, y) the input comes first."]
+    explain: "In an ordered pair (x, y) the input x comes first: {x}. Check: {m} × {x} + {c} = {y}."

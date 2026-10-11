@@ -1,0 +1,30 @@
+# Practice for "Solving equations with graphs".
+templates:
+  - q: "The lines y = {m}x {c|s} and y = {k} are drawn. What is x where they meet?"
+    vars: { m: "2..6", c: [-7, -5, -3, -2, -1, 1, 2, 3, 4, 5], x: "1..8" }
+    let: { k: "m * x + c" }
+    answer: "{x}"
+    feedback:
+      - ["{k}", "{k} is y at the meeting point. The solution is the x there."]
+    explain: "Where they meet, {m}x {c|s} = {k}, so {m}x = {k - c} and x = {x}. The point is ({x}, {k})."
+  - q: "y = {a}x {b|s} and y = {c|c}x {d|s} meet at ({x}, {a * x + b}). What value of x makes {a}x {b|s} = {c|c}x {d|s} true?"
+    vars: { a: "2..5", c: "-3..1", x: "-2..5", b: [-6, -4, -3, -1, 1, 2, 3, 5] }
+    where: "a != c and c != 0 and d != 0"
+    let: { d: "(a - c) * x + b" }
+    answer: "{x}"
+    feedback:
+      - ["{a * x + b}", "That is y at the meeting point. The equation's solution is the x there."]
+    explain: "Where the lines meet, both sides are equal, so the solution is the x there: x = {x}. Check: both rules give y = {a * x + b} at x = {x}."
+  - q: "y = {a}x {b|s} and y = {c|c}x {d|s} meet at x = {x}. What is y there?"
+    vars: { a: "2..5", c: "-2..1", x: "1..5", b: [-4, -3, -1, 1, 2, 3, 5] }
+    where: "a != c and c != 0 and d != 0"
+    let: { d: "(a - c) * x + b" }
+    answer: "{a * x + b}"
+    explain: "Put x = {x} into either rule: {a} × {x} {b|s} = {a * x + b} (and {c|c}x {d|s} gives {c * x + d})."
+  - q: "On a graph, y = {m}x {c|s} meets y = {k}. What is the solution of {m}x {c|s} = {k}?"
+    vars: { m: "-4..-2", c: "1..12", x: "-3..4" }
+    let: { k: "m * x + c" }
+    answer: "{x}"
+    feedback:
+      - ["{-x}", "Dividing by {m}, a negative, changes the sign."]
+    explain: "{m}x = {k - c}, so x = {k - c} ÷ ({m}) = {x}. The lines meet at ({x}, {k})."

@@ -1,0 +1,30 @@
+# Practice for "Changing one thing at a time".
+templates:
+  - q: "A box has V = lwh with l = {l}, w = {w} and h = {h}. Only h changes, to {k}. What is V now?"
+    vars: { l: "2..6", w: "2..5", h: "2..5", k: "3..10" }
+    where: "k != h"
+    answer: "{l * w * k}"
+    feedback:
+      - ["{l * w * h}", "That is V before the change. Use h = {k}."]
+      - ["{l * w * h + k - h}", "V goes up by {l * w} for each 1 added to h, not by 1."]
+    explain: "V = {l} × {w} × {k} = {l * w * k}. Each 1 added to h adds l × w = {l * w}."
+  - q: "With l = {l} and w = {w} in V = lwh, by how much does V go up for each extra 1 in h?"
+    vars: { l: "2..12", w: "2..10" }
+    answer: "{l * w}"
+    feedback:
+      - ["1", "Adding 1 to h adds a whole layer of l × w."]
+      - ["{l + w}", "A layer is l × w, not l + w."]
+    explain: "Each extra 1 in h adds a layer of {l} × {w} = {l * w}."
+  - q: "A square has side {s} cm, so its area is {s * s} cm². The side is made {k == 2 ? 'twice' : 'three times'} as long. What is the new area, in cm²?"
+    vars: { s: "2..12", k: [2, 3] }
+    answer: "{k * k * s * s}"
+    feedback:
+      - ["{k * s * s}", "Both the length and the width are {k} times as long, so the area is {k} × {k} = {k * k} times as big."]
+    explain: "New side {k * s}: {k * s} × {k * s} = {k * k * s * s} cm², {k * k} times {s * s}."
+  - q: "d = st. With s = {s} km/h, the time changes from {t} to {k} hours. What is d now, in km?"
+    vars: { s: [20, 30, 40, 50, 60, 80, 90, 100], t: "1..4", k: "2..8" }
+    where: "k != t"
+    answer: "{s * k}"
+    feedback:
+      - ["{s * t}", "That is d before the change."]
+    explain: "d = {s} × {k} = {s * k} km (it was {s} × {t} = {s * t}). Only t changed, so only t changed d."

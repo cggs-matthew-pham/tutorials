@@ -1,0 +1,27 @@
+# Practice for "Plotting a rule".
+templates:
+  - q: "The points of a rule lie on a straight line through (0, {c}), (1, {c + m}) and (2, {c + 2 * m}). What is y at x = {k}?"
+    vars: { c: "1..9", m: "2..6", k: "3..8" }
+    answer: "{c + m * k}"
+    feedback:
+      - ["{m * k}", "Start from y = {c} at x = 0, then add {m} for each step."]
+    explain: "Start at {c} and add {m} for each step across: {k} steps add {m * k}, so y = {c} + {m * k} = {c + m * k}."
+  - q: "For y = {c} − x, what is y at x = {x}?"
+    vars: { c: "8..20", x: "1..8" }
+    answer: "{c - x}"
+    feedback:
+      - ["{c + x}", "The rule takes x away from {c}."]
+    explain: "y = {c} − {x} = {c - x}. As x goes up 1, y goes down 1, so the points make a line sloping down."
+  - q: "A point is {a} across and {b} up from (0, 0). Its coordinates are (x, y). What is x?"
+    vars: { a: "1..9", b: "1..9" }
+    where: "a != b"
+    answer: "{a}"
+    feedback:
+      - ["{b}", "Across comes first: x is the distance across."]
+    explain: "Across first, then up: ({a}, {b}), so x = {a}."
+  - q: "For y = {m}x − {c}, plot the point with x = {x}. What is its y?"
+    vars: { m: "2..5", c: "1..6", x: "1..6" }
+    answer: "{m * x - c}"
+    feedback:
+      - ["{m * x + c}", "The rule takes {c} away."]
+    explain: "y = {m} × {x} − {c} = {m * x - c}, so the point is ({x}, {m * x - c})."

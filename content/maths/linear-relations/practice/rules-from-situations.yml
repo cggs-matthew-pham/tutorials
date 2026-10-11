@@ -1,0 +1,28 @@
+# Practice for "Rules from real situations".
+templates:
+  - q: "A gym charges a {c} dollar joining fee and {m} dollars a week. Write a rule for the total cost T after w weeks. (T = …)"
+    vars: { c: [20, 25, 30, 35, 40, 50, 60, 75], m: "5..20" }
+    answer: "{m}w + {c}"
+    feedback:
+      - ["{c}w + {m}", "The rate, {m} a week, is multiplied by w. The joining fee is paid once."]
+    explain: "Starting amount {c} (c) plus {m} a week (m): T = {m}w + {c}."
+  - q: "A plumber charges T = {m}h + {c} dollars for a job of h hours. What does a job of {h} hours cost, in dollars?"
+    vars: { m: [60, 70, 80, 90, 100], c: [40, 50, 60, 80], h: "2..8" }
+    answer: "{m * h + c}"
+    feedback:
+      - ["{(m + c) * h}", "The {c} call-out fee is paid once, not every hour."]
+    explain: "T = {m} × {h} + {c} = {m * h} + {c} = {m * h + c} dollars."
+  - q: "A candle is {L} cm tall and burns down {r} cm an hour. Write a rule for its height H after t hours. (H = …)"
+    vars: { L: "18..40 by 2", r: [1.5, 2, 2.5, 3, 4, 5] }
+    answer: "{L} - {r}t"
+    feedback:
+      - ["{L} + {r}t", "The candle gets shorter, so the height goes down {r} each hour: take {r}t away."]
+      - ["{r}t - {L}", "Start from {L} cm and take {r}t away."]
+    explain: "Start at {L} and lose {r} each hour: H = {L} − {r}t. Here m = −{r}, so the line slopes down."
+  - q: "A taxi fare is T = {m}d + {c} dollars for d km. A trip cost {T} dollars. How many km was it?"
+    vars: { m: [2, 3, 4], c: [3, 4, 5, 6], d: "3..15" }
+    let: { T: "m * d + c" }
+    answer: "{d}"
+    feedback:
+      - ["{T / m}", "Take off the {c} dollar flag fall first, then divide by {m}."]
+    explain: "{m}d + {c} = {T}, so {m}d = {T - c} and d = {d} km."

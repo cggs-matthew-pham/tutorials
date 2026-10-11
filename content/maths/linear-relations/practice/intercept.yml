@@ -1,0 +1,30 @@
+# Practice for "What c does to a line".
+templates:
+  - q: "Where does y = {m|c}x {c|s} cross the y-axis? Give the value of y."
+    vars: { m: "-5..6", c: [-9, -7, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7, 8] }
+    where: "m != 0 and m != c and m != -c"
+    answer: "{c}"
+    feedback:
+      - ["{m}", "{m} is the steepness. On the y-axis x = 0, so y = c."]
+      - ["{-c}", "Keep the sign: at x = 0, y = {c}."]
+    explain: "On the y-axis x = 0, so y = {m} × 0 {c|s} = {c}."
+  - q: "The line y = {m|c}x + c passes through ({x}, {y}). What is c?"
+    vars: { m: "1..5", c: "-6..8", x: "1..5" }
+    let: { y: "m * x + c" }
+    answer: "{c}"
+    feedback:
+      - ["{y}", "Work out {m} × {x} = {m * x} first, then what is added to give {y}."]
+    explain: "{y} = {m} × {x} + c = {m * x} + c, so c = {c}."
+  - q: "Write the rule of the line parallel to y = {m}x {c|s} that crosses the y-axis at {k}. (y = …)"
+    vars: { m: "2..7", c: [-5, -3, -1, 1, 2, 4, 6], k: [-6, -4, -2, 3, 5, 7, 8, 9] }
+    where: "k != c"
+    answer: "{m}x {k|s}"
+    feedback:
+      - ["{k}x {c|s}", "Parallel lines have the same m, here {m}. The new c is {k}."]
+    explain: "Parallel means the same steepness, m = {m}; crossing at {k} means c = {k}: y = {m}x {k|s}."
+  - q: "The line y = {m}x + {c} is moved {up ? 'up' : 'down'} {k}. What is its new c?"
+    vars: { m: "2..6", c: "1..9", k: "2..6", up: [0, 1] }
+    answer: "{up ? c + k : c - k}"
+    feedback:
+      - ["{c}", "Moving the line {up ? 'up' : 'down'} changes c by {k}."]
+    explain: "Moving {up ? 'up' : 'down'} {k} {up ? 'adds' : 'takes'} {k} {up ? 'to' : 'from'} c: {c} {up ? '+' : '−'} {k} = {up ? c + k : c - k}. m stays {m}, so the lines are parallel."

@@ -1,0 +1,27 @@
+# Practice for "Comparing two plans".
+templates:
+  - q: "Plan A costs {a} dollars plus {r} dollars per GB. Plan B costs {b} dollars for any amount. At how many GB do they cost the same?"
+    vars: { a: [5, 10, 15, 20, 25], r: [2, 3, 4, 5, 6, 8], g: "2..9" }
+    let: { b: "a + r * g" }
+    answer: "{g}"
+    feedback:
+      - ["{b / r}", "Plan A starts at {a}: set {r}g + {a} = {b}."]
+    explain: "{r}g + {a} = {b}, so {r}g = {b - a} and g = {g}. The lines cross at ({g}, {b})."
+  - q: "Plan A costs {a} + {r}g dollars and Plan B costs {b} dollars, for g GB. For {u} GB, how much cheaper is the cheaper plan, in dollars?"
+    vars: { a: [10, 15, 20], r: [3, 4, 5], g: "3..7", s: [-2, -1, 1, 2, 3] }
+    let: { b: "a + r * g", u: "g + s" }
+    answer: "{abs(a + r * u - b)}"
+    feedback:
+      - ["{min(a + r * u, b)}", "That is the cheaper plan's cost. How much less is it than the other?"]
+    explain: "Plan A for {u} GB: {a} + {r} × {u} = {a + r * u}. Plan B: {b}. {a + r * u < b ? 'Plan A' : 'Plan B'} is cheaper by {abs(a + r * u - b)} dollars."
+  - q: "Two electricians charge T = {m}h + {a} and T = {n}h + {b}. After how many hours do they cost the same?"
+    vars: { m: [40, 50, 60, 70], d: [10, 15, 20], h: "2..6", b: [10, 20, 30] }
+    let: { n: "m + d", a: "b + d * h" }
+    answer: "{h}"
+    explain: "{m}h + {a} = {n}h + {b}, so {a - b} = {d}h and h = {h}. Both cost {m * h + a} dollars."
+  - q: "A battery is modelled by B = {c} − {r}h (percent left after h hours). After how many hours does the model give 0?"
+    vars: { r: [4, 5, 8, 10, 20, 25], h: "4..12" }
+    let: { c: "r * h" }
+    where: "c <= 100"
+    answer: "{h}"
+    explain: "{c} − {r}h = 0, so {r}h = {c} and h = {h}. After that the model gives negative charge, which doesn't make sense."
