@@ -4,7 +4,7 @@ Things more than one subject depends on: the build, publishing, the home and pla
 
 ## Done (11 Oct 2026): parallel clip recording
 
-The publish workflow now records clips in parallel jobs: `plan` → `record` (matrix, default 4, set in the Run workflow form) → `publish`. `tools/render-shards.mjs` asks `render.mjs --seed --check` what needs recording and shares lessons out by clip count. `render.mjs` is unchanged, so this re-records nothing. Not done yet, worth doing next: cache `.voice-cache` and the Kokoro model between runs; narrow the clip hash (`render.mjs` source and whole playground folders re-record every clip on any edit); one browser per job instead of per clip.
+The publish workflow now records clips in parallel jobs: `plan` → `record` (matrix, default 4, set in the Run workflow form) → `publish`. `tools/render-shards.mjs` asks `render.mjs --seed --check` what needs recording and shares lessons out by clip count. `render.mjs` is unchanged, so this re-records nothing. Caches (11 Oct): the browser, pip, the Kokoro model (key: `tools/voice.mjs`) and spoken lines (`.voice-cache`: each record job uploads its lines, the publish job merges them with the last set and saves `voice-<run id>`; old lines are never pruned, so clear the cache in the Actions tab if it grows large). Not done yet: narrow the clip hash (`render.mjs` source and whole playground folders re-record every clip on any edit); one browser per job instead of per clip.
 
 ## Effort: "if coding is hard, why do it" (11 Oct 2026)
 
