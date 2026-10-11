@@ -1,0 +1,39 @@
+summary: Students meet Flask, where each address is a route joined to a function that returns the page as HTML, then add a results page, a visit counter and a small site of their own.
+time: 50
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 20 min · Make 10 min"
+goals:
+  - I can explain what a route is and how Flask chooses the function for an address.
+  - I can add a page to a Flask app and link to it.
+  - I can explain why a variable in a web app resets when the program runs again.
+before: |
+  Read the unit primer first. This course runs in the **Python playground** (real Python in the browser, Pyodide), where `app.run()` shows the site in an **App** tab with an address bar; links and forms in the page go back to the app. On a computer, `pip install flask` and `python app.py` serve the same file at `http://127.0.0.1:5000`. Before teaching it, open the site's Check your school page once on a student device at school. A **route** (`@app.route("/about")`, a decorator: the line with `@` above a function) joins an address to a function; the function returns the page as HTML text. An address with no route gives the standard **404 Not Found**. HTML inside Python strings uses single quotes for attributes (`href='/about'`) so they do not end the string. The visit counter uses `global` (from the turtle course) and resets on every Run: variables last only while the program runs, which sets up saving in Lesson 4.
+running:
+  - "Predict: draw a table on the board: address on the left, function on the right."
+  - "Run: have students type /missing and read the 404 page."
+  - "Investigate: ask what the browser receives: just text, which happens to be HTML."
+  - "Modify: visit the counter page five times, then press Run, and ask why it reset."
+  - "Make: sketch the site's pages and links on paper first."
+stuck:
+  - see: "Not Found for a page they wrote."
+    ask: Is there an @app.route line directly above the function, with the right address?
+    fix: "Add @app.route(\"/results\") above def results():."
+  - see: "SyntaxError on a line of HTML."
+    ask: Do the quotes inside the HTML match the quotes around the string?
+    fix: "Use single quotes inside: \"<a href='/about'>About</a>\"."
+  - see: "UnboundLocalError: local variable 'visits' referenced before assignment."
+    ask: Does home() say it is changing the variable outside it?
+    fix: "global visits as the first line of home()."
+stretch: Add a page at /time that shows a different message in the morning and the afternoon (import datetime; datetime.datetime.now().hour).
+support: Give students the results route with its table, and ask them only to add the link from the home page.
+leads: "Next lesson builds pages from a list of data with a template. Later lessons take form answers, save them to a file and send data as JSON."
+exit:
+  q: "What is a route?"
+  a: "A link between an address in the site, such as /about, and the Python function that makes that page."
+explain: |
+  1. `@app.route("/")` joins the address `/` to the function below it.
+  2. When someone visits an address, Flask runs its function and sends back what it returns, as the page.
+  3. An address with no route gets a 404 Not Found page.
+solutions:
+  step-4#t1: club.py#sol-results
+  step-4#t2: club.py#sol-count
+  step-5: club.py#sol-make

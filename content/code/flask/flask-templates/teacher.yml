@@ -1,0 +1,38 @@
+summary: Students build pages from a list of dictionaries with a template (Jinja), add a page for each player with an address part that changes, then add a wins column, group pages and a leaders page.
+time: 50
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 20 min · Make 10 min"
+goals:
+  - I can fill a template from a list with {% for %} and {{ }}.
+  - I can make a route with a part of the address that changes, such as /player/<name>.
+  - I can pick items from a list for a page, and say "not found" when there are none.
+before: |
+  Read the unit primer first. A **template** is HTML with gaps, in Flask's template language (Jinja): `{{ value }}` shows a value and `{% for p in players %} ... {% endfor %}` repeats a part. `render_template_string(PAGE, players=players)` fills it in; the template sees **only** what is passed by name (the bug task forgets to pass it, and the list comes out empty, with no error). In a route, `<name>` matches any word in that place of the address and is passed to the function. A route can return a page and a status: `return "...", 404`. On a computer templates usually live in `templates/` files with `render_template`; the playground keeps them in strings so everything is in one file.
+running:
+  - "Predict: write the li line once on the board, then repeat it for each name."
+  - "Run: try /player/Zoe and read the page; ask what 404 tells a browser."
+  - "Investigate: compare the template with the page's source: which parts came from the list?"
+  - "Modify: test /group/Players and /group/Nobody."
+stuck:
+  - see: The table or list is empty.
+    ask: Is the list passed to render_template_string by name?
+    fix: "render_template_string(PAGE, players=players)."
+  - see: "jinja2.exceptions.TemplateSyntaxError."
+    ask: Does every {% for %} have an {% endfor %}, and every {{ a }}?
+    fix: Close each one; check the brackets.
+  - see: "/group/players finds nobody."
+    ask: Does the address match the data exactly, capitals included?
+    fix: "Use /group/Players, or compare with .lower() on both sides."
+stretch: "Sort the leaders by wins, highest first (sorted(leaders, key=lambda p: p[\"wins\"], reverse=True)), or show the number of players in each group on the home page."
+support: Give students the group route's loop, and ask them only to write the route line and the return.
+leads: "Next lesson adds a form that adds players, then saving them to a file. Data detective's tables and this template idea meet again in any web dashboard."
+exit:
+  q: "What does {% for p in players %} do in a template?"
+  a: "Repeats the part up to {% endfor %} once for each item in players, with p as that item."
+explain: |
+  1. A template is HTML with gaps: `{{ }}` shows a value and `{% for %}` repeats a part for each item.
+  2. `render_template_string(PAGE, players=players)` fills the gaps with the data passed to it.
+  3. `/player/<name>` matches any name in that place of the address and passes it to the function.
+solutions:
+  step-4#t1: club.py#sol-wins
+  step-4#t2: club.py#sol-group
+  step-5: club.py#sol-make

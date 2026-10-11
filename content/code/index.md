@@ -16,7 +16,7 @@ pathways:
       - { path: code/gradio, stage: extensions, after: [code/console] }
       - { title: Machine learning with Gradio, tagline: "Train a model, then put it behind an app.", stage: extensions, summary: "Train small models on data, and put a model behind an app.", after: [code/data] }
       - { title: Games with microStudio, tagline: "Make a real game with sprites, maps and sound.", stage: extensions, summary: "Sprites, maps, sound and a game loop in text code.", after: [code/objects] }
-      - { id: flask, title: Web apps with Flask, tagline: "Put Python behind your own web pages.", stage: extensions, summary: "Your own HTML pages with Python behind them: routes, forms, templates and saved data, ending with the same API in FastAPI.", after: [code/console, code/html] }
+      - { path: code/flask, stage: extensions, after: [code/console, code/html] }
   - id: web
     title: Web
     summary: Build pages, then make them draw, move and react.
@@ -25,7 +25,7 @@ pathways:
       - { path: code/html, stage: foundations }
       - { title: Drawing and animation with p5.js, tagline: "Draw and animate with JavaScript.", stage: extensions, summary: "JavaScript on a canvas: the same ideas as turtle, in a new language." }
       - { title: "The DOM and the browser console", tagline: "Make a web page react when people click and type.", stage: extensions, summary: "JavaScript that changes a real page when people click and type." }
-      - { id: flask-web, title: Web apps with Flask, tagline: "Make your pages work, with Python saving the answers.", stage: extensions, summary: "Make your pages work: Python behind your HTML saves form answers and builds pages from data.", after: [code/html, code/console] }
+      - { path: code/flask, stage: extensions, after: [code/html, code/console] }
   - id: makecode
     title: MakeCode
     summary: Blocks first, then Python, with real devices and games.

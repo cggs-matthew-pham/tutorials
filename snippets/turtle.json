@@ -463,6 +463,59 @@
      "hint": "Gradio calls your function with what was chosen, and shows what it returns."
     }
    ]
+  },
+  {
+   "name": "Web apps",
+   "items": [
+    {
+     "label": "a Flask route",
+     "matches": "@app\\.route\\(",
+     "code": "@app.route(\"‹/about›\")\ndef ‹about›():\n    return \"‹<h1>About</h1>›\"\n",
+     "hint": "Joins an address to a function. What the function returns is the page."
+    },
+    {
+     "label": "a page from a template",
+     "matches": "render_template_string\\(",
+     "code": "PAGE = \"\"\"<ul>\n{% for ‹m› in ‹members› %}\n  <li>{{ ‹m[\"name\"]› }}</li>\n{% endfor %}\n</ul>\"\"\"\n\nreturn render_template_string(PAGE, ‹members›=‹members›)\n",
+     "hint": "A template is HTML with gaps: {{ }} shows a value, {% for %} repeats a part for each item."
+    },
+    {
+     "label": "an address with a part that changes",
+     "matches": "@app\\.route\\(\"[^\"]*<",
+     "code": "@app.route(\"/‹group›/<‹name›>\")\ndef ‹group›(‹name›):\n    return \"‹You asked for › + ‹name›\n",
+     "hint": "<name> matches any word in that place of the address, and is passed to the function."
+    },
+    {
+     "label": "read a form",
+     "matches": "request\\.form",
+     "code": "@app.route(\"‹/join›\", methods=[\"POST\"])\ndef ‹join›():\n    ‹name› = request.form[\"‹name›\"].strip()\n",
+     "hint": "A form with method='post' sends each box that has a name='...' attribute. request.form looks them up by that name."
+    },
+    {
+     "label": "go to another page",
+     "matches": "redirect\\(",
+     "code": "return redirect(\"‹/›\")\n",
+     "hint": "Sends the browser on to another address, such as back home after a form."
+    },
+    {
+     "label": "add a row to a CSV",
+     "matches": "csv\\.writer\\(",
+     "code": "with open(\"‹members.csv›\", \"a\", newline=\"\") as f:\n    csv.writer(f).writerow([‹name›, ‹group›])\n",
+     "hint": "\"a\" adds to the end of the file instead of emptying it. Each list becomes one row."
+    },
+    {
+     "label": "send JSON",
+     "matches": "return\\s+(\\{|jsonify\\()",
+     "code": "@app.route(\"/api/‹members›\")\ndef ‹api_members›():\n    return {\"‹members›\": ‹members›}\n",
+     "hint": "Return a dictionary and Flask sends it as JSON, for other programs to read."
+    },
+    {
+     "label": "a FastAPI route",
+     "matches": "@api\\.get\\(",
+     "code": "@api.get(\"/‹year›\")\ndef ‹year›(‹y›: int):\n    return {\"‹next›\": ‹y› + 1}\n",
+     "hint": "The type after each parameter (int, str, float) is checked: a wrong value gets an error reply (422) before your code runs."
+    }
+   ]
   }
  ]
 }

@@ -1,0 +1,38 @@
+summary: Students make the club page's sign-up form work with Flask, reading the answers with request.form and redirecting home, then refuse blank names, add a year level and build a form that records a win.
+time: 50
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 20 min · Make 10 min"
+goals:
+  - I can send a form to a route with method="post" and read its answers with request.form.
+  - I can explain why a form ends with a redirect.
+  - I can check what a form sends on the server, and reply with a message.
+before: |
+  Read the unit primer first. `<form method="post" action="/join">` sends the form to `/join` when the button is pressed; each box is sent **only if it has a `name` attribute**, under that name (the `id` is for the label; the bug task has an `id` and no `name`, and Flask replies 400 Bad Request). A route accepts a sent form with `methods=["POST"]` and reads it with `request.form["name"]`. After changing the data it returns `redirect("/")`, so the browser shows the home page again (and a reload does not send the form twice). The server checks what it gets (a blank name), because anyone can send anything to an address. Members live in a variable, so they vanish on Run: that motivates the next lesson. In the playground the form is passed to the app by the App tab; on a computer the browser sends it to Flask.
+running:
+  - "Predict: act it out: one student is the form, one is join(), one is the home page."
+  - "Run: join twice, then press Run. Where did they go?"
+  - "Investigate: in the bug task, ask what the label's for= and the box's id do, and what name= does."
+  - "Modify: test with a blank name and with spaces only (strip() makes them blank)."
+stuck:
+  - see: "400 Bad Request when the form is sent."
+    ask: Does every box the route reads have a name attribute, spelled the same?
+    fix: "name=\"year\" on the box, request.form[\"year\"] in the route."
+  - see: "405 Method Not Allowed."
+    ask: Does the route accept POST?
+    fix: "@app.route(\"/join\", methods=[\"POST\"])."
+  - see: The error message never shows.
+    ask: Is error passed to the template, and does the template show it?
+    fix: "error=\"...\" in render_template_string, and {% if error %}{{ error }}{% endif %} in PAGE."
+stretch: Refuse a name that is already a member, with its own message.
+support: Give students the if with the error return, and ask them only to add the error to the template.
+leads: "Next lesson saves the members to a CSV file so they survive a Run. Later, a JSON route lets other programs read the list."
+exit:
+  q: "A form box has id=\"name\" but no name attribute. What does the server get from it?"
+  a: "Nothing: only boxes with a name attribute are sent, under that name."
+explain: |
+  1. `method="post" action="/join"` sends the form to `/join`; each box with a `name` is sent under that name.
+  2. The `/join` route reads them with `request.form["name"]` and adds the member.
+  3. `redirect("/")` sends the browser back home, where the list now has the new member.
+solutions:
+  step-4#t1: club.py#sol-blank
+  step-4#t2: club.py#sol-year
+  step-5: club.py#sol-make

@@ -1,0 +1,38 @@
+summary: Students save sign-ups to members.csv (adding a row with "a" and csv.writer) and read the file for every page, so members survive a Run and a reload, then refuse repeats, count members and save wins by rewriting results.csv.
+time: 50
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 15 min"
+goals:
+  - I can add a row to a CSV file and read the file to show its rows.
+  - I can explain why a web app keeps data in a file, not a variable.
+  - I can change one row by reading every row, changing it, and writing them all back.
+before: |
+  Read the unit primer first. `members.csv` and `results.csv` are put in each student's Files tab by the lesson (the Files tab can put the originals back). Files are kept per course in the browser, so they survive Run and a page reload. `open(name, "a")` adds to the end of a file; `open(name, "w")` empties it first (the Predict and the bug task: saving with "w" wipes the header and every member). `csv.writer(f).writerow([...])` writes one row; `newline=""` stops blank lines appearing between rows on Windows. Every page reads the file again, so it is always up to date. Changing a row (the Make) means reading all rows, changing one, and writing the whole file back with "w", header first. The info question is about why busy sites use a database instead of a file.
+running:
+  - "Predict: two sticky notes: \"w\" throws the old note away, \"a\" adds to it."
+  - "Run: join, press Run, reload: the member is still there. Open members.csv in the Files tab."
+  - "Investigate: ask what would happen if the file were read once at the top."
+  - "Make: on the board: read all rows, change one, write all back."
+stuck:
+  - see: Everyone but the new member has gone.
+    ask: Which mode opened the file to save?
+    fix: "\"a\" to add a row; restore members.csv from the Files tab."
+  - see: "KeyError: 'name' when the page loads."
+    ask: What is the first line of members.csv now?
+    fix: The header row was lost; use "Get this lesson's files again" in the Files tab.
+  - see: Wins show as 51 instead of 6.
+    ask: Is wins text or a number when 1 is added?
+    fix: "int(p[\"wins\"]) + 1."
+stretch: Add a Leave form that removes a member (read all rows, keep the others, write them back).
+support: Give students the loop that changes the wins, and ask them only to write the rows back.
+leads: "Next lesson sends the members as JSON for other programs. A database (SQLite) is the next step for real apps; Python has sqlite3 built in."
+exit:
+  q: "Why does the app read members.csv for every page?"
+  a: "The file changes when people join, so reading it each time means the page always shows the current members."
+explain: |
+  1. Joining adds a row to the end of `members.csv` with `open(..., "a")` and `csv.writer`.
+  2. The home page reads the whole file every time, so new members show straight away.
+  3. The data is in a file, not a variable, so it lasts when the app stops and starts again.
+solutions:
+  step-4#t1: club.py#sol-repeat
+  step-4#t2: club.py#sol-count
+  step-5: club.py#sol-make

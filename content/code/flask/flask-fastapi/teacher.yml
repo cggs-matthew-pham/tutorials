@@ -1,0 +1,38 @@
+summary: An optional lesson. Students rebuild the club API in FastAPI, see typed inputs checked and converted for them (with 422 replies for bad input), then add a checked optional input, a leader route and an API of their own.
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 10 min"
+goals:
+  - I can write a FastAPI route whose inputs come from the address and query string.
+  - I can use types (int, float, str) so FastAPI checks and converts input.
+  - I can compare Flask and FastAPI and say what each is good for.
+before: |
+  Optional: not needed for completing the course. Read the unit primer first. FastAPI routes are `@api.get("/address")`; parameters in the address use curly brackets (`/members/{group}`), and other parameters come from the query string (`?name=ad`), optional when they have a default. The **type** after each parameter (`age: int`) makes FastAPI convert the value and reply **422** with an explanation when it cannot, before the function runs (Pydantic does the checking). Without a type, the value is text (the bug task: "12" + 1 is an error, 500). `uvicorn.run(api)` starts the app; in the playground it shows in the App tab, on a computer `pip install fastapi uvicorn` and `python app.py` serve it at `http://127.0.0.1:8000`, with an automatic documentation page at `/docs` (not available in the playground). No async, dependency injection or Pydantic models in this lesson.
+running:
+  - "Predict: compare with Flask, where you would write int() and try/except yourself."
+  - "Run: try /members?name=ad, then /members/Players, then /members/players."
+  - "Modify: send min_wins=lots and read the 422 reply together."
+  - "Info: list what each tool is good for on the board."
+stuck:
+  - see: "422 with \"Field required\"."
+    ask: Does the input have a default, or is it in the address?
+    fix: "Add a default (min_wins: int = 0), or send it: /results?min_wins=3."
+  - see: "500 Internal Server Error on a number input."
+    ask: Does the parameter have a type?
+    fix: "age: int (or float)."
+  - see: "404 for /members/Players."
+    ask: Does the route use curly brackets for the part that changes?
+    fix: "@api.get(\"/members/{group}\")."
+stretch: Return an error of your own for a sensible-looking but wrong value (from fastapi import HTTPException; raise HTTPException(404, "No such player")).
+support: Give students the min_wins parameter line, and ask them only to add the if in the loop.
+leads: "The end of the course. Next steps: SQLite for storage (sqlite3 is built into Python), hosting a Flask or FastAPI app (with a teacher), or the planned Machine learning with Gradio course."
+exit:
+  q: "What does age: int do in a FastAPI route?"
+  a: "FastAPI converts the input to a whole number, and replies with a 422 error explaining the problem if it cannot, before the function runs."
+explain: |
+  1. `@api.get("/next-year")` joins an address to a function, as in Flask.
+  2. `age: int` makes FastAPI read `age` from the query string and turn it into a whole number.
+  3. A value that is not a whole number gets a 422 error reply, and the function never runs.
+solutions:
+  step-4#t1: api.py#sol-min
+  step-4#t2: api.py#sol-leader
+  step-5: api.py#sol-make

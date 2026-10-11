@@ -170,6 +170,7 @@ export const CONCEPTS = {
     { id: 'csv', label: 'csv.DictReader (rows of a CSV file)', re: /\bcsv\.(DictReader|reader|DictWriter|writer)\(/ },
     { id: 'assert', label: 'assert (a test case)', re: /^[ \t]*assert\b/m },
     { id: 'pandas', label: 'pandas (pd.read_csv, filtering a table)', re: /\bpd\.\w+\(|\bimport[ \t]+pandas\b/ },
+    { id: 'decorator', label: 'a decorator (@app.route above a function)', re: /^[ \t]*@[A-Za-z_][\w.]*/m },
     { id: 'try', label: 'try and except (catching an error)', re: /^[ \t]*(try|except\b[^:\n]*)[ \t]*:/m },
     { id: 'object', label: 'making an object (t = Turtle(), e = Enemy(5))', re: /=[ \t]*[A-Z]\w*\(|\.append\([ \t]*[A-Z]\w*\(/ },
     { id: 'attribute', label: "an object's own value (e.speed, self.speed)", re: /\b[a-z_]\w*\.[a-z_]\w*\b(?![ \t]*\()/ },

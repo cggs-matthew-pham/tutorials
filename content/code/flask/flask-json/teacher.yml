@@ -1,0 +1,38 @@
+summary: Students turn the club's data into an API, with routes that return dictionaries sent as JSON, then add a stats route, a search with a query string and an API of their own for the results.
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 10 min"
+goals:
+  - I can explain the difference between a page for people and an API for programs.
+  - I can make a Flask route that sends data as JSON.
+  - I can read a query string with request.args.
+before: |
+  Read the unit primer first. A Flask route that returns a dictionary sends it as **JSON** (Flask sorts the keys); the App tab shows it neatly. An **API** is a set of addresses that send data for programs, not pages for people. The lesson reads `members.csv` from Lesson 4 (the Files tab can put the original back). The bug task returns the function `load_members` instead of calling it, giving 500 Internal Server Error (the console shows the error: a function cannot be sent as JSON). The query string (`?name=ad`) is read with `request.args.get("name", "")`, where the second value is used when it is missing. The info question raises privacy: an API shares data with anyone who asks.
+running:
+  - "Predict: compare the dictionary in the code with the JSON on screen."
+  - "Investigate: ask which is easier for a program: the home page HTML or the JSON?"
+  - "Modify: the stats route is Data detective's counting dictionary again; point that out to students who did it."
+  - "Info: discuss what in members.csv should not be public (if it had emails or year levels)."
+stuck:
+  - see: "500 Internal Server Error and \"not JSON serializable\" in the console."
+    ask: Is something in the dictionary a function, or not a number, text, list or dictionary?
+    fix: "Call the function: load_members()."
+  - see: The search finds nobody.
+    ask: Are both sides lower case?
+    fix: "name in m[\"name\"].lower(), with name lowered too."
+  - see: Wins come out as "5" in quotes.
+    ask: Is wins text or a number in the dictionary?
+    fix: "int(r[\"wins\"])."
+stretch: Add /api/members/<group>/count that sends only a number, and explain why a program might want that.
+support: Give students the stats loop, and ask them only to write the route and the return.
+leads: "The optional FastAPI lesson builds the same API with type checks done for you. Data detective's optional API lesson calls real APIs such as Wikidata."
+exit:
+  q: "How is an API route different from a page route?"
+  a: "It sends data (JSON) for a program to use, instead of an HTML page for a person to read."
+explain: |
+  1. A route that returns a dictionary sends it as JSON: data for programs, not a page for people.
+  2. `/api/members/<group>` picks the matching members from the file and sends them with a count.
+  3. Another program can read the JSON straight back into a dictionary or list.
+solutions:
+  step-4#t1: api.py#sol-stats
+  step-4#t2: api.py#sol-search
+  step-5: api.py#sol-make
