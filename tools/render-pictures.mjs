@@ -32,6 +32,7 @@ const ONLY = process.env.WP_ONLY || '';
 const DEADLINE = Number(process.env.WP_DEADLINE) || 0;
 const outOfTime = () => DEADLINE > 0 && Date.now() / 1000 > DEADLINE;
 let leftForNextRun = 0;
+const failed = []; // pictures whose drawing threw: reported, skipped, and drawn again next run (never fails the run)
 let stale = 0, seeded = 0;
 const DIR = join(OUT, '_pictures');
 mkdirSync(DIR, { recursive: true });
@@ -103,10 +104,22 @@ async function pictures({ name, dir, base, jobs, viewport, draw, legacy = [] }) 
   let skipped = 0;
   if (todo.length && !outOfTime()) {
     await open();
-    const page = await browser.newPage({ viewport, deviceScaleFactor: 2 });
+    let page = await browser.newPage({ viewport, deviceScaleFactor: 2 });
     for (const j of todo) {
       if (outOfTime()) { leftForNextRun++; skipped++; if (old[j.id]) manifest[j.id] = old[j.id]; continue; }
-      const png = await draw(page, j);
+      // One picture that cannot be drawn (a board that never starts, a timeout) is reported and skipped, so it does
+      // not stop the others or the publish. It keeps its old picture if it had one (with its old record, so the
+      // next run tries again); otherwise the page shows none.
+      let png;
+      try { png = await draw(page, j); }
+      catch (e) {
+        failed.push(`${name} ${j.id}`);
+        console.error(`✗ ${name} ${j.id}: ${String(e.message || e).split('\n')[0]}`);
+        if (old[j.id] && existsSync(join(dir, `${j.id}.png`))) manifest[j.id] = old[j.id];
+        await page.close().catch(() => {});
+        page = await browser.newPage({ viewport, deviceScaleFactor: 2 }); // a fresh page: the old one may be stuck
+        continue;
+      }
       if (!png) { console.log(`- ${name} ${j.id}: draws nothing, no picture`); continue; }
       mkdirSync(dirname(join(dir, `${j.id}.png`)), { recursive: true }); // expected pictures sit in a folder per lesson
       writeFileSync(join(dir, `${j.id}.png`), Buffer.from(png.data.split(',')[1], 'base64'));
@@ -255,9 +268,10 @@ await pictures({
 // axes and lines), cropped to what is drawn (anything unlike the board's background), ignoring the board's border.
 async function drawBoard(page, j) {
   await page.goto(`http://localhost:${port}/_playground-board/index.html?id=picture&fresh=1&code=${encodeURIComponent(j.code)}`);
+  // Any board content counts as started (#board > *): widgets built from plain HTML (decode, pixels) have no svg.
   // What to photograph: the machine's row, a growing pattern's figure, a formula (with its shape and working), or the board.
   const sel = /widget:\s*formula/.test(j.code) ? '.rulebox' : /widget:\s*machine/.test(j.code) ? '#mrow' : /widget:\s*pattern/.test(j.code) ? '.patfig' : /widget:\s*rule/.test(j.code) ? '#gpanel' : '#board';
-  await page.waitForSelector({ '#mrow': '#mrow .mbox', '.patfig': '.patsvg line, .patsvg circle', '#gpanel': '.rulebox', '.rulebox': '.rulebox .rulework', '#board': '#board svg, #board canvas.wpcv' }[sel], { timeout: 20000, state: 'attached' });
+  await page.waitForSelector({ '#mrow': '#mrow .mbox', '.patfig': '.patsvg line, .patsvg circle', '#gpanel': '.rulebox', '.rulebox': '.rulebox .rulework', '#board': '#board svg, #board canvas.wpcv, #board > *' }[sel], { timeout: 20000, state: 'attached' });
   await page.waitForTimeout(400);
   if (await page.locator('#error').isVisible()) throw new Error(`${j.id}: the board did not start: ${await page.locator('#error').innerText()}`);
   const shot = (await page.locator(sel).screenshot()).toString('base64');
@@ -500,6 +514,12 @@ if (!NO_MAKECODE) {
 if (browser) { await browser.close(); server.close(); }
 if (SEED) console.log(`Pictures: ${seeded} downloaded from the live site.`);
 if (process.env.GITHUB_OUTPUT) writeFileSync(process.env.GITHUB_OUTPUT, `pictures_stale=${stale}\n`, { flag: 'a' });
+if (failed.length) {
+  const msg = `${failed.length} picture(s) could not be drawn and were skipped: ${failed.join(', ')}`;
+  console.warn('⚠ ' + msg);
+  if (process.env.GITHUB_STEP_SUMMARY) writeFileSync(process.env.GITHUB_STEP_SUMMARY, `- ${msg}\n`, { flag: 'a' });
+  if (process.env.GITHUB_ACTIONS) console.log(`::warning title=Pictures skipped::${msg}`);
+}
 if (leftForNextRun) {
   const msg = `Out of time (WP_DEADLINE): ${leftForNextRun} picture(s) left for the next run.`;
   console.warn('⚠ ' + msg);

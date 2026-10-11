@@ -196,6 +196,13 @@ Built together (both edit `render.mjs`, so one full re-record at the next publis
 - **Cost at the next publish:** every clip re-records, and every spoken line is made in two more voices (Kokoro, a few seconds each; cached afterwards in `.voice-cache`). Use 8 jobs in the Run workflow form for that run. A Safari check on a real phone is still worth doing after the publish.
 - **Still to do:** after the first publish, list the clips over 30 s in their slowest voice (run summary) for the subject chats to trim.
 
+## Done (12 Oct 2026, shared-tools chat): one bad picture no longer fails the publish
+
+The publish run on 3a177f1 failed in the plan job's "Draw new pictures": the Digital systems `decode` and `pixels` boards draw plain HTML, and `drawBoard` waited for `#board svg` (or `canvas.wpcv`), so their explain pictures timed out and the whole step stopped.
+- `tools/render-pictures.mjs`: a picture that throws is reported (`✗`), skipped and drawn again next run; it keeps its old picture if it had one. The run ends normally and lists skipped pictures in the log, the run summary and a warning annotation.
+- `drawBoard` also accepts any board content (`#board > *`), so plain-HTML widgets need no hidden svg. This changes the board and maths pictures' hash: all of them redraw at the next publish (227 board pictures took about 4 minutes here), alongside the full clip re-record that publish already does.
+- For the Digital systems chat: the run-length explain picture is cropped through its last code line (`1, 1, 1, 1, 1, 1,`); the board is wider than the picture's 680 px viewport.
+
 ## Proposed (12 Oct 2026, code chat; Matthew agreed the idea): a choice of voices for clips (built: see Done above)
 
 **Why:** students choose the voice they like best for Explain it to me clips. Today each lesson names one voice: code uses Heart (US), maths and science use Emma (UK) at 1.05.
