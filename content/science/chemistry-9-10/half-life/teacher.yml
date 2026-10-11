@@ -1,0 +1,43 @@
+summary: Students define half-life, work out how much of a sample is left after a number of half-lives, explain that decay is random for one nucleus but predictable for many, and link half-life to uses (AC9S9U06, node 4).
+time: 27
+timing: "Engage and Explore 9 min · Explain 11 min · Evaluate 3 min · Typical adds 4 min, Wider about 6 min"
+goals:
+  - I can define half-life.
+  - I can work out how much of a sample is left after a number of half-lives.
+  - I can explain why an isotope's half-life suits a use.
+before: |
+  A concept tutorial for introducing or revising the idea; it pairs well with the dice (or coin) simulation in class. Set the width with `?width=minimum`, `typical` (default) or `wider`. It builds on Isotopes and Alpha, beta and gamma (nodes 2 and 3).
+
+  Not a hinge node, but its misconception is stubborn: students expect a sample to be gone after two half-lives, or each nucleus to decay at its half-life. The prediction tests the first; the "one nucleus" question tests the second.
+
+  Board notes: the sample is simulated: in each tenth of a half-life every remaining nucleus decays with the same chance (about 6.7%), so the count halves on average each half-life but wobbles, more so with 100 nuclei than with 400. Each Start again is a new random sample. The dashed curve (exact halving) appears once a run has finished. Time is shown in the isotope's own unit.
+running:
+  - "Engage: tally 20 / 0 / 40 / 60. The zeros are the misconception to work on."
+  - "Explore: after two runs, ask which nuclei decayed (different ones) and whether the graph changed much (not much)."
+  - "Explain: the two calculations and the definition are the success criteria; the 'one nucleus' question is the probabilistic idea."
+  - "In your own words: the sketch with one half-life marked and the 64-nuclei table are the evidence."
+stuck:
+  - see: "A student says all of the sample is gone after two half-lives."
+    ask: "After one half-life, how many are left? What happens to those in the next half-life?"
+    fix: "Half of them go: half of a half is a quarter. It keeps halving and never quite reaches zero."
+  - see: "A student subtracts the same number each half-life (80, 40, 0)."
+    ask: "Is it half of the start, or half of what is left?"
+    fix: "Half of what is left: 80, 40, 20, 10."
+  - see: "A student thinks each nucleus decays exactly at the half-life."
+    ask: "On the board, did all the orange squares go at once?"
+    fix: "No: they went one by one at random. Half-life describes a large sample, not one nucleus."
+stretch: "A sample of 1000 nuclei is down to about 30 after 5 half-lives. Why not exactly 31.25? (Decay is random, and you can't have a quarter of a nucleus: the 31.25 is the average over many samples.)"
+support: "Give the halving ladder: 'Start … → after 1 half-life … → after 2 … → after 3 …'."
+leads: |
+  Next: decay chains (node 5) are a class task: the decay board with `isotope: uranium-238` follows the chain to lead-206. Half-life links to geological time in Earth and space.
+
+  In class: the dice simulation (each roll, remove every die showing a 6) and a class decay curve; compare with the board's.
+
+  The Wider step on dating First Peoples' presence is general: radiocarbon dates the younger layers and other methods (luminescence) the older ones. For richer context, use local resources and community guidance, and First Peoples' own accounts of their history on Country.
+exit:
+  q: "Iodine-131 has a half-life of 8 days. A hospital receives 40 g. How much is left after 24 days?"
+  a: "5 g (40 → 20 → 10 → 5: three half-lives)."
+explain: |
+  Each unstable nucleus decays at random, but a large sample halves in a fixed time: its **half-life**. After 1 half-life, 1/2 is left; after 2, 1/4; after 3, 1/8.
+
+  Half-life doesn't change with heat or chemistry. Short half-lives suit medicine (fluorine-18, about 2 hours); long ones suit dating (carbon-14, 5730 years).

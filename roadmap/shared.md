@@ -133,6 +133,8 @@ Pathway pages open on a trail map for students, with a "List for teachers" toggl
 
 ## Changed by the science chat (11 Oct 2026)
 
+- `playground-board/widgets/atom.js` (Matthew approved): `mode: halflife`, a `colour:` option for the table, and a stable or radioactive line in build mode (values `u`, `i`); a fix to "1 electrons". `playground-board/style.css` gains `.atkey`, `.atsw`, `.atstab`. Only atom lessons change; every board clip and picture redraws on the next publish, as with any board change.
+
 - `playground-board/widgets/atom.js` gains `mode: decay` and `mode: shield` (alpha, beta, gamma; for 9U06 n3). Science-owned widget, no other file changed. As with any board change, every board clip re-records and every board picture redraws on the next publish.
 
 - Board: two new widgets, `playground-board/widgets/atom.js` and `equation.js`, each a `<script>` line in `playground-board/index.html` and a small block at the end of `playground-board/style.css` (`.atgrid`/`.atcell` for the element table, `.eqtally` for the tally). Nothing existing changed. AUTHORING › 12 and CLAUDE.md › Science list them. `data/progressions/science/` holds four pasted pages (science is not in `CHECKED`, so validate is unchanged).

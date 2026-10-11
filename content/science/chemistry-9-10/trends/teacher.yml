@@ -1,0 +1,41 @@
+summary: Students explain that a new period begins when a new shell starts filling, that properties repeat because outer-electron counts repeat, and read an element's shells from its period and group (AC9S10U06, node 3).
+time: 25
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 4 min, Wider about 4 min"
+goals:
+  - I can explain why a new period starts.
+  - I can explain why properties repeat across the periods.
+  - I can use an element's period and group to give its electron arrangement.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It builds on Shells and Groups (nodes 1 and 2).
+
+  Not a hinge node: it pulls shells and groups together into the table's shape. The prediction catches students who expect outer electrons to keep counting up (sodium with 9).
+
+  Board notes: the table shows elements 1 to 20 only, in groups 1, 2 and 13 to 18 (transition metals start in period 4, after calcium). Colour by outer electrons counts helium's 2 as a full shell (with the noble gases). The metalloids shown are boron and silicon. Shells fill 2, 8, 8, 2 for these elements; the 8 in the third shell is a simplification that stops working after calcium.
+running:
+  - "Engage: tally 1 / 9 / 0 / 3. The 9s are the misconception the board fixes."
+  - "Explore: ask where the colour resets, and what the shell picture shows at that moment."
+  - "Explain: the period, group and shells questions are the node's success criteria."
+  - "In your own words: the period 2 row with sodium under lithium is the evidence."
+stuck:
+  - see: "A student thinks sodium has 9 outer electrons."
+    ask: "How many electrons fit in the second shell?"
+    fix: "8. It is full at neon, so sodium's last electron starts a third shell: 2, 8, 1."
+  - see: "A student mixes up periods and groups."
+    ask: "Which way do rows go, and what do they share?"
+    fix: "A period is a row: same number of shells. A group is a column: same number of outer electrons."
+  - see: "A student thinks the table is ordered by mass."
+    ask: "What goes up by exactly 1 each step along the table?"
+    fix: "The atomic number (protons, and electrons in a neutral atom). Mass mostly rises too, but not always in step (argon is heavier than potassium)."
+stretch: "Argon (atomic number 18) has a larger relative atomic mass than potassium (19). If Mendeleev had ordered strictly by mass, what would have gone wrong? (Argon would land in group 1 and potassium in group 18: the reverse of how they behave.)"
+support: "Give the frame: 'Period = number of … . Group = number of … electrons. So an element in period … and group … has shells … .'"
+leads: |
+  Next: node 4 (predicting and explaining an element's properties from its structure) is a class task: give students unfamiliar elements in groups 1, 2, 17 and 18 and ask them to predict reactions.
+
+  In class: element cards sorted into a table without labels; Mendeleev's predictions for eka-silicon against germanium's measured properties.
+exit:
+  q: "Element X has electrons 2, 8, 3. Which period and group is it in, and is it more likely a metal or a non-metal?"
+  a: "Period 3 (three shells), group 13 (three outer electrons): aluminium, a metal."
+explain: |
+  Each **period** fills one shell, so the period number is the number of shells. Across a period the outer electrons go from 1 to 8; then a new shell starts and the count goes back to 1.
+
+  Because the outer electrons repeat, so do the properties: that is why elements in a group behave alike. Across a period, elements change from metals to non-metals.

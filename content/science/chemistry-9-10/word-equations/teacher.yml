@@ -1,0 +1,41 @@
+summary: Students identify reactants and products, explain that products are new substances with different properties, and write word equations that include every product (AC9S9U07, nodes 1 and 3).
+time: 28
+timing: "Engage and Explore 7 min · Explain 10 min · Practise 5 min · Evaluate 3 min · Typical adds 4 min, Wider about 4 min"
+goals:
+  - I can name the reactants and products of a reaction.
+  - I can write a word equation that includes every product.
+  - I can say what a word equation shows and does not show.
+before: |
+  A concept tutorial for introducing or revising the idea; it does not replace doing the reactions (magnesium ribbon, zinc in copper sulfate, acid on marble chips). Set the width with `?width=minimum`, `typical` (default) or `wider`. One lesson for two nodes: reactants and products (node 1) and word equations (node 3). It comes before Where do the atoms go? (node 2), so students name substances before they follow atoms.
+
+  Neither is a hinge node; node 3 asks for practice, so there is a Practise step. The prediction targets the usual error: leaving water out of a combustion equation (and forgetting oxygen as a reactant).
+
+  Board notes: the science board shows molecules as rigid particles. Magnesium oxide and sodium chloride are drawn as small particles too, although they are really giant lattices of ions; say so if asked. Heat given out shows as faster particles.
+running:
+  - "Engage: tally the four options. 'Carbon dioxide only' and 'smoke and heat' are the ones to discuss."
+  - "Explore: ask which counts went down (reactants) and which appeared (products)."
+  - "Explain: the reactant and product sort and the 'what it leaves out' question are the success criteria."
+  - "Practise: four reactions with the same check: every reactant, every product."
+stuck:
+  - see: "A student writes methane + oxygen → carbon dioxide."
+    ask: "Methane has carbon and hydrogen atoms. Where did the hydrogen go?"
+    fix: "Into water. Every element in the reactants must end up somewhere in the products."
+  - see: "A student puts heat or light in the word equation."
+    ask: "Is heat a substance you could collect in a jar?"
+    fix: "No: it is energy given out. Word equations list substances only."
+  - see: "A student leaves out oxygen when something burns."
+    ask: "Would it burn in a sealed jar with no air?"
+    fix: "No: oxygen from the air is a reactant."
+stretch: "Write the word equation for respiration in your cells, and compare it with burning methane. (glucose + oxygen → carbon dioxide + water: the same products.)"
+support: "Give the frame: '… + … → … + …' with the reactants and products to place from a word bank."
+leads: |
+  Next: Where do the atoms go? (node 2) follows the atoms through the same burning methane; then balancing (node 4) adds the formulas and amounts that word equations leave out.
+
+  In class: magnesium ribbon burning (weigh the crucible before and after), zinc in copper sulfate, acid on marble chips with limewater. The progression's Wider also suggests First Nations processes that make toxic plants safe to eat; many of these combine physical steps (grinding, leaching in water) with chemical ones, so check the chemistry with local sources and community guidance before writing equations for them.
+exit:
+  q: "Iron reacts with oxygen and water to make rust (hydrated iron oxide). Write the word equation and label the reactants and products."
+  a: "iron + oxygen + water → hydrated iron oxide (rust). Reactants: iron, oxygen, water. Product: hydrated iron oxide."
+explain: |
+  In a chemical reaction the **reactants** are used up and new substances, the **products**, are made. A **word equation** names them: reactants → products ("react to make").
+
+  Include every reactant and product: methane + oxygen → carbon dioxide + water. A word equation shows no amounts and no atoms.

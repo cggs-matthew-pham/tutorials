@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 11
 unit: rates
 title: Why does heat speed up reactions?
 summary: Particles react only when they collide with enough energy (the activation energy). Collision theory explains why temperature, concentration, surface area and catalysts change the rate of a reaction.

@@ -1,0 +1,36 @@
+# Science boards for "What goes in, what comes out?".
+
+# region: burn
+widget: reaction
+show: CH4 x6, O2 x12
+react: CH4 + 2 O2 -> CO2 + 2 H2O
+ea: 1.5
+release: 1
+caption: Methane burning in oxygen.
+# endregion
+
+# region: magnesium
+widget: reaction
+show: Mg x12, O2 x6
+react: 2 Mg + O2 -> 2 MgO
+ea: 1.5
+release: 1
+caption: Magnesium burning in oxygen.
+# endregion
+
+# region: sodium
+widget: reaction
+show: Na x12, Cl2 x6
+react: 2 Na + Cl2 -> 2 NaCl
+ea: 1.2
+release: 1
+caption: Sodium reacting with chlorine.
+# endregion
+
+# region: explain
+widget: reaction
+show: CH4 x6, O2 x12
+react: CH4 + 2 O2 -> CO2 + 2 H2O
+ea: 2.4
+release: 1
+# endregion

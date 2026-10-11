@@ -1,0 +1,43 @@
+# Boards for "Why does the periodic table repeat?".
+
+# region: period2
+widget: atom
+mode: table
+colour: outer
+find: Li, Be, B, C, N, O, F, Ne, Na
+# endregion
+
+# region: starts
+widget: atom
+mode: table
+colour: shells
+find: H, Li, Na, K
+# endregion
+
+# region: period3
+widget: atom
+mode: table
+colour: metal
+find: Na, Mg, Al, Si, P, S, Cl, Ar
+# endregion
+
+# region: metalloids
+widget: atom
+mode: table
+colour: metal
+find: B, Si
+# endregion
+
+# region: explain
+widget: atom
+mode: table
+colour: outer
+find: Li, Ne, Na
+# endregion
+
+# region: explain-pic
+widget: atom
+mode: table
+colour: outer
+find: Na
+# endregion

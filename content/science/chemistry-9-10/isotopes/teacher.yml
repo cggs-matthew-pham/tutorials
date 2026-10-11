@@ -1,0 +1,41 @@
+summary: Students define isotopes as atoms of the same element with different numbers of neutrons, explain why isotopes react alike, and recognise that some isotopes are unstable (AC9S9U06, node 2).
+time: 25
+timing: "Engage and Explore 7 min · Explain 11 min · Evaluate 3 min · Typical adds 4 min, Wider about 4 min"
+goals:
+  - I can define isotopes.
+  - I can say what is the same and what is different about two isotopes of an element.
+  - I can name isotopes (carbon-14) and recognise that some are unstable.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It builds on What's inside an atom? (node 1), so set that first.
+
+  Not a hinge node, but its idea carries the next two: decay (only unstable isotopes decay) and half-life (carbon-14 dating). The prediction separates "more neutrons" from the usual slips: more protons, more electrons, or a different element.
+
+  Board notes: for elements 1 to 20 the board says whether the nucleus you built is stable or radioactive (from the list of stable isotopes; very long-lived calcium-48 counts as stable). It does not say how an unstable nucleus decays: that is the next lesson's board. Nuclei far from the stable ones are listed as radioactive even though some would not hold together at all.
+running:
+  - "Engage: tally the predictions. 'Different element' means the student has not yet tied identity to protons."
+  - "Explore: ask what stayed the same at the top of the board as the neutrons changed, and when the stability line changed."
+  - "Explain: the definition, the sort and the chlorine number are the node's success criteria."
+  - "In your own words: the labelled pair of carbon atoms is the evidence."
+stuck:
+  - see: "A student adds protons to make carbon-14."
+    ask: "What happened to the name at the top of the board?"
+    fix: "It changed to nitrogen, then oxygen. Protons decide the element; change the neutrons for a heavier carbon."
+  - see: "A student thinks carbon-14 reacts differently because it is heavier."
+    ask: "Which particles take part in reactions?"
+    fix: "The electrons. Both isotopes have 6, arranged the same way, so they react the same way."
+  - see: "A student thinks 'radioactive' means the whole atom is dangerous to touch or reacts strongly."
+    ask: "Which part of the atom is unstable?"
+    fix: "Only the nucleus. It decays now and then, giving out radiation; chemically it is ordinary carbon."
+stretch: "Hydrogen has three isotopes: hydrogen-1, -2 (deuterium) and -3 (tritium). Which is radioactive? Use the board to check. (Tritium, hydrogen-3.)"
+support: "Give the frame: 'Carbon-12 and carbon-14 both have … protons, so they are both … . Carbon-14 has … more neutrons, so its mass number is … .'"
+leads: |
+  Next: alpha, beta and gamma (node 3), then half-life (node 4), which uses carbon-14 for dating.
+
+  In class: a "same and different" table for isotopes of hydrogen, carbon and chlorine; relative atomic mass from isotope abundances (the Wider step) if the class has met averages.
+exit:
+  q: "Uranium-235 and uranium-238 both have 92 protons. How many neutrons does each have, and are they the same element?"
+  a: "143 and 146 neutrons. Both are uranium (92 protons): they are isotopes."
+explain: |
+  **Isotopes** are atoms of the same element (same number of protons) with different numbers of neutrons, so they have different mass numbers: carbon-12, carbon-13 and carbon-14.
+
+  They have the same electrons, so they react in the same way. Some isotopes are stable; others are unstable (radioactive) and their nuclei decay.

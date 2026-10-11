@@ -297,3 +297,8 @@ table.ctally th:first-child, table.ctally td:first-child { text-align: left; }
 table.ctally tr.cwatch td { font-weight: 700; }
 .cdot { display: inline-block; width: .8em; height: .8em; border-radius: 50%; margin-right: .4em; vertical-align: -0.05em; }
 .crun { justify-content: center; }
+.atkey { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin: 0 0 8px; font: 500 12px/1.2 system-ui, sans-serif; }
+.atkeyt { color: var(--muted); margin-right: 2px; }
+.atsw { padding: 3px 7px; border-radius: 4px; }
+.atstab { margin: 6px 0 0; font-weight: 600; color: var(--ok, #1b7f3b); }
+.atstab.bad { color: #b4532a; }

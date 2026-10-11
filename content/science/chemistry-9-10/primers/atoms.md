@@ -21,6 +21,10 @@ The particles of Years 7 and 8 have parts. An atom has a tiny, dense **nucleus**
 - Electrons carry a lot of the mass because they fill the atom.
 - Adding neutrons changes the element (it makes an isotope).
 
+## Isotopes (node 2)
+
+Atoms of one element always have the same number of protons, but the neutrons can differ: these are **isotopes** (carbon-12, carbon-13, carbon-14). They have the same electrons, so they react alike. Some are stable; others are **unstable** (radioactive). The build board says which, for elements 1 to 20.
+
 ## Radioactive decay (node 3)
 
 Some nuclei are unstable. They decay by giving out radiation, at random for one atom but predictably for many.
@@ -29,6 +33,12 @@ Some nuclei are unstable. They decay by giving out radiation, at random for one 
 - **Beta**: a neutron becomes a proton and a fast electron, and the electron leaves. Atomic number +1, mass number the same. Stopped by a few millimetres of aluminium.
 - **Gamma**: energy only, usually straight after alpha or beta. No change to either number. Reduced by thick lead or concrete.
 
-Isotopes (node 2) and half-life (node 4) are not yet tutorials; decay chains (node 5) are a class task, with the decay board set to `isotope: uranium-238`.
+Decay chains (node 5) are a class task, with the decay board set to `isotope: uranium-238`.
 
 Misconceptions: gamma makes a new element; the beta electron comes from the shells; alpha is always the least dangerous (it is the most damaging inside the body).
+
+## Half-life (node 4)
+
+Each unstable nucleus decays at random, but a large sample halves in a fixed time, the **half-life**: 1/2, 1/4, 1/8 … Half-life is not changed by heat or chemistry. Short half-lives suit medicine (fluorine-18, about 2 hours); long ones suit dating (carbon-14, 5730 years).
+
+Misconceptions: the sample is all gone after two half-lives; each nucleus decays at exactly the half-life; heating speeds decay up.

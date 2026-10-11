@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 unit: atoms
 title: What comes out of a decaying nucleus?
 summary: "An unstable nucleus decays by giving out alpha particles (2 protons and 2 neutrons), beta particles (fast electrons made in the nucleus) or gamma rays (energy). Alpha and beta decay change the element; gamma does not. Alpha is stopped by paper, beta by aluminium, and gamma is only reduced by lead."

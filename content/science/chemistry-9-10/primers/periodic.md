@@ -19,3 +19,9 @@ Electrons fill **shells** in order: 2 in the first, 8 in the second, 8 in the th
 - Noble gases don't react because they are gases (chlorine is a gas and very reactive).
 - Elements in a group have the same total number of electrons.
 - Group 1 metals are reactive because they are light.
+
+## Periodic trends (node 3)
+
+Each period fills one shell, so the period number is the number of shells. Across a period the outer electrons rise from 1 to 8, then reset to 1 as a new shell starts: that is why properties repeat and groups behave alike. Across a period, elements change from metals to non-metals. The table board can be coloured by shells, outer electrons, or metal and non-metal (`colour:`).
+
+Misconceptions: outer electrons keep counting past 8; periods and groups swapped; the table is ordered by mass.

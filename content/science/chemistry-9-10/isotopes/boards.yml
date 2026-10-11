@@ -1,0 +1,28 @@
+# Boards for "Same element, different atoms?".
+
+# region: carbon
+widget: atom
+start: 6, 6, 6
+# endregion
+
+# region: nitrogen
+widget: atom
+start: 7, 7, 7
+target: carbon-14
+# endregion
+
+# region: chlorine
+widget: atom
+start: 17, 18, 17
+target: chlorine-37
+# endregion
+
+# region: explain
+widget: atom
+start: 6, 6, 6
+# endregion
+
+# region: explain-pic
+widget: atom
+start: 6, 8, 6
+# endregion

@@ -32,7 +32,7 @@ stuck:
 stretch: "Uranium-238 decays by alpha, then beta, then beta. Write each new nucleus. (Thorium-234, protactinium-234, uranium-234: after three decays it is uranium again, but lighter.)"
 support: "Give the table to fill in: 'Alpha: leaves … · atomic number … · mass number … · stopped by …', and the same for beta and gamma."
 leads: |
-  Next: half-life (node 4, not yet a tutorial). Node 5, decay chains, is a class task: the decay board with `isotope: uranium-238` lets students follow the real chain to lead-206 (the board says when each step is the real one and when it reaches a stable isotope).
+  Next: How long does radioactivity last? (half-life, node 4). Node 5, decay chains, is a class task: the decay board with `isotope: uranium-238` lets students follow the real chain to lead-206 (the board says when each step is the real one and when it reaches a stable isotope).
 
   In class: a teacher demonstration or video of sealed sources, absorbers and a Geiger counter; a card sort of uses (smoke alarm, thyroid treatment, medical imaging, thickness gauges for paper and foil, checking welds in aircraft).
 exit:

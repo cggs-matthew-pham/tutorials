@@ -7,6 +7,10 @@ In a chemical reaction the atoms of the **reactants** separate and join up in ne
 
 That is why an equation must **balance**: each side must show the same atoms. In methane burning, CH₄ + 2O₂ → CO₂ + 2H₂O, both sides have 1 C, 4 H and 4 O.
 
+## Word equations first
+
+Before the atoms: a **word equation** names what reacts and what is made, reactants → products (methane + oxygen → carbon dioxide + water). The common slips are leaving out water when a fuel burns, leaving out oxygen, and putting heat or light in the equation. Word equations show no amounts or atoms; that is what formulas and balancing add.
+
 ## Why mass seems to change
 
 When something burns in the open, gases (carbon dioxide, water vapour) escape into the air, so the ash weighs less than the wood. In a sealed container nothing escapes, and the mass stays the same. Rusting seems to gain mass because oxygen from the air joins the iron.

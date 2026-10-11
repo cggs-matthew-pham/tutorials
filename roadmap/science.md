@@ -2,11 +2,17 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: isotopes, half-life, trends and word equations (11 Oct 2026, science chat)
+
+Four tutorials in `chemistry-9-10/`, from the non-hinge queue: Same element, different atoms? (isotopes, 9U06 n2, order 2), How long does radioactivity last? (half-life, 9U06 n4, order 4), What goes in, what comes out? (reactants, products and word equations, 9U07 n1 and n3 in one lesson with a Practise step, order 5) and Why does the periodic table repeat? (trends, 10U06 n3, order 10). Later lessons moved down. The atom board gains `mode: halflife` (a random sample with a graph, Wait one half-life), table `colour: shells | outer | metal`, and a stable or radioactive line in build mode. The half-life Wider step covers dating First Peoples' presence carefully: radiocarbon for younger layers, luminescence for older ones, agreement between methods (teacher note: local resources and community guidance). Voiced explain clips and pictures (ports 8261–8264, next free 8265); every check passes headless (the solver's science-board run step needs a longer wait; checked by hand); decks fit. Primers updated.
+
+Left in the queue: non-hinge nodes in the Year 7 and 8 units already built. Class tasks: 9U06 n5 decay chains, 9U07 n5, 10U06 n4.
+
 ## Done: alpha, beta and gamma (11 Oct 2026, science chat)
 
 What comes out of a decaying nucleus? (`chemistry-9-10/decay`, 9U06 n3, the last hinge in the pasted pages; unit Inside the atom, order 2, later lessons moved down one). The atom board gains `mode: decay` (any isotope up to americium; Alpha, Beta and Gamma buttons; knows how about 25 common isotopes really decay and when a stable one is reached) and `mode: shield` (paper, aluminium, lead). Explore: radon-222 to polonium-218, then the shield board; Explain: a sort of what leaves, what changes and what stops it, two number checks (U-238 alpha, C-14 beta), gamma, a detector question and why alpha stops soonest; Typical: iodine-131 treatment and gamma imaging; Wider: the americium smoke alarm and radon in homes. Voiced explain clip (uranium-238: alpha, beta, gamma; port 8260, next free 8261) and a shield picture. 17 checks pass headless; decks fit.
 
-Decided (Matthew, 11 Oct): non-hinge nodes can have tutorials too; the hinge-only rule above no longer limits what we build. Integration nodes stay class tasks unless he says otherwise. Queue (proposed, not started): 9U06 n2 isotopes, n4 half-life (a decay simulation), 10U06 n3 periodic trends, then non-hinge nodes in the Year 7 and 8 units already built.
+Decided (Matthew, 11 Oct): non-hinge nodes can have tutorials too; the hinge-only rule above no longer limits what we build. Integration nodes stay class tasks unless he says otherwise. Queue: built 11 Oct (see above), except non-hinge nodes in the Year 7 and 8 units.
 
 ## Done: atoms, the periodic table and balancing equations (11 Oct 2026, science chat)
 

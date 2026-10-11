@@ -739,7 +739,13 @@ Vary, Practise, Make).
     carbon-12` (or `C 12`, or `Na+ 23` for an ion) shows a card and sets `t`; `shells: off` draws one ring. Values:
     `p`, `n`, `e`, `z`, `a`, `q` charge, `o` outer electrons, `s` shells, `t`. `mode: table`: elements 1 to 20 by
     group and period (buttons labelled with the element's name); clicking one shows its shells with the outer shell
-    orange and a note on its group. `find: Li, Na, K` (default all 20). Values: `n` found, `k`, `z`, `o`, `g` group.
+    orange and a note on its group. `find: Li, Na, K` (default all 20); `colour: shells | outer | metal` shades the table
+    with a key. Values: `n` found, `k`, `z`, `o`, `g` group. In build mode, a line says whether the nucleus is stable
+    or radioactive (elements 1 to 20); values `u` (1 if unstable) and `i` (isotopes of this element built so far).
+    `mode: halflife` (9U06 n4): a sample of `nuclei: 100` (4 to 400) of `isotope: iodine-131` (one of 13 with known
+    half-lives, such as F-18, C-14, U-238) decaying at random, with a graph of how many are left over 6 half-lives;
+    Run, Pause, Wait one half-life, Start again (a new sample). `run: 3` starts with a fixed sample already run, for a
+    picture. Values: `n` left, `k` start, `t` time, `h` half-lives gone, `e` expected left, `c` runs finished, `r`.
     `mode: decay` (9U06 n3): one nucleus, `isotope: radon-222` (or `Rn-222`; any element up to americium; default
     uranium-238), and buttons Alpha decay, Beta decay, Gamma ray: each shows what leaves and the new atomic and mass
     numbers, says whether that is how the isotope really decays (about 25 common ones, including the uranium-238 and

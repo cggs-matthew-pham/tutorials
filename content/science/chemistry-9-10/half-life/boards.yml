@@ -1,0 +1,37 @@
+# Boards for "How long does radioactivity last?".
+
+# region: iodine
+widget: atom
+mode: halflife
+isotope: iodine-131
+nuclei: 100
+# endregion
+
+# region: fluorine
+widget: atom
+mode: halflife
+isotope: fluorine-18
+nuclei: 100
+# endregion
+
+# region: carbon
+widget: atom
+mode: halflife
+isotope: carbon-14
+nuclei: 400
+# endregion
+
+# region: explain
+widget: atom
+mode: halflife
+isotope: iodine-131
+nuclei: 100
+# endregion
+
+# region: explain-pic
+widget: atom
+mode: halflife
+isotope: iodine-131
+nuclei: 100
+run: 3
+# endregion
