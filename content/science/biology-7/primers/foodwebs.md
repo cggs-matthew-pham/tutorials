@@ -24,3 +24,11 @@ A **biotic factor** is a living part of the ecosystem (predators, prey, competit
 - Energy is recycled like matter.
 - Removing a predator is good for everything below it.
 - Decomposers aren't part of the food web.
+
+## Investigate in class
+
+- **Does light intensity change how fast pondweed makes oxygen?** Change: lamp distance. Measure: bubbles per minute. Keep the same: the piece of pondweed (Elodea), water temperature, a pinch of bicarbonate of soda. *(Use an LED lamp so the water doesn't warm.)*
+- **Does temperature change how fast decomposers break down food?** Change: fridge, room or warm spot. Measure: how much of an apple slice is covered in mould after a week. Keep the same: fruit, slice size, moisture, sealed bags.
+- **Are there more small animals under leaf litter than on bare ground?** Change: site. Measure: animals counted in a 30 cm square in 5 minutes. Keep the same: square size, time, weather.
+
+**Safety and ethics:** keep water away from the lamp's power; never open mould bags. Observe small animals gently and return them where found. Use school grounds; for sites on Country, check with local Traditional Owners or your school's First Nations contacts first.

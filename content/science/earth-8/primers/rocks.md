@@ -21,3 +21,11 @@ So **crystal size is a record of cooling rate**: a geologist can read where a ro
 - Large crystals form because there is more magma.
 - Fast cooling means the crystals are smaller because they "shrink".
 - All volcanic rock is the same.
+
+## Investigate in class
+
+- **Does faster cooling make smaller crystals?** Change: how a hot saturated alum solution cools (in iced water, on the bench, in a warm water bath). Measure: the size of the largest crystals with a hand lens and ruler. Keep the same: concentration, volume, the test tubes.
+- **Do rocks that formed underground have bigger crystals?** Change: the rock (granite, basalt, obsidian, pumice). Measure: the largest crystal you can see. *(Use the school's rock kit.)*
+- **Do bigger grains settle faster?** Change: grain size (gravel, sand, soil). Measure: the time to settle through a tall cylinder of water. Keep the same: the cylinder, the amount dropped. *(Mix them together after: layers form, as in sedimentary rock.)*
+
+**Safety and ethics:** the hot solution can scald, so the teacher pours it; wash hands after handling alum. If students collect rocks or sand, check with local Traditional Owners or your school's First Nations contacts first.

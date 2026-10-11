@@ -21,3 +21,11 @@ Trapped air is an excellent insulator: it conducts poorly and, if it is trapped 
 - Cold flows into things ("close the door, you're letting the cold in").
 - In conduction the particles travel along the material.
 - Metals feel cold because they are colder than wood at the same temperature.
+
+## Investigate in class
+
+- **Does the material of a rod change how fast heat travels along it?** Change: the rod (copper, aluminium, steel, glass). Measure: the time until a drawing pin stuck on with petroleum jelly drops off. Keep the same: rod size, water temperature, the pin's distance from the water.
+- **Does wrapping a cup change how fast hot water cools?** Change: the wrapping (none, foil, bubble wrap, a wool sock). Measure: the temperature drop over 10 minutes. Keep the same: cup, volume, starting temperature. *(The best wrappings trap air.)*
+- **Does hotter water rise faster?** Change: the temperature of coloured water released at the bottom of a beaker of cool water. Measure: the time for the colour to reach the top. Keep the same: the beaker, the amount of dye, the depth.
+
+**Safety and ethics:** use water no hotter than about 60 °C (from a kettle, not boiling), stand beakers on a mat, and report broken glass.

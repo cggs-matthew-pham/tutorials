@@ -44,3 +44,13 @@ Each unstable nucleus decays at random, but a large sample halves in a fixed tim
 Misconceptions: the sample is all gone after two half-lives; each nucleus decays at exactly the half-life; heating speeds decay up.
 
 **On screen:** the short tutorials *From uranium to lead* (node 5 of 9U06, decay chains, in the atoms unit), *Where does the mass go?* (node 5 of 9U07, in equations) and *Use the table to predict* (node 4 of 10U06, in periodic) cover the integration nodes.
+
+## Investigate in class
+
+These are models: school radioactive sources are tightly controlled, and none are needed.
+
+- **Does the number of nuclei you start with change the half-life?** Change: starting number of dice (50, 100, 200). Measure: throws until half remain, removing every six as a "decay" each throw. Keep the same: the removal rule. *(Expect about 4 throws whatever the start: half-life does not depend on amount.)*
+- **Does the chance of decay change the half-life?** Change: rule (remove sixes, or remove evens with coins: tails decays). Measure: throws until half remain. Keep the same: starting number. *(Coins halve each throw; dice take about 4.)*
+- **Does a bigger hidden target deflect more marbles?** Change: size of a shape hidden under a board. Measure: share of rolled marbles that bounce off course. Keep the same: number of rolls, roll speed. *(A model of Rutherford's gold foil: a small nucleus deflects few.)*
+
+**Safety and ethics:** collect stray marbles from the floor.

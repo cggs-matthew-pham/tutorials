@@ -29,3 +29,11 @@ The unit now opens with physical change (node 1): melting, boiling and dissolvin
 Signs of a chemical change (colour, gas, precipitate, light, smell, temperature change) are clues, not proof; the test is a new substance. Exothermic reactions give energy out to the surroundings (hotter); endothermic ones take it in (colder). There is no 'cold energy'.
 
 **On screen:** the short tutorial *Physical or chemical? Use all the clues* covers node 6 with sorting and misleading-clue cases.
+
+## Investigate in class
+
+- **Does the mass change when ice melts?** Change: state (frozen, then melted). Measure: mass of a sealed zip-lock bag of ice cubes. Keep the same: the bag stays sealed and is dried before weighing. *(Expect no change: physical change, same particles.)*
+- **Does more bicarbonate of soda make vinegar colder?** Change: mass of bicarb (1, 2, 3, 4 g). Measure: temperature drop. Keep the same: 50 mL of vinegar, starting temperature, insulated cup. *(Endothermic: a few degrees colder; the bubbles are a new substance, carbon dioxide.)*
+- **Does rinsing steel wool in vinegar change how much it warms as it rusts?** Change: dipped in vinegar or left dry. Measure: temperature rise in 5 minutes, steel wool wrapped round the thermometer bulb in a closed jar. Keep the same: mass of steel wool, jar. *(Exothermic: expect a rise of a few degrees for the dipped wool.)*
+
+**Safety and ethics:** safety glasses with vinegar; gloves for steel wool, which splinters.

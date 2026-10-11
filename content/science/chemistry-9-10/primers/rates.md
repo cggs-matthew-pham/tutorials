@@ -28,3 +28,11 @@ Temperature has the biggest effect because it changes **both** how often particl
 ## Reaction types (nodes 1 to 4)
 
 Synthesis (A + B → AB), decomposition (AB → A + B) and displacement (A + BC → AC + B, only when A is more reactive than B). Classify by the pattern; predict products from it.
+
+## Investigate in class
+
+- **Does water temperature change how long an antacid tablet fizzes?** Change: water temperature (about 10, 20, 30, 40 °C). Measure: time until fizzing stops. Keep the same: volume of water, one tablet of the same brand. *(The clearest result in the unit: warmer is much faster.)*
+- **Does crushing the tablet change how fast it reacts?** Change: whole, quartered, crushed. Measure: time until fizzing stops. Keep the same: water volume and temperature.
+- **Does stronger vinegar react faster with bicarbonate of soda?** Change: vinegar diluted to 25, 50, 75, 100%. Measure: mass lost in the first minute, flask on a balance. Keep the same: total volume, mass of bicarb. *(Run each two or three times and average: small reactions vary, as the simulation shows.)*
+
+**Safety and ethics:** water no hotter than about 45 °C; safety glasses with vinegar.

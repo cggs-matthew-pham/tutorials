@@ -21,3 +21,11 @@ title: Genetics in 5 minutes
 - Dominant alleles are more common, or "stronger", or better.
 - A 3 : 1 ratio means exactly 3 of 4 children will show the dominant trait.
 - Meiosis makes identical gametes.
+
+## Investigate in class
+
+- **Does the number of offspring change how close a Pp × Pp cross comes to 3 : 1?** A coin model (heads P, tails p, one coin per parent). Change: offspring (4, 20, pooled class 200). Measure: proportion showing the dominant trait. Keep the same: fair coins, both parents Pp. *(Small families wander a long way from 3 : 1.)*
+- **Does the number of chromosome pairs change how many different gametes you get?** A card model. Change: pairs (1, 2, 3). Measure: different gametes in 20 random draws, one card from each pair. Keep the same: number of draws. *(Expect 2, 4, 8.)*
+- **Does the amount of detergent change how much DNA we extract from strawberries?** Change: detergent volume. Measure: mass of DNA strands. Keep the same: strawberry mass, salt, volume of cold alcohol, mixing time.
+
+**Safety and ethics:** methylated spirits is flammable: no flames, keep it capped and cold.

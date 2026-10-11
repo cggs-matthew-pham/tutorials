@@ -23,3 +23,11 @@ Scientists now think two pulls also matter: old, cold plate sinking into the man
 - The plates float on a sea of liquid magma.
 - Earthquakes move the plates (earthquakes are caused by plates moving).
 - The continents have always been where they are.
+
+## Investigate in class
+
+- **Does heating one end of a tray of water make floating "plates" move?** A model: a shallow tray of water with cork or foam pieces, a beaker of hot water under one end. Change: heated or not. Measure: the direction and distance the pieces drift in 2 minutes. Keep the same: water depth, the pieces.
+- **Are earthquakes more common near plate boundaries?** Secondary data: Geoscience Australia's earthquake records. Change: the area (north of Australia near the plate edge, or the middle of the continent). Measure: the number of magnitude 4+ earthquakes in a year. Keep the same: area size, time span, magnitude.
+- **Can a solid flow if you give it time?** An analogue: silly putty. Change: how fast you pull it. Measure: how far it stretches before it snaps. Keep the same: the size of the piece. *(Slow pulls stretch; sharp tugs snap.)*
+
+**Safety and ethics:** use warm tap water, not boiling.

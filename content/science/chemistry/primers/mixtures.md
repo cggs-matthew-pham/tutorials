@@ -33,3 +33,11 @@ Water treatment, recycling, mining and food processing all rely on these propert
 - A dissolved substance has disappeared.
 - Distillation is the same as evaporation.
 - Dyes separate by weight in chromatography.
+
+## Investigate in class
+
+- **Does the mass of salt you dissolve change the mass you get back by evaporating?** Change: salt dissolved in 50 mL of water (2, 4, 6 g). Measure: mass of solid left. Keep the same: volume of water, dish, drying method. *(Expect slightly less back; a sunny windowsill avoids heating.)*
+- **Does salt water instead of water change how far each dye in a marker travels?** Change: the solvent. Measure: distance of each coloured band from the start line. Keep the same: pen, paper strip, how long it runs. *(Water-based black felt pens split into several colours.)*
+- **Does the filter change how fast muddy water gets through?** Change: filter (paper towel, coffee filter, filter paper). Measure: volume through in 2 minutes. Keep the same: mud mixture, volume poured, funnel.
+
+**Safety and ethics:** hot evaporating dishes can spit and burn: safety glasses, let them cool.

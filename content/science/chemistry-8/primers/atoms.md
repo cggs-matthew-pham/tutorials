@@ -31,3 +31,10 @@ An **element** is a pure substance of only one type of atom; its particles may b
 ## Mixtures and representations (nodes 4 and 5)
 
 A mixture is substances mingled, not joined: properties kept, any amounts, separated physically. A formula gives atom types and numbers (the small number counts the atom before it; a big number counts particles); structural formulas show joins, models show shape. No representation shows everything.
+
+## Investigate in class
+
+- **Does the share of iron filings in an iron and sand mixture change how much a magnet recovers?** Change: grams of iron in 20 g of mixture (2, 5, 10 g). Measure: mass of iron pulled out. Keep the same: magnet, number of passes, total mass. *(Wrap the magnet in cling wrap so filings come off easily. Any amounts mix, and the iron keeps its magnetism: it is mixed, not joined.)*
+- **Does adding more salt to crushed ice change the lowest temperature it reaches?** Change: salt per 100 g of ice (0, 5, 10, 20 g). Measure: lowest temperature in 5 minutes, stirring. Keep the same: mass of ice, cup, stirring. *(Pure ice stays near 0 °C; the mixture's melting point depends on how much salt, falling well below 0 °C.)*
+
+**Safety and ethics:** salt and ice can drop below −10 °C; handle the cup, not the slush, and keep filings away from eyes.

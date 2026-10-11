@@ -38,3 +38,11 @@ Properties come from these three features: a gas squashes because its particles 
 ## Energy and changes of state; the model's limits (nodes 4 and 5)
 
 Melting and boiling take energy in; freezing and condensing give it out. While a substance changes state its temperature stays constant: the energy separates the particles (the flat parts of a heating curve). The particle model explains states, diffusion and pressure but not colour, reactions or electricity, because its particles have no parts.
+
+## Investigate in class
+
+- **Does the temperature of water change how fast a drop of food colouring spreads?** Change: water temperature (cold, room, warm). Measure: time until the colour looks even. Keep the same: volume of water, size of drop, no stirring. *(Warm tap water is enough; a phone video from above makes timing fair.)*
+- **Does the temperature rise while ice is still melting?** Change: time (read every 30 seconds). Measure: temperature of crushed ice in a beaker, stirred. Keep the same: amount of ice, the room. *(Expect a flat stretch near 0 °C until the ice is gone: the heating curve's plateau.)*
+- **Does air squash more than water?** Change: what fills a sealed syringe (air, water, sand). Measure: how far the plunger moves under a firm push. Keep the same: syringe, starting volume, push. *(No needles; a finger or cap seals the tip.)*
+
+**Safety and ethics:** warm water only, never boiling; take care with glass thermometers.

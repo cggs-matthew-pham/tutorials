@@ -20,3 +20,11 @@ title: Reproduction in 5 minutes
 - Brothers and sisters should look the same because they have the same parents.
 - Gametes have the same number of chromosomes as body cells.
 - Asexual reproduction only happens in "simple" organisms (strawberries, potatoes, aphids and some lizards do it too).
+
+## Investigate in class
+
+- **Does sugar concentration change how many pollen grains grow tubes?** Change: sugar solution (0, 5, 10, 15%). Measure: percentage of grains with tubes after 45 minutes under the microscope. Keep the same: flower species, temperature, drop size. *(Results vary by species; try a few fresh flowers first.)*
+- **Does the length of a cutting change how many roots it grows?** Asexual reproduction. Change: cutting length (Tradescantia or coleus). Measure: roots after two weeks in water. Keep the same: plant, number of leaves, light, water.
+- **Do offspring vary more from sexual than asexual reproduction?** A card model. Change: copy one parent's cards, or draw one card per gene from each parent (3 genes). Measure: different offspring in 10. Keep the same: parents, number of offspring.
+
+**Safety and ethics:** pollen can trigger hay fever; glass slides break. Wash hands after handling plants.

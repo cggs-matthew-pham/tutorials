@@ -22,3 +22,11 @@ title: The moon in 5 minutes
 - Eclipses should happen every month.
 - There is one tidal bulge, under the moon, so one high tide a day.
 - "Spring tides" happen in spring.
+
+## Investigate in class
+
+- **Does where the moon is in its orbit change how much of its lit half we see?** A model in a dark room: a lamp (sun), a ball on a pencil (moon), a student's head (Earth). Change: the ball's position around the head (eight places). Record: the lit shape seen. Keep the same: the ball's height.
+- **Does the moon's shape change over two weeks?** Change: the date. Record: the shape and which side is lit. Keep the same: the time of night and the place you look from. *(A home task.)*
+- **Is the tidal range bigger at full and new moon?** Secondary data: Bureau of Meteorology tide predictions for a nearby port. Change: the day of the month. Measure: high tide minus low tide. Keep the same: the port.
+
+**Safety and ethics:** never look straight at the sun when spotting the moon by day; the lamp gets hot.
