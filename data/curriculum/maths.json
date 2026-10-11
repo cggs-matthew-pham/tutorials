@@ -6,6 +6,7 @@
   {
    "code": "AC9M6A01",
    "year": 6,
+   "span": 1,
    "strand": "Algebra",
    "title": "Growing patterns with rational numbers",
    "description": "Recognise and use rules that generate visually growing patterns and number patterns involving rational numbers",
@@ -49,6 +50,7 @@
   {
    "code": "AC9M6A02",
    "year": 6,
+   "span": 1,
    "strand": "Algebra",
    "title": "Unknown values with brackets",
    "description": "Find unknown values in numerical equations involving brackets and combinations of arithmetic operations, using the properties of numbers and operations",
@@ -91,6 +93,7 @@
   {
    "code": "AC9M6A03",
    "year": 6,
+   "span": 1,
    "strand": "Algebra",
    "title": "Algorithms for number patterns",
    "description": "Create and use algorithms involving a sequence of steps and decisions that use rules to generate sets of numbers; identify, interpret and explain emerging patterns",
@@ -133,6 +136,7 @@
   {
    "code": "AC9M6M01",
    "year": 6,
+   "span": 1,
    "strand": "Measurement",
    "title": "Convert metric units",
    "description": "Convert between common metric units of length, mass and capacity; choose and use decimal representations of metric measurements relevant to the context of a problem",
@@ -176,6 +180,7 @@
   {
    "code": "AC9M6M02",
    "year": 6,
+   "span": 1,
    "strand": "Measurement",
    "title": "Area of rectangles",
    "description": "Establish the formula for the area of a rectangle and use it to solve practical problems",
@@ -218,6 +223,7 @@
   {
    "code": "AC9M6M04",
    "year": 6,
+   "span": 1,
    "strand": "Measurement",
    "title": "Angle relationships",
    "description": "Identify the relationships between angles on a straight line, angles at a point and vertically opposite angles; use these to determine unknown angles, communicating reasoning",
@@ -270,6 +276,7 @@
   {
    "code": "AC9M6N01",
    "year": 6,
+   "span": 1,
    "strand": "Number",
    "title": "Integers and Cartesian plane",
    "description": "Recognise situations, including financial contexts, that use integers; locate and represent integers on a number line and as coordinates on the Cartesian plane",
@@ -324,6 +331,7 @@
   {
    "code": "AC9M6N02",
    "year": 6,
+   "span": 1,
    "strand": "Number",
    "title": "Prime, composite and square numbers",
    "description": "Identify and describe the properties of prime, composite and square numbers and use these properties to solve problems and simplify calculations",
@@ -376,6 +384,7 @@
   {
    "code": "AC9M6N03",
    "year": 6,
+   "span": 1,
    "strand": "Number",
    "title": "Compare and order fractions",
    "description": "Apply knowledge of equivalence to compare, order and represent common fractions including halves, thirds and quarters on the same number line and justify their order",
@@ -418,6 +427,7 @@
   {
    "code": "AC9M6N04",
    "year": 6,
+   "span": 1,
    "strand": "Number",
    "title": "Add and subtract decimals",
    "description": "Apply knowledge of place value to add and subtract decimals, using digital tools where appropriate; use estimation and rounding to check the reasonableness of answers",
@@ -461,6 +471,7 @@
   {
    "code": "AC9M6N05",
    "year": 6,
+   "span": 1,
    "strand": "Number",
    "title": "Add and subtract fractions",
    "description": "Solve problems involving addition and subtraction of fractions using knowledge of equivalent fractions",
@@ -504,6 +515,7 @@
   {
    "code": "AC9M6N06",
    "year": 6,
+   "span": 1,
    "strand": "Number",
    "title": "Multiply and divide decimals",
    "description": "Multiply and divide decimals by multiples of powers of 10 without a calculator, applying knowledge of place value and proficiency with multiplication facts; using estimation and rounding to check the reasonableness of answers",
@@ -548,6 +560,7 @@
   {
    "code": "AC9M6N07",
    "year": 6,
+   "span": 1,
    "strand": "Number",
    "title": "Fractions, decimals and percentages",
    "description": "Solve problems that require finding a familiar fraction, decimal or percentage of a quantity, including percentage discounts, choosing efficient calculation strategies and using digital tools where appropriate",
@@ -591,6 +604,7 @@
   {
    "code": "AC9M6N08",
    "year": 6,
+   "span": 1,
    "strand": "Number",
    "title": "Approximate with rational numbers",
    "description": "Approximate numerical solutions to problems involving rational numbers and percentages, including financial contexts, using appropriate estimation strategies",
@@ -633,6 +647,7 @@
   {
    "code": "AC9M6N09",
    "year": 6,
+   "span": 1,
    "strand": "Number",
    "title": "Model with rational numbers",
    "description": "Use mathematical modelling to solve practical problems involving natural and rational numbers and percentages, including in financial contexts; formulate the problems, choosing operations and efficient calculation strategies, and using digital tools where appropriate; interpret and communicate solutions in terms of the situation, justifying the choices made",
@@ -675,6 +690,7 @@
   {
    "code": "AC9M6P01",
    "year": 6,
+   "span": 1,
    "strand": "Probability",
    "title": "Probability scale 0 to 1",
    "description": "Recognise that probabilities lie on numerical scales of 0 – 1 or 0% – 100% and use estimation to assign probabilities that events occur in a given context, using common fractions, percentages and decimals",
@@ -718,6 +734,7 @@
   {
    "code": "AC9M6P02",
    "year": 6,
+   "span": 1,
    "strand": "Probability",
    "title": "Simulations with increasing trials",
    "description": "Conduct repeated chance experiments and run simulations with an increasing number of trials using digital tools; compare observations with expected results and discuss the effect on variation of increasing the number of trials",
@@ -760,6 +777,7 @@
   {
    "code": "AC9M6SP01",
    "year": 6,
+   "span": 1,
    "strand": "Space",
    "title": "Cross-sections and prisms",
    "description": "Compare the parallel cross-sections of objects and recognise their relationships to right prisms",
@@ -802,6 +820,7 @@
   {
    "code": "AC9M6SP02",
    "year": 6,
+   "span": 1,
    "strand": "Space",
    "title": "Cartesian plane — 4 quadrants",
    "description": "Locate points in the 4 quadrants of a Cartesian plane; describe changes to the coordinates when a point is moved to a different position in the plane",
@@ -835,6 +854,7 @@
   {
    "code": "AC9M6SP03",
    "year": 6,
+   "span": 1,
    "strand": "Space",
    "title": "Tessellations and transformations",
    "description": "Recognise and use combinations of transformations to create tessellations and other geometric patterns, using dynamic geometric software where appropriate",
@@ -877,6 +897,7 @@
   {
    "code": "AC9M6ST01",
    "year": 6,
+   "span": 1,
    "strand": "Statistics",
    "title": "Compare distributions",
    "description": "Interpret and compare data sets for ordinal and nominal categorical, discrete and continuous numerical variables using comparative displays or visualisations and digital tools; compare distributions in terms of mode, range and shape",
@@ -920,6 +941,7 @@
   {
    "code": "AC9M6ST03",
    "year": 6,
+   "span": 1,
    "strand": "Statistics",
    "title": "Plan and refine investigations",
    "description": "Plan and conduct statistical investigations by posing and refining questions or identifying a problem and collecting relevant data; analyse and interpret the data and communicate findings within the context of the investigation",
@@ -963,6 +985,7 @@
   {
    "code": "AC9M7A01",
    "year": 7,
+   "span": 1,
    "strand": "Algebra",
    "title": "Variables and formulas",
    "description": "recognise and use variables to represent everyday formulas algebraically and substitute values into formulas to determine an unknown",
@@ -1009,6 +1032,7 @@
   {
    "code": "AC9M7A02",
    "year": 7,
+   "span": 1,
    "strand": "Algebra",
    "title": "Algebraic expressions",
    "description": "formulate algebraic expressions using constants, variables, operations and brackets",
@@ -1055,6 +1079,7 @@
   {
    "code": "AC9M7A03",
    "year": 7,
+   "span": 1,
    "strand": "Algebra",
    "title": "Solve linear equations",
    "description": "solve one-variable linear equations with natural number solutions; verify the solution by substitution",
@@ -1101,6 +1126,7 @@
   {
    "code": "AC9M7A04",
    "year": 7,
+   "span": 1,
    "strand": "Algebra",
    "title": "Graphs of functions",
    "description": "describe relationships between variables represented in graphs of functions from authentic data",
@@ -1135,6 +1161,7 @@
   {
    "code": "AC9M7A05",
    "year": 7,
+   "span": 1,
    "strand": "Algebra",
    "title": "Tables and graphs from patterns",
    "description": "generate tables of values from visually growing patterns or the rule of a function; describe and plot these relationships on the Cartesian plane",
@@ -1182,6 +1209,7 @@
   {
    "code": "AC9M7A06",
    "year": 7,
+   "span": 1,
    "strand": "Algebra",
    "title": "Manipulate formulas",
    "description": "manipulate formulas involving several variables using digital tools, and describe the effect of systematic variation in the values of the variables",
@@ -1217,6 +1245,7 @@
   {
    "code": "AC9M7M01",
    "year": 7,
+   "span": 1,
    "strand": "Measurement",
    "title": "Area of triangles and parallelograms",
    "description": "solve problems involving the area of triangles and parallelograms using established formulas and appropriate units",
@@ -1251,6 +1280,7 @@
   {
    "code": "AC9M7M02",
    "year": 7,
+   "span": 1,
    "strand": "Measurement",
    "title": "Volume of right prisms",
    "description": "solve problems involving the volume of right prisms including rectangular and triangular prisms, using established formulas and appropriate units",
@@ -1286,6 +1316,7 @@
   {
    "code": "AC9M7M03",
    "year": 7,
+   "span": 1,
    "strand": "Measurement",
    "title": "Pi and circle features",
    "description": "describe the relationship between π and the features of circles including the circumference, radius and diameter",
@@ -1332,6 +1363,7 @@
   {
    "code": "AC9M7M04",
    "year": 7,
+   "span": 1,
    "strand": "Measurement",
    "title": "Angles with parallel lines",
    "description": "identify corresponding, alternate and co-interior relationships between angles formed when parallel lines are crossed by a transversal; use them to solve problems and explain reasons",
@@ -1377,6 +1409,7 @@
   {
    "code": "AC9M7M05",
    "year": 7,
+   "span": 1,
    "strand": "Measurement",
    "title": "Angle sum of triangles",
    "description": "demonstrate that the interior angle sum of a triangle in the plane is 180° and apply this to determine the interior angle sum of other shapes and the size of unknown angles",
@@ -1422,6 +1455,7 @@
   {
    "code": "AC9M7M06",
    "year": 7,
+   "span": 1,
    "strand": "Measurement",
    "title": "Mathematical modelling with ratios",
    "description": "use mathematical modelling to solve practical problems involving ratios; formulate problems, interpret and communicate solutions in terms of the situation, justifying choices made about the representation",
@@ -1457,6 +1491,7 @@
   {
    "code": "AC9M7N01",
    "year": 7,
+   "span": 1,
    "strand": "Number",
    "title": "Perfect squares and square roots",
    "description": "describe the relationship between perfect square numbers and square roots, and use squares of numbers and square roots of perfect square numbers to solve problems",
@@ -1511,6 +1546,7 @@
   {
    "code": "AC9M7N02",
    "year": 7,
+   "span": 1,
    "strand": "Number",
    "title": "Prime factorisation and exponent notation",
    "description": "represent natural numbers as products of powers of prime numbers using exponent notation",
@@ -1556,6 +1592,7 @@
   {
    "code": "AC9M7N03",
    "year": 7,
+   "span": 1,
    "strand": "Number",
    "title": "Expanded notation and powers of 10",
    "description": "represent natural numbers in expanded notation using place value and powers of 10",
@@ -1590,6 +1627,7 @@
   {
    "code": "AC9M7N04",
    "year": 7,
+   "span": 1,
    "strand": "Number",
    "title": "Rational numbers on a number line",
    "description": "find equivalent representations of rational numbers and represent rational numbers on a number line",
@@ -1637,6 +1675,7 @@
   {
    "code": "AC9M7N05",
    "year": 7,
+   "span": 1,
    "strand": "Number",
    "title": "Rounding and estimation",
    "description": "round decimals to a given accuracy appropriate to the context and use appropriate rounding and estimation to check the reasonableness of solutions",
@@ -1683,6 +1722,7 @@
   {
    "code": "AC9M7N06",
    "year": 7,
+   "span": 1,
    "strand": "Number",
    "title": "Four operations with rational numbers",
    "description": "use the 4 operations with positive rational numbers including fractions, decimals and percentages to solve problems using efficient calculation strategies",
@@ -1741,6 +1781,7 @@
   {
    "code": "AC9M7N07",
    "year": 7,
+   "span": 1,
    "strand": "Number",
    "title": "Add and subtract integers",
    "description": "compare, order and solve problems involving addition and subtraction of integers",
@@ -1775,6 +1816,7 @@
   {
    "code": "AC9M7N08",
    "year": 7,
+   "span": 1,
    "strand": "Number",
    "title": "Ratios",
    "description": "recognise, represent and solve problems involving ratios",
@@ -1822,6 +1864,7 @@
   {
    "code": "AC9M7N09",
    "year": 7,
+   "span": 1,
    "strand": "Number",
    "title": "Mathematical modelling with rational numbers",
    "description": "use mathematical modelling to solve practical problems, involving rational numbers and percentages, including financial contexts; formulate problems, choosing representations and efficient calculation strategies, using digital tools as appropriate; interpret and communicate solutions in terms of the situation, justifying choices made about the representation",
@@ -1869,6 +1912,7 @@
   {
    "code": "AC9M7P01",
    "year": 7,
+   "span": 1,
    "strand": "Probability",
    "title": "Sample space and probability",
    "description": "identify the sample space for single-stage events; assign probabilities to the outcomes of these events and predict relative frequencies for related events",
@@ -1914,6 +1958,7 @@
   {
    "code": "AC9M7P02",
    "year": 7,
+   "span": 1,
    "strand": "Probability",
    "title": "Repeated experiments and simulation",
    "description": "conduct repeated chance experiments and run simulations with a large number of trials using digital tools; compare predictions about outcomes with observed results, explaining the differences",
@@ -1949,6 +1994,7 @@
   {
    "code": "AC9M7SP01",
    "year": 7,
+   "span": 1,
    "strand": "Space",
    "title": "2D representations of 3D objects",
    "description": "represent objects in 2 dimensions; discuss and reason about the advantages and disadvantages of different representations",
@@ -1994,6 +2040,7 @@
   {
    "code": "AC9M7SP02",
    "year": 7,
+   "span": 1,
    "strand": "Space",
    "title": "Classifying triangles and polygons",
    "description": "classify triangles, quadrilaterals and other polygons according to their side and angle properties; identify and reason about relationships",
@@ -2037,6 +2084,7 @@
   {
    "code": "AC9M7SP03",
    "year": 7,
+   "span": 1,
    "strand": "Space",
    "title": "Transformations on the Cartesian plane",
    "description": "describe transformations of a set of points using coordinates in the Cartesian plane, translations and reflections on an axis, and rotations about a given point",
@@ -2083,6 +2131,7 @@
   {
    "code": "AC9M7SP04",
    "year": 7,
+   "span": 1,
    "strand": "Space",
    "title": "Algorithms for classifying shapes",
    "description": "design and create algorithms involving a sequence of steps and decisions that will sort and classify sets of shapes according to their attributes, and describe how the algorithms work",
@@ -2117,6 +2166,7 @@
   {
    "code": "AC9M7ST01",
    "year": 7,
+   "span": 1,
    "strand": "Statistics",
    "title": "Data acquisition and measures of centre",
    "description": "acquire data sets for discrete and continuous numerical variables and calculate the range, median, mean and mode; make and justify decisions about which measures of central tendency provide useful insights into the nature of the distribution of data",
@@ -2163,6 +2213,7 @@
   {
    "code": "AC9M7ST02",
    "year": 7,
+   "span": 1,
    "strand": "Statistics",
    "title": "Data displays and distribution",
    "description": "create different types of numerical data displays including stem-and-leaf plots using software where appropriate; describe and compare the distribution of data, commenting on the shape, centre and spread including outliers and determining the range, median, mean and mode",
@@ -2209,6 +2260,7 @@
   {
    "code": "AC9M7ST03",
    "year": 7,
+   "span": 1,
    "strand": "Statistics",
    "title": "Statistical investigations",
    "description": "plan and conduct statistical investigations involving data for discrete and continuous numerical variables; analyse and interpret distributions of data and report findings in terms of shape and summary statistics",
@@ -2245,6 +2297,7 @@
   {
    "code": "AC9M8A01",
    "year": 8,
+   "span": 1,
    "strand": "Algebra",
    "title": "Simplify linear expressions",
    "description": "create, expand, factorise, rearrange and simplify linear expressions, applying the associative, commutative, identity, distributive and inverse properties",
@@ -2290,6 +2343,7 @@
   {
    "code": "AC9M8A02",
    "year": 8,
+   "span": 1,
    "strand": "Algebra",
    "title": "Graph and solve linear equations",
    "description": "graph linear relations on the Cartesian plane using digital tools where appropriate; solve linear equations and one-variable inequalities using graphical and algebraic techniques; verify solutions by substitution",
@@ -2336,6 +2390,7 @@
   {
    "code": "AC9M8A03",
    "year": 8,
+   "span": 1,
    "strand": "Algebra",
    "title": "Model with linear functions",
    "description": "use mathematical modelling to solve applied problems involving linear relations, including financial contexts; formulate problems with linear functions, choosing a representation; interpret and communicate solutions in terms of the situation, reviewing the appropriateness of the model",
@@ -2371,6 +2426,7 @@
   {
    "code": "AC9M8A04",
    "year": 8,
+   "span": 1,
    "strand": "Algebra",
    "title": "Experiment with linear functions",
    "description": "experiment with linear functions and relations using digital tools, making and testing conjectures and generalising emerging patterns",
@@ -2407,6 +2463,7 @@
   {
    "code": "AC9M8M01",
    "year": 8,
+   "span": 1,
    "strand": "Measurement",
    "title": "Area and perimeter of composite shapes",
    "description": "solve problems involving the area and perimeter of irregular and composite shapes using appropriate units",
@@ -2442,6 +2499,7 @@
   {
    "code": "AC9M8M02",
    "year": 8,
+   "span": 1,
    "strand": "Measurement",
    "title": "Volume and capacity of right prisms",
    "description": "solve problems involving the volume and capacity of right prisms using appropriate units",
@@ -2476,6 +2534,7 @@
   {
    "code": "AC9M8M03",
    "year": 8,
+   "span": 1,
    "strand": "Measurement",
    "title": "Circumference and area of circles",
    "description": "solve problems involving the circumference and area of a circle using formulas and appropriate units",
@@ -2510,6 +2569,7 @@
   {
    "code": "AC9M8M04",
    "year": 8,
+   "span": 1,
    "strand": "Measurement",
    "title": "Duration and time zones",
    "description": "solve problems involving duration, including using 12- and 24-hour time across multiple time zones",
@@ -2542,6 +2602,7 @@
   {
    "code": "AC9M8M05",
    "year": 8,
+   "span": 1,
    "strand": "Measurement",
    "title": "Rates",
    "description": "recognise and use rates to solve problems involving the comparison of 2 related quantities of different units of measure",
@@ -2576,6 +2637,7 @@
   {
    "code": "AC9M8M06",
    "year": 8,
+   "span": 1,
    "strand": "Measurement",
    "title": "Pythagoras' theorem",
    "description": "use Pythagoras' theorem to solve problems involving the side lengths of right-angled triangles",
@@ -2622,6 +2684,7 @@
   {
    "code": "AC9M8M07",
    "year": 8,
+   "span": 1,
    "strand": "Measurement",
    "title": "Modelling with ratios and rates",
    "description": "use mathematical modelling to solve practical problems involving ratios and rates, including financial contexts; formulate problems; interpret and communicate solutions in terms of the situation, reviewing the appropriateness of the model",
@@ -2657,6 +2720,7 @@
   {
    "code": "AC9M8N01",
    "year": 8,
+   "span": 1,
    "strand": "Number",
    "title": "Irrational numbers",
    "description": "recognise irrational numbers in applied contexts, including square roots and π",
@@ -2692,6 +2756,7 @@
   {
    "code": "AC9M8N02",
    "year": 8,
+   "span": 1,
    "strand": "Number",
    "title": "Exponent laws",
    "description": "establish and apply the exponent laws with positive integer exponents and the zero-exponent, using exponent notation with numbers",
@@ -2727,6 +2792,7 @@
   {
    "code": "AC9M8N03",
    "year": 8,
+   "span": 1,
    "strand": "Number",
    "title": "Terminating and recurring decimals",
    "description": "recognise terminating and recurring decimals, using digital tools as appropriate",
@@ -2762,6 +2828,7 @@
   {
    "code": "AC9M8N04",
    "year": 8,
+   "span": 1,
    "strand": "Number",
    "title": "Four operations with integers",
    "description": "use the 4 operations with integers and with rational numbers, choosing and using efficient strategies and digital tools where appropriate",
@@ -2797,6 +2864,7 @@
   {
    "code": "AC9M8N05",
    "year": 8,
+   "span": 1,
    "strand": "Number",
    "title": "Mathematical modelling with percentages",
    "description": "use mathematical modelling to solve practical problems involving rational numbers and percentages, including financial contexts; formulate problems, choosing efficient calculation strategies and using digital tools where appropriate; interpret and communicate solutions in terms of the situation, reviewing the appropriateness of the model",
@@ -2832,6 +2900,7 @@
   {
    "code": "AC9M8P01",
    "year": 8,
+   "span": 1,
    "strand": "Probability",
    "title": "Complementary events",
    "description": "recognise that complementary events have a combined probability of one; use this relationship to calculate probabilities in applied contexts",
@@ -2866,6 +2935,7 @@
   {
    "code": "AC9M8P02",
    "year": 8,
+   "span": 1,
    "strand": "Probability",
    "title": "Combinations for two events",
    "description": "determine all possible combinations for 2 events, using two-way tables, tree diagrams and Venn diagrams, and use these to determine probabilities of specific outcomes in practical situations",
@@ -2901,6 +2971,7 @@
   {
    "code": "AC9M8P03",
    "year": 8,
+   "span": 1,
    "strand": "Probability",
    "title": "Simulations of compound events",
    "description": "conduct repeated chance experiments and simulations, using digital tools to determine probabilities for compound events, and describe results",
@@ -2936,6 +3007,7 @@
   {
    "code": "AC9M8SP01",
    "year": 8,
+   "span": 1,
    "strand": "Space",
    "title": "Congruence and similarity",
    "description": "identify the conditions for congruence and similarity of triangles and explain the conditions for other sets of common shapes to be congruent or similar, including those formed by transformations",
@@ -2982,6 +3054,7 @@
   {
    "code": "AC9M8SP02",
    "year": 8,
+   "span": 1,
    "strand": "Space",
    "title": "Properties of quadrilaterals",
    "description": "establish properties of quadrilaterals using congruent triangles and angle properties, and solve related problems explaining reasoning",
@@ -3017,6 +3090,7 @@
   {
    "code": "AC9M8SP03",
    "year": 8,
+   "span": 1,
    "strand": "Space",
    "title": "3D coordinate systems",
    "description": "describe the position and location of objects in 3 dimensions in different ways, including using a three-dimensional coordinate system with the use of dynamic geometric software and other digital tools",
@@ -3051,6 +3125,7 @@
   {
    "code": "AC9M8SP04",
    "year": 8,
+   "span": 1,
    "strand": "Space",
    "title": "Algorithms for congruence and similarity",
    "description": "design, create and test algorithms involving a sequence of steps and decisions that identify congruency or similarity of shapes, and describe how the algorithm works",
@@ -3086,6 +3161,7 @@
   {
    "code": "AC9M8ST01",
    "year": 8,
+   "span": 1,
    "strand": "Statistics",
    "title": "Data collection techniques",
    "description": "investigate techniques for data collection including census, sampling, experiment and observation, and explain the practicalities and implications of obtaining data through these techniques",
@@ -3121,6 +3197,7 @@
   {
    "code": "AC9M8ST02",
    "year": 8,
+   "span": 1,
    "strand": "Statistics",
    "title": "Sampling methods and distribution analysis",
    "description": "analyse and report on the distribution of data from primary and secondary sources using random and non-random sampling techniques to select and study samples",
@@ -3156,6 +3233,7 @@
   {
    "code": "AC9M8ST03",
    "year": 8,
+   "span": 1,
    "strand": "Statistics",
    "title": "Sample size and variation",
    "description": "compare variations in distributions and proportions obtained from random samples of the same size drawn from a population and recognise the effect of sample size on this variation",
@@ -3192,6 +3270,7 @@
   {
    "code": "AC9M8ST04",
    "year": 8,
+   "span": 1,
    "strand": "Statistics",
    "title": "Statistical investigations with samples",
    "description": "plan and conduct statistical investigations involving samples of a population; use ethical and fair methods to make inferences about the population and report findings, acknowledging uncertainty",
@@ -3228,6 +3307,7 @@
   {
    "code": "AC9M9A01",
    "year": 9,
+   "span": 1,
    "strand": "Algebra",
    "title": "Exponent laws",
    "description": "apply the exponent laws to numerical expressions with integer exponents and extend to variables",
@@ -3273,6 +3353,7 @@
   {
    "code": "AC9M9A02",
    "year": 9,
+   "span": 1,
    "strand": "Algebra",
    "title": "Binomial products and factorisation",
    "description": "simplify algebraic expressions, expand binomial products and factorise monic quadratic expressions",
@@ -3330,6 +3411,7 @@
   {
    "code": "AC9M9A03",
    "year": 9,
+   "span": 1,
    "strand": "Algebra",
    "title": "Gradient, midpoint and distance",
    "description": "find the gradient of a line segment, the midpoint of the line interval and the distance between 2 distinct points on the Cartesian plane",
@@ -3397,6 +3479,7 @@
   {
    "code": "AC9M9A04",
    "year": 9,
+   "span": 1,
    "strand": "Algebra",
    "title": "Quadratic functions and equations",
    "description": "identify and graph quadratic functions, solve quadratic equations graphically and numerically, and solve monic quadratic equations with integer roots algebraically, using graphing software and digital tools as appropriate",
@@ -3453,6 +3536,7 @@
   {
    "code": "AC9M9A05",
    "year": 9,
+   "span": 1,
    "strand": "Algebra",
    "title": "Mathematical modelling — change",
    "description": "use mathematical modelling to solve applied problems involving change including financial contexts; formulate problems, choosing to use either linear or quadratic functions; interpret solutions in terms of the situation; evaluate the model and report methods and findings",
@@ -3498,6 +3582,7 @@
   {
    "code": "AC9M9A06",
    "year": 9,
+   "span": 1,
    "strand": "Algebra",
    "title": "Parameter variation and function families",
    "description": "experiment with the effects of the variation of parameters on graphs of related functions, using digital tools, making connections between graphical and algebraic representations, and generalising emerging patterns",
@@ -3543,6 +3628,7 @@
   {
    "code": "AC9M9M01",
    "year": 9,
+   "span": 1,
    "strand": "Measurement",
    "title": "Volume and surface area",
    "description": "solve problems involving the volume and surface area of right prisms and cylinders using appropriate units",
@@ -3588,6 +3674,7 @@
   {
    "code": "AC9M9M02",
    "year": 9,
+   "span": 1,
    "strand": "Measurement",
    "title": "Scientific notation",
    "description": "solve problems involving very small and very large measurements, time scales and intervals expressed in scientific notation",
@@ -3633,6 +3720,7 @@
   {
    "code": "AC9M9M03",
    "year": 9,
+   "span": 1,
    "strand": "Measurement",
    "title": "Spatial problems — pythagoras, trig and similarity",
    "description": "solve spatial problems, applying angle properties, scale, similarity, Pythagoras' theorem and trigonometry in right-angled triangles",
@@ -3689,6 +3777,7 @@
   {
    "code": "AC9M9M04",
    "year": 9,
+   "span": 1,
    "strand": "Measurement",
    "title": "Measurement error",
    "description": "calculate and interpret absolute, relative and percentage errors in measurements, recognising that all measurements are estimates",
@@ -3734,6 +3823,7 @@
   {
    "code": "AC9M9M05",
    "year": 9,
+   "span": 1,
    "strand": "Measurement",
    "title": "Mathematical modelling — proportion, rates and ratio",
    "description": "use mathematical modelling to solve practical problems involving direct proportion, rates, ratio and scale, including financial contexts; formulate the problems and interpret solutions in terms of the situation; evaluate the model and report methods and findings",
@@ -3779,6 +3869,7 @@
   {
    "code": "AC9M9N01",
    "year": 9,
+   "span": 1,
    "strand": "Number",
    "title": "Real number system",
    "description": "recognise that the real number system includes the rational numbers and the irrational numbers, and solve problems involving real numbers using digital tools",
@@ -3835,6 +3926,7 @@
   {
    "code": "AC9M9P01",
    "year": 9,
+   "span": 1,
    "strand": "Probability",
    "title": "Compound events",
    "description": "list all outcomes for compound events both with and without replacement, using lists, tree diagrams, tables or arrays; assign probabilities to outcomes",
@@ -3880,6 +3972,7 @@
   {
    "code": "AC9M9P02",
    "year": 9,
+   "span": 1,
    "strand": "Probability",
    "title": "Relative frequencies and compound probability",
    "description": "calculate relative frequencies from given or collected data to estimate probabilities of events involving \"and\", inclusive \"or\" and exclusive \"or\"",
@@ -3925,6 +4018,7 @@
   {
    "code": "AC9M9P03",
    "year": 9,
+   "span": 1,
    "strand": "Probability",
    "title": "Chance experiments and simulations",
    "description": "design and conduct repeated chance experiments and simulations, using digital tools to compare probabilities of simple events to related compound events, and describe results",
@@ -3970,6 +4064,7 @@
   {
    "code": "AC9M9SP01",
    "year": 9,
+   "span": 1,
    "strand": "Space",
    "title": "Trigonometric ratios",
    "description": "recognise the constancy of the sine, cosine and tangent ratios for a given angle in right-angled triangles using properties of similarity",
@@ -4015,6 +4110,7 @@
   {
    "code": "AC9M9SP02",
    "year": 9,
+   "span": 1,
    "strand": "Space",
    "title": "Enlargement transformation",
    "description": "apply the enlargement transformation to shapes and objects using dynamic geometry software as appropriate; identify and explain aspects that remain the same and those that change",
@@ -4049,6 +4145,7 @@
   {
    "code": "AC9M9SP03",
    "year": 9,
+   "span": 1,
    "strand": "Space",
    "title": "Geometric algorithms",
    "description": "design, test and refine algorithms involving a sequence of steps and decisions based on geometric constructions and theorems; discuss and evaluate refinements",
@@ -4094,6 +4191,7 @@
   {
    "code": "AC9M9ST01",
    "year": 9,
+   "span": 1,
    "strand": "Statistics",
    "title": "Analysing survey reports",
    "description": "analyse reports of surveys in digital media and elsewhere for information on how data was obtained to estimate population means and medians",
@@ -4128,6 +4226,7 @@
   {
    "code": "AC9M9ST02",
    "year": 9,
+   "span": 1,
    "strand": "Statistics",
    "title": "Sampling methods and representation bias",
    "description": "analyse how different sampling methods can affect the results of surveys and how choice of representation can be used to support a particular point of view",
@@ -4162,6 +4261,7 @@
   {
    "code": "AC9M9ST03",
    "year": 9,
+   "span": 1,
    "strand": "Statistics",
    "title": "Comparative data distributions",
    "description": "represent the distribution of multiple data sets for numerical variables using comparative representations; compare data distributions with consideration of centre, spread and shape, and the effect of outliers on these measures",
@@ -4207,6 +4307,7 @@
   {
    "code": "AC9M9ST04",
    "year": 9,
+   "span": 1,
    "strand": "Statistics",
    "title": "Choosing data displays",
    "description": "choose appropriate forms of display or visualisation for a given type of data; justify selections and interpret displays for a given context",
@@ -4241,6 +4342,7 @@
   {
    "code": "AC9M9ST05",
    "year": 9,
+   "span": 1,
    "strand": "Statistics",
    "title": "Statistical investigations",
    "description": "plan and conduct statistical investigations involving the collection and analysis of different kinds of data; report findings and discuss the strength of evidence to support any conclusions",
@@ -4286,6 +4388,7 @@
   {
    "code": "AC9M10A01",
    "year": 10,
+   "span": 1,
    "strand": "Algebra",
    "title": "Expand, factorise and simplify",
    "description": "expand, factorise and simplify expressions and solve equations algebraically, applying exponent laws involving products, quotients and powers of variables, and the distributive property",
@@ -4349,6 +4452,7 @@
   {
    "code": "AC9M10A02",
    "year": 10,
+   "span": 1,
    "strand": "Algebra",
    "title": "Linear inequalities and simultaneous equations",
    "description": "solve linear inequalities and simultaneous linear equations in 2 variables; interpret solutions graphically and communicate solutions in terms of the situation",
@@ -4402,6 +4506,7 @@
   {
    "code": "AC9M10A03",
    "year": 10,
+   "span": 1,
    "strand": "Algebra",
    "title": "Exponential functions",
    "description": "recognise the connection between algebraic and graphical representations of exponential relations and solve related exponential equations, using digital tools where appropriate",
@@ -4454,6 +4559,7 @@
   {
    "code": "AC9M10A04",
    "year": 10,
+   "span": 1,
    "strand": "Algebra",
    "title": "Model growth and decay",
    "description": "use mathematical modelling to solve applied problems involving growth and decay, including financial contexts; formulate problems, choosing to apply linear, quadratic or exponential models; interpret solutions in terms of the situation; evaluate and modify models as necessary and report assumptions, methods and findings",
@@ -4497,6 +4603,7 @@
   {
    "code": "AC9M10A05",
    "year": 10,
+   "span": 1,
    "strand": "Algebra",
    "title": "Experiment with functions and relations",
    "description": "experiment with functions and relations using digital tools, making and testing conjectures and generalising emerging patterns",
@@ -4549,6 +4656,7 @@
   {
    "code": "AC9M10M01",
    "year": 10,
+   "span": 1,
    "strand": "Measurement",
    "title": "Surface area and volume of composite objects",
    "description": "solve problems involving the surface area and volume of composite objects using appropriate units",
@@ -4602,6 +4710,7 @@
   {
    "code": "AC9M10M02",
    "year": 10,
+   "span": 1,
    "strand": "Measurement",
    "title": "Logarithmic scales",
    "description": "interpret and use logarithmic scales in applied contexts involving small and large quantities and change",
@@ -4644,6 +4753,7 @@
   {
    "code": "AC9M10M03",
    "year": 10,
+   "span": 1,
    "strand": "Measurement",
    "title": "Pythagoras and trigonometry in practical contexts",
    "description": "solve practical problems applying Pythagoras' theorem and trigonometry of right-angled triangles, including problems involving direction and angles of elevation and depression",
@@ -4686,6 +4796,7 @@
   {
    "code": "AC9M10M04",
    "year": 10,
+   "span": 1,
    "strand": "Measurement",
    "title": "Impact of measurement errors",
    "description": "identify the impact of measurement errors on the accuracy of results in practical contexts",
@@ -4728,6 +4839,7 @@
   {
    "code": "AC9M10M05",
    "year": 10,
+   "span": 1,
    "strand": "Measurement",
    "title": "Model proportion and scaling",
    "description": "use mathematical modelling to solve practical problems involving proportion and scaling of objects; formulate problems and interpret solutions in terms of the situation; evaluate and modify models as necessary, and report assumptions, methods and findings",
@@ -4770,6 +4882,7 @@
   {
    "code": "AC9M10N01",
    "year": 10,
+   "span": 1,
    "strand": "Number",
    "title": "Approximations of real numbers",
    "description": "recognise the effect of using approximations of real numbers in repeated calculations and compare the results when using exact representations",
@@ -4812,6 +4925,7 @@
   {
    "code": "AC9M10P01",
    "year": 10,
+   "span": 1,
    "strand": "Probability",
    "title": "Conditional probability",
    "description": "use the language of \"if ... then\", \"given\", \"of\", \"knowing that\" to describe and interpret situations involving conditional probability",
@@ -4854,6 +4968,7 @@
   {
    "code": "AC9M10P02",
    "year": 10,
+   "span": 1,
    "strand": "Probability",
    "title": "Simulate conditional probability",
    "description": "design and conduct repeated chance experiments and simulations using digital tools to model conditional probability and interpret results",
@@ -4896,6 +5011,7 @@
   {
    "code": "AC9M10SP01",
    "year": 10,
+   "span": 1,
    "strand": "Space",
    "title": "Deductive reasoning and geometric proof",
    "description": "apply deductive reasoning to proofs involving shapes in the plane and use theorems to solve spatial problems",
@@ -4938,6 +5054,7 @@
   {
    "code": "AC9M10SP02",
    "year": 10,
+   "span": 1,
    "strand": "Space",
    "title": "Networks and network diagrams",
    "description": "interpret networks and network diagrams used to represent relationships in practical situations and describe connectedness",
@@ -4980,6 +5097,7 @@
   {
    "code": "AC9M10SP03",
    "year": 10,
+   "span": 1,
    "strand": "Space",
    "title": "Algorithms for spatial problems",
    "description": "design, test and refine solutions to spatial problems using algorithms and digital tools; communicate and justify solutions",
@@ -5023,6 +5141,7 @@
   {
    "code": "AC9M10ST01",
    "year": 10,
+   "span": 1,
    "strand": "Statistics",
    "title": "Critique statistical reports",
    "description": "analyse claims, inferences and conclusions of statistical reports in the media, including ethical considerations and identification of potential sources of bias",
@@ -5065,6 +5184,7 @@
   {
    "code": "AC9M10ST02",
    "year": 10,
+   "span": 1,
    "strand": "Statistics",
    "title": "Boxplots and continuous distributions",
    "description": "compare data distributions for continuous numerical variables using appropriate data displays including boxplots; discuss the shapes of these distributions in terms of centre, spread, shape and outliers in the context of the data",
@@ -5107,6 +5227,7 @@
   {
    "code": "AC9M10ST03",
    "year": 10,
+   "span": 1,
    "strand": "Statistics",
    "title": "Scatterplots and association",
    "description": "construct scatterplots and comment on the association between the 2 numerical variables in terms of strength, direction and linearity",
@@ -5149,6 +5270,7 @@
   {
    "code": "AC9M10ST04",
    "year": 10,
+   "span": 1,
    "strand": "Statistics",
    "title": "Two-way tables and categorical relationships",
    "description": "construct two-way tables and discuss possible relationship between categorical variables",
@@ -5191,6 +5313,7 @@
   {
    "code": "AC9M10ST05",
    "year": 10,
+   "span": 1,
    "strand": "Statistics",
    "title": "Statistical investigations with bivariate data",
    "description": "plan and conduct statistical investigations of situations that involve bivariate data; evaluate and report findings with consideration of limitations of any inferences",

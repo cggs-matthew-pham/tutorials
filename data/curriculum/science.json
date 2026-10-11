@@ -1,0 +1,3904 @@
+{
+ "subject": "science",
+ "source": "waypoints-kit debe6f4",
+ "note": "Descriptor text: Australian Curriculum v9 (ACARA, CC BY 4.0). Waypoints and prior knowledge: Learning Waypoints. Made by tools/import-curriculum.mjs; do not edit by hand.",
+ "descriptors": [
+  {
+   "code": "AC9S1U02",
+   "year": 1,
+   "span": 1,
+   "strand": "Earth and space",
+   "title": "Daily and seasonal changes",
+   "description": "describe daily and seasonal changes in the environment and explore how these changes affect everyday life",
+   "prior": [],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "The environment changes daily and across seasons",
+     "checkpoint": "Students can describe observable daily changes (weather, temperature, daylight) and identify seasonal patterns across the year.",
+     "hinge": true,
+     "criteria": [
+      "Describes at least two observable daily changes in the environment",
+      "Names at least two seasons and describes one observable environmental change for each"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Daily and seasonal changes affect everyday life",
+     "checkpoint": "Students can explain how daily weather and seasonal changes affect decisions people make and how plants and animals respond to these changes.",
+     "hinge": false,
+     "criteria": [
+      "Describes at least one way daily weather change affects a human decision",
+      "Describes at least one way seasonal change affects a plant or animal"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S2U01",
+   "year": 2,
+   "span": 1,
+   "strand": "Earth and space",
+   "title": "Earth in the solar system",
+   "description": "recognise Earth is a planet in the solar system and identify patterns in the changing position of the sun, moon, planets and stars in the sky",
+   "prior": [
+    "AC9S1U02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Earth is a planet in the solar system",
+     "checkpoint": "Students can describe Earth as a planet in the solar system, name other planets and the sun, and describe the shape of Earth using images from space.",
+     "hinge": true,
+     "criteria": [
+      "Names Earth as a planet in the solar system and identifies at least two other planets",
+      "Describes the shape of Earth using evidence from space images"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Celestial objects show observable patterns",
+     "checkpoint": "Students can describe patterns in the changing position of the sun across a day and the changing appearance of the moon across a month, and use these patterns to make predictions.",
+     "hinge": false,
+     "criteria": [
+      "Describes the pattern of the sun's movement across a day (direction and shadow change)",
+      "Describes the pattern of moon shape change across a month and makes one prediction based on this pattern"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S2U02",
+   "year": 2,
+   "span": 1,
+   "strand": "Physical",
+   "title": "Sound",
+   "description": "explore different actions to make sounds and how to make a variety of sounds, and recognise that sound energy causes objects to vibrate",
+   "prior": [],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Sound is produced by different actions",
+     "checkpoint": "Students can identify and describe different actions that produce sound, classify instruments or objects by the action used to produce their sound, and explain that all sound production involves some form of action on an object.",
+     "hinge": false,
+     "criteria": [
+      "Names at least four different actions that produce sound with an example of each",
+      "Classifies at least three instruments or objects by the action used to produce their sound"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Sound energy causes objects to vibrate",
+     "checkpoint": "Students can explain that sound energy causes objects to vibrate, observe and describe vibrations produced by sound-making objects, and connect the speed or strength of vibration to sound properties.",
+     "hinge": false,
+     "criteria": [
+      "Describes vibrations in a named sound-making object",
+      "Explains that the object vibrates because of sound energy"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S2U03",
+   "year": 2,
+   "span": 1,
+   "strand": "Chemical",
+   "title": "Physical changes to materials",
+   "description": "recognise that materials can be changed physically without changing their material composition and explore the effect of different actions on materials including bending, twisting, stretching and breaking into smaller pieces",
+   "prior": [],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Physical changes alter shape without changing composition",
+     "checkpoint": "Students can explain that physically changing a material (bending, twisting, stretching, breaking) changes its shape or size but not what it is made of.",
+     "hinge": true,
+     "criteria": [
+      "Applies at least two physical changes to a material and names each action",
+      "Explains that the material is still the same substance after a physical change — only its shape or size has changed"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Different actions affect materials differently",
+     "checkpoint": "Students can explore and describe how different physical actions affect different materials and explain how physical changes can be purposeful.",
+     "hinge": false,
+     "criteria": [
+      "Compares how the same physical action affects two different materials",
+      "Describes at least one physical change that is purposeful — explaining why the change is useful"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S3U01",
+   "year": 3,
+   "span": 1,
+   "strand": "Biological",
+   "title": "Life cycles",
+   "description": "compare characteristics of living and non-living things and examine the differences between the life cycles of plants and animals",
+   "prior": [
+    "AC9S1U01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Living, once living and non-living things have distinct characteristics",
+     "checkpoint": "Students can classify objects as living, once living or non-living and explain their reasoning using observable characteristics (growth, reproduction, response to environment, need for nutrients).",
+     "hinge": true,
+     "criteria": [
+      "Classifies at least five objects as living, once living or non-living with characteristic-based reasoning",
+      "Correctly classifies at least one ambiguous case (e.g. seed, dead leaf, fire) with explanation"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Life cycles describe stages of growth and change",
+     "checkpoint": "Students can describe the life cycle of a named plant and a named animal, identifying the stages in sequence and explaining what changes occur at each stage.",
+     "hinge": false,
+     "criteria": [
+      "Names the stages of one plant and one animal life cycle in sequence",
+      "Describes the key change that occurs at each stage for both organisms"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Metamorphic and non-metamorphic cycles differ in structure",
+     "checkpoint": "Students can distinguish between metamorphic life cycles (dramatic change in body form between stages) and non-metamorphic cycles (gradual growth without structural transformation), and give examples of each.",
+     "hinge": false,
+     "criteria": [
+      "Distinguishes metamorphic from non-metamorphic life cycles with at least one example of each",
+      "Explains what 'metamorphosis' means in terms of change in body form between life stages"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S3U02",
+   "year": 3,
+   "span": 1,
+   "strand": "Earth and space",
+   "title": "Soils, rocks and minerals",
+   "description": "compare the observable properties of soils, rocks and minerals and investigate why they are important Earth resources",
+   "prior": [],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Soils have observable properties and components",
+     "checkpoint": "Students can describe the observable components of soil samples (pebbles, sand, clay, plant matter, living things) and compare the properties of different soils using observable evidence.",
+     "hinge": false,
+     "criteria": [
+      "Identifies at least three components in a soil sample using observation",
+      "Compares two soil samples using at least two property terms with observable evidence"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Rocks and minerals have observable properties",
+     "checkpoint": "Students can describe and compare observable properties of rocks and minerals (colour, texture, grain size, crystal size, hardness, lustre), and explain that minerals are the building blocks of rocks.",
+     "hinge": false,
+     "criteria": [
+      "Describes at least two observable properties for each of three rock or mineral samples",
+      "Explains that minerals are the building blocks of rocks"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Soils, rocks and minerals are important Earth resources",
+     "checkpoint": "Students can explain why soils, rocks and minerals are important resources for living things — including how living things depend on soils and how humans use rocks and minerals — and give specific examples of each.",
+     "hinge": false,
+     "criteria": [
+      "Gives at least two examples of how living things depend on soil with explanation",
+      "Gives at least two examples of human use of rocks or minerals, connecting the use to a property of the material"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S3U03",
+   "year": 3,
+   "span": 1,
+   "strand": "Physical",
+   "title": "Heat energy and transfer",
+   "description": "identify sources of heat energy and examine how temperature changes when heat energy is transferred from one object to another",
+   "prior": [],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Heat energy comes from identifiable sources",
+     "checkpoint": "Students can identify and classify sources of heat energy in everyday and natural contexts (sun, fire, electrical devices, geothermal, friction, body heat) and explain that heat is a form of energy.",
+     "hinge": false,
+     "criteria": [
+      "Identifies at least four sources of heat energy across at least two categories",
+      "Explains that heat is a form of energy that can be transferred and measured"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Heat transfers from warmer to cooler objects",
+     "checkpoint": "Students can explain that heat energy transfers from a warmer object to a cooler object when they are in contact, describe what happens to the temperature of each object during the transfer, and use temperature measurements to support their explanation.",
+     "hinge": true,
+     "criteria": [
+      "Explains that heat transfers from warmer to cooler objects, not from cold to warm",
+      "Describes what happens to the temperature of both objects during heat transfer (warm cools, cool warms) until they reach the same temperature",
+      "Uses thermometer observations to support the explanation"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Materials differ in how well they conduct or insulate heat",
+     "checkpoint": "Students can explain that some materials (conductors) transfer heat quickly and others (insulators) transfer heat slowly, give examples of each, and connect material selection to everyday uses for keeping things hot or cold.",
+     "hinge": false,
+     "criteria": [
+      "Identifies at least two conductors and two insulators with examples",
+      "Explains the difference between a conductor and an insulator in terms of how quickly heat transfers",
+      "Gives at least one everyday example where conductor or insulator properties determine material selection"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S5H01",
+   "year": 5,
+   "span": 2,
+   "strand": "Human endeavour",
+   "title": "Science collaboration and building on others' work",
+   "description": "examine why advances in science are often the result of collaboration or build on the work of others",
+   "prior": [
+    "AC9S3H01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Scientific advances build on prior work",
+     "checkpoint": "Students can describe at least one example where a scientific advance built on the prior work of others, explaining what earlier knowledge was required and how the new discovery extended or depended on it.",
+     "hinge": true,
+     "criteria": [
+      "Describes one example of a scientific advance that built on prior work",
+      "Identifies the earlier knowledge that was required and explains how the new contribution depended on it"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Collaboration across disciplines and institutions advances science",
+     "checkpoint": "Students can explain why complex scientific questions often require collaboration across disciplines, institutions or countries, and describe at least one example where such collaboration produced an advance.",
+     "hinge": false,
+     "criteria": [
+      "Describes one example of collaboration across at least two disciplines or groups",
+      "Explains what each contributor brought to the collaboration and why a single discipline could not have answered the question alone"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S5H02",
+   "year": 5,
+   "span": 2,
+   "strand": "Human endeavour",
+   "title": "Scientific knowledge used by communities",
+   "description": "investigate how scientific knowledge is used by individuals and communities to identify problems, consider responses and make decisions",
+   "prior": [
+    "AC9S3H02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Scientific knowledge helps identify and define problems",
+     "checkpoint": "Students can explain how scientific knowledge enables people to identify and precisely define a problem — distinguishing between a symptom (what is observed) and a cause (what the knowledge explains).",
+     "hinge": false,
+     "criteria": [
+      "Describes one example where scientific knowledge enabled a problem to be identified",
+      "Explains what the knowledge was and how it transformed an observation into a defined problem with a cause"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Scientific knowledge informs decisions and responses",
+     "checkpoint": "Students can examine how communities use scientific knowledge to evaluate options and make decisions — explaining what knowledge was used, what options were considered, and why a particular response was chosen.",
+     "hinge": false,
+     "criteria": [
+      "Describes one example where a community used scientific knowledge to make a decision",
+      "Explains what knowledge was used, what options were considered, and why the chosen response was selected"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S5I01",
+   "year": 5,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Questioning and predicting",
+   "description": "pose investigable questions to identify patterns and test relationships and make reasoned predictions",
+   "prior": [
+    "AC9S3I01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Investigable questions test relationships between variables",
+     "checkpoint": "Students can pose investigable questions that specifically target a relationship between two variables — framed as 'Does X affect Y?' or 'How does X change when Y changes?' — and explain what makes a question investigable.",
+     "hinge": true,
+     "criteria": [
+      "Poses a question that targets a relationship between two named variables",
+      "Explains why the question is investigable — what would be changed and what would be measured"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Reasoned predictions are justified with prior scientific knowledge",
+     "checkpoint": "Students can make reasoned predictions that are explicitly justified using prior scientific knowledge — distinguishing a reasoned prediction from an observation-based prediction by the nature of the justification.",
+     "hinge": false,
+     "criteria": [
+      "Makes a prediction and explicitly states the prior scientific knowledge (not just prior observation) that justifies it",
+      "Identifies what outcome would confirm or challenge the prediction"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S5I02",
+   "year": 5,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Planning and conducting",
+   "description": "plan and conduct repeatable investigations to answer questions, including, as appropriate, deciding the variables to be changed, measured and controlled in fair tests; describing potential risks; planning for the safe use of equipment and materials; and identifying required permissions to conduct investigations on Country/Place",
+   "prior": [
+    "AC9S3I02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Repeatable investigations require a recorded, reproducible method",
+     "checkpoint": "Students can plan and record an investigation method in sufficient detail that another person could repeat it, and explain why repeatability is important for reliable findings.",
+     "hinge": false,
+     "criteria": [
+      "Records an investigation method in sufficient detail for another student to repeat it",
+      "Explains why repeatability is important for the reliability of findings"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Variables, risks and permissions are identified in planning",
+     "checkpoint": "Students can independently decide which variables to change, measure and control in a fair test, describe potential risks, plan safe equipment use, and identify any permissions required for field investigations.",
+     "hinge": true,
+     "criteria": [
+      "Independently identifies variables to change, measure and control without a provided scaffold",
+      "Describes at least one potential risk and the planned safety measure to address it"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S5I04",
+   "year": 5,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Processing and representing data",
+   "description": "construct and use appropriate representations, including tables, graphs and visual or physical models, to organise and process data and information and describe patterns, trends and relationships",
+   "prior": [
+    "AC9S3I04"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Representations are selected and constructed for a given data type",
+     "checkpoint": "Students can select an appropriate representation type for a given data set or relationship and construct it accurately — with correct labels, conventions and structure.",
+     "hinge": true,
+     "criteria": [
+      "Selects a representation type appropriate to the data or relationship and explains why it suits the purpose",
+      "Constructs the representation with correct labels, units and conventions for the chosen type"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Representations are used to identify and describe patterns, trends and relationships",
+     "checkpoint": "Students can use a completed representation to identify a pattern, trend or relationship in the data and describe what it means in the context of the investigation question.",
+     "hinge": true,
+     "criteria": [
+      "Identifies at least one pattern, trend or relationship in a completed representation",
+      "Describes what the pattern or relationship means in the context of the investigation question — not just what the graph shows, but what it tells us"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S5I05",
+   "year": 5,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Evaluating",
+   "description": "compare methods and findings with those of others, recognise possible sources of error, pose questions for further investigation and select evidence to draw reasoned conclusions",
+   "prior": [
+    "AC9S3I05"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Errors are identified and their effect on findings is explained",
+     "checkpoint": "Students can identify specific sources of error in an investigation method (uncontrolled variables, measurement errors, environmental changes) and explain how each error could affect the findings and conclusions.",
+     "hinge": true,
+     "criteria": [
+      "Identifies at least two specific sources of error in an investigation method",
+      "Explains how each identified error could affect the findings or conclusion"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Evidence is selected to draw reasoned conclusions",
+     "checkpoint": "Students can select relevant evidence from a data set, use it to draw a reasoned conclusion, and explain why the selected evidence supports the conclusion while other data does not.",
+     "hinge": false,
+     "criteria": [
+      "Distinguishes between data and evidence for a given investigation",
+      "Selects at least two pieces of evidence that support a named conclusion and explains why each is relevant",
+      "Draws a reasoned conclusion that does not overclaim beyond the selected evidence"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S5I06",
+   "year": 5,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Communicating",
+   "description": "write and create texts to communicate ideas and findings for specific purposes and audiences, including selection of language features, using digital tools as appropriate",
+   "prior": [
+    "AC9S3I06"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Language features are selected deliberately to shape meaning",
+     "checkpoint": "Students can identify how vocabulary and sentence structure contribute to the meaning and effectiveness of a science text, and make deliberate language choices in their own writing to serve their communication purpose.",
+     "hinge": false,
+     "criteria": [
+      "Identifies at least two language features in a science text and explains how each contributes to meaning",
+      "Makes at least two deliberate language choices in their own writing and explains the reasoning"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Science texts serve specific purposes with appropriate conventions",
+     "checkpoint": "Students can write and create science texts in at least two different forms (scientific report, persuasive text, digital presentation) with appropriate conventions for each form, tailored to a specific purpose and audience.",
+     "hinge": false,
+     "criteria": [
+      "Produces a science text in a given form using appropriate conventions",
+      "Selects vocabulary appropriate to the purpose and audience",
+      "Justifies at least one language choice in terms of how it serves the communication purpose"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S5U01",
+   "year": 5,
+   "span": 1,
+   "strand": "Biological",
+   "title": "Structural features and survival",
+   "description": "examine how particular structural features and behaviours of living things enable their survival in specific habitats",
+   "prior": [
+    "AC9S4U01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Structural features are physical characteristics that aid survival",
+     "checkpoint": "Students can identify structural features of plants and animals and explain how each feature addresses a specific survival challenge in the organism's habitat.",
+     "hinge": true,
+     "criteria": [
+      "Identifies at least three structural features of a named organism",
+      "Explains how each feature addresses a specific survival challenge in the organism's habitat"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Behaviours also enable survival in specific habitats",
+     "checkpoint": "Students can identify behavioural adaptations of organisms and explain how each behaviour addresses a specific survival challenge — distinguishing behavioural from structural adaptations.",
+     "hinge": false,
+     "criteria": [
+      "Identifies at least two behavioural adaptations of a named organism and explains the survival function of each",
+      "Distinguishes between a structural feature and a behavioural adaptation for the same organism"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Features and behaviours match the challenges of specific habitats",
+     "checkpoint": "Students can connect the structural features and behaviours of an organism to the specific physical conditions and challenges of its habitat — explaining why this organism is well-suited to this habitat and less suited to a different one.",
+     "hinge": false,
+     "criteria": [
+      "Connects at least two features or behaviours to specific physical conditions of a named habitat",
+      "Predicts at least one challenge an organism would face if placed in a different habitat, with reasoning"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S5U02",
+   "year": 5,
+   "span": 1,
+   "strand": "Earth and space",
+   "title": "Weathering, erosion, transportation and deposition",
+   "description": "describe how weathering, erosion, transportation and deposition cause slow or rapid change to Earth's surface",
+   "prior": [
+    "AC9S3U02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Weathering breaks down rocks in place",
+     "checkpoint": "Students can distinguish weathering from erosion — explaining that weathering breaks down rock material in place through mechanical and biological means — and identify agents of weathering with examples.",
+     "hinge": true,
+     "criteria": [
+      "Explains that weathering breaks down rock material in place without moving it",
+      "Names at least two weathering agents and explains the mechanism by which each breaks down rock"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Erosion, transportation and deposition move and redistribute material",
+     "checkpoint": "Students can explain that erosion picks up and moves weathered material, transportation carries it, and deposition lays it down in a new location — describing the agents involved (water, wind, ice, gravity) and the landforms each process produces.",
+     "hinge": false,
+     "criteria": [
+      "Explains the three-stage sequence: erosion (picks up) → transportation (carries) → deposition (lays down)",
+      "Names at least two agents of erosion and identifies a landform feature produced by each"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Human activity changes erosion rates",
+     "checkpoint": "Students can explain how human activity alters natural erosion rates and predict the consequences of specific land use changes on local landscapes.",
+     "hinge": false,
+     "criteria": [
+      "Explains at least one mechanism by which human activity increases erosion rates",
+      "Describes at least one strategy that mitigates erosion and explains how it reduces the rate"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S5U03",
+   "year": 5,
+   "span": 1,
+   "strand": "Physical",
+   "title": "Light",
+   "description": "identify sources of light, recognise that light travels in a straight path and describe how shadows are formed and light can be reflected and refracted",
+   "prior": [],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Light travels in straight paths from sources",
+     "checkpoint": "Students can identify natural and artificial light sources, explain that light travels in straight paths (rays) from a source, and use this to explain why objects cast shadows.",
+     "hinge": true,
+     "criteria": [
+      "Names at least two natural and two artificial light sources",
+      "Explains that light travels in straight paths (rays) from a source",
+      "Uses straight-line travel to explain why an object casts a shadow"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Shadows form when light is blocked",
+     "checkpoint": "Students can explain how shadows form when an opaque object blocks light, describe how shadow size and shape change with the position and distance of the light source, and represent shadow formation using ray diagrams.",
+     "hinge": false,
+     "criteria": [
+      "Explains shadow formation using the straight-line travel of light being blocked by an object",
+      "Predicts how shadow size will change when the light source or object position changes, with reasoning",
+      "Draws a ray diagram showing shadow formation"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Light reflects off surfaces and refracts when changing medium",
+     "checkpoint": "Students can explain reflection as light bouncing off a surface in a predictable direction, describe refraction as the bending of light when it passes between different media, give everyday examples of each, and draw ray diagrams for reflection.",
+     "hinge": false,
+     "criteria": [
+      "Explains reflection using a ray diagram showing light bouncing off a surface",
+      "Explains refraction as the bending of light when it passes between different media, with an everyday example",
+      "Distinguishes reflection from refraction as different interactions of light with matter"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S5U04",
+   "year": 5,
+   "span": 1,
+   "strand": "Chemical",
+   "title": "Particle model of matter",
+   "description": "explain observable properties of solids, liquids and gases by modelling the motion and arrangement of particles",
+   "prior": [
+    "AC9S3U04"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Gases have observable properties distinct from solids and liquids",
+     "checkpoint": "Students can describe observable properties of gases — including that gases have mass, can be compressed, and take the shape and volume of their container — and distinguish these from the properties of solids and liquids.",
+     "hinge": true,
+     "criteria": [
+      "States at least two observable properties of gases that distinguish them from solids and liquids",
+      "Provides evidence that gases have mass"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Particle arrangement and motion explain state properties",
+     "checkpoint": "Students can use a particle model to explain the observable properties of each state — describing how particle arrangement (close/far apart) and motion (vibrating/flowing/moving freely) differ across solids, liquids and gases.",
+     "hinge": true,
+     "criteria": [
+      "Describes particle arrangement and motion for each of the three states",
+      "Uses the particle model to explain at least two observable properties — one for solids and one for gases"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "State changes are explained by changes in particle behaviour",
+     "checkpoint": "Students can explain state changes (melting, freezing, evaporation, condensation) using the particle model — describing how adding or removing heat energy changes particle motion and the transitions between states.",
+     "hinge": false,
+     "criteria": [
+      "Explains at least one state change using particle arrangement and motion — describing what happens to particles when heat is added or removed",
+      "Explains why mass is conserved during a state change using the particle model"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S6U01",
+   "year": 6,
+   "span": 1,
+   "strand": "Biological",
+   "title": "Physical conditions and survival",
+   "description": "investigate the physical conditions of a habitat and analyse how the growth and survival of living things is affected by changing physical conditions",
+   "prior": [
+    "AC9S5U01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Habitats have measurable physical conditions",
+     "checkpoint": "Students can identify and describe the physical conditions of an aquatic or terrestrial habitat — including temperature, light availability, salinity, soil type, moisture and pH — and explain how these conditions vary over time.",
+     "hinge": true,
+     "criteria": [
+      "Identifies at least three physical conditions of a named habitat",
+      "Explains how at least one physical condition varies over time in the habitat"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Changing physical conditions affect growth and survival",
+     "checkpoint": "Students can analyse how changes in physical conditions affect the growth and survival of living things — using investigation data or case study evidence to support their analysis.",
+     "hinge": true,
+     "criteria": [
+      "Describes how a change in a named physical condition affects the growth or survival of a named organism",
+      "Uses evidence (investigation data or case study) to support the analysis"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Human activity changes physical conditions and affects living things",
+     "checkpoint": "Students can analyse how human-caused changes to physical conditions affect living things, examine community and scientific responses, and predict the impact of specific condition changes on named organisms.",
+     "hinge": false,
+     "criteria": [
+      "Describes a human-caused change to a physical condition and its effect on a named organism, with the mechanism explained",
+      "Describes at least one scientific or community response to a human-caused condition change"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S6U02",
+   "year": 6,
+   "span": 1,
+   "strand": "Earth and space",
+   "title": "Earth, sun and solar system",
+   "description": "describe the movement of Earth and other planets relative to the sun and model how Earth's tilt, rotation on its axis and revolution around the sun relate to cyclic observable phenomena, including variable day and night length",
+   "prior": [],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Earth and planets orbit the sun; gravity keeps them in orbit",
+     "checkpoint": "Students can describe the relative positions and movements of the sun and planets in the solar system, explain that gravity keeps planets in orbit, and appreciate the scale of distances involved.",
+     "hinge": false,
+     "criteria": [
+      "Describes the movement of Earth and at least two other planets relative to the sun",
+      "Explains that gravity keeps planets in orbit around the sun"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Earth's rotation causes day and night",
+     "checkpoint": "Students can use a model to explain how Earth's rotation on its axis causes day and night, and explain why different places on Earth experience daylight at different times.",
+     "hinge": true,
+     "criteria": [
+      "Explains that day and night are caused by Earth's rotation on its axis",
+      "Uses a model or diagram to show that the side of Earth facing the sun has day and the side facing away has night"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Earth's tilt and revolution cause variable day length and seasons",
+     "checkpoint": "Students can explain how Earth's axial tilt, combined with its revolution around the sun, causes different hemispheres to receive different amounts of sunlight at different times of year — producing variable day length and seasons.",
+     "hinge": false,
+     "criteria": [
+      "Explains that Earth's axial tilt causes one hemisphere to receive more sunlight than the other at different times of year",
+      "Uses a model or diagram to show why the Southern and Northern hemispheres have opposite seasons",
+      "Explains why day length varies between summer and winter at the same location"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S6U03",
+   "year": 6,
+   "span": 1,
+   "strand": "Physical",
+   "title": "Electrical circuits",
+   "description": "investigate the transfer and transformation of energy in electrical circuits, including the role of circuit components, insulators and conductors",
+   "prior": [
+    "AC9S3U03",
+    "AC9S8U05"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "A circuit requires a complete conducting path and energy source",
+     "checkpoint": "Students can explain what is required for an electrical circuit to work — a complete conducting path from and back to the energy source — and identify what happens to the circuit when the path is broken.",
+     "hinge": true,
+     "criteria": [
+      "Explains that a circuit requires a complete conducting path and an energy source",
+      "Explains what happens to the circuit when the path is broken and why"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Conductors allow electricity to flow; insulators do not",
+     "checkpoint": "Students can distinguish electrical conductors from insulators, classify common materials, explain why conductors and insulators are used in specific components, and connect this to safe electrical design.",
+     "hinge": true,
+     "criteria": [
+      "Classifies at least four materials as electrical conductors or insulators",
+      "Explains why a wire has a metal core with a plastic coating — connecting conductor and insulator properties to a real design decision"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Electrical energy is transferred and transformed by circuit components",
+     "checkpoint": "Students can explain how electrical energy is transferred through a circuit and transformed by components into light, heat and sound, and represent circuits using standard conventions.",
+     "hinge": false,
+     "criteria": [
+      "Explains how at least two different circuit components transform electrical energy into other forms",
+      "Draws a circuit diagram using standard symbols",
+      "Connects electrical energy transformation in a circuit to the general concept that energy changes form"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S6U04",
+   "year": 6,
+   "span": 1,
+   "strand": "Chemical",
+   "title": "Reversible and irreversible changes",
+   "description": "compare reversible changes, including dissolving and changes of state, and irreversible changes, including cooking and rusting that produce new substances",
+   "prior": [
+    "AC9S5U04",
+    "AC9S3U04"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Reversible changes do not produce new substances",
+     "checkpoint": "Students can explain that reversible changes — including dissolving and state changes — do not produce new substances, describe how dissolved substances can be recovered, and give examples of reversible changes used in recycling.",
+     "hinge": true,
+     "criteria": [
+      "Explains that dissolving is reversible — the dissolved substance can be recovered",
+      "Describes at least one method for recovering a dissolved substance",
+      "Explains that reversible changes do not produce new substances"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Irreversible changes produce new substances",
+     "checkpoint": "Students can explain that irreversible changes produce new substances with different properties, identify observable evidence of new substance formation, and give examples of common irreversible changes.",
+     "hinge": true,
+     "criteria": [
+      "Explains that irreversible changes produce new substances with different properties",
+      "Names at least two observable indicators that an irreversible change has occurred",
+      "Distinguishes an irreversible change from a reversible change by the presence or absence of new substance formation"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Reversible and irreversible changes are compared systematically",
+     "checkpoint": "Students can compare reversible and irreversible changes systematically — using the criterion of new substance formation — classify a range of everyday changes correctly, and explain how this distinction is used in practical contexts.",
+     "hinge": false,
+     "criteria": [
+      "Classifies at least four everyday changes as reversible or irreversible using the new-substance criterion",
+      "Correctly classifies at least one ambiguous case (e.g. dissolving) with reasoning",
+      "Explains how the reversible/irreversible distinction is applied in a practical context"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7H01",
+   "year": 7,
+   "span": 2,
+   "strand": "Human endeavour",
+   "title": "Evidence changes knowledge",
+   "description": "explain how new evidence or different perspectives can lead to changes in scientific knowledge",
+   "prior": [
+    "AC9S5H01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Scientific knowledge is based on evidence",
+     "checkpoint": "Students can identify that scientific knowledge is built from evidence and that the type and quality of evidence matters",
+     "hinge": false,
+     "criteria": [
+      "States that scientific knowledge is based on evidence",
+      "Gives one correct example of evidence supporting a scientific idea",
+      "Does not confuse evidence with opinion or belief"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "New evidence changes scientific understanding",
+     "checkpoint": "Students can explain how new evidence — from new technology, methods or discoveries — has led to changes in scientific understanding",
+     "hinge": false,
+     "criteria": [
+      "Names a specific example where scientific understanding changed due to new evidence",
+      "Explains what the new evidence was and how it caused the change",
+      "Does not describe the change as science being 'wrong before'"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Different perspectives shape knowledge",
+     "checkpoint": "Students can explain how different perspectives — including cultural, historical and disciplinary — contribute to the development of scientific knowledge",
+     "hinge": false,
+     "criteria": [
+      "Names a specific example where a different perspective contributed to scientific knowledge",
+      "Explains the contribution rather than just naming the perspective",
+      "Recognises that multiple perspectives can coexist and contribute to understanding"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Evidence and perspectives together refine knowledge",
+     "checkpoint": "Students can explain how the interplay of new evidence and different perspectives leads to ongoing refinement of scientific knowledge",
+     "hinge": false,
+     "criteria": [
+      "Explains how both new evidence and different perspectives contributed to a knowledge change",
+      "Identifies that scientific knowledge refinement is an ongoing process"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7H02",
+   "year": 7,
+   "span": 2,
+   "strand": "Human endeavour",
+   "title": "Culture shapes scientific knowledge",
+   "description": "investigate how cultural perspectives and world views influence the development of scientific knowledge",
+   "prior": [
+    "AC9S5H01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Scientists bring perspectives to their work",
+     "checkpoint": "Students can identify that scientists' personal beliefs, cultural backgrounds and societal contexts influence the questions they pursue",
+     "hinge": false,
+     "criteria": [
+      "Names a specific example where perspective influenced a scientific question or approach",
+      "Explains the connection between the perspective and the scientific work",
+      "Does not treat perspective as automatically introducing bias or error"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Cultural knowledge systems contribute to science",
+     "checkpoint": "Students can investigate how knowledge systems from different cultures contribute to scientific understanding",
+     "hinge": false,
+     "criteria": [
+      "Names a specific cultural knowledge contribution to scientific understanding",
+      "Explains what the contribution is rather than just naming the culture",
+      "Does not frame cultural knowledge as inferior to or separate from science"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Different perspectives on science-society issues",
+     "checkpoint": "Students can explain why different people hold different perspectives on science-related issues and why recognising this matters",
+     "hinge": false,
+     "criteria": [
+      "Identifies a science-society issue with multiple perspectives",
+      "Explains why different groups hold different views",
+      "Recognises that considering multiple perspectives improves decision-making"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Culture shapes the development of scientific knowledge",
+     "checkpoint": "Students can explain how cultural perspectives and world views have influenced the development of scientific knowledge across multiple examples",
+     "hinge": false,
+     "criteria": [
+      "Explains how a cultural perspective influenced the development of specific scientific knowledge",
+      "Connects the perspective to the knowledge outcome rather than just describing each separately"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7H03",
+   "year": 7,
+   "span": 2,
+   "strand": "Human endeavour",
+   "title": "Science responses impact society",
+   "description": "examine how proposed scientific responses to contemporary issues may impact on society and explore ethical, environmental, social and economic considerations",
+   "prior": [
+    "AC9S5H02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Scientific responses to contemporary issues",
+     "checkpoint": "Students can identify proposed scientific responses to contemporary issues and describe the intended impact",
+     "hinge": false,
+     "criteria": [
+      "Identifies a proposed scientific response and the contemporary issue it addresses",
+      "Describes the intended impact of the response",
+      "Distinguishes the scientific response from a political or social response"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Impacts can be positive and negative",
+     "checkpoint": "Students can examine both intended and unintended impacts of a scientific response on society and the environment",
+     "hinge": false,
+     "criteria": [
+      "Identifies both an intended and an unintended impact of a scientific response",
+      "Explains why the unintended impact occurs",
+      "Does not frame the response as simply good or bad"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Ethical, environmental, social and economic considerations",
+     "checkpoint": "Students can explore ethical, environmental, social and economic considerations associated with a proposed scientific response",
+     "hinge": false,
+     "criteria": [
+      "Identifies at least two types of consideration relevant to a specific response",
+      "Explains why each consideration matters for that response",
+      "Distinguishes between the consideration types rather than conflating them"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Evaluating scientific responses with multiple considerations",
+     "checkpoint": "Students can examine a proposed scientific response by weighing multiple considerations and explaining why stakeholders may reach different conclusions",
+     "hinge": false,
+     "criteria": [
+      "Examines a scientific response using at least two consideration types",
+      "Explains why different stakeholders evaluate the response differently",
+      "Connects stakeholder conclusions to their priorities rather than framing disagreement as ignorance"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7H04",
+   "year": 7,
+   "span": 2,
+   "strand": "Human endeavour",
+   "title": "Science communication shapes policy",
+   "description": "explore the role of science communication in informing individual viewpoints and community policies and regulations",
+   "prior": [
+    "AC9S5H02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Science communication takes many forms",
+     "checkpoint": "Students can identify different forms of science communication and recognise that how science is communicated affects what people understand",
+     "hinge": false,
+     "criteria": [
+      "Identifies at least two forms of science communication",
+      "Explains how each form reaches a different audience",
+      "Recognises that communication choices affect what people understand"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Communication informs individual viewpoints",
+     "checkpoint": "Students can explore how science communication informs and changes individual viewpoints on science-related issues",
+     "hinge": false,
+     "criteria": [
+      "Names a specific example where science communication changed viewpoints",
+      "Explains what was communicated and how viewpoints changed",
+      "Distinguishes the role of communication from the knowledge itself"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Communication shapes community policies and regulations",
+     "checkpoint": "Students can explore how science communication leads to changes in community policies and regulations",
+     "hinge": false,
+     "criteria": [
+      "Names a specific example where science communication led to a policy or regulation change",
+      "Explains the pathway from communication to policy outcome",
+      "Distinguishes the policy change from the underlying scientific knowledge"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "The role of science communication in society",
+     "checkpoint": "Students can explore how science communication plays an ongoing role in informing viewpoints and shaping policies across different contexts",
+     "hinge": false,
+     "criteria": [
+      "Explains how communication choices connected to both viewpoint and policy outcomes",
+      "Identifies what made the communication effective or ineffective"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7I01",
+   "year": 7,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Explore models and test relationships",
+   "description": "develop investigable questions, reasoned predictions and hypotheses to explore scientific models, identify patterns and test relationships",
+   "prior": [
+    "AC9S5I01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Investigable vs non-investigable questions",
+     "checkpoint": "Students can distinguish investigable from non-investigable questions and explain what makes a question investigable",
+     "hinge": false,
+     "criteria": [
+      "Correctly classifies at least 3 questions as investigable or non-investigable",
+      "States at least two features that make a question investigable",
+      "Does not confuse 'interesting' with 'investigable'"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Developing investigable questions",
+     "checkpoint": "Students can develop investigable questions to explore scientific models or test relationships between variables",
+     "hinge": false,
+     "criteria": [
+      "Develops an investigable question that identifies variables or a model to explore",
+      "The question is testable with available methods and resources",
+      "Explains how the question connects to the model or relationship being investigated"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Predictions and hypotheses",
+     "checkpoint": "Students can formulate reasoned predictions and hypotheses that include a variable, predicted outcome and reasoning",
+     "hinge": false,
+     "criteria": [
+      "Develops a hypothesis that includes a variable, predicted outcome and reasoning",
+      "Distinguishes a prediction from a hypothesis",
+      "The reasoning in the hypothesis is scientifically plausible"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7I02",
+   "year": 7,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Plan reproducible investigations",
+   "description": "plan and conduct reproducible investigations to answer questions and test hypotheses, including identifying variables and assumptions and, as appropriate, recognising and managing risks, considering ethical issues and recognising key considerations regarding heritage sites and artefacts on Country/Place",
+   "prior": [
+    "AC9S5I02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Variables and assumptions",
+     "checkpoint": "Students can identify independent, dependent and controlled variables and recognise assumptions about controlled variables",
+     "hinge": false,
+     "criteria": [
+      "Correctly identifies independent, dependent and controlled variables in a given method",
+      "Names at least one assumption about a controlled variable",
+      "Explains why controlling variables matters for the investigation"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Planning reproducible methods",
+     "checkpoint": "Students can plan a method that another person could reproduce to obtain comparable results",
+     "hinge": false,
+     "criteria": [
+      "Plans a method with sufficient detail for another person to reproduce",
+      "Method logically tests the stated hypothesis",
+      "Peer review confirms the method is followable"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Risks, ethics and heritage considerations",
+     "checkpoint": "Students can identify and manage risks, consider ethical issues and recognise heritage site protocols when planning investigations",
+     "hinge": false,
+     "criteria": [
+      "Identifies at least one risk and suggests how to manage it",
+      "Identifies at least one ethical consideration relevant to the investigation",
+      "Recognises that heritage sites and artefacts require specific protocols"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7I03",
+   "year": 7,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Select equipment and record data",
+   "description": "select and use equipment to generate and record data with precision, using digital tools as appropriate",
+   "prior": [
+    "AC9S5I02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Selecting appropriate equipment",
+     "checkpoint": "Students can select equipment appropriate to an investigation's measurement needs and justify the choice",
+     "hinge": false,
+     "criteria": [
+      "Selects equipment appropriate to the measurement task",
+      "Justifies the choice based on measurement range or precision",
+      "Does not select equipment that cannot measure the expected values"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Recording data with precision",
+     "checkpoint": "Students can record data in organised formats using correct units and appropriate precision",
+     "hinge": false,
+     "criteria": [
+      "Records data using correct standard units",
+      "Precision is appropriate to the equipment used",
+      "Data table is organised with clear headings and units"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Using digital tools for data generation",
+     "checkpoint": "Students can use digital tools to generate more precise or efficient data and explain the advantage over manual methods",
+     "hinge": false,
+     "criteria": [
+      "Identifies a digital tool appropriate for a given investigation",
+      "Explains the advantage of the digital tool over a manual alternative",
+      "Uses the tool to generate data with appropriate precision"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7I04",
+   "year": 7,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Select tables, graphs and models",
+   "description": "select and construct appropriate representations, including tables, graphs, models and mathematical relationships, to organise and process data and information",
+   "prior": [
+    "AC9S5I04"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Choosing appropriate representations",
+     "checkpoint": "Students can select an appropriate representation type for a given data set based on data characteristics",
+     "hinge": false,
+     "criteria": [
+      "Selects a representation type appropriate for the data characteristics",
+      "Explains why the chosen representation suits the data",
+      "Does not default to one representation type regardless of data"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Constructing representations",
+     "checkpoint": "Students can construct tables, graphs, food webs, dichotomous keys and other models to organise data and information",
+     "hinge": false,
+     "criteria": [
+      "Constructs a representation with correct labels, scales and conventions",
+      "Representation accurately reflects the source data",
+      "Uses the representation to describe at least one pattern"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Processing data through representations",
+     "checkpoint": "Students can use representations including mathematical relationships to process and analyse data",
+     "hinge": false,
+     "criteria": [
+      "Uses a representation to identify and describe a pattern",
+      "Description is supported by specific reference to the data",
+      "Does not over-interpret the data beyond what the representation shows"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7I05",
+   "year": 7,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Identify patterns and anomalies",
+   "description": "analyse data and information to describe patterns, trends and relationships and identify anomalies",
+   "prior": [
+    "AC9S5I05"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Describing patterns and trends",
+     "checkpoint": "Students can identify and describe patterns and trends in data sets",
+     "hinge": false,
+     "criteria": [
+      "Identifies a pattern or trend in a data set",
+      "Describes the pattern using appropriate language",
+      "Does not confuse correlation with a single data point"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Identifying relationships in data",
+     "checkpoint": "Students can analyse data to identify and describe relationships between variables",
+     "hinge": false,
+     "criteria": [
+      "Identifies a relationship between two variables",
+      "Describes the relationship type (positive, negative or non-linear)",
+      "Connects the relationship to the variables involved, not just the trend direction"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Identifying and explaining anomalies",
+     "checkpoint": "Students can identify anomalies in data and investigate their effect on observed patterns or relationships",
+     "hinge": false,
+     "criteria": [
+      "Identifies an anomaly in a data set",
+      "Explains why the anomaly does not fit the observed pattern",
+      "Does not automatically discard anomalies without considering whether they are meaningful"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7I06",
+   "year": 7,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Analyse methods and claims",
+   "description": "analyse methods, conclusions and claims for assumptions, possible sources of error, conflicting evidence and unanswered questions",
+   "prior": [
+    "AC9S5I05"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Identifying sources of error",
+     "checkpoint": "Students can identify possible sources of error in an investigation method and suggest improvements",
+     "hinge": false,
+     "criteria": [
+      "Identifies a specific source of error (not just 'human error')",
+      "Explains how the error affects the data or results",
+      "Suggests a specific improvement to reduce the error"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Evaluating methods and assumptions",
+     "checkpoint": "Students can evaluate an investigation method by identifying assumptions about controlled variables and assessing whether the method tests the hypothesis",
+     "hinge": false,
+     "criteria": [
+      "Identifies at least one assumption about a controlled variable",
+      "Explains why the assumption matters for the investigation's validity",
+      "Assesses whether the method tests the stated hypothesis"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Evaluating conclusions and claims",
+     "checkpoint": "Students can analyse conclusions and claims for conflicting evidence and unanswered questions",
+     "hinge": false,
+     "criteria": [
+      "Identifies evidence that both supports and conflicts with a claim",
+      "Identifies at least one unanswered question arising from the evidence",
+      "Does not treat a conclusion as proven simply because some evidence supports it"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7I07",
+   "year": 7,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Construct evidence-based arguments",
+   "description": "construct evidence-based arguments to support conclusions or evaluate claims and consider any ethical issues and cultural protocols associated with using or citing secondary data or information",
+   "prior": [
+    "AC9S5I05"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Drawing conclusions from evidence",
+     "checkpoint": "Students can draw a conclusion from evidence that supports or rejects a hypothesis and identify the evidence used",
+     "hinge": false,
+     "criteria": [
+      "Draws a conclusion that is consistent with the evidence",
+      "Identifies the specific evidence that supports the conclusion",
+      "States whether the evidence supports or rejects the hypothesis"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Constructing evidence-based arguments",
+     "checkpoint": "Students can construct an argument supported by evidence and reasoning to support a conclusion or evaluate a claim",
+     "hinge": false,
+     "criteria": [
+      "Constructs an argument that links evidence to a conclusion through reasoning",
+      "The reasoning explains why the evidence supports the conclusion",
+      "Does not simply list evidence without connecting it to the conclusion"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Ethics of using secondary data",
+     "checkpoint": "Students can consider ethical issues and cultural protocols associated with using or citing secondary data or information",
+     "hinge": false,
+     "criteria": [
+      "Identifies an ethical issue or cultural protocol relevant to using secondary data",
+      "Explains why the issue matters for the integrity of the argument",
+      "Recognises that cultural knowledge requires specific protocols for use and citation"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7I08",
+   "year": 7,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Communicate ideas and arguments",
+   "description": "write and create texts to communicate ideas, findings and arguments for specific purposes and audiences, including selection of appropriate language and text features, using digital tools as appropriate",
+   "prior": [
+    "AC9S5I06"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Purpose, audience and text type",
+     "checkpoint": "Students can identify the purpose and audience of scientific texts and select an appropriate text type",
+     "hinge": false,
+     "criteria": [
+      "Identifies the purpose and target audience of a scientific text",
+      "Explains how the text type suits the audience",
+      "Does not assume all scientific communication uses the same format"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Language and text features for science communication",
+     "checkpoint": "Students can select and use appropriate language and text features including diagrams, graphical representations and data",
+     "hinge": false,
+     "criteria": [
+      "Includes at least one diagram or graphical representation",
+      "Representation is referenced in the text, not just appended",
+      "Language is appropriate for the stated audience"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Communicating for specific purposes",
+     "checkpoint": "Students can write and create texts that communicate ideas, findings and arguments effectively for a specific purpose and audience",
+     "hinge": false,
+     "criteria": [
+      "Produces a communication for a specific purpose and audience",
+      "Text type and language features are appropriate to the purpose",
+      "Communication includes ideas, findings or arguments — not just description"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7U01",
+   "year": 7,
+   "span": 1,
+   "strand": "Biological",
+   "title": "Classification and biodiversity",
+   "description": "investigate the role of classification in ordering and organising the diversity of life on Earth and use and develop classification tools including dichotomous keys",
+   "prior": [],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Purpose of classification",
+     "checkpoint": "Students can explain why classification is useful for organising and communicating about living things",
+     "hinge": false,
+     "criteria": [
+      "Names at least two reasons why classification is useful (e.g. identification, communication)",
+      "Gives a correct everyday example of classification",
+      "Does not confuse classification with simple sorting or listing"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Taxonomy: major groups and kingdoms",
+     "checkpoint": "Students can place organisms into major taxonomic groups using observable features and justify their classification",
+     "hinge": true,
+     "criteria": [
+      "Correctly places 5 familiar organisms into kingdoms with observable feature justification",
+      "Identifies at least one organism that is difficult to classify and explains why"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Using dichotomous keys",
+     "checkpoint": "Students can use a dichotomous key to identify organisms by applying binary decisions based on observable features",
+     "hinge": true,
+     "criteria": [
+      "Follows all decision points in a provided key to reach correct identifications",
+      "Names the observable feature used at each decision point",
+      "Explains why an incorrect path leads to a wrong outcome"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Constructing dichotomous keys",
+     "checkpoint": "Students can construct a dichotomous key that correctly classifies a set of organisms using observable features",
+     "hinge": false,
+     "criteria": [
+      "Constructs a key that correctly classifies all organisms in a given set",
+      "Key uses binary observable features at each decision point",
+      "Peer testing confirms key produces correct identifications"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Classification systems change over time",
+     "checkpoint": "Students can explain how classification systems change in response to new evidence and evaluate what this reveals about scientific knowledge",
+     "hinge": false,
+     "criteria": [
+      "Names a real reclassification event and the evidence that caused it",
+      "Explains whether reclassification weakens or strengthens confidence in science"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7U02",
+   "year": 7,
+   "span": 1,
+   "strand": "Biological",
+   "title": "Food webs and ecosystems",
+   "description": "use models, including food webs, to represent matter and energy flow in ecosystems and predict the impact of changing abiotic and biotic factors on populations",
+   "prior": [],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "From food chains to food webs",
+     "checkpoint": "Students can construct a food web and identify the roles of producers, consumers and decomposers including microorganisms",
+     "hinge": true,
+     "criteria": [
+      "Correctly places all organisms in a food web into producer, consumer or decomposer roles",
+      "Arrows show direction of energy flow, not just feeding relationships",
+      "Includes microorganisms in the decomposer role"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Matter and energy flow",
+     "checkpoint": "Students can explain the direction and loss of energy through trophic levels and distinguish energy flow from matter cycling",
+     "hinge": true,
+     "criteria": [
+      "States that energy is lost at each trophic level",
+      "Correctly distinguishes energy flow from matter cycling in an explanation",
+      "Traces the direction of energy through at least 3 trophic levels"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Abiotic factors and population effects",
+     "checkpoint": "Students can predict and explain how a change to an abiotic factor cascades through populations in a food web",
+     "hinge": false,
+     "criteria": [
+      "Correctly defines abiotic factor and gives 3 examples",
+      "Predicts the effect of one abiotic change on one population with reasoning",
+      "Identifies at least one other population affected by the cascade"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Biotic factors and population effects",
+     "checkpoint": "Students can predict and explain how a change to a biotic factor cascades through populations in a food web",
+     "hinge": true,
+     "criteria": [
+      "Correctly defines biotic factor and gives 3 examples",
+      "Predicts the effect of removing one species with food web reasoning",
+      "Traces at least one cascade effect beyond the immediate population"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Models, limitations and predictions",
+     "checkpoint": "Students can evaluate the limitations of food web models and explain how these affect the reliability of predictions",
+     "hinge": false,
+     "criteria": [
+      "Identifies at least one limitation of food web models",
+      "Explains how that limitation affects the reliability of a specific prediction"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7U03",
+   "year": 7,
+   "span": 1,
+   "strand": "Earth and space",
+   "title": "Earth-Sun-Moon system",
+   "description": "model cyclic changes in the relative positions of the Earth, sun and moon and explain how these cycles cause eclipses and influence predictable phenomena on Earth, including seasons and tides",
+   "prior": [],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Earth's rotation, revolution and axial tilt",
+     "checkpoint": "Students can distinguish Earth's rotation from revolution and explain how axial tilt relates to observable changes across a year",
+     "hinge": true,
+     "criteria": [
+      "Correctly distinguishes rotation from revolution",
+      "Links rotation to day/night and revolution to the year",
+      "Identifies that Earth's axis is tilted"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Moon phases and the lunar cycle",
+     "checkpoint": "Students can explain moon phases as a result of the moon's position relative to Earth and sun and sequence them correctly",
+     "hinge": true,
+     "criteria": [
+      "Correctly sequences all 8 moon phases",
+      "Explains phases as caused by the moon's position, not Earth's shadow",
+      "Does not confuse moon phases with eclipses"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Eclipses: solar and lunar",
+     "checkpoint": "Students can explain the conditions required for solar and lunar eclipses and why eclipses do not occur every month",
+     "hinge": false,
+     "criteria": [
+      "States the conditions required for both solar and lunar eclipses",
+      "Correctly distinguishes umbra from penumbra",
+      "Explains why eclipses don't occur every month"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Seasons",
+     "checkpoint": "Students can explain seasons as caused by axial tilt and correctly relate tilt to solar angle and day length at different latitudes",
+     "hinge": true,
+     "criteria": [
+      "Explains seasons as caused by axial tilt, not distance from the sun",
+      "Links tilt to solar angle and day length",
+      "Correctly identifies opposite seasons in Northern and Southern hemispheres"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Tides",
+     "checkpoint": "Students can explain tides as caused by the moon's gravitational pull and distinguish spring from neap tides by moon position",
+     "hinge": false,
+     "criteria": [
+      "Explains tides as caused by the moon's gravitational pull",
+      "Correctly identifies spring and neap tides",
+      "Links spring and neap tides to moon positions"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7U04",
+   "year": 7,
+   "span": 1,
+   "strand": "Physical",
+   "title": "Forces and motion",
+   "description": "investigate and represent balanced and unbalanced forces, including gravitational force, acting on objects, and relate changes in an object's motion to its mass and the magnitude and direction of forces acting on it",
+   "prior": [],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Forces as vectors: magnitude and direction",
+     "checkpoint": "Students can represent forces on an object as vectors showing correct magnitude and direction and name the forces",
+     "hinge": true,
+     "criteria": [
+      "Represents at least 2 forces on an object with correct arrow direction and relative size",
+      "Names each force represented",
+      "Diagram is consistent with the described scenario"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Balanced forces and equilibrium",
+     "checkpoint": "Students can identify whether forces on an object are balanced or unbalanced and predict the resulting motion state",
+     "hinge": true,
+     "criteria": [
+      "Correctly identifies balanced vs unbalanced forces in a given diagram",
+      "States that balanced forces mean no change in motion — not that no forces are acting",
+      "Predicts the motion state from a force diagram"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Unbalanced forces and changes in motion",
+     "checkpoint": "Students can explain that unbalanced forces cause a change in motion and represent this with force diagrams",
+     "hinge": false,
+     "criteria": [
+      "States that unbalanced forces cause a change in motion",
+      "Gives 2 examples with correct force diagrams",
+      "Identifies both speed and direction as possible changes"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Gravitational force and mass",
+     "checkpoint": "Students can distinguish mass from weight, explain gravitational force as dependent on mass, and calculate weight from mass",
+     "hinge": true,
+     "criteria": [
+      "Correctly distinguishes mass from weight with definitions",
+      "Calculates weight correctly given mass and g",
+      "Explains gravitational force as dependent on mass — not just Earth's pull"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Relating force, mass and motion change",
+     "checkpoint": "Students can describe the qualitative relationship between force, mass and acceleration and interpret data from force investigations",
+     "hinge": false,
+     "criteria": [
+      "States the qualitative relationship between force, mass and acceleration",
+      "Correctly predicts which object accelerates more under the same force",
+      "Identifies the pattern in data from a force investigation"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7U05",
+   "year": 7,
+   "span": 1,
+   "strand": "Chemical",
+   "title": "Particle theory and properties",
+   "description": "use particle theory to describe the arrangement of particles in a substance, including the motion of and attraction between particles, and relate this to the properties of the substance",
+   "prior": [],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Introducing the particle model",
+     "checkpoint": "Students can match particle diagrams to states of matter and state the key ideas of particle theory",
+     "hinge": true,
+     "criteria": [
+      "Matches particle diagrams to correct states of matter",
+      "States the 4 key ideas of particle theory",
+      "Identifies differences in arrangement, motion and attraction across states"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Particle arrangement, motion and attraction in each state",
+     "checkpoint": "Students can describe particle arrangement, motion and attraction for each state and explain observable properties using this model",
+     "hinge": true,
+     "criteria": [
+      "Describes particle arrangement, motion and attraction for each state",
+      "Explains why solids hold shape and gases fill containers using particle theory",
+      "Does not treat particle diagrams as decorative — uses them to support reasoning"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Explaining physical properties using particle theory",
+     "checkpoint": "Students can use particle theory to explain physical properties of substances including compressibility, viscosity and density",
+     "hinge": true,
+     "criteria": [
+      "Uses particle theory to explain at least 2 physical properties of a given substance",
+      "Explanation references arrangement, motion or attraction — not just state labels",
+      "Correctly links a named property to the relevant particle behaviour"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Changes of state and energy",
+     "checkpoint": "Students can explain changes of state using particle theory and correctly identify energy input or output for each change",
+     "hinge": false,
+     "criteria": [
+      "Explains melting, freezing, evaporation and condensation using particle theory",
+      "Correctly identifies energy input or output for each change",
+      "Does not confuse temperature change with state change during plateau regions"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Particle theory as a model: scope and limits",
+     "checkpoint": "Students can identify the scope and limitations of the particle model and explain what evidence supports it",
+     "hinge": false,
+     "criteria": [
+      "Identifies one phenomenon particle theory explains well and one it does not",
+      "Gives a reason for each based on the model's assumptions"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S7U06",
+   "year": 7,
+   "span": 1,
+   "strand": "Chemical",
+   "title": "Pure substances and mixtures",
+   "description": "use a particle model to describe differences between pure substances and mixtures and apply understanding of properties of substances to separate mixtures",
+   "prior": [
+    "AC9S7U05"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Pure substances vs mixtures at the particle level",
+     "checkpoint": "Students can distinguish pure substances from mixtures using particle diagrams and classify familiar materials correctly",
+     "hinge": true,
+     "criteria": [
+      "Correctly distinguishes pure substance from mixture using particle diagrams",
+      "Classifies 5 familiar materials correctly with justification",
+      "Does not confuse homogeneous mixtures (e.g. solutions) with pure substances"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Properties as the basis for separation",
+     "checkpoint": "Students can explain that separation techniques exploit differences in physical properties and match property differences to techniques",
+     "hinge": true,
+     "criteria": [
+      "States that separation exploits differences in physical properties",
+      "Correctly matches at least 3 property differences to separation techniques",
+      "Explains why a chosen technique would work for a given mixture"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Filtration and evaporation",
+     "checkpoint": "Students can perform or describe filtration and evaporation and justify their use for appropriate mixtures",
+     "hinge": false,
+     "criteria": [
+      "Correctly describes or performs filtration and evaporation",
+      "Identifies a mixture appropriate for each technique with property reasoning",
+      "Explains why the chosen technique works using property differences"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Distillation and chromatography",
+     "checkpoint": "Students can describe the principles of distillation and chromatography and identify mixtures each technique is appropriate for",
+     "hinge": false,
+     "criteria": [
+      "Describes the principle of distillation and chromatography",
+      "Identifies a mixture appropriate for each technique",
+      "Distinguishes when distillation is preferred over evaporation"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Selecting and justifying separation techniques",
+     "checkpoint": "Students can select and justify an appropriate separation technique for an unfamiliar mixture using property differences",
+     "hinge": false,
+     "criteria": [
+      "Selects an appropriate technique for an unfamiliar mixture",
+      "Justifies the choice using property differences",
+      "Identifies at least one technique that would not work and explains why"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S8U01",
+   "year": 8,
+   "span": 1,
+   "strand": "Biological",
+   "title": "Cells as basic units",
+   "description": "recognise cells as the basic units of living things, compare plant and animal cells, and describe the functions of specialised cell structures and organelles",
+   "prior": [
+    "AC9S3U01",
+    "AC9S5U01",
+    "AC9S7U01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Cellular scale — why cells are invisible and require magnification",
+     "checkpoint": "Students can describe the scale of cells relative to organisms and explain why microscopes are required to observe them.",
+     "hinge": false,
+     "criteria": [
+      "States that cells are microscopic and not visible to the naked eye",
+      "Explains that microscopes were necessary to discover and observe cells",
+      "Gives an approximate size comparison between a cell and a familiar object"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Cell theory — all living things are made of cells",
+     "checkpoint": "Students can state that all living things — including plants, fungi and single-celled organisms — are made of cells, and distinguish single-celled from multicellular organisms.",
+     "hinge": true,
+     "criteria": [
+      "States that all living things are made of cells",
+      "Includes plants and single-celled organisms explicitly in this claim",
+      "Distinguishes single-celled from multicellular organisms with examples from each"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Cell structures shared by plant and animal cells — nucleus, membrane, cytoplasm",
+     "checkpoint": "Students can identify and describe the function of structures present in both plant and animal cells: nucleus, cell membrane and cytoplasm.",
+     "hinge": true,
+     "criteria": [
+      "States the function of nucleus, cell membrane and cytoplasm",
+      "Explains at least one structural feature of each that relates to its function",
+      "Identifies these three as structures present in both plant and animal cells"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Plant-specific structures — cell wall, chloroplasts, large central vacuole",
+     "checkpoint": "Students can identify cell wall, chloroplasts and large central vacuole as plant-specific structures and explain the functional significance of each.",
+     "hinge": false,
+     "criteria": [
+      "Identifies cell wall, chloroplasts and large central vacuole as plant-specific structures",
+      "Explains the function of each plant-specific structure",
+      "Connects each plant-specific structure to an organism-level need that animal cells do not have"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Additional organelles — mitochondria, ribosomes and cell specialisation",
+     "checkpoint": "Students can describe the roles of mitochondria and ribosomes as organelles present in both cell types, and recognise that cells are specialised — different cells have different organelle complements.",
+     "hinge": false,
+     "criteria": [
+      "States the function of mitochondria and ribosomes",
+      "Explains why a named specialised cell has more or fewer of a particular organelle",
+      "Describes cell specialisation as variation in organelle complement reflecting cell function"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S8U02",
+   "year": 8,
+   "span": 1,
+   "strand": "Biological",
+   "title": "Structure, function and organ systems",
+   "description": "analyse the relationship between structure and function of cells, tissues and organs in a plant and an animal organ system and explain how these systems enable survival of the individual",
+   "prior": [
+    "AC9S8U01",
+    "AC9S5U01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Cell specialisation — same DNA, different structure and function",
+     "checkpoint": "Students can explain how cells with the same genetic information become specialised for different functions, and describe structural features of two or more specialised cell types.",
+     "hinge": true,
+     "criteria": [
+      "Describes at least two structural features of a specialised cell and explains how each serves the cell's function",
+      "Explains that cells with the same DNA can be specialised for different functions",
+      "Connects organelle complement to cell specialisation for at least one cell type"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Tissues — groups of specialised cells performing a shared function",
+     "checkpoint": "Students can define a tissue as a group of similar specialised cells performing a shared function, and give examples from plant and animal systems.",
+     "hinge": false,
+     "criteria": [
+      "Defines a tissue as a group of similar specialised cells performing a shared function",
+      "Names at least one animal and one plant tissue with the function of each",
+      "Explains how tissue function emerges from the collective action of its component cells"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Organs — tissues working together for an integrated function",
+     "checkpoint": "Students can describe an organ as a structure composed of multiple tissue types, each contributing to the organ's overall function.",
+     "hinge": true,
+     "criteria": [
+      "Names at least two tissue types in a named organ and explains the contribution of each",
+      "Explains why organs require multiple tissue types",
+      "Analyses how a tissue-level change affects organ function"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Organ systems — coordinated organs enabling survival",
+     "checkpoint": "Students can describe how organs within a system coordinate to perform a survival function, applying this to one animal and one plant system.",
+     "hinge": false,
+     "criteria": [
+      "Names the organs of one animal and one plant system and explains the function of each",
+      "Explains how the coordinated system enables a specific survival function",
+      "Compares one plant and one animal system as solutions to a shared survival problem"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S8U03",
+   "year": 8,
+   "span": 1,
+   "strand": "Earth and space",
+   "title": "Plate tectonics",
+   "description": "investigate tectonic activity including the formation of geological features at divergent, convergent and transform plate boundaries and describe the scientific evidence for the theory of plate tectonics",
+   "prior": [
+    "AC9S3U02",
+    "AC9S5U02",
+    "AC9S7U03"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Earth's internal structure — layers, states and the lithosphere",
+     "checkpoint": "Students can describe Earth's layered internal structure, identify the state and composition of each layer, and explain that the lithosphere is the rigid outer layer.",
+     "hinge": true,
+     "criteria": [
+      "Names Earth's main internal layers and describes the state (solid/liquid) of each",
+      "Explains that the lithosphere is the rigid outer layer (crust + upper mantle)",
+      "States that temperature and pressure increase with depth"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Tectonic plates and the driving mechanism",
+     "checkpoint": "Students can explain that the lithosphere is divided into tectonic plates and describe mantle convection as the mechanism driving plate movement.",
+     "hinge": true,
+     "criteria": [
+      "Explains that the lithosphere is divided into tectonic plates that move",
+      "Describes mantle convection as the mechanism driving plate movement",
+      "States that plates move at rates of centimetres per year"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Divergent boundaries — plates moving apart",
+     "checkpoint": "Students can describe the geological features formed where plates diverge and explain the process producing each.",
+     "hinge": false,
+     "criteria": [
+      "Explains that diverging plates produce tension and allow magma to rise",
+      "Describes mid-ocean ridges and seafloor spreading as products of divergent boundaries",
+      "States that oceanic crust is youngest at ridges and ages with distance"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Convergent boundaries — plates colliding",
+     "checkpoint": "Students can describe the geological features formed at convergent boundaries and distinguish ocean-continent from continent-continent convergence.",
+     "hinge": false,
+     "criteria": [
+      "Describes subduction as the process at ocean-continent convergent boundaries",
+      "Explains the formation of ocean trenches and volcanic arcs at ocean-continent boundaries",
+      "Explains why continent-continent convergence produces mountain ranges rather than subduction"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Transform boundaries — plates sliding past each other",
+     "checkpoint": "Students can describe transform boundaries, explain the geological features they produce, and explain why earthquakes are concentrated there.",
+     "hinge": false,
+     "criteria": [
+      "Describes transform boundaries as plates sliding horizontally past each other",
+      "Explains why earthquakes occur at transform boundaries (stress build-up and release)",
+      "States that transform boundaries produce earthquakes but not volcanic activity"
+     ]
+    },
+    {
+     "n": 6,
+     "label": "Evidence for plate tectonics — multiple converging lines",
+     "checkpoint": "Students can describe at least three independent lines of evidence supporting the theory of plate tectonics and explain what each demonstrates.",
+     "hinge": false,
+     "criteria": [
+      "Describes at least three distinct lines of evidence supporting plate tectonics",
+      "Explains what each evidence type demonstrates about plate movement or history",
+      "Identifies seafloor age patterns as particularly strong evidence for seafloor spreading"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S8U04",
+   "year": 8,
+   "span": 1,
+   "strand": "Earth and space",
+   "title": "Rock cycle",
+   "description": "describe the key processes of the rock cycle, including the timescales over which they occur, and examine how the properties of sedimentary, igneous and metamorphic rocks reflect their formation and influence their use",
+   "prior": [
+    "AC9S3U02",
+    "AC9S5U02",
+    "AC9S8U03"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Sedimentary rocks — weathering, transport, deposition and lithification",
+     "checkpoint": "Students can describe the formation of sedimentary rocks through the sequence of weathering, erosion, transportation, deposition and lithification, and connect observable properties to formation.",
+     "hinge": false,
+     "criteria": [
+      "Describes the formation sequence: weathering → erosion → transport → deposition → lithification",
+      "Connects at least two observable properties of sedimentary rock to formation steps",
+      "Identifies fossils as occurring in sedimentary rocks and explains why"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Igneous rocks — magma cooling and crystallisation",
+     "checkpoint": "Students can explain the formation of igneous rocks from cooling magma or lava and connect crystal size to cooling rate.",
+     "hinge": true,
+     "criteria": [
+      "Distinguishes intrusive (underground, slow cooling) from extrusive (surface, rapid cooling) igneous formation",
+      "Explains that slower cooling produces larger crystals",
+      "Applies cooling rate reasoning to infer the formation environment of a named igneous rock"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Metamorphic rocks — heat and pressure without melting",
+     "checkpoint": "Students can explain metamorphic rock formation through heat and pressure applied to existing rock, and describe observable properties that reflect these conditions.",
+     "hinge": false,
+     "criteria": [
+      "Explains that metamorphic rocks form when existing rocks are subjected to heat and pressure without melting",
+      "Connects banding or foliation to the directional compression of metamorphism",
+      "Identifies at least one parent rock and its metamorphic product"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "The rock cycle — processes connecting all three types over geological time",
+     "checkpoint": "Students can describe the rock cycle as a set of interconnected processes by which rocks are continuously transformed between types, and identify the geological timescales involved.",
+     "hinge": false,
+     "criteria": [
+      "Traces at least two complete rock cycle pathways, naming the process at each step",
+      "Compares the timescales of surface and deep rock cycle processes",
+      "Explains how plate tectonics drives the rock cycle"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Rock properties, formation history and use",
+     "checkpoint": "Students can explain how the properties of each rock type reflect its formation history and evaluate the suitability of specific rocks for named uses.",
+     "hinge": false,
+     "criteria": [
+      "Explains the properties of at least two rock types in terms of their formation processes",
+      "Connects named rock properties to suitability for a specific use",
+      "Identifies how traditional rock selection practices reflect knowledge of formation-linked properties"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S8U05",
+   "year": 8,
+   "span": 1,
+   "strand": "Physical",
+   "title": "Energy transfer and transformation",
+   "description": "classify different types of energy as kinetic or potential and investigate energy transfer and transformations in simple systems",
+   "prior": [
+    "AC9S2U02",
+    "AC9S3U03",
+    "AC9S5U03",
+    "AC9S6U03"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Kinetic energy — energy of active processes",
+     "checkpoint": "Students can identify kinetic energy types, explain what they share in common, and classify familiar examples.",
+     "hinge": false,
+     "criteria": [
+      "Names at least four kinetic energy types",
+      "Explains the shared characteristic of kinetic energy forms (associated with activity or motion)",
+      "Correctly classifies novel energy examples as kinetic"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Potential energy — stored capacity for activity",
+     "checkpoint": "Students can identify potential energy types, explain the stored-capacity principle, and classify familiar examples.",
+     "hinge": false,
+     "criteria": [
+      "Names at least three potential energy types",
+      "Explains potential energy as stored capacity — not currently active",
+      "Distinguishes potential from kinetic energy and identifies the condition that determines each"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Energy transfer — same type, different location",
+     "checkpoint": "Students can define energy transfer as energy moving between objects without changing type, and give examples of thermal, mechanical and electrical transfer.",
+     "hinge": false,
+     "criteria": [
+      "Defines energy transfer as energy moving between objects without changing type",
+      "Gives two examples of energy transfer involving different energy types",
+      "Distinguishes a transfer event from a transformation event"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Energy transformation — energy changing type",
+     "checkpoint": "Students can define energy transformation as energy changing from one type to another, identify common transformation sequences, and explain by-product heat.",
+     "hinge": true,
+     "criteria": [
+      "Defines energy transformation as energy changing from one type to another",
+      "Identifies useful output and by-product heat in at least two named transformations",
+      "Explains that by-product heat is not lost (energy is conserved) but is not the useful output"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Tracing energy through multi-step systems",
+     "checkpoint": "Students can trace energy through a multi-step system, naming the energy type at each stage and identifying all transfers, transformations and by-product outputs.",
+     "hinge": false,
+     "criteria": [
+      "Traces energy through a multi-step system naming all types at each stage",
+      "Identifies all transfers, transformations and by-product outputs in the trace",
+      "Distinguishes useful energy output from by-product outputs"
+     ]
+    },
+    {
+     "n": 6,
+     "label": "Flow diagrams — representing and analysing energy systems",
+     "checkpoint": "Students can construct and interpret flow diagrams representing energy through a system and use these to identify where by-product outputs occur.",
+     "hinge": false,
+     "criteria": [
+      "Constructs a flow diagram for a multi-step system with correctly labelled energy types",
+      "Includes by-product outputs at each transformation stage",
+      "Critiques a diagram for completeness — identifies any missing outputs"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S8U06",
+   "year": 8,
+   "span": 1,
+   "strand": "Chemical",
+   "title": "Elements, compounds and mixtures",
+   "description": "classify matter as elements, compounds or mixtures and compare different representations of these, including 2-dimensional and 3-dimensional models, symbols for elements and formulas for molecules and compounds",
+   "prior": [
+    "AC9S2U03",
+    "AC9S5U04",
+    "AC9S7U06",
+    "AC9S7U05"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Atoms and atom types — giving the particle model identity",
+     "checkpoint": "Students can explain that particles in the particle model are atoms, that atoms have type (element identity), and that different substances are made of different atom types.",
+     "hinge": true,
+     "criteria": [
+      "Explains that the particles in the particle model are atoms",
+      "States that different elements consist of different types of atoms",
+      "Explains that atom type determines element identity"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Elements — one atom type, symbols and the periodic table",
+     "checkpoint": "Students can define elements as pure substances consisting of only one type of atom and use chemical symbols to represent them.",
+     "hinge": false,
+     "criteria": [
+      "Defines an element as a pure substance consisting of only one type of atom",
+      "Correctly uses symbols for at least five elements",
+      "Uses the periodic table to locate element symbols and names"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Compounds — different atom types chemically combined",
+     "checkpoint": "Students can define compounds as substances containing two or more atom types chemically combined in fixed ratios, and use formulas to represent them.",
+     "hinge": true,
+     "criteria": [
+      "Defines a compound as two or more atom types chemically combined in fixed ratios",
+      "Interprets a chemical formula to identify atom types and their ratios",
+      "Explains that compounds have different properties from their constituent elements"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Mixtures — substances physically combined, properties retained",
+     "checkpoint": "Students can define mixtures, explain that components retain their properties and can be separated by physical means, and distinguish mixtures from compounds.",
+     "hinge": false,
+     "criteria": [
+      "Defines a mixture and gives examples of solutions, suspensions and colloids",
+      "Explains that mixture components retain their individual properties",
+      "Identifies at least two differences between a mixture and a compound"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Representations — comparing symbols, formulas and 2D/3D models",
+     "checkpoint": "Students can compare representations of elements, compounds and mixtures and explain what information each representation conveys and where each is most useful.",
+     "hinge": false,
+     "criteria": [
+      "Identifies what information a symbol, formula and 3D model each convey for a named substance",
+      "Explains one advantage and one limitation of each representation type",
+      "Selects the most appropriate representation for a given purpose and justifies the choice"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S8U07",
+   "year": 8,
+   "span": 1,
+   "strand": "Chemical",
+   "title": "Physical and chemical changes",
+   "description": "compare physical and chemical changes and identify indicators of energy change in chemical reactions",
+   "prior": [
+    "AC9S2U03",
+    "AC9S6U04",
+    "AC9S7U05",
+    "AC9S8U06"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Physical change at the particle level — rearrangement without new substance",
+     "checkpoint": "Students can explain physical change as rearrangement of particles without formation of new substances, and represent this using the particle model.",
+     "hinge": false,
+     "criteria": [
+      "Explains physical change as particle rearrangement without formation of new substances",
+      "Represents a physical change using a particle diagram showing no new substance",
+      "Explains why reversibility is a consequence of physical change, not the definition"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Chemical change — new substance formation at the particle level",
+     "checkpoint": "Students can explain chemical change as the formation of new substances through bond breaking and forming, and apply the new substance criterion to classify changes.",
+     "hinge": true,
+     "criteria": [
+      "States that new substance formation is the criterion defining chemical change",
+      "Correctly classifies at least three changes using the new substance criterion",
+      "Explains why reversibility alone is not a reliable criterion using a named counterexample"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Observable indicators of chemical change",
+     "checkpoint": "Students can identify and explain four observable indicators of chemical change and explain why each suggests a new substance has formed.",
+     "hinge": false,
+     "criteria": [
+      "Names four observable indicators of chemical change",
+      "Explains why each indicator suggests a new substance has formed",
+      "Distinguishes indicators (observable evidence) from the definition (new substance)"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Exothermic reactions — energy released to surroundings",
+     "checkpoint": "Students can identify exothermic reactions by temperature rise, explain that energy is released as bonds form in the products, and give examples.",
+     "hinge": false,
+     "criteria": [
+      "Identifies exothermic reactions by a temperature rise in the surroundings",
+      "Explains that exothermic reactions release energy stored in chemical bonds",
+      "Gives at least two examples of exothermic reactions"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Endothermic reactions — energy absorbed from surroundings",
+     "checkpoint": "Students can identify endothermic reactions by temperature drop, explain that energy is absorbed to break reactant bonds, and give examples.",
+     "hinge": false,
+     "criteria": [
+      "Identifies endothermic reactions by a temperature fall in the surroundings",
+      "Explains that endothermic reactions absorb energy from surroundings",
+      "Gives at least two examples of endothermic reactions and distinguishes them from exothermic"
+     ]
+    },
+    {
+     "n": 6,
+     "label": "Comparing physical and chemical changes — integrating all criteria",
+     "checkpoint": "Students can apply the new substance criterion, observable indicators and energy change together to classify and analyse unfamiliar changes.",
+     "hinge": false,
+     "criteria": [
+      "Applies the new substance criterion, observable indicators and energy change to classify an unfamiliar change",
+      "Explains why multiple converging criteria increase classification confidence",
+      "Identifies a case where a single indicator is misleading and explains using the new substance criterion"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9H01",
+   "year": 9,
+   "span": 2,
+   "strand": "Human endeavour",
+   "title": "Peer review validates scientific knowledge",
+   "description": "explain how scientific knowledge is validated and refined, including the role of publication and peer review",
+   "prior": [
+    "AC9S7H01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "From evidence to accepted knowledge: the validation problem",
+     "checkpoint": "Students can explain why scientific claims require validation beyond the individual scientist — identifying that bias, error and limited evidence are reasons the scientific community needs mechanisms for checking claims.",
+     "hinge": true,
+     "criteria": [
+      "Can state at least one reason why a single scientist's findings require external validation.",
+      "Can explain that validation processes exist to reduce errors and build reliable knowledge — not just to follow rules.",
+      "Does not treat peer review as 'just getting someone else to read it' — understands its epistemically protective function."
+     ]
+    },
+    {
+     "n": 2,
+     "label": "The publication and peer review process",
+     "checkpoint": "Students can describe the publication and peer review process, including how editors evaluate submitted papers, what reviewers assess, and how the process results in validation, revision or rejection.",
+     "hinge": false,
+     "criteria": [
+      "Can describe the key steps of peer review — not just name it.",
+      "Can explain that peer review can result in revision or rejection, not just acceptance.",
+      "Can describe what reviewers are assessing — methodology, evidence, conclusions — not just 'whether it's good'."
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Knowledge refined: rejection and revision cases",
+     "checkpoint": "Students can examine cases where scientific knowledge was initially rejected, revised or debated before being accepted, and explain what role evidence played in the eventual outcome.",
+     "hinge": false,
+     "criteria": [
+      "Can describe a case where scientific knowledge was refined and explain what evidence drove the change.",
+      "Can explain that validation is not a single event — knowledge builds through accumulation of consistent evidence.",
+      "Does not describe initial rejection as simply 'scientists being wrong' — explains the epistemic reasons for caution."
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9H02",
+   "year": 9,
+   "span": 2,
+   "strand": "Human endeavour",
+   "title": "Science and technology advance together",
+   "description": "investigate how advances in technologies enable advances in science, and how science has contributed to developments in technologies and engineering",
+   "prior": [
+    "AC9S7H03",
+    "AC9S7H04"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Technology enabling science",
+     "checkpoint": "Students can describe cases where advances in technology enabled advances in scientific understanding — explaining what the technology made possible that was not possible before.",
+     "hinge": false,
+     "criteria": [
+      "Can describe at least one example where technology enabled a scientific advance.",
+      "Can explain what the technology specifically made possible — not just that 'it helped'.",
+      "Does not treat the relationship as simply 'scientists use tools' — understands that the tool opened a previously inaccessible domain."
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Science enabling technology",
+     "checkpoint": "Students can describe cases where scientific understanding enabled the development of new technologies or engineering solutions — explaining how the science provided the theoretical foundation for the technology.",
+     "hinge": false,
+     "criteria": [
+      "Can describe at least one example where scientific understanding enabled a technological development.",
+      "Can explain the specific connection — what understanding made the technology possible.",
+      "Does not treat science and technology as sequential ('science first, then technology') — can recognise cases of mutual enablement."
+     ]
+    },
+    {
+     "n": 3,
+     "label": "The two-way relationship",
+     "checkpoint": "Students can investigate the two-directional relationship between science and technology — recognising that the relationship is iterative, not sequential, and can examine multiple cases where each has enabled the other in a cycle of development.",
+     "hinge": false,
+     "criteria": [
+      "Can explain what 'two-directional' means in the science-technology relationship — not just state it.",
+      "Can provide an example where both directions are visible — technology enabling science AND science enabling technology in the same domain.",
+      "Does not treat the relationship as sequential — understands it as iterative and ongoing."
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9H03",
+   "year": 9,
+   "span": 2,
+   "strand": "Human endeavour",
+   "title": "Factors in science adoption",
+   "description": "analyse the key factors that contribute to science knowledge and practices being adopted more broadly by society",
+   "prior": [
+    "AC9S7H03",
+    "AC9S7H04"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Adoption factors: the concept",
+     "checkpoint": "Students can explain that scientific knowledge being valid or published is not sufficient for broad societal adoption, and identify the types of factors that affect whether adoption occurs.",
+     "hinge": true,
+     "criteria": [
+      "Can explain why scientific validity alone is insufficient for societal adoption.",
+      "Can identify at least two distinct categories of adoption factors.",
+      "Does not treat 'getting the word out' as the only obstacle — recognises structural, economic and cultural factors."
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Analysing adoption cases",
+     "checkpoint": "Students can analyse specific cases of scientific knowledge or practice adoption, identifying the key factors that contributed to or inhibited adoption in each case.",
+     "hinge": false,
+     "criteria": [
+      "Can identify at least two adoption factors in a named case and explain how each operated.",
+      "Can explain whether adoption was rapid or slow and connect this to the factor profile.",
+      "Does not simply describe what was adopted — analyses the conditions that made adoption possible."
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9H04",
+   "year": 9,
+   "span": 2,
+   "strand": "Human endeavour",
+   "title": "Society shapes scientific research",
+   "description": "examine how the values and needs of society influence the focus of scientific research",
+   "prior": [
+    "AC9S7H04",
+    "AC9S9H03"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Who decides what gets researched?",
+     "checkpoint": "Students can explain that scientific research requires funding and that decisions about what research is funded reflect societal values and priorities — introducing the concept that research focus is not determined by science alone.",
+     "hinge": true,
+     "criteria": [
+      "Can explain that research requires funding and that funding decisions reflect priorities.",
+      "Can identify at least one way societal values influence research direction.",
+      "Does not treat research focus as determined by scientific curiosity alone — understands external shaping."
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Examining cases of society-driven research",
+     "checkpoint": "Students can examine specific cases where the values and needs of society have influenced the focus of scientific research — identifying the societal driver and the resulting research direction.",
+     "hinge": false,
+     "criteria": [
+      "Can identify the societal need or value that drove a named research direction.",
+      "Can explain the connection — not just list the case but trace the pathway from value/need to research priority.",
+      "Does not treat all research as societally driven in the same way — can distinguish government mandate, market incentive, community need and cultural value as distinct mechanisms."
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9I01",
+   "year": 9,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Investigable questions, predictions and hypotheses",
+   "description": "develop investigable questions, reasoned predictions and hypotheses to test relationships and develop explanatory models",
+   "prior": [
+    "AC9S7I01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "What makes a question investigable?",
+     "checkpoint": "Students can distinguish investigable from non-investigable questions, and explain the criteria that make a scientific question investigable — including that it must be answerable through observable, measurable evidence.",
+     "hinge": true,
+     "criteria": [
+      "Can identify whether a question is investigable and explain why or why not.",
+      "Can improve a vague question by making it specific about variables.",
+      "Does not treat 'interesting' as a criterion for investigability — uses testability."
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Reasoned predictions",
+     "checkpoint": "Students can write a reasoned prediction that states an expected outcome and provides a reason based on scientific knowledge — not just a guess.",
+     "hinge": false,
+     "criteria": [
+      "Can write a prediction that includes both an expected outcome and a scientific reason.",
+      "Can distinguish a reasoned prediction from a guess — the reason is grounded in science, not preference.",
+      "Does not omit the reason — treats the because-clause as mandatory."
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Hypotheses: testable, refutable, relationship-specifying",
+     "checkpoint": "Students can write a formal hypothesis that specifies the predicted relationship between variables in a form that can be supported or refuted through evidence, and explain why scientific hypotheses must be refutable.",
+     "hinge": true,
+     "criteria": [
+      "Can write a hypothesis that specifies the relationship between named variables.",
+      "Can identify what result would refute their hypothesis.",
+      "Does not write vague or circular hypotheses — the prediction must be specific enough to test."
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9I02",
+   "year": 9,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Plan valid, reproducible investigations",
+   "description": "plan and conduct valid, reproducible investigations to answer questions and test hypotheses, including identifying and controlling for possible sources of error and, as appropriate, developing and following risk assessments, considering ethical issues, and addressing key considerations regarding heritage sites and artefacts on Country/Place",
+   "prior": [
+    "AC9S7I02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Validity and reproducibility as method criteria",
+     "checkpoint": "Students can explain what validity and reproducibility mean as criteria for a scientific investigation method, and identify whether a described method satisfies each criterion.",
+     "hinge": true,
+     "criteria": [
+      "Can define validity and reproducibility with precision — not just 'it works' and 'you can do it again'.",
+      "Can identify a specific feature of a method that threatens validity or reproducibility.",
+      "Does not conflate the two criteria — can explain how a method could be reproducible but not valid."
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Identifying and controlling sources of error",
+     "checkpoint": "Students can identify possible sources of error in an investigation method and explain how controlling or accounting for each error source increases validity and reproducibility.",
+     "hinge": false,
+     "criteria": [
+      "Can identify at least two sources of error with specific explanations — not generic 'human error'.",
+      "Can describe a specific control strategy for each identified error source.",
+      "Can explain how uncontrolled error affects the validity of conclusions."
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Risk assessment, ethics and Country/Place considerations",
+     "checkpoint": "Students can identify potential hazards in an investigation, develop a risk assessment, consider ethical issues relevant to the investigation context, and describe responsibilities regarding heritage sites and artefacts on Country/Place.",
+     "hinge": false,
+     "criteria": [
+      "Can identify at least one investigation hazard and describe a control measure.",
+      "Can identify at least one ethical consideration relevant to a described investigation.",
+      "Can describe responsibilities regarding heritage sites in field investigation contexts."
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9I03",
+   "year": 9,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Select equipment and record precise data",
+   "description": "select and use equipment to generate and record data with precision to obtain useful sample sizes and replicable data, using digital tools as appropriate",
+   "prior": [
+    "AC9S7I03"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Precision in measurement and recording",
+     "checkpoint": "Students can explain what precision means in measurement, select equipment based on required precision, and record data values to the correct number of significant figures with appropriate units.",
+     "hinge": true,
+     "criteria": [
+      "Can select between two instruments based on required precision and explain the choice.",
+      "Can record data to the correct number of significant figures for the instrument used.",
+      "Does not record more significant figures than the instrument can provide."
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Sample size and replicability",
+     "checkpoint": "Students can explain why sample size matters for the quality of scientific data and justify a sample size choice for a described investigation context — considering what constitutes a useful sample size.",
+     "hinge": false,
+     "criteria": [
+      "Can explain why sample size affects reliability of results.",
+      "Can identify the relevant factors for determining appropriate sample size in a described investigation.",
+      "Does not default to 'more is always better' without considering practical constraints and the specific investigation context."
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9I04",
+   "year": 9,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Select and construct appropriate representations",
+   "description": "select and construct appropriate representations, including tables, graphs, descriptive statistics, models and mathematical relationships, to organise and process data and information",
+   "prior": [
+    "AC9S7I04"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Selecting appropriate representations",
+     "checkpoint": "Students can select the most appropriate representation for a given data type or investigation question and explain the rationale for their choice.",
+     "hinge": true,
+     "criteria": [
+      "Can select an appropriate representation and explain the rationale — not just produce the representation.",
+      "Can identify when an alternative representation would be less appropriate and explain why.",
+      "Does not default to a single graph type for all data."
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Descriptive statistics: selecting the appropriate measure",
+     "checkpoint": "Students can identify the most appropriate descriptive statistic (mean, median or range) for a given data set and explain why — recognising that mean and median can differ and that each is appropriate in different contexts.",
+     "hinge": false,
+     "criteria": [
+      "Can calculate mean, median and range for a small data set.",
+      "Can identify which measure is most appropriate for a described data type and explain why.",
+      "Does not default to mean for all data without considering whether it is appropriate."
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Constructing and using mathematical relationships",
+     "checkpoint": "Students can apply mathematical relationships (formulae, ratios, proportional reasoning) to process data, and construct representations that accurately reflect quantitative relationships.",
+     "hinge": false,
+     "criteria": [
+      "Can apply a given formula correctly to process data.",
+      "Can construct a representation where numerical values determine proportional layout (e.g. Sankey diagram).",
+      "Can explain what the processed representation reveals that raw data does not."
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9I05",
+   "year": 9,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Analyse data for patterns and anomalies",
+   "description": "analyse and connect a variety of data and information to identify and explain patterns, trends, relationships and anomalies",
+   "prior": [
+    "AC9S7I05"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Identifying patterns, trends and relationships",
+     "checkpoint": "Students can identify patterns (repeating features), trends (directional change over a variable) and relationships (one variable changing in response to another) in data sets, using appropriate descriptive language.",
+     "hinge": true,
+     "criteria": [
+      "Can describe a pattern or trend naming both variables and the direction of change.",
+      "Can distinguish between a trend (directional change), a pattern (repeating feature) and a relationship (covariance).",
+      "Does not use vague language like 'it goes up' — uses the variable names."
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Identifying and explaining anomalies",
+     "checkpoint": "Students can identify anomalies in data — data points that do not fit the identified pattern — and propose explanations for them in terms of measurement error, procedural variation or genuine outliers.",
+     "hinge": false,
+     "criteria": [
+      "Can identify an anomalous data point as one that does not fit the identified pattern.",
+      "Can propose a plausible explanation for an anomaly that distinguishes between error and genuine variation.",
+      "Does not treat all anomalies the same — can evaluate whether an anomaly should be excluded or investigated."
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Connecting and comparing data sources",
+     "checkpoint": "Students can connect and compare data from multiple sources to identify consistencies, inconsistencies and what they mean for scientific claims — including discussing the validity of extrapolation from data.",
+     "hinge": false,
+     "criteria": [
+      "Can identify consistency and inconsistency across two data sources on the same topic.",
+      "Can explain what an inconsistency implies for confidence in a conclusion.",
+      "Can discuss the validity of an extrapolation — identifying the assumption it requires."
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9I06",
+   "year": 9,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Assess validity and evaluate conclusions",
+   "description": "assess the validity and reproducibility of methods and evaluate the validity of conclusions and claims, including by identifying assumptions, conflicting evidence and areas of uncertainty",
+   "prior": [
+    "AC9S7I06"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Validity of secondary source information",
+     "checkpoint": "Students can explain what makes secondary source information valid and evaluate a secondary source against validity criteria — distinguishing credible from less credible sources.",
+     "hinge": false,
+     "criteria": [
+      "Can apply at least two validity criteria to evaluate a named secondary source.",
+      "Can identify specific features of the source that support or undermine its credibility.",
+      "Does not treat all published sources as equally valid."
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Identifying assumptions in methods and conclusions",
+     "checkpoint": "Students can identify assumptions embedded in investigation methods and conclusions, and evaluate the impact of these assumptions on the validity of conclusions.",
+     "hinge": true,
+     "criteria": [
+      "Can identify at least one assumption in a described method or conclusion.",
+      "Can explain the impact of that assumption being false on conclusion validity.",
+      "Does not treat methods as assumption-free — recognises that all methods contain assumptions."
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Conflicting evidence and areas of uncertainty",
+     "checkpoint": "Students can identify conflicting evidence within or across investigations and explain how areas of uncertainty may support viable alternative conclusions.",
+     "hinge": false,
+     "criteria": [
+      "Can identify an area of uncertainty or conflicting evidence in a described investigation.",
+      "Can explain how that uncertainty or evidence could support an alternative conclusion.",
+      "Does not treat all uncertainty as equally undermining — can evaluate the significance of identified uncertainty."
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9I07",
+   "year": 9,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Construct evidence-based arguments ethically",
+   "description": "construct arguments based on analysis of a variety of evidence to support conclusions or evaluate claims, and consider any ethical issues and cultural protocols associated with accessing, using or citing secondary data or information",
+   "prior": [
+    "AC9S7I07"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Constructing multi-source arguments",
+     "checkpoint": "Students can construct an argument that draws on multiple sources of evidence, evaluating the credibility of each source and explaining how the evidence collectively supports the conclusion.",
+     "hinge": true,
+     "criteria": [
+      "Can construct an argument using at least two sources with explicit credibility evaluation.",
+      "Can explain how the evidence collectively supports the conclusion — not just list the sources.",
+      "Does not construct an argument from a single source — uses multiple independent sources."
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Ethical issues in secondary data use",
+     "checkpoint": "Students can identify ethical issues associated with accessing, using and citing secondary data — including data privacy, correct attribution, and relevance to the investigation question.",
+     "hinge": false,
+     "criteria": [
+      "Can identify at least one ethical concern in a described secondary data use scenario.",
+      "Can describe a practice that addresses the identified concern.",
+      "Does not treat ethics in data use as purely about plagiarism — recognises privacy and relevance as separate concerns."
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Cultural protocols with First Nations knowledges",
+     "checkpoint": "Students can apply cultural protocols when accessing, using or citing First Nations knowledges — including acknowledging the co-contributions of Indigenous knowledge and contemporary science, and constructing arguments that recognise these relationships appropriately.",
+     "hinge": false,
+     "criteria": [
+      "Can describe at least one cultural protocol relevant to using First Nations knowledge in a scientific argument.",
+      "Can construct an argument that appropriately acknowledges First Nations knowledge contributions.",
+      "Does not treat First Nations knowledge as merely contextual decoration — can use it as substantive evidence."
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9I08",
+   "year": 9,
+   "span": 2,
+   "strand": "Inquiry",
+   "title": "Communicate ideas and findings effectively",
+   "description": "write and create texts to communicate ideas, findings and arguments effectively for identified purposes and audiences, including selection of appropriate content, language and text features, using digital tools as appropriate",
+   "prior": [
+    "AC9S7I08"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Purpose, audience and communication choices",
+     "checkpoint": "Students can analyse scientific texts for different purposes and audiences and explain how the author's choices — of content, language and text features — reflect the purpose and audience.",
+     "hinge": true,
+     "criteria": [
+      "Can identify at least two communication choices in a text and connect each to the text's purpose or audience.",
+      "Can explain why different purposes or audiences require different content, language or structure.",
+      "Does not treat scientific communication as one-size-fits-all."
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Writing a scientific investigation report",
+     "checkpoint": "Students can write a scientific investigation report that includes: a background paragraph referencing relevant scientific knowledge; an explanation of results using scientific knowledge; and a discussion that considers validity and reproducibility.",
+     "hinge": false,
+     "criteria": [
+      "Can write a background paragraph that references relevant scientific knowledge — not just describes the procedure.",
+      "Can explain results using scientific knowledge — not just state what happened.",
+      "Can write a validity/reproducibility discussion that addresses specific features of the method — not just 'it could have been more accurate'."
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Communicating for non-specialist audiences",
+     "checkpoint": "Students can create texts for non-specialist purposes and audiences — including selecting appropriate content, language and cultural sensitivity — such as social media campaigns, community reports or public presentations.",
+     "hinge": false,
+     "criteria": [
+      "Can produce a text that is appropriate for the specified audience and purpose — as assessed against the communication choices made, not just the content.",
+      "Can adjust language from scientific register to audience-appropriate register deliberately — not just simplify randomly.",
+      "Can identify where cultural responsiveness considerations have shaped content or language choices."
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9U01",
+   "year": 9,
+   "span": 1,
+   "strand": "Biological",
+   "title": "Body systems and negative feedback",
+   "description": "compare the role of body systems in regulating and coordinating the body's response to a stimulus, and describe the operation of a negative feedback mechanism",
+   "prior": [
+    "AC9S8U02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Stimuli and receptors — detecting change",
+     "checkpoint": "Students can distinguish internal from external stimuli and identify the receptor type involved in detecting a named stimulus.",
+     "hinge": true,
+     "criteria": [
+      "Distinguishes internal from external stimuli with examples",
+      "Identifies an appropriate receptor for a named stimulus and describes its role"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Receptor → command centre → effector pathway",
+     "checkpoint": "Students can trace the receptor → command centre → effector pathway for a named stimulus, describing the role of each component.",
+     "hinge": true,
+     "criteria": [
+      "Traces the receptor → command centre → effector pathway for a named stimulus",
+      "Describes the distinct role of each component in the response"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Nervous and endocrine systems as coordination mechanisms — signal types and timescales",
+     "checkpoint": "Students can describe how the nervous and endocrine systems each implement the receptor → command centre → effector pathway, distinguishing signal type, speed, and duration.",
+     "hinge": false,
+     "criteria": [
+      "Describes the nervous system pathway for a named stimulus, identifying electrical signalling and fast, short response",
+      "Describes the endocrine system pathway for a named stimulus, identifying hormonal signalling, bloodstream transport, and slower, sustained response"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Comparing nervous and endocrine coordination",
+     "checkpoint": "Students can compare the nervous and endocrine systems on signal type, speed, duration, and specificity, and predict which system coordinates a given stimulus.",
+     "hinge": true,
+     "criteria": [
+      "Compares the nervous and endocrine systems on signal type, speed, and duration",
+      "Predicts which system coordinates a given novel stimulus and justifies the prediction"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Negative feedback architecture — set point, deviation, corrective response, return detection",
+     "checkpoint": "Students can describe the four components of a negative feedback mechanism and explain why it maintains stability rather than amplifying change.",
+     "hinge": true,
+     "criteria": [
+      "Labels and describes the role of each of the four components of a negative feedback loop",
+      "Explains why the mechanism is described as 'negative' — it opposes rather than amplifies deviation"
+     ]
+    },
+    {
+     "n": 6,
+     "label": "Negative feedback in canonical biological cases — tracing complete loops",
+     "checkpoint": "Students can trace a complete negative feedback loop for at least two named biological examples, correctly identifying all four components in each.",
+     "hinge": false,
+     "criteria": [
+      "Traces a complete negative feedback loop for a named biological example, correctly identifying all four components",
+      "Names at least two biological examples of negative feedback and identifies the set point in each"
+     ]
+    },
+    {
+     "n": 7,
+     "label": "Feedback system disorders — locating failure in the loop",
+     "checkpoint": "Students can explain how a disorder of a feedback system disrupts homeostasis by identifying which component of the loop has failed and describing the consequence.",
+     "hinge": false,
+     "criteria": [
+      "Identifies which component of the feedback loop fails in a named disorder",
+      "Explains the homeostatic consequence of that failure"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9U02",
+   "year": 9,
+   "span": 1,
+   "strand": "Biological",
+   "title": "Reproduction and species survival",
+   "description": "describe the form and function of reproductive cells and organs in animals and plants, and analyse how the processes of sexual and asexual reproduction enable survival of the species",
+   "prior": [
+    "AC9S5U01",
+    "AC9S6U01",
+    "AC9S8U01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Reproductive cells — form matched to function",
+     "checkpoint": "Students can describe the structural features of male and female gametes and explain how each feature relates to the gamete's reproductive function.",
+     "hinge": true,
+     "criteria": [
+      "Describes at least two structural features of sperm and two of egg cells",
+      "Explains how each feature relates to the gamete's function",
+      "Identifies plant equivalents (pollen, ovule) and describes one form-function relationship in each"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Reproductive organs — systems supporting gamete production and fertilisation",
+     "checkpoint": "Students can describe the key structures of male and female reproductive systems in animals and plants and explain how these work collectively to support gamete production, transfer and fertilisation.",
+     "hinge": false,
+     "criteria": [
+      "Names key structures of animal reproductive systems and explains the role of each",
+      "Describes plant reproductive structures (stamen, carpel) and their roles in pollination and fertilisation",
+      "Explains how reproductive organ structures collectively support fertilisation"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Sexual reproduction — fertilisation, variation and survival",
+     "checkpoint": "Students can explain how sexual reproduction produces variation among offspring and analyse how this variation supports species survival.",
+     "hinge": true,
+     "criteria": [
+      "Explains how random combination of gametes produces genetic variation among offspring",
+      "Connects variation to survival advantage — some offspring are more likely to survive changed conditions",
+      "Explains the trade-off between offspring number, parental care and reproductive strategy in a named example"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Asexual reproduction — strategies, speed and survival contexts",
+     "checkpoint": "Students can describe asexual reproductive strategies in plants and animals and explain when asexual reproduction is advantageous for species survival.",
+     "hinge": false,
+     "criteria": [
+      "Describes at least two distinct asexual reproductive strategies with examples",
+      "Explains why asexual reproduction is advantageous in stable environments or for rapid colonisation",
+      "Identifies the key limitation of asexual reproduction — genetic uniformity and vulnerability to change"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Comparing reproductive strategies — analysing survival trade-offs",
+     "checkpoint": "Students can compare sexual and asexual reproduction and analyse how each strategy enables species survival in different environmental contexts.",
+     "hinge": false,
+     "criteria": [
+      "Compares sexual and asexual reproduction across variation, speed and resource cost",
+      "Analyses the survival advantage of each strategy in a specific named environmental context",
+      "Explains why some species use both strategies depending on conditions"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9U03",
+   "year": 9,
+   "span": 1,
+   "strand": "Earth and space",
+   "title": "Carbon cycle and Earth's spheres",
+   "description": "represent the carbon cycle and examine how key processes including combustion, photosynthesis and respiration rely on interactions between Earth's spheres (the geosphere, biosphere, hydrosphere and atmosphere)",
+   "prior": [
+    "AC9S5U02",
+    "AC9S6U02",
+    "AC9S6U04",
+    "AC9S7U02",
+    "AC9S8U03",
+    "AC9S8U04"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Earth's spheres — geosphere, biosphere, hydrosphere, atmosphere",
+     "checkpoint": "Students can name and describe Earth's four spheres and give examples of matter or processes found in each.",
+     "hinge": true,
+     "criteria": [
+      "Names all four of Earth's spheres and describes what each contains",
+      "Gives at least one example of matter and one process located in each sphere",
+      "Explains that Earth functions as a system where spheres interact"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Carbon as a substance cycling through Earth's spheres",
+     "checkpoint": "Students can identify where carbon is stored in each of Earth's spheres and explain that carbon moves between these stores.",
+     "hinge": false,
+     "criteria": [
+      "Identifies carbon stores in at least three of Earth's four spheres with examples",
+      "Explains that carbon moves between stores rather than being created or destroyed",
+      "Distinguishes fast-cycling carbon stores (atmosphere, living organisms) from slow stores (fossil fuels, carbonate rock)"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Photosynthesis and respiration — carbon movement through the biosphere",
+     "checkpoint": "Students can explain how photosynthesis and respiration move carbon between the atmosphere and biosphere, and represent these as flows in the carbon cycle.",
+     "hinge": true,
+     "criteria": [
+      "Explains that photosynthesis moves carbon from the atmosphere to the biosphere",
+      "Explains that respiration and decomposition move carbon from the biosphere to the atmosphere",
+      "Represents both processes as directional arrows between spheres in a diagram"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Combustion — carbon release from geosphere to atmosphere",
+     "checkpoint": "Students can explain how combustion of fossil fuels moves carbon from the geosphere to the atmosphere and describe the impact of human activity on this flow.",
+     "hinge": false,
+     "criteria": [
+      "Explains that combustion of fossil fuels moves carbon from geosphere to atmosphere",
+      "Describes why this represents a net addition to the atmospheric carbon store (geological timescale of sequestration vs rapid release)",
+      "Connects increased atmospheric CO₂ to the greenhouse effect and its role in heat retention"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Representing the carbon cycle — integrating processes across all spheres",
+     "checkpoint": "Students can construct or annotate a carbon cycle diagram that represents all key processes (photosynthesis, respiration, combustion, decomposition) as flows between Earth's spheres.",
+     "hinge": false,
+     "criteria": [
+      "Constructs or correctly annotates a carbon cycle diagram with at least four labelled flows between named spheres",
+      "Identifies which flows are biological, which are geological, and which are human-driven",
+      "Explains how human combustion has altered the balance of the natural carbon cycle"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9U04",
+   "year": 9,
+   "span": 1,
+   "strand": "Physical",
+   "title": "Wave and particle models",
+   "description": "use wave and particle models to describe energy transfer through different mediums and examine the usefulness of each model for explaining phenomena",
+   "prior": [
+    "AC9S5U03",
+    "AC9S6U03",
+    "AC9S8U05",
+    "AC9S7U05"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "The particle model of energy transfer — conduction and convection",
+     "checkpoint": "Students can explain conduction and convection using the particle model, describing how particle motion and collisions transfer energy through matter.",
+     "hinge": false,
+     "criteria": [
+      "Explains conduction using particle collisions as the transfer mechanism",
+      "Explains convection using bulk particle movement driven by density differences",
+      "Applies the particle model to explain why a named material is a good conductor or insulator"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "The wave model of energy transfer — sound",
+     "checkpoint": "Students can describe sound as a wave and explain how sound energy is transferred through a medium using the wave model, including the relationship between wave properties and sound characteristics.",
+     "hinge": true,
+     "criteria": [
+      "Describes sound as a longitudinal wave requiring a medium",
+      "Uses compression and rarefaction to explain how sound energy is transferred",
+      "Relates frequency to pitch and amplitude to loudness with examples"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "The particle model of electricity — static charge and current",
+     "checkpoint": "Students can explain static electricity and electrical current using the particle model of charge, and connect particle behaviour to concepts of voltage, conductors and insulators.",
+     "hinge": false,
+     "criteria": [
+      "Explains static electricity as electron transfer between materials producing charge imbalance",
+      "Describes electrical current as directed electron flow through a conductor",
+      "Distinguishes conductors from insulators using the particle model (free vs bound electrons)"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "The wave model of light and electromagnetic radiation",
+     "checkpoint": "Students can describe light and electromagnetic radiation as waves and explain how the wave model accounts for phenomena including reflection, refraction and the electromagnetic spectrum.",
+     "hinge": false,
+     "criteria": [
+      "Describes light as a transverse wave and the EM spectrum as a family of waves differing in frequency and wavelength",
+      "Uses the wave model to explain reflection and refraction",
+      "Explains how wave frequency relates to energy across the electromagnetic spectrum"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Evaluating model usefulness — wave vs particle for different phenomena",
+     "checkpoint": "Students can evaluate the usefulness of wave and particle models for explaining different energy transfer phenomena and identify where each model succeeds or fails.",
+     "hinge": false,
+     "criteria": [
+      "Evaluates the usefulness of each model for at least two distinct phenomena",
+      "Identifies at least one phenomenon where the wave model is more useful and one where the particle model is more useful",
+      "Explains that scientific models are tools with domains of usefulness rather than literal descriptions of reality"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9U05",
+   "year": 9,
+   "span": 1,
+   "strand": "Physical",
+   "title": "Conservation of energy and efficiency",
+   "description": "apply the law of conservation of energy to analyse system efficiency in terms of energy inputs, outputs, transfers and transformations",
+   "prior": [
+    "AC9S8U05",
+    "AC9S6U03"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Conservation of energy — total energy is maintained in any system",
+     "checkpoint": "Students can state the law of conservation of energy and apply it to account for all energy in a system — including energy that is transferred as heat or sound rather than as useful output.",
+     "hinge": true,
+     "criteria": [
+      "States the law of conservation of energy correctly",
+      "Explains that 'wasted' energy is transferred to the environment, not destroyed",
+      "Accounts for all energy outputs (useful + wasted) in a simple system"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Efficiency — useful output as a proportion of total input",
+     "checkpoint": "Students can define efficiency, calculate it as a ratio of useful output to total input energy, and explain why no real system achieves 100% efficiency.",
+     "hinge": true,
+     "criteria": [
+      "Calculates efficiency as useful output ÷ total input with correct units",
+      "Explains why no real system achieves 100% efficiency",
+      "Compares efficiency values across two systems and interprets the difference"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Sankey diagrams — representing energy inputs, outputs and losses",
+     "checkpoint": "Students can construct and interpret Sankey diagrams to represent energy flow through a system, reading off efficiency and identifying where energy losses occur.",
+     "hinge": false,
+     "criteria": [
+      "Reads efficiency and identifies major energy losses from a given Sankey diagram",
+      "Constructs a Sankey diagram from energy data with correctly proportioned arrows",
+      "Critiques a Sankey diagram — identifies what it represents well and any limitations"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Applying conservation of energy and efficiency to real systems",
+     "checkpoint": "Students can apply the law of conservation of energy and efficiency analysis to evaluate real energy systems and identify where improvements could be made.",
+     "hinge": false,
+     "criteria": [
+      "Applies conservation of energy to account for all energy inputs and outputs in a real system",
+      "Calculates efficiency for a real system and interprets the result",
+      "Identifies where energy losses occur and suggests a practical improvement"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9U06",
+   "year": 9,
+   "span": 1,
+   "strand": "Chemical",
+   "title": "Atomic model and radioactive decay",
+   "description": "explain how the model of the atom changed following the discovery of electrons, protons and neutrons and describe how natural radioactive decay results in stable atoms",
+   "prior": [
+    "AC9S7U05",
+    "AC9S8U06"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "The nuclear model of the atom — protons, neutrons and electrons",
+     "checkpoint": "Students can describe the structure of the nuclear atom in terms of protons, neutrons and electrons, and use atomic number and mass number to describe specific atoms.",
+     "hinge": true,
+     "criteria": [
+      "Describes the nuclear atom: protons and neutrons in the nucleus, electrons in shells",
+      "Uses atomic number and mass number to determine proton, neutron and electron counts",
+      "Describes the relative mass and charge of protons, neutrons and electrons"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Isotopes — same element, different neutron numbers",
+     "checkpoint": "Students can define isotopes as atoms of the same element with different numbers of neutrons, and explain why some isotopes are unstable.",
+     "hinge": false,
+     "criteria": [
+      "Defines isotopes as atoms of the same element with different numbers of neutrons",
+      "Identifies that some isotopes are unstable and undergo radioactive decay",
+      "Uses isotope notation (e.g. carbon-14) correctly"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Types of radioactive decay — alpha, beta and gamma",
+     "checkpoint": "Students can describe alpha, beta and gamma decay in terms of what is emitted and how each changes the nucleus, and compare their penetrating power.",
+     "hinge": true,
+     "criteria": [
+      "Describes what is emitted in alpha, beta and gamma decay",
+      "Explains how alpha and beta decay change the atomic number and mass number of the nucleus",
+      "Compares the penetrating power of alpha, beta and gamma radiation"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Half-life — rate of radioactive decay",
+     "checkpoint": "Students can define half-life, use half-life data to calculate remaining activity after a given number of half-lives, and explain how half-life determines the suitability of isotopes for different applications.",
+     "hinge": false,
+     "criteria": [
+      "Defines half-life as the time for half of the nuclei in a sample to decay",
+      "Calculates the remaining quantity of a radioisotope after a given number of half-lives",
+      "Explains why half-life determines the suitability of an isotope for a named application"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Decay sequences — how unstable isotopes reach stability",
+     "checkpoint": "Students can describe how a series of decay events transforms an unstable isotope into a stable one, and explain the relationship between the descriptor's descriptor claim that 'natural radioactive decay results in stable atoms'.",
+     "hinge": false,
+     "criteria": [
+      "Traces a named decay sequence and identifies the stable end product",
+      "Tracks changes to atomic number and mass number at each decay step",
+      "Explains how the sequence of decay events moves the nucleus toward stability"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S9U07",
+   "year": 9,
+   "span": 1,
+   "strand": "Chemical",
+   "title": "Chemical equations and conservation of mass",
+   "description": "model the rearrangement of atoms in chemical reactions using a range of representations, including word and simple balanced chemical equations, and use these to demonstrate the law of conservation of mass",
+   "prior": [
+    "AC9S8U07",
+    "AC9S8U06",
+    "AC9S6U04"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Reactants and products — identifying what changes in a chemical reaction",
+     "checkpoint": "Students can identify reactants and products in a chemical reaction and describe the change in terms of new substances being formed.",
+     "hinge": false,
+     "criteria": [
+      "Identifies reactants and products in a named chemical reaction",
+      "Explains that chemical reactions produce new substances with different properties",
+      "Connects reactant-product change to prior indicators of chemical change (AC9S8U07)"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Atom rearrangement — chemical reactions as atomic-level redistribution",
+     "checkpoint": "Students can model a chemical reaction as the rearrangement of atoms using molecular models or diagrams, showing that atoms are neither created nor destroyed.",
+     "hinge": true,
+     "criteria": [
+      "Uses a molecular model or diagram to represent a simple reaction showing atoms before and after",
+      "Counts atoms on each side of a representation and confirms they match",
+      "Explains that atoms are rearranged — not created or destroyed — in chemical reactions"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Word equations — naming reactants and products",
+     "checkpoint": "Students can write correct word equations for named chemical reactions, correctly identifying all reactants and products.",
+     "hinge": false,
+     "criteria": [
+      "Writes a correct word equation for at least two named reactions, including all products",
+      "Uses correct arrow notation (reactants → products)",
+      "Explains what word equations show and what they do not (no quantities, no atom counts)"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Balanced symbolic equations — demonstrating conservation of mass",
+     "checkpoint": "Students can write and balance simple symbolic chemical equations and explain why balancing demonstrates the law of conservation of mass.",
+     "hinge": true,
+     "criteria": [
+      "Balances a simple symbolic equation by adjusting coefficients (not subscripts)",
+      "Verifies a balanced equation by counting atoms of each element on both sides",
+      "Explains that a balanced equation demonstrates conservation of mass — same atoms, same total mass, on both sides"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Conservation of mass — connecting representation to empirical evidence",
+     "checkpoint": "Students can use balanced equations to explain the law of conservation of mass, and connect this to experimental evidence from reactions in closed and open systems.",
+     "hinge": false,
+     "criteria": [
+      "Explains why total mass is conserved in a closed system chemical reaction",
+      "Explains apparent mass changes in open system reactions using conservation of mass",
+      "Uses a balanced equation to connect the symbolic representation to the empirical mass conservation result"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S10U01",
+   "year": 10,
+   "span": 1,
+   "strand": "Biological",
+   "title": "Genetics and inheritance",
+   "description": "explain the role of meiosis and mitosis and the function of chromosomes, DNA and genes in heredity and predict patterns of Mendelian inheritance",
+   "prior": [
+    "AC9S9U02",
+    "AC9S8U01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Chromosomes, DNA and genes — the structural hierarchy",
+     "checkpoint": "Students can describe the structural relationship between chromosomes, DNA and genes, and explain how genetic information is organised and stored.",
+     "hinge": true,
+     "criteria": [
+      "Describes chromosomes as structures made of DNA",
+      "Explains that genes are segments of DNA that code for heritable characteristics",
+      "Distinguishes genotype (genetic information) from phenotype (expressed characteristic)"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Mitosis — cell division for growth and repair",
+     "checkpoint": "Students can explain the outcome of mitosis and describe its role in growth, repair and asexual reproduction.",
+     "hinge": false,
+     "criteria": [
+      "States that mitosis produces two genetically identical daughter cells",
+      "Explains that chromosome number is maintained through mitosis",
+      "Identifies growth and repair as the biological purposes of mitosis"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Meiosis — halving chromosome number and generating variation",
+     "checkpoint": "Students can explain how meiosis halves the chromosome number to produce gametes and describe how meiosis generates genetic variation.",
+     "hinge": true,
+     "criteria": [
+      "Explains that meiosis halves the chromosome number to produce gametes",
+      "Describes that each gamete receives one chromosome from each homologous pair",
+      "Explains how meiosis contributes to genetic variation in offspring"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Alleles and Mendelian inheritance — dominant and recessive",
+     "checkpoint": "Students can explain dominant and recessive allele relationships and use Punnett squares to predict genotype and phenotype ratios in monohybrid crosses.",
+     "hinge": true,
+     "criteria": [
+      "Constructs a Punnett square for a monohybrid cross and states correct genotype and phenotype ratios",
+      "Uses correct allele notation and correctly forms gametes from each parental genotype",
+      "Interprets a pedigree diagram to identify phenotypes and infer genotypes for dominant/recessive traits"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Fertilisation and heredity — connecting meiosis to offspring variation",
+     "checkpoint": "Students can explain how meiosis and fertilisation together determine heredity and account for variation among siblings from the same parents.",
+     "hinge": false,
+     "criteria": [
+      "Traces the pathway from parent genotypes through meiosis, gametes and fertilisation to offspring genotype",
+      "Explains why siblings from the same parents can have different genotypes and phenotypes",
+      "Connects Punnett square probability ratios to the random combination of gametes at fertilisation"
+     ]
+    },
+    {
+     "n": 6,
+     "label": "Sex-linked inheritance",
+     "checkpoint": "Students can explain sex determination by sex chromosomes and predict genotype and phenotype ratios for sex-linked traits using Punnett squares.",
+     "hinge": false,
+     "criteria": [
+      "Explains that sex is determined by the X and Y chromosome pair",
+      "Uses correct X-linked allele notation in a Punnett square and predicts phenotype ratios for males and females",
+      "Identifies why X-linked recessive conditions are more frequently expressed in males than females"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S10U02",
+   "year": 10,
+   "span": 1,
+   "strand": "Biological",
+   "title": "Evolution by natural selection",
+   "description": "use the theory of evolution by natural selection to explain past and present diversity and analyse the scientific evidence supporting the theory",
+   "prior": [
+    "AC9S5U01",
+    "AC9S6U01",
+    "AC9S7U01",
+    "AC9S9U02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Variation within populations",
+     "checkpoint": "Students can explain that individuals within a population vary in heritable characteristics and identify the sources of that variation.",
+     "hinge": true,
+     "criteria": [
+      "Explains that individuals within a population vary in heritable characteristics",
+      "Distinguishes heritable from non-heritable variation",
+      "Identifies mutation and sexual reproduction as sources of heritable variation"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Natural selection as a mechanism — variation, selection pressure, differential survival",
+     "checkpoint": "Students can describe the mechanism of natural selection: how a selection pressure acts on heritable variation to produce differential survival and reproduction, leading to population change over generations.",
+     "hinge": true,
+     "criteria": [
+      "Describes the mechanism of natural selection as variation → selection pressure → differential survival/reproduction → inherited by offspring",
+      "Applies the mechanism correctly to a named example",
+      "Distinguishes natural selection from the Lamarckian view that individuals adapt during their lifetime"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Evidence for evolution — multiple lines of support",
+     "checkpoint": "Students can describe and explain multiple lines of evidence that support the theory of evolution by natural selection, including the fossil record, anatomical and chemical similarities, and geographical distribution.",
+     "hinge": false,
+     "criteria": [
+      "Describes at least three distinct lines of evidence for evolution",
+      "Explains what each evidence type demonstrates about common descent or change over time",
+      "Identifies that multiple independent evidence types support the same conclusion"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Using natural selection to explain past diversity — speciation and extinction",
+     "checkpoint": "Students can use the theory of natural selection to explain how past populations diverged into new species and how extinction results from failed adaptation to selection pressures.",
+     "hinge": false,
+     "criteria": [
+      "Explains how geographic isolation and different selection pressures can lead to speciation",
+      "Uses natural selection to explain why species go extinct when selection pressures change",
+      "Connects fossil record evidence to the timeline of species appearance and disappearance"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Using natural selection to explain present diversity and current change",
+     "checkpoint": "Students can use the theory of natural selection to explain current patterns of biodiversity and analyse examples of evolution occurring in present populations.",
+     "hinge": false,
+     "criteria": [
+      "Applies natural selection to explain a current example of observable population change",
+      "Explains present biodiversity as the product of ongoing evolutionary processes",
+      "Analyses how a current selection pressure is affecting a named population"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S10U03",
+   "year": 10,
+   "span": 1,
+   "strand": "Earth and space",
+   "title": "Big Bang theory",
+   "description": "describe how the big bang theory models the origin and evolution of the universe and analyse the supporting evidence for the theory",
+   "prior": [
+    "AC9S7U03",
+    "AC9S1U02",
+    "AC9S2U01"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Scale and structure of the universe",
+     "checkpoint": "Students can describe the major structural components of the universe using appropriate scale and units, and place Earth within the cosmic hierarchy.",
+     "hinge": false,
+     "criteria": [
+      "Names the major structural components of the universe in order of scale",
+      "Uses light-years or astronomical units correctly in a distance context",
+      "Uses scientific notation to express cosmological distances or ages"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "The big bang model — origin and timeline of the universe",
+     "checkpoint": "Students can describe the big bang theory as a model of the origin and evolution of the universe and outline the major stages from the initial singularity to the formation of stars and galaxies.",
+     "hinge": true,
+     "criteria": [
+      "Describes the big bang as the origin of space, time and matter approximately 13.8 billion years ago",
+      "Outlines at least three major stages in the universe's evolution from the initial event to galaxy formation",
+      "Explains that the universe has been expanding and cooling since the big bang"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Redshift and the expanding universe",
+     "checkpoint": "Students can explain how the redshift of light from distant galaxies provides evidence that the universe is expanding, and connect this to the big bang model.",
+     "hinge": false,
+     "criteria": [
+      "Explains that redshift of light from distant galaxies indicates they are moving away from us",
+      "Connects the expanding universe (evidenced by redshift) to the big bang model",
+      "Describes Hubble's observations as a key evidential basis for the expanding universe"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Cosmic microwave background radiation and matter proportions",
+     "checkpoint": "Students can describe how cosmic microwave background radiation and the observed proportions of matter in the universe provide independent lines of evidence supporting the big bang theory.",
+     "hinge": false,
+     "criteria": [
+      "Describes cosmic microwave background radiation and explains what it indicates about the early universe",
+      "Explains that the proportions of matter (hydrogen, helium) in the universe are consistent with big bang predictions",
+      "Identifies CMB and matter proportions as independent lines of evidence, separate from redshift"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Analysing the evidence base — how multiple lines support the theory",
+     "checkpoint": "Students can analyse how redshift, CMB and matter proportions together constitute a mutually supporting evidence base for the big bang theory, and explain what each line independently demonstrates.",
+     "hinge": false,
+     "criteria": [
+      "Analyses how at least three lines of evidence independently support the big bang theory",
+      "Explains what each evidence type demonstrates and why convergence strengthens the theory",
+      "Acknowledges at least one open question or area of ongoing investigation in cosmology"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S10U04",
+   "year": 10,
+   "span": 1,
+   "strand": "Earth and space",
+   "title": "Global climate change",
+   "description": "use models of energy flow between the geosphere, biosphere, hydrosphere and atmosphere to explain patterns of global climate change",
+   "prior": [
+    "AC9S9U03",
+    "AC9S6U02",
+    "AC9S7U02"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Solar radiation and Earth's energy input",
+     "checkpoint": "Students can describe how solar radiation reaches Earth and identify the factors that determine how much energy is absorbed versus reflected by the surface and atmosphere.",
+     "hinge": true,
+     "criteria": [
+      "Identifies the sun as the primary energy input to Earth's climate system",
+      "Distinguishes absorbed from reflected solar radiation with at least one surface example",
+      "Explains why different surfaces absorb or reflect different proportions of solar radiation"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Energy balance between Earth's spheres",
+     "checkpoint": "Students can describe how energy flows between the geosphere, biosphere, hydrosphere and atmosphere and explain what it means for Earth to be in energy balance.",
+     "hinge": true,
+     "criteria": [
+      "Describes energy exchange between at least three of the four spheres",
+      "Explains energy balance as the condition where incoming and outgoing energy are equal over time",
+      "Identifies the ocean or atmosphere as a store and distributor of heat energy"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "The greenhouse effect — trapping outgoing radiation",
+     "checkpoint": "Students can explain how greenhouse gases in the atmosphere trap outgoing infrared radiation and describe the role of this mechanism in maintaining Earth's surface temperature.",
+     "hinge": true,
+     "criteria": [
+      "Explains that Earth emits infrared radiation and that greenhouse gases absorb and re-emit it",
+      "Distinguishes natural greenhouse effect from enhanced greenhouse effect",
+      "Locates the greenhouse mechanism correctly within the energy balance model from N2 (atmosphere slows outgoing, not incoming, energy)"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Human activity, greenhouse gas concentrations and energy imbalance",
+     "checkpoint": "Students can explain how human activities increase atmospheric greenhouse gas concentrations and describe how this creates an energy imbalance that drives warming.",
+     "hinge": false,
+     "criteria": [
+      "Identifies at least two human activities that increase atmospheric greenhouse gas concentrations",
+      "Explains how increased greenhouse gas concentration leads to a positive energy imbalance",
+      "Connects the perturbation of atmospheric CO₂ to the energy flow model from N2 and N3"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Indicators of climate change across Earth's spheres",
+     "checkpoint": "Students can identify and interpret multiple indicators of climate change and explain each as evidence of the energy imbalance described in N4.",
+     "hinge": false,
+     "criteria": [
+      "Names at least three distinct climate change indicators across different spheres",
+      "Explains the mechanism behind at least two indicators using the energy flow model",
+      "Interprets a climate data visualisation as evidence of energy imbalance"
+     ]
+    },
+    {
+     "n": 6,
+     "label": "Using energy flow models to explain and evaluate responses to climate change",
+     "checkpoint": "Students can use the energy flow model to explain patterns of global climate change and evaluate strategies designed to reduce or mitigate its effects in terms of the model.",
+     "hinge": false,
+     "criteria": [
+      "Applies the energy flow model to explain at least two distinct patterns of global climate change",
+      "Evaluates at least one strategy to reduce climate change and one to mitigate its effects using the model",
+      "Distinguishes mitigation from adaptation and explains each in terms of the energy balance"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S10U05",
+   "year": 10,
+   "span": 1,
+   "strand": "Physical",
+   "title": "Newton's laws of motion",
+   "description": "investigate Newton's laws of motion and quantitatively analyse the relationship between force, mass and acceleration of objects",
+   "prior": [
+    "AC9S7U04"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Force as a vector quantity",
+     "checkpoint": "Students can represent forces as vectors with both magnitude and direction, and add or subtract forces acting along a single axis to find net force.",
+     "hinge": false,
+     "criteria": [
+      "Represents a named force as a vector with a labelled magnitude and direction",
+      "Calculates net force for two forces acting along the same axis using a consistent sign convention",
+      "Distinguishes between contact forces (friction, normal) and non-contact forces (gravity)"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Newton's First Law — inertia and the Aristotelian misconception",
+     "checkpoint": "Students can state Newton's First Law and explain why a moving object with no net force continues at constant velocity, identifying and correcting the misconception that motion requires a continuous force.",
+     "hinge": true,
+     "criteria": [
+      "States Newton's First Law correctly",
+      "Explains why a moving object without net force continues at constant velocity (does not slow down)",
+      "Identifies friction as the hidden force responsible for observed deceleration in everyday scenarios",
+      "Corrects the claim that 'a moving object needs a force to keep moving'"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Acceleration as a defined vector quantity",
+     "checkpoint": "Students can define acceleration as the rate of change of velocity, calculate acceleration from velocity and time data, and represent acceleration as a vector with direction.",
+     "hinge": true,
+     "criteria": [
+      "Defines acceleration as the rate of change of velocity with correct units (m/s²)",
+      "Calculates acceleration from velocity and time data",
+      "States the direction of acceleration and identifies it as the same direction as net force",
+      "Distinguishes acceleration from speed — identifies deceleration and direction change as forms of acceleration"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Newton's Second Law — F = ma",
+     "checkpoint": "Students can apply F = ma to calculate force, mass or acceleration in single-force scenarios and explain qualitatively how changing mass or force affects acceleration.",
+     "hinge": true,
+     "criteria": [
+      "Correctly applies F = ma to solve for force, mass or acceleration in a single-force scenario",
+      "Uses correct units (N, kg, m/s²) and maintains direction consistency",
+      "Explains qualitatively how doubling force or mass affects acceleration"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Newton's Third Law — action-reaction pairs",
+     "checkpoint": "Students can identify action-reaction force pairs in a scenario and explain why they do not cancel, despite being equal and opposite.",
+     "hinge": false,
+     "criteria": [
+      "Identifies the action and reaction forces in a named scenario and states which object each acts on",
+      "Explains why action-reaction pairs do not cancel (they act on different objects)",
+      "Distinguishes Third Law pairs from balanced forces acting on the same object"
+     ]
+    },
+    {
+     "n": 6,
+     "label": "Multi-force analysis and free body diagrams",
+     "checkpoint": "Students can draw a free body diagram for an object with multiple forces and calculate net force, then apply F = ma to determine acceleration.",
+     "hinge": false,
+     "criteria": [
+      "Draws a correctly labelled free body diagram for an object with at least three forces",
+      "Calculates net force and resulting acceleration from a free body diagram",
+      "Applies the result to explain a real-world scenario (e.g. vehicle safety, sport)"
+     ]
+    },
+    {
+     "n": 7,
+     "label": "Quantitative problem solving — integrating all three laws",
+     "checkpoint": "Students can solve multi-step force and motion problems that require selecting and applying Newton's laws, using mathematical representations including graphs and algebraic formulas.",
+     "hinge": false,
+     "criteria": [
+      "Solves a multi-step problem applying at least two of Newton's laws with correct units throughout",
+      "Uses mathematical representations (graphs or algebraic formulas) to support a quantitative argument",
+      "Checks the reasonableness of a calculated answer in physical terms"
+     ]
+    },
+    {
+     "n": 8,
+     "label": "Real-world applications — Newton's laws in context",
+     "checkpoint": "Students can apply Newton's laws to analyse motion in real-world contexts including vehicle safety, sport, and First Nations technologies, and explain design decisions in terms of force, mass and acceleration.",
+     "hinge": false,
+     "criteria": [
+      "Applies at least two of Newton's laws to explain a design feature or technique in a real-world context",
+      "Explains a First Nations throwing technology in terms of force, time of application and resulting acceleration",
+      "Evaluates a vehicle safety feature quantitatively using Newton's Second Law"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S10U06",
+   "year": 10,
+   "span": 1,
+   "strand": "Chemical",
+   "title": "Periodic table and atomic structure",
+   "description": "explain how the structure and properties of atoms relate to the organisation of the elements in the periodic table",
+   "prior": [
+    "AC9S8U06",
+    "AC9S9U06"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Electron shell configuration and the Bohr model",
+     "checkpoint": "Students can draw or describe the electron shell configuration of elements 1–20 using the Bohr model and explain the shell-filling rules.",
+     "hinge": true,
+     "criteria": [
+      "Draws a correct Bohr diagram for any element 1–20",
+      "States the maximum electron capacity of the first three shells (2, 8, 8)",
+      "Identifies the number of outer-shell electrons for any element 1–20"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Outer electrons and group properties — why elements in a group behave similarly",
+     "checkpoint": "Students can explain why elements in the same group of the periodic table have similar chemical properties by reference to their outer electron shell configuration.",
+     "hinge": true,
+     "criteria": [
+      "Explains that elements in the same group have the same number of outer-shell electrons",
+      "Uses outer electron configuration to explain the shared chemical properties of at least one group",
+      "Contrasts a reactive group (e.g. Group 1) with noble gases using outer electron configuration"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Periodic trends — why properties repeat across periods",
+     "checkpoint": "Students can describe repeating patterns of properties across the periodic table and explain them as a consequence of repeating outer electron shell configurations.",
+     "hinge": false,
+     "criteria": [
+      "Explains that a new period begins when electrons start filling a new shell",
+      "Describes that properties repeat across periods because outer electron configurations repeat",
+      "Interprets the position of an element in the table in terms of its electron shell configuration"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Using atomic structure to predict and explain element properties",
+     "checkpoint": "Students can use the position of an element in the periodic table to predict its electron configuration and properties, and explain those properties in terms of atomic structure.",
+     "hinge": false,
+     "criteria": [
+      "Predicts the outer electron configuration and likely properties of an element from its table position",
+      "Explains at least two element properties in terms of atomic structure",
+      "Uses the periodic table as a predictive tool — not just a reference — for an unfamiliar element"
+     ]
+    }
+   ]
+  },
+  {
+   "code": "AC9S10U07",
+   "year": 10,
+   "span": 1,
+   "strand": "Chemical",
+   "title": "Reaction types and rates",
+   "description": "identify patterns in synthesis, decomposition and displacement reactions and investigate the factors that affect reaction rates",
+   "prior": [
+    "AC9S9U07",
+    "AC9S8U07",
+    "AC9S8U06"
+   ],
+   "nodes": [
+    {
+     "n": 1,
+     "label": "Synthesis reactions — combining reactants to form a single product",
+     "checkpoint": "Students can identify synthesis reactions by their structural pattern (A + B → AB) and predict the product from given reactants.",
+     "hinge": false,
+     "criteria": [
+      "Identifies a synthesis reaction by its structural pattern (two or more reactants → one product)",
+      "Writes a correct word equation for a named synthesis reaction",
+      "Predicts the product of a synthesis reaction from given reactants"
+     ]
+    },
+    {
+     "n": 2,
+     "label": "Decomposition reactions — breaking a compound into simpler products",
+     "checkpoint": "Students can identify decomposition reactions by their structural pattern (AB → A + B) and describe conditions under which decomposition reactions occur.",
+     "hinge": false,
+     "criteria": [
+      "Identifies a decomposition reaction by its structural pattern (one reactant → two or more products)",
+      "Describes at least one condition (heat or electrical energy) that drives a decomposition reaction",
+      "Writes a correct word equation for a named decomposition reaction"
+     ]
+    },
+    {
+     "n": 3,
+     "label": "Displacement reactions — patterns of reactivity and product prediction",
+     "checkpoint": "Students can identify single and double displacement reactions and use reactivity patterns to predict whether a displacement reaction will occur and what the products will be.",
+     "hinge": true,
+     "criteria": [
+      "Identifies single and double displacement reactions from given equations",
+      "Uses an activity series to predict whether a single displacement reaction will occur",
+      "Predicts the products of a neutralisation or precipitation reaction"
+     ]
+    },
+    {
+     "n": 4,
+     "label": "Reaction type patterns — classifying and predicting across all three types",
+     "checkpoint": "Students can classify an unfamiliar chemical reaction as synthesis, decomposition or displacement and predict products, using structural patterns rather than memorisation.",
+     "hinge": false,
+     "criteria": [
+      "Classifies an unfamiliar reaction as synthesis, decomposition or displacement using structural pattern",
+      "Predicts products for each reaction type from the pattern alone",
+      "Explains the classification reasoning rather than recalling named examples"
+     ]
+    },
+    {
+     "n": 5,
+     "label": "Collision theory — the particle basis of reaction rates",
+     "checkpoint": "Students can explain reaction rate in terms of particle collision frequency and energy, and use collision theory to predict how changing conditions will affect rate.",
+     "hinge": true,
+     "criteria": [
+      "Explains that reactions require particle collisions with energy above the activation energy threshold",
+      "Predicts that increasing collision frequency or energy increases reaction rate",
+      "Identifies at least two ways to increase collision frequency or energy"
+     ]
+    },
+    {
+     "n": 6,
+     "label": "Rate factors — temperature, concentration, surface area and catalysts",
+     "checkpoint": "Students can explain how each of the four rate factors affects reaction rate using collision theory, and investigate one factor experimentally.",
+     "hinge": false,
+     "criteria": [
+      "Explains how each of the four rate factors affects reaction rate using collision theory",
+      "Distinguishes catalysts from reactants and explains why catalysts are not consumed",
+      "Designs or describes an investigation to test the effect of one rate factor"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -4,7 +4,10 @@
 // "leads to" lines for the descriptor in focus. Built here; tools/import-curriculum.mjs makes the data.
 import { readFileSync, existsSync } from 'node:fs';
 
-export const STRANDS = { maths: ['Number', 'Algebra', 'Measurement', 'Space', 'Statistics', 'Probability'] };
+export const STRANDS = {
+  maths: ['Number', 'Algebra', 'Measurement', 'Space', 'Statistics', 'Probability'],
+  science: ['Biological', 'Chemical', 'Earth and space', 'Physical', 'Human endeavour', 'Inquiry'],
+};
 
 export function loadCurriculum(subject) {
   const f = `data/curriculum/${subject}.json`;
@@ -57,15 +60,20 @@ export function curriculumMapHtml(subject, cur, lessons, up, esc) {
     const mine = ds.filter((d) => d.strand === s);
     const main = mine.filter((d) => d.year >= 7), withL = main.filter(hasLessons).length;
     grid += `<h3 class="cms" style="grid-row:${r + 2}">${esc(s)}<small>${main.length} descriptors${withL ? ` · ${withL} with lessons` : ''}</small></h3>`;
+    // A descriptor written for two years (science's Human endeavour and Inquiry: span 2) fills both columns.
+    let skip = false;
     years.forEach(([y, t], i) => {
+      if (skip) { skip = false; return; }
       const cell = inOrder(mine.filter((d) => (y ? d.year === y : d.year < 7)));
-      grid += `<div class="cmcell${y ? '' : ' before'}" data-year="${esc(t)}" style="grid-row:${r + 2};grid-column:${i + 2}">${cell.map(tile).join('')}</div>`;
+      const wide = y && cell.length && cell.every((d) => d.span === 2) && i + 1 < years.length;
+      if (wide) skip = true;
+      grid += `<div class="cmcell${y ? '' : ' before'}${wide ? ' wide' : ''}" data-year="${esc(wide ? `Years ${y}–${y + 1}` : t)}" style="grid-row:${r + 2};grid-column:${i + 2}${wide ? ' / span 2' : ''}">${cell.map(tile).join('')}</div>`;
     });
   });
   const data = {
     lessons: L.map((l) => ({ t: l.title, h: l.href, c: l.course })),
     d: Object.fromEntries(ds.map((d) => [d.code, {
-      t: d.title, y: d.year, s: d.strand, x: d.description, p: d.prior.filter((c) => byCode.has(c)),
+      t: d.title, y: d.year, w: d.span || 1, s: d.strand, x: d.description, p: d.prior.filter((c) => byCode.has(c)),
       n: d.nodes.map((n) => [n.label, n.hinge ? 1 : 0, nodeLessons(d, n)]),
     }])),
   };
@@ -99,11 +107,12 @@ export const CMAP_CSS = `
 .cmkey .lk{display:inline-block;width:20px;height:0;border-top:3px solid}.cmkey .lk.pre{border-color:var(--investigate)}.cmkey .lk.post{border-color:var(--practise);border-top-style:dashed}
 .cmscroll{overflow-x:auto;border-radius:16px}
 .cmgrid{position:relative;display:grid;grid-template-columns:104px 132px repeat(4,minmax(150px,1fr));grid-template-rows:auto repeat(var(--rows),auto);min-width:880px;background:var(--card);border:1px solid var(--line);border-radius:16px}
-.cmlines{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:2}
+.cmlines{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:0}
 .cmlines path{fill:none;stroke-width:2.5;stroke-linecap:round}.cmlines .pre{stroke:var(--investigate)}.cmlines .post{stroke:var(--practise);stroke-dasharray:6 5}
 .cmh{padding:12px 8px 8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .cms{grid-column:1;margin:0;padding:12px 10px;font-size:14px;line-height:1.25;border-top:1px solid var(--line)}.cms small{display:block;font-weight:400;font-size:12px;color:var(--muted);margin-top:4px}
 .cmcell{display:flex;flex-direction:column;gap:6px;padding:10px 6px;border-top:1px solid var(--line);min-width:0}
+.cmcell.wide{display:grid;grid-template-columns:1fr 1fr;align-content:start}
 .cmcell.before{background:color-mix(in srgb,var(--line) 30%,transparent)}
 .cmt{position:relative;z-index:1;display:flex;flex-direction:column;gap:3px;width:100%;text-align:left;font:inherit;color:var(--muted);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:6px 8px;cursor:pointer}
 .cmt.has{color:var(--ink);background:var(--card);border-color:color-mix(in srgb,var(--ink) 35%,transparent)}
@@ -121,7 +130,7 @@ export const CMAP_CSS = `
 @media(max-width:700px){
 .cmgrid{display:block;min-width:0;border:0;background:none}.cmlines,.cmh{display:none}
 .cms{margin-top:18px;padding:0 0 6px;border:0;font-size:1.05rem}
-.cmcell{border:0;padding:4px 0 8px}.cmcell::before{content:attr(data-year);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.cmcell{border:0;padding:4px 0 8px}.cmcell.wide{display:flex}.cmcell::before{content:attr(data-year);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .cmcell:empty{display:none}
 }
 `;

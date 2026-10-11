@@ -20,7 +20,8 @@
     var d = D[c];
     if (!d) return;
     card.textContent = '';
-    card.append(el('p', 'cmk', c + ' · ' + (d.y < 7 ? 'Year ' + d.y + ' (before Year 7)' : 'Year ' + d.y) + ' · ' + d.s));
+    var yrs = d.w > 1 ? 'Years ' + d.y + '–' + (d.y + d.w - 1) : 'Year ' + d.y;
+    card.append(el('p', 'cmk', c + ' · ' + (d.y < 7 ? yrs + ' (before Year 7)' : yrs) + ' · ' + d.s));
     card.append(el('h2', null, d.t));
     if (d.x) card.append(el('p', 'cmx', d.x));
     card.append(el('h3', null, 'Waypoints'));
