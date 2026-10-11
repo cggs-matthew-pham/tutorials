@@ -28,7 +28,7 @@ support: "Give the carbon cycle diagram with the burning arrow and fossil fuel b
 leads: |
   Next: Year 10, the greenhouse effect and climate change (AC9S10U04).
 exit:
-  q: "Why does burning fossil fuels raise CO₂ in the air?"
-  a: "It moves carbon stored in the geosphere over millions of years into the air in years. The natural flows were balanced, so the extra builds up; oceans and plants take up only part of it."
+  q: "Plants and the oceans take up about half of the CO₂ we add each year. Why does CO₂ in the air still keep rising?"
+  a: "Burning moves carbon stored in the geosphere over millions of years into the air in years. The natural flows were balanced, so the half that plants and oceans don't take up builds up, year after year."
 explain: |
   **Combustion** of fossil fuels moves carbon from the geosphere, where it was stored over millions of years, to the atmosphere in years. Oceans and plants take up part of it; the rest builds up, so CO₂ in the air rises.

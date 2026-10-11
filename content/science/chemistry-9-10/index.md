@@ -1,5 +1,6 @@
 ---
 title: Years 9 and 10 Chemistry
+recap: true
 summary: "Inside the atom and through reactions. The nuclear atom and its electron shells explain the periodic table; atoms rearrange and are never lost, which is why mass is conserved and equations balance; and reactions happen when particles collide hard enough."
 order: 3
 units:

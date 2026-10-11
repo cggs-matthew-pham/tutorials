@@ -1,5 +1,6 @@
 ---
 title: Year 9 Earth and space
+recap: true
 summary: "Earth's four spheres and the carbon that moves between them: photosynthesis, respiration, decomposition and burning fossil fuels. Concept tutorials with a landscape of the spheres and a live carbon cycle you can run for decades."
 order: 1
 units:

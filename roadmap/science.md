@@ -2,6 +2,10 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: recap pages for every science course (12 Oct 2026, science chat)
+
+`recap: true` on all 15 science courses (Year 7 Chemistry had it already): a Try first exit question per lesson, then the answer, explanation, picture and clip, at `<course>/recap/`, linked from the course page. Optional Quick checks are left out (they are self-tests already). Two exit questions that restated their lesson's title now apply the idea instead (fossil fuels: why CO₂ still rises when half is taken up; why classify: a new rainforest beetle); both clips re-record. Science decks pass `npm run check-decks` after the audit's new checks.
+
 ## Done: Matthew's decisions on the audit notes (12 Oct 2026, science chat)
 
 - **Struggle notes:** branch `science-struggle-live` merged; every science lesson now has `struggle:` (17 more clips re-record).

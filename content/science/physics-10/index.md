@@ -1,5 +1,6 @@
 ---
 title: Year 10 Physics
+recap: true
 summary: Newton's laws of motion. Why moving things don't need a push to keep moving, what acceleration means exactly, and how force, mass and acceleration are linked by F = ma. Concept tutorials with a live force and motion board.
 order: 2
 units:
