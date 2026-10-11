@@ -1,0 +1,8 @@
+# Sam's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The knob is turned all the way up.
+Analog read pin P0 gives 1023.
+So there are 1023 volts on pin 0.
+That is why the knob needs to be connected carefully.
+# endregion

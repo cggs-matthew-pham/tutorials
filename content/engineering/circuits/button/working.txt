@@ -1,0 +1,16 @@
+# Sam's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+When the button is up, pin 0 is joined to nothing.
+Joined to nothing means 0 volts.
+So pin 0 reads 0.
+So the pull-down resistor is not needed.
+# endregion
+
+# region: program
+forever
+    if digital read pin P0 = 1 then
+        show icon heart
+    else
+        clear screen
+# endregion

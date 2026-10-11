@@ -1,0 +1,40 @@
+# Boards for "A complete loop": pin 0 → 220 Ω resistor → LED → GND.
+
+# region: run
+widget: circuit
+mode: led
+unclip: on
+pinbtn: on
+numbers: off
+# endregion
+
+# region: explain
+widget: circuit
+mode: led
+unclip: on
+pinbtn: on
+# endregion
+
+# region: explain-pic
+widget: circuit
+mode: led
+# endregion
+
+# region: vary
+widget: circuit
+mode: led
+unclip: on
+pinbtn: on
+flip: on
+# endregion
+
+# region: make
+widget: circuit
+mode: led
+output: off
+gnd: off
+turned: on
+unclip: on
+pinbtn: on
+flip: on
+# endregion

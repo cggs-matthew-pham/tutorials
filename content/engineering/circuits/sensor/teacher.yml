@@ -1,0 +1,38 @@
+summary: Students turn a knob on pin 0 and see analog read give 0 to 1023, convert between position, reading and volts, swap in a light sensor in a divider, and set a threshold for a night light.
+time: 45
+timing: "Predict and Try 6 min · Worked example 12 min · Vary 10 min · Tinkercad 8 min · Practise and Make 9 min"
+goals:
+  - I can explain what analog read gives.
+  - I can convert between a reading and volts.
+  - I can choose a threshold so a program decides at the right moment.
+struggle: "Three scales at once (percent, reading, volts) blur together. Keep a number line on the board with all three marked."
+before: |
+  Model: analog read is 0–1023 for 0–3.3 V (the micro:bit's 10-bit reading); the knob and the light sensor give a voltage in proportion to the position or the light. Real light sensors (photoresistors) are far from linear, which Tinkercad will show.
+
+  Links: Digital systems › binary (10 bits make 1024 patterns, 0 to 1023).
+running:
+  - "Predict: ask those who chose 1.65 what unit analog read gives."
+  - "Worked example: draw the three scales one above the other."
+  - "Vary, swap them: draw both dividers and ask which end the sensor is on."
+  - "Make: compare thresholds. Who picked one close to 205, and what could go wrong?"
+stuck:
+  - see: "A student reports volts as the reading."
+    ask: "What is the biggest number analog read can give?"
+    fix: "1023, for 3.3 V."
+  - see: "A student's threshold works backwards."
+    ask: "Does darker make the reading bigger or smaller, in this circuit?"
+    fix: "Smaller here: lights on below the threshold."
+stretch: "Why 1023? How many bits does the micro:bit use for an analog reading?"
+support: "A printed number line with 0, 512 and 1023 above 0 V, 1.65 V and 3.3 V."
+leads: |
+  Next: the Arduino unit (the same circuits on an Uno: analogRead gives 0 to 1023 there too).
+
+  Digital systems: How many patterns? (10 bits). Code: micro:bit Foundations sensors (light level 0–255 is a different scale).
+exit:
+  q: "Pin 0 reads 256. Roughly how many volts are on it, and what fraction of the way up is the knob?"
+  a: "About a quarter of the way up, so about 0.83 V (256 ÷ 1023 × 3.3)."
+explain: |
+  **Analog read** turns the voltage on a pin, 0 to 3.3 V, into a number from **0 to 1023**: halfway (1.65 V) reads about 512. A **knob** or a **light sensor** in a divider changes the voltage, so the number changes. The number is a scale, not the volts. A program compares it with a **threshold** to decide, such as switching lights on below 300.
+sources:
+  - { title: "Tinkercad Circuits (Autodesk): simulator, link only", url: "https://www.tinkercad.com/circuits", checked: 2026-10-12 }
+  - { title: "SparkFun Inventor's Kit for micro:bit (benchmark; CC BY-SA 4.0)", url: "https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-for-microbit-experiment-guide", checked: 2026-10-12 }

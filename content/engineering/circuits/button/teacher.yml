@@ -1,0 +1,38 @@
+summary: Students hold and release a button wired from 3V to pin 0, see digital read give 1 and 0, trace what pin 0 is joined to in each state, remove the pull-down resistor to see the pin float, and put the reading-and-reacting program in order.
+time: 40
+timing: "Predict and Try 6 min · Worked example 10 min · Vary 8 min · Tinkercad 8 min · Practise and Make 8 min"
+goals:
+  - I can explain what digital read gives for 3.3 V and 0 V.
+  - I can explain why a button needs a pull-down (or pull-up) resistor.
+  - I can put a program in order that reacts to a button.
+struggle: "'Joined to nothing means 0' feels obvious. Let the floating pin surprise them on the board, then ask what the resistor gives the pin."
+before: |
+  Model: digital read gives 1 for 3.3 V and 0 for 0 V; a floating pin is shown reading at random every half second. Real floating pins are less tidy (they drift with nearby wires and fingers). A real micro:bit may already turn on a weak internal pull-down when it reads a pin (MakeCode's set pull pin block changes it), so Sam's doorbell may behave on a micro:bit; the external resistor makes the reading definite, and most other boards (Arduino in the next unit) need one. The micro:bit's own buttons A and B are already wired with resistors.
+
+  If you have kits: a breadboard, a pushbutton, a 10 kΩ resistor and three jumper wires to an edge connector breakout.
+running:
+  - "Predict: students who chose 3.3 are mixing up the voltage and the reading."
+  - "Worked example: ask what pin 0 is joined to, in each state, before revealing the lines."
+  - "Vary: watch the faces when the heart flickers by itself."
+  - "Practise, pull-up: draw both side by side."
+stuck:
+  - see: "A student thinks pin 0 reads 3.3."
+    ask: "Digital read gives one of two numbers. Which?"
+    fix: "1 for 3.3 V, 0 for 0 V."
+  - see: "A student thinks the pull-down stops the button working."
+    ask: "Which is a stronger join to pin 0: the button or a 10 kΩ resistor?"
+    fix: "The button: it is a direct join."
+stretch: "How could code ignore a reading that only lasts a moment, so a noisy pin doesn't count as a press?"
+support: "Two pictures side by side, held and up, with a highlighter for what pin 0 is joined to."
+leads: |
+  Next: Sensors that vary (analog read gives a number, not just 0 or 1).
+
+  Arduino unit: the same idea as pinMode(pin, INPUT_PULLUP).
+exit:
+  q: "Why does a button wired from 3V to a pin need a resistor from the pin to GND?"
+  a: "So the pin is held at 0 V (reads 0) when the button is up. Without it the pin floats and reads 0 or 1 at random."
+explain: |
+  A pin set as an **input** reads the voltage on it: **digital read** gives 1 for 3.3 V and 0 for 0 V. A button joins pin 0 to 3V only while it is held. When it is up, a **pull-down resistor** joins the pin to GND, so it reads 0. Without one the pin is joined to nothing, **floats**, and reads 0 or 1 at random.
+sources:
+  - { title: "Tinkercad Circuits (Autodesk): simulator, link only", url: "https://www.tinkercad.com/circuits", checked: 2026-10-12 }
+  - { title: "SparkFun Inventor's Kit for micro:bit (benchmark; CC BY-SA 4.0)", url: "https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-for-microbit-experiment-guide", checked: 2026-10-12 }

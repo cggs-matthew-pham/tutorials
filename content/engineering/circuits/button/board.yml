@@ -1,0 +1,24 @@
+# Boards for "A button is an input": 3V → button → pin 0, with a 10 kΩ pull-down from pin 0 to GND.
+# The micro:bit runs: forever, if digital read pin P0 = 1 then show a heart, else clear the screen.
+
+# region: run
+widget: circuit
+mode: button
+# endregion
+
+# region: explain
+widget: circuit
+mode: button
+toggle: on
+# endregion
+
+# region: explain-pic
+widget: circuit
+mode: button
+# endregion
+
+# region: vary
+widget: circuit
+mode: button
+toggle: on
+# endregion

@@ -1,0 +1,41 @@
+summary: Students take the resistor out of an LED circuit, compare resistor sizes, use Ohm's law with the LED's 2 V taken off to find the current and the smallest safe resistor, test that the resistor works on either side of the LED, and choose one for a target current.
+time: 45
+timing: "Predict and Try 8 min · Worked example 12 min · Vary 5 min · Tinkercad 10 min · Practise and Make 10 min"
+goals:
+  - I can explain what a resistor does in an LED circuit.
+  - I can use Ohm's law to work out the current.
+  - I can choose a resistor for a safe current.
+struggle: "Two steps trip students: taking the LED's 2 V off before dividing, and turning amps into milliamps. Model both slowly, out loud."
+before: |
+  Model: pin 3.3 V, LED forward voltage 2 V, LED limit 20 mA; with no resistor the board shows about 100 mA (a stand-in for "limited only by the pin and wires"). Real LEDs vary (red about 2 V, blue and white about 3 V), and a micro:bit pin should really be kept to a few milliamps, so kits use 220 Ω or more. Say that the numbers are a model.
+
+  Ohm's law may be new: this lesson applies it, Year 9 Science (electric circuits) teaches it fully.
+running:
+  - "Predict: ask what limits the current when there is no resistor."
+  - "Worked example: write each line live. Pause on 3.3 − 2 and ask why."
+  - "Find the mistake: ask a student to trace the loop with a finger and say where the current is bigger."
+  - "Tinkercad: expect close, not identical, numbers; ask why a model might differ."
+stuck:
+  - see: "A student divides 3.3 by the resistance."
+    ask: "How much of the 3.3 V does the LED use?"
+    fix: "Use the 1.3 V left for the resistor."
+  - see: "A student's answer is 0.0059 for milliamps."
+    ask: "Is that in amps or milliamps?"
+    fix: "Times 1000."
+  - see: "A student moves the resistor and expects a change."
+    ask: "Is it still one loop?"
+    fix: "One loop, one current."
+stretch: "A blue LED drops about 3 V. With 220 Ω on a 3.3 V pin, how much current? Why might a blue LED look dim on a micro:bit?"
+support: "A card with the three steps: 3.3 − 2 = 1.3; 1.3 ÷ R; × 1000."
+leads: |
+  Next: A button is an input.
+
+  Science: Year 9 electric circuits (voltage, current, resistance). Engineering › Power and motors: why a pin can't drive a motor.
+exit:
+  q: "With a 330 Ω resistor and a 2 V LED on a 3.3 V pin, how much current flows? Is it safe?"
+  a: "1.3 ÷ 330 ≈ 0.0039 A ≈ 3.9 mA: safe, under 20 mA."
+explain: |
+  With no resistor, far too much current flows and the LED is damaged. A **resistor** limits the current. **Ohm's law**: current = voltage ÷ resistance. The LED uses about 2 V of the pin's 3.3 V, leaving 1.3 V across the resistor, so 220 Ω gives 1.3 ÷ 220 ≈ 0.006 A = 6 mA. More ohms, less current. In a single loop the current is the same everywhere, so the resistor works before or after the LED.
+sources:
+  - { title: "Tinkercad Circuits (Autodesk): simulator, link only", url: "https://www.tinkercad.com/circuits", checked: 2026-10-12 }
+  - { title: "SparkFun Inventor's Kit Experiment Guide v4.1 (benchmark; CC BY-SA 4.0)", url: "https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v41", checked: 2026-10-12 }

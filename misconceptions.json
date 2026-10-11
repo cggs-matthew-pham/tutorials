@@ -241,5 +241,9 @@
   "lookalike-domain": {"home": "systems/security/addresses", "text": "A name that looks like a known site is trusted (schoo1 for school); DNS looks up the exact name, so a lookalike reaches a different computer."},
   "signed-in-means-allowed": {"home": "systems/security/access", "text": "Signing in is taken to allow anything; authentication proves who you are, and permissions (authorisation) decide what you may do."},
   "hash-reversible": {"home": "systems/security/hashes-keys", "text": "A stored password hash is thought to be turned back into the password (to email it, for example); a hash is one way, which is why sites send a reset link instead."},
-  "counter-in-loop": {"home": "code/python/turtle-decide", "text": "A counter set to 0 inside the loop keeps adding up; in fact it goes back to 0 every time round, so set it to 0 once, before the loop."}
+  "counter-in-loop": {"home": "code/python/turtle-decide", "text": "A counter set to 0 inside the loop keeps adding up; in fact it goes back to 0 every time round, so set it to 0 once, before the loop."},
+  "one-wire-enough": {"home": "engineering/circuits/loop", "text": "One wire from a pin is thought to be enough to light an LED, as if the pin pushes power one way; current only flows around a complete loop back to GND."},
+  "resistor-before-led": {"home": "engineering/circuits/resistor", "text": "The resistor is thought to have to come before the LED to protect it; in a single loop the current is the same everywhere, so it works on either side."},
+  "floating-pin-reads-zero": {"home": "engineering/circuits/button", "text": "A pin joined to nothing is thought to read 0; it floats, picks up noise and reads 0 or 1 at random, so a pull-down (or pull-up) resistor holds it."},
+  "reading-is-volts": {"home": "engineering/circuits/sensor", "text": "An analog reading is thought to be the volts on the pin; it is a number from 0 to 1023 standing for 0 to 3.3 V."}
 }

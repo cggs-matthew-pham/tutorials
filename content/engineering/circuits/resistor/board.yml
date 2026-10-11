@@ -1,0 +1,35 @@
+# Boards for "Why the resistor". Model: pin 0 gives 3.3 V, the LED drops 2 V, so the resistor has 1.3 V across it;
+# the LED is damaged above 20 mA.
+
+# region: run
+widget: circuit
+mode: led
+choose: on
+# endregion
+
+# region: explain
+widget: circuit
+mode: led
+quick: 0, 220, 1000
+# endregion
+
+# region: explain-pic
+widget: circuit
+mode: led
+resistor: 0
+# endregion
+
+# region: vary
+widget: circuit
+mode: led
+choose: on
+move: on
+# endregion
+
+# region: make
+widget: circuit
+mode: led
+choose: on
+move: on
+resistor: 47
+# endregion

@@ -1,0 +1,38 @@
+# Boards for "Sensors that vary". Model: analog read gives 0 to 1023 for 0 to 3.3 V; the knob and the light sensor
+# divider give a voltage in proportion to the knob position or the light (a simplification of a real light sensor).
+
+# region: run
+widget: circuit
+mode: sensor
+sensor: pot
+level: 0
+# endregion
+
+# region: explain
+widget: circuit
+mode: sensor
+sensor: pot
+level: 50
+# endregion
+
+# region: explain-pic
+widget: circuit
+mode: sensor
+sensor: pot
+level: 50
+# endregion
+
+# region: vary
+widget: circuit
+mode: sensor
+sensor: light
+level: 80
+# endregion
+
+# region: make
+widget: circuit
+mode: sensor
+sensor: light
+level: 80
+threshold: edit
+# endregion

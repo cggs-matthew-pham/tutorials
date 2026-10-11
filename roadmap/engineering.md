@@ -13,11 +13,19 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 - Every board check tested in a headless browser; the explain clip records (silent here).
 - Clip-server ports: Engineering lessons use 8500–8539.
 
+## Done (12 Oct 2026): Circuits with the micro:bit
+
+- Course `engineering/circuits` (Physical computing pathway, foundations), units Lighting an LED and Reading inputs: 1. A complete loop, 2. Why the resistor (Ohm's law with the LED's 2 V), 3. A button is an input (pull-down, floating pin; Make is a Parsons of the reacting program), 4. Sensors that vary (analog read 0–1023; Make is a night-light threshold). Primers `outputs.md`, `inputs.md`. Misconceptions `one-wire-enough`, `resistor-before-led`, `floating-pin-reads-zero`, `reading-is-volts`.
+- Decision: the Predict is settled on our own `circuit` board (so every step has a check), and each lesson has a `tier: typical` "Build it in Tinkercad" step (reflect check), rather than checking Tinkercad work directly. Tinkercad numbers will differ a little from the board's model; the lessons say so.
+- Board widget `circuit` (`mode: led | button | sensor`; AUTHORING › board). All board checks tested in a headless browser; the four explain clips record (silent here).
+- Ports 8501–8504.
+- Not checked against Tinkercad itself (needs a person and an account): the reflect steps' instructions and the overcurrent warning.
+
 ## Next
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.
 2. Mechanisms: compound gear trains (Years 9–10, with efficiency per mesh and the constraint as an inequality), levers, pulleys.
-3. Physical computing unit 1 (Circuits with the micro:bit in Tinkercad): observation answers; a `serial` paste mode for Tinkercad's serial monitor (the widget exists for real micro:bits).
+3. Physical computing unit 2 (Arduino in Tinkercad, blocks then C++): PRIMM on read-only C++; a `serial` paste mode for Tinkercad's serial monitor (the widget exists for real micro:bits).
 4. CAD lessons 1–2 (dimensions, tolerance) with answer checks.
 5. `tools/concepts.mjs` `prerequisites()` reads `code, maths, science, systems`: add `engineering` when the first built Engineering course has `after:`.
 

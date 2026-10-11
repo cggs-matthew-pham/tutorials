@@ -724,6 +724,17 @@ Vary, Practise, Make).
     `r` (driven ÷ driver), `d`, `g` (teeth), `rpm_w`, `cap_g`, `time_s`, `load_g`, `limit_s`, `turns_m`, `turns_w`, `s`
     (last lift stalled), `l` (last lift worked), `p` (this pair meets both criteria), `n_pass` (pairs that do). Checks:
     `"turns_m >= 1"`, `"s = 1 and load_g > 450"`, `"load_g = 300 and r = 1.5 and l = 1"`, `"n_pass = 1"`. Ready selector `.gearsvg`.
+  - `widget: circuit` (first used by `engineering/circuits/`): parts wired to a micro:bit's pins, from a simple stated
+    model (pin 3.3 V, LED drops 2 V and is damaged above 20 mA, analog read 0–1023 for 0–3.3 V). `mode: led`: pin 0 →
+    resistor → LED → GND; `resistor:` (ohms, 0 = none), `place: after`, `output: off`, `gnd: off`, `turned: on`, and
+    controls `pinbtn: on`, `unclip: on`, `choose: on` (a resistor list), `quick: 0, 220, 1000` (a button each, named
+    "Use a 1 kΩ resistor" / "Take the resistor out"), `move: on`, `flip: on`; `numbers: off` hides the current. Values `k`
+    (complete loop), `o`, `i` (mA), `r`, `b` (resistor before the LED), `f` (LED turned round), `w`, `c` (pin and GND wires
+    unclipped), `l` (lit), `x` (over 20 mA). `mode: button`: 3V → button → pin 0 with a 10 kΩ pull-down (`pulldown: off`,
+    `toggle: on`); Hold the button (pointer or Space); the micro:bit shows a heart while pin 0 reads 1, and a floating pin
+    reads at random; values `p`, `v`, `n` (presses), `d`, `z` (floating seen). `mode: sensor`: `sensor: pot | light` in a
+    divider into pin 0, `level:` (%), a slider; `night: on` lights the display below `threshold:` (`threshold: edit` adds a
+    slider), `volts: off`, `numbers: off`; values `a` (reading), `u` (volts), `s` (%), `t`, `l`. Ready selector `.cksvg`.
   - `widget: security` (first used by `systems/security/`): five modes. `mode: os`: apps (Video call, Notes, Game) ask
     the OS, which uses a driver per device; Swap webcam, Swap storage, Install/Remove driver (webcam B; `driver: on`), and
     a Game camera permission; values `c`, `s`, `d`, `o` (last request worked), `g`, `q`. `mode: dns`: an address bar

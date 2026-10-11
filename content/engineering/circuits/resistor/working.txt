@@ -1,0 +1,8 @@
+# Sam's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The current comes out of pin 0.
+It reaches the LED first, so the LED gets the full current.
+So the resistor has to go before the LED to protect it.
+After the LED it would be too late.
+# endregion

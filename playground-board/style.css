@@ -512,3 +512,29 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .sctable .mono { font-family: ui-monospace, Menlo, Consolas, monospace; }
 .schint { margin: 0; font-size: 12px; color: var(--muted); }
 .schashes { display: flex; flex-direction: column; gap: 6px; }
+
+/* Circuits on a micro:bit (circuit) */
+.cksvg { width: 100%; height: 100%; display: block; }
+.cksvg .ckmb { fill: color-mix(in srgb, var(--ink) 82%, var(--card)); }
+.cksvg .ckpix { fill: color-mix(in srgb, var(--card) 25%, transparent); }
+.cksvg .ckpix.on { fill: #ff3b30; }
+.cksvg .ckpad { fill: #d4a017; stroke: #8a6a0a; }
+.cksvg .ckpin { font: 700 13px system-ui, sans-serif; fill: var(--card); }
+.cksvg .ckwire { fill: none; stroke: var(--muted); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.cksvg .ckwire.live { stroke: var(--left); }
+.cksvg .ckwire.cut { stroke-dasharray: 10 8; opacity: .55; }
+.cksvg .ckres { fill: #e8d3a8; stroke: var(--ink); stroke-width: 1.5; }
+.cksvg .ckband { fill: #7a4b2a; }
+.cksvg .ckldr { fill: #c9b07a; stroke: var(--ink); stroke-width: 1.5; }
+.cksvg .ckled { fill: color-mix(in srgb, #e5484d 35%, var(--card)); stroke: var(--ink); stroke-width: 1.5; }
+.cksvg .ckled.lit { fill: #ff3b30; }
+.cksvg .ckglow { fill: #ff3b30; }
+.cksvg .ckbar, .cksvg .ckswitch { stroke: var(--ink); stroke-width: 3; stroke-linecap: round; }
+.cksvg .ckdot, .cksvg .ckarrow { fill: var(--ink); }
+.cksvg .cksun { fill: #f5b301; stroke: #c98a00; }
+.cksvg .cklab, .cksvg .ckval { font: 600 13px system-ui, sans-serif; fill: var(--muted); }
+.cksvg .ckamp { font: 700 15px ui-monospace, Menlo, Consolas, monospace; fill: var(--ink); }
+.cksvg .ckcut { font: 600 12px system-ui, sans-serif; fill: var(--accent); }
+.cksvg .ckwarn { font: 700 26px system-ui, sans-serif; fill: #e5484d; }
+.ckslide { display: inline-flex; align-items: center; gap: 6px; min-width: 220px; flex: 1; }
+.ckslide input { flex: 1; accent-color: var(--accent); }

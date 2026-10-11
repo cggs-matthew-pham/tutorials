@@ -1,0 +1,8 @@
+# Sam's plan for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam wants to save a wire.
+Pin 0 sends power out to the LED.
+So one wire from pin 0 to the LED is enough.
+The GND wire is not needed.
+# endregion

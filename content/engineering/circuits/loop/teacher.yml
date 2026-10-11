@@ -1,0 +1,40 @@
+summary: Students break and remake a loop of pin 0, a resistor, an LED and GND on a board, see that current stops everywhere when the loop breaks anywhere, find that an LED only works one way round, then build the same circuit in Tinkercad.
+time: 40
+timing: "Predict and Try 8 min · Worked example 8 min · Vary 6 min · Tinkercad 10 min · Practise and Make 8 min"
+goals:
+  - I can explain why current needs a complete loop.
+  - I can wire an LED the right way round.
+  - I can find why an LED won't light.
+struggle: "Students picture the pin pushing power out like a tap. Keep asking 'where does the current go back in?'"
+before: |
+  Try the boards, and set up a Tinkercad class (Classes › New class; students join with the class code and a nickname, no email). Check Tinkercad loads on student devices.
+
+  Simplifications: the board's model is a 3.3 V pin, an LED that drops 2 V, and wires with no resistance. The resistor's job is the next lesson; here it is just part of the loop.
+
+  If you have kits, one LED, a 220 Ω resistor and two crocodile clips on a real micro:bit make the Try even better.
+running:
+  - "Predict: ask those who chose 'stays lit' to say where the current would go."
+  - "Try: ask why unclipping the pin wire and unclipping GND have the same effect."
+  - "Vary: the backwards LED is the slip students will make in Tinkercad. Point at the long leg."
+  - "Make: ask students to list the faults in the order they checked them."
+stuck:
+  - see: "A student thinks one wire is enough."
+    ask: "Where does the current go back into the micro:bit?"
+    fix: "Into GND: it needs a loop."
+  - see: "The LED is dark in Tinkercad but every wire looks fine."
+    ask: "Which leg goes to the resistor?"
+    fix: "The long leg (anode) towards pin 0; the bent leg in Tinkercad."
+stretch: "Add a second LED and resistor on pin 1. Is that one loop or two? What happens to the first LED if the second's GND wire comes off?"
+support: "Give a printed loop to trace with a finger: pin 0, resistor, LED, GND, back to the micro:bit."
+leads: |
+  Next: Why the resistor (how much current, and what limits it).
+
+  Code links: micro:bit Foundations (pins and digital write); Engineering › Power and motors (why a pin can't run a motor).
+exit:
+  q: "Pin 0 is on, every wire is clipped, and the LED is dark. Give two possible reasons."
+  a: "The LED is the wrong way round, or a wire isn't really connected (the loop is broken). Also possible: the pin isn't actually on."
+explain: |
+  Current only flows around a **complete loop**: out of pin 0, through the resistor and the LED, and back into the micro:bit at **GND**. Break the loop anywhere (a wire off, or the LED the wrong way round) and the current stops everywhere at once. Switching pin 0 off (0 V) stops it too: nothing pushes the current round.
+sources:
+  - { title: "Tinkercad Circuits (Autodesk): simulator, link only", url: "https://www.tinkercad.com/circuits", checked: 2026-10-12 }
+  - { title: "SparkFun Inventor's Kit for micro:bit, circuit 1 (benchmark; CC BY-SA 4.0)", url: "https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-for-microbit-experiment-guide", checked: 2026-10-12 }
