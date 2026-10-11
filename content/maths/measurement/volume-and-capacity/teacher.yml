@@ -1,0 +1,45 @@
+summary: Students build boxes and tanks, read their volume and capacity together, and convert between cm³, mL, L and m³ (AC9M8M02, node 1).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can convert between cm³, mL, L and m³.
+  - I can explain why 1 m³ is 1 000 000 cm³.
+  - I can choose a sensible unit for a container.
+struggle: "Converting cubic units. Ask students to draw a cube and label 100 cm on all three edges before they convert."
+before: |
+  Do the Run board yourself first. Bring a 1 L carton and a 10 cm cube (or a drawing) if you can.
+
+  The one idea: 1 cm³ holds 1 mL, so 1000 cm³ is 1 L, and 1 m³ (100 × 100 × 100 cm³) is 1000 L. The common mistake is converting a cubic unit with the length factor once (Ravi's mistake).
+
+  The board gives capacity in mL or L for cm and in L for m.
+
+  Wider: why a cubic metre of water has a mass of about a tonne, and water storage in kilolitres or megalitres (dams, town water).
+running:
+  - "Predict: ask students to show the size of a litre with their hands."
+  - "Run: ask for two different boxes that hold 1 L."
+  - "Investigate: ask Ravi to draw his cubic metre."
+  - "Modify: ask which unit a council would use for a dam."
+  - "Make: ask whose carton is easiest to hold."
+stuck:
+  - see: "A student says 1 m³ = 100 cm³."
+    ask: "How many cm along each of the three edges?"
+    fix: "100 × 100 × 100 = 1 000 000 cm³."
+  - see: "A student mixes up cm and cm³."
+    ask: "Is that a length, an area or a volume?"
+    fix: "Cubic units for volume."
+  - see: "A student divides by 100 for mL to L."
+    ask: "How many mL in a litre?"
+    fix: "1000 mL = 1 L."
+stretch: "A rainwater tank is 2 m long, 2 m wide and 1.5 m tall. How many days would it supply a family that uses 180 L a day?"
+support: "Keep the conversion table visible; use real containers labelled in mL and L."
+leads: |
+  This starts AC9M8M02.
+
+  Where it leads: prism problems (next lesson), and volume of cylinders (Year 9).
+exit:
+  q: "A fish tank is 50 cm by 30 cm by 40 cm. How many litres does it hold?"
+  a: "50 × 30 × 40 = 60 000 cm³ = 60 L."
+explain: |
+  **Volume** is in cubic units; **capacity** is in mL, L or kL. 1 cm³ holds 1 mL, 1000 cm³ holds 1 L, and 1 m³ holds 1000 L.
+
+  A cubic metre is 100 cm × 100 cm × 100 cm = 1 000 000 cm³: convert each of the three lengths.

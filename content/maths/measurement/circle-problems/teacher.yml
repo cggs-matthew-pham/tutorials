@@ -1,0 +1,45 @@
+summary: Students choose between circumference and area, find a radius from an area, and solve problems with semicircles, quarter circles, rings and tracks (AC9M8M03, node 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 10 min · Practise and Make 12 min"
+goals:
+  - I can choose the circumference or the area formula for a problem.
+  - I can find the radius from an area.
+  - I can solve problems with parts of circles.
+struggle: "Working backwards from an area. Ask students to write the two steps of πr² forwards before they undo them."
+before: |
+  Do the Run board yourself first. Students need the area of a circle (previous lesson) and square roots.
+
+  The one idea: ask whether the answer is a length (C = 2πr) or a space (A = πr²); to go back from an area, divide by π and take the square root. The common mistake is stopping at r² (Leo's mistake).
+
+  Answers accept π from the calculator or 3.14; ask students to say which they used.
+
+  Wider: composite shapes with circles (a stadium, a keyhole), and circles in First Nations Australian weaving designs, where the context is shared respectfully with local knowledge.
+running:
+  - "Predict: ask for the two steps of πr² in order."
+  - "Run: ask what area radius 1.5 gives, before moving the slider."
+  - "Investigate: ask Leo to check his radius forwards."
+  - "Modify: ask how the two semicircles of the track make one circle."
+  - "Make: ask which formula the edging needs."
+stuck:
+  - see: "A student stops at r² when working backwards."
+    ask: "Is 15.9 the radius, or the radius squared?"
+    fix: "Take the square root."
+  - see: "A student finds a semicircle's perimeter as half the circumference only."
+    ask: "Walk round the semicircle: what straight part is there?"
+    fix: "Add the diameter."
+  - see: "A student uses the diameter in πr²."
+    ask: "Radius or diameter?"
+    fix: "Halve the diameter first."
+stretch: "Is a 30 cm pizza more than twice as much as a 20 cm pizza? Compare their areas and prices from a real menu."
+support: "A two-column card: 'length round the edge' (C = 2πr) and 'space inside' (A = πr²)."
+leads: |
+  This completes AC9M8M03.
+
+  Where it leads: cylinders (Year 9), sectors and arc lengths (Year 10).
+exit:
+  q: "A circular pond has an area of 28.3 m². What is its radius?"
+  a: "28.3 ÷ π ≈ 9, and √9 = 3 m."
+explain: |
+  Choose the formula: **circumference** $C = 2\pi r$ (a length) or **area** $A = \pi r^2$ (a space). From an area, $r = \sqrt{A \div \pi}$.
+
+  Parts of circles: a semicircle is half the area; its perimeter is half the circumference plus the diameter. Say which value of π you used.

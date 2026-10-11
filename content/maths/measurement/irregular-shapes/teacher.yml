@@ -1,0 +1,45 @@
+summary: Students estimate the area of irregular shapes by counting full and part squares on finer and finer grids, and the perimeter with straight pieces round the edge (AC9M8M01, node 2).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can estimate an irregular area by counting full squares and half the part squares.
+  - I can explain why a finer grid gives a better estimate.
+  - I can estimate a curved perimeter and say how precise my answers are.
+struggle: "Deciding what a part square is worth. Ask students to look at several orange squares and say how much of each is inside."
+before: |
+  Do the Run board yourself first. Students need composite areas (previous lesson).
+
+  The one idea: count full squares, add half the part squares, multiply by one square's area; finer grids and more straight pieces get closer. The common mistake is counting every square the shape touches as whole (Sam's mistake).
+
+  The board's measured area (shown on the finest grid) comes from the exact outline; the estimates are within about 1 km² there. Straight pieces always fall a little short of a curve.
+
+  Wider: estimate a real area from a map or an aerial photo (a school oval, a local lake) with a printed grid.
+running:
+  - "Predict: ask what the orange squares are worth."
+  - "Run: ask how much the estimate changed with the finer grid."
+  - "Investigate: ask Sam to look at one orange square."
+  - "Modify: ask when the extra effort of a finer grid is worth it."
+  - "Make: ask how they will say how precise their estimate is."
+stuck:
+  - see: "A student counts every square the shape touches as whole."
+    ask: "Is this orange square all inside?"
+    fix: "Part squares count as half."
+  - see: "A student forgets the size of a square on a finer grid."
+    ask: "What is the area of one 0.5 by 0.5 square?"
+    fix: "Multiply the count by one square's area: 0.25."
+  - see: "A student reports many decimal places."
+    ask: "How precise can a 1 km grid be?"
+    fix: "Round to what the grid can tell you, and say so."
+stretch: "Trace a leaf from outside onto 1 cm grid paper. Estimate its area on 1 cm squares and then 0.5 cm squares. How much did the estimate change?"
+support: "Give a printed grid and two coloured pencils: one for full squares, one for part squares."
+leads: |
+  This completes AC9M8M01.
+
+  Where it leads: estimating areas under graphs (Years 11 and 12), and scale drawings and maps.
+exit:
+  q: "A shape covers 18 full squares and part of 10 more on a 1 cm grid. Estimate its area."
+  a: "18 + 10 ÷ 2 = 23 cm²."
+explain: |
+  For an **irregular shape**, put a grid over it: count the **full squares**, add **half the part squares**, and multiply by one square's area. A **finer grid** gives a better estimate.
+
+  For the **perimeter**, join points on the edge with **straight pieces** and add them: more pieces get closer (always slightly short). State how precise the estimate is.

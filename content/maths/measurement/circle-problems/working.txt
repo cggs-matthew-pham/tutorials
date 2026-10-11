@@ -1,0 +1,7 @@
+# Leo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leo
+A circle has an area of 50 cm².
+A = πr², so r = 50 ÷ 3.14.
+r = 15.9 cm.
+# endregion

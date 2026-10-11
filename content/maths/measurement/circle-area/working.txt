@@ -1,0 +1,7 @@
+# Jo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: jo
+A circle has radius 5 cm.
+Its area is 2 × π × 5.
+2 × 3.14 × 5 = 31.4 cm².
+# endregion

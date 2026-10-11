@@ -18,6 +18,10 @@ Wheels, tracks, pipes and anything round. π comes back in the area of a circle 
 - **Multiplying by π to go backwards.** The diameter is smaller than the circumference: divide.
 - **A bigger π for a bigger circle.** C and d grow together, so C ÷ d stays π.
 
+## Year 8: the area of a circle
+
+Slices of a circle laid top to tail make a near-rectangle πr long and r high, so A = πr²; it is between 2r² and 4r². To find the radius from an area, divide by π and take the square root. Parts of circles (semicircles, quarters, rings, tracks) are fractions of circles added to or taken from other shapes. The common slips: 2πr for the area, and stopping at r².
+
 ## The words
 
-**centre**, **radius**, **diameter**, **chord**, **circumference**, **π** (pi).
+**centre**, **radius**, **diameter**, **chord**, **circumference**, **π** (pi), **sector**, **semicircle**.

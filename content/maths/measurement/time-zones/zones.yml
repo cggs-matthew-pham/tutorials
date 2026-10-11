@@ -1,0 +1,33 @@
+# Time zones for "Time zones". Offsets are from UTC for early October (daylight saving changes some of them).
+
+# region: run
+widget: timezone
+cities: Sydney +11; Perth +8; London +1; Tokyo +9
+slider t: 0, 23.75, 9, 0.25
+day: Monday
+# endregion
+
+# region: explain
+widget: timezone
+cities: Sydney +11; Perth +8; London +1; Tokyo +9
+slider t: 0, 23.75, 9, 0.25
+day: Monday
+# endregion
+
+# region: flight
+widget: timezone
+cities: Sydney +11; Los Angeles -7
+slider t: 0, 23.75, 22, 0.25
+flight: on
+slider f: 1, 18, 8, 0.5
+day: Friday
+# endregion
+
+# region: plan
+widget: timezone
+cities: Sydney +11; Los Angeles -7
+slider t: 0, 23.75, 9, 0.25
+flight: on
+f: 14
+day: Saturday
+# endregion

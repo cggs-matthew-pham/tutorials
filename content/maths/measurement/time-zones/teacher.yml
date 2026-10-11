@@ -1,0 +1,45 @@
+summary: Students move one city's time and watch the others follow, convert between time zones using UTC offsets, and plan flights and a call across zones (AC9M8M04, nodes 1 and 2).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can change a time from one time zone to another using UTC offsets.
+  - I can tell when the day changes.
+  - I can work out when a flight lands, in local time.
+struggle: "Ahead or behind. Ask students to compare the two offsets and say whose clock is later before they add or take away."
+before: |
+  Do the Run board yourself first.
+
+  The one idea: the city with the bigger offset is ahead; find the difference, add or take it away, and change the day at midnight. The common mistake is adding when the other city is behind (Kim's mistake).
+
+  The offsets in this lesson hold from 4 October to 25 October 2026: Sydney UTC+11 (daylight saving, from 4 October; +10 before), Perth +8, Tokyo +9, London +1 (British Summer Time ends 25 October), Los Angeles −7 (until 1 November). Go by offsets, not east and west on a map: Los Angeles is east of Sydney but behind, across the date line. Daylight saving changes them through the year, and not every Australian state uses it; check current offsets for real planning.
+
+  Wider: the International Date Line, why some zones are offset by half an hour (Adelaide, India), and planning a fair regular meeting for staff in several states and another country.
+running:
+  - "Predict: ask which offset is bigger."
+  - "Run: ask what happens to London's day as Sydney's time moves."
+  - "Investigate: ask Kim to check her answer on the board."
+  - "Modify: ask how a flight can land before it took off."
+  - "Make: ask for the times as they would appear on a ticket."
+stuck:
+  - see: "A student adds the difference for a city that is behind."
+    ask: "Which offset is bigger? Which clock is later?"
+    fix: "Bigger offset: ahead (add). Smaller: behind (take away)."
+  - see: "A student gets the right hour but the wrong day."
+    ask: "Did you cross midnight?"
+    fix: "Going past 24:00 is the next day; going below 00:00 is the day before."
+  - see: "A student adds the flight time but does not change to the arrival zone."
+    ask: "Whose clock is your answer on?"
+    fix: "Add the flight on the departure clock, then change to the arrival zone (or change first, then add)."
+stretch: "Plan a video call between Sydney, Perth and London that falls between 8:00 and 21:00 for everyone. Is there one? Which city has to compromise most?"
+support: "A printed strip of 24-hour lines for each city, to slide against each other."
+leads: |
+  This completes AC9M8M04.
+
+  Where it leads: rates such as speed and time (Rates), and planning tasks in other subjects (Geography's time zones and the date line).
+exit:
+  q: "It is 18:30 Tuesday in Sydney (UTC+11). What time and day is it in Los Angeles (UTC−7)?"
+  a: "Los Angeles is 18 hours behind: 00:30 Tuesday."
+explain: |
+  A **time zone** is an offset from UTC. A city with a bigger offset is **ahead**; a smaller one is **behind**. Find the difference, add or take it away, and change the **day** when you cross midnight.
+
+  For a flight, add the flight time to the departure (in the departure zone), then change to the arrival zone. Use **24-hour time** to avoid am and pm mistakes.

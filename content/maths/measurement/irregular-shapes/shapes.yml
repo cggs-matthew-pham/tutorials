@@ -1,0 +1,37 @@
+# Irregular shapes for "Irregular shapes". Count squares for the area; straight pieces round the edge for the perimeter.
+
+# region: run
+widget: composite
+mode: estimate
+blob: lake
+size: 8
+slider n: 4, 32, 8, 4
+units: km
+# endregion
+
+# region: explain
+widget: composite
+mode: estimate
+blob: lake
+size: 8
+n: 8
+units: km
+# endregion
+
+# region: leaf
+widget: composite
+mode: estimate
+blob: leaf
+size: 8
+slider n: 4, 32, 8, 4
+units: cm
+# endregion
+
+# region: island
+widget: composite
+mode: estimate
+blob: island
+size: 8
+slider n: 4, 32, 8, 4
+units: km
+# endregion

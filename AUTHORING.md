@@ -679,6 +679,24 @@ Vary, Practise, Make).
     `numbers: on` (heights on the top view), `hide: iso | views`. Students press a cell to add a cube (back to 0 after the tallest).
     Front view looks at the front row; side view from the right. Values `n` (cubes), `h` (tallest), `t`, `f`, `s` (squares in the
     top, front and side views). Checks: `"t = 4 and f = 5"`, `"n = 12 and t = 4 and h = 3"`.
+  - `widget: composite` (first used by `maths/measurement/composite-shapes`, `irregular-shapes`): `mode: shape` draws a polygon
+    (`corners: 0,0; a,0; a,3; 3,3; 3,6; 0,6`, numbers or slider letters, `slider a: 4, 10, 8`) on a unit grid with its side
+    lengths (`hide: 3, 4` writes ? on those sides, counted from corner 1); `split: on` adds Cut across, Cut up and down, Take
+    away from a rectangle and No cuts, which name each piece (rectangle, triangle, trapezium) and its area. Values `A`, `P`,
+    `k` (0 none, 1 across, 2 up and down, 3 take away), `n` (pieces) and the slider letters. `mode: estimate` puts an irregular
+    shape (`blob: lake | leaf | island`, `size: 8`) on a grid: Count the squares (full green, part orange), Finer grid and
+    Coarser grid (1, 0.5, 0.25), and `slider n:` straight pieces round the edge for the perimeter. Values `g`, `f`, `p`, `e`
+    (full + half the part, times one square), `t` (measured area), `c` (1 once counted), `n`, `l` (pieces' length), `m`
+    (measured perimeter); the measured values show on the finest grid. Checks: `"k = 3 and A = 60"`, `"c = 1 and g = 0.25"`.
+  - `widget: circlearea` (first used by `maths/measurement/circle-area`): a circle (`slider r:` or `r: 3`) cut into `n` slices
+    (even, 4 to 64); `cut: on` adds Rearrange the pieces (alternately up and down: nearly a rectangle πr by r) and Put the
+    circle back (`cut: shown` starts rearranged); `squares: on` adds Compare with squares (the 4r² and 2r² squares and one r²).
+    Values `r`, `n`, `a` (πr²), `c` (2πr), `w` (πr), `k` (1 while rearranged), `s` (1 while the squares show).
+  - `widget: timezone` (first used by `maths/measurement/time-zones`): `cities: Sydney +11; London +1` (2 to 4, UTC offsets) on
+    24-hour lines at the same moment, `slider t:` the first city's time in hours (9.5 is 9:30), `day: Monday`; `flight: on`
+    adds `slider f:` (hours; default 0.5 to 24) and marks the landing in the last city. Values `t`, `u v w` (other cities'
+    times), `x y z` (their day compared with the first: −1, 0, 1), `f`, `a` (landing time), `b` (landing day). Checks:
+    `"v = 9 and y = 0"`, `"a >= 9 and a <= 12"`. The prism board's `capacity: on` now also takes `units: m` (litres).
   - Board variables in `when:` must be single letters: the evaluator reads a longer name such as `sb` as s × b.
   - `widget: data` (first used by `maths/data`): a dot plot of `values: 4, 7, 7, 8` on `range: 0, 20` (default: around
     the data), with the mean (▲), median (dashed) and range (arrow) marked and written underneath (`show: mean, median,

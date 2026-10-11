@@ -1,0 +1,9 @@
+# Ella's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ella
+The L-shape is 8 m wide at the bottom and 6 m tall on the left.
+Ella cuts it up and down into a piece 3 m wide and a piece 5 m wide.
+Left piece: 3 × 6 = 18 m².
+Right piece: 5 × 6 = 30 m².
+Total: 18 + 30 = 48 m².
+# endregion

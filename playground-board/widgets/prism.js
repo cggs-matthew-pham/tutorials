@@ -7,8 +7,8 @@
 //   slider w: 1, 6, 3        the base's width
 //   slider h: 0, 8, 1        the height: how many layers (or fixed)
 //   units: cm                lengths in cm, areas in cm², volumes in cm³
-//   capacity: on             also give the volume in mL (1 cm³ = 1 mL) or L
-// state: { scope: { vars: { l, w, h, A (the base area), v (the volume), c (the capacity in mL, if units are cm) } } }
+//   capacity: on             also give the volume in mL (1 cm³ = 1 mL) or L; with units: m, in L (1 m³ = 1000 L)
+// state: { scope: { vars: { l, w, h, A (the base area), v (the volume), c (the capacity: mL if units are cm, L if m) } } }
 // Checks: "v = 60", "h = 5 and A = 12", "v = 36 and l = 3" (the base is the cross-section the layers repeat).
 (function (B) {
   'use strict';
@@ -38,7 +38,7 @@
     s.max = { l: hi('l'), w: hi('w'), h: hi('h') };
     s.u = s.units ? String(s.units).trim() : '';
     s.cap = /^on$/i.test(s.capacity || '');
-    if (s.cap && s.u !== 'cm') throw new Error('capacity: on needs units: cm (1 cm³ = 1 mL).');
+    if (s.cap && s.u !== 'cm' && s.u !== 'm') throw new Error('capacity: on needs units: cm (1 cm³ = 1 mL) or m (1 m³ = 1000 L).');
   }
   var unit = function (p) { return spec.u ? ' ' + spec.u + (p === 2 ? '²' : p === 3 ? '³' : '') : p === 3 ? ' cubes' : p === 2 ? ' squares' : ''; };
 
@@ -124,12 +124,12 @@
     var A = r2(tri ? l * w / 2 : l * w), v = r2(A * h);
     ui.outs.forEach(function (x) { x.out.textContent = x.n + ' = ' + vars[x.n]; });
     var baseTxt = tri ? '½ × ' + l + ' × ' + w + ' = ' + B.fmt(A) : l + ' × ' + w + ' = ' + B.fmt(A);
-    ui.work.textContent = 'V = ' + B.fmt(A) + ' × ' + h + ' = ' + B.fmt(v) + unit(3) + (spec.cap ? ' = ' + (v >= 1000 ? B.fmt(r2(v / 1000)) + ' L' : B.fmt(v) + ' mL') : '');
+    ui.work.textContent = 'V = ' + B.fmt(A) + ' × ' + h + ' = ' + B.fmt(v) + unit(3) + (spec.cap ? ' = ' + (spec.u === 'm' ? B.fmt(r2(v * 1000)) + ' L' : v >= 1000 ? B.fmt(r2(v / 1000)) + ' L' : B.fmt(v) + ' mL') : '');
     ui.note.textContent = 'Base: ' + baseTxt + unit(2) + (tri ? ', half of the ' + l + ' by ' + w + ' rectangle' : ', ' + B.fmt(A) + ' cubes in each layer') + '. ' +
       (h === 0 ? 'No layers yet: make the height bigger.' : h + (h === 1 ? ' layer' : ' layers') + ' of ' + B.fmt(A) + '.');
     B.say(ui.work.textContent + '. ' + ui.note.textContent);
     B.save({ vars: vars });
-    var sc = { l: l, w: w, h: h, A: A, v: v }; if (spec.u === 'cm') sc.c = v;
+    var sc = { l: l, w: w, h: h, A: A, v: v }; if (spec.u === 'cm') sc.c = v; else if (spec.u === 'm') sc.c = r2(v * 1000);
     B.post({ scope: { vars: sc, points: {} } }, ui.work.textContent + '. ' + ui.note.textContent);
   }
 

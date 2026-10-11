@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam's lake covers 20 squares completely and part of 14 more.
+Each square is 1 km by 1 km, so 1 km².
+He counts all 34 squares as 1 km² each.
+The lake's area is 34 km².
+# endregion

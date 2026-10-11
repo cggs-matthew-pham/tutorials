@@ -20,6 +20,10 @@ Water tanks, concrete, packaging and medicine doses are volumes and capacities. 
 - **Calling the face it stands on the cross-section.** A tent stands on a rectangle, but its slices are triangles.
 - **Dividing by 100 for litres.** 1000 mL = 1 L.
 
+## Year 8: capacity and prism problems
+
+1 cm³ holds 1 mL, 1000 cm³ holds 1 L and 1 m³ holds 1000 L; a cubic metre is 100 × 100 × 100 cm³, not 100. For any right prism V = A × h (the end's area times the length), and a missing length is V ÷ A. The common slips: converting a cubic unit with the length factor once, and using length × width × height on a triangular prism.
+
 ## The words
 
-**volume**, **cubic units** (cm³, m³), **prism**, **cross-section**, **capacity**, **millilitre** (mL), **litre** (L).
+**volume**, **cubic units** (cm³, m³), **prism**, **cross-section**, **capacity**, **millilitre** (mL), **litre** (L), **kilolitre** (kL), **right prism**.

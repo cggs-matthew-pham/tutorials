@@ -20,6 +20,10 @@ Paint, carpet, tiles, land and fabric are bought by area. The same "base times h
 - **Mixing units.** 50 cm × 2 m = 100. Change to 0.5 m × 2 m = 1 m².
 - **Writing cm for an area.** Area counts squares: cm².
 
+## Year 8: composite and irregular shapes
+
+A composite shape is cut into pieces you know (or seen as a rectangle with pieces taken away); each piece uses its own lengths, and a missing side is the difference of two others. An irregular shape is estimated on a grid: full squares, plus half the part squares, times one square's area; a finer grid is closer. A curved perimeter is estimated with straight pieces (always a little short). The common slips: giving a piece the whole shape's height, and counting part squares as whole.
+
 ## The words
 
-**base**, **perpendicular height** (at a right angle to the base), **parallelogram**, **composite shape** (made of simpler shapes), **square units** (cm², m²; 1 m² = 10 000 cm²).
+**base**, **perpendicular height** (at a right angle to the base), **parallelogram**, **composite shape** (made of simpler shapes), **square units** (cm², m²; 1 m² = 10 000 cm²), **irregular shape**, **estimate**.

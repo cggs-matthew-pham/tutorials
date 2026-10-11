@@ -1,0 +1,29 @@
+# Circles for "Circle problems". r moves in steps of 0.5.
+
+# region: run
+widget: circlearea
+slider r: 0.5, 6, 1, 0.5
+n: 16
+units: m
+# endregion
+
+# region: explain
+widget: circlearea
+slider r: 0.5, 6, 1, 0.5
+n: 16
+units: m
+# endregion
+
+# region: explain-pic
+widget: circlearea
+r: 3
+n: 16
+units: m
+# endregion
+
+# region: free
+widget: circlearea
+slider r: 0.5, 6, 3, 0.5
+n: 16
+units: m
+# endregion

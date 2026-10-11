@@ -1,0 +1,45 @@
+summary: Students cut a circle into slices and rearrange them into a near-rectangle πr by r, compare it with squares of r², and use A = πr² (AC9M8M03, node 1).
+time: 35
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 10 min · Practise and Make 9 min"
+goals:
+  - I can explain why the area of a circle is πr².
+  - I can say why a circle's area is between 2r² and 4r².
+  - I can find the area from the radius or the diameter.
+struggle: "Keeping area and circumference apart. Ask students to say what each formula measures (a length or a space) before they use it."
+before: |
+  Do the Run board yourself first. If you can, cut a paper circle into 16 slices and lay them out.
+
+  The one idea: the slices make a shape πr long and r high, so A = πr². The common mistake is using 2πr (the circumference) for the area (Jo's mistake).
+
+  The board's squares show the bounds 2r² < A < 4r², a quick check on any answer.
+
+  Wider: A = ½ × C × r (the rectangle is half the circumference by the radius).
+running:
+  - "Predict: ask for the outside square's area first."
+  - "Run: ask what the bumps do as the slices get thinner."
+  - "Investigate: ask Jo which formula measures round the edge."
+  - "Modify: ask how many times bigger a radius-10 circle is than radius 5."
+  - "Make: ask why r² comes before multiplying by π."
+stuck:
+  - see: "A student uses 2πr for area."
+    ask: "Is your answer a length or an amount of space?"
+    fix: "Area is πr² (square units); 2πr is the circumference."
+  - see: "A student uses the diameter in πr²."
+    ask: "Is that the radius or the diameter?"
+    fix: "Halve the diameter first."
+  - see: "A student works out (πr)² or π × 2r."
+    ask: "Which part is squared?"
+    fix: "Only r is squared: π × r × r."
+stretch: "Show that A = ½ × C × r using the rearranged slices. Then use it to find the area of a circle with circumference 31.4 cm."
+support: "A card with both formulas side by side, labelled length and area."
+leads: |
+  This starts AC9M8M03.
+
+  Where it leads: circle problems (next lesson), cylinders (Year 9) and sectors.
+exit:
+  q: "Find the area of a circle with diameter 8 cm."
+  a: "r = 4 cm; A = π × 16 ≈ 50.3 cm²."
+explain: |
+  Cut a circle into thin slices and lay them top to tail: the shape is nearly a rectangle **πr long** (half the circumference) and **r high**. So $A = \pi r^2$.
+
+  Check: the area is between $2r^2$ and $4r^2$. Do not mix it up with the circumference $C = 2\pi r$, a length.

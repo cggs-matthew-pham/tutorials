@@ -1,0 +1,7 @@
+# Kim's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: kim
+It is 9:00 am Monday in Sydney (UTC+11). Kim wants the time in London (UTC+1).
+The zones are 10 hours apart, so she adds 10 hours.
+London time is 7:00 pm Monday.
+# endregion

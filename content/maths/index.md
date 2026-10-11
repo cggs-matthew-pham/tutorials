@@ -28,7 +28,7 @@ pathways:
     about: "**Angles and shapes** links to the coding pathway: the turtle already turns through exterior angles, and classifying shapes is an algorithm students can write."
     courses:
       - { path: maths/angles, id: angles-shapes, stage: foundations, tagline: "Angle facts, naming shapes, nets, transformations and algorithms." }
-      - { path: maths/measurement, id: area-volume, stage: foundations, after: [angles-shapes, number-foundations, maths/algebra], tagline: "Area, volume, circles and Pythagoras." }
+      - { path: maths/measurement, id: area-volume, stage: foundations, after: [angles-shapes, number-foundations, maths/algebra], tagline: "Area, volume, circles, Pythagoras and time zones." }
       - { title: Trigonometry, stage: extensions, summary: "Similar triangles and the trigonometric ratios.", after: [area-volume], tagline: "Similar triangles and sin, cos and tan." }
   - id: data
     title: Statistics and probability

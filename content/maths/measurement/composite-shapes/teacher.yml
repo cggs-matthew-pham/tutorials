@@ -1,0 +1,45 @@
+summary: Students cut composite shapes into rectangles and triangles, or take pieces away from a rectangle, and find the area and the perimeter (AC9M8M01, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 10 min · Practise and Make 12 min"
+goals:
+  - I can cut a composite shape into pieces I know and add their areas.
+  - I can find an area by taking pieces away from a big rectangle.
+  - I can work out a missing side and the perimeter.
+struggle: "Using each piece's own lengths. Ask students to write the two lengths on each piece before they multiply."
+before: |
+  Do the Run board yourself first. Students need the area of rectangles and triangles (Area unit).
+
+  The one idea: the area is the same however you cut it, as long as each piece uses its own lengths. The common mistake is giving a piece the whole shape's height (Ella's mistake).
+
+  The board's three buttons cut across, cut up and down, or take away from the surrounding rectangle; it names each piece and gives its area. The perimeter needs every side, so missing sides (the ? sides) come first.
+
+  Wider: floor plans of real rooms, shapes that need both adding and taking away.
+running:
+  - "Predict: ask a 48 student what is missing from the rectangle."
+  - "Run: ask which way they would choose for this shape, and why."
+  - "Investigate: ask how tall each of Ella's pieces is."
+  - "Modify: ask why taking away is quicker for the U."
+  - "Make: ask for a second pair of lengths that also works."
+stuck:
+  - see: "A student uses the whole height for every piece."
+    ask: "How tall is this piece on its own?"
+    fix: "Write each piece's two lengths on it before you multiply."
+  - see: "A student cannot find a missing side."
+    ask: "Which two sides together make the opposite side?"
+    fix: "A missing side is the difference of two others."
+  - see: "A student gives a perimeter in m²."
+    ask: "Are you counting squares or measuring a length?"
+    fix: "Perimeter is a length: m. Area counts squares: m²."
+stretch: "Draw a floor plan of a room at home with at least six walls. Find its area two ways and its perimeter."
+support: "Give the shape on grid paper so pieces can be counted as well as multiplied."
+leads: |
+  This starts AC9M8M01.
+
+  Where it leads: irregular shapes (next lesson), prisms with composite bases (Volume), and circles in composite shapes.
+exit:
+  q: "A rectangle 12 m by 5 m has a 4 m by 2 m corner cut out. Find its area."
+  a: "12 × 5 − 4 × 2 = 60 − 8 = 52 m²."
+explain: |
+  A **composite shape** is made of shapes you know. **Cut** it into pieces and add their areas, or see a **big rectangle** and **take away** the missing pieces: both give the same area, if each piece uses its own lengths.
+
+  Missing sides are differences of other sides. The **perimeter** adds every side, in units of length.

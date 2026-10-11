@@ -1,0 +1,7 @@
+# Mia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mia
+A prism's end is a right triangle with legs 3 cm and 4 cm. The prism is 10 cm long.
+Mia uses volume = length × width × height.
+V = 3 × 4 × 10 = 120 cm³.
+# endregion

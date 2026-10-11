@@ -1,0 +1,42 @@
+# Circles to cut up for "Area of a circle".
+
+# region: run
+widget: circlearea
+slider r: 1, 5, 3
+slider n: 4, 32, 8, 4
+cut: on
+units: cm
+# endregion
+
+# region: explain
+widget: circlearea
+r: 3
+slider n: 4, 32, 8, 4
+cut: on
+units: cm
+# endregion
+
+# region: explain-pic
+widget: circlearea
+r: 3
+n: 24
+cut: shown
+units: cm
+# endregion
+
+# region: squares
+widget: circlearea
+slider r: 1, 5, 3
+n: 8
+squares: on
+units: cm
+# endregion
+
+# region: free
+widget: circlearea
+slider r: 1, 6, 3, 0.5
+slider n: 4, 32, 16, 4
+cut: on
+squares: on
+units: cm
+# endregion

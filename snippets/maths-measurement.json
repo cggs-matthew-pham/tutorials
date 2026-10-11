@@ -41,6 +41,20 @@
           "unit": "area",
           "code": "1 \\text{ m}^2 = 10\\,000 \\text{ cm}^2",
           "hint": "Area counts squares: cm², m². A 1 m square is 100 cm by 100 cm."
+        },
+        {
+          "label": "composite area",
+          "unit": "area",
+          "code": "A = 8 \\times 6 - 5 \\times 3 = 33\\ \\text{m}^2",
+          "hint": "Cut the shape into pieces you know and add their areas, or take the missing pieces away from a big rectangle. Each piece uses its own lengths.",
+          "board": "widget: composite\ncorners: 0,0; 8,0; 8,3; 3,3; 3,6; 0,6\nsplit: on\nunits: m",
+          "shows": "An L-shape with its side lengths"
+        },
+        {
+          "label": "estimating an irregular area",
+          "unit": "area",
+          "code": "A \\approx (\\text{full} + \\tfrac{1}{2} \\times \\text{part}) \\times \\text{one square}",
+          "hint": "Count the full squares, add half the part squares, multiply by the area of one square. A finer grid gives a closer estimate."
         }
       ]
     },
@@ -68,6 +82,18 @@
           "unit": "volume",
           "code": "1 \\text{ cm}^3 = 1 \\text{ mL} \\qquad 1000 \\text{ cm}^3 = 1 \\text{ L}",
           "hint": "How much a container holds. A 10 cm cube holds 1 litre."
+        },
+        {
+          "label": "volume and capacity",
+          "unit": "volume",
+          "code": "1\\ \\text{cm}^3 = 1\\ \\text{mL}, \\quad 1000\\ \\text{cm}^3 = 1\\ \\text{L}, \\quad 1\\ \\text{m}^3 = 1000\\ \\text{L}",
+          "hint": "A cubic metre is 100 × 100 × 100 = 1 000 000 cm³: convert each of the three lengths."
+        },
+        {
+          "label": "volume of a prism",
+          "unit": "volume",
+          "code": "V = A h \\qquad h = V \\div A",
+          "hint": "The area of the end times the length, for any right prism. Divide to find a missing length."
         }
       ]
     },
@@ -95,6 +121,20 @@
           "unit": "circles",
           "code": "C = \\pi d = 2\\pi r",
           "hint": "Use the diameter, or double the radius. Backwards: $d = C \\div \\pi$. Exact answers keep π: $10\\pi$ cm."
+        },
+        {
+          "label": "area of a circle",
+          "unit": "circles",
+          "code": "A = \\pi r^2",
+          "hint": "Slices of a circle make a near-rectangle πr long and r high. The area is between 2r² and 4r². Do not mix it up with C = 2πr.",
+          "board": "widget: circlearea\nr: 3\nn: 24\ncut: shown\nunits: cm",
+          "shows": "24 slices laid top to tail: nearly a rectangle πr by r"
+        },
+        {
+          "label": "radius from area",
+          "unit": "circles",
+          "code": "r = \\sqrt{A \\div \\pi}",
+          "hint": "Divide by π, then take the square root. A semicircle is half the area; its perimeter is half the circumference plus the diameter."
         }
       ]
     },
@@ -120,6 +160,19 @@
           "unit": "pythagoras",
           "code": "a^2 + b^2 \\;\\text{vs}\\; c^2",
           "hint": "With c the longest side: equal, right-angled; a² + b² smaller, obtuse; bigger, acute. Pythagorean triples: 3-4-5, 5-12-13, 8-15-17 and multiples."
+        }
+      ]
+    },
+    {
+      "name": "Time zones",
+      "items": [
+        {
+          "label": "time zones",
+          "unit": "time",
+          "code": "\\text{bigger offset: ahead} \\qquad \\text{smaller offset: behind}",
+          "hint": "Find the difference between the UTC offsets, add or take it away, and change the day if you cross midnight. For a flight, add the flight time in the departure zone, then change zones.",
+          "board": "widget: timezone\ncities: Sydney +11; Perth +8; London +1; Tokyo +9\nt: 9\nday: Monday",
+          "shows": "9:00 am Monday in Sydney, and the same moment in Perth, London and Tokyo"
         }
       ]
     }
