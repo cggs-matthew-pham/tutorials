@@ -1,7 +1,7 @@
 ---
 title: Maths
 map: true
-trail: true
+trail: units
 summary: Interactive maths lessons. Predict, try it on a board, study a worked example, change one thing at a time, practise, then make your own. Four pathways follow the curriculum's strands; start with whichever your class is working on. Teachers will find a ten-minute tour on the page For maths teachers, linked from the home page.
 pathways:
   - id: algebra

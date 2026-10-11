@@ -59,7 +59,8 @@ function layoutTrailUnits(pw, pathways, dirs, lessonCount) {
     const first = (after.length ? after : (c.stage === 'extensions' ? foundations : [])).map((r) => (here.has(r) ? lastOf(r) : r));
     if (!us) { courses.push({ ...c, after: first }); continue; }
     const d = dirs.get(c.path);
-    const year = (d.title.match(/^(Years? [0-9]+(?: and [0-9]+)?)/) || [])[1] || d.title;
+    // The small label is the course's year when its title starts with one (science); otherwise none (maths).
+    const year = (d.title.match(/^(Years? [0-9]+(?: and [0-9]+)?)/) || [])[1] || null;
     us.forEach((u, i) => courses.push({
       id: `${idOf(c)}#${u.id}`, path: c.path, unit: u.id, group: year, stage: c.stage,
       title: u.title, tagline: String(u.summary || '').replace(/\s*\((?:AC9|Year)[^)]*\)\s*\.?$/, '.').replace(/\.\.$/, '.'),
