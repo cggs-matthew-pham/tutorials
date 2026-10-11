@@ -31,8 +31,8 @@ leads: |
 
   In class: a sealed syringe of air, and a perfume or deodorant spray released at the front of the room, timed to when students at the back smell it.
 exit:
-  q: "Why does a gas fill its whole container?"
-  a: "Its particles move fast in all directions and barely attract each other, so they spread until they fill the space."
+  q: "A solid keeps its shape but a gas does not. Use arrangement, motion and attraction to explain the difference."
+  a: "In a solid the particles are close, held in fixed places by strong attraction, and only vibrate, so the shape stays. In a gas they are far apart, move fast in all directions and barely attract, so they spread out."
 explain: |
   Each state is described by three features of its particles:
 

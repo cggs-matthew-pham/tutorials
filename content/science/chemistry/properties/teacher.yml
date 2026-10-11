@@ -31,8 +31,8 @@ leads: |
 
   In class: sealed syringes of air and water; a density column of honey, water and oil.
 exit:
-  q: "Why can you squash air but not water?"
-  a: "Air particles are far apart with empty space between them, so they can be pushed closer. Water particles are already close together."
+  q: "Why is steam much less dense than the same mass of liquid water?"
+  a: "It is the same particles, but in steam they are far apart, so the same mass takes up much more space."
 explain: |
   Every property comes from a particle feature:
 
