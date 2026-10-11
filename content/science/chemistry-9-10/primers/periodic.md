@@ -28,6 +28,8 @@ Misconceptions: outer electrons keep counting past 8; periods and groups swapped
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does going down group 2 make the metal react faster with water?** Change: metal (magnesium ribbon, calcium granules). Measure: volume of gas collected in 2 minutes. Keep the same: mass of metal, volume and temperature of water. *(Calcium fizzes steadily; magnesium barely reacts in cold water.)*
 - **Does an element's place across the table change whether it conducts electricity?** Change: element (magnesium, aluminium, carbon as pencil lead, sulfur). Measure: current, or whether a bulb lights. Keep the same: circuit, battery, length of sample. *(Metals conduct, sulfur does not; graphite is a non-metal that conducts, a good surprise to discuss.)*
 - **Does melting point fall down group 1?** Secondary data: melting points of lithium to caesium from the Royal Society of Chemistry's free online periodic table. *(It falls, from about 181 °C to about 28 °C.)*

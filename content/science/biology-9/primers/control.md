@@ -30,6 +30,8 @@ The same five-step pathway runs two ways: nerves (electrical, fast, brief, to on
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does practice change reaction time?** Change: trial number (1 to 10). Measure: distance a dropped ruler falls before it is caught (convert to time with a table). Keep the same: ruler, catching hand, starting finger gap, drop without warning.
 - **Is reaction time faster to touch than to sight?** Change: watching the ruler, or eyes closed with a tap on the shoulder as it drops. Measure: catch distance. Keep the same: ruler, catcher, number of trials.
 - **Does a wet covering cool faster than a dry one?** A model of sweating. Change: thermometer bulb wrapped in wet or dry paper towel. Measure: temperature drop in 5 minutes in front of a fan. Keep the same: starting temperature, fan speed, towel size. *(Start from warm water near 37 °C.)*

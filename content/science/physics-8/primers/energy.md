@@ -23,6 +23,8 @@ Energy comes in two families. **Kinetic** energy is energy of activity: movement
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does the drop height change how high a ball bounces?** Change: drop height (25, 50, 75, 100 cm). Measure: the top of the first bounce. Keep the same: the ball, the floor, letting go without a push. *(It never returns to its start: ask where the rest went.)*
 - **Does a higher ramp send a marble further along the floor?** Change: the height of the start of the ramp. Measure: the distance it rolls after the ramp. Keep the same: the marble, the ramp, the floor. *(Gravitational to kinetic energy, then heat and sound.)*
 - **Does stretching a rubber band further launch a toy car further?** Change: the stretch (2, 4, 6, 8 cm). Measure: the distance the car travels. Keep the same: the band, the car, the surface.

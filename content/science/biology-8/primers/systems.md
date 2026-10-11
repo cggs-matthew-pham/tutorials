@@ -33,6 +33,8 @@ A **tissue** is a group of similar specialised cells doing one job: muscle, epit
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does a leaf have more stomata on its underside than on top?** Change: leaf surface. Measure: stomata per field of view in a clear nail-polish peel. Keep the same: leaf, magnification, number of fields counted.
 - **Does a fan change how fast water rises up a celery stalk?** Change: fan on or off. Measure: height the food dye reaches in 30 minutes (cut across to see the coloured xylem). Keep the same: stalk length, leaves, dye strength, temperature.
 - **Does exercise change heart rate?** Change: rest, walking, 1 minute of star jumps. Measure: pulse per minute. Keep the same: person, how the pulse is taken, rest between trials.

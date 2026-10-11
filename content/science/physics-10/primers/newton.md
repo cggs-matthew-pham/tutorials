@@ -31,6 +31,8 @@ Forces come in pairs: A on B and B on A, same size, opposite directions, on diff
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does a bigger net force give a bigger acceleration?** Change: the hanging mass pulling a trolley over a pulley, moving masses from trolley to hanger so the total mass stays the same. Measure: acceleration (light gates, motion sensor or ticker timer). Keep the same: total mass, the track, tilted slightly to cancel friction.
 - **Does a heavier trolley accelerate less for the same pull?** Change: the mass on the trolley. Measure: acceleration. Keep the same: the hanging mass, the track. *(Plot a against 1/m for a straight line.)*
 - **Does a crumple zone reduce the force in a crash?** Change: what is on the trolley's front (nothing, a paper cone, foam). Measure: the peak reading on a force sensor at the bottom of a ramp. Keep the same: ramp height, trolley mass.

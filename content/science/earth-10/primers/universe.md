@@ -23,6 +23,8 @@ title: The big bang in 5 minutes
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Do farther galaxies move away faster?** A model: dots drawn on a part-inflated balloon, one marked "home". Change: each dot's starting distance from home. Measure: how much that distance grows when the balloon is blown up a bit more. Keep the same: the extra inflation. *(Every distance grows by the same factor, so farther dots move further in the same time: Hubble's law. Any dot could be home.)*
 - **Does stretching space stretch the light?** A model: a wave drawn along a wide rubber band. Change: how far the band is stretched. Measure: the wavelength before and after. Keep the same: the band, the drawn wave. *(Longer wavelength means redder: redshift.)*
 

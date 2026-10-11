@@ -47,6 +47,8 @@ Questions: Which pull changed the motion most quickly, and how can you tell? Wha
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does the surface change how hard you must pull to slide a block?** Change: the surface (bench, carpet, sandpaper, towel). Measure: the force meter reading while the block slides steadily. Keep the same: the block, a level pull. *(Average three pulls.)*
 - **Does doubling the mass double the weight?** Change: the number of 100 g masses on a force meter (one to five). Measure: weight in newtons. Keep the same: the meter, zeroed first. *(Expect about 1 N per 100 g; the gradient of the graph is g.)*
 - **Does a heavier object fall faster?** Change: how much sand is in a sealed container (empty, half, full). Measure: which lands first when two are dropped together from 2 m. Keep the same: containers, height. *(Listen for one thud or two.)*

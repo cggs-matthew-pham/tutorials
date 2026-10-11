@@ -24,6 +24,8 @@ So **crystal size is a record of cooling rate**: a geologist can read where a ro
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does faster cooling make smaller crystals?** Change: how a hot saturated alum solution cools (in iced water, on the bench, in a warm water bath). Measure: the size of the largest crystals with a hand lens and ruler. Keep the same: concentration, volume, the test tubes.
 - **Do rocks that formed underground have bigger crystals?** Change: the rock (granite, basalt, obsidian, pumice). Measure: the largest crystal you can see. *(Use the school's rock kit.)*
 - **Do bigger grains settle faster?** Change: grain size (gravel, sand, soil). Measure: the time to settle through a tall cylinder of water. Keep the same: the cylinder, the amount dropped. *(Mix them together after: layers form, as in sedimentary rock.)*

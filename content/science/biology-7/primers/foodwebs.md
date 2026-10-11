@@ -27,6 +27,8 @@ A **biotic factor** is a living part of the ecosystem (predators, prey, competit
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does light intensity change how fast pondweed makes oxygen?** Change: lamp distance. Measure: bubbles per minute. Keep the same: the piece of pondweed (Elodea), water temperature, a pinch of bicarbonate of soda. *(Use an LED lamp so the water doesn't warm.)*
 - **Does temperature change how fast decomposers break down food?** Change: fridge, room or warm spot. Measure: how much of an apple slice is covered in mould after a week. Keep the same: fruit, slice size, moisture, sealed bags.
 - **Are there more small animals under leaf litter than on bare ground?** Change: site. Measure: animals counted in a 30 cm square in 5 minutes. Keep the same: square size, time, weather.

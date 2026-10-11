@@ -22,6 +22,8 @@ A **Sankey diagram** shows the flows as bands with widths to scale: the useful o
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Which ball keeps the biggest share of its energy after a bounce?** Change: the ball (tennis, ping-pong, rubber, squash). Measure: bounce height ÷ drop height × 100%. Keep the same: drop height, floor. *(For one ball, gravitational energy is proportional to height, so this is the efficiency of the bounce.)*
 - **Does a filament bulb or an LED give off more heat?** Change: the bulb, at similar brightness. Measure: a thermometer 2 cm away after 5 minutes. Keep the same: distance, time, power supply. *(A warmer thermometer means more by-product heat and a less efficient bulb.)*
 - **Does a heavier pendulum bob keep swinging longer?** Change: the mass of the bob (same size). Measure: swings until the swing is half as wide. Keep the same: string length, starting angle.

@@ -23,6 +23,8 @@ title: Reproduction in 5 minutes
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does sugar concentration change how many pollen grains grow tubes?** Change: sugar solution (0, 5, 10, 15%). Measure: percentage of grains with tubes after 45 minutes under the microscope. Keep the same: flower species, temperature, drop size. *(Results vary by species; try a few fresh flowers first.)*
 - **Does the length of a cutting change how many roots it grows?** Asexual reproduction. Change: cutting length (Tradescantia or coleus). Measure: roots after two weeks in water. Keep the same: plant, number of leaves, light, water.
 - **Do offspring vary more from sexual than asexual reproduction?** A card model. Change: copy one parent's cards, or draw one card per gene from each parent (3 genes). Measure: different offspring in 10. Keep the same: parents, number of offspring.

@@ -24,6 +24,8 @@ Trapped air is an excellent insulator: it conducts poorly and, if it is trapped 
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does the material of a rod change how fast heat travels along it?** Change: the rod (copper, aluminium, steel, glass). Measure: the time until a drawing pin stuck on with petroleum jelly drops off. Keep the same: rod size, water temperature, the pin's distance from the water.
 - **Does wrapping a cup change how fast hot water cools?** Change: the wrapping (none, foil, bubble wrap, a wool sock). Measure: the temperature drop over 10 minutes. Keep the same: cup, volume, starting temperature. *(The best wrappings trap air.)*
 - **Does hotter water rise faster?** Change: the temperature of coloured water released at the bottom of a beaker of cool water. Measure: the time for the colour to reach the top. Keep the same: the beaker, the amount of dye, the depth.

@@ -32,6 +32,8 @@ Signs of a chemical change (colour, gas, precipitate, light, smell, temperature 
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does the mass change when ice melts?** Change: state (frozen, then melted). Measure: mass of a sealed zip-lock bag of ice cubes. Keep the same: the bag stays sealed and is dried before weighing. *(Expect no change: physical change, same particles.)*
 - **Does more bicarbonate of soda make vinegar colder?** Change: mass of bicarb (1, 2, 3, 4 g). Measure: temperature drop. Keep the same: 50 mL of vinegar, starting temperature, insulated cup. *(Endothermic: a few degrees colder; the bubbles are a new substance, carbon dioxide.)*
 - **Does rinsing steel wool in vinegar change how much it warms as it rusts?** Change: dipped in vinegar or left dry. Measure: temperature rise in 5 minutes, steel wool wrapped round the thermometer bulb in a closed jar. Keep the same: mass of steel wool, jar. *(Exothermic: expect a rise of a few degrees for the dipped wool.)*

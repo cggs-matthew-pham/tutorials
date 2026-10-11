@@ -23,6 +23,8 @@ title: Earth's energy balance in 5 minutes
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does the colour of a surface change how much it warms?** Change: the surface (white card, black card, foil, dark soil). Measure: the temperature rise after 15 minutes under a lamp. Keep the same: the lamp, its distance, the thermometer's position. *(A model of albedo: compare ice and ocean.)*
 - **Does water warm up more slowly than sand?** Change: the material (water or dry sand, same mass). Measure: the temperature rise after 15 minutes under a lamp. Keep the same: mass, container, lamp distance. *(Why the oceans store so much heat.)*
 - **Has Australia warmed?** Secondary data: the Bureau of Meteorology's annual temperature anomalies for Australia. Change: the decade. Measure: the average anomaly. Keep the same: the data set.

@@ -23,6 +23,8 @@ title: Evolution in 5 minutes
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does the background colour change which "prey" survive?** A classroom model of the beetle board. Change: background (green or brown cloth). Measure: toothpicks of each colour left after 30 seconds of "bird" picking. Keep the same: number of each colour, time, number of birds.
 - **Does food type change which "beak" collects most?** A model. Change: food (seeds, rubber bands, marbles). Measure: items each beak tool (peg, spoon, tweezers) collects in 30 seconds. Keep the same: time, amount of food, container.
 - **Do leaves from the sunny side of a tree differ in length from the shady side?** Environmental variation. Change: side of the tree. Measure: length of 20 leaves from each (graph both spreads). Keep the same: tree, height picked, measuring method.

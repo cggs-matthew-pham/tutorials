@@ -47,6 +47,8 @@ Misconceptions: the sample is all gone after two half-lives; each nucleus decays
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 These are models: school radioactive sources are tightly controlled, and none are needed.
 
 - **Does the number of nuclei you start with change the half-life?** Change: starting number of dice (50, 100, 200). Measure: throws until half remain, removing every six as a "decay" each throw. Keep the same: the removal rule. *(Expect about 4 throws whatever the start: half-life does not depend on amount.)*

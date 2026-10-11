@@ -39,6 +39,8 @@ Only plant cells have a cell wall (support), chloroplasts (photosynthesis) and a
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does a stain change how many cell parts we can see?** Change: onion skin unstained or with iodine. Measure: parts identified (wall, membrane, nucleus, cytoplasm). Keep the same: onion, magnification, slide preparation.
 - **Does magnification change how many cells fit across the field of view?** Change: objective lens (×4, ×10, ×40). Measure: cells across the field. Keep the same: slide, specimen. *(Measure the field width with a clear ruler at low power, then estimate one cell's size.)*
 - **Do all plant cells have chloroplasts?** Change: plant part (Elodea leaf, onion bulb, celery stalk). Measure: cells with chloroplasts out of 10. Keep the same: magnification, stain (none). *(Tackles "all plant cells are green".)*

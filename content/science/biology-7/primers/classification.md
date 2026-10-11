@@ -34,6 +34,8 @@ Classification helps us identify organisms, communicate with one shared name and
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does a key with measurable features give more correct names than one with vague words?** Change: the key's wording ("legs: 6 or 8" or "big or small"). Measure: correct identifications out of 10 specimens. Keep the same: specimens, time, group size. *(Photos or school-ground leaves work well.)*
 - **Does a hand lens change how many features we can use to tell leaves apart?** Change: eye alone or a hand lens. Measure: features recorded per leaf. Keep the same: leaves, time.
 - **Does bread mould need light to grow, like a plant?** Change: light or dark cupboard. Measure: squares of a grid covered after a week. Keep the same: bread, water added, temperature. *(Set up in one lesson, check a week later.)*

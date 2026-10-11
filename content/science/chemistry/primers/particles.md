@@ -41,6 +41,8 @@ Melting and boiling take energy in; freezing and condensing give it out. While a
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does the temperature of water change how fast a drop of food colouring spreads?** Change: water temperature (cold, room, warm). Measure: time until the colour looks even. Keep the same: volume of water, size of drop, no stirring. *(Warm tap water is enough; a phone video from above makes timing fair.)*
 - **Does the temperature rise while ice is still melting?** Change: time (read every 30 seconds). Measure: temperature of crushed ice in a beaker, stirred. Keep the same: amount of ice, the room. *(Expect a flat stretch near 0 °C until the ice is gone: the heating curve's plateau.)*
 - **Does air squash more than water?** Change: what fills a sealed syringe (air, water, sand). Measure: how far the plunger moves under a firm push. Keep the same: syringe, starting volume, push. *(No needles; a finger or cap seals the tip.)*

@@ -24,6 +24,8 @@ title: The Earth and the sun in 5 minutes
 
 ## Investigate in class
 
+Optional ideas if you run a practical for this unit: pick one, adapt it to your equipment, or use your own.
+
 - **Does the angle of the light change how much a surface warms?** Change: the angle a lamp shines on black card (90°, 60°, 30°). Measure: the temperature under the card after 10 minutes. Keep the same: the lamp, its distance, the time. *(A model of a high and a low noon sun.)*
 - **Does a shadow change length through the day?** Change: the time of day. Measure: the shadow length of a 1 m stick in the playground. Keep the same: the stick, its spot. *(The shortest shadow is near midday.)*
 - **Do places further from the equator have a bigger change in day length?** Secondary data: published sunrise and sunset times. Change: the city (Darwin, Brisbane, Canberra, Hobart). Measure: day length on 21 June and 21 December. Keep the same: the dates.
