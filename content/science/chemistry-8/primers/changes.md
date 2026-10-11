@@ -23,3 +23,7 @@ A colour change, a gas given off (bubbles), a solid forming in a liquid, light, 
 ## Physical change first
 
 The unit now opens with physical change (node 1): melting, boiling and dissolving rearrange the same particles, so no new substance forms and the mass stays the same. Steam is still H₂O. Chemical change (node 2) then contrasts with it on the same boards.
+
+## Signs and energy (nodes 3 to 5)
+
+Signs of a chemical change (colour, gas, precipitate, light, smell, temperature change) are clues, not proof; the test is a new substance. Exothermic reactions give energy out to the surroundings (hotter); endothermic ones take it in (colder). There is no 'cold energy'.

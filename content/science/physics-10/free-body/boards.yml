@@ -1,0 +1,42 @@
+# Boards for "What forces act on it?".
+
+# region: sled
+widget: forces
+object: Sled
+mass: 20
+g: 10
+force W: down, weight, Weight
+force N: up, support, Snow pushing up
+force P: right, 60, Rope pulling, adjust 0-120 by 10
+friction: 40
+# endregion
+
+# region: lift
+widget: forces
+object: Lift
+mass: 500
+g: 10
+force W: down, weight, Weight
+force T: up, 3000, Cable pulling up, adjust 0-8000 by 500
+# endregion
+
+# region: plane
+widget: forces
+object: Plane
+mass: 1
+force W: down, 6000, Weight
+force L: up, 4000, Lift from the wings, adjust 0-10000 by 500
+force T: right, 2000, Thrust, adjust 0-4000 by 250
+force D: left, 1500, Drag, adjust 0-4000 by 250
+# endregion
+
+# region: explain
+widget: forces
+object: Sled
+mass: 20
+g: 10
+force W: down, weight, Weight
+force N: up, support, Snow pushing up
+force P: right, 60, Rope pulling, adjust 0-120 by 20
+friction: 40
+# endregion

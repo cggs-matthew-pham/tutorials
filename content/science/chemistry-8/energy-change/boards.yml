@@ -1,0 +1,29 @@
+# Science boards for "Hotter or colder?".
+
+# region: exo
+widget: reaction
+show: H2 x12, O2 x6
+react: 2 H2 + O2 -> 2 H2O
+ea: 1.5
+release: 1
+caption: Hydrogen burning in oxygen. Watch the temperature.
+# endregion
+
+# region: endo
+widget: reaction
+show: N2 x12, O2 x12
+react: N2 + O2 -> 2 NO
+ea: 1.6
+release: -0.6
+temp: 600
+target: NO 10
+caption: Nitrogen and oxygen in a hot engine. Watch the temperature.
+# endregion
+
+# region: explain
+widget: reaction
+show: H2 x12, O2 x6
+react: 2 H2 + O2 -> 2 H2O
+ea: 2
+release: 1
+# endregion

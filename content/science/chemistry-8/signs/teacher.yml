@@ -1,0 +1,39 @@
+summary: Students list observable signs of chemical change and explain that each is a clue to a new substance, not proof, distinguishing misleading signs in physical changes (AC9S8U07, node 3).
+time: 22
+timing: "Engage and Explore 7 min · Explain 9 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can list the signs of a chemical change.
+  - I can explain why a sign is a clue, not proof.
+  - I can spot a sign that misleads in a physical change.
+before: |
+  A concept tutorial for introducing or revising the idea; it is best paired with a circus of quick reactions (vinegar and bicarb, lead-free precipitates, steel wool burning). Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows Is it a new substance? (node 2) and comes before Hotter or colder? (nodes 4 and 5).
+
+  Not a hinge node. Students tend to treat any one sign as proof; the prediction and the "clue or trap" sort target it.
+
+  Board notes: the board can't show colour, smell or a precipitate; it shows new particles and the temperature change. The dissolve board shows a case with no sign at all.
+running:
+  - "Engage: tally the predictions. Any single sign chosen means 'sign = proof'."
+  - "Explore: ask which observation from the burning board would also happen without a reaction."
+  - "Explain: the two sorts are the success criteria."
+  - "In your own words: five signs, each with a misleading example where possible."
+struggle: "Holding 'clue' and 'test' apart. When a student says 'it bubbled, so it reacted', ask what is inside the bubbles before agreeing."
+stuck:
+  - see: "A student says boiling is a chemical change because of the bubbles."
+    ask: "What are the bubbles made of?"
+    fix: "Steam: water particles. No new substance, so physical."
+  - see: "A student says any colour change means a reaction."
+    ask: "What happens when you mix blue and yellow paint?"
+    fix: "It looks green, but both paints are still there. A colour change is a clue, not proof."
+stretch: "Why is 'it can't be reversed' a poor test for a chemical change? (Some physical changes are hard to reverse, like shattering a glass; some reactions can be reversed, like charging a battery.)"
+support: "Give the signs as picture cards (bubbles, colour, cloudy solid, flame, thermometer, nose) to sort into 'sign' and 'proof needed'."
+leads: |
+  Next: Hotter or colder? (exothermic and endothermic, nodes 4 and 5). Comparing physical and chemical changes with all the criteria (node 6) is a class task.
+
+  In class: a reaction circus with an observation table (what you saw, which sign, new substance?).
+exit:
+  q: "Bicarb and vinegar fizz and the mixture gets colder. Name two signs of a chemical change, and say what would prove it."
+  a: "Gas given off (fizzing) and a temperature change. A new substance would prove it (carbon dioxide, which turns limewater cloudy)."
+explain: |
+  Signs of a chemical change: a colour change, a gas given off, a solid forming in a liquid (a precipitate), light, a smell, or a temperature change.
+
+  Each is a **clue**, not proof: boiling water bubbles with no new substance. The test is whether a new substance formed.

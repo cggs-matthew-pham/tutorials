@@ -2,6 +2,12 @@
 
 The science chat's file. Lessons live in `content/science/` (see CLAUDE.md › Science).
 
+## Done: signs, energy in reactions, third law, free body diagrams (11 Oct 2026, science chat)
+
+How can you tell a reaction happened? (`chemistry-8/signs`, 8U07 n3), Hotter or colder? (`chemistry-8/energy-change`, 8U07 n4 and n5: hydrogen burning warms, nitrogen + oxygen at 600 K cools), Push the wall, and it pushes you? (`physics-10/third-law`, 10U05 n5) and What forces act on it? (`physics-10/free-body`, 10U05 n6). Collision theory already teaches temperature, concentration, surface area and catalysts, so it now also names 10U07 n6. Existing boards only; clips on ports 8279–8282 (next free 8283); every check passes headless; decks fit.
+
+Next (approved 11 Oct): energy (8U05, 9U05) with a new shared-board `energy` widget.
+
 ## Done: eight more from the class-taught list (11 Oct 2026, science chat)
 
 What makes a plant cell different? (`biology-8/plant-cells`, 8U01 n4 and n5), Mixed, not joined? (`chemistry-8/mixtures`, 8U06 n4), Symbols, formulas or models? (`chemistry-8/models`, 8U06 n5), Nerves or hormones? (`biology-9/signals`, 9U01 n3), Where is all the carbon? (`earth-9/carbon-stores`, 9U03 n2), Where does the heat go? (`chemistry/heating-curve`, 7U05 n4, with a heating curve on the graph board), What can't the particle model explain? (`chemistry/model-limits`, 7U05 n5, short) and What kind of reaction is it? (`chemistry-9-10/reaction-types`, 10U07 n1 to n4: synthesis, decomposition, displacement with reactivity). Orders moved to fit; each removes `assumes:` lines. Voiced clips (ports 8271–8278, next free 8279); pictures except signals and carbon stores (overlapping labels, as for the carbon cycle); every check passes headless or by hand (spheres placement, fine clicks on cell lines and liquid diffusion are slow for the script); decks fit. New lessons and the 11 from earlier today have `struggle:` notes.

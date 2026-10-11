@@ -1,0 +1,26 @@
+# Science boards for "How can you tell a reaction happened?".
+
+# region: burn
+widget: reaction
+show: CH4 x6, O2 x12
+react: CH4 + 2 O2 -> CO2 + 2 H2O
+ea: 1.8
+release: 1
+caption: Methane burning. Which signs of a reaction can you see in the panel?
+# endregion
+
+# region: dissolve
+widget: dissolve
+# endregion
+
+# region: melt
+widget: heat
+# endregion
+
+# region: explain
+widget: reaction
+show: CH4 x6, O2 x12
+react: CH4 + 2 O2 -> CO2 + 2 H2O
+ea: 2.2
+release: 1
+# endregion

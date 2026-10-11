@@ -22,3 +22,7 @@ title: Newton's laws in 5 minutes
 ## Net force (the first lesson)
 
 A force is a vector. Along one line, add forces that point the same way and subtract opposite ones: what is left is the **net force**, which is what changes motion. Misconception: adding every force as a number, ignoring direction. The force board draws arrows short when forces are large; read the values in the labels.
+
+## Third law and free body diagrams (nodes 5 and 6)
+
+Forces come in pairs: A on B and B on A, same size, opposite directions, on different objects, so they never cancel. Weight and support on a book are balanced forces, not a pair. A free body diagram shows one object and every force on it; work each direction separately.

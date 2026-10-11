@@ -1,0 +1,42 @@
+summary: Students explain exothermic and endothermic reactions as energy released to or absorbed from the surroundings, and classify everyday reactions (AC9S8U07, nodes 4 and 5).
+time: 24
+timing: "Engage and Explore 8 min · Explain 9 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can explain what exothermic and endothermic mean.
+  - I can say which way energy moves in each, between the reaction and its surroundings.
+  - I can give an everyday example of each.
+before: |
+  A concept tutorial for introducing or revising the idea; it is best beside a hands-on test with a thermometer (citric acid and bicarb gets colder; magnesium in acid gets hotter). Set the width with `?width=minimum`, `typical` (default) or `wider`. One lesson for two nodes, after How can you tell a reaction happened?
+
+  Neither is a hinge node. The misconception: cold is a thing that flows ("cold energy"). The prediction targets it.
+
+  Board notes: the reaction board warms or cools the gas as reactions give out or take in energy. The endothermic reaction (nitrogen + oxygen → nitrogen monoxide) is real but only happens at engine temperatures; it starts at 600 K and cools. Both reactions stop at their target.
+running:
+  - "Engage: tally the predictions. 'Makes cold' is the one to discuss."
+  - "Explore: ask which way the temperature moved on each board, and what that says about the energy."
+  - "Explain: the definition and the sort are the success criteria."
+  - "In your own words: the two thermometers with energy arrows are the evidence."
+struggle: "Thinking about the surroundings, not the reaction. When a student says 'the reaction gets cold, so it gives out cold', ask where the energy went and let them redraw the arrow."
+stuck:
+  - see: "A student says the ice pack gives out cold."
+    ask: "Is cold something you can add, or is it less of something?"
+    fix: "Less thermal energy. The reaction takes energy in from your hand, so your hand cools."
+  - see: "A student mixes up exo and endo."
+    ask: "Exit means out. Which one sends energy out?"
+    fix: "Exothermic: energy out, surroundings hotter."
+  - see: "A student thinks photosynthesis is exothermic because the Sun is hot."
+    ask: "Does the plant take light energy in or give it out?"
+    fix: "It takes it in to make glucose: endothermic."
+stretch: "Respiration and photosynthesis are almost the reverse of each other. Why is one exothermic and the other endothermic? (Photosynthesis stores light energy in glucose; respiration releases it.)"
+support: "Give the frame: 'In an … reaction, energy moves from … to … , so the surroundings get … .'"
+leads: |
+  Next: comparing physical and chemical changes with every criterion (node 6) is a class task. Year 9 energy conservation and Year 10 collision theory build on this.
+
+  In class: thermometer readings for citric acid + bicarb (endothermic) and magnesium + dilute acid (exothermic).
+exit:
+  q: "Burning candle wax: exothermic or endothermic? Explain using the word surroundings."
+  a: "Exothermic: the reaction gives out energy to the surroundings, which get hotter (and light is given out)."
+explain: |
+  **Exothermic** reactions give out energy to their surroundings, which get hotter: burning, respiration, hand warmers.
+
+  **Endothermic** reactions take in energy from their surroundings, which get colder: instant ice packs, photosynthesis. Energy moves; it is never made or destroyed.

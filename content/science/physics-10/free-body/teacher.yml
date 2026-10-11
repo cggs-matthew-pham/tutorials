@@ -1,0 +1,42 @@
+summary: Students draw free body diagrams for objects with several forces, find the net force in each direction, and use Newton's first and second laws to say what the motion does (AC9S10U05, node 6).
+time: 25
+timing: "Engage and Explore 8 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can draw a free body diagram with every force on an object.
+  - I can find the net force in each direction.
+  - I can say what the object's motion will do from its free body diagram.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows Push the wall, and it pushes you? and pulls together the first and second laws. Integrating all three laws in problems (nodes 7 and 8) is a class task.
+
+  Not a hinge node, but students carry two errors into it: a moving object needs a net force forward, and forces the object exerts belong on its diagram. The plane prediction targets the first; the "what goes on it" question the second.
+
+  Board notes: the board draws forces from the object's centre (friction at the ground) with arrow length by size; large forces are capped in length, so read the labels. The plane's weight is given directly in newtons.
+running:
+  - "Engage: tally the predictions. 'Thrust is bigger' is the Aristotelian idea."
+  - "Explore: ask which direction they balanced first, and why it didn't matter."
+  - "Explain: the two number checks and the lift question are the success criteria."
+  - "In your own words: the cyclist's balanced diagram is the evidence."
+struggle: "Working one direction at a time. When a student mixes vertical and horizontal forces in one sum, ask them to cover half the diagram with their hand and work the other half first."
+stuck:
+  - see: "A student adds weight to the horizontal forces."
+    ask: "Which way does weight point?"
+    fix: "Down. Up–down forces balance separately from left–right ones."
+  - see: "A student draws the force the sled exerts on the rope."
+    ask: "Is that force acting on the sled?"
+    fix: "No, on the rope. A free body diagram shows only forces on the object."
+  - see: "A student thinks the cruising plane needs more thrust than drag."
+    ask: "Is its speed changing?"
+    fix: "No, so the net force is zero: thrust equals drag."
+stretch: "A 60 kg person stands in a lift accelerating upwards at 1 m/s². How hard does the floor push on them? (Net force needed = 60 N up, so the floor pushes 600 + 60 = 660 N, with g = 10 N/kg.)"
+support: "Give a diagram template: a box with four arrow stubs (up, down, left, right) to label, and a two-row table for each direction's net force."
+leads: |
+  Next: problems using all three laws (node 7) and real applications (node 8) are class tasks.
+
+  In class: force meters on a block dragged at steady speed; drawing free body diagrams for photos (a climber, a kite, a car braking).
+exit:
+  q: "A 1000 kg car has 3000 N of driving force and 1000 N of drag. Find the net force and the acceleration."
+  a: "2000 N forward; a = 2000 ÷ 1000 = 2 m/s²."
+explain: |
+  A **free body diagram** shows one object and every force acting on it, as labelled arrows from the object.
+
+  Work out the net force in each direction separately. Zero in every direction: no change in motion. A net force: the object accelerates that way, a = F ÷ m.

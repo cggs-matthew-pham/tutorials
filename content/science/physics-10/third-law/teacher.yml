@@ -1,0 +1,42 @@
+summary: Students state Newton's third law, identify the two forces in an action–reaction pair (who on whom), and distinguish third-law pairs from balanced forces on one object (AC9S10U05, node 5).
+time: 24
+timing: "Engage and Explore 7 min · Explain 10 min · Evaluate 3 min · Typical adds 3 min, Wider about 2 min"
+goals:
+  - I can state Newton's third law.
+  - I can name both forces in an action–reaction pair.
+  - I can tell a third-law pair from two balanced forces on one object.
+before: |
+  A concept tutorial for introducing or revising the idea. Set the width with `?width=minimum`, `typical` (default) or `wider`. It follows F = ma and comes before free body diagrams (node 6).
+
+  Not a hinge node, but its classic error matters: calling weight and the support force a third-law pair. The book question and the Typical step target it.
+
+  Board notes: the force board draws the forces on one object only, which is the point: a third-law partner always acts on the other object, so it is never on the same diagram. The skater's push from the wall is a steady force while she touches it; real pushes rise and fall.
+running:
+  - "Engage: tally the predictions. 'Her own push' is the idea to work on."
+  - "Explore: ask which force on the board acts on her, and where her own push went."
+  - "Explain: the partners match and the book question are the success criteria."
+  - "In your own words: two separate pictures, one force on each."
+struggle: "Naming who pushes on whom. When a student calls two forces a pair, ask them to say each force as 'A on B' out loud before deciding."
+stuck:
+  - see: "A student says weight and the table's push are a third-law pair."
+    ask: "What is each force acting on?"
+    fix: "Both on the book: they balance. Pairs act on two different objects."
+  - see: "A student thinks the heavier object exerts the bigger force in a collision."
+    ask: "What does the third law say about the sizes?"
+    fix: "Equal. The lighter object accelerates more because of its smaller mass."
+  - see: "A student says the pair cancel, so nothing can ever move."
+    ask: "Are both forces on the same object?"
+    fix: "No. Only forces on the same object add up to a net force; each object feels just one of the pair."
+stretch: "A horse pulls a cart, and the cart pulls back on the horse equally. How does anything move? (The horse pushes back on the ground and the ground pushes it forward harder than the cart pulls back; look at the forces on the horse only.)"
+support: "Give the frame: '… pushes/pulls … (force 1). … pushes/pulls … back (force 2). Same size, opposite directions, different objects.'"
+leads: |
+  Next: What forces act on it? (free body diagrams, node 6). Integrating all three laws (nodes 7 and 8) is a class task.
+
+  In class: two students on wheeled chairs pushing off each other; balloon rockets on a string.
+exit:
+  q: "A swimmer pushes the water backwards. Name the other force in the pair, and say which way it acts and on what."
+  a: "The water pushes the swimmer forwards, on the swimmer, with a force of the same size."
+explain: |
+  **Newton's third law:** when A pushes or pulls B, B pushes or pulls A with a force of the same size in the opposite direction.
+
+  The two forces act on **different objects**, so they never cancel. Balanced forces (weight and support on a book) act on the same object and are not a third-law pair.
