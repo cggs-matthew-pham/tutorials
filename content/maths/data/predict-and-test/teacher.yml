@@ -1,0 +1,39 @@
+summary: Students predict expected counts (probability × trials), run experiments on a chance board, record counts and relative frequencies, and see that observed results vary around the expected count (AC9M7P01 node 3, AC9M7P02 node 1).
+time: 45
+timing: "Predict and Run 10 min · Investigate 12 min · Modify 12 min · Practise and Make 11 min"
+goals:
+  - I can predict how often an outcome should happen in a number of trials.
+  - I can run an experiment, record counts and work out relative frequencies.
+  - I can explain why results differ from predictions in a short experiment.
+before: |
+  Do the Run board first. Students need Sample spaces and probability.
+
+  The one idea: expected count = probability × trials; observed counts vary around it. The common mistake is expecting the predicted count exactly, and calling a fair device unfair after a short experiment; it is planted in Noah's reasoning.
+
+  If you have real dice or coins, run the 60-roll experiment physically first and pool the class's counts; the board then lets students run far more trials than a lesson allows.
+running:
+  - "Predict: take a show of hands; ask students who chose 'exactly 6' what 6 is."
+  - "Run: collect everyone's count of sixes on the board as a dot plot; ask how many got exactly 10."
+  - "Investigate: link relative frequency to Fractions, decimals and percentages."
+  - "Modify: before the two-students question, ask what range of heads in 10 flips is normal."
+  - "Make: ask for the general rule: trials = expected count ÷ probability."
+stuck:
+  - see: "A student expects the predicted count exactly (Noah's mistake)."
+    ask: "Look at the class's counts. Did everyone get 10?"
+    fix: "Expected means 'about, on average', not every time."
+  - see: "A student gives the probability as the expected count."
+    ask: "Out of how many trials?"
+    fix: "Multiply the probability by the number of trials."
+stretch: "Each of 30 students rolls a dice 60 times. Predict roughly how many of them will get exactly 10 sixes. Then simulate it with the board (about 1 in 7)."
+support: "Use the board's Expected count column to check each prediction."
+leads: |
+  Next: Many trials (AC9M7P02 node 2): what happens to the relative frequency over hundreds and thousands of trials.
+
+  Where it leads: simulating compound events (Year 8) and statistical significance much later.
+exit:
+  q: "A spinner has P(blue) = 0.4. How many blues do you expect in 50 spins? You get 23. Is the spinner unfair?"
+  a: "20 expected. 23 is close to 20, so there is no reason to think it is unfair."
+explain: |
+  A probability predicts what happens over many trials: **expected count = probability × number of trials**. In 60 rolls of a fair dice, expect about $60 \times \tfrac{1}{6} = 10$ sixes.
+
+  Then test it: run the experiment and record the counts. The **relative frequency** is count ÷ trials. In a short experiment the results vary: 7 or 12 sixes in 60 rolls is normal, so do not judge a dice on a few rolls.

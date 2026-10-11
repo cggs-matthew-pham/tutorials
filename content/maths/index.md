@@ -30,6 +30,6 @@ pathways:
     title: Statistics and probability
     summary: Collecting and displaying data, measures of centre, and chance.
     courses:
-      - { id: data-chance, title: Data and chance, stage: foundations, summary: "Data displays, mean, median and mode, sample spaces and simulations." }
+      - { path: maths/data, id: data-chance, stage: foundations, after: [number-foundations] }
       - { title: Statistical investigations, stage: extensions, summary: "Sampling, variation and investigations with real data.", after: [data-chance] }
 ---

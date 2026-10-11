@@ -1,0 +1,8 @@
+# Leo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leo
+Find the median of 9, 2, 7, 4, 5.
+There are 5 values, so the median is the 3rd one.
+The 3rd value in the list is 7.
+So the median is 7.
+# endregion

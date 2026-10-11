@@ -1,0 +1,42 @@
+summary: Students describe data sets by shape (symmetrical or skewed, clusters, gaps, outliers), centre and spread, and compare two sets on both centre and spread, with numbers and in context (AC9M7ST02, nodes 2 and 3).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 13 min · Practise and Make 12 min"
+goals:
+  - I can describe the shape of a data set (symmetrical, skewed, clusters, gaps, outliers).
+  - I can compare two data sets using a measure of centre and a measure of spread.
+  - I can write a comparison with numbers and in context.
+before: |
+  Do the Run and Make boards first. Students need Mean, median, mode and range, and Stem-and-leaf plots.
+
+  The one idea: a data set has a shape, a centre and a spread; comparing two needs both centre and spread. The common mistake is comparing single values (the highest score); it is planted in Mia's reasoning and again in Practise.
+
+  The board draws the second set above the first, each with its own median line and range arrow; only the first set can be changed.
+running:
+  - "Predict: take a show of hands; ask students who chose B why (often the 22)."
+  - "Run: ask whether raising the median changed the range."
+  - "Investigate: write a sentence frame on the board: 'On average … (median …), but … is more spread (range …).'"
+  - "Modify: for the same-mean edge case, ask students to invent a third set with mean 10 and range 100."
+  - "Make: read out pairs of headlines."
+stuck:
+  - see: "A student compares one value from each set (Mia's mistake)."
+    ask: "Does one student's score describe the whole class?"
+    fix: "Compare a centre (median) and a spread (range) for each."
+  - see: "A student gives numbers without meaning."
+    ask: "What does a bigger range mean for these students?"
+    fix: "Say it in context: 'less consistent', 'more varied'."
+  - see: "A student confuses the direction of skew."
+    ask: "Where are the few values that trail off?"
+    fix: "The tail points to the few values; that is the direction of the skew."
+stretch: "Find two data sets with the same median and range but clearly different shapes."
+support: "Use the sentence frame and the board's measures for every comparison."
+leads: |
+  Next: the Chance unit (sample spaces and probability). A statistical investigation (AC9M7ST03) is a class task: pose a question, collect data, display and compare it with these tools (see the unit primer).
+
+  Where it leads: sampling and variation (Year 8), the five-number summary and box plots (Years 9 and 10).
+exit:
+  q: "Group 1 reaction times (s): median 0.32, range 0.10. Group 2: median 0.28, range 0.35. Compare the groups in one sentence."
+  a: "Group 2 was faster on a typical try (median 0.28 s against 0.32 s), but much less consistent (range 0.35 s against 0.10 s)."
+explain: |
+  Describe a data set by its **shape** (symmetrical, or **skewed** with a tail; clusters, gaps, outliers), its **centre** (median or mean) and its **spread** (range).
+
+  To **compare** two sets, compare the centres **and** the spreads, with numbers and in context: "Similar medians (15 and 16), but Class A is more consistent (range 6 against 16)." One value, such as the highest score, does not describe a set.

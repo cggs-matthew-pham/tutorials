@@ -1,0 +1,7 @@
+# Sam's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+House prices in a street ($ thousands): 600, 620, 640, 650, 3200.
+The mean uses every price, so it is always the best measure.
+The mean is 1142, so a typical house costs about $1 142 000.
+# endregion

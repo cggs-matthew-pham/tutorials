@@ -1,0 +1,34 @@
+# Chance boards for "Predict and test". Expected count = probability × trials; the tally shows both.
+
+# region: run
+widget: chance
+device: dice
+watch: 6
+# endregion
+
+# region: explain
+widget: chance
+device: dice
+watch: 6
+seed: 11
+# endregion
+
+# region: pic
+widget: chance
+device: dice
+watch: 6
+seed: 11
+start: 60
+# endregion
+
+# region: coin
+widget: chance
+device: coin
+# endregion
+
+# region: spinner
+widget: chance
+device: spinner
+outcomes: red 3, blue 5
+watch: red
+# endregion

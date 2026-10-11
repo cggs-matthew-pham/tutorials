@@ -1,0 +1,44 @@
+summary: Students list sample spaces for coins, dice, bags and spinners, assign probabilities as favourable ÷ total when outcomes are equally likely and from sizes or counts when they are not, check that probabilities add to 1, and test a prediction with 1000 spins (AC9M7P01, nodes 1 and 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 12 min · Practise and Make 13 min"
+goals:
+  - I can list the sample space for a single event.
+  - I can work out a probability as a fraction, decimal or percentage.
+  - I can tell when outcomes are not equally likely, and use sizes or counts instead.
+before: |
+  Do the Run board first. Students need fractions, decimals and percentages (Number Foundations).
+
+  This is a hinge: everything in Chance builds on a complete sample space and correct probabilities. The common mistake is treating every listed outcome as equally likely (three colours, so 1/3 each); it is planted in the Predict and in Kai's reasoning.
+
+  The board's random spins are different every time; with 1000 or more spins the relative frequencies are reliably close to the probabilities.
+running:
+  - "Predict: take a show of hands; ask students who chose 1/3 how they decided."
+  - "Run: ask what relative frequency you would expect if each colour really were 1/3."
+  - "Investigate: write the sample space for each device on the board before any probability."
+  - "Modify: for repeated labels, draw the spinner with A, A, B."
+  - "Make: ask for the smallest bag with P(red) = 1/3."
+stuck:
+  - see: "A student gives each colour 1/3 (Kai's mistake)."
+    ask: "Is each colour the same size?"
+    fix: "Use the sizes: half the spinner is 1/2."
+  - see: "A student counts colours instead of counters."
+    ask: "How many counters are there in total?"
+    fix: "Favourable counters ÷ total counters."
+  - see: "A student gives the count instead of the probability (3 instead of 1/2)."
+    ask: "Out of how many?"
+    fix: "Divide by the total number of outcomes."
+stretch: "Design a spinner with four colours where one colour is three times as likely as each of the others."
+support: "List the sample space in a table with a probability column; check the column adds to 1."
+leads: |
+  Next: Predict and test (AC9M7P01 node 3, AC9M7P02 node 1): expected counts and experiments.
+
+  Where it leads: complementary events and two-step experiments (Year 8).
+exit:
+  q: "A bag has 2 red, 3 green and 5 yellow counters. List the sample space and give each probability."
+  a: "{red, green, yellow}: P(red) = 2/10 = 1/5, P(green) = 3/10, P(yellow) = 5/10 = 1/2. They add to 1."
+explain: |
+  The **sample space** is the list of every possible outcome. If the outcomes are **equally likely**,
+
+  $P(\text{event}) = \dfrac{\text{favourable outcomes}}{\text{total outcomes}}$, so $P(\text{even on a dice}) = \tfrac{3}{6} = \tfrac{1}{2}$.
+
+  If they are not (a half-red spinner, a bag with more of one colour), use the sizes or the counts: $P(\text{red}) = \tfrac{1}{2}$. The probabilities of all the outcomes add to 1; 0 means impossible, 1 means certain.

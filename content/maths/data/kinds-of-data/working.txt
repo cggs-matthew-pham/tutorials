@@ -1,0 +1,7 @@
+# Ava's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ava
+Shoe sizes in our class: 7, 7.5, 8, 8.5, 9.
+Shoe size has decimals in it.
+So shoe size is continuous data.
+# endregion

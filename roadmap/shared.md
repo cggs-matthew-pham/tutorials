@@ -95,6 +95,7 @@ Applies to every subject. The limits are the existing design rules: Predict come
 - **Open:** format for `hook:` (clip spec as for `explainClip`, or a board setup); where the How-to section lives (per pathway or per subject); whether how-tos are recorded by `render.mjs` or by hand (real tools such as Teachable Machine can't be driven from the sandbox).
 - Answer forms `simplest` (fraction in lowest terms) and `decimal` in `tools/maths-forms.mjs` (no Numbas needed for them) and the form lists in `tools/lesson-core.mjs`; answer checks (`tools/lesson-view.mjs`) ignore a trailing % or °. New maths board widget `widgets/bars.js` (script tag in `playground-board/index.html`).
 - Board (maths widgets): graph gains `plot: x = a` and `shade:` regions; numberline gains `ray:` (inequalities).
+- New maths board widgets `widgets/data.js` (dot plots, stem-and-leaf, statistics) and `widgets/chance.js` (coin, dice, spinner, bag; trials and relative frequency), with script tags in `playground-board/index.html` and styles in `style.css`. New tool `tools/kit-page.mjs` writes progression pages from a waypoints-kit checkout (for the node check), noted in `data/progressions/README.md`; the map's importer (`tools/import-curriculum.mjs`) is unchanged.
 
 ## Done (11 Oct 2026): trail map on Code pathway pages
 

@@ -1,0 +1,33 @@
+# Chance boards for "Many trials". The graph shows the relative frequency settling towards the probability (dashed).
+
+# region: run
+widget: chance
+device: coin
+# endregion
+
+# region: explain
+widget: chance
+device: coin
+seed: 2
+# endregion
+
+# region: pic
+widget: chance
+device: coin
+seed: 2
+start: 2000
+# endregion
+
+# region: dice
+widget: chance
+device: dice
+watch: 6
+# endregion
+
+# region: mystery
+widget: chance
+device: bag
+outcomes: red 3, yellow 7
+watch: red
+hide: on
+# endregion

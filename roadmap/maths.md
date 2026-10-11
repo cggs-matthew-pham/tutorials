@@ -105,10 +105,14 @@ AC9M8N04 n2: Number Foundations' Fractions unit, lesson 7 (sign first, then size
 
 An independent read of all 19 lessons found no wrong mathematics; fixed one bug-task line (Max, line 4), one feedback message, unclear working and wording, and added the terms numerator, denominator, reflex, convex, concave, "sum of the two interior opposite angles" and "inequality sign". The parallel board now reports the picked pair (`u`, `v`), so checks can ask for a specific pair. New page *For maths teachers* (`content/maths-teachers.md`, linked from the home page): what is here, how a lesson runs, the teacher guides, a ten-minute tour, and the feedback form. The site is for maths teachers to try when it suits them.
 
+## Done: Data and chance, Year 7 (11 Oct 2026)
+
+New course *Data and chance* (`content/maths/data/`, after Number Foundations): Data unit (Counting and measuring 7ST01 n1, Mean, median, mode and range n2, Which measure? n3, Stem-and-leaf plots 7ST02 n1, Comparing data sets n2 and n3) and Chance unit (Sample spaces and probability 7P01 n1 and n2, Predict and test 7P01 n3 and 7P02 n1, Many trials 7P02 n2). 7ST03 (statistical investigations) is a class task in the Data primer. New board widgets `data` and `chance`; progression pages written from the kit by `tools/kit-page.mjs`; misconceptions discrete-decimal, median-unsorted, mean-always-best, stem-skip-empty, compare-single-value, equally-likely-outcomes, expect-exact, gamblers-fallacy; 11 cards and two primers.
+
 ## Still to do
 
-- **Publish and listen:** the nineteen new clips (Number Foundations 7, Angles 6, Algebra 5, Linear relations 1) record with the real voice on the next manual publish.
+- **Publish and listen:** the twenty-seven new clips (Number Foundations 7, Angles 6, Algebra 5, Linear relations 1, Data and chance 8) record with the real voice on the next manual publish.
 - **Teacher feedback:** maths teachers try the site when it suits them (the For maths teachers page and the feedback form); act on what comes back.
 - **Watch in class:** whether students write real working in the reasoning box or skip to the marked parts; whether the self-check ticks are honest.
-- **Next nodes:** every node on the pasted progression pages now has a lesson except AC9M7A06 (formulas with digital tools: class work with a spreadsheet, left out on purpose). More pages are needed to go on (for example Year 8 measurement or statistics).
+- **Next (agreed order, checked against the curriculum map's builds-on links):** Number gaps 7N01 (squares and roots), 7N02 (primes, HCF), 7N06 (operations with fractions); then Area and volume 7M01, 7M02, then circles 7M03; then classifying shapes 7SP02 and Pythagoras 8M06. Pages come from the kit with `tools/kit-page.mjs`. AC9M7A06 stays a class task.
 - **Form-check coverage:** simplest and decimal are built; ratio and inequalities are not; add them when a lesson needs one.

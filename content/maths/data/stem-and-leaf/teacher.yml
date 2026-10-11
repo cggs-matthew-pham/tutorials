@@ -1,0 +1,41 @@
+summary: Students build ordered stem-and-leaf plots (tens as stems, units as leaves, every stem included, with a key) and read values, the median, mode and range from them (AC9M7ST02, node 1).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 12 min · Practise and Make 8 min"
+goals:
+  - I can build an ordered stem-and-leaf plot with a key.
+  - I can read values, the median, the mode and the range from a stem-and-leaf plot.
+before: |
+  Do the Run board first. Students need Mean, median, mode and range.
+
+  This is a hinge: describing and comparing distributions (next lesson) reads shape from these plots. The common mistake is leaving out a stem with no leaves, which hides gaps; it is planted in Jo's working. Others: unordered leaves, and reading a leaf as a value on its own (the board's key helps).
+
+  The board shows the dot plot and the stem-and-leaf plot together in Run and Make, so students can see they show the same data.
+running:
+  - "Predict: take a show of hands; students who chose 3, 1, 5, 5, 8 read digits, not values."
+  - "Run: ask where 29 goes and why it goes at the end of its row."
+  - "Investigate: build a plot of the class's own data (arm spans, say) on the board."
+  - "Modify: before the three-digit task, ask what the stems should be for 105."
+  - "Make: collect answers; ask whether 35 has to appear."
+stuck:
+  - see: "A student leaves out an empty stem (Jo's mistake)."
+    ask: "Are there any tens between your smallest and largest stems with no values?"
+    fix: "Write every stem in order; leave its row empty."
+  - see: "A student reads a leaf as a value."
+    ask: "What does the key say 3 | 5 means?"
+    fix: "Stem and leaf together make one value."
+  - see: "A student writes leaves out of order."
+    ask: "Can you find the median easily from this row?"
+    fix: "Sort the values first, or the leaves at the end."
+stretch: "Draw a back-to-back stem-and-leaf plot for two classes' scores (leaves going left for one, right for the other)."
+support: "Sort the values first, then write them in rows by tens before making the plot."
+leads: |
+  Next: Comparing data sets (AC9M7ST02 nodes 2 and 3).
+
+  Where it leads: back-to-back plots, histograms and grouped data (Year 8 and 9).
+exit:
+  q: "Draw a stem-and-leaf plot of 17, 25, 22, 41, 18, 29, 26 and find its median."
+  a: "1 | 7 8, 2 | 2 5 6 9, 3 | (empty), 4 | 1. Median: the 4th of 7 values, 25."
+explain: |
+  A **stem-and-leaf plot** keeps every value and shows the shape. For two-digit numbers the **stem** is the tens digit and the **leaf** is the units digit; leaves go in order along their stem's row. Include every stem from the smallest to the largest, even with no leaves, and give a key: $3 \mid 5$ means $35$.
+
+  Read the median by counting leaves to the middle; the range is the last value minus the first.

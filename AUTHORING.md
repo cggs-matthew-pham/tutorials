@@ -573,6 +573,21 @@ Vary, Practise, Make).
     decimal and/or a percentage too. The panel says whether the two shade the same amount and how (× or ÷ on the top
     and the bottom). Values: `a`, `b`, `c`, `d`, `v` (a/b), `w` (c/d), `e` (1 when equal), `t` and `s` (1 when a/b, c/d
     are in lowest terms), `p` (a/b as a percentage). Checks: `"e = 1 and d = 6"`, `"e = 1 and s = 1"`, `"e = 1"` (grid).
+  - `widget: data` (first used by `maths/data`): a dot plot of `values: 4, 7, 7, 8` on `range: 0, 20` (default: around
+    the data), with the mean (▲), median (dashed) and range (arrow) marked and written underneath (`show: mean, median,
+    mode, range` or `none`). `edit: on`: students click the line to add a value (landing on `step:`, default 1), click a
+    dot to remove it, or type the values in a box. `view: stem` draws an ordered stem-and-leaf plot instead (whole
+    numbers; tens as stems, with every stem and a key); `view: both` adds it under the dot plot. `second: 5, 6, 8` and
+    `names: Class A, Class B` draw a second set above (not editable). `label:` names the variable. Values: `n`, `s`
+    (sum), `m` (mean), `d` (median), `o` (the mode, the smallest if several), `k` (how many modes; 0 if none), `r`, `l`,
+    `h` (range, lowest, highest), and the same in capitals for the second set. Checks: `"n = 6 and m = 7"`, `"d > D"`.
+  - `widget: chance` (first used by `maths/data`): `device: coin | dice | spinner | bag` (`sides: 6`; `outcomes: red 2,
+    blue 1` for spinner sector sizes or bag counters, drawn with replacement). Run 1, 10, 100 and 1000 buttons; a tally
+    (count, relative frequency, probability, expected count) and a graph of the relative frequency of `watch:` (default
+    the first outcome) against trials, with the probability dashed. `predict: off` hides the probability; `hide: on`
+    hides the device too (a mystery to estimate); `seed: 7` fixes the randomness (pictures, clips); `start: 20` runs that
+    many first. Values: `t` (trials), `c` (count of the watched outcome), `f` (its relative frequency), `p` (its
+    probability), `e` (|f − p|), `w` (outcomes). Checks: `"t >= 1000"`, `"t >= 1000 and e <= 0.01"`.
   - `widget: parallel` (first used by `maths/angles/parallel-lines`): two parallel lines (marked >>) crossed by a
     transversal, with the eight angles a to h (upper crossing a above left, b above right, c below left, d below right;
     lower crossing e to h the same). `slider t: 30, 150, 60` (or `t: 60`) turns the transversal (step 5 unless given);

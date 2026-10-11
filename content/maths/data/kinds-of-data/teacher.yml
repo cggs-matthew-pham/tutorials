@@ -1,0 +1,38 @@
+summary: Students sort numerical variables into discrete (counted) and continuous (measured), place a measured value between whole numbers on a dot plot, and see that measurements are always rounded to some precision (AC9M7ST01, node 1).
+time: 35
+timing: "Predict and Run 6 min · Investigate 10 min · Modify 8 min · Practise and Make 10 min"
+goals:
+  - I can say whether numerical data is discrete (counted) or continuous (measured).
+  - I can explain why a measurement is always rounded, and choose a sensible precision.
+before: |
+  Try the Run board first. This short lesson opens the Data unit; the next lesson calculates mean, median, mode and range.
+
+  The one idea: counted data takes separate values (discrete); measured data can be any value in a range (continuous). The common mistake is treating any decimal as continuous (shoe sizes, prices); it is planted in Ava's reasoning.
+
+  Age and money are worth discussing rather than ruling on: age is measured time recorded in whole years; money is counted in cents but has so many values that it is often treated as continuous.
+running:
+  - "Predict: take a show of hands; ask each group how they decided."
+  - "Run: ask whether a 14.35 s time is possible and what would measure it."
+  - "Investigate: build a two-column list on the board (counted / measured) from students' own examples."
+  - "Modify: let the age question be a short debate."
+  - "Make: ask what happens to the six times if rounded to whole seconds."
+stuck:
+  - see: "A student calls any decimal data continuous (Ava's mistake)."
+    ask: "What values are possible between 7 and 7.5 for a shoe size?"
+    fix: "Fixed steps with nothing in between: discrete."
+  - see: "A student calls large counts continuous."
+    ask: "Is it counted or measured?"
+    fix: "Counted, however big: discrete."
+stretch: "Find a variable that could be recorded either way, depending on how you collect it (time in whole minutes, or measured with a stopwatch)."
+support: "Ask 'Could you have half of one?' and 'Is it counted or measured?' for every variable."
+leads: |
+  Next: Mean, median, mode and range (node 2), then choosing the most useful measure (node 3).
+
+  Where it leads: histograms for continuous data and sampling (Year 8 statistics).
+exit:
+  q: "Classify: (a) number of apps on a phone, (b) battery temperature, (c) screen size in inches. Explain one."
+  a: "(a) discrete (counted), (b) continuous (measured), (c) continuous (measured, though sold in common sizes)."
+explain: |
+  **Discrete** data is counted: it takes separate values, such as 0, 1, 2 siblings. **Continuous** data is measured: it can be any value in a range, such as a 100 m time of 14.37 s.
+
+  Measured values are always rounded: 152 cm to the nearest centimetre means from 151.5 cm up to 152.5 cm. Decimals alone do not make data continuous: shoe sizes (7, 7.5, 8) are discrete.

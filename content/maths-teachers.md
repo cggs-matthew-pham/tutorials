@@ -4,21 +4,22 @@ summary: What is here for Years 7 and 8 maths, how a lesson runs, and a ten-minu
 ---
 ## What is here
 
-Four maths courses so far, written against the Australian Curriculum (version 9) for Years 7 and 8. Each lesson teaches one step of the curriculum's own learning progression, and says which earlier steps it relies on.
+Five maths courses so far, written against the Australian Curriculum (version 9) for Years 7 and 8. Each lesson teaches one step of the curriculum's own learning progression, and says which earlier steps it relies on.
 
 - [**Algebra Foundations**](../maths/algebra/): expressions and formulas, equations (try and check, backtracking, the balance method), brackets (expanding, factorising, changing the subject), harder equations and inequalities.
 - [**Linear relations**](../maths/linear-relations/): patterns to tables to graphs, gradient and intercept, lines and regions, solving and modelling with lines.
 - [**Number Foundations**](../maths/number/): integers (comparing, adding and subtracting, multiplying and dividing), equivalent fractions, fractions, decimals and percentages, the number line, and calculating with negative fractions and decimals.
 - [**Angles and shapes**](../maths/angles/): angles at parallel lines, reasoning with angles, angle sums of triangles and polygons, unknown angles in shapes.
+- [**Data and chance**](../maths/data/): counting and measuring, mean, median, mode and range, choosing a measure, stem-and-leaf plots, comparing data sets, sample spaces and probability, experiments and the law of large numbers.
 
-Statistics and probability, and area, volume and Pythagoras are next.
+Area, volume and Pythagoras are next, with the Year 7 number skills they build on.
 
 ## How a lesson runs
 
 Every lesson has the same six steps, and takes about 40 to 50 minutes.
 
 1. **Predict.** Students commit to an answer before they see anything, which brings their current idea into the open.
-2. **Try.** An interactive board (algebra tiles, a number line, fraction bars, parallel lines, a graph) lets them test the prediction.
+2. **Try.** An interactive board (algebra tiles, a number line, fraction bars, parallel lines, a graph, a dot plot, a spinner) lets them test the prediction.
 3. **Worked example.** One new move, set out step by step, then a planted mistake to find: a common misconception, met after the method.
 4. **Vary.** The same idea, changing one thing at a time, ending with an edge case.
 5. **Practise.** Mixed questions, with a review question from an earlier lesson.
@@ -46,6 +47,7 @@ Try these as if you were a student, then open the teacher guide for one of them.
 2. [**Expanding brackets**](../maths/algebra/expanding/) (Year 8): algebra tiles, answers marked by form, and working checked one line at a time.
 3. [**Fractions, decimals and percentages**](../maths/number/fractions-decimals-percentages/) (Year 7): fraction bars and a hundred grid.
 4. [**Inequalities**](../maths/algebra/inequalities/) (Year 8): building a solution on the number line.
+5. [**Many trials**](../maths/data/many-trials/) (Year 7): thousands of coin flips, and a mystery bag to estimate.
 
 ## Tell us what you think
 

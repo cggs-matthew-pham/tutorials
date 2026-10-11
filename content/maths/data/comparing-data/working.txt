@@ -1,0 +1,7 @@
+# Mia's comparison for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mia
+Class A: 12, 14, 15, 15, 16, 17, 18. Class B: 6, 10, 13, 16, 19, 20, 22.
+The best score in Class B is 22; in Class A it is 18.
+So Class B did better.
+# endregion

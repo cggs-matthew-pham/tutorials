@@ -1,0 +1,8 @@
+# Noah's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: noah
+I rolled a dice 60 times.
+P(6) = 1/6, so I expect 60 × 1/6 = 10 sixes.
+I got 7 sixes, not 10.
+So the dice must be unfair.
+# endregion

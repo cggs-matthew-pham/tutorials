@@ -10,5 +10,6 @@ Learning Waypoints' own.
 `npm run validate` warns when a lesson's prerequisite is neither taught in an earlier lesson nor listed in `assumes:`.
 Prerequisites from an earlier year count as taught in class. `npm run nodes` prints the map per course.
 
-To add a descriptor, paste its page here with the code as the file name. Related standards are not prerequisites
+To add a descriptor, paste its page here with the code as the file name, or write it from a waypoints-kit checkout
+(cggs-matthew-pham/waypoints-kit, public): `node tools/kit-page.mjs <kit checkout> AC9M7ST01 ...` (keeps pages that exist). Related standards are not prerequisites
 (many point forward) and the check ignores them.

@@ -1,0 +1,31 @@
+# Data boards for "Mean, median, mode and range". The statistics are marked on the plot: mean ▲, median dashed, range arrow.
+
+# region: run
+widget: data
+values: 3, 5, 5, 6, 11
+range: 0, 15
+edit: on
+label: Goals scored per game
+# endregion
+
+# region: explain
+widget: data
+values: 3, 5, 5, 6, 11
+range: 0, 15
+label: Goals scored per game
+# endregion
+
+# region: median
+widget: data
+values: 2, 4, 6, 8, 10
+range: 0, 15
+edit: on
+show: median, range
+# endregion
+
+# region: make
+widget: data
+values: 
+range: 0, 12
+edit: on
+# endregion

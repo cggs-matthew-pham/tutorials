@@ -1,0 +1,39 @@
+summary: Students run hundreds and thousands of trials and watch the relative frequency settle towards the probability (the law of large numbers), use large experiments to estimate unknown probabilities, and reject the idea that outcomes are 'due' (AC9M7P02, node 2).
+time: 40
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 12 min · Practise and Make 10 min"
+goals:
+  - I can describe how the relative frequency changes as the number of trials grows.
+  - I can use a large experiment to estimate a probability.
+  - I can explain why a run of one outcome does not make another one 'due'.
+before: |
+  Do the Run and Make boards first. Students need Predict and test.
+
+  The one idea: over many trials the relative frequency settles close to the probability, because each new trial changes the fraction less, not because results balance out. The common mistake is the gambler's fallacy (a coin is 'due' a head); it is planted in Zara's reasoning and again in Practise.
+
+  The mystery bag hides its contents: students estimate the make-up from 1000 draws (with replacement). It has 3 red and 7 yellow counters.
+running:
+  - "Predict: take a show of hands; many students choose 'equally likely'."
+  - "Run: ask students to press Start again and compare the first ten flips of different runs."
+  - "Investigate: show the 7/10 → 8/11 and 501/1000 → 502/1001 calculation on the board."
+  - "Modify: collect the class's estimates for the mystery bag; reveal 3 red, 7 yellow."
+  - "Make: collect how many flips each student needed."
+stuck:
+  - see: "A student thinks heads is 'due' (Zara's mistake)."
+    ask: "How would the coin know what happened before?"
+    fix: "Each flip is still 1/2; long runs happen, and get swamped by many more trials."
+  - see: "A student thinks large experiments give the probability exactly."
+    ask: "After 1000 flips, is it exactly 0.5?"
+    fix: "Close, not exact: closer with more trials."
+stretch: "How many flips are needed, roughly, to be within 0.01 of 0.5 most of the time? Experiment with the board (about 10 000)."
+support: "Use the board's graph: point to where the line is after 10, 100 and 1000 trials."
+leads: |
+  This completes the Year 7 chance descriptors (AC9M7P01, AC9M7P02).
+
+  Where it leads: complementary events, two-step experiments and simulations of compound events (Year 8).
+exit:
+  q: "After 40 spins a spinner gave 18 reds; after 4000 spins, 1230 reds. Which estimate of P(red) is better, and what is it?"
+  a: "The 4000-spin one: 1230 ÷ 4000 ≈ 0.31. More trials give a more reliable estimate."
+explain: |
+  Over a few trials, the **relative frequency** (count ÷ trials) jumps about. Over many trials it **settles close to the probability**: the law of large numbers. One more head moves 7/10 a lot, but 501/1000 hardly at all.
+
+  It is not because results balance out: a coin has no memory, and after 5 tails heads is still exactly 1/2. Large experiments are how we estimate probabilities we cannot work out, such as a drawing pin landing point-up.

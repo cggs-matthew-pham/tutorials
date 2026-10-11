@@ -21,7 +21,7 @@ explainClip:
   clip:
     - caption: { text: "−2x > 6. The line y = −2x is above y = 6 on the left of x = −3.", say: "Minus two x is more than six on the left of minus three." }
     - wait: 1200
-    - caption: { text: "So x < −3. Dividing by −2 reversed > into <.", say: "So x is less than minus three. Dividing by minus two turned the inequality sign round." }
+    - caption: { text: "So x < −3. Dividing by −2 reversed > into <.", say: "So x is less than minus three. Dividing by minus two turned it round." }
     - wait: 1200
     - caption: { text: "Check x = −4: −2 × (−4) = 8, and 8 > 6. ✓", say: "Check: minus four gives eight, and eight is more than six." }
     - wait: 1400

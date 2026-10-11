@@ -1,0 +1,49 @@
+# Data boards for "Stem-and-leaf plots". view: stem draws the plot (tens as stems, units as leaves, in order).
+
+# region: run
+widget: data
+values: 23, 31, 35, 35, 38, 42, 47, 51
+view: both
+edit: on
+show: none
+label: Minutes spent on homework
+# endregion
+
+# region: explain
+widget: data
+values: 23, 31, 35, 35, 38, 42, 47, 51
+view: stem
+show: none
+# endregion
+
+# region: pic-a
+widget: data
+values: 14, 18, 21, 23, 23, 27, 30, 32, 36, 41, 45
+view: stem
+show: none
+# endregion
+
+# region: build
+widget: data
+values: 
+range: 0, 99
+view: stem
+edit: on
+show: none
+# endregion
+
+# region: pic-b
+widget: data
+values: 52, 55, 61, 63, 63, 63, 68, 70, 74, 79
+view: stem
+show: none
+# endregion
+
+# region: make
+widget: data
+values: 
+range: 0, 99
+view: both
+edit: on
+show: median
+# endregion

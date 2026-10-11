@@ -1,0 +1,45 @@
+summary: Students calculate the mean, median, mode and range of small data sets (odd and even counts, two modes, no mode, negative values), watching each measure move on a dot plot as values are added (AC9M7ST01, node 2).
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 12 min · Practise and Make 12 min"
+goals:
+  - I can calculate the mean, median, mode and range of a data set.
+  - I can find the median of an even number of values.
+  - I can handle data with two modes or no mode.
+before: |
+  Do the Run and Make boards yourself first. Students need Counting and measuring and division with decimals.
+
+  This is a hinge: the next lesson asks which measure is most useful, which is meaningless if the values are wrong. The common mistake is taking the middle of the unsorted list for the median; it is planted in Leo's working and again in Practise.
+
+  The board marks the mean with a triangle, the median with a dashed line and the range with an arrow; students can add values by clicking the line or typing them.
+running:
+  - "Predict: take a show of hands; students who chose 5 found the median or mode."
+  - "Run: ask why one big score moves the mean but not the median much."
+  - "Investigate: model the even-count median with the sorted list on the board."
+  - "Modify: for the keep-the-median task, ask which other values would work (only 6)."
+  - "Make: collect different answers and check them on the board."
+stuck:
+  - see: "A student takes the middle of the unsorted list (Leo's mistake)."
+    ask: "Is the list in order?"
+    fix: "Sort first, then count to the middle."
+  - see: "A student gives the total as the mean."
+    ask: "How many values share that total?"
+    fix: "Divide the total by the count."
+  - see: "A student picks one of two middle values for an even count."
+    ask: "Which value is exactly halfway between them?"
+    fix: "Add the two middle values and halve."
+stretch: "Find five whole numbers with mean 10, median 8 and mode 7."
+support: "Write the data sorted on a strip of paper; fold to find the middle."
+leads: |
+  Next: Which measure? (node 3), choosing the most useful measure for a data set.
+
+  Where it leads: comparing data sets (this unit) and samples (Year 8).
+exit:
+  q: "Find the mean, median, mode and range of 6, 2, 9, 6, 7, 12."
+  a: "Mean 42 ÷ 6 = 7; median (6 + 7) ÷ 2 = 6.5; mode 6; range 10."
+explain: |
+  Four numbers sum up a data set:
+
+  - **mean**: add the values, then divide by how many there are (3, 5, 5, 6, 11: 30 ÷ 5 = 6);
+  - **median**: sort the values and take the middle one; for an even count, halfway between the two middle values;
+  - **mode**: the most common value (there can be two, or none);
+  - **range**: highest minus lowest (11 − 3 = 8), a measure of spread.

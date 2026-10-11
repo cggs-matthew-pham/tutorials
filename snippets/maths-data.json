@@ -1,0 +1,95 @@
+{
+  "title": "Maths reference: Data and chance",
+  "summary": "The words and methods from Data and chance, each with an example and, where it helps, a picture of the board.",
+  "language": "maths",
+  "course": "maths/data",
+  "_about": "Maths cards for maths/data (see snippets/maths.json for the format).",
+  "groups": [
+    {
+      "name": "Data",
+      "items": [
+        {
+          "label": "discrete and continuous",
+          "unit": "statistics",
+          "code": "\\text{counted: discrete} \\quad \\text{measured: continuous}",
+          "hint": "Discrete data takes separate values (number of siblings). Continuous data can be any value in a range (height, time), and is rounded when recorded."
+        },
+        {
+          "label": "mean",
+          "unit": "statistics",
+          "code": "\\text{mean} = \\dfrac{\\text{total}}{\\text{number of values}} = \\dfrac{30}{5} = 6",
+          "hint": "Add the values, then share equally. An outlier pulls the mean towards it.",
+          "board": "widget: data\nvalues: 3, 5, 5, 6, 11\nrange: 0, 15\nshow: mean, median",
+          "shows": "3, 5, 5, 6, 11: mean 6 (▲), median 5 (dashed)"
+        },
+        {
+          "label": "median",
+          "unit": "statistics",
+          "code": "3, 4, \\underline{6, 7}, 8, 9 \\to \\tfrac{6 + 7}{2} = 6.5",
+          "hint": "Sort first; the middle value, or halfway between the two middle values for an even count."
+        },
+        {
+          "label": "mode and range",
+          "unit": "statistics",
+          "code": "\\text{mode: most common} \\quad \\text{range} = \\text{highest} - \\text{lowest}",
+          "hint": "There can be two modes, or none. The range is a simple measure of spread."
+        },
+        {
+          "label": "choosing a measure",
+          "unit": "statistics",
+          "code": "5, 6, 6, 7, 8, \\mathbf{40}:\\ \\text{median } 6.5",
+          "hint": "With an outlier, the median describes a typical value better than the mean. Without, the mean uses every value. For 'most common', use the mode."
+        },
+        {
+          "label": "stem-and-leaf plot",
+          "unit": "statistics",
+          "code": "3 \\mid 1\\ 5\\ 5\\ 8 = 31, 35, 35, 38",
+          "hint": "Tens as stems, units as leaves in order; include every stem, even with no leaves; give a key.",
+          "board": "widget: data\nvalues: 23, 31, 35, 35, 38, 42, 47, 51\nview: stem\nshow: none",
+          "shows": "Stems are the tens, leaves the units"
+        },
+        {
+          "label": "comparing data sets",
+          "unit": "statistics",
+          "code": "\\text{centre } (15, 16) \\text{ and spread } (6, 16)",
+          "hint": "Describe shape (symmetrical or skewed, clusters, gaps, outliers), centre and spread. Compare both centre and spread, with numbers, in context.",
+          "board": "widget: data\nvalues: 12, 14, 15, 15, 16, 17, 18\nsecond: 6, 10, 13, 16, 19, 20, 22\nnames: Class A, Class B\nrange: 0, 25\nshow: median, range",
+          "shows": "Similar medians; Class B much more spread"
+        }
+      ]
+    },
+    {
+      "name": "Chance",
+      "items": [
+        {
+          "label": "sample space",
+          "unit": "chance",
+          "code": "\\{1, 2, 3, 4, 5, 6\\}",
+          "hint": "Every possible outcome, listed once. Check whether the outcomes are equally likely."
+        },
+        {
+          "label": "probability",
+          "unit": "chance",
+          "code": "P(\\text{even}) = \\dfrac{\\text{favourable}}{\\text{total}} = \\dfrac{3}{6} = \\dfrac{1}{2}",
+          "hint": "For equally likely outcomes. Otherwise use sizes or counts. From 0 (impossible) to 1 (certain); all outcomes add to 1.",
+          "board": "widget: chance\ndevice: spinner\noutcomes: red 2, blue 1, green 1\nwatch: blue\nseed: 4",
+          "shows": "A half-red spinner: P(red) = 1/2, P(blue) = P(green) = 1/4"
+        },
+        {
+          "label": "expected count",
+          "unit": "chance",
+          "code": "60 \\times \\tfrac{1}{6} = 10",
+          "hint": "Expected count = probability × trials. Real results vary around it, more so in short experiments."
+        },
+        {
+          "label": "relative frequency",
+          "unit": "chance",
+          "code": "\\dfrac{\\text{count}}{\\text{trials}} = \\dfrac{13}{20} = 0.65",
+          "hint": "The experiment's estimate of the probability. Over many trials it settles close to the probability (the law of large numbers); nothing is ever 'due'.",
+          "board": "widget: chance\ndevice: coin\nseed: 2\nstart: 2000",
+          "shows": "2000 flips: the relative frequency of heads settles near 0.5"
+        }
+      ]
+    }
+  ]
+}

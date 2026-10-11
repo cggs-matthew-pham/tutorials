@@ -1,0 +1,7 @@
+# Zara's reasoning for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: zara
+A fair coin has P(heads) = 1/2.
+I flipped it 5 times and got 5 tails in a row.
+Heads is now more likely on the next flip, to balance things out.
+# endregion

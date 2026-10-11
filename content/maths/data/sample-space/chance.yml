@@ -1,0 +1,38 @@
+# Chance boards for "Sample spaces and probability". The spinner's sector sizes set each colour's probability.
+
+# region: run
+widget: chance
+device: spinner
+outcomes: red 2, blue 1, green 1
+watch: blue
+# endregion
+
+# region: explain
+widget: chance
+device: spinner
+outcomes: red 2, blue 1, green 1
+watch: blue
+seed: 4
+start: 200
+# endregion
+
+# region: pic-spinner
+widget: chance
+device: spinner
+outcomes: red 2, blue 1, green 1
+watch: blue
+seed: 4
+# endregion
+
+# region: dice
+widget: chance
+device: dice
+watch: 6
+# endregion
+
+# region: bag
+widget: chance
+device: bag
+outcomes: red 3, blue 5, green 2
+watch: blue
+# endregion

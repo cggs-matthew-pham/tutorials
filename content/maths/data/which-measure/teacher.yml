@@ -1,0 +1,40 @@
+summary: Students see an outlier drag the mean but not the median on a dot plot, and choose and justify the most useful measure (mean, median or mode) for different data and questions (AC9M7ST01, node 3).
+time: 40
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 10 min · Practise and Make 10 min"
+goals:
+  - I can explain how an outlier affects the mean and the median.
+  - I can choose the most useful measure of centre for a data set and a question, and justify it.
+before: |
+  Do the Run board first. Students need Mean, median, mode and range.
+
+  The one idea: look for outliers first. With one, the median describes a typical value better; without, the mean uses every value; for "most common", the mode. The common mistake is trusting the mean whatever the data; it is planted in Sam's reasoning about house prices.
+
+  There is often more than one defensible answer: reward the justification, not just the choice.
+running:
+  - "Predict: ask how many students get more than the mean of 12 dollars."
+  - "Run: ask students to predict the new mean before removing the 40."
+  - "Investigate: link house prices to real median prices in the news."
+  - "Modify: collect different data sets that make the mean and median equal."
+  - "Make: read out some misleading sentences and ask how to correct them."
+stuck:
+  - see: "A student always picks the mean (Sam's mistake)."
+    ask: "How many values are bigger than the mean?"
+    fix: "If most values are on one side of it, an outlier is pulling it: use the median."
+  - see: "A student cannot spot an outlier."
+    ask: "Which dot is far from the others on the plot?"
+    fix: "Draw the dot plot; look for gaps."
+stretch: "Find a data set where the mean, median and mode are all different and each could be argued as 'typical'."
+support: "Use the board for every question: draw the data, look at where the triangle and the dashed line sit."
+leads: |
+  Next: Stem-and-leaf plots (AC9M7ST02), then describing and comparing distributions.
+
+  Where it leads: skewed distributions and the five-number summary (Years 9 and 10).
+exit:
+  q: "Salaries in a small company ($ thousands): 50, 52, 55, 58, 400. Which measure would you report as typical, and why?"
+  a: "The median, 55: the 400 is an outlier that pulls the mean up to 123, more than four of the five salaries."
+explain: |
+  The mean, median and mode can disagree. Look for **outliers** first (values far from the rest):
+
+  - An outlier pulls the **mean** towards it, so with one the **median** usually describes a typical value better ($5, 6, 6, 7, 8, 40$: mean 12, median 6.5).
+  - With no outliers, the **mean** is a fair summary because it uses every value.
+  - For "which is most common?", use the **mode**.
