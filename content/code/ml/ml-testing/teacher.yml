@@ -1,0 +1,39 @@
+summary: Students split the penguins into training and test sets after shuffling, see nearest neighbour score 100% on its own training data and about 95% on new penguins, then train on less data, break results down by species and compare the Lesson 1 rules fairly.
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 10 min"
+goals:
+  - I can explain why a model must be tested on data it has not seen.
+  - I can split data into training and test sets, shuffling first.
+  - I can compare two models fairly on the same test set.
+before: |
+  Read the unit primer first. The data file is in species order, so `random.shuffle` (with `random.seed(1)` for repeatable results) comes before the split; the Predict shows the problem with an unshuffled list. Slices: `penguins[:250]` is the first 250, `penguins[250:]` the other 92. Tested on its training penguins, nearest neighbour scores 100% (each penguin is its own nearest match, at distance 0); on the test penguins it scores 95%. The bug task tests on part of the training set. Lesson 1's rules score 93% on the same test set, nearly as good: simple models can be strong, and a fair test is what shows it. The per-species task shows Chinstrap is hardest (fewer examples, and similar to Adelie).
+running:
+  - "Predict: write the five species on cards, split them without shuffling, then with."
+  - "Run: ask why 100% should make you suspicious."
+  - "Modify: collect the 30-penguin results from the class: do different seeds change them?"
+  - "Info: discuss a real claim of model accuracy in the news."
+stuck:
+  - see: The test accuracy is 100%.
+    ask: Is any test penguin also in the training set?
+    fix: "test = penguins[250:], with no overlap."
+  - see: "KeyError: 'Chinstrap' in the per-species task."
+    ask: Was the species started at 0 before adding 1?
+    fix: "if s not in total: total[s] = 0 and right[s] = 0."
+  - see: The program takes a few seconds.
+    ask: How many distances does it work out?
+    fix: Nothing is wrong; 92 test penguins times 250 training penguins is 23,000 distances.
+stretch: Run the test with five different seeds and average the scores (a simple form of cross-validation).
+support: Give students the right and total dictionaries started, and ask them to add 1 in the right places.
+leads: "Next lesson: scikit-learn's train_test_split, fit and score do all of this in a few lines."
+exit:
+  q: "Why does a model need a test set it has never seen?"
+  a: "On data it learned from it can just remember the answers; only new data shows how well it will do on penguins it meets later."
+explain: |
+  1. Shuffle the penguins, then split them: a training set to learn from and a test set to check with.
+  2. On its own training penguins the model scores 100%: each one's nearest match is itself.
+  3. The test set shows how good it really is: about 95% on penguins it has never seen.
+solutions:
+  step-4#t1: testing.py#sol-small
+  step-4#t2: testing.py#sol-species
+  step-5: testing.py#sol-make
+struggle: "Accepting that 100% is a bad sign. Ask why each training penguin finds itself, and let them explain it to a partner."

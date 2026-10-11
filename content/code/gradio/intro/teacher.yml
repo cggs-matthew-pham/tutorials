@@ -36,3 +36,4 @@ solutions:
   step-4#t1: app.py#sol-slider
   step-4#t2: app.py#sol-length
   step-5: app.py#sol-make
+struggle: "Matching inputs to parameters by order. Ask students to point at each input and its parameter before they run."

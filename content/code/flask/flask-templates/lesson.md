@@ -86,6 +86,7 @@ tasks:
   - hint: "Add a Wins heading cell, and a cell with {{ p[\"wins\"] }} in the row."
     check: { type: code, text: "Show each player's wins in a third column of the table.", rules: { contains: ["p[\"wins\"]"] } }
   - hint:
+      - "A new route with a part that changes, like the player route, and a function that keeps only the players in that group."
       - "`@app.route(\"/group/<group>\")`, then `def group_page(group):` with a loop that appends the matching players to a list."
       - "Reuse PAGE: render_template_string(PAGE, players=members). Link to it from the player page."
     check: { type: code, text: "Add a page for each group, /group/<group>, listing only its players.", rules: { contains: ["@app.route(\"/group/<group>\")"] } }

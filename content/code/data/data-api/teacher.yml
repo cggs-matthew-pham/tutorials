@@ -36,3 +36,4 @@ solutions:
   step-4#t1: weather.py#sol-hottest
   step-4#t2: weather.py#sol-rain
   step-5: weather.py#sol-make
+struggle: "Reading nested JSON. Ask students to print reply, then reply[\"daily\"], one level at a time, instead of telling them the path."

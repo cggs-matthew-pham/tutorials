@@ -15,7 +15,7 @@ pathways:
       - { path: code/data, stage: extensions, after: [code/console] }
       - { path: code/deeper, stage: extensions, after: [code/console] }
       - { path: code/gradio, stage: extensions, after: [code/console] }
-      - { title: Machine learning with Gradio, tagline: "Train a model, then put it behind an app.", stage: extensions, summary: "Train small models on data, and put a model behind an app.", after: [code/data] }
+      - { path: code/ml, stage: extensions, after: [code/data] }
       - { title: Games with microStudio, tagline: "Make a real game with sprites, maps and sound.", stage: extensions, summary: "Sprites, maps, sound and a game loop in text code.", after: [code/objects] }
       - { path: code/flask, stage: extensions, after: [code/console, code/html] }
   - id: web

@@ -39,3 +39,4 @@ explain: |
 solutions:
   step-4: save.py#sol-m1
   step-5: save.py#sol-m2
+struggle: "Milestone 2 is the hard part: putting the loaded values back into here, bag and things. When students are stuck, ask them to say aloud what game holds after json.load, before giving any code."

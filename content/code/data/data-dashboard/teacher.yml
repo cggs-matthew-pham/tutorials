@@ -36,3 +36,4 @@ solutions:
   step-4#t1: dashboard.py#sol-year
   step-4#t2: dashboard.py#sol-sort
   step-5#t1: dashboard.py#sol-make
+struggle: "Lining up inputs, parameters and outputs when adding the slider. Ask students to count each list aloud before running."

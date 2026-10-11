@@ -1,0 +1,38 @@
+summary: Students put a 5-nearest-neighbour penguin model behind a Gradio app with sliders, show how sure it is with predict_proba, then add bill depth, answer "Not sure" below 80%, and build an app around a model of their own (sex or island).
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 10 min"
+goals:
+  - I can put a trained model behind a Gradio app.
+  - I can explain what the vote share from predict_proba means.
+  - I can add an input to a model and its app, keeping every list in the same order.
+before: |
+  Read the unit primer first. The model is trained on all 342 penguins (the method was tested fairly in Lesson 4; for use, a model should learn from all the data). The app's function turns the slider values into a one-row table with the training columns, then `predict` gives the species and `predict_proba` the share of the 5 neighbours voting for each species (the Predict works one out by hand). The bug task puts the numbers in the wrong order: the model reads by position, so it sees a 215 mm bill and answers wrongly without any error. In the Make, `penguins.dropna()` drops the penguins with no sex recorded. On a computer, `pip install gradio scikit-learn pandas` runs the same file; a teacher can host it as a Hugging Face Space (accounts need age 13+).
+running:
+  - "Run: have students find the most and least certain measurements, and compare."
+  - "Investigate: ask what a 60% answer should tell the user."
+  - "Make: insist on a fair test (Lesson 4) before the app, and the accuracy in the title."
+stuck:
+  - see: "Predictions look wrong, with no error."
+    ask: Are the mystery's numbers in the same order as columns?
+    fix: "[[bill, flipper]] for columns [\"bill_length_mm\", \"flipper_length_mm\"]."
+  - see: "ValueError: Input X contains NaN."
+    ask: Are there penguins with missing values in what you train on?
+    fix: "penguins.dropna() before fitting."
+  - see: "TypeError: identify() takes 2 positional arguments but 3 were given."
+    ask: Is there a parameter for every slider?
+    fix: Add the parameter for the new slider, in the same order.
+stretch: Show the three species' vote shares as a bar chart (gr.BarPlot with a small DataFrame), or add a Dropdown to choose the model (neighbours or tree).
+support: Give students the third slider line, and ask them to add the column and the parameter.
+leads: "The optional last lesson looks at what models get wrong. The micro:bit and the computer course trains a model on movement with Teachable Machine."
+exit:
+  q: "Why does the app say 60% sure for some penguins?"
+  a: "Only 3 of the 5 most similar penguins in the data are that species, so the measurements sit between two species."
+explain: |
+  1. The model is trained on every penguin, then wrapped in a function the app calls.
+  2. The sliders become a one-row table with the same columns as training, and the model predicts.
+  3. `predict_proba` gives the share of the 5 nearest penguins voting for the answer: how sure it is.
+solutions:
+  step-4#t1: app.py#sol-depth
+  step-4#t2: app.py#sol-unsure
+  step-5: app.py#sol-make
+struggle: "Keeping columns, parameters and sliders in the same order. Ask them to read the three lists side by side."

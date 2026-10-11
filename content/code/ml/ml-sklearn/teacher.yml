@@ -1,0 +1,38 @@
+summary: Students rebuild nearest neighbour and the fair test with scikit-learn (train_test_split, fit, score, predict), match each line to their hand-built version, compare 5 neighbours and a decision tree, and search for the best measurements.
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 10 min"
+goals:
+  - I can train and test a model with scikit-learn.
+  - I can explain what fit, score and predict do, from building them by hand.
+  - I can compare models and measurements fairly on the same test set.
+before: |
+  Read the unit primer first. scikit-learn loads the first time a program imports it (several seconds; about 19 MB, cached by the browser afterwards). `X` is a pandas table of measurements and `y` the species; `train_test_split(..., random_state=1)` shuffles and splits; `fit` stores the training examples (for nearest neighbour) or learns rules (for a tree); `score` is accuracy on the given data (the bug task scores on training data: 100%); `predict` needs a table with the same columns. Results: 94% test accuracy with 1 neighbour, 93% with 5, 93% for a tree of depth 3. In the Make, adding body mass drops nearest neighbour to about 70% (grams swamp the distance) while the tree reaches 97%: a real lesson about scale, which the info question explains.
+running:
+  - "Predict: ask what score on the training data means, from last lesson."
+  - "Investigate: do the match as a class, pointing at last lesson's code."
+  - "Make: collect the class's best combinations on the board."
+stuck:
+  - see: "ValueError: Expected 2D array, got 1D array instead."
+    ask: Is X a table (double square brackets) or one column?
+    fix: "penguins[[\"bill_length_mm\", \"flipper_length_mm\"]], with two pairs of brackets."
+  - see: "UserWarning: X does not have valid feature names."
+    ask: Was the mystery penguin made with columns=X.columns?
+    fix: "pd.DataFrame([[47.0, 215.0]], columns=X.columns)."
+  - see: The program seems stuck when it starts.
+    ask: Is it the first run with scikit-learn?
+    fix: "Wait: the library loads once, then runs are quick."
+stretch: Add StandardScaler (from sklearn.preprocessing) before the neighbours model with make_pipeline, and see the body-mass result recover.
+support: Give students the DecisionTreeClassifier lines, and ask them only to score it on the test set.
+leads: "Next lesson puts the model behind a Gradio app. The decision tree's rules can be printed with sklearn.tree.export_text."
+exit:
+  q: "What does model.fit(X_train, y_train) do?"
+  a: "It gives the model the training examples to learn from (for nearest neighbour, it keeps them to compare with later)."
+explain: |
+  1. `train_test_split` shuffles the penguins and keeps a quarter back for testing.
+  2. `fit` learns from the training penguins; `score` tests on the held-back ones.
+  3. `predict` guesses a new penguin's species from its measurements.
+solutions:
+  step-4#t1: models.py#sol-five
+  step-4#t2: models.py#sol-tree
+  step-5: models.py#sol-make
+struggle: "Mapping library lines to their hand-built versions. Ask students to annotate each line with the lesson it came from before running."

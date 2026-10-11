@@ -1,0 +1,35 @@
+summary: An optional lesson. Students find where the penguin model fails (an unseen species, impossible measurements, confident wrong answers), add a "not like any penguin" check with kneighbors, test harder questions (sex, island), and write a model card.
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 10 min"
+goals:
+  - I can explain why a model always answers from the classes it knows.
+  - I can tell confidence apart from being right.
+  - I can write a model card that says what a model cannot do.
+before: |
+  Optional: not needed for completing the course. A classifier can only choose between the classes in its training data, so an emperor penguin (not in the data) is called Gentoo; impossible measurements still get a 100%-sure answer, because the vote share compares neighbours with each other and ignores how far away they are. `model.kneighbors(...)` returns the distances, which the first Modify uses to refuse far-away inputs. A fair test shows species is easiest (88% here with this split), sex harder (73%) and island hardest (64%) from bill and flipper length alone. The data comes from three islands near Palmer Station, 2007 to 2009; a model knows only that world. The info question moves to a human context (a school using past records): be ready for discussion about fairness and human review. A model card is a short honest description used in industry.
+running:
+  - "Predict: ask what answers the model can possibly give."
+  - "Run: read the 100% sure answers aloud and ask who believes them."
+  - "Make: share model cards in pairs and challenge each other's limits."
+  - "Info: keep the discussion about the system, not about individual students."
+stuck:
+  - see: "ValueError: Input contains NaN when testing sex."
+    ask: Are there penguins with no sex recorded?
+    fix: "pd.read_csv(\"penguins.csv\").dropna()."
+  - see: "Every mystery says not like any penguin."
+    ask: How far is too far, and which distance is checked?
+    fix: "distances[i][0] is the nearest; try a limit of about 10."
+stretch: Find the island model's mistakes and explain them (some species live on more than one island).
+support: Give students the kneighbors line, and ask them to write the if.
+leads: "The micro:bit and the computer course trains Teachable Machine models; the same limits apply. Discuss large language models with the same three questions: what data, how tested, what it cannot do."
+exit:
+  q: "Why can a model be 100% sure and still wrong?"
+  a: "Its confidence only compares the answers it knows (here, the votes of its nearest examples); it does not know when an input is unlike anything it has seen."
+explain: |
+  1. A model can only answer with the classes it was trained on, so an unknown penguin still gets a known species.
+  2. Its confidence can be 100% even when the input is impossible.
+  3. Fair tests and a model card say how well it works and where it should not be trusted.
+solutions:
+  step-4#t1: limits.py#sol-far
+  step-4#t2: limits.py#sol-sex
+struggle: "Separating confidence from correctness. Ask students to argue for and against trusting a 100% answer before they code the check."

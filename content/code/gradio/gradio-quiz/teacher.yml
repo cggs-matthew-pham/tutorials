@@ -37,3 +37,4 @@ solutions:
   step-4#t2: quiz.py#sol-message
   step-4#t3: quiz.py#sol-blank
   step-5#t1: quiz.py#sol-make
+struggle: "Marking by position: answers[i] against questions[i]. Ask students to trace i for two questions on paper."

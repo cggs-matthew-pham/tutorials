@@ -528,6 +528,29 @@
      "hint": "The type after each parameter (int, str, float) is checked: a wrong value gets an error reply (422) before your code runs."
     }
    ]
+  },
+  {
+   "name": "Machine learning",
+   "items": [
+    {
+     "label": "test a model",
+     "matches": "random\\.shuffle\\(",
+     "code": "random.seed(‹1›)\nrandom.shuffle(‹penguins›)\n‹train› = ‹penguins›[:‹250›]\n‹test› = ‹penguins›[‹250›:]\n",
+     "hint": "Shuffle, then keep some examples back. Train on one part; test only on the other."
+    },
+    {
+     "label": "train and score a model",
+     "matches": "\\.fit\\(",
+     "code": "from sklearn.model_selection import train_test_split\nfrom sklearn.neighbors import KNeighborsClassifier\n\n‹X_train›, ‹X_test›, ‹y_train›, ‹y_test› = train_test_split(‹X›, ‹y›, test_size=‹0.25›, random_state=‹1›)\n‹model› = KNeighborsClassifier(n_neighbors=‹1›)\n‹model›.fit(‹X_train›, ‹y_train›)\nprint(‹model›.score(‹X_test›, ‹y_test›))\n",
+     "hint": "fit learns from the training examples; score tests on the held-back ones (1.0 is 100%)."
+    },
+    {
+     "label": "predict with a model",
+     "matches": "\\.predict(_proba)?\\(",
+     "code": "‹mystery› = pd.DataFrame([[‹47.0›, ‹215.0›]], columns=‹X›.columns)\nprint(‹model›.predict(‹mystery›)[0])\n",
+     "hint": "The new example needs the same columns, in the same order, as the training data."
+    }
+   ]
   }
  ]
 }

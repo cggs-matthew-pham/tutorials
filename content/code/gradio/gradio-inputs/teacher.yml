@@ -36,3 +36,4 @@ solutions:
   step-4#t1: app.py#sol-popcorn
   step-4#t2: app.py#sol-seats
   step-5: app.py#sol-make
+struggle: "Adding an input in the right place in both lists. Ask them to count inputs and parameters aloud."

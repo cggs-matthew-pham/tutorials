@@ -50,7 +50,7 @@
     else if (py && flask) { head = 'Ready without live data: lessons will use their saved copies of the data. Only the optional "call an API" lesson needs the addresses below.'; cls = 'ck-ok'; }
     else if (py) { head = 'Mostly ready: Python works, but Flask could not be loaded from this site. Ask IT to allow the addresses below, including .whl files.'; cls = 'ck-wait'; }
     else { head = 'Not ready yet: the Python runtime is blocked. Ask IT to allow the addresses below, then run this check again.'; cls = 'ck-bad'; }
-    const t = state.python && state.python.ok ? ` Python took ${secs(state.python.ms)} to load${state.pandas && state.pandas.ok ? `, and the data tools another ${secs(state.pandas.ms)}` : ''}; a second visit is faster because the browser keeps the files.` : '';
+    const t = state.python && state.python.ok ? ` Python took ${secs(state.python.ms)} to load${state.pandas && state.pandas.ok ? `, the data tools another ${secs(state.pandas.ms)}` : ''}${state.sklearn && state.sklearn.ok ? `, and machine learning another ${secs(state.sklearn.ms)}` : ''}; a second visit is faster because the browser keeps the files.` : '';
     v.className = 'ck-verdict ' + cls;
     v.innerHTML = '';
     const p = document.createElement('p'); p.textContent = head + t; v.append(p);
@@ -85,6 +85,7 @@
         'f"{n} pop songs found; {json.dumps(rows[1])}"',
       ].join('\n')));
       await check('pandas', 'Load the data tools (pandas)', async () => { await py.loadPackage('pandas'); return py.runPython('import pandas; "pandas " + pandas.__version__'); });
+      await check('sklearn', 'Load machine learning (scikit-learn)', async () => { await py.loadPackage('scikit-learn'); return py.runPython('import sklearn; "scikit-learn " + sklearn.__version__'); });
       await check('flask', 'Load and run Flask (Web apps course)', async () => {
         const man = await (await fetch(PYODIDE + 'manifest.json', { cache: 'no-store' })).json();
         await py.loadPackage(['jinja2', 'markupsafe', ...man.wheels.map((w) => PYODIDE + w)]);

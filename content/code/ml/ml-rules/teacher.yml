@@ -1,0 +1,38 @@
+summary: Students meet the Palmer Penguins data, guess species with hand-written if rules, measure accuracy on 342 penguins, look at the mistakes, tune the rules, and write rules of their own with a third measurement.
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 10 min"
+goals:
+  - I can explain what a model and its accuracy are.
+  - I can measure how often a set of rules is right on real data.
+  - I can use a model's mistakes to improve it.
+before: |
+  Read the unit primer first. This course runs in the **Python playground** (real Python in the browser, Pyodide); later lessons load scikit-learn, which takes several seconds the first time, so open the site's Check your school page once on a student device at school. `penguins.csv` is the Palmer Penguins data (CC0): 342 penguins of three species with bill length and depth, flipper length, body mass, sex, island and year (2 penguins with no measurements are left out). The loader is the same `csv.DictReader` pattern as Data detective, with `float()` (the bug task forgets it). The rules reach 95% accuracy; the mistakes are mostly Adelies with long bills guessed as Chinstrap. The second Investigate question sets up the course: a person chose 206, and machine learning finds such things from data.
+running:
+  - "Predict: trace guess(50.0, 196) on the board, rule by rule."
+  - "Run: ask for a show of hands: who thinks 95% is good? What about for a medical test?"
+  - "Modify: tally the mistakes by species on the board."
+  - "Make: compare accuracies across the class."
+stuck:
+  - see: "TypeError: '>' not supported between instances of 'str' and 'int'."
+    ask: Were the measurements turned into numbers when they were read?
+    fix: "float(row[\"bill_length_mm\"])."
+  - see: "KeyError: 'bill_depth_mm' in the Make."
+    ask: Is it read from row, or from the penguin dictionary?
+    fix: "Read row[\"bill_depth_mm\"] in the loader and store it, such as \"depth\": float(...)."
+  - see: The accuracy is above 100%.
+    ask: Is correct counted once per penguin?
+    fix: Add 1 only inside the if, once per penguin.
+stretch: Print a table of guesses against real species (a confusion matrix) with a dictionary of dictionaries.
+support: Give students the loop that prints mistakes, and ask them only to write the if.
+leads: "Next lesson builds a model that learns from the examples themselves: nearest neighbour."
+exit:
+  q: "What does it mean that the rules are 95% accurate on the penguins?"
+  a: "They give the right species for 95 of every 100 penguins in the data (324 of 342)."
+explain: |
+  1. A model takes measurements and gives an answer: here, if rules on bill and flipper length.
+  2. Accuracy is how many it gets right out of all: 324 of 342 penguins, 95%.
+  3. A person chose the rule's numbers; machine learning finds them from the data.
+solutions:
+  step-4#t1: rules.py#sol-wrong
+  step-5: rules.py#sol-make
+struggle: "Using the mistakes to improve the rules. Ask students what the wrong guesses have in common before they change a number."

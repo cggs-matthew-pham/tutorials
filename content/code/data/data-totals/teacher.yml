@@ -36,3 +36,4 @@ solutions:
   step-4#t1: totals.py#sol-rock
   step-4#t2: totals.py#sol-oldest
   step-5: totals.py#sol-make
+struggle: "The biggest-so-far pattern. Ask students to fill in the trace by hand before running anything; resist writing the comparison for them."

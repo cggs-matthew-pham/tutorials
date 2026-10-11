@@ -11,7 +11,7 @@ import { createHash } from 'node:crypto';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const VERSION = '314.0.7';
 // Packages from Pyodide's own set (their dependencies are added from pyodide-lock.json).
-const PACKAGES = ['pandas', 'fastapi', 'jinja2', 'markupsafe', 'micropip'];
+const PACKAGES = ['pandas', 'fastapi', 'jinja2', 'markupsafe', 'micropip', 'scikit-learn'];
 // Pure-Python wheels that are not in Pyodide's set, from PyPI: name, version.
 const PYPI = [['flask', '3.1.3'], ['werkzeug', '3.1.9'], ['itsdangerous', '2.2.0'], ['click', '8.5.0'], ['blinker', '1.9.0']];
 const CORE = ['pyodide.mjs', 'pyodide.js', 'pyodide.asm.mjs', 'pyodide.asm.wasm', 'python_stdlib.zip', 'pyodide-lock.json'];

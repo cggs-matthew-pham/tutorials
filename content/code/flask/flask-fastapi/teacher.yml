@@ -36,3 +36,4 @@ solutions:
   step-4#t1: api.py#sol-min
   step-4#t2: api.py#sol-leader
   step-5: api.py#sol-make
+struggle: "Reading the 422 reply. Have students read the error JSON aloud and find the field it names before changing anything."

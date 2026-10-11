@@ -36,3 +36,4 @@ solutions:
   step-4#t1: api.py#sol-stats
   step-4#t2: api.py#sol-search
   step-5: api.py#sol-make
+struggle: "Seeing JSON as data for programs, not a page. Ask how another program would use the reply, before adding routes."

@@ -40,3 +40,4 @@ solutions:
   step-4#t1: rows.py#sol-recent
   step-4#t2: rows.py#sol-count
   step-5: rows.py#sol-make
+struggle: "The bug task and the first Modify: realising every value is text. Ask students to print one value with type() and predict before fixing."

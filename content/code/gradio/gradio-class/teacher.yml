@@ -35,3 +35,4 @@ solutions:
   step-4#t1: quiz.py#sol-hint
   step-4#t2: quiz.py#sol-points
   step-5: quiz.py#sol-make
+struggle: "What self is inside a method. Ask which question check was called on, and what self.answer is for it."

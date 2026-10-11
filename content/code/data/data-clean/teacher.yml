@@ -37,3 +37,4 @@ solutions:
   step-4#t1: clean.py#sol-genre
   step-4#t2: clean.py#sol-repeat
   step-5: clean.py#sol-make
+struggle: "Writing a test case before the fix. When a student is stuck, ask what the function should give for the failing input, and have them write that assert first."

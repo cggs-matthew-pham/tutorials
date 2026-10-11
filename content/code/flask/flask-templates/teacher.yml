@@ -36,3 +36,4 @@ solutions:
   step-4#t1: club.py#sol-wins
   step-4#t2: club.py#sol-group
   step-5: club.py#sol-make
+struggle: "Passing data into a template by name. Ask what the template can see, and let them find the missing argument themselves."

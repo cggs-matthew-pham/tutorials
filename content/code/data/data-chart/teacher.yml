@@ -37,3 +37,4 @@ solutions:
   step-4#t1: chart.py#sol-decades
   step-4#t2: chart.py#sol-three
   step-5: chart.py#sol-make
+struggle: "Counting with a dictionary: the new key that has no count yet. Ask what counts holds after the first song, on paper, before they change code."

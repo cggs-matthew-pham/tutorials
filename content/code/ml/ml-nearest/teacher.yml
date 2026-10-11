@@ -1,0 +1,39 @@
+summary: Students write a nearest-neighbour model from scratch, measuring the distance between penguins with Pythagoras and copying the species of the closest one, then ask for measurements, add a "not sure" answer and guess five mystery penguins.
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 10 min"
+goals:
+  - I can explain how a nearest-neighbour model makes a guess.
+  - I can work out the distance between two examples with Pythagoras.
+  - I can use the distance to say how sure a guess is.
+before: |
+  Read the unit primer first. Nearest neighbour keeps every example and answers with the species of the closest one; the distance is Pythagoras on bill and flipper length (`** 2` squares, `** 0.5` is the square root). `nearest()` is Data detective's "smallest so far" pattern (the bug task uses `>`, finding the furthest penguin). A big distance means nothing similar is known, so the guess is weak, but the model still answers: the "Not sure" task and the optional last lesson come back to this. The info question raises scale: flippers (around 200) outweigh bills (around 45) in the distance.
+running:
+  - "Predict: draw the right-angled triangle with sides 3 and 4."
+  - "Run: plot three penguins and the mystery on a sketch graph (bill across, flipper up)."
+  - "Investigate: ask which guess students would bet on, and why."
+  - "Make: discuss the 60, 240 penguin: what is wrong with its guess?"
+stuck:
+  - see: The guess is always the same species.
+    ask: Does nearest() compare with < and update best?
+    fix: "if distance(p, new) < distance(best, new): best = p."
+  - see: "TypeError: unsupported operand type(s) for -: 'str' and 'float'."
+    ask: Was the typed answer turned into a number?
+    fix: "float(input(...))."
+  - see: "Distance 0.0 for a mystery penguin."
+    ask: Is that penguin's exact measurement in the data?
+    fix: Nothing is wrong; it matched a real penguin exactly.
+stretch: "Make the three nearest penguins vote (sort by distance with sorted(penguins, key=lambda p: distance(p, mystery))[:3])."
+support: Give students the Not sure if, and ask them only to choose the number.
+leads: "Next lesson tests the model fairly, on penguins it has not seen. scikit-learn's KNeighborsClassifier (Lesson 4) is this model."
+exit:
+  q: "How does a nearest-neighbour model guess a new penguin's species?"
+  a: "It finds the penguin in its data with the closest measurements and gives that penguin's species."
+explain: |
+  1. The distance between two penguins is Pythagoras on their bill and flipper lengths.
+  2. `nearest()` finds the penguin in the data with the smallest distance to the mystery one.
+  3. The guess is that penguin's species; a small distance means a confident guess.
+solutions:
+  step-4#t1: nearest.py#sol-input
+  step-4#t2: nearest.py#sol-sure
+  step-5: nearest.py#sol-make
+struggle: "The smallest-so-far loop inside nearest(). Ask students to trace it for three penguins on paper before they fix the bug."
