@@ -1,0 +1,45 @@
+summary: "Students link Bootstrap's stylesheet, predict that a class name with no rule of their own still styles a button, match classes to what they do, find a button missing its base class, and style a notice for an event of their own."
+time: 50
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 15 min"
+goals:
+  - I can link Bootstrap's stylesheet to a page.
+  - I can style buttons, text and messages by adding Bootstrap's class names.
+  - I can look up a class name instead of writing a CSS rule.
+before: |
+  Read the unit primer first. **Bootstrap** is a stylesheet: one big CSS file of ready-made rules (about 230 KB). Linking it with `<link rel="stylesheet" href="bootstrap.min.css">` gives the page all its rules; adding a class name such as `btn` switches one on. Nothing new happens in the browser: students already know classes and CSS rules from HTML & CSS; the rules are just someone else's.
+
+  Most looks come in two parts, a base class for the shape (`btn`, `alert`) and a second for the colour or size (`btn-primary`, `btn-lg`). The planted bug leaves out the base class. Here the stylesheet sits beside the page (it is served from this site); on a real site, download it from getbootstrap.com. This course uses Bootstrap's CSS only, not its JavaScript, so nothing needs a script.
+running:
+  - "Predict: ask what a class name does when nobody has written a rule for it."
+  - "Run: have everyone delete the link line and watch the page go plain. The class names are still there."
+  - "Investigate: for the bug, ask which class gives the shape and which gives the colour."
+  - "Modify: point students to the Reference drawer; looking names up is the skill, not remembering them."
+  - "Make: no style block allowed. Ask each student to read out the class for each part."
+struggle: "Students want to write CSS to fix a look. Ask \"which Bootstrap class does that?\" and send them to the Reference drawer before they type a rule."
+stuck:
+  - see: "Nothing looks like Bootstrap."
+    ask: "Is the link line there, at the top, spelt bootstrap.min.css?"
+    fix: "Put the link line first, exactly as in the lesson."
+  - see: "A button keeps the browser's grey look."
+    ask: "Does its class have btn as well as a colour?"
+    fix: "class=\"btn btn-success\": the base class and the colour."
+  - see: "A class does nothing, such as btn-green."
+    ask: "Is that name in Bootstrap's list?"
+    fix: "Use the names on the Reference cards (success is green); made-up names are ignored."
+stretch: "Use btn-sm and btn-lg, outline buttons (btn-outline-danger), and the text colour classes (text-success). Try a badge: span class=\"badge text-bg-secondary\"."
+support: "Give the class names on the board for the Make task and ask students only to place them."
+leads: "Next: the navbar, cards and grid, where Bootstrap parts are whole shapes of nested tags. Class idea: put the hand-built club page and this page side by side and count the lines of CSS."
+exit:
+  q: "Why does class=\"btn btn-primary\" make a blue button when you wrote no CSS?"
+  a: "The linked stylesheet, bootstrap.min.css, has rules for btn and btn-primary; the class names switch them on."
+explain: |
+  1. Link Bootstrap's stylesheet with one line at the top of the page.
+  2. Its rules apply at once, to the whole page.
+  3. Add its class names to style a tag: `btn` for the button shape, `btn-primary` for the colour.
+  4. No CSS of your own: you look the class names up.
+solutions:
+  step-4#t1: page.html#sol-colour
+  step-4#t2: page.html#sol-alert
+  step-5: page.html#sol-make
+sources:
+  - { title: "Bootstrap 5.3: Buttons", url: "https://getbootstrap.com/docs/5.3/components/buttons/", checked: 2026-10-12 }

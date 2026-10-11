@@ -62,6 +62,11 @@ Lesson counts include optional lessons. "Pictures" are drawn by `render-pictures
   - Has voice, pictures, Boxes and Box model views, and `check-html`.
   - Scope rule (still applies): only core ideas, what the DOM needs, and what the challenge page uses; everything else becomes a Reference card.
   - Later: a wider code panel for clips.
+- **Pages with Bootstrap** (`code/bootstrap`, 3): built 12 Oct.
+  - Style by class names; Navbar, cards and a grid (the club page rebuilt); Make Bootstrap yours (own rules after the link, Bootstrap vs hand-built, and a look at Bulma, Tailwind, daisyUI and Pico).
+  - HTML playground; libraries from `vendor/web/` served beside the page. Reference (Bootstrap and Other CSS frameworks groups in `snippets/html.json`), pictures, voiced clips, `check-html` walks it.
+  - Bootstrap's CSS only (no JavaScript): the navbar uses `navbar-expand`. Tailwind runs on its browser build, labelled as the trying-things version.
+  - Not done: a class trial.
 - **Drawing and animation with p5.js** (`code/p5`, 8 incl. optional Moving art): built 11 Oct.
   - Own playground (`playground-p5/`, p5 2.3.4 vendored), Reference (37 cards), pictures and clips.
   - Not done: clips for the moving sketches (animated sketches show a still), a class trial.
@@ -131,7 +136,7 @@ Risks: we depend on Microsoft's hosted editor and its unversioned message API. F
 
 The plan keeps "build it yourself, then meet the real tool": students hand-build components (HTML & CSS) and state (DOM lesson 6) before a framework does the same work for them. Everything runs in the browser with no build step, and every library is hosted on our site.
 
-1. **Bootstrap** (extension after HTML & CSS; about 3 lessons). Rebuild the club page's navbar, cards and form with Bootstrap classes, compare it with the hand-built CSS, then customise it.
+1. **Bootstrap** (built 12 Oct, see Courses; extension after HTML & CSS; about 3 lessons). Rebuild the club page's navbar, cards and form with Bootstrap classes, compare it with the hand-built CSS, then customise it.
    - Bootstrap's CSS is hosted under the HTML playground's media folder, so the HTML playground works unchanged.
    - Checks use `contains` on class names.
    - Why Bootstrap rather than Tailwind: it reads easily for beginners, and its class names map onto the components students already built by hand.
@@ -158,6 +163,7 @@ The plan keeps "build it yourself, then meet the real tool": students hand-build
 
 ## Log
 
+- 12 Oct: Pages with Bootstrap (3 lessons), with a nod to Bulma, Tailwind, daisyUI and Pico (Matthew's request); `vendor/web/` and the shared changes in `shared.md`.
 - 12 Oct: `struggle:` notes for all 63 MakeCode lessons; every code lesson now has one (`npm run effort` is clean for code).
 - 12 Oct: effort audit for Python Foundations, the console bridge, Objects, Deeper Python 1 to 5 and HTML & CSS (40 `struggle:` notes; 17 first hints now point at the idea, with the code as the next hint); two overflowing deck slides fixed (Robotics Drive, Python Variables).
 - 12 Oct: voiceover for the 19 clips in p5.js, DOM and Games (`af_heart` at 1.1; `say:` lines read code aloud). Timed with the test voice: 24 to 32 s.

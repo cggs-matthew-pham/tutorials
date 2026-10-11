@@ -261,7 +261,9 @@ The publish run on 3a177f1 failed in the plan job's "Draw new pictures": the Dig
 
 **Built for science (12 Oct, Matthew asked):** `tools/coach.mjs` (new) builds the prompt from the node's title, statement and success criteria, the node before it, and the first three `stuck:` lines. A course opts in with `coach: true` in its `index.md` (all 15 science courses; no other course changes). `tools/build-site.mjs`: prompts computed for opted-in courses; the recap card gets a hidden "Still stuck?" box with Copy (`.rccoach`, `RECAP_COACH_JS`), shown only when the recap URL has `?coach=1`. `tools/teach.mjs`: a "Coach prompt (optional)" section in the lesson guide with the full prompt and the `?coach=1` recap link. Maths or code can opt in by adding `coach: true` once they agree.
 
-## Proposed (12 Oct 2026, code chat): shared changes for the web pathway after the DOM
+## Made (12 Oct 2026, code chat): shared changes for the web pathway after the DOM
+
+Proposed first, then made in the same batch, as Matthew asked for the courses to be built. Status per line: made with Bootstrap unless marked later.
 
 For the four web proposals in `roadmap/code.md` (Bootstrap, Vue, the three-framework lesson, JavaScript `fetch`). Matthew asked for them to be built; these are the shared-tool changes they need, kept small. Nothing here changes a maths or science file.
 - **`vendor/web/` (new):** Bootstrap 5.3.8 CSS, Vue 3.5.43 (global development build, for its warnings), Preact 11 with htm as one script, and Svelte 5.57.2's compiler and runtime with a small glue script (`svelte-glue.js`, ours). Licences beside them; `make.mjs` rebuilds them from npm. No CDN at run time.
@@ -269,8 +271,10 @@ For the four web proposals in `roadmap/code.md` (Bootstrap, Vue, the three-frame
 - **`tools/serve.mjs` and the server in `tools/render-pictures.mjs`:** send `Access-Control-Allow-Origin: *`, as GitHub Pages does, so `fetch("weather.json")` from a sandboxed preview works in clips and pictures as it does on the site. No section hash changes (the server is outside them).
 - **`tools/build-site.mjs`:** `PLAY` entries for `code/bootstrap` (HTML playground) and `code/vue` (DOM playground); `REFS` pages for `code/bootstrap`, `code/vue` and `code/dom` (groups of `snippets/html.json`).
 - **`tools/concepts.mjs`:** `CONCEPTS.html` gains Bootstrap, Vue and `fetch` concepts, so the hidden-assumptions lint covers the new lessons.
-- **`misconceptions.json`:** entries with homes in the new lessons. **`tools/voice-lexicon.json`:** words the voice may say wrongly (Vue, Svelte, JSON).
+- **`misconceptions.json`:** entries with homes in the new lessons. The voice lexicon is left alone (editing it re-records every voiced clip on the site): spoken lines spell awkward names in `say:` instead ("view" for Vue).
 - **Clips and pictures:** `snippets/html.json` gains Bootstrap, Vue, Frameworks and Fetch groups, and `playground-dom/` changes (below), so every HTML and DOM clip records again at the next publish (as when turtle.json grew). New cards get new pictures; existing pictures keep their hashes.
+- **`vendor/web/` also has** Bulma, Pico (classless), Tailwind's browser build and daisyUI, for the Bootstrap course's look at other frameworks (Matthew asked for it).
+- **`tools/check-html-lessons.mjs`:** also walks `code/bootstrap/`, and answers `sort` checks the way it answers `match` (no existing lesson's result changed).
 - **Code chat's own files (for the record):** `playground-dom/main.js` gives the preview `<base href="media/">` (as the HTML playground does), makes `#name` links scroll inside the page, shows an `Error` in `console.log` by its message, and gives a line number only for errors in the page itself (not in a library).
 
 ## Parked

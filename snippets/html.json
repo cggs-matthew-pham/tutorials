@@ -357,6 +357,122 @@
      "matches": "\\.value\\b"
     }
    ]
+  },
+  {
+   "name": "Bootstrap",
+   "items": [
+    {
+     "label": "Bootstrap link",
+     "code": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n",
+     "hint": "Loads Bootstrap's stylesheet: a big CSS file someone else wrote. Put it first, above your own <style>. On your own site, download it from getbootstrap.com and put it beside your page.",
+     "matches": "href\\s*=\\s*\"bootstrap(\\.min)?\\.css\""
+    },
+    {
+     "label": "container",
+     "code": "<div class=\"container\">\n  ‹content›\n</div>\n",
+     "hint": "A centred column with space at the sides. Most Bootstrap pages put everything inside one.",
+     "matches": "class\\s*=\\s*\"(?:[^\"]*\\s)?container[\\s\"]"
+    },
+    {
+     "label": "btn button",
+     "code": "<button class=\"btn btn-‹primary›\">‹Join›</button>\n",
+     "hint": "btn gives the button shape; a second class picks the colour: btn-primary, btn-secondary, btn-success, btn-danger, btn-warning, or btn-outline-primary for an outline. Add btn-lg or btn-sm for the size. It needs both btn and a colour.",
+     "matches": "class\\s*=\\s*\"(?:[^\"]*\\s)?btn[\\s\"]",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<button class=\"btn btn-primary\">Save</button>\n<button class=\"btn btn-outline-secondary\">Cancel</button>\n<button class=\"btn btn-danger btn-sm\">Delete</button>\n",
+     "shows": "Three buttons: blue, outlined and a small red one"
+    },
+    {
+     "label": "alert",
+     "code": "<div class=\"alert alert-‹warning›\">‹Message›</div>\n",
+     "hint": "A coloured message box. alert gives the box; alert-primary, alert-success, alert-danger, alert-warning or alert-info picks the colour.",
+     "matches": "\\balert-\\w",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<div class=\"alert alert-info\">The library is open at lunch.</div>\n",
+     "shows": "A light blue message box"
+    },
+    {
+     "label": "spacing and text classes",
+     "code": "<p class=\"‹mt-3 p-2 text-center›\">‹Text›</p>\n",
+     "hint": "m is margin and p is padding; then t, b, s, e (top, bottom, start, end), x (both sides) or y (top and bottom), then a size from 0 to 5: mt-3 is a space above. text-center centres text; lead makes a larger opening paragraph; fw-bold makes it bold.",
+     "matches": "class\\s*=\\s*\"[^\"]*\\b([mp][tbsexy]?-[0-5]|text-center|lead)\\b",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<p class=\"lead text-center\">Welcome!</p>\n<p class=\"mt-4 p-3 border\">A box with space above and padding inside.</p>\n",
+     "shows": "A large centred line, then a padded box lower down"
+    },
+    {
+     "label": "navbar",
+     "code": "<nav class=\"navbar navbar-expand bg-body-tertiary\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\">‹Club name›</a>\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\"><a class=\"nav-link\" href=\"#‹part›\">‹Link›</a></li>\n    </ul>\n  </div>\n</nav>\n",
+     "hint": "The bar across the top: the brand (your name) on the left, then the menu. navbar-expand keeps the menu in a row (folding it into a button on phones needs Bootstrap's JavaScript).",
+     "matches": "class\\s*=\\s*\"[^\"]*\\bnavbar\\b",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<nav class=\"navbar navbar-expand bg-body-tertiary\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\">Library</a>\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Books</a></li>\n      <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Hours</a></li>\n    </ul>\n  </div>\n</nav>\n",
+     "shows": "A grey bar with a name and two menu links"
+    },
+    {
+     "label": "card",
+     "code": "<div class=\"card\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">‹Title›</h5>\n    <p class=\"card-text\">‹Text›</p>\n  </div>\n</div>\n",
+     "hint": "A box with a border and rounded corners. The card-body inside gives it padding; card-title and card-text style what is in it.",
+     "matches": "class\\s*=\\s*\"[^\"]*\\bcard\\b",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<div class=\"card m-2\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Robotics</h5>\n    <p class=\"card-text\">Fridays in the lab.</p>\n  </div>\n</div>\n",
+     "shows": "A bordered box with a title and a line of text"
+    },
+    {
+     "label": "row and col",
+     "code": "<div class=\"row\">\n  <div class=\"col\">‹first›</div>\n  <div class=\"col\">‹second›</div>\n</div>\n",
+     "hint": "Bootstrap's grid: a row lines up the cols inside it, and each col takes an equal share. col-4 and col-8 split the row 4 to 8 (a row is 12 parts). Put a row inside a container.",
+     "matches": "class\\s*=\\s*\"(?:[^\"]*\\s)?(row|col(-[\\w-]+)?)[\\s\"]",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col border\">One</div>\n    <div class=\"col border\">Two</div>\n    <div class=\"col border\">Three</div>\n  </div>\n</div>\n",
+     "shows": "Three boxes sharing a line equally"
+    },
+    {
+     "label": "form-control",
+     "code": "<label for=\"‹email›\" class=\"form-label\">‹Email›</label>\n<input id=\"‹email›\" type=\"‹email›\" class=\"form-control\">\n",
+     "hint": "Bootstrap's look for a form: form-label on each label, form-control on each box, form-select on a drop-down. The for and id still link them.",
+     "matches": "\\bform-(control|label|select)\\b",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<div class=\"m-2\">\n  <label for=\"town\" class=\"form-label\">Town</label>\n  <input id=\"town\" type=\"text\" class=\"form-control\">\n</div>\n",
+     "shows": "A label above a full-width box"
+    },
+    {
+     "label": "table class",
+     "code": "<table class=\"table ‹table-striped›\">\n  ‹rows›\n</table>\n",
+     "hint": "Bootstrap's look for a table: lines between rows and padding in the cells. table-striped shades every other row; table-bordered adds borders.",
+     "matches": "<table\\s[^>]*class\\s*=\\s*\"[^\"]*\\btable\\b"
+    }
+   ]
+  },
+  {
+   "name": "Other CSS frameworks",
+   "items": [
+    {
+     "label": "Bulma button",
+     "code": "<link rel=\"stylesheet\" href=\"bulma.min.css\">\n<button class=\"button is-‹primary›\">‹Join›</button>\n",
+     "hint": "Bulma works like Bootstrap with different names: button for the shape, is-primary, is-success or is-danger for the colour, is-large for the size.",
+     "matches": "bulma(\\.min)?\\.css|class\\s*=\\s*\"[^\"]*\\bis-\\w",
+     "example": "<link rel=\"stylesheet\" href=\"bulma.min.css\">\n\n<div class=\"p-3\">\n  <button class=\"button is-primary\">Send</button>\n  <button class=\"button is-danger is-light\">Delete</button>\n</div>\n",
+     "shows": "Two Bulma buttons"
+    },
+    {
+     "label": "Tailwind utility classes",
+     "code": "<script src=\"tailwind.js\"></script>\n<button class=\"‹bg-blue-600 text-white px-4 py-2 rounded-lg›\">‹Join›</button>\n",
+     "hint": "Tailwind has one class per CSS property: bg-blue-600 is the background, text-white the text colour, px-4 and py-2 the padding, rounded-lg the corners. Here tailwind.js writes the CSS as the page loads (for trying things); real sites use a build tool.",
+     "matches": "tailwind\\.js",
+     "example": "<script src=\"tailwind.js\"></script>\n\n<p class=\"m-3 p-3 bg-yellow-100 text-lg font-bold rounded\">Sale today!</p>\n",
+     "shows": "A yellow box with large bold text"
+    },
+    {
+     "label": "daisyUI button",
+     "code": "<link rel=\"stylesheet\" href=\"daisyui.css\">\n<script src=\"tailwind.js\"></script>\n<button class=\"btn btn-‹primary›\">‹Join›</button>\n",
+     "hint": "daisyUI puts Bootstrap-style names (btn, card, alert) on top of Tailwind, so you can mix whole parts with Tailwind's one-property classes.",
+     "matches": "daisyui\\.css",
+     "example": "<link rel=\"stylesheet\" href=\"daisyui.css\">\n<script src=\"tailwind.js\"></script>\n\n<div class=\"p-3\">\n  <button class=\"btn btn-secondary\">Play</button>\n</div>\n",
+     "shows": "A daisyUI button"
+    },
+    {
+     "label": "Pico (no classes)",
+     "code": "<link rel=\"stylesheet\" href=\"pico.classless.min.css\">\n<main>\n  ‹plain tags›\n</main>\n",
+     "hint": "Pico's classless version styles plain tags: a page with headings, paragraphs, forms and buttons looks tidy with no class names at all. Put the page in a <main>.",
+     "matches": "pico(\\.classless)?(\\.min)?\\.css",
+     "example": "<link rel=\"stylesheet\" href=\"pico.classless.min.css\">\n\n<main>\n  <h3>Hello</h3>\n  <button>OK</button>\n</main>\n",
+     "shows": "A heading and a button, styled with no classes"
+    }
+   ]
   }
  ]
 }

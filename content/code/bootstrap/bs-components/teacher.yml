@@ -1,0 +1,46 @@
+summary: "Students rebuild the club page's navbar and cards with Bootstrap, predict how the grid places three cols, count the CSS the page no longer needs, find a made-up class name, add buttons and a sign-up form, and finish with a table and footer."
+time: 55
+timing: "Predict and Run 10 min · Investigate 15 min · Modify 15 min · Make 15 min"
+goals:
+  - I can build a navbar, cards and a form by copying Bootstrap's shapes.
+  - I can line cards up with Bootstrap's row and col.
+  - I can look up a Bootstrap part I have not used before and fit it into my page.
+before: |
+  Read the unit primer first. Each Bootstrap component is a **shape**: tags nested in a fixed order, each with its class (`navbar` > `container` > `navbar-brand` and `navbar-nav`; `row` > `col` > `card` > `card-body`). Students do not invent these; they copy the shape from the Reference card or getbootstrap.com and change the words. The **grid**: a `row` lines up its `col`s and shares the width equally (it is Flexbox inside, the same idea as their hand-built `.cards { display: flex; }`).
+
+  The navbar uses `navbar-expand`, so it never folds into a menu button: folding needs Bootstrap's JavaScript, which this course leaves out. The planted bug is a made-up class name (`column`): the browser ignores names it has no rule for, silently. This is the most common Bootstrap slip.
+running:
+  - "Predict: ask students to say what row and col might each do before running."
+  - "Run: switch on Boxes and trace the nesting with a finger: row, col, card, card-body."
+  - "Investigate: put a hand-built club page on the board for the count-the-CSS question."
+  - "Modify: for the form, the Reference card has the shape; students add the classes to tags they already know."
+  - "Make: the table class is new. Ask \"where would you look it up?\" rather than giving it."
+struggle: "Students guess class names (column, blue, big-button) and expect them to work. Ask \"is that name on the Reference card?\" every time, rather than correcting it for them."
+stuck:
+  - see: "A card fills the whole width while the others share a line."
+    ask: "Is its box's class exactly col?"
+    fix: "Use col, not column or cols; only Bootstrap's own names do anything."
+  - see: "Cards stack one under another."
+    ask: "Are the cols inside one row?"
+    fix: "Put every col straight inside the same div with class row."
+  - see: "Text touches the card's border."
+    ask: "Is there a card-body inside the card?"
+    fix: "Wrap the card's content in div class=\"card-body\"."
+stretch: "Give the cards different widths with col-8 and col-4 (a row is 12 parts), or add a badge to a card title. Try an image across the top of a card with card-img-top."
+support: "Give students the card shape on paper with blanks for the class names."
+leads: "Next lesson: your own CSS on top of Bootstrap, and when writing CSS by hand is the better choice. Class idea: hold up the hand-built club page and this one and ask which was quicker, and which is more theirs."
+exit:
+  q: "What goes inside a row, and what goes inside a col?"
+  a: "Cols go inside a row and share its width; the content, such as a card, goes inside a col."
+explain: |
+  1. A `row` is a line of columns.
+  2. Put a `col` inside it, and a `card` inside the col: one col takes the whole row.
+  3. Add a second col: the two share the row equally.
+  4. No Flexbox rules of your own: Bootstrap's `row` and `col` do the layout.
+solutions:
+  step-4#t1: page.html#sol-buttons
+  step-4#t2: page.html#sol-form
+  step-5: page.html#sol-make
+sources:
+  - { title: "Bootstrap 5.3: Grid system", url: "https://getbootstrap.com/docs/5.3/layout/grid/", checked: 2026-10-12 }
+  - { title: "Bootstrap 5.3: Navbar", url: "https://getbootstrap.com/docs/5.3/components/navbar/", checked: 2026-10-12 }

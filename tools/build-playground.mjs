@@ -106,6 +106,19 @@ export function buildP5Playground(out = 'dist') {
   return dest;
 }
 
+/**
+ * Files a page in the HTML or DOM playground can load as if they sat beside it (the preview's <base> is media/):
+ * the course pictures (media/html/) and the web libraries (vendor/web/: Bootstrap, Vue, Preact, Svelte). Copied after
+ * stamping, so the libraries keep their own names; vendor/web/make.mjs and README.md stay behind.
+ */
+function addPageFiles(dest, { pictures = true } = {}) {
+  const media = join(dest, 'media');
+  mkdirSync(media, { recursive: true });
+  if (pictures && existsSync(join(root, 'media', 'html'))) cpSync(join(root, 'media', 'html'), media, { recursive: true });
+  const web = join(root, 'vendor', 'web');
+  if (existsSync(web)) for (const f of readdirSync(web)) if (!['make.mjs', 'README.md', 'svelte-glue.js'].includes(f)) copyFileSync(join(web, f), join(media, f));
+}
+
 /** The web page and JavaScript playground (DOM course): our editor, console and sandbox page; the JavaScript hints are shared with p5 (p5-errors.js). */
 export function buildDomPlayground(out = 'dist') {
   const dest = join(out, '_playground-dom');
@@ -113,6 +126,7 @@ export function buildDomPlayground(out = 'dist') {
   cpSync(join(root, 'playground-dom'), dest, { recursive: true });
   copyFileSync(join(root, 'playground-p5', 'p5-errors.js'), join(dest, 'p5-errors.js'));
   stampPlayground(dest);
+  addPageFiles(dest);
   return dest;
 }
 
@@ -125,6 +139,7 @@ export function buildHtmlPlayground(out = 'dist') {
   // Course pictures (media/html/*.svg): the preview resolves src="trophy.svg" against this folder, like files next to a real page.
   if (existsSync(join(root, 'media', 'html'))) cpSync(join(root, 'media', 'html'), join(dest, 'media'), { recursive: true });
   stampPlayground(dest);
+  addPageFiles(dest, { pictures: false });   // the libraries; the pictures were copied before stamping, as always
   return dest;
 }
 

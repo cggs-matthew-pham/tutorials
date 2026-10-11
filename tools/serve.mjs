@@ -20,7 +20,8 @@ createServer(async (req, res) => {
     if (!file.startsWith(dir)) { res.writeHead(403).end(); return; }
     if ((await stat(file).catch(() => null))?.isDirectory()) file = join(file, 'index.html');
     const body = await readFile(file);
-    res.writeHead(200, { 'content-type': TYPES[extname(file)] || 'application/octet-stream', 'cache-control': 'no-store' }).end(body);
+    // Any origin may read, as on GitHub Pages: a sandboxed preview (origin null) can fetch("weather.json").
+    res.writeHead(200, { 'content-type': TYPES[extname(file)] || 'application/octet-stream', 'cache-control': 'no-store', 'access-control-allow-origin': '*' }).end(body);
   } catch {
     res.writeHead(404, { 'content-type': 'text/plain' }).end('Not found');
   }

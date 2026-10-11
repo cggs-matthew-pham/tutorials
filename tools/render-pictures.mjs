@@ -49,7 +49,7 @@ async function open() {
     const p = join(OUT, decodeURIComponent(req.url.split('?')[0]));
     const f = existsSync(p) && statSync(p).isDirectory() ? join(p, 'index.html') : p;
     if (!existsSync(f)) { res.writeHead(404); return res.end(); }
-    res.writeHead(200, { 'content-type': TYPES[extname(f)] || 'application/octet-stream' }); res.end(readFileSync(f));
+    res.writeHead(200, { 'content-type': TYPES[extname(f)] || 'application/octet-stream', 'access-control-allow-origin': '*' }); res.end(readFileSync(f)); // as on GitHub Pages: sandboxed previews can fetch
   }).listen(0);
   port = server.address().port;
   const executablePath = process.env.CHROMIUM_PATH || (existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined);

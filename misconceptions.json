@@ -205,5 +205,15 @@
   "or-means-not-both": {"home": "systems/data/logic-gates", "text": "OR is read as everyday \"one or the other, not both\" (1 OR 1 = 0); OR gives 1 when at least one input is 1. One but not both is XOR."},
   "char-one-bit": {"home": "systems/data/bits-everywhere", "text": "Each character is taken to be one bit (cat is 3 bits); one bit has only two values, so a character code needs a byte, 8 bits."},
   "rle-start-white": {"home": "systems/compression/run-length", "text": "A row that starts black is coded from its first run (black black white… as 2, 6); the first count is always white, so it starts with 0: 0, 2, 6."},
-  "lossy-recoverable": {"home": "systems/compression/lossy-lossless", "text": "Detail thrown away by lossy compression is thought to be restored when the file is opened; it was never stored, so it is gone for good."}
+  "lossy-recoverable": {"home": "systems/compression/lossy-lossless", "text": "Detail thrown away by lossy compression is thought to be restored when the file is opened; it was never stored, so it is gone for good."},
+  "bs-modifier-alone": {"home": "code/bootstrap/bs-classes", "text": "A Bootstrap colour class such as btn-primary styles a button on its own; in fact the look comes from the base class (btn) and btn-primary only changes its colour, so a button needs both."},
+  "bs-made-up-class": {"home": "code/bootstrap/bs-components", "text": "Any sensible class name works in Bootstrap (column, blue-button); in fact only the names in its stylesheet do anything, and a wrong one is silently ignored."},
+  "bs-order": {"home": "code/bootstrap/bs-yours", "text": "Your own CSS always beats Bootstrap's; in fact when two rules match equally, the later one wins, so your <style> goes after the Bootstrap link."},
+  "vue-plain-variable": {"home": "code/vue/vue-data", "text": "Any variable returned from setup keeps the page up to date; in fact Vue watches only data made with ref (or computed), so a plain let variable changes without the page knowing."},
+  "vue-for-parent": {"home": "code/vue/vue-lists", "text": "v-for on the <ul> makes one <li> per item; in fact v-for repeats the tag it is written on, so it goes on the <li>."},
+  "vue-value-in-script": {"home": "code/vue/vue-events", "text": "In the script a ref works like the value inside it (score++); in fact the value is score.value. The page unwraps refs for you; the script does not."},
+  "vue-derived-once": {"home": "code/vue/vue-computed", "text": "A total worked out from data in setup stays up to date; in fact a plain calculation runs once, so a value that depends on data belongs in computed()."},
+  "vue-prop-colon": {"home": "code/vue/vue-components", "text": "score=\"p.score\" passes the value of p.score; in fact without the colon it passes the words p.score, so use :score to pass a value."},
+  "react-mutate": {"home": "code/vue/vue-compare", "text": "In React or Preact, changing an array and passing it back to setItems updates the page; in fact it compares the old and new arrays, sees the same one and skips the update, so pass a new array ([...items, name])."},
+  "fetch-no-await": {"home": "code/dom/dom-fetch", "text": "fetch and response.json() give the data straight away; in fact each gives a promise (a value that arrives later), so await each one before using it."}
 }

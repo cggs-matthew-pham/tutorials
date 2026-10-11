@@ -6,7 +6,8 @@ import { spawn } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 const { loadLessons, getSnippet } = await import('./lesson.mjs');
-const lessons = loadLessons().filter((l) => l.slug.startsWith('code/html/'));
+// HTML-playground courses: HTML & CSS and Bootstrap.
+const lessons = loadLessons().filter((l) => ['code/html/', 'code/bootstrap/'].some((p) => l.slug.startsWith(p)));
 const srv = spawn('node', ['tools/serve.mjs', 'dist', '8261'], { stdio: 'ignore' });
 await new Promise((r) => setTimeout(r, 800));
 const U = 'http://127.0.0.1:8261/';
@@ -50,7 +51,7 @@ for (const l of lessons) {
       else if (k.type === 'predict') { if (k.options) await scope.locator('input[type=radio]').first().check(); else await scope.locator('input').first().fill('1'); await scope.locator('button').first().click(); }
       else if (k.type === 'question') { await scope.locator('input[type=radio]').nth(k.answer).check(); await scope.locator('button').click(); }
       else if (k.type === 'number') { await scope.locator('input').fill(String(k.answer)); await scope.locator('button').click(); }
-      else if (k.type === 'match') { const want = JSON.parse(await scope.getAttribute('data-answers')); const sels = scope.locator('select'); for (let j = 0; j < want.length; j++) await sels.nth(j).selectOption(want[j]); await scope.locator('button').click(); }
+      else if (k.type === 'match' || k.type === 'sort') { const want = JSON.parse(await scope.getAttribute('data-answers')); const sels = scope.locator('select'); for (let j = 0; j < want.length; j++) await sels.nth(j).selectOption(want[j]); await scope.locator('button').click(); }
       else if (k.type === 'trace') { const cells = scope.locator('input.tcell'); for (let j = 0; j < await cells.count(); j++) await cells.nth(j).fill(await cells.nth(j).getAttribute('data-answer')); await scope.locator('button').click(); }
       else if (k.type === 'bug') { for (const a of [].concat(k.answer)) await scope.locator('.buglines button').nth(Number(a) - 1).click(); }
       else if (k.type === 'parsons') {

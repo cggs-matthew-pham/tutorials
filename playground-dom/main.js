@@ -38,19 +38,23 @@ function setStatus(status, text) {
 }
 
 // The shim runs first in the page: it sends console messages and errors out, keeps web links in a new tab, and says
-// that sending a form does nothing here. It is one line, inserted without a newline, so the student's line numbers stay the same.
+// that sending a form does nothing here; #name links scroll within the page (the <base> would otherwise send them to media/).
+// It is one line, inserted without a newline, so the student's line numbers stay the same; an error in a library has no line.
 const SHIM = `(function(){
 function say(m){try{parent.postMessage(Object.assign({wpDom:1},m),'*')}catch(e){}}
-function fmt(a){return [].map.call(a,function(v){if(typeof v==='string')return v;if(v instanceof Element)return '<'+v.tagName.toLowerCase()+'>';try{return typeof v==='object'?JSON.stringify(v):String(v)}catch(e){return String(v)}}).join(' ')}
+function fmt(a){return [].map.call(a,function(v){if(typeof v==='string')return v;if(v instanceof Error)return v.name+': '+v.message;if(v instanceof Element)return '<'+v.tagName.toLowerCase()+'>';try{return typeof v==='object'?JSON.stringify(v):String(v)}catch(e){return String(v)}}).join(' ')}
 ['log','info','warn','error'].forEach(function(k){var o=console[k];console[k]=function(){say({t:'log',k:k,text:fmt(arguments)});try{o.apply(console,arguments)}catch(e){}}});
-window.addEventListener('error',function(e){if(e.target&&e.target!==window)return;say({t:'error',message:e.message,line:e.lineno||null})});
+window.addEventListener('error',function(e){if(e.target&&e.target!==window)return;var mine=!e.filename||/srcdoc/.test(e.filename);say({t:'error',message:e.message,line:mine?e.lineno||null:null})});
 window.addEventListener('unhandledrejection',function(e){say({t:'error',message:String(e.reason&&e.reason.message||e.reason),line:null})});
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');if(h&&h.charAt(0)!=='#'){e.preventDefault();window.open(a.href,'_blank','noopener')}},true);
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');if(!h)return;e.preventDefault();if(h.charAt(0)==='#'){var t=h.length>1&&document.getElementById(decodeURIComponent(h.slice(1)));if(t)t.scrollIntoView()}else window.open(a.href,'_blank','noopener')},true);
 document.addEventListener('submit',function(e){e.preventDefault();say({t:'log',k:'warn',text:'A form was submitted. Nothing is sent from here: use a button and an event instead.'})},true);
 window.addEventListener('load',function(){say({t:'loaded'})});
 })();`.replace(/\n/g, '');
+// Pictures and libraries are found in this playground's media folder (src="trophy.svg", <script src="vue.js">), as files
+// next to a real page; fetch("weather.json") reads a file there too.
+const BASE = `<base href="${new URL('media/', location.href).href}">`;
 function pageDoc(code) {
-  const tag = `<script>${SHIM}<\/script>${ZOOM}`;
+  const tag = `${BASE}<script>${SHIM}<\/script>${ZOOM}`;
   const dt = code.match(/^\s*<!doctype[^>]*>/i);
   return dt ? dt[0] + tag + code.slice(dt[0].length) : '<!doctype html>' + tag + code;
 }
