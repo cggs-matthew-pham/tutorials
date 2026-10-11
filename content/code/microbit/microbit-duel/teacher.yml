@@ -28,7 +28,7 @@ stretch: "Add an early-press penalty: pressing A before the heart sends 4, and t
 support: "Run Milestone 3 in pairs: one student builds the winner side (counting and sending 3), the other the loser side (receiving 3)."
 leads: "Two optional lessons go further: Fake-outs and levels (one player, harder rules) and Tournament (a scoreboard list and a round function). Class ideas: a class knockout tournament; a quiz buzzer for real class quizzes."
 exit:
-  q: "Why does the second player's micro:bit show the heart at almost the same time as the first?"
+  q: "In a duel, the first micro:bit radios 1 just before it shows a heart, and the second shows a heart when 1 arrives. Why do the two hearts appear at almost the same time?"
   a: "The first sends message 1 just before showing its heart, and the second shows its heart as soon as 1 arrives."
 explain: |
   Both micro:bits run the same program and agree a **code**: **0** get ready, **1** go, **2** I pressed first.

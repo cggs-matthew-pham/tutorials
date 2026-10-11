@@ -208,4 +208,17 @@ else console.log('✓ error tasks: every planted error names its fault and an on
   if (gaps.length) console.warn(`⚠ effort: ${summary(gaps)} (npm run effort lists them)`);
   else console.log('✓ effort: every lesson names its hard part, ends with a recap, and no first hint gives the answer');
 }
+// Open projects (content/<course>/projects.yml, tools/projects.mjs): each brief names a lesson, 2 to 4 milestones and
+// real concept ids, and its example uses every skill it lists.
+{
+  const { loadProjects, checkProjects } = await import('./projects.mjs');
+  const sets = loadProjects(CONTENT_ROOT, () => undefined);
+  const course = (l) => l.slug.split('/').slice(0, -1).join('/');
+  let n = 0, e = 0;
+  for (const s of sets) for (const r of checkProjects(s, (c) => lessons.filter((l) => course(l) === c))) {
+    if (r.level === 'error') { bad++; e++; console.error('✗ ' + r.msg); } else console.warn('⚠ ' + r.msg);
+  }
+  for (const s of sets) n += s.projects.length;
+  if (sets.length && !e) console.log(`✓ projects: ${n} briefs in ${sets.length} courses; every example uses the skills its brief lists`);
+}
 process.exit(bad ? 1 : 0);

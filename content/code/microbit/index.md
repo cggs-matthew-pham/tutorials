@@ -4,6 +4,7 @@ summary: Program a micro:bit with blocks in the simulator. Pictures, buttons, se
 tagline: "Make a micro:bit show pictures, sense the world and play a reaction game."
 order: 1
 challenge: challenge
+recap: true
 units:
   - { id: show-react, title: Show and react, summary: "Pictures on the LEDs, loops, and code that waits for a button." }
   - { id: remember-sense, title: Remember and sense, summary: "Variables that count, and sensors that give numbers." }

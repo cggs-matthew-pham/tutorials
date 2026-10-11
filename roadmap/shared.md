@@ -279,6 +279,17 @@ Built as a course page rather than in lessons (lessons keep their chosen numbers
 
 **Built for science (12 Oct, Matthew asked):** `tools/coach.mjs` (new) builds the prompt from the node's title, statement and success criteria, the node before it, and the first three `stuck:` lines. A course opts in with `coach: true` in its `index.md` (all 15 science courses; no other course changes). `tools/build-site.mjs`: prompts computed for opted-in courses; the recap card gets a hidden "Still stuck?" box with Copy (`.rccoach`, `RECAP_COACH_JS`), shown only when the recap URL has `?coach=1`. `tools/teach.mjs`: a "Coach prompt (optional)" section in the lesson guide with the full prompt and the `?coach=1` recap link. Maths or code can opt in by adding `coach: true` once they agree.
 
+## Made (12 Oct 2026, code chat): open projects (Matthew asked to build)
+
+Shared files touched; nothing re-records except the four lessons whose exit question changed and DOM clips (dom-errors hint):
+- `tools/concepts.mjs` is split: the pure table and `conceptsIn` moved to `tools/concepts-core.mjs` (re-exported, no behaviour change; `check-concepts` passes), which the build copies to `dist/concepts-core.js`.
+- `tools/build-site.mjs`: `writeProjects` (pages, chip, script), a projects section in the course teacher guide, recap cards get `id="<lesson>"` so links can land on one.
+- `tools/trail.mjs` and `site/trail.js`: `trailHtml(layout, up, esc, { projects })` marks a course stop with its briefs and the card offers "◆ n projects to build" (units offer their course's).
+- `tools/render-pictures.mjs`: a new `projects` section (only its own pictures draw).
+- `tools/validate.mjs`: checks briefs. `tools/build-playground.mjs`: copies `web-helpers/` into the HTML and DOM playgrounds' `media/`.
+- New: `tools/projects.mjs`, `tools/project-view.mjs`, `site/project.js`, `web-helpers/microbit.js`.
+Maths and science can add `projects.yml` to a course if useful; `uses` needs concepts in `concepts-core` for their language, so for now it suits code courses.
+
 ## Made (12 Oct 2026, code chat): shared changes for the web pathway after the DOM
 
 Proposed first, then made in the same batch, as Matthew asked for the courses to be built. Status per line: made with Bootstrap unless marked later.

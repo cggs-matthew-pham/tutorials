@@ -142,7 +142,7 @@ Risks: we depend on Microsoft's hosted editor and its unversioned message API. F
 - Drag-and-drop for match items; keep Parsons answers across reloads.
 - Prepare: confirm its load-by-URL parameter so "Copy address" can become "Open in Prepare".
 
-## Proposed (12 Oct 2026, to discuss): recap and open projects for code
+## Built (12 Oct 2026, Matthew agreed): recap and open projects for code
 
 Maths and science have recap pages (`recap: true`, roadmap/shared.md). For code, recalling an idea is not the same as using it, so the plan has two parts that do different jobs:
 
@@ -178,13 +178,24 @@ A brief that needs two courses belongs to the later one. Why not a pathway page 
 - needs a small `microbit.js` helper in `media/` (`connect()`, `onLine()`), labelled as a recipe
 - the sandboxed preview probably can't use Web Serial, so the real version is downloaded and opened in Chrome (`tier: typical`), and a "pretend micro:bit" button sends lines in the playground
 
-Still to decide:
-- The brief format: `projects.yml` per course, or Markdown files in `projects/`.
-- Whether a badge counts towards anything (proposed: no; it is its own achievement).
-- Which briefs come first (Python and Web), and who writes them.
-- Whether recap waits for the exit-question check or both ship together.
-- Who sees the reflection: kept only in the browser, or also on the Show your teacher card.
-- Whether the Web Serial helper is worth building before a crossover brief exists.
+**Decided and built (12 Oct, "build it now"):**
+- Briefs are `projects.yml` per course, with examples in `projects/` (AUTHORING › Open projects).
+- Badges never count towards Done.
+- The reflection shows on the Show your teacher card.
+- Recap shipped with the exit-question check (four questions that leaned on their lesson rewritten: turtle-catch, turtle-decisions, microbit-duel, microbit-reaction; their clips re-record).
+- `microbit.js` is ours (`web-helpers/`), not a site like MakeAIRobots, so the pages students make keep working from a downloaded file.
+
+**What exists:**
+- Python Foundations: Pattern maker, A street of your own, Chart your data, Click-and-key art, Your own game.
+- HTML & CSS: A page about something you love, A recipe card, An event page, An order form.
+- micro:bit and the computer: A live dashboard (crossover: MakeCode and a DOM page with `microbit.js`).
+- Recap on for Python, HTML & CSS, micro:bit and Arcade.
+
+**Next:**
+- Briefs for Arcade, micro:bit, the DOM course, Vue and Bootstrap.
+- MakeCode examples have no picture yet (render-pictures draws Python and HTML ones).
+- Try the badge and the Show your teacher card with a class.
+- Test `microbit.js` with a real micro:bit in Chrome (the sandbox has no USB).
 
 ## Proposed (12 Oct 2026, Matthew agreed the direction; not built): Web pathway after the DOM
 
@@ -227,6 +238,7 @@ Every route through the Web pathway (hand-built pages, Bootstrap, the DOM, Vue) 
 - An Arcade "Worlds" unit (tilemaps); a picture of the robot arena.
 
 ## Log
+- 12 Oct: open projects (10 briefs, self-assessed badges, skills lit by the concept scan), `microbit.js` with a pretend micro:bit, recap on four foundations courses.
 
 - 12 Oct: per-step MakeCode toolbox filters parked; hiding blocks, if wanted, comes through tutorials (Parked).
 - 12 Oct: Python Foundations lesson 8, Functions that decide (the lists and `if` revisit); later lessons renumbered 9 to 15 (slugs unchanged, so progress keeps).

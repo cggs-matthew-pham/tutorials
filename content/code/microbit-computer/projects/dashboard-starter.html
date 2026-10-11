@@ -1,0 +1,13 @@
+<h1>My micro:bit</h1>
+<button id="connect">Connect</button>
+<p id="reading">No reading yet</p>
+
+<script src="microbit.js"></script>
+<script>
+  document.querySelector("#connect").addEventListener("click", microbit.connect);
+  microbit.pretend(["temp:21", "temp:30"]);   // buttons for the pretend micro:bit
+
+  microbit.onValue(function (name, number) {
+    // name is "temp", number is the reading: show it on the page
+  });
+</script>

@@ -28,7 +28,7 @@ stretch: "Show a rating after each time: under 250 a happy face, under 400 a meh
 support: "Pair students for Milestone 3: one reads the goals aloud while the other builds."
 leads: "Next: Radio duel, the same game for two players over radio. Class ideas: a class reaction leaderboard on the board; does reaction time change after exercise? (a quick science investigation with real micro:bits)."
 exit:
-  q: "Why is waiting needed? What would happen without it?"
+  q: "A reaction game waits a random time, then shows a heart and starts timing. Pressing A shows your time only if a variable waiting is true, and waiting becomes true when the heart shows. Why is waiting needed? What would happen without it?"
   a: "Without it, pressing A before the heart still shows a number, so players could cheat by pressing early."
 explain: |
   **running time** is how many milliseconds since the micro:bit switched on. Store it when the heart appears (`start`), then at the press, *running time − start* is your reaction time.

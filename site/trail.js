@@ -137,6 +137,9 @@
       a.href = s.kind === 'going' && s.next ? s.next : link.href;
     }
     if (a) go.append(a);
+    // A side branch: the course's open projects (tools/projects.mjs).
+    var pn = n.isUnit ? byId[n.course] : n;   // a unit's card offers its course's projects
+    if (pn && pn.projects && pn.projectsHref) { var pj = el('a', 'tbtn tpj', '◆ ' + pn.projects + (pn.projects === 1 ? ' project' : ' projects') + ' to build'); pj.href = pn.projectsHref; go.append(pj); }
     card.append(go);
   }
   function rest() { show(pinned ? byId[pinned] : hereUnit || here || nodes[0]); }

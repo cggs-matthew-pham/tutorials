@@ -28,7 +28,7 @@ stretch: Make the path draw a picture (each spot a corner of a shape) and reveal
 support: Pair students for Milestone 3, one reading the goals and the other typing, swapping after each goal.
 leads: "Power-ups (next) adds lives, a status bar, a gold turtle and an upgrade. Then two optional lessons: Control panel (towards Gradio and web pages) and Game levels (towards MakeCode Arcade and microStudio). Creative option: students design their own path, such as their initials."
 exit:
-  q: "In the game, why does clicked check showing before it checks inside(...)?"
+  q: "A catch game scores a click with if showing and inside(x, y):, where showing is True only while the turtle is on screen. Why check showing as well as inside?"
   a: "So a click only scores while the turtle is visible. After it hides, clicking its old spot should not count."
 explain: |
   A game is a few **rules**, some **data** and a **loop**. Here the data is the score, the turtle's spot and whether it is showing. The loop is the timer that makes the turtle hop every second. The rules are what each click and each hide means.

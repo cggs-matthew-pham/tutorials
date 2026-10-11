@@ -1,0 +1,33 @@
+playground: microbit
+projects:
+  - id: live-dashboard
+    title: A live dashboard
+    after: commands
+    goal: |
+      Build **both ends** of a micro:bit gadget: the micro:bit measures something (light, temperature, movement) and sends it, and **your own web page** shows it live, changes how it looks when the reading crosses a line you choose, and has a button that sends the micro:bit a command.
+
+      The page talks to the micro:bit with `microbit.js`, which is already in the starter. In this preview it opens a **pretend micro:bit** (type the lines it would send). For the real thing, download the page and open it in Chrome or Edge with the micro:bit plugged in.
+    milestones:
+      - "The micro:bit sends a reading again and again, by name (serial write value)."
+      - "My page shows the reading as it changes (try it with the pretend micro:bit)."
+      - "My page changes how it looks when the reading crosses a line I chose."
+      - "A button on my page sends a command, and the micro:bit does something when it arrives."
+    stretch:
+      - "Send two readings and show both."
+      - "Keep a list of the last ten readings on the page."
+      - "Try it with a real micro:bit: download the page and open it in Chrome or Edge."
+    teacher: |
+      A crossover: the micro:bit half needs lessons 1 and 2 of this course; the page half needs the DOM course (events, textContent, style), or Make it react from HTML & CSS for the basics. Students who have only done one half can pair with someone who has done the other.
+
+      The playground preview cannot use USB (it is sandboxed), so `microbit.js` opens a pretend micro:bit there: a panel to type lines such as `temp:30`, which also shows what the page sends. The real micro:bit needs the downloaded page in Chrome or Edge, and MakeCode must not be connected to the micro:bit in another tab.
+    parts:
+      - title: The micro:bit
+        playground: microbit
+        uses: [serial-write, serial-read, text-compare]
+        example: dashboard.ts
+      - title: The web page
+        playground: dom
+        uses: [js-event, text-content, style-prop]
+        example: dashboard.html
+        starter: dashboard-starter.html
+        height: 560

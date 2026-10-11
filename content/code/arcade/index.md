@@ -4,6 +4,7 @@ summary: Make games with blocks in the Arcade simulator. Sprites, movement, over
 tagline: "Make your own games with sprites, scores and levels."
 order: 2
 challenge: challenge
+recap: true
 units:
   - { id: show-move, title: Sprites and movement, summary: "Put sprites on the screen, and move them with the controller and with speed." }
   - { id: collide-score, title: Collide and score, summary: "Overlaps as events, kinds, score, lives and timers." }

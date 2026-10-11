@@ -27,7 +27,7 @@ stretch: Make a pattern that repeats every 4 squares with four colours, using % 
 support: Give students the trace table with the first two rows done and ask them to say each condition aloud before filling the colour.
 leads: "Next lesson runs a decision on every item in a list. Decisions return later inside functions and in the game's hit test. Class ideas: a traffic light that runs through its states; predict the colour of tile 7 as a whole-class game."
 exit:
-  q: "In the checkerboard, is square i = 5 black or white? Explain using the remainder."
+  q: "A loop colours square i black if i % 2 == 0, else white. Is square 5 black or white? Explain using the remainder."
   a: "White. 5 % 2 is 1, so the condition i % 2 == 0 is false and the else path runs."
 explain: |
   An **if** lets your program choose. `if i % 2 == 0:` asks a question. If the answer is yes, the indented lines under it run. If not, the lines under **else** run instead.

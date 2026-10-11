@@ -273,6 +273,54 @@ await pictures({
   },
 });
 
+// ---- Open projects (tools/projects.mjs): a brief's example as its picture ("one way it could look"), never its code.
+// Python runs in the turtle playground (a program that waits for clicks or keys is pictured after 4 seconds); HTML and
+// DOM examples are pages, like expected results. MakeCode parts have no picture yet. _pictures/projects/<course>/<id>[-<part>].png.
+const { loadProjects } = await import('./projects.mjs');
+await pictures({
+  name: 'projects', dir: join(DIR, 'projects'), viewport: { width: 900, height: 700 },
+  base: hashDir('playground', 'media', String(withMedia), String(showPage), 'projects-v1'),
+  jobs: loadProjects('content', () => undefined).flatMap((s) => s.projects.flatMap((p) => p.parts.map((x, i) => ({ x, i, p }))
+    .filter(({ x }) => x.exampleCode && ['python', 'html'].includes(x.language))
+    .map(({ x, i, p }) => ({ id: `${s.course}/${p.id}${p.parts.length > 1 ? `-${i + 1}` : ''}`, lang: x.language, code: `<!-- ${x.language} -->\n${x.exampleCode}`, src: x.exampleCode })))),
+  async draw(page, j) {
+    if (j.lang === 'html') {
+      await page.setViewportSize({ width: 520, height: 700 });
+      await showPage(page, withMedia(j.src));
+      await page.waitForTimeout(400);
+      const bottom = await page.evaluate(() => { let b = 0; for (const el of document.body.querySelectorAll('*')) { const q = el.getBoundingClientRect(); if (q.height > 0) b = Math.max(b, q.bottom); } return Math.ceil(b); });
+      if (!bottom) return null;
+      const height = Math.min(700, bottom + 12);
+      const buf = await page.screenshot({ clip: { x: 0, y: 0, width: 520, height } });
+      return { data: `data:image/png;base64,${buf.toString('base64')}`, w: 1040, h: height * 2, div: 2 };
+    }
+    await page.setViewportSize({ width: 900, height: 700 });
+    await page.goto(`http://localhost:${port}/_playground/?view=output&speed=10&autorun=1&shape=classic&code=${encodeURIComponent(j.src)}`);
+    await page.waitForFunction(() => ['done', 'error', 'stopped'].includes(window.__playground?.status), null, { timeout: 4000 }).catch(() => {});
+    const st = await page.evaluate(() => window.__playground);
+    if (st?.status === 'error') throw new Error(`${j.id}: the example failed: ${st.error}`);
+    const png = await page.evaluate(() => {
+      const c = document.getElementById('canvas'), x = c.getContext('2d');
+      const { width: w, height: hh } = c, px = x.getImageData(0, 0, w, hh).data, bg = px.slice(0, 4);
+      let x0 = w, y0 = hh, x1 = 0, y1 = 0;
+      for (let y = 0; y < hh; y++) for (let i = 0; i < w; i++) {
+        const k = (y * w + i) * 4, r = px[k], g = px[k + 1], b = px[k + 2];
+        if (Math.abs(r - bg[0]) + Math.abs(g - bg[1]) + Math.abs(b - bg[2]) <= 30) continue;
+        if (Math.max(r, g, b) - Math.min(r, g, b) < 12 && r > 150 && r < 240) continue;
+        if (i < x0) x0 = i; if (i > x1) x1 = i; if (y < y0) y0 = y; if (y > y1) y1 = y;
+      }
+      if (x1 < x0) return null;
+      const m = Math.round(Math.min(w, hh) * 0.03);
+      x0 = Math.max(0, x0 - m); y0 = Math.max(0, y0 - m); x1 = Math.min(w - 1, x1 + m); y1 = Math.min(hh - 1, y1 + m);
+      const o = document.createElement('canvas'); o.width = x1 - x0 + 1; o.height = y1 - y0 + 1;
+      const ox = o.getContext('2d'); ox.fillStyle = `rgb(${bg[0]},${bg[1]},${bg[2]})`; ox.fillRect(0, 0, o.width, o.height);
+      ox.drawImage(c, x0, y0, o.width, o.height, 0, 0, o.width, o.height);
+      return { data: o.toDataURL('image/png'), w: o.width, h: o.height };
+    });
+    return png && { ...png, div: 2 };
+  },
+});
+
 // ---- The board: a setup drawn as students see it, without its controls (the scale, the machine, or a graph's
 // axes and lines), cropped to what is drawn (anything unlike the board's background), ignoring the board's border.
 async function drawBoard(page, j) {

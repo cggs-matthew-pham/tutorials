@@ -28,6 +28,8 @@ export function hint(message, code = '', line = null) {
     h = 'In the script, a ref keeps its value in `.value`: for example `score.value++`, not `score++`. The page unwraps refs for you; the script does not.';
   } else if ((x = m.match(/^ReferenceError: (\w+) is not defined/)) && /data-svelte|htmPreact|\bVue\b/.test(code) && ['Vue', 'htmPreact', 'svelte'].includes(x[1])) {
     h = `\`${x[1]}\` comes from a file loaded with a \`<script src>\` line. Check that line is there, above this script, and spelt as in the lesson.`;
+  } else if (/^ReferenceError: microbit is not defined/.test(m)) {
+    h = '`microbit` comes from microbit.js. Add `<script src="microbit.js"></script>` above your own script.';
   }
   if (h) return { hint: h, line: line && lines[line - 1] !== undefined ? line : null };
   return base(message, code, line);

@@ -1,0 +1,24 @@
+<style>
+  body { font-family: sans-serif; }
+  #reading { font-size: 48px; margin: 10px 0; }
+</style>
+<h1>Classroom temperature</h1>
+<button id="connect">Connect</button>
+<button id="alarm">Sound the alarm</button>
+<p id="reading">No reading yet</p>
+
+<script src="microbit.js"></script>
+<script>
+  document.querySelector("#connect").addEventListener("click", microbit.connect);
+  microbit.pretend(["temp:21", "temp:30"]);
+
+  microbit.onValue(function (name, number) {
+    if (name === "temp") {
+      document.querySelector("#reading").textContent = number + " °C";
+      document.body.style.background = number > 25 ? "#ffd6d0" : "white";
+    }
+  });
+  document.querySelector("#alarm").addEventListener("click", function () {
+    microbit.send("alarm");
+  });
+</script>

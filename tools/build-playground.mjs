@@ -117,6 +117,9 @@ function addPageFiles(dest, { pictures = true } = {}) {
   if (pictures && existsSync(join(root, 'media', 'html'))) cpSync(join(root, 'media', 'html'), media, { recursive: true });
   const web = join(root, 'vendor', 'web');
   if (existsSync(web)) for (const f of readdirSync(web)) if (!['make.mjs', 'README.md', 'svelte-glue.js'].includes(f)) copyFileSync(join(web, f), join(media, f));
+  // Our own helpers for pages (web-helpers/: microbit.js, Web Serial with a pretend micro:bit), beside the libraries.
+  const ours = join(root, 'web-helpers');
+  if (existsSync(ours)) for (const f of readdirSync(ours)) copyFileSync(join(ours, f), join(media, f));
 }
 
 /** The web page and JavaScript playground (DOM course): our editor, console and sandbox page; the JavaScript hints are shared with p5 (p5-errors.js). */

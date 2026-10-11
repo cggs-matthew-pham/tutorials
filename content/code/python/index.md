@@ -4,6 +4,7 @@ summary: Learn Python by drawing with a turtle.
 tagline: "Draw with code, then build your own catch-the-turtle game."
 order: 1
 challenge: challenge
+recap: true
 units:
   - { id: drawing, title: Drawing and repeating, summary: "Commands, loops and variables." }
   - { id: choices, title: Choices and collections, summary: "Decisions with if, and lists of values." }
