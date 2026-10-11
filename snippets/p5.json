@@ -1,0 +1,274 @@
+{
+ "title": "p5.js reference",
+ "summary": "The p5.js commands and JavaScript from the course, each with what it does. Copy a card into your sketch.",
+ "language": "javascript",
+ "groups": [
+  {
+   "name": "Canvas and shapes",
+   "items": [
+    {
+     "label": "createCanvas",
+     "code": "createCanvas(‹400›, ‹300›);",
+     "hint": "Makes the drawing area: width, then height, in pixels. Put it first in setup(). (0, 0) is the top left and y counts down.",
+     "matches": "createCanvas\\("
+    },
+    {
+     "label": "background",
+     "code": "background(‹220›);",
+     "hint": "Fills the whole canvas with a colour. One number is grey (0 black, 255 white); three are red, green, blue.",
+     "matches": "(?<![\\w.])background\\("
+    },
+    {
+     "label": "circle",
+     "code": "circle(‹200›, ‹150›, ‹80›);",
+     "hint": "Draws a circle: x and y of its middle, then its width.",
+     "matches": "(?<![\\w.])circle\\("
+    },
+    {
+     "label": "rect",
+     "code": "rect(‹50›, ‹40›, ‹100›, ‹60›);",
+     "hint": "Draws a rectangle: x and y of its top-left corner, then width and height.",
+     "matches": "(?<![\\w.])rect\\("
+    },
+    {
+     "label": "ellipse",
+     "code": "ellipse(‹200›, ‹150›, ‹120›, ‹60›);",
+     "hint": "Draws an oval: x and y of its middle, then its width and height.",
+     "matches": "(?<![\\w.])ellipse\\("
+    },
+    {
+     "label": "line",
+     "code": "line(‹20›, ‹20›, ‹180›, ‹100›);",
+     "hint": "Draws a line from one point to another: x1, y1, x2, y2.",
+     "matches": "(?<![\\w.])line\\("
+    },
+    {
+     "label": "triangle",
+     "code": "triangle(‹100›, ‹20›, ‹60›, ‹100›, ‹140›, ‹100›);",
+     "hint": "Draws a triangle from its three corners: x1, y1, x2, y2, x3, y3.",
+     "matches": "(?<![\\w.])triangle\\("
+    },
+    {
+     "label": "text",
+     "code": "text(‹\"Hello\"›, ‹20›, ‹30›);",
+     "hint": "Writes words on the canvas at x, y. Join a number on with +: \"Score: \" + score.",
+     "matches": "(?<![\\w.])text\\("
+    }
+   ]
+  },
+  {
+   "name": "Colour",
+   "items": [
+    {
+     "label": "fill",
+     "code": "fill(‹255›, ‹120›, ‹160›);",
+     "hint": "Sets the colour of shapes drawn after it (red, green, blue, each 0 to 255). It does not change shapes already drawn.",
+     "matches": "(?<![\\w.])fill\\("
+    },
+    {
+     "label": "stroke",
+     "code": "stroke(‹0›);",
+     "hint": "Sets the colour of outlines drawn after it.",
+     "matches": "(?<![\\w.])stroke\\("
+    },
+    {
+     "label": "noStroke",
+     "code": "noStroke();",
+     "hint": "Draws shapes with no outline.",
+     "matches": "noStroke\\("
+    },
+    {
+     "label": "strokeWeight",
+     "code": "strokeWeight(‹4›);",
+     "hint": "Sets how thick outlines and lines are.",
+     "matches": "strokeWeight\\("
+    }
+   ]
+  },
+  {
+   "name": "Movement and the draw loop",
+   "items": [
+    {
+     "label": "setup",
+     "code": "function setup() {\n  ‹createCanvas(400, 300);›\n}",
+     "hint": "Runs once, when the sketch starts. Make the canvas and set things up here.",
+     "matches": "function\\s+setup\\s*\\("
+    },
+    {
+     "label": "draw",
+     "code": "function draw() {\n  ‹background(220);›\n}",
+     "hint": "Runs again and again, about 60 times a second. Clear the canvas, then draw things where they are now.",
+     "matches": "function\\s+draw\\s*\\("
+    },
+    {
+     "label": "let",
+     "code": "let ‹x› = ‹0›;",
+     "hint": "Makes a variable. Put it above setup() to keep its value between frames.",
+     "matches": "(?<![\\w.])let\\s+\\w+\\s*="
+    },
+    {
+     "label": "change a variable",
+     "code": "‹x› = ‹x› + ‹2›;",
+     "hint": "Moves the value on a little: x goes up by 2 each time this runs.",
+     "matches": "(?<![\\w.])\\w+\\s*=\\s*\\w+\\s*[-+*/]"
+    },
+    {
+     "label": "frameCount",
+     "code": "frameCount",
+     "hint": "How many frames have been drawn so far. It goes up by 1 every frame.",
+     "matches": "frameCount"
+    },
+    {
+     "label": "mouseX and mouseY",
+     "code": "mouseX, mouseY",
+     "hint": "Where the mouse is on the canvas, updated every frame.",
+     "matches": "mouse[XY]"
+    }
+   ]
+  },
+  {
+   "name": "Decisions",
+   "items": [
+    {
+     "label": "if",
+     "code": "if (‹x > 300›) {\n  ‹x = 0;›\n}",
+     "hint": "Does the code in the braces only when the condition is true. Compare with <, >, ===.",
+     "matches": "(?<![\\w.])if\\s*\\("
+    },
+    {
+     "label": "if else",
+     "code": "if (‹x > 150›) {\n  ‹fill(255, 0, 0);›\n} else {\n  ‹fill(0, 0, 255);›\n}",
+     "hint": "Chooses between two things.",
+     "matches": "\\}\\s*else\\s*\\{"
+    },
+    {
+     "label": "and, or",
+     "code": "if (‹x > 50› && ‹x < 150›) {\n  ‹...›\n}",
+     "hint": "&& means both must be true; || means either one.",
+     "matches": "&&|\\|\\|"
+    }
+   ]
+  },
+  {
+   "name": "Lists and loops",
+   "items": [
+    {
+     "label": "array",
+     "code": "let ‹heights› = [‹40›, ‹90›, ‹150›];",
+     "hint": "Makes a list. The first item is heights[0], because counting starts at 0.",
+     "matches": "=\\s*\\["
+    },
+    {
+     "label": "array item",
+     "code": "‹heights›[‹0›]",
+     "hint": "One item of a list, by its place.",
+     "matches": "\\w\\[[^\\]]+\\]"
+    },
+    {
+     "label": "length",
+     "code": "‹heights›.length",
+     "hint": "How many items are in a list.",
+     "matches": "\\.length"
+    },
+    {
+     "label": "push",
+     "code": "‹heights›.push(‹120›);",
+     "hint": "Adds an item to the end of a list.",
+     "matches": "\\.push\\("
+    },
+    {
+     "label": "for count",
+     "code": "for (let ‹i› = 0; ‹i› < ‹6›; ‹i›++) {\n  ‹...›\n}",
+     "hint": "Repeats the code in the braces, with i counting 0, 1, 2, ... up to one less than 6.",
+     "matches": "for\\s*\\(\\s*let\\s+\\w+\\s*="
+    },
+    {
+     "label": "for of",
+     "code": "for (let ‹star› of ‹stars›) {\n  ‹...›\n}",
+     "hint": "Does the code once for each item of a list, with star as that item.",
+     "matches": "for\\s*\\(\\s*(let|const)\\s+\\w+\\s+of"
+    },
+    {
+     "label": "random",
+     "code": "random(‹10›, ‹100›)",
+     "hint": "A random number from the first number up to (not including) the second.",
+     "matches": "(?<![\\w.])random\\("
+    }
+   ]
+  },
+  {
+   "name": "Objects",
+   "items": [
+    {
+     "label": "object",
+     "code": "let ‹star› = { x: ‹20›, y: ‹30›, speed: ‹2› };",
+     "hint": "Keeps the values of one thing together, each with a name.",
+     "matches": "[=(,]\\s*\\{\\s*\\w+\\s*:"
+    },
+    {
+     "label": "property",
+     "code": "‹star›.‹y›",
+     "hint": "Reads one value of an object with a dot. Change it the same way: star.y = star.y + 1;",
+     "matches": "\\b[A-Za-z_]\\w*\\.(?!length\\b|push\\b)[A-Za-z_]\\w*\\b(?![\\w(])"
+    }
+   ]
+  },
+  {
+   "name": "Functions",
+   "items": [
+    {
+     "label": "function",
+     "code": "function ‹drawFlower›(‹x›, ‹y›) {\n  ‹...›\n}",
+     "hint": "Gives code a name. The names in the brackets are parameters. It runs only when called: drawFlower(80, 100);",
+     "matches": "function\\s+(?!setup\\b|draw\\b|mouse|key)\\w+\\s*\\("
+    },
+    {
+     "label": "return",
+     "code": "return ‹n * 2›;",
+     "hint": "Hands an answer back to the line that called the function.",
+     "matches": "(?<![\\w.])return\\b"
+    }
+   ]
+  },
+  {
+   "name": "Events and keys",
+   "items": [
+    {
+     "label": "mousePressed",
+     "code": "function mousePressed() {\n  ‹...›\n}",
+     "hint": "p5 runs this each time the mouse is clicked. You never call it yourself.",
+     "matches": "function\\s+mousePressed"
+    },
+    {
+     "label": "keyPressed",
+     "code": "function keyPressed() {\n  if (key === ‹\"r\"›) {\n    ‹...›\n  }\n}",
+     "hint": "p5 runs this each time a key is pressed; key holds which one.",
+     "matches": "function\\s+keyPressed"
+    },
+    {
+     "label": "dist",
+     "code": "dist(‹mouseX›, ‹mouseY›, ‹ball.x›, ‹ball.y›)",
+     "hint": "The straight distance between two points. Two things touch when it is small.",
+     "matches": "(?<![\\w.])dist\\("
+    }
+   ]
+  },
+  {
+   "name": "Maths for patterns",
+   "items": [
+    {
+     "label": "sin and cos",
+     "code": "‹150› + cos(‹angle›) * ‹100›",
+     "hint": "cos gives how far across and sin how far up or down for a point going round a circle (angle in radians; radians(30) converts degrees).",
+     "matches": "(?<![\\w.])(sin|cos)\\("
+    },
+    {
+     "label": "map",
+     "code": "map(‹i›, ‹0›, ‹11›, ‹255›, ‹120›)",
+     "hint": "Turns a number in one range into the matching number in another.",
+     "matches": "(?<![\\w.])map\\("
+    }
+   ]
+  }
+ ]
+}

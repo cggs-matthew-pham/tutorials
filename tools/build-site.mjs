@@ -205,6 +205,7 @@ const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Pyth
   // The console bridge: the turtle playground with its own saved program; a starter with no turtle opens it in console mode.
   'code/console': { kind: 'turtle', dir: '_playground', label: 'Python console', id: 'free/console', code: 'name = input("What is your name? ")\nprint("Hello, " + name + "!")\n' },
   'code/objects': { kind: 'turtle', dir: '_playground', label: 'Python', id: 'free/objects' },
+  'code/p5': { kind: 'p5', dir: '_playground-p5', label: 'p5.js', id: 'free/p5', code: 'function setup() {\n  createCanvas(400, 300);\n  background(240);\n  circle(200, 150, 100);\n}\n' },
   'code/flask': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/flask', code: 'from flask import Flask\n\napp = Flask(__name__)\n\n\n@app.route("/")\ndef home():\n    return "<h1>Hello</h1>"\n\n\napp.run()\n' },
   'code/gradio': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/gradio', code: 'import gradio as gr\n\n\ndef shout(text):\n    return text.upper() + "!"\n\n\ngr.Interface(fn=shout, inputs="text", outputs="text").launch()\n' },
   'code/ml': { kind: 'turtle', dir: '_playground-py', label: 'Python', id: 'free/ml', code: 'import pandas as pd\n\npenguins = pd.read_csv("penguins.csv")\nprint(penguins.head())\n' },
@@ -213,7 +214,7 @@ const PLAY = { 'code/python': { kind: 'turtle', dir: '_playground', label: 'Pyth
 // Maths cards (snippets/maths.json, maths-<name>.json): a Reference page and cheat sheets for the course each names.
 const MATHS_CARDS = loadAllMathsCards();
 const REFS = [{ file: 'turtle', path: 'code/python/reference' }, { file: 'html', path: 'code/html/reference' }, { file: 'microbit', path: 'code/microbit/reference' }, { file: 'arcade', path: 'code/arcade/reference' }, { file: 'robot', path: 'code/robotics/reference' },
-  { file: 'microbit', path: 'code/microbit-computer/reference' }, { file: 'microbit', path: 'code/microbit-security/reference' },
+  { file: 'p5', path: 'code/p5/reference' }, { file: 'microbit', path: 'code/microbit-computer/reference' }, { file: 'microbit', path: 'code/microbit-security/reference' },
   // groups: only these groups of the file; title and summary: shown instead of the file's own.
   { file: 'turtle', path: 'code/console/reference', groups: ['Text in and out', 'Code structure'], title: 'Python console reference', summary: 'The commands from the console bridge, with what each one does.' },
   { file: 'turtle', path: 'code/deeper/reference', groups: ['Text in and out', 'Text and collections', 'Files', 'Code structure', 'Objects'], title: 'Python console reference', summary: 'Text, lists, dictionaries and files in the console, with what each command does.' },
@@ -253,6 +254,7 @@ const readPics = (sub) => { const f = join(OUT, '_pictures', ...sub, 'pictures.j
 const PICS = { python: { pics: readPics([]), dir: '_pictures/' }, html: { pics: readPics(['html']), dir: '_pictures/html/' }, maths: { pics: readPics(['maths']), dir: '_pictures/maths/' }, makecode: { pics: readPics(['makecode']), dir: '_pictures/makecode/' } };
 // Arcade blocks share the MakeCode manifest; render-pictures draws its snippet blocks as arcade/<snippet id>.png,
 // because Arcade and micro:bit snippets can share a label (if, pause).
+PICS.javascript = { pics: {}, dir: '_pictures/p5/' };   // no pictures yet: keep p5 cards from borrowing turtle ones by id
 PICS.arcade = { pics: Object.fromEntries(Object.entries(PICS.makecode.pics).filter(([k]) => k.startsWith('arcade/')).map(([k, v]) => [k.slice(7), v])), dir: '_pictures/makecode/arcade/' };
 // A MakeCode program's blocks picture (drawn by render-pictures), as { url, w, h } from base (the site root), or null.
 const blocksPic = (code, base) => { const id = blocksId(code), p = PICS.makecode.pics[id]; return p ? { url: `${base}_pictures/makecode/${id}.png?v=${p.hash || ''}`, w: p.w, h: p.h } : null; };
@@ -332,7 +334,7 @@ const sharedModuleNames = Object.keys(loadSharedModules());
 for (const [path, pg] of Object.entries(PLAY)) {
   const depth = path.split('/').length + 1; // .../playground/ -> site root
   const up = '../'.repeat(depth);
-  const mkPg = pg.kind === 'microbit' || pg.kind === 'arcade';
+  const mkPg = pg.kind === 'microbit' || pg.kind === 'arcade' || pg.kind === 'p5';
   const src = `${up}${pg.dir}/index.html?id=${pg.id || (mkPg ? `free/${pg.pkg ? path.split('/').pop() : pg.kind}` : 'free')}&free=1${pg.code ? `&code=${encodeURIComponent(pg.code)}` : ''}&v=${VERSIONS[pg.dir]}${mkPg ? `&target=${pg.kind}` : ''}${pg.pkg ? `&pkg=${encodeURIComponent(pg.pkg)}` : ''}${pg.kind === 'turtle' && sharedModuleNames.length ? `&use=${sharedModuleNames.join(',')}` : ''}`;
   mkdirSync(join(OUT, path, 'playground'), { recursive: true });
   writeFileSync(join(OUT, path, 'playground', 'index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">

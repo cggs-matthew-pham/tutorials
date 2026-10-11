@@ -10,7 +10,8 @@ export function hint(message, code = '', line = null) {
   let x;
   if ((x = m.match(/^(?:ReferenceError: )?(\w+) is not defined/))) {
     const name = x[1];
-    const other = lines.join('\n').match(new RegExp('\\b(' + [name.toLowerCase(), cap(name), name.replace(/^(.)/, (c) => c.toLowerCase())].filter((n) => n !== name).join('|') + ')\\b'));
+    const found = [...new Set(lines.join('\n').match(/[A-Za-z_$][\w$]*/g) || [])].find((w) => w !== name && w.toLowerCase() === name.toLowerCase());
+    const other = found ? [null, found] : null;
     h = other
       ? `JavaScript does not know the name \`${name}\`, but it does know \`${other[1]}\`. Capital letters matter: \`${name}\` and \`${other[1]}\` are different names.`
       : `JavaScript does not know the name \`${name}\`. Check its spelling, or make it first with \`let ${name} = …\`.`;
@@ -22,6 +23,8 @@ export function hint(message, code = '', line = null) {
     h = `\`${x[1]}\` is not a function. Check its spelling and capital letters: is it a name p5 has, or a function you wrote?`;
   } else if ((x = m.match(/Cannot (?:read|set) propert(?:y|ies) of (undefined|null)(?: \((?:reading|setting) '([^']+)'\))?/))) {
     h = `Something is ${x[1]} where the code expects a thing with \`${x[2] || 'a value'}\`. Check the name before the dot, and that the array or object has been made (and the place number exists).`;
+  } else if (/Unexpected identifier/.test(m)) {
+    h = 'Two names are side by side with nothing between them. A `;`, a `,` or an operator such as `+` is probably missing. Check this line and the line above.';
   } else if (/Unexpected end of input|missing \) after argument list|Unexpected token '\}'|Unexpected token '\)'|expected expression, got/.test(m) || /SyntaxError/.test(m) && /Unexpected/.test(m)) {
     const open = (code.match(/\(/g) || []).length - (code.match(/\)/g) || []).length;
     const brace = (code.match(/\{/g) || []).length - (code.match(/\}/g) || []).length;
@@ -34,8 +37,6 @@ export function hint(message, code = '', line = null) {
       : 'Something on this line, or the line above, is missing or extra: a comma between values, a quote that was never closed, or a bracket.';
   } else if (/Invalid or unexpected token|unterminated string|Unexpected string/.test(m)) {
     h = 'A quote was never closed, or a comma is missing between two things. Check the quotes on this line and the line above.';
-  } else if (/Unexpected identifier/.test(m)) {
-    h = 'Two names are side by side with nothing between them. A `;`, a `,` or an operator such as `+` is probably missing. Check this line and the line above.';
   } else if (/Illegal return|missing\) after|redeclaration|Identifier '(\w+)' has already been declared/.test(m)) {
     x = m.match(/Identifier '(\w+)' has already been declared/);
     h = x ? `\`${x[1]}\` is made twice with \`let\`. Make it once, then change it later without \`let\` (\`${x[1]} = …\`).` : null;
