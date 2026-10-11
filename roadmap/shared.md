@@ -114,6 +114,15 @@ Pathway pages open on a trail map for students, with a "List for teachers" toggl
 - Cross-subject links (the winch needs maths ratio and science forces) could be portal nodes, as Code does across pathways.
 - Taglines for every maths and science course.
 
+## Done (11 Oct 2026): curriculum map for maths (preview for maths teachers)
+
+`/maths/map/` (and "Curriculum map" in the Maths menu, and a card on the Maths page): all 101 Years 7–10 descriptors in a grid of strands by years, plus the 22 earlier-year descriptors they build on. Each tile shows its waypoints (done, has a lesson, no lesson yet, from lessons' `node:`). Hover or focus previews a descriptor in the card (descriptor text, waypoints with their lessons and courses, hinge marks, builds on and leads to); click chooses it and puts `#AC9M8A02` in the address to share. Lines show builds on (solid blue) and leads to (dashed teal) for the one in focus only. "With lessons" dims the rest. Phones: one list per strand, card first, no lines.
+
+- **Data:** `data/curriculum/maths.json`, made by `node tools/import-curriculum.mjs <waypoints-kit checkout> maths` from waypoints-kit (now at cggs-matthew-pham/waypoints-kit, public) and committed, so the build never needs the kit. Titles: the progression page's where one exists, else the kit's in sentence case. `data/progressions/` (the node check) is unchanged.
+- **Shared files changed:** `tools/build-site.mjs` (map page when the subject's index.md has `map: true` and the data exists; menu item; Maths page card), `tools/lesson-view.mjs` (one rule: `.pcard.pmap`). New: `tools/curriculum-map.mjs`, `site/curriculum-map.js`, `tools/import-curriculum.mjs`.
+- **Questions for the maths teachers:** is the grid the right overview, or would a list by strand be quicker? Is a "usually taught" layer (term or school program) worth adding beside the builds-on lines? Which descriptors most need lessons next? Should students see this, or the course trails?
+- **Next:** science (the kit has 51 Years 7–10 descriptors, including Science as a human endeavour and Inquiry skills), once the maths preview settles the design.
+
 ## Parked
 
 - Custom domain setup (DNS and the Pages setting are on Matthew's side).

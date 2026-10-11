@@ -184,7 +184,7 @@ ul.lessons{list-style:none;padding:0;display:grid;gap:14px}ul.lessons a{display:
 .pstage h3{margin:14px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
 .pcard{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:inherit}.pcard:hover{border-color:var(--accent)}
-.pcard b{display:block;font-size:1.05rem}.pcard .ptag{color:var(--ink);font-size:15px;margin-top:4px}.pafter{display:block;font-size:12.5px;color:var(--muted);margin-top:6px}.pcard span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.pcard b{display:block;font-size:1.05rem}.pcard .ptag{color:var(--ink);font-size:15px;margin-top:4px}.pcard.pmap{margin:6px 0 4px;border-color:var(--accent)}.pcard.pmap b::after{content:' →';color:var(--accent)}.pafter{display:block;font-size:12.5px;color:var(--muted);margin-top:6px}.pcard span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
 .pcard.soon{background:transparent;border-style:dashed}.pcard.soon b{color:var(--muted)}.pcard em{display:inline-block;margin-top:8px;font-style:normal;font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:1px 9px}
 .pcard .cprog{display:block;font-style:normal;font-weight:400;font-size:13px;color:var(--muted);margin-top:8px;border:0;padding:0;border-radius:0}.pcard .cbar{display:block;height:6px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:4px}.pcard .cbar i{display:block;height:100%;background:var(--run)}
 .ptools{margin:34px 0 0;color:var(--muted);font-size:14px}

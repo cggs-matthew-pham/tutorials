@@ -19,6 +19,7 @@ import { loadLessons, validateLesson, getSnippet, loadDirMeta, loadSnippetFiles,
 import { buildPlayground, buildPyPlayground, buildHtmlPlayground, buildMathsPlayground, buildSciencePlayground, buildKatex, buildNumbas, buildMakecodePlayground, buildExplainStage } from './build-playground.mjs';
 import { buildCreate } from './build-create.mjs';
 import { layoutTrail, trailHtml, TRAIL_CSS } from './trail.mjs';
+import { loadCurriculum, curriculumMapHtml, CMAP_CSS } from './curriculum-map.mjs';
 import { markedMath, textWithMath, workedHtml } from './maths.mjs';
 import { FORMS_JS, NUMBAS_VERSION } from './maths-forms.mjs';
 import { loadAllMathsCards, mathsRefItem, mathsCheatBody, mathsCheatMd, MATHS_CARD_CSS } from './maths-cards.mjs';
@@ -221,7 +222,7 @@ const COURSES = [...new Set(lessons.map((l) => l.slug.split('/').slice(0, -1).jo
   .map((path) => ({ path, title: dirNode(path).title, order: dirNode(path).order }))
   .sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity) || a.title.localeCompare(b.title));
 const SUBJECTS = [...dirNode('').kids.entries()].filter(([, k]) => k.kind === 'dir')
-  .map(([name, k]) => ({ path: name, title: k.title, order: k.order, pathways: Array.isArray(dirNode(name).meta?.pathways) ? dirNode(name).meta.pathways : [] }))
+  .map(([name, k]) => ({ path: name, title: k.title, order: k.order, pathways: Array.isArray(dirNode(name).meta?.pathways) ? dirNode(name).meta.pathways : [], map: dirNode(name).meta?.map === true && !!loadCurriculum(name) }))
   .sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity) || a.title.localeCompare(b.title));
 const pathwayOf = (coursePath) => { for (const sub of SUBJECTS) for (const pw of sub.pathways) if ((pw.courses || []).some((c) => c.path === coursePath)) return { sub, pw }; return null; };
 const navFor = (pagePath, here, coursePath = null) => {
@@ -232,7 +233,8 @@ const navFor = (pagePath, here, coursePath = null) => {
     root: '../'.repeat(pagePath ? pagePath.split('/').length : 0), here, homeOn: pagePath === '',
     subjects: SUBJECTS.map((sub) => ({
       title: sub.title, href: `${sub.path}/`, on: at(sub.path) || inPw?.sub === sub,
-      items: sub.pathways.map((pw) => ({ title: pw.title, href: `${sub.path}/paths/${pw.id}/`, on: at(`${sub.path}/paths/${pw.id}`) || inPw?.pw === pw })),
+      items: sub.pathways.map((pw) => ({ title: pw.title, href: `${sub.path}/paths/${pw.id}/`, on: at(`${sub.path}/paths/${pw.id}`) || inPw?.pw === pw }))
+        .concat(sub.map ? [{ title: 'Curriculum map', href: `${sub.path}/map/`, on: at(`${sub.path}/map`) }] : []),
     })),
     current: c ? { href: `${c.path}/`, playground: !!PLAY[c.path], reference: REFS.some((r) => r.path === `${c.path}/reference`) } : null,
   });
@@ -314,6 +316,7 @@ for (const path of [...new Set(lessons.map((l) => l.slug.split('/').slice(0, -1)
 writeFileSync(join(OUT, 'progress-manifest.json'), JSON.stringify(manifest));
 copyFileSync(join('site', 'progress.js'), join(OUT, 'progress.js'));
 copyFileSync(join('site', 'trail.js'), join(OUT, 'trail.js')); // the trail map on pathway pages (tools/trail.mjs)
+copyFileSync(join('site', 'curriculum-map.js'), join(OUT, 'curriculum-map.js')); // the curriculum map (tools/curriculum-map.mjs)
 copyFileSync(join('site', 'check.js'), join(OUT, 'check.js')); // the Check your school page (content/check.md)
 
 const sharedModuleNames = Object.keys(loadSharedModules());
@@ -407,8 +410,22 @@ for (const node of dirs.values()) {
     const body = pathways.map((pw) => `<section class="pathway" id="${esc(pw.id || '')}"><h2><a href="paths/${esc(pw.id)}/">${esc(pw.title)}</a></h2>${pw.summary ? `<p class="psum">${esc(pw.summary)}</p>` : ''}` +
       stages(pw, upHere) + `</section>`).join('');
     const create = node.path === 'code' ? `<p class="ptools">For teachers: <a href="create/">Create a lesson</a></p>` : '';
+    // map: true in the subject's index.md, with data/curriculum/<subject>.json: a curriculum map at <subject>/map/
+    // (tools/curriculum-map.mjs, site/curriculum-map.js).
+    const cur = node.meta?.map === true ? loadCurriculum(node.path) : null;
+    if (cur) {
+      const mp = `${node.path}/map`, mup = '../'.repeat(mp.split('/').length);
+      const subjLessons = lessons.filter((l) => l.slug.startsWith(node.path + '/')).map((l) => ({ slug: l.slug, title: l.title, node: l.node, course: dirNode(l.slug.split('/').slice(0, -1).join('/')).title }));
+      mkdirSync(join(OUT, mp), { recursive: true });
+      writeFileSync(join(OUT, mp, 'index.html'), page(`Curriculum map: ${node.title}`,
+        `<style>${CMAP_CSS}</style><header class="top"><a class="crumb" href="../">← ${esc(node.title)}</a><h1>${esc(node.title)} curriculum map</h1>` +
+        `<p class="lede">Every Years 7–10 content descriptor, by strand and year: its waypoints, which have lessons here, what it builds on and what it leads to.</p></header>` +
+        curriculumMapHtml(node.path, cur, subjLessons, mup, esc),
+        `<script src="${mup}progress.js" data-root="${mup}" defer></script><script src="${mup}curriculum-map.js" defer></script>`, navFor(mp, 'home')));
+    }
+    const mapLink = cur ? `<a class="pcard pmap" href="map/"><b>Curriculum map</b><span>Every Years 7–10 descriptor by strand and year: how they connect, and which have lessons.</span></a>` : '';
     writeFileSync(join(outDir, 'index.html'), page(node.title,
-      `<header class="top">${crumb}<h1>${esc(node.title)}</h1>${node.summary ? `<p class="lede">${esc(node.summary)}</p>` : ''}</header>${body}${create}`,
+      `<header class="top">${crumb}<h1>${esc(node.title)}</h1>${node.summary ? `<p class="lede">${esc(node.summary)}</p>` : ''}</header>${mapLink}${body}${create}`,
       `<script src="${up}progress.js" data-root="${up}" defer></script>`, navFor(node.path, 'home')));
     // One page per pathway: <subject>/paths/<id>/, with its courses in order and the planned ones as placeholders.
     for (const pw of pathways) {

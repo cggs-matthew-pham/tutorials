@@ -1,5 +1,6 @@
 ---
 title: Maths
+map: true
 summary: Interactive maths lessons. Predict, try it on a board, study a worked example, change one thing at a time, practise, then make your own. Four pathways follow the curriculum's strands; start with whichever your class is working on.
 pathways:
   - id: algebra

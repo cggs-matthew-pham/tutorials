@@ -1,0 +1,66 @@
+// Import a subject's Years 7–10 descriptors from a waypoints-kit checkout into data/curriculum/<subject>.json,
+// for the curriculum map (tools/curriculum-map.mjs). Earlier-year descriptors named as prior knowledge come too,
+// so the map can show what Year 7 builds on.
+//
+//   node tools/import-curriculum.mjs <path to waypoints-kit> [maths]
+//
+// waypoints-kit holds one JSON file per descriptor in data/<subject>/ (copied from ACARA Progressions). Descriptor
+// text is from the Australian Curriculum v9 (ACARA, CC BY 4.0); waypoints and prior knowledge are Learning Waypoints'.
+// Re-run it when the kit changes; the output is committed, so the build never needs the kit.
+import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
+import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
+
+const [kit, subject = 'maths'] = process.argv.slice(2);
+if (!kit) { console.error('usage: node tools/import-curriculum.mjs <path to waypoints-kit> [maths]'); process.exit(1); }
+const PREFIX = { maths: 'AC9M' }[subject];
+if (!PREFIX) { console.error(`no prefix for subject "${subject}"`); process.exit(1); }
+const CODE = /AC9[A-Z]{1,4}\d{1,2}[A-Z]{1,3}\d{2}/g;
+const yearOf = (c) => Number(c.match(/^AC9[A-Z](\d{1,2})/)?.[1]);
+const truthy = (v) => v === true || v === 'True' || v === 'true';
+const list = (v) => (Array.isArray(v) ? v : typeof v === 'string' && v.startsWith('[') ? JSON.parse(v.replace(/'/g, '"').replace(/\bNone\b/g, 'null')) : []);
+
+// Every descriptor in the kit, by code.
+const all = new Map();
+for (const f of readdirSync(join(kit, 'data', subject)).filter((n) => n.endsWith('.json'))) {
+  let d;
+  try { d = JSON.parse(readFileSync(join(kit, 'data', subject, f), 'utf8')); } catch { continue; }
+  const s = d.standard;
+  if (!s?.code?.startsWith(PREFIX)) continue;
+  all.set(s.code, s);
+}
+
+// Kit titles are in Title Case; the site writes sentence case. Keep capitals the curriculum needs.
+const KEEP = new Set(['Cartesian', 'Pythagoras', "Pythagoras'", 'Australian', 'Earth', 'I', 'GST']);
+const sentence = (t) => String(t).split(' ').map((w, i) => (i === 0 || KEEP.has(w) || /^[A-Z0-9]{2,}$/.test(w) ? w : w.toLowerCase())).join(' ');
+// Hand-written titles from the progression pages win where they exist.
+const pageTitles = new Map();
+try {
+  for (const f of readdirSync(join('data', 'progressions', subject))) {
+    const m = readFileSync(join('data', 'progressions', subject, f), 'utf8').match(/^#\s+(AC9\S+)\s+[—-]\s+(.+)$/m);
+    if (m) pageTitles.set(m[1], m[2].trim());
+  }
+} catch { /* no pages */ }
+
+// Strand names: Years 7–10 use the curriculum's (Number, Algebra…); earlier years use keys such as number_concepts.
+const strandOf = (s) => { const k = String(s || '').toLowerCase(); for (const n of ['Number', 'Algebra', 'Measurement', 'Space', 'Statistics', 'Probability']) if (k.startsWith(n.toLowerCase())) return n; return s; };
+const want = [...all.keys()].filter((c) => yearOf(c) >= 7 && yearOf(c) <= 10);
+const prior = (s) => [...new Set(String(s.prior_knowledge || '').match(CODE) || [])].filter((c) => c !== s.code);
+for (const c of [...want]) for (const p of prior(all.get(c))) if (!want.includes(p) && all.has(p)) want.push(p);
+
+const out = want.sort((a, b) => yearOf(a) - yearOf(b) || a.localeCompare(b)).map((c) => {
+  const s = all.get(c);
+  return {
+    code: c, year: yearOf(c), strand: strandOf(s.strand), title: pageTitles.get(c) || sentence(s.title), description: s.description,
+    prior: prior(s),
+    nodes: (s.nodes || []).map((n) => ({ n: Number(n.id), label: n.label, checkpoint: n.progression_checkpoint, hinge: truthy(n.hinge), criteria: list(n.success_criteria) })),
+  };
+});
+let source = kit;
+try { source = `waypoints-kit ${execFileSync('git', ['-C', kit, 'rev-parse', '--short', 'HEAD']).toString().trim()}`; } catch { /* not a git checkout */ }
+mkdirSync(join('data', 'curriculum'), { recursive: true });
+writeFileSync(join('data', 'curriculum', `${subject}.json`), JSON.stringify({
+  subject, source, note: 'Descriptor text: Australian Curriculum v9 (ACARA, CC BY 4.0). Waypoints and prior knowledge: Learning Waypoints. Made by tools/import-curriculum.mjs; do not edit by hand.',
+  descriptors: out,
+}, null, 1) + '\n');
+console.log(`data/curriculum/${subject}.json: ${out.filter((d) => d.year >= 7).length} Years 7–10 descriptors, ${out.filter((d) => d.year < 7).length} earlier ones they build on (${source})`);
