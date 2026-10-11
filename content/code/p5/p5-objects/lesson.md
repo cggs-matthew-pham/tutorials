@@ -6,6 +6,7 @@ assumes: [array, push, random, for-count]
 title: Objects and stars
 summary: "Keep everything about one star (its place and its speed) together in an object, and move a whole list of them."
 language: javascript
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-p5" 8130
   url: http://127.0.0.1:8130/index.html
@@ -20,11 +21,13 @@ explainClip:
   clip:
     - caption: "An object holds named values: where the star is and how fast it falls."
     - type: {into: "JavaScript code", text: "let star = { x: 150, y: 0, speed: 2 };\n\nfunction setup() {\n  createCanvas(300, 200);\n}\n\n", append: true}
-    - caption: "star.y is this star's y. Changing it moves this star, and the if sends it back to the top."
+    - caption:
+        text: "star.y is this star's y. Changing it moves this star, and the if sends it back to the top."
+        say: "star dot y is this star's y. The if sends it back to the top."
     - type: {into: "JavaScript code", text: "function draw() {\n  background(230);\n  circle(star.x, star.y, 20);\n  star.y = star.y + star.speed;\n  if (star.y > 210) {\n    star.y = -10;\n  }\n}\n", append: true}
     - click: "Run \u25b6"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 2200
+    - wait: 1100
     - caption: "A list of these objects, and a loop, gives you a whole sky of stars."
 hook: "A falling star has a place, a speed and a size. An object keeps them together, so a hundred stars are a hundred objects, not three hundred loose numbers."
 ---

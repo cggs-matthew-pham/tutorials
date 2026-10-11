@@ -6,6 +6,7 @@ assumes: [compare, variable, arithmetic]
 title: Lists and loops
 summary: "Keep many numbers in an array, draw one thing for each with a loop, and build the array with random numbers."
 language: javascript
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-p5" 8130
   url: http://127.0.0.1:8130/index.html
@@ -24,8 +25,10 @@ explainClip:
     - type: {into: "JavaScript code", text: "  for (let i = 0; i < heights.length; i++) {\n    rect(30 + i * 60, 200 - heights[i], 40, heights[i]);\n  }\n}\n", append: true}
     - click: "Run \u25b6"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 2200
-    - caption: "heights[i] is each value in turn, so four values draw four bars."
+    - wait: 1100
+    - caption:
+        text: "heights[i] is each value in turn, so four values draw four bars."
+        say: "heights of i is each value in turn, so four values draw four bars."
 hook: "Ten bars, or a thousand: it is the same few lines of code if the numbers live in a list and a loop does the drawing."
 ---
 An **array** is a list of values in order: `let heights = [50, 120, 80, 150];`. Each value has a **place number**, counting from **0**: `heights[0]` is 50 and `heights[3]` is 150. `heights.length` is how many there are (4).

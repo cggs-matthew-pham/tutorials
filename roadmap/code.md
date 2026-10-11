@@ -19,7 +19,6 @@ The code chat's file: current status, what is open and the decisions that still 
 - **Python pathway questions still open:** whether turtle lessons 9–10 (events, build a button) suit foundations or extensions.
 
 **Code chat can do next**
-- **Voiceover** for p5.js, DOM and Games: they have no `voice:` lines, so publishing records their clips silent. Adding `voice:` and `say:` lines is the work.
 - The lists and `if` revisit: lists inside functions, and an `if` inside a function that decides (see Proposed).
 - Effort audit (`npm run effort`): give `struggle:` notes to the code chat's earlier courses (Python Foundations, the console bridge, Objects, Deeper Python 1 to 5) and fix the first hints that give the answer away.
 - MakeCode toolbox filters per step (`importproject` takes `filters`).
@@ -56,7 +55,7 @@ Lesson counts include optional lessons. "Pictures" are drawn by `render-pictures
   - Reference: `snippets/microstudio.json` (22 cards, 9 pictures).
   - Clips for A game loop, Stars as objects, and Catch and score.
   - No clip for Keys (the recorder can't hold a key down) or Make it yours (sound and sprites).
-  - Not done: voiceover, a class trial.
+  - Not done: a class trial.
 
 ### Web pathway
 
@@ -67,10 +66,10 @@ Lesson counts include optional lessons. "Pictures" are drawn by `render-pictures
   - Later: a wider code panel for clips.
 - **Drawing and animation with p5.js** (`code/p5`, 8 incl. optional Moving art): built 11 Oct.
   - Own playground (`playground-p5/`, p5 2.3.4 vendored), Reference (37 cards), pictures and clips.
-  - Not done: voiceover, clips for the moving sketches (animated sketches show a still), a class trial.
+  - Not done: clips for the moving sketches (animated sketches show a still), a class trial.
 - **The DOM and the browser console** (`code/dom`, 8 incl. optional The real browser console): built 11 Oct.
   - Its own `playground-dom/` (Run, console panel, DOM hints; reports as `html`), clips and expected pictures.
-  - Not done: voiceover, a class trial, saving between visits (by design). Three clips run 30 to 32 s.
+  - Not done: a class trial, saving between visits (by design).
 
 ### MakeCode pathway
 
@@ -140,6 +139,7 @@ Risks: we depend on Microsoft's hosted editor and its unversioned message API. F
 
 ## Log
 
+- 12 Oct: voiceover for the 19 clips in p5.js, DOM and Games (`af_heart` at 1.1; `say:` lines read code aloud). Timed with the test voice: 24 to 32 s.
 - 12 Oct: Games with microStudio gets a Playground, Reference and three clips; this file is rewritten (history archived).
 - 11 Oct: DOM course; p5.js course with Reference, pictures and clips; Data detective, Web apps with Flask, Apps with Gradio, Machine learning, Deeper Python, Objects, the console bridge, the Python playground, Check your school.
 - 10 Oct: Robotics, micro:bit and the computer, AI robots, Secret messages, the MakeCode hidden-assumptions scan.

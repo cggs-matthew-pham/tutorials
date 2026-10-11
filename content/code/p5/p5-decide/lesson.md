@@ -6,6 +6,7 @@ assumes: [draw-loop, variable, variable-update]
 title: Deciding what to do
 summary: "Use if and else to bounce a circle off the edges, change its colour, and follow the mouse."
 language: javascript
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-p5" 8130
   url: http://127.0.0.1:8130/index.html
@@ -24,8 +25,10 @@ explainClip:
     - type: {into: "JavaScript code", text: "function draw() {\n  background(230);\n  circle(x, 100, 40);\n  x = x + speed;\n  if (x > 280 || x < 20) {\n    speed = -speed;\n  }\n}\n", append: true}
     - click: "Run \u25b6"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 2200
-    - caption: "The circle bounces: || means either side can turn it round."
+    - wait: 1100
+    - caption:
+        text: "The circle bounces: || means either side can turn it round."
+        say: "The circle bounces. The two bars mean or: either edge can turn it round."
 hook: "Games are full of questions asked 60 times a second: has the ball hit the wall? Is the mouse on the button?"
 ---
 An **`if`** runs some code only when a question is true:

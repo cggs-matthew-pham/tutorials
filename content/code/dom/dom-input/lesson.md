@@ -6,6 +6,7 @@ assumes: [js-event, text-content, js-query]
 title: "Inputs"
 summary: "Read what someone types with .value, react as they type, and turn text into a number with Number()."
 language: html
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-dom" 8131
   url: http://127.0.0.1:8131/index.html
@@ -17,16 +18,19 @@ explainPicture: page.html#run
 explainClip:
   query: {code: "", zoom: 1.4}
   caption: ".value is what the person typed, and it is always text"
+  say: "Dot value is what the person typed, and it is always text."
   clip:
     - caption: "An input box, a button, and a place for the answer."
     - type: {into: "HTML and JavaScript code", text: "<input id=\"name\" placeholder=\"Your name\">\n<button id=\"greet\">Greet</button>\n<p id=\"out\"></p>\n", append: true}
-    - caption: "nameBox.value is whatever is typed in the box right now."
+    - caption:
+        text: "nameBox.value is whatever is typed in the box right now."
+        say: "name Box dot value is whatever is typed in the box right now."
     - type: {into: "HTML and JavaScript code", text: "<script>\n  const nameBox = document.querySelector(\"#name\");\n  const out = document.querySelector(\"#out\");\n  document.querySelector(\"#greet\").addEventListener(\"click\", function () {\n    out.textContent = \"Hello, \" + nameBox.value + \"!\";\n  });\n</script>\n", append: true}
     - click: "Run ▶"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 1500
+    - wait: 750
     - caption: "Type a name, then click Greet."
-    - wait: 1500
+    - wait: 750
 hook: "Search boxes, sign-up forms and calculators all do the same two things: read what you typed, and answer."
 ---
 An input box has a **value**: whatever is typed in it right now. Read it inside a handler:

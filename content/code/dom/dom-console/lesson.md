@@ -6,29 +6,35 @@ assumes: [console-log, js-query, text-content]
 title: "The real browser console"
 summary: "Use console.log to look inside your page, read error messages, and try the real Console and inspector in your own browser."
 language: html
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-dom" 8131
   url: http://127.0.0.1:8131/index.html
   ready: HTML and JavaScript code
   layout: full
 pacing:
-  keyDelayMs: 30
+  keyDelayMs: 12
 explainPicture: page.html#run
 explainClip:
   query: {code: "", zoom: 1.4}
   caption: "console.log shows what your code sees"
+  say: "console dot log shows what your code sees."
   clip:
-    - caption: "console.log writes messages in the Console, not on the page."
+    - caption:
+        text: "console.log writes messages in the Console, not on the page."
+        say: "console dot log writes messages in the Console, not on the page."
     - type: {into: "HTML and JavaScript code", text: "<h1>Sports day</h1>\n<p>Bring a hat.</p>\n<p>Bring water.</p>\n<script>\n  const heading = document.querySelector(\"h1\");\n", append: true}
     - caption: "Log the heading text to see what the script has found."
     - type: {into: "HTML and JavaScript code", text: "  console.log(\"Heading:\", heading.textContent);\n", append: true}
-    - caption: "querySelectorAll finds every match, and length says how many."
+    - caption:
+        text: "querySelectorAll finds every match, and length says how many."
+        say: "query Selector All finds every match, and length says how many."
     - type: {into: "HTML and JavaScript code", text: "  const paragraphs = document.querySelectorAll(\"p\");\n  console.log(\"Paragraphs:\", paragraphs.length);\n</script>\n", append: true}
     - click: "Run ▶"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 1500
+    - wait: 750
     - caption: "Two messages in the Console. The page itself did not change."
-    - wait: 1500
+    - wait: 750
 hook: "Every web developer keeps the Console open all the time: it is how you find out what your code is really doing."
 ---
 The **Console** is a list of messages from your page. `console.log(...)` writes one, `console.warn(...)` writes a warning, and `console.error(...)` writes an error. When something goes wrong the browser writes its own red error there, with the line it happened on.

@@ -6,6 +6,7 @@ assumes: [js-query, text-content, style-prop]
 title: "Click events"
 summary: "Run a function when someone clicks a button: addEventListener, and the difference between handing over a function and running it."
 language: html
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-dom" 8131
   url: http://127.0.0.1:8131/index.html
@@ -17,22 +18,25 @@ explainPicture: page.html#run
 explainClip:
   query: {code: "", zoom: 1.4}
   caption: "A click runs a function you hand to addEventListener"
+  say: "A click runs a function you hand to add Event Listener."
   clip:
     - caption: "A heading to change, and a button to click."
     - type: {into: "HTML and JavaScript code", text: "<h1 id=\"message\">Ready?</h1>\n<button id=\"go\">Start</button>\n", append: true}
     - caption: "A function holds the change. Writing it does not run it."
     - type: {into: "HTML and JavaScript code", text: "<script>\n  const message = document.querySelector(\"#message\");\n  function start() {\n    message.textContent = \"Go!\";\n  }\n", append: true}
-    - caption: "addEventListener says: when this button is clicked, run start. No brackets: we hand over the function, we do not run it."
+    - caption:
+        text: "addEventListener says: when this button is clicked, run start. No brackets: we hand over the function, we do not run it."
+        say: "add Event Listener runs start on a click. No brackets: we hand it over."
     - type: {into: "HTML and JavaScript code", text: "  document.querySelector(\"#go\").addEventListener(\"click\", start);\n</script>\n", append: true}
     - click: "Run ▶"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 1500
+    - wait: 750
     - caption: "Nothing has changed: the page is waiting for a click."
-    - wait: 500
+    - wait: 400
     - click: {selector: "#go", preview: true}
     - expect: {selector: "#message", contains: "Go!", preview: true}
     - caption: "The click ran start, and the heading changed."
-    - wait: 1500
+    - wait: 750
 hook: "A page that only changes when it loads is a poster. A page that changes when you click is an app."
 ---
 Until now your script ran once, as the page loaded. To react to a click you give the button a **function** and say when to run it:

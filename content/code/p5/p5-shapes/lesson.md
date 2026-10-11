@@ -5,6 +5,7 @@ introduces: [setup]
 title: Shapes on a canvas
 summary: "Draw circles, rectangles, triangles and lines on a canvas with p5.js, and find out where the corner (0, 0) is."
 language: javascript
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-p5" 8130
   url: http://127.0.0.1:8130/index.html
@@ -17,15 +18,19 @@ explainClip:
   query: {code: "", zoom: 1.4}
   caption: "A canvas is a grid of pixels, and shapes go where you say"
   clip:
-    - caption: "createCanvas makes the drawing area: here 300 wide and 200 tall."
+    - caption:
+        text: "createCanvas makes the drawing area: here 300 wide and 200 tall."
+        say: "create Canvas makes the drawing area: here 300 wide and 200 tall."
     - type: {into: "JavaScript code", text: "function setup() {\n  createCanvas(300, 200);\n  background(230);\n", append: true}
-    - caption: "(0, 0) is the top left. A bigger x goes right, and a bigger y goes down."
+    - caption:
+        text: "(0, 0) is the top left. A bigger x goes right, and a bigger y goes down."
+        say: "Zero, zero is the top left. Bigger x goes right, and bigger y goes down."
     - type: {into: "JavaScript code", text: "  circle(80, 60, 50);\n", append: true}
     - caption: "fill sets the colour of the shapes drawn after it."
     - type: {into: "JavaScript code", text: "  fill(255, 120, 160);\n  rect(150, 100, 100, 60);\n}\n", append: true}
     - click: "Run \u25b6"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 2200
+    - wait: 1100
     - caption: "The circle is white and the rectangle pink: the fill came between them."
 hook: "Every picture on a screen is shapes at places. In p5.js you say which shape, where, and what colour."
 ---

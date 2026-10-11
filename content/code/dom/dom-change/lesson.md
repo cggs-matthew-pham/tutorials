@@ -6,6 +6,7 @@ assumes: [heading, paragraph]
 title: Find and change
 summary: "Find an element on a page with JavaScript, change its text and colour, and read what the console says."
 language: html
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-dom" 8131
   url: http://127.0.0.1:8131/index.html
@@ -22,12 +23,16 @@ explainClip:
     - type: {into: "HTML and JavaScript code", text: "<h1 id=\"title\">Sports day</h1>\n", append: true}
     - caption: "A script runs when the browser reaches it, so it goes below the heading."
     - type: {into: "HTML and JavaScript code", text: "<script>\n  const title = document.querySelector(\"#title\");\n", append: true}
-    - caption: "querySelector with # finds the element with that id. title now means that heading."
+    - caption:
+        text: "querySelector with # finds the element with that id. title now means that heading."
+        say: "query Selector with a hash finds the element with that I D."
     - type: {into: "HTML and JavaScript code", text: "  title.textContent = \"Moved to Friday\";\n  title.style.color = \"crimson\";\n</script>\n", append: true}
     - click: "Run ▶"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 2200
-    - caption: "textContent changed the words and style.color the colour, while the page was open."
+    - wait: 1100
+    - caption:
+        text: "textContent changed the words and style.color the colour, while the page was open."
+        say: "text Content changed the words, and style dot color changed the colour."
 hook: "Every button that opens a menu, every counter that goes up and every live search is JavaScript changing a page that is already on screen."
 ---
 A web page is a tree of **elements**. JavaScript can find one and change it while the page is open. Two steps do most of the work:

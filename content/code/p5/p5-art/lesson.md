@@ -7,6 +7,7 @@ assumes: [draw-loop, for-count, variable, arithmetic]
 title: Moving art
 summary: "Use sin and cos to move things in circles, map to turn one range into another, and make a pattern of your own."
 language: javascript
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-p5" 8130
   url: http://127.0.0.1:8130/index.html
@@ -18,15 +19,20 @@ explainPicture: sketch.js#run
 explainClip:
   query: {code: "", zoom: 1.4}
   caption: "sin and cos put circles on a ring, and a loop makes twelve"
+  say: "Sine and cosine put circles on a ring, and a loop makes twelve."
   clip:
-    - caption: "cos gives how far across and sin how far up or down, going round a circle."
+    - caption:
+        text: "cos gives how far across and sin how far up or down, going round a circle."
+        say: "Cosine gives how far across, and sine how far up or down."
     - type: {into: "JavaScript code", text: "function setup() {\n  createCanvas(300, 300);\n  background(20, 30, 60);\n  fill(120, 220, 200);\n", append: true}
     - caption: "A loop places 12 circles, each a little further round the ring."
     - type: {into: "JavaScript code", text: "  for (let i = 0; i < 12; i++) {\n    let angle = i * 0.5;\n    circle(150 + cos(angle) * 100, 150 + sin(angle) * 100, 20);\n  }\n}\n", append: true}
     - click: "Run \u25b6"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 2200
-    - caption: "Change the 0.5 and the ring opens up or closes. Add frameCount and it turns."
+    - wait: 1100
+    - caption:
+        text: "Change the 0.5 and the ring opens up or closes. Add frameCount and it turns."
+        say: "Change point five and the ring opens or closes. Add frame count to turn it."
 hook: "A few lines of maths can make a spinning ring of colour, with no pictures drawn by hand."
 ---
 `cos(angle)` and `sin(angle)` give the x and y of a point going round a circle, and `map(value, a, b, c, d)` turns a number in the range a to b into the matching number in the range c to d. Together with a loop, they make patterns that move.

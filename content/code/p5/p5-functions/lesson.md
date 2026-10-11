@@ -6,6 +6,7 @@ assumes: [object, property, arithmetic, compare]
 title: Functions of your own
 summary: "Give a piece of code a name, hand it values with parameters, and get an answer back with return."
 language: javascript
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-p5" 8130
   url: http://127.0.0.1:8130/index.html
@@ -18,13 +19,15 @@ explainClip:
   query: {code: "", zoom: 1.4}
   caption: "A function gives code a name, and parameters make each use different"
   clip:
-    - caption: "function names a recipe. x, y and size are parameters: the values it needs."
+    - caption:
+        text: "function names a recipe. x, y and size are parameters: the values it needs."
+        say: "function names a recipe. x, y and size are its parameters."
     - type: {into: "JavaScript code", text: "function drawFlower(x, y, size) {\n  fill(255, 120, 160);\n  circle(x, y, size * 2);\n  fill(255, 210, 0);\n  circle(x, y, size);\n}\n\n", append: true}
     - caption: "Defining draws nothing. Each call below does the work, with its own values."
     - type: {into: "JavaScript code", text: "function setup() {\n  createCanvas(300, 200);\n  drawFlower(70, 100, 20);\n  drawFlower(180, 60, 12);\n  drawFlower(230, 140, 16);\n}\n", append: true}
     - click: "Run \u25b6"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 2200
+    - wait: 1100
     - caption: "One definition, three calls, three flowers."
 hook: "One flower took ten lines. A function turns those lines into a single word, so a whole garden is three short lines."
 ---

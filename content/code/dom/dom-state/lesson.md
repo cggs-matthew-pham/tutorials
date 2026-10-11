@@ -5,13 +5,14 @@ assumes: [js-event, text-content, input-value]
 title: "A page that keeps score"
 summary: "Keep a number between clicks in a variable made above the handler, and use an if to decide when something happens."
 language: html
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-dom" 8131
   url: http://127.0.0.1:8131/index.html
   ready: HTML and JavaScript code
   layout: full
 pacing:
-  keyDelayMs: 12
+  keyDelayMs: 6
 explainPicture: page.html#run
 explainClip:
   query: {code: "", zoom: 1.4}
@@ -25,13 +26,13 @@ explainClip:
     - type: {into: "HTML and JavaScript code", text: "  document.querySelector(\"#click\").addEventListener(\"click\", function () {\n    clicks = clicks + 1;\n    countEl.textContent = clicks;\n  });\n</script>\n", append: true}
     - click: "Run ▶"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 800
+    - wait: 400
     - click: {selector: "#click", preview: true}
     - click: {selector: "#click", preview: true}
     - click: {selector: "#click", preview: true}
     - expect: {selector: "#count", contains: "3", preview: true}
     - caption: "Three clicks, and the variable remembered each one."
-    - wait: 1500
+    - wait: 750
 hook: "A score, a basket count and a \"5 likes\" all work the same way: a variable that lives between clicks."
 ---
 A page can **remember** things in variables, as your p5 sketches did. The rule is where you make them:

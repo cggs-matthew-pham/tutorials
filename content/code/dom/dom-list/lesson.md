@@ -6,6 +6,7 @@ assumes: [input-value, js-event, text-content]
 title: "Building a list"
 summary: "Make new elements with createElement and add them to the page, so a list can grow, one click at a time."
 language: html
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-dom" 8131
   url: http://127.0.0.1:8131/index.html
@@ -17,16 +18,19 @@ explainPicture: page.html#run
 explainClip:
   query: {code: "", zoom: 1.4}
   caption: "createElement makes an element, and append puts it on the page"
+  say: "create Element makes an element, and append puts it on the page."
   clip:
     - caption: "An empty list on the page, and an array of items in the script."
     - type: {into: "HTML and JavaScript code", text: "<ul id=\"list\"></ul>\n<script>\n  const items = [\"apples\", \"bread\", \"milk\"];\n  const list = document.querySelector(\"#list\");\n", append: true}
-    - caption: "For each item: make a new li, give it the item as text, and add it to the list."
+    - caption:
+        text: "For each item: make a new li, give it the item as text, and add it to the list."
+        say: "For each item: make an L I, give it the text, and add it."
     - type: {into: "HTML and JavaScript code", text: "  for (const item of items) {\n    const li = document.createElement(\"li\");\n    li.textContent = item;\n    list.append(li);\n  }\n</script>\n", append: true}
     - click: "Run ▶"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 1500
+    - wait: 750
     - caption: "Three items in the array, three bullet points on the page."
-    - wait: 1500
+    - wait: 750
 hook: "A feed, a shopping basket and a chat are all lists that grow: the code makes a new element and puts it on the page."
 ---
 A page changes only when your code changes it. To add a line to a list you do three things:

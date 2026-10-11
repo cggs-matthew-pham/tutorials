@@ -6,13 +6,14 @@ assumes: [js-event, style-prop, class-selector]
 title: "Classes and themes"
 summary: "Switch a whole look on and off with classList.toggle, so CSS does the styling and JavaScript only flips a class."
 language: html
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-dom" 8131
   url: http://127.0.0.1:8131/index.html
   ready: HTML and JavaScript code
   layout: full
 pacing:
-  keyDelayMs: 12
+  keyDelayMs: 6
 explainPicture: page.html#run
 explainClip:
   query: {code: "", zoom: 1.4}
@@ -20,18 +21,22 @@ explainClip:
   clip:
     - caption: "CSS decides what the dark look is. It is only a class."
     - type: {into: "HTML and JavaScript code", text: "<style>\n  .dark { background: midnightblue; color: white; }\n</style>\n<h1>Night mode</h1>\n<button id=\"theme\">Switch theme</button>\n", append: true}
-    - caption: "The script only has to add or remove that class. toggle adds it if missing, and removes it if there."
+    - caption:
+        text: "The script only has to add or remove that class. toggle adds it if missing, and removes it if there."
+        say: "The script just adds or removes the class. Toggle does whichever is needed."
     - type: {into: "HTML and JavaScript code", text: "<script>\n  document.querySelector(\"#theme\").addEventListener(\"click\", function () {\n    document.body.classList.toggle(\"dark\");\n  });\n</script>\n", append: true}
     - click: "Run ▶"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 1500
+    - wait: 750
     - click: {selector: "#theme", preview: true}
-    - wait: 1000
+    - wait: 500
     - caption: "One click added the class dark to the body, and the CSS did the rest."
     - click: {selector: "#theme", preview: true}
-    - wait: 1000
-    - caption: "Another click removed it. The names go in classList without a dot."
-    - wait: 1200
+    - wait: 500
+    - caption:
+        text: "Another click removed it. The names go in classList without a dot."
+        say: "Another click removed it. In class List, the name has no dot."
+    - wait: 600
 hook: "Dark mode, open menus and highlighted rows are all the same trick: JavaScript adds or removes a class, and CSS does the rest."
 ---
 You already know CSS: a **class** such as `.dark` says how something looks. JavaScript can switch a class on and off:

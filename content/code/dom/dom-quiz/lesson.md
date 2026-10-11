@@ -5,13 +5,14 @@ assumes: [js-event, text-content, create-element, append-element, class-list]
 title: "Final challenge: a quiz page"
 summary: "Put it all together: a list of questions as data, buttons made for each choice, a score that remembers, and feedback on every click."
 language: html
+voice: { name: af_heart, speed: 1.1 }
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-dom" 8131
   url: http://127.0.0.1:8131/index.html
   ready: HTML and JavaScript code
   layout: full
 pacing:
-  keyDelayMs: 12
+  keyDelayMs: 6
 explainPicture: page.html#run
 explainClip:
   query: {code: "", zoom: 1.4}
@@ -25,13 +26,15 @@ explainClip:
     - type: {into: "HTML and JavaScript code", text: "  document.querySelector(\"#a1\").addEventListener(\"click\", function () {\n    pick(6);\n  });\n  document.querySelector(\"#a2\").addEventListener(\"click\", function () {\n    pick(7);\n  });\n</script>\n", append: true}
     - click: "Run ▶"
     - expect: {selector: "#status", contains: "Running"}
-    - wait: 600
+    - wait: 400
     - click: {selector: "#a1", preview: true}
     - expect: {selector: "#result", contains: "Try again", preview: true}
     - caption: "The wrong answer says try again."
     - click: {selector: "#a2", preview: true}
     - expect: {selector: "#result", contains: "Correct!", preview: true}
-    - caption: "The right one says Correct. The challenge does this for a whole list of questions."
+    - caption:
+        text: "The right one says Correct. The challenge does this for a whole list of questions."
+        say: "The right one says Correct. The challenge asks a whole list."
 hook: "A quiz is a list of questions, a number for where you are, a score, and a click: everything you have learned in one page."
 ---
 Your quiz keeps its questions as **data**, in an array of objects, and uses everything from the course:
