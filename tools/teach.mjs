@@ -55,7 +55,7 @@ const pt = (t) => String(t ?? '').split(/(`[^`]*`)/).map((part, i) => (i % 2 ? p
 /** checkParts, with its plain-text parts made safe for Markdown (decks and worksheets). */
 const checkPartsMd = (k, snip, key) => {
   const p = checkParts(k, snip, key);
-  return { ...p, q: pt(p.q), answer: pt(p.answer), options: p.options && p.options.map(pt), match: p.match && { lefts: p.match.lefts, rights: p.match.rights.map(pt) } };
+  return { ...p, q: pt(p.q), answer: pt(p.answer), options: p.options && p.options.map(pt), items: p.items && p.items.map(pt), match: p.match && { lefts: p.match.lefts, rights: p.match.rights.map(pt) } };
 };
 
 const BADGE = {
@@ -102,7 +102,7 @@ function checkParts(k, snip, key) {
   if (k.type === 'reasoning') return { q, field: true, answer: (k.steps || []).map(([a, r]) => `${a} (${r})`).join('; '), explain: k.explain || '' };
   if (k.type === 'working') return { q, field: true, answer: [k.start, ...(k.example || [])].join(' → '), explain: k.explain || '' };
   if (k.type === 'board') return { q: k.text, board: true, answer: '', explain: k.explain || '' };
-  if (k.type === 'sort') return { q: k.q || 'Sort each one into its group.', options: k.options, answer: k.items.map((it) => `${it[0]} → ${it[1]}`).join('; '), explain: k.explain || '' };
+  if (k.type === 'sort') return { q: k.q || 'Sort each one into its group.', options: k.options, items: k.items.map((it) => it[0]), answer: k.items.map((it) => `${it[0]} → ${it[1]}`).join('; '), explain: k.explain || '' };
   if (k.type === 'code') return { q: k.text, rules: k.rules, answer: '', explain: '' };
   if (k.type === 'reflect') return { q: k.text, reflect: true, answer: '', explain: '' };
   return { q, answer: '', explain: '' };
@@ -143,6 +143,9 @@ const fencesToBlocks = (md) => (LANG === 'makecode' ? String(md).replace(FENCES,
 
 // Code language for fences and highlighting: set from the lesson by each generator (python or html).
 let LANG = 'python';
+// Design projects (shape: design) title their steps with design-cycle words (Inquire, Develop, Create, Test, Evaluate):
+// slides and worksheets use the step's own title, and the Inquire step is a brief to read, not a prediction.
+let DESIGN = false;
 const fence = (code, lang = LANG) => '```' + lang + '\n' + String(code).replace(/\n$/, '') + '\n```';
 
 /** Every check in a lesson, with where it sits: [{ step, task, check, key }]. */
@@ -155,6 +158,7 @@ const checksOf = (lesson) => lesson.steps.flatMap((s) => [
 export function deckFor(lesson, { course, unit, snip, blocks = null }) {
   lesson = forOutput(lesson);
   LANG = lesson.language || 'python';
+  DESIGN = lesson.shape === 'design';
   BLOCKS = blocks;
   const T = lesson.teacher || {};
   const slides = [];
@@ -182,21 +186,24 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
   for (const s of lesson.steps) {
     const c = s.config, stage = c.stage, title = capMaths(bare(s.title));
     const code = c.code ? snip(c.code) : '';
-    if (stage === 'predict') {
+    if (stage === 'predict' && !DESIGN) {
       const k = c.check?.type === 'predict' ? checkPartsMd(c.check, snip, s.id) : null;
       slides.push(`${BADGE.discussion}\n\n## ${LANG === 'science' ? 'Engage: predict' : 'Predict'}\n\n${code ? showCode(code, s) + '\n\n' : ''}${k ? `**${k.q}**${k.options ? '\n\n' + k.options.map((o) => `- ${o}`).join('\n') : ''}` : prose(s.body)}` + note(`${k?.answer ? `What happens: ${k.answer}` : ''} Take two or three predictions before anyone runs it.`));
       if (k?.answer) slides.push(`${BADGE.check}\n\n## What happened?\n\n* ${oneLine(k.answer)}` + note('Reveal after running. Ask who predicted it, and what made them think so.'));
     } else if (stage === 'run') {
       slides.push(runIt(s) + note(`${prose(s.body)} ${c.check?.type === 'reflect' ? `Students should be able to say: ${c.check.text}` : ''}`));
-    } else if (stage === 'investigate' || stage === 'practise' || (LANG === 'science' && stage === 'modify')) {
-      if (code) slides.push(`${BADGE.discussion}\n\n## ${title === 'Investigate' ? 'Investigate' : `Investigate: ${title.replace(/^Investigate:\s*/, '')}`}\n\n${showCode(code, s)}` + note(`${prose(s.body)} ${c.insight ? `What this step is for: ${c.insight}` : ''}`));
+    } else if (stage === 'investigate' || stage === 'practise' || (LANG === 'science' && stage === 'modify') || (DESIGN && stage === 'predict')) {
+      if (DESIGN && stage === 'predict' && s.body.trim()) slides.push(`${BADGE.discussion}\n\n## ${title}\n\n${prose(s.body)}` + note('Read the brief together: who it is for, what it must do (criteria) and the limits (constraints).'));
+      if (code) slides.push(`${BADGE.discussion}\n\n## ${DESIGN || title === 'Investigate' ? title : `Investigate: ${title.replace(/^Investigate:\s*/, '')}`}\n\n${showCode(code, s)}` + note(`${prose(s.body)} ${c.insight ? `What this step is for: ${c.insight}` : ''}`));
       if (boardUrl(s)) slides.push(boardSlide(s, title) + note(`${prose(s.body)} ${c.insight ? `What this step is for: ${c.insight}` : ''}`));
       const items = s.tasks.length ? s.tasks.filter((t) => t.config.check).map((t) => ({ t, k: t.config.check })) : (c.check ? [{ t: null, k: c.check }] : []);
       for (const { t, k } of items) {
         const p = checkPartsMd(k, snip, `${s.id}${t ? t.id : ''}`);
         if (p.reflect || p.board || k.type === 'code') continue;
         let body = `**${p.q}**`;
-        if (p.options) body += '\n\n' + p.options.map((o) => `- ${o}`).join('\n');
+        // A sort lists its groups and items on two lines, so the items fit beside the question.
+        if (p.items) body += `\n\nGroups: ${p.options.join(' · ')}\n\n${p.items.join(' · ')}`;
+        else if (p.options) body += '\n\n' + p.options.map((o) => `- ${o}`).join('\n');
         if (p.trace) body += '\n\n' + traceTable(p.trace, true);
         if (p.match) body += '\n\n' + `| | |\n|---|---|\n` + p.match.lefts.map((l, i) => `| \`${l}\` | ${letters[i]}. ${p.match.rights[i]} |`).join('\n');
         if (p.files) {
@@ -225,7 +232,7 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
       if (!stuckDone && T.struggle) n += `The hard part, on purpose: ${T.struggle} `;
       if (!stuckDone && T.stuck?.length) { n += 'When students get stuck: ' + T.stuck.map((x) => `${x.see} Ask: ${x.ask} Fix: ${x.fix}`).join(' / '); stuckDone = true; }
       else if (T.struggle) stuckDone = true;
-      slides.push(`${BADGE.activity}\n\n## ${stage === 'make' && !/make/i.test(title) ? `Make: ${bare(s.title)}` : title}\n\n${text}${tasks ? '\n\n' + tasks : ''}${c.try ? `\n\n[Open this step](${stepUrl(lesson, s)})` : ''}` + note(n));
+      slides.push(`${BADGE.activity}\n\n## ${stage === 'make' && !DESIGN && !/make/i.test(title) ? `Make: ${bare(s.title)}` : title}\n\n${text}${tasks ? '\n\n' + tasks : ''}${c.try ? `\n\n[Open this step](${stepUrl(lesson, s)})` : ''}` + note(n));
     } else if (s.body.trim()) {
       slides.push(`## ${title}\n\n${prose(s.body)}`);
     }
@@ -292,6 +299,7 @@ function traceTable(t, blanks) {
 export function worksheetFor(lesson, { course, unit, snip, blocks = null }) {
   lesson = forOutput(lesson);
   LANG = lesson.language || 'python';
+  DESIGN = lesson.shape === 'design';
   BLOCKS = blocks;
   const T = lesson.teacher || {};
   const out = [];
@@ -305,12 +313,12 @@ export function worksheetFor(lesson, { course, unit, snip, blocks = null }) {
     const code = c.code ? snip(c.code) : '';
     const tier = c.tier ? c.tier : stage === 'modify' ? (makeIndex >= 0 && i > makeIndex ? 'wider' : 'typical') : stage === 'info' && makeIndex >= 0 && i > makeIndex ? 'wider' : '';
     let part = '';
-    if (stage === 'predict') {
+    if (stage === 'predict' && !DESIGN) {
       const k = c.check?.type === 'predict' ? checkPartsMd(c.check, snip, s.id) : null;
       part = `## ${LANG === 'science' ? 'Engage' : 'Predict'}\n\n${prose(s.body)}${code ? '\n\n' + codeMd(code) : ''}` + keep(`${k ? `**${k.q}**\n\n${k.options ? k.options.map((o) => `☐ ${o}`).join('\n\n') + '\n\n' : ''}` : ''}My prediction, and why:\n\n{{lines-3}}`) + tnote(k?.answer ? `**What happens:** ${k.answer}` : '');
     } else if (stage === 'run') {
       part = `## ${LANG === 'science' ? 'Explore' : 'Run'}\n\n${LANG === 'maths' || LANG === 'science' ? 'Try it on the board in the tutorial' : 'Run the program in the tutorial'}. Was your prediction right? What was different?\n\n{{lines-2}}`;
-    } else if (stage === 'investigate' || stage === 'practise' || (LANG === 'science' && stage === 'modify')) {
+    } else if (stage === 'investigate' || stage === 'practise' || (LANG === 'science' && stage === 'modify') || (DESIGN && stage === 'predict')) {
       part = `## ${title}\n\n${prose(s.body)}${code ? '\n\n' + codeMd(code) : ''}`;
       const items = s.tasks.length ? s.tasks.filter((t) => t.config.check).map((t) => ({ t, k: t.config.check })) : (c.check ? [{ t: null, k: c.check }] : []);
       for (const { t, k } of items) {
@@ -318,7 +326,8 @@ export function worksheetFor(lesson, { course, unit, snip, blocks = null }) {
         if (p.reflect || p.board || k.type === 'code') continue;
         let q = `${t ? `### ${t.title}\n\n` : ''}**${p.q}**`;
         if (t && (/```/.test(t.body) || hasWorked(t.body))) q = `${t ? `### ${t.title}\n\n` : ''}${fencesToBlocks(t.body.trim())}\n\n**${p.q}**`;
-        if (p.options) q += '\n\n' + p.options.map((o) => `☐ ${o}`).join('\n\n');
+        if (p.items) q += '\n\nGroups: ' + p.options.join(', ') + '\n\n' + p.items.map((it) => `- ${it}: {{field-15}}`).join('\n');
+        else if (p.options) q += '\n\n' + p.options.map((o) => `☐ ${o}`).join('\n\n');
         if (p.field) q += '\n\nAnswer: {{field-15}}';
         if (p.trace) q += '\n\n{{rows 1}}\n\n' + traceTable(p.trace, false);
         if (p.match) q += '\n\n' + p.match.rights.map((r, i) => `${letters[i]}. ${r}`).join('\n\n') + '\n\n{{columns 60% 40%}}\n\n{{rows 1}}\n\n| Part | Letter |\n|---|---|\n' + p.match.lefts.map((l) => `| \`${l}\` | |`).join('\n');
@@ -335,7 +344,7 @@ export function worksheetFor(lesson, { course, unit, snip, blocks = null }) {
         const t = s.tasks.find((x) => x.id === id);
         return `${t ? `**${t.title}:**\n\n` : ''}${splitFiles(snip(sols[id])).map((f) => (f.name ? `*${f.name}*\n\n` : '') + codeMd(f.code)).join('\n\n')}`;
       }).join('\n\n');
-      part = `## ${stage === 'make' && !/make/i.test(title) ? `Make: ${bare(s.title)}` : title}\n\n${prose(s.body)}${tasks ? '\n\n' + tasks : ''}\n\nWork in the tutorial. Plan first: what will you change, and how will you test it?\n\n{{box-4}}` + tnote(solText ? (LANG === 'maths' ? `**One possible answer.** Other correct answers are fine; check that each one does what the task asks.\n\n${solText}` : `**One possible solution.** Other correct programs are fine; check that the program runs and does what the task asks.\n\n${solText}`) : '');
+      part = `## ${stage === 'make' && !DESIGN && !/make/i.test(title) ? `Make: ${bare(s.title)}` : title}\n\n${prose(s.body)}${tasks ? '\n\n' + tasks : ''}\n\nWork in the tutorial. Plan first: what will you change, and how will you test it?\n\n{{box-4}}` + tnote(solText ? (LANG === 'maths' ? `**One possible answer.** Other correct answers are fine; check that each one does what the task asks.\n\n${solText}` : `**One possible solution.** Other correct programs are fine; check that the program runs and does what the task asks.\n\n${solText}`) : '');
     } else if (s.body.trim()) {
       part = `## ${title}\n\n${prose(s.body)}`;
     }
@@ -419,6 +428,7 @@ export const CHEAT_CSS = `.wrap{max-width:1000px}
 // ---------------------------------------------------------------- teacher guide pages (HTML bodies)
 export function lessonGuideBody(lesson, { esc, md, snip, highlightCode, codeBlock, studentHref, course, unit, files, blocks = null }) {
   LANG = lesson.language || 'python';
+  DESIGN = lesson.shape === 'design';
   BLOCKS = blocks;
   // MakeCode: the blocks picture, with the code one click away; code as text when there is no picture.
   const showProgram = (code, name = '') => {

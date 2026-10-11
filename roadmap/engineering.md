@@ -55,7 +55,7 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.
 2. Mechanisms: compound gear trains (Years 9–10, with efficiency per mesh and the constraint as an inequality), levers, pulleys.
-3. Mechanisms lesson 2 (compound gears, levers or pulleys), 3D and animation (keyframes widget), or a teacher deck fix so `shape: design` slides say Inquire, not Predict. Optional: let `B.serial` accept an Uno's USB ids.
+3. Mechanisms lesson 2 (compound gears, levers or pulleys), 3D and animation (keyframes widget). (Done 12 Oct: `shape: design` decks and worksheets say Inquire, not Predict.) Optional: let `B.serial` accept an Uno's USB ids.
 4. `tools/concepts.mjs` `prerequisites()` reads `code, maths, science, systems`: add `engineering` if an Engineering lesson ever uses the concept lint (its lessons are `language: maths`, which the lint skips).
 
 ## Open questions
