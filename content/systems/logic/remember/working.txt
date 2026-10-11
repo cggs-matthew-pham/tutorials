@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Set goes on, so Q becomes 1.
+Set goes off again, so Q goes back to 0, like a lamp.
+So the latch only shows 1 while Set is held on.
+That means gates can't remember anything.
+# endregion

@@ -1,0 +1,9 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+0101 + 0011 (that is 5 + 3).
+Ones place: 1 + 1 = 2, so write 2.
+Twos place: 0 + 1 = 1, so write 1.
+Fours place: 1 + 0 = 1. Eights place: 0 + 0 = 0.
+The answer is 0112.
+# endregion

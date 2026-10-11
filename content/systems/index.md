@@ -24,8 +24,8 @@ pathways:
     title: Hardware and logic
     summary: What is inside a computer, and how simple on-off switches add up to logic.
     fit: "Start here to open up a computer and build logic from switches."
-    about: "**Inside a computer** follows AC9TDI8K01 (Years 7–8): what each specification measures, how it affects performance (finding the bottleneck), and choosing hardware for a job within a budget. Logic gates are taught in Data representation (Why binary: logic gates)."
+    about: "**Inside a computer** follows AC9TDI8K01 (Years 7–8): what each specification measures, how it affects performance (finding the bottleneck), and choosing hardware for a job within a budget. Logic gates are introduced in Data representation (Why binary: logic gates); **From gates to a processor** (Years 9–10 extension) goes deeper: circuits from truth tables, adders, a latch that remembers, and a tiny processor that fetches, decodes and executes."
     courses:
       - { path: systems/hardware, id: hardware, stage: foundations, tagline: "Processor, memory and storage: what makes it fast." }
-      - { title: From gates to a processor, id: logic, stage: extensions, summary: "Adders built from gates, then a tiny processor: how on and off switches do sums. Builds on Why binary: logic gates in Data representation.", tagline: "Build a calculator from switches." }
+      - { path: systems/logic, id: logic, stage: extensions, after: [data-representation, hardware], tagline: "Build a calculator from switches." }
 ---

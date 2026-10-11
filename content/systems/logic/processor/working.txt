@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Cell 0 holds LOAD 6, which is stored as the number 22.
+Cell 6 holds the number 5.
+Instructions and numbers are different kinds of thing in memory.
+So the processor could never run cell 6 by mistake.
+# endregion

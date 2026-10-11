@@ -1,0 +1,62 @@
+# Boards for "Combining gates".
+
+# region: run
+widget: gates
+gate g1: or A B
+gate g2: not g1
+wire Q: g2
+lock: on
+table: tried
+# endregion
+
+# region: explain
+widget: gates
+gate g1: or A B
+gate g2: and A B
+gate g3: not g2
+gate g4: and g1 g3
+wire Q: g4
+lock: on
+table: tried
+# endregion
+
+# region: explain-pic
+widget: gates
+gate g1: or A B
+gate g2: and A B
+gate g3: not g2
+gate g4: and g1 g3
+wire Q: g4
+lock: on
+# endregion
+
+# region: nand
+widget: gates
+add: and, not
+target Q: 1110
+# endregion
+
+# region: andnot
+widget: gates
+add: and, not
+target Q: 0010
+# endregion
+
+# region: nandnot
+widget: gates
+inputs: A
+add: nand
+target Q: 10
+# endregion
+
+# region: nandor
+widget: gates
+add: nand
+target Q: 0111
+# endregion
+
+# region: make
+widget: gates
+add: and, or, not
+target Q: 0110
+# endregion

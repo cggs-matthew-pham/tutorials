@@ -1,0 +1,29 @@
+# Boards for "Remembering a bit".
+
+# region: run
+widget: gates
+mode: latch
+# endregion
+
+# region: explain
+widget: gates
+mode: latch
+# endregion
+
+# region: explain-pic
+widget: gates
+mode: latch
+register: 4
+# endregion
+
+# region: modify
+widget: gates
+mode: latch
+register: 4
+# endregion
+
+# region: make
+widget: gates
+mode: latch
+register: 4
+# endregion

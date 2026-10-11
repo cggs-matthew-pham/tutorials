@@ -1,0 +1,46 @@
+summary: Students follow wired circuits row by row, then build circuits to match truth tables, including NOT and OR from NAND gates alone and XOR from AND, OR and NOT (AC9TDI8K04 node 3, extended; the kit names adder circuits as going further).
+time: 45
+timing: "Predict and Try 6 min · Worked example 10 min · Vary 15 min · Practise and Make 14 min"
+goals:
+  - I can work out a circuit's output, gate by gate.
+  - I can build a circuit to match a truth table.
+  - I can explain why NAND gates can build anything.
+struggle: "Wiring is fiddly at first and the first circuits don't match. Let the wanted column's crosses do the telling: students change one wire and watch which rows turn green."
+before: |
+  Try the boards yourself; wire by clicking a ● (from) then a pin (to), and click a wired pin to unplug it.
+
+  The one idea: each gate uses only what arrives on its own wires. Data representation's *Why binary: logic gates* is assumed (AND, OR, NOT, truth tables); start with a two-minute recap if the class hasn't done it recently.
+
+  This course is an extension (Years 9–10). Its lessons are tagged AC9TDI8K04 node 3 (why binary: circuits and logic gates), which the kit says adder circuits go further from.
+
+  Unplugged first works well: students as gates holding cards, passing 0s and 1s along strings.
+running:
+  - "Predict: students who said off are reading the switches, not the OR gate's output."
+  - "Try: ask what one word describes this circuit (NOR, not-OR)."
+  - "Worked example: model the order: a gate can only be worked out once everything wired into it is known."
+  - "Vary: after NOT from NAND, ask what A NAND A means in words."
+  - "Make: compare circuits: did anyone use fewer gates?"
+stuck:
+  - see: "A student feeds the switches into every gate in their head (Sam's mistake)."
+    ask: "Follow gate 3's wire back. Where does it start?"
+    fix: "Each gate uses its own wires only."
+  - see: "A student can't start building."
+    ask: "Which rows need a 1? What do those rows have in common?"
+    fix: "Build the gate for that pattern, then fix the rows that are wrong."
+stretch: "Build XOR from four NAND gates. Then: why would a chip factory rather make one kind of gate?"
+support: "Truth table cards for AND, OR, NOT and NAND to keep on the desk."
+leads: |
+  Next: Adding with gates (half and full adders).
+
+  Links: Data representation › Why binary: logic gates (the introduction). For keen students and teachers, the free course From NAND to Tetris (nand2tetris.org) builds a whole computer from NAND gates.
+exit:
+  q: "A and B go into an AND gate; its output goes into a NOT gate. What is the output for A = 1, B = 1, and what is this circuit called?"
+  a: "1 AND 1 = 1, NOT 1 = 0. It is NAND (not both)."
+explain: |
+  Wire one gate's output into another gate's input and you get a **circuit**.
+
+  - Work it out **gate by gate**: each gate uses only what arrives on its own wires.
+  - Do that for every row of switches to fill the **truth table**.
+  - Going the other way, you can build a circuit for **any** truth table from AND, OR and NOT, or from **NAND** gates alone.
+
+  XOR (exactly one on) is OR, AND and NOT combined.

@@ -1,0 +1,44 @@
+summary: Students set and reset a latch made of two NOR gates, see it keep its bit with both switches off, and store a number in a 4-bit register of latches (AC9TDI8K04 node 3, extended; the kit names adder circuits as going further).
+time: 40
+timing: "Predict and Try 6 min · Worked example 10 min · Vary 12 min · Practise and Make 12 min"
+goals:
+  - I can explain how a latch remembers a bit.
+  - I can say what Set and Reset do, and what happens with both off.
+  - I can store a number in a register and explain why it stays.
+struggle: "Feedback is strange: an output that is also an input. Don't explain the NOR details first; let students see Q stay 1, then trace why."
+before: |
+  Try the boards yourself.
+
+  The one idea: a loop of gates keeps its bit. This is the first circuit whose output depends on what happened before, not only on its inputs now.
+
+  The board's register Store button stands in for a clock signal (a D flip-flop in real chips); the lesson keeps that detail out. Real RAM mostly uses capacitors (DRAM) rather than latches, with latches (SRAM) in caches and registers; both need power.
+running:
+  - "Predict: students who said 0 hold Sam's misconception; Try settles it."
+  - "Try: ask which wire carries the memory."
+  - "Worked example: trace the both-off row: what does each gate get?"
+  - "Vary: after both on, ask why designers avoid it."
+  - "Make: ask what the register would hold after one more Store."
+stuck:
+  - see: "A student says the latch is just a lamp (Sam's mistake)."
+    ask: "What is Q with both switches off, after Set? After Reset?"
+    fix: "Different answers for the same switches: it remembers."
+  - see: "A student changes the data and expects the register to follow."
+    ask: "When does the register copy the data?"
+    fix: "Only on Store (in a processor, on a clock tick)."
+stretch: "Look up a D flip-flop. How does it make sure the register changes only on the clock tick?"
+support: "A four-row table: S, R, Q after. Students fill it from the board."
+leads: |
+  Next: A tiny processor (fetch, decode, execute).
+
+  Links: Inside a computer (RAM empties without power; storage keeps data).
+exit:
+  q: "Set goes on then off, then Reset goes on then off. What is Q after each step, and why does the latch count as memory?"
+  a: "1, 1, 0, 0. With both switches off it keeps its last value, so its output depends on what happened before."
+explain: |
+  A gate on its own forgets. A **latch** is two gates whose outputs feed back into each other.
+
+  - **Set** on: Q becomes 1.
+  - **Reset** on: Q becomes 0.
+  - **Both off**: Q keeps what it had. That is one bit of memory.
+
+  Put latches side by side and you have a **register** that stores a number until the next Store (in a processor, the next clock tick). They need power to keep going, which is why RAM empties when it's switched off.

@@ -1,0 +1,38 @@
+# Boards for "Adding with gates".
+
+# region: run
+widget: gates
+outputs: S, C
+add: xor, and
+target S: 0110
+target C: 0001
+# endregion
+
+# region: explain
+widget: gates
+mode: adder
+bits: 4
+# endregion
+
+# region: explain-pic
+widget: gates
+mode: adder
+bits: 4
+a: 5
+b: 7
+# endregion
+
+# region: modify
+widget: gates
+mode: adder
+bits: 4
+# endregion
+
+# region: make
+widget: gates
+inputs: A, B, Cin
+outputs: Sum, Carry
+add: xor, and, or
+target Sum: 01101001
+target Carry: 00010111
+# endregion

@@ -257,5 +257,9 @@
   "biggest-spec-best": {"home": "systems/hardware/choosing", "text": "The option with the biggest numbers is thought to be best for every job; a spec only helps when that part is the job's bottleneck."},
   "breadboard-rows": {"home": "engineering/arduino/breadboard", "text": "The holes along a lettered row are thought to be joined; on a breadboard each numbered column's five holes (a–e, or f–j) are joined, and the gap separates the halves."},
   "tests-skip-boundary": {"home": "engineering/arduino/small-system", "text": "A design is tested only with values far from the threshold; the slips are at the boundary (299, 300, 301), so test there too."},
-  "pico-same-numbers": {"home": "engineering/arduino/pico", "text": "Numbers are thought to carry straight over from Arduino to MicroPython; time.sleep takes seconds, not milliseconds, and the Pico's read_u16 gives 0 to 65535, not 0 to 1023."}
+  "pico-same-numbers": {"home": "engineering/arduino/pico", "text": "Numbers are thought to carry straight over from Arduino to MicroPython; time.sleep takes seconds, not milliseconds, and the Pico's read_u16 gives 0 to 65535, not 0 to 1023."},
+  "gate-reads-switches": {"home": "systems/logic/combine", "text": "Every gate in a circuit is taken to use the switches; each gate uses only what arrives on its own wires, often another gate's output."},
+  "binary-digit-two": {"home": "systems/logic/adding", "text": "1 + 1 is written as 2 in a binary sum; binary has only 0 and 1, so 1 + 1 = 10: write 0, carry 1."},
+  "latch-forgets": {"home": "systems/logic/remember", "text": "A latch is thought to work like a lamp, dropping back to 0 when Set goes off; with Set and Reset both off it keeps its last value, which is what makes it memory."},
+  "code-not-numbers": {"home": "systems/logic/processor", "text": "Instructions and data are thought to be different kinds of thing in memory; instructions are numbers in the same memory, and a processor will run whatever the program counter points at."}
 }

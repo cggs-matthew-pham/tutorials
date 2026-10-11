@@ -1,0 +1,58 @@
+# Boards for "A tiny processor".
+
+# region: run
+widget: cpu
+program: LOAD 6; ADD 7; OUT; HALT
+data: 6=5, 7=3
+expect: 8
+# endregion
+
+# region: explain
+widget: cpu
+program: LOAD 6; ADD 7; OUT; HALT
+data: 6=5, 7=3
+# endregion
+
+# region: explain-pic
+widget: cpu
+program: LOAD 6; ADD 7; OUT; HALT
+data: 6=5, 7=3
+# endregion
+
+# region: edit
+widget: cpu
+program: LOAD 6; ADD 7; OUT; HALT
+data: 6=5, 7=3
+edit: on
+# endregion
+
+# region: edit2
+# a fresh copy for the second task
+widget: cpu
+program: LOAD 6; ADD 7; OUT; HALT
+data: 6=5, 7=3
+edit: on
+# endregion
+
+# region: store
+widget: cpu
+program: LOAD 6; ADD 7; STORE 9; HALT
+data: 6=5, 7=3
+edit: on
+watch: 9
+# endregion
+
+# region: loop
+widget: cpu
+program: LOAD 12; OUT; SUB 13; JZ 5; JUMP 1; OUT; HALT
+data: 12=3, 13=1
+edit: on
+expect: 5, 4, 3, 2, 1, 0
+# endregion
+
+# region: make
+widget: cpu
+data: 15=2
+edit: on
+expect: 2, 4, 6
+# endregion

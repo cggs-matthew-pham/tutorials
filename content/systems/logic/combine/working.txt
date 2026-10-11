@@ -1,0 +1,9 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+A = 1, B = 0.
+Gate 1 (OR): 1 OR 0 = 1.
+Gate 2 (AND): 1 AND 0 = 0.
+Gate 3 (NOT): NOT A = NOT 1 = 0.
+Gate 4 (AND): 1 AND 0 = 0, so Q = 0.
+# endregion

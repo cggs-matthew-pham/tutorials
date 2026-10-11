@@ -781,6 +781,25 @@ Vary, Practise, Make).
     0 before a run), `u` (1 if that run matches the specs shown: use it in every time check), `b` (bottleneck 1–5), `c`
     cost, `k`, `g` (GHz × 10), `r`, `s` (SSD), `z`, `n`, `h`, `j` (job 1–6), `f` (fits), `x` runs, `y` jobs run, `w`
     devices run, `v` device shown, `m` parts changed from the start, `p` rows explained.
+  - `widget: gates` (first used by `systems/logic/`): three modes. `mode: build`: switches (`inputs: A, B`, up to 4),
+    gates and output lamps (`outputs: Q`, up to 3); wire by clicking a "from" ● (label `Wire from A`, `Wire from gate 1
+    (AND)`) then a "to" pin (`gate 1 (AND) input 1`, `Output Q`); clicking a wired "to" pin with nothing chosen unplugs
+    it; loops are refused. `gate g1: and A B` prewires (and, or, not, nand, nor, xor; names g1, g2, …), `wire Q: g1`,
+    `add: and, not` gives Add buttons (`max:` 6), `lock: on` fixes the wiring, `target Q: 0110` (rows count up from all
+    0s, first input the biggest bit), `table: all | tried | off`. Values `a`–`d` switches, `o`, `p` outputs now, `m` rows
+    matching, `r` rows, `k` (all match, nothing unplugged), `g`, `w`, `u` unplugged, `n` (all NAND), `t` rows tried, `j`
+    depth. `mode: adder`: bit switches for A and B (`bits:` 1–8, `half: on`, `a:`/`b:` start), a full adder per place
+    with carries; values `a`, `b`, `s`, `c` last carry, `z` places that carried, `o` overflow, `y` sums tried.
+    `mode: latch`: an SR latch of two NOR gates (switches `Reset (R)`, `Set (S)`), `register: 4` adds data switches,
+    Store and the stored bits; values `s`, `r`, `q`, `h` (holding a 1 with both off), `f` (both on tried), `k` changes,
+    `d`, `v` stored, `w` stores.
+  - `widget: cpu` (first used by `systems/logic/processor`): 16 memory cells and a processor (PC, IR, ACC); Clock tick
+    (one phase of fetch, decode, execute), Whole instruction, Run, Reset. `program: LOAD 6; ADD 7; OUT; HALT` from cell 0,
+    `data: 6=5, 7=3`, `edit: on` (cells are text boxes labelled `Memory 0`…; type `ADD 7` or a number, Enter), `expect:
+    2, 4, 6`, `watch: 9`. Instructions are numbers (operation × 16 + address): 0 HALT, 1 LOAD, 2 ADD, 3 SUB, 4 STORE,
+    5 JUMP, 6 JZ, 7 OUT; numbers wrap at 256; stops after 600 ticks. Values `p`, `a`, `t` ticks, `i` instructions, `h`
+    halted, `o` last output (−1 none), `n` outputs, `x` (halted with exactly the expected outputs), `v` watched cell, `e`
+    error, `q` cells typed, `f` phase.
   - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
     between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
     `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b

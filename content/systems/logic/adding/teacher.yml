@@ -1,0 +1,46 @@
+summary: Students build a half adder from XOR and AND, add 4-bit binary numbers on a chain of full adders and watch the carries ripple, then build a full adder from gates (AC9TDI8K04 node 3, extended; the kit names adder circuits as going further).
+time: 45
+timing: "Predict and Try 7 min · Worked example 10 min · Vary 10 min · Practise and Make 18 min"
+goals:
+  - I can add binary numbers in columns, with carries.
+  - I can explain what a half adder and a full adder do.
+  - I can build a full adder from gates.
+struggle: "The full adder Make is hard on purpose: it is the first circuit with three inputs and two outputs. Point at the wanted columns and let students build the sum first, then the carry."
+before: |
+  Try the boards yourself.
+
+  The one idea: one column of an addition is a small truth table (sum and carry), so gates can add. Students have met the half adder in Data representation's logic gates lesson; here they build it and then go further.
+
+  Column addition in base ten first helps: 5 + 5 writes 0 and carries 1, exactly like 1 + 1 in binary.
+
+  The 4-bit adder on the board is drawn as full adder boxes; the gates inside each box are the ones students build in the Make.
+running:
+  - "Predict: students who chose 2 hold Sam's misconception."
+  - "Try: ask which gate makes the carry and why."
+  - "Worked example: write the carries above the columns, as in base ten."
+  - "Vary: after overflow, ask where the fifth bit would have to go."
+  - "Make: let students reuse the first XOR for the carry; compare gate counts."
+stuck:
+  - see: "A student writes 2 in a binary sum (Sam's mistake)."
+    ask: "Which digits can binary use?"
+    fix: "1 + 1 = 10: write 0, carry 1."
+  - see: "A student's full adder sum is right but the carry is wrong."
+    ask: "Which rows need a carry? How many 1s does each have?"
+    fix: "Two or more 1s: (A AND B) OR ((A XOR B) AND CIN)."
+stretch: "Subtraction: look up two's complement. How could the same adder subtract?"
+support: "A column-addition frame with a carry row above, for binary."
+leads: |
+  Next: Remembering a bit (latches and registers).
+
+  Links: Data representation › Bits all the way down (overflow); Inside a computer (the processor's speed).
+exit:
+  q: "Add 0110 + 0101 in binary. Which places carried?"
+  a: "1011 (11). Only the fours place carried (1 + 1 = 10)."
+explain: |
+  Adding one column of binary is a small truth table.
+
+  - **Half adder** (two bits): sum = A **XOR** B, carry = A **AND** B. So 1 + 1 = 10: sum 0, carry 1.
+  - **Full adder** (two bits and a carry in): the sum is 1 when an odd number of inputs are 1; it carries when two or more are 1.
+  - Put **one full adder per place**, each passing its carry to the left, and you can add whole numbers.
+
+  If the last carry has nowhere to go, the answer needs another bit: overflow.

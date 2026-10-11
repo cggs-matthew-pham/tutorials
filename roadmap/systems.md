@@ -38,6 +38,10 @@ Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 
 
 `systems/hardware` (Years 7–8, AC9TDI8K01, Hardware and logic pathway): What the specs mean (n1: spec sheet rows with what each measures and a kitchen comparison; phone, laptop, server), Find the bottleneck (n2: run jobs on an old laptop, time bars per part, upgrade the slowest), Choose the hardware (n3: Option A vs B on different jobs, four steps to a justified choice, the cheapest media-lab build within $900 and 60 s). New `hardware` widget. Misconceptions `ram-is-storage`, `storage-size-is-speed`, `biggest-spec-best`. The pathway's planned "Logic gates" card became "From gates to a processor" (adders, a tiny processor), since gates are taught in Data representation.
 
+## Done (12 Oct 2026): From gates to a processor
+
+`systems/logic` (Years 9–10 extension in the Hardware and logic pathway, after Data representation and Inside a computer; every lesson tagged AC9TDI8K04 n3, which the kit says adder circuits go further from): Combining gates (circuits row by row, build to a truth table, NOT and OR from NANDs, Make XOR), Adding with gates (half adder, 4-bit adder with carries and overflow, Make a full adder), Remembering a bit (an SR latch of two NORs, a 4-bit register), A tiny processor (fetch, decode, execute per clock tick; change data and instructions, STORE, a countdown loop; Make a program that outputs 2, 4, 6). New `gates` widget (build, adder, latch) and `cpu` widget. Misconceptions `gate-reads-switches`, `binary-digit-two`, `latch-forgets`, `code-not-numbers`. Logic gates themselves stay in Data representation (one home); this course reviews them and goes deeper.
+
 ## Next
 
 1. Concept links: Secret messages should `assumes:` character codes (needs the cross-language concept change, item 3).
