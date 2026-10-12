@@ -98,14 +98,20 @@ An intention, not a rule; pilot it on one lesson before deciding. Applies to eve
 - **Keep the door open:** stable ids on steps, tasks and predictions (mostly there already), so a signal tool can name "prediction 1 of Variables" without the tutorials knowing about it. Later, perhaps a small hook: when a session code is set, the lesson page posts a prediction or stuck status to that tool and stores nothing itself.
 - **Open:** pilot lesson (Python Variables suggested); whether Present replaces the Marp decks or sits beside them; how a lesson marks where Present ends and Lab begins (default: at Modify).
 
-## Speculative: test out, a fast track for students who already know it (12 Oct 2026, discussion only)
+## Speculative: Consolidating, Steady, Advanced on the width control (12 Oct 2026, discussion only)
 
-An intention, not a rule; pilot it before deciding. Applies to every subject.
+An intention, not a rule; pilot it before deciding. Applies to every subject. Replaces an earlier "test out" idea (skip to the Make), which was about speed; Learning Waypoints is about width: faster students go wider and deeper, not ahead.
 
-- **Why:** PRIMM has evidence for novices (Sentance, Waite and Kallia, 2019: about 500 Year 7–8 students did better than comparison classes), but support that helps novices can stop helping students who already know the idea: they learn less, not just enjoy it less (the expertise reversal effect, Kalyuga). Confident beginners often overrate what they know, so the fast track is earned by a check, never self-declared.
-- **Intent:** a "Know this already? Try the Make" button on a lesson. Pass the Make and the lesson counts as done, with the earlier steps folded into a recap; fail and the student goes back to Predict, with no penalty and no record of the attempt beyond the usual progress.
-- **Leanings:** a confident, correct prediction plus a correct trace could skip Investigate, while a wrong one keeps the full path; fast students need somewhere to go next (optional challenge lessons, Wider tiers, open projects), not just less waiting; in class it pairs with Present mode (above): capable students start Lab early on the Make or a stretch task while the teacher models for everyone else.
-- **Open:** whether a Make alone is a fair test (it shows production, not tracing or explaining), or whether test out also needs one Investigate-style question; whether teachers can switch it off for a class (a `?testout=0` link, as `?width=` sets a floor); pilot course (Python Foundations suggested).
+- **Why:** PRIMM and the maths shape help novices, but support that helps novices can stop helping students who already know the idea (the expertise reversal effect, Kalyuga). Fast students can already skip the reading (nothing is locked); what they lack is something worth doing with the time they save. Students who are struggling need more support, not fewer steps, which is all Minimum gives them today.
+- **Intent:** the existing width switch (Minimum / Typical / Wider, `?width=` floor, students can widen but not narrow) becomes **Consolidating / Steady / Advanced**. Everyone does the same core path and checks, so the one new move and class discussion stay shared.
+  - **Consolidating:** more support: an extra faded worked example, hints offered earlier, a few more practice items.
+  - **Steady** (default): as Typical now.
+  - **Advanced:** scaffolds faded (worked example collapsed, hints later) plus a stretch task that **combines ideas taught up to this lesson**: integration and synthesis, explaining why, an edge case. Never new content, so it never runs ahead of the course.
+- **Rule change it needs:** AUTHORING says "Wider means more contexts, never harder content". It would become: Advanced may be harder only by combining ideas taught up to this lesson.
+- **Lint:** the concept scan already knows each lesson's `introduces` and `assumes`; an Advanced step could be checked to use only concepts taught up to its lesson (validate warns on anything new).
+- **Examples:** Python Variables: a spiral whose colour and size both change (lesson 1's loop with lesson 2's variable), then say which line controls which. Maths ratio: ratio with area or rates from earlier lessons, not proportion. Packets: which link to break when Wi-Fi loses packets and router C is busy (Wired or wireless with Packets).
+- **In class:** pairs with Present mode (above): Advanced students start Lab early on the stretch while the teacher models for everyone else.
+- **Open:** student-facing labels ("Consolidating" can read as a judgement; students might see neutral names while teacher notes use these); authoring cost (about 140 of 469 lessons have tiered steps, mostly extra contexts rather than stretch, so an audit and new stretch tasks over time); whether Consolidating support is written per lesson or generated (extra practice could come from the Practice page templates); pilot course (Python Foundations suggested).
 
 ## Proposed: Nib and Nib's notebook (11 Oct 2026, discussed, not decided)
 
