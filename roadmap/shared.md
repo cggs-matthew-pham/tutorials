@@ -285,6 +285,12 @@ Built as a course page rather than in lessons (lessons keep their chosen numbers
 
 **Built for science (12 Oct, Matthew asked):** `tools/coach.mjs` (new) builds the prompt from the node's title, statement and success criteria, the node before it, and the first three `stuck:` lines. A course opts in with `coach: true` in its `index.md` (all 15 science courses; no other course changes). `tools/build-site.mjs`: prompts computed for opted-in courses; the recap card gets a hidden "Still stuck?" box with Copy (`.rccoach`, `RECAP_COACH_JS`), shown only when the recap URL has `?coach=1`. `tools/teach.mjs`: a "Coach prompt (optional)" section in the lesson guide with the full prompt and the `?coach=1` recap link. Maths or code can opt in by adding `coach: true` once they agree.
 
+## Made (12 Oct 2026, code chat): 10K02 practice in HTML & CSS
+
+The systems chat tagged the lessons, built How a web page is made and the theory concepts (see the systems entry below). On top of that, two checks so students who take only HTML & CSS still practise 10K02. Only lesson.md changed, so no clip re-records:
+- Rules and selectors: a last Investigate task that sorts parts of a page into content, structure and presentation (n1).
+- Page sections: a question on one style sheet restyling 40 pages, and screen readers reading the structure (n3's reasons). The node tags stay as the systems chat set them.
+
 ## Made (12 Oct 2026, code chat): open projects (Matthew asked to build)
 
 Shared files touched; nothing re-records except the four lessons whose exit question changed and DOM clips (dom-errors hint):

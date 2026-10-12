@@ -72,7 +72,7 @@ Compare the page with your prediction. Then change `p` to `li` and watch the col
 ```step
 stage: investigate
 code: page.html#parts
-insight: "A rule is a selector plus declarations; a class (with a dot) picks only the elements you marked, and a selector that does not match is silently ignored."
+insight: "A rule is a selector plus declarations; a class (with a dot) picks only the elements you marked, and a selector that does not match is silently ignored. A page has three layers: the words (content), the tags (structure) and the CSS (presentation)."
 unlocks: [class-selector]
 tasks:
   - check:
@@ -106,6 +106,18 @@ tasks:
       options: ["Crimson and 20px: both rules apply", "Only crimson: the class rule replaces the p rule", "Only 20px: the first rule wins", "Black: the two rules cancel out"]
       answer: 0
       explain: "When rules set different properties, every matching rule applies. One rule can also pick several kinds of element at once: h1, h2 { } styles both."
+  - check:
+      type: sort
+      q: "A web page has three layers. Sort each part of the Sports day page into its layer."
+      options: ["Content: the words and pictures", "Structure: the tags that say what each part is", "Presentation: how it looks"]
+      items:
+        - ["The words Sports day is on Friday.", "Content: the words and pictures"]
+        - ["The words Sprint and Relay", "Content: the words and pictures"]
+        - ["<h1> around the title", "Structure: the tags that say what each part is"]
+        - ["<ul> and <li> around the events", "Structure: the tags that say what each part is"]
+        - ["h1, h2 { color: navy; }", "Presentation: how it looks"]
+        - [".note { color: crimson; }", "Presentation: how it looks"]
+      explain: "The words are the content. The tags give it structure: this is a heading, this is a list. The CSS is the presentation. You can change the CSS and the heading is still a heading; you can change the words and the page still looks the same."
 ```
 
 ### Match the parts
@@ -148,6 +160,10 @@ One rule for two kinds of element (`h1, h2`), a class on a list item, and a para
 <p>Sports day is on Friday.</p>
 <p class="note">Bring a hat.</p>
 ```
+
+### Three layers
+
+Words, tags and rules: which is which?
 
 ## Modify
 

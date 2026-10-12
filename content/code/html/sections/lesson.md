@@ -71,7 +71,7 @@ Compare with your prediction. **Boxes** is on, so you can see the named parts. S
 ```step
 stage: investigate
 code: page.html#page
-insight: "Each section tag names one part of a page; components such as a hero and cards are built from tags and rules students already know."
+insight: "Each section tag names one part of a page; components such as a hero and cards are built from tags and rules students already know. Keeping structure in tags and looks in CSS means screen readers can follow the page and one style sheet can restyle a whole site."
 unlocks: [nav, main, section]
 tasks:
   - check:
@@ -105,6 +105,13 @@ tasks:
       misconception: flex-on-items
       text: "The two cards should sit side by side, but they stack, with no error. Click the line in the wrong place."
       explain: "Line 3 gives display: flex to each card. It belongs on the box that holds the cards: .cards { display: flex; }."
+  - check:
+      type: question
+      q: "A school website has 40 pages. Every page uses the same tags for its parts and links to one style sheet, style.css. The school changes its colours. What is the best way to update the site?"
+      options: ["Change the colours once in style.css: every page follows", "Edit the style on every tag of all 40 pages", "Change the tags to different ones", "Make 40 new pages"]
+      answer: 0
+      explain: "Because the looks live in CSS, not in the tags or the words, one change to the style sheet restyles all 40 pages. The same split helps screen readers: they read the structure (header, nav, main), whatever it looks like."
+      feedback: [null, "That works, but it means 40 pages of edits, and some will be missed. Where do the colours live if every page links to style.css?", "The tags say what each part is; colours belong to the CSS. Changing tags would change the meaning, not the colours.", "New pages would still need their colours. Where do the looks live?"]
 ```
 
 ### Match the parts
@@ -134,6 +141,10 @@ A **hero** is a big opening section: a heading, a line of text and a link. **Car
 ### Cards that will not line up
 
 Two cards that should sit side by side.
+
+### One style sheet, many pages
+
+Why keep the looks out of the tags?
 
 ## Modify
 
