@@ -508,6 +508,23 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .gearsvg .mvrodbox { fill: color-mix(in srgb, var(--left) 35%, var(--card)); stroke: var(--ink); stroke-width: 1.5; }
 .gearsvg .mvroller { fill: var(--card); stroke: var(--ink); stroke-width: 1.5; }
 .gearsvg .mvjam { font: 600 14px system-ui, sans-serif; fill: #b42318; text-anchor: middle; }
+/* Printed circuit boards (pcb) */
+.pcbsvg:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+.gearsvg .pcbboard { fill: #2e6b3f; stroke: #1e4a2b; stroke-width: 2; }
+.gearsvg .pcbdot { fill: #ffffff; opacity: 0.25; }
+.gearsvg .pcbpart { fill: #ffffff; fill-opacity: 0.08; stroke: #f4f1e8; stroke-width: 1.5; stroke-dasharray: 4 3; }
+.gearsvg .pcbpart.sel { stroke: #ffd166; stroke-width: 2.5; stroke-dasharray: none; }
+.gearsvg .pcbpad { fill: #d4a537; stroke: #7a5c12; stroke-width: 1.5; }
+.gearsvg .pcbpad.hl { fill: #ffd166; stroke: #ffffff; stroke-width: 2.5; }
+.gearsvg .pcblabel { font: 600 11px system-ui, sans-serif; fill: #f4f1e8; }
+.gearsvg .pcbrat { stroke-width: 1.5; stroke-dasharray: 3 3; opacity: 0.95; }
+.gearsvg .pcbtrace { stroke-linecap: round; fill: none; }
+.gearsvg .pcbtrace.top { stroke: #e07a3c; }
+.gearsvg .pcbtrace.bottom { stroke: #5aa0e6; opacity: 0.85; }
+.gearsvg .pcbtrace.cur { stroke-dasharray: 2 0; filter: brightness(1.2); }
+.gearsvg .pcbvia { fill: #d4a537; stroke: #1e4a2b; stroke-width: 2; }
+.gearsvg .pcbcursor { fill: none; stroke: #ffd166; stroke-width: 1.5; stroke-dasharray: 3 2; }
+.pcbsvg:not(:focus) .pcbcursor { display: none; }
 .gfacts { margin: 2px 0 0; font: 15px/1.4 ui-monospace, Menlo, Consolas, monospace; }
 .oprow label { display: inline-flex; align-items: center; gap: 4px; }
 /* Security and privacy */

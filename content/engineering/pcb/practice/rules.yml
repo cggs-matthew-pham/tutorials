@@ -1,0 +1,18 @@
+# Practice for "Design rules and ordering": width from current; order costs.
+templates:
+  - q: "A trace carries {i} A. Which is the narrowest width that passes, in mm? (0.25 mm 0.8 A · 0.5 mm 1.4 A · 1 mm 2.4 A · 1.5 mm 3.2 A · 2 mm 3.9 A)"
+    vars: { i: [0.1, 0.5, 0.7, 0.9, 1.2, 1.5, 2, 2.2, 2.6, 3, 3.5] }
+    let: { w: "i <= 0.8 ? 0.25 : i <= 1.4 ? 0.5 : i <= 2.4 ? 1 : i <= 3.2 ? 1.5 : 2" }
+    answer: "{w}"
+    explain: "The first width whose safe current is at least {i} A: {w} mm."
+  - q: "A maker charges ${s} to set up and ${p} a board. What do {n} boards cost, in dollars?"
+    vars: { s: "10..40 by 5", p: [0.5, 1, 1.5, 2, 2.5], n: "5..50 by 5" }
+    answer: "{s + n * p}"
+    explain: "{s} + {n} × {p} = ${s + n * p}."
+  - q: "A maker charges ${s} to set up and ${p} a board. What does each board cost if you order {n}, in dollars, to the nearest cent?"
+    vars: { s: "10..40 by 5", p: [0.5, 1, 1.5, 2], n: "5..50 by 5" }
+    answer: "{(s + n * p) / n}"
+    tolerance: 0.006
+    feedback:
+      - ["{s + n * p}", "That is the whole order. Divide by {n}."]
+    explain: "({s} + {n} × {p}) ÷ {n} = {s + n * p} ÷ {n} ≈ ${(s + n * p) / n|f2}."

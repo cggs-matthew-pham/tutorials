@@ -1,0 +1,20 @@
+# Practice for "Place the parts": grid cells to millimetres; joins in a net.
+templates:
+  - q: "Two pads are {n} cells apart in a straight line. How far apart are they, in mm?"
+    vars: { n: "2..20" }
+    answer: "{n * 2.54}"
+    tolerance: 0.01
+    feedback:
+      - ["{n}", "That is in cells. One cell is 2.54 mm."]
+    explain: "{n} × 2.54 = {n * 2.54} mm."
+  - q: "A board is {w} cells wide and {h} cells tall. What is its area, in cm², to 1 decimal place?"
+    vars: { w: "10..30 by 2", h: "8..20 by 2" }
+    answer: "{w * h * 0.254 * 0.254}"
+    tolerance: 0.06
+    explain: "{w} × 0.254 cm by {h} × 0.254 cm = {w * h * 0.254 * 0.254|f1} cm²."
+  - q: "A net has {n} pads. How many ratsnest lines join them?"
+    vars: { n: "2..9" }
+    answer: "{n - 1}"
+    feedback:
+      - ["{n}", "Joining {n} things in a chain takes one fewer link."]
+    explain: "{n} pads need {n - 1} joins."

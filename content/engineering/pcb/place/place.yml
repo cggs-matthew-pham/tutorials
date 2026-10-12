@@ -1,0 +1,76 @@
+# Boards for "Place the parts". A button and an LED shield: J1 is the 4-pin connector to the micro:bit or Arduino
+# (VCC, IN, OUT, GND). One grid cell is 2.54 mm.
+
+# region: run
+widget: pcb
+mode: layout
+grid: 20, 12
+part J1: header4 at 0,4 turn 1
+part S1: button at 13,1
+part R2: resistor at 3,10
+part R1: resistor at 14,7
+part D1: led at 6,1
+net VCC: J1.1, S1.1
+net IN: J1.2, S1.2, R2.1
+net OUT: J1.3, R1.1
+net LEDA: R1.2, D1.1
+net GND: J1.4, R2.2, D1.2
+fixed: J1
+edge: J1
+# endregion
+
+# region: explain
+widget: pcb
+mode: layout
+grid: 20, 12
+part J1: header4 at 0,4 turn 1
+part S1: button at 3,2
+part R2: resistor at 3,9
+part R1: resistor at 9,6
+part D1: led at 15,6
+net VCC: J1.1, S1.1
+net IN: J1.2, S1.2, R2.1
+net OUT: J1.3, R1.1
+net LEDA: R1.2, D1.1
+net GND: J1.4, R2.2, D1.2
+fixed: J1
+edge: J1
+# endregion
+
+# region: vary
+widget: pcb
+mode: layout
+grid: 20, 12
+part J1: header4 at 0,4 turn 1
+part S1: button at 13,1
+part R2: resistor at 3,10
+part R1: resistor at 14,7
+part D1: led at 6,1
+net VCC: J1.1, S1.1
+net IN: J1.2, S1.2, R2.1
+net OUT: J1.3, R1.1
+net LEDA: R1.2, D1.1
+net GND: J1.4, R2.2, D1.2
+fixed: J1
+edge: J1
+target: 100
+# endregion
+
+# region: make
+widget: pcb
+mode: layout
+grid: 12, 8
+part J1: header4 at 0,2 turn 1
+part S1: button at 7,0
+part R2: resistor at 1,7
+part R1: resistor at 6,4
+part D1: led at 2,1
+net VCC: J1.1, S1.1
+net IN: J1.2, S1.2, R2.1
+net OUT: J1.3, R1.1
+net LEDA: R1.2, D1.1
+net GND: J1.4, R2.2, D1.2
+fixed: J1
+edge: J1
+target: 70
+# endregion

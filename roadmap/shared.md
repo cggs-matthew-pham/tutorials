@@ -443,3 +443,4 @@ One block per playground. Course status is in `code.md`.
 - 12 Oct (engineering chat): new board widget `train` (`playground-board/widgets/geartrain.js`, registered in `playground-board/index.html`, styles `.gmid` and `.gback`). Any board-playground change re-records board clips on the next publish.
 - 12 Oct (engineering chat): new board widget `lever` (`playground-board/widgets/lever.js`, `mode: lever | pulley`), registered in `playground-board/index.html`, styles `.lv*` and `.pl*`.
 - 12 Oct (engineering chat): new board widget `motion` (`playground-board/widgets/motion.js`, `mode: crank | cam | linkage`), registered in `playground-board/index.html`, styles `.mv*`.
+- 12 Oct (engineering chat): new board widget `pcb` (`playground-board/widgets/pcb.js`, `mode: layout | route | rules`), registered in `playground-board/index.html`, styles `.pcb*`.

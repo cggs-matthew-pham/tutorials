@@ -770,6 +770,21 @@ Vary, Practise, Make).
     `c_mm`, `d_mm`, `g` (shortest + longest ≤ the other two), `full` (the crank turns all the way, found by trying every
     degree), `swing` (rocker degrees, 0 if not full), `jam`, `turns`, `t`, `p`. Checks: `"stroke_mm = 60 and t = 1"`,
     `"c = 3 and t = 1"`, `"a_mm = 55 and jam = 1"`, `"full = 1 and swing >= 100 and t = 1"`. Ready selector `.gearsvg`.
+  - `widget: pcb` (first used by `engineering/pcb/`): a teaching model of a PCB tool on a 2.54 mm grid (one cell),
+    through-hole pads on both layers. `grid: 20, 12`; `part R1: resistor at 6,3 turn 1` (footprints resistor, diode,
+    led, cap, button, transistor, dip8, header2 to header8; the cell of pad 1; quarter turns); `net GND: J1.4, R2.2`
+    (net names start with a letter); `edge:` and `fixed:` (part lists); `target:` (ratsnest mm); `trace GND: bottom
+    0,5 0,6 via …` (prepared copper; `via` switches layer at the last cell); `current MA: 1.5` (A); `squeeze: MA` (nets
+    whose path passes between header pins, 0.4 mm at most). Clicks act on cells (or focus the board, arrow keys and
+    Enter). `mode: layout`: click a pad to light its net, click a part then an empty cell to move its pad 1 there,
+    Rotate; dashed ratsnest lines (Prim's shortest joins); values `rat_mm`, `inside`, `overlap` (parts need an empty
+    cell between them), `edge_ok`, `p`, `sel_k` (selected net, 1 = first listed), `sel_pins`, `moves`. `mode: route`:
+    click a pad (or a trace) to start, then one neighbouring cell at a time; a step onto another net is refused (a
+    short); Switch layer (a via while drawing), Undo; values `routed`, `n_nets`, `done`, `vias`, `len_mm`, `bot_mm`,
+    `sel_k`. `mode: rules`: a width menu per net with a `current:` (and a path menu for squeezed nets); safe currents
+    0.25 mm 0.8 A, 0.5 mm 1.4 A, 1 mm 2.4 A, 1.5 mm 3.2 A, 2 mm 3.9 A (IPC-2221, 1 oz, outer, 10 °C, rounded down);
+    values `n_fail`, `n_net`, `w_<net>`, `ok_<net>` (lower case). Checks: `"sel_k = 5"`, `"p = 1"`,
+    `"done = 1 and bot_mm = 0"`, `"done = 1 and len_mm <= 100"`, `"n_fail = 0 and w_ma >= 1"`. Ready selector `.pcbsvg`.
   - `widget: circuit` (first used by `engineering/circuits/`): parts wired to a micro:bit's pins, from a simple stated
     model (pin 3.3 V, LED drops 2 V and is damaged above 20 mA, analog read 0–1023 for 0–3.3 V). `mode: led`: pin 0 →
     resistor → LED → GND; `resistor:` (ohms, 0 = none), `place: after`, `output: off`, `gnd: off`, `turned: on`, and

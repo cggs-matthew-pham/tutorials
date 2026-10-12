@@ -64,11 +64,15 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 
 - Course `engineering/linkages` (Mechanisms pathway, extensions, after Mechanisms; unit motion): Cranks and sliders (stroke = 2 × radius whatever the rod; pump flow; Noah uses the radius; size a crank for a garden pump), Cams and followers (eccentric lift = 2 × offset; pear, snail, heart; displacement graphs; choose a cam for toys; a heart cam for a fish), Four-bar linkages (a longer crank jams; Grashof's rule, shortest + longest ≤ the other two; Ava adds the wrong pair; a wiper swinging ≥ 100°; a swing in a range). New `motion` widget (`mode: crank | cam | linkage`), misconceptions `stroke-equals-radius` and `grashof-wrong-pair`, primer, practice page.
 
+## Done (12 Oct 2026): Your own board
+
+- Course `engineering/pcb` (Design your own board pathway, extensions; unit From breadboard to board): Place the parts (nets, ratsnest, a placement order, a 100 mm and a 70 mm small-board brief), Route the traces (shorts refused, one layer with a detour, two layers with GND underneath; 119 mm against 94 mm of copper), Design rules and ordering (width for current, a trace too wide to squeeze between pins, setup plus per-board cost). New `pcb` widget (`mode: layout | route | rules`), primer, practice page. The Capstone projects' Off the breadboard and Design a PCB follow it with real tools.
+
 ## Next
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.
 2. Mechanisms: efficiency per mesh on the `train` board and friction on pulleys (Years 9–10; now stretch tasks); Structures (loads, trusses) as a later pathway.
-3. Optional: let `B.serial` accept an Uno's USB ids. (Done 12 Oct: compound gear trains; `shape: design` decks and worksheets say Inquire, not Predict.)
+3. Optional: let `B.serial` accept an Uno's USB ids; surface-mount parts and 45° routing on the `pcb` board if a class wants them. (Done 12 Oct: compound gear trains; `shape: design` decks and worksheets say Inquire, not Predict.)
 4. `tools/concepts.mjs` `prerequisites()` reads `code, maths, science, systems`: add `engineering` if an Engineering lesson ever uses the concept lint (its lessons are `language: maths`, which the lint skips).
 
 ## Parked

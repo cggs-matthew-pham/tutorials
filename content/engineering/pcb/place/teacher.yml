@@ -1,0 +1,44 @@
+summary: Students find nets by clicking pads, move and rotate parts to shorten the ratsnest, learn a placement order (connectors first, then follow the signal), and meet a layout brief on a normal and a small board.
+time: 40
+timing: "Predict and Try 10 min · Worked example 8 min · Vary 10 min · Practise and Make 12 min"
+goals:
+  - I can explain what a net and a ratsnest line are.
+  - I can place parts so the joins are short and the connector is at the edge.
+  - I can measure a board in millimetres from its grid.
+struggle: "Students move parts at random. Ask them to fix the connector first, then place one part at a time, watching the ratsnest total."
+before: |
+  Do Arduino › From simulator to breadboard (or any breadboard circuit) first: this course turns a breadboard circuit into a board.
+
+  The board is a teaching model of a real PCB tool (KiCad, EasyEDA): a 2.54 mm grid, through-hole parts, nets, a ratsnest. Real tools add footprints for every part, a schematic that makes the nets, and surface-mount parts on finer grids. The Capstone project Design a PCB uses a real tool.
+
+  Curriculum hooks: Design and Technologies, engineering principles and systems, and materials and technologies; Digital Technologies, digital systems (hardware).
+running:
+  - "Predict: show a photo of a real PCB and ask where the copper goes."
+  - "Try: have students say out loud which pads light up for GND."
+  - "Worked example: model the order on the board: connector, signal path, the many-net part, gaps, numbers."
+  - "Make: compare layouts; whose was shortest, and what did they place first?"
+stuck:
+  - see: "A part won't move."
+    ask: "Is it selected (gold outline)? Is the cell you clicked empty?"
+    fix: "Click the part, then an empty cell for its pad 1."
+  - see: "The board says parts are too close."
+    ask: "Is there an empty cell between every pair of parts?"
+    fix: "Leave a gap for copper and soldering."
+  - see: "The ratsnest got longer after a move."
+    ask: "Which nets does that part share, and where are their other pads?"
+    fix: "Move it towards the pads it joins."
+stretch: "Rotate J1 so it points out of a different edge. How does the best layout change?"
+support: "Give the placement order as a checklist, and the target as a number to beat by steps of 20 mm."
+leads: |
+  Next: Route the traces.
+
+  Real tools: KiCad (free, open source), EasyEDA (in the browser, linked to a board maker). The Capstone projects' Design a PCB uses one.
+exit:
+  q: "Name two rules of thumb for placing parts on a board, and say why each helps."
+  a: "Connectors at the edge, so cables reach them; parts that share nets close together, in signal order, so the copper is short and doesn't cross; leave gaps between parts for copper and soldering."
+explain: |
+  A **net** is a set of pads that must end up joined. Before any copper, the design tool draws **ratsnest** lines: the shortest joins still to make. **Placement** decides how long and tangled they are.
+
+  Place connectors at the edge first, then the other parts in the order the signal flows, with parts that share nets close together and a gap between parts. One grid step is 2.54 mm.
+sources:
+  - { title: "KiCad documentation: PCB editor (benchmark for the model; wording our own)", url: "https://docs.kicad.org/", checked: 2026-10-12 }

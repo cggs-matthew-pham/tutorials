@@ -1,0 +1,54 @@
+# Boards for "Design rules". A motor driver board: J1 brings power in, U1 drives the motor on J2, J3 carries signals.
+# The prepared traces show the paths; the student sets each trace's width.
+
+# region: run
+widget: pcb
+mode: rules
+grid: 18, 10
+part J1: header2 at 0,3 turn 1
+part U1: dip8 at 7,2
+part J2: header2 at 17,3 turn 1
+part J3: header4 at 6,9
+net VM: J1.1, U1.8
+net GND: J1.2, U1.4
+net MA: U1.6, J2.1
+net MB: U1.5, J2.2
+net SIG: U1.1, J3.1
+current VM: 1.5
+current GND: 1.5
+current MA: 1.5
+current MB: 1.5
+current SIG: 0.02
+squeeze: SIG
+trace VM: top 0,3 1,3 2,3 3,3 4,3 5,3 5,2 6,2 7,2
+trace GND: bottom 0,4 1,4 2,4 3,4 4,4 5,4 5,5 5,6 6,6 7,6 8,6 9,6 10,6 10,5
+trace MA: top 9,2 9,1 10,1 11,1 12,1 13,1 14,1 15,1 16,1 16,2 16,3 17,3
+trace MB: top 10,2 11,2 12,2 13,2 14,2 15,2 15,3 15,4 16,4 17,4
+trace SIG: top 7,5 7,6 7,7 7,8 6,8 6,9
+# endregion
+
+# region: vary
+widget: pcb
+mode: rules
+grid: 18, 10
+part J1: header2 at 0,3 turn 1
+part U1: dip8 at 7,2
+part J2: header2 at 17,3 turn 1
+part J3: header4 at 6,9
+net VM: J1.1, U1.8
+net GND: J1.2, U1.4
+net MA: U1.6, J2.1
+net MB: U1.5, J2.2
+net SIG: U1.1, J3.1
+current VM: 1.5
+current GND: 1.5
+current MA: 1.5
+current MB: 1.5
+current SIG: 0.02
+squeeze: MA, SIG
+trace VM: top 0,3 1,3 2,3 3,3 4,3 5,3 5,2 6,2 7,2
+trace GND: bottom 0,4 1,4 2,4 3,4 4,4 5,4 5,5 5,6 6,6 7,6 8,6 9,6 10,6 10,5
+trace MA: top 9,2 9,1 10,1 11,1 12,1 13,1 14,1 15,1 16,1 16,2 16,3 17,3
+trace MB: top 10,2 11,2 12,2 13,2 14,2 15,2 15,3 15,4 16,4 17,4
+trace SIG: top 7,5 7,6 7,7 7,8 6,8 6,9
+# endregion

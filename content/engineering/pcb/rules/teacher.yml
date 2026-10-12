@@ -1,0 +1,44 @@
+summary: Students set trace widths against current from a table, find a trace too wide to squeeze between header pins and route it around, then work out the cost of a board order (setup plus per board).
+time: 40
+timing: "Predict and Try 8 min · Worked example 10 min · Vary 8 min · Practise and Make 14 min"
+goals:
+  - I can choose a trace width from the current it carries.
+  - I can explain why two design rules can force a longer route.
+  - I can work out what an order of boards costs, per board.
+struggle: "Students want every trace wide 'to be safe'. Ask what it costs in space, and where the trace has to go."
+before: |
+  The width table is IPC-2221 for 1 oz copper on an outer layer with a 10 °C rise, rounded down. Real design tools have calculators for this; the numbers change with copper thickness, inner layers and the rise you accept. The 0.4 mm squeeze assumes 2.54 mm pin spacing, 1.7 mm pads and 0.2 mm clearance each side.
+
+  Board makers' prices change; the lesson uses round numbers. Check a current price before ordering for a class.
+
+  Curriculum hooks: Design and Technologies, materials and technologies (properties of copper), engineering principles and systems; Science, electric circuits (Year 9); Maths, rates and costs.
+running:
+  - "Predict: show a photo of a burnt trace, if you have one."
+  - "Try: ask why SIG can stay thin."
+  - "Worked example: point at both rules on the board: the width table and the gap between pins."
+  - "Make: discuss what else a design rule check catches (hole sizes, gaps between copper, unrouted nets)."
+stuck:
+  - see: "A trace still fails after widening."
+    ask: "Does it squeeze between pins?"
+    fix: "Route it around, then widen it."
+  - see: "A student picks the first width that looks big."
+    ask: "What does the table say that width carries?"
+    fix: "Find the narrowest width whose current is at least the net's."
+  - see: "A student divides the setup cost wrongly."
+    ask: "What does the whole order cost?"
+    fix: "Setup + boards × price, then divide by the number of boards."
+stretch: "Some makers charge less per board for more boards (a price break). How would you decide how many spares to order?"
+support: "Give the width table on paper with a column to write each net's current."
+leads: |
+  Next: the Capstone projects' Design a PCB, where students design, check and (optionally) order a real board.
+
+  Real tools: KiCad's and EasyEDA's design rule check; board makers' instant quotes.
+exit:
+  q: "A trace carries 2 A. Which width (0.5 mm 1.4 A, 1 mm 2.4 A, 1.5 mm 3.2 A) do you choose, and why not the others?"
+  a: "1 mm: the narrowest safe for 2 A; 0.5 mm would overheat, and 1.5 mm takes more room than needed."
+explain: |
+  Copper has resistance, so a trace carrying a big current heats up. **Wider traces carry more current**: choose the narrowest width the table says is safe for the net's current. Signals carry tiny currents and stay thin.
+
+  **Design rules** also limit how wide a trace can be where space is tight, such as between header pins. When two rules meet, a trace may have to take a longer path. An order costs a setup fee plus a price per board, so more boards cost less each.
+sources:
+  - { title: "KiCad documentation: PCB editor and design rules (benchmark; wording our own)", url: "https://docs.kicad.org/", checked: 2026-10-12 }

@@ -34,5 +34,5 @@ pathways:
     summary: From breadboard to protoboard and soldering, then a schematic and a PCB.
     fit: "Start here to turn a breadboard circuit into a board of your own."
     courses:
-      - { title: Your own board, id: pcb, stage: extensions, summary: "A full course on PCB design. For now, the Capstone projects stretch unit (Physical computing) has Off the breadboard and Design a PCB.", tagline: "Design a circuit board." }
+      - { path: engineering/pcb, id: pcb, stage: extensions, tagline: "Design a circuit board." }
 ---

@@ -1,0 +1,14 @@
+# Practice for "Route the traces": copper length.
+templates:
+  - q: "A trace runs {a} cells across and {b} cells down. How long is it, in mm, to 1 decimal place?"
+    vars: { a: "2..15", b: "1..10" }
+    answer: "{(a + b) * 2.54}"
+    tolerance: 0.06
+    feedback:
+      - ["{a + b}", "That is in cells: times 2.54."]
+    explain: "{a} + {b} = {a + b} cells, × 2.54 = {(a + b) * 2.54|f1} mm."
+  - q: "Going round adds {n} cells of copper. How many extra mm is that, to 1 decimal place?"
+    vars: { n: "4..30" }
+    answer: "{n * 2.54}"
+    tolerance: 0.06
+    explain: "{n} × 2.54 = {n * 2.54|f1} mm."

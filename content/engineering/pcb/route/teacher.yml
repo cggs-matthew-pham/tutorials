@@ -1,0 +1,44 @@
+summary: Students route copper traces cell by cell, find that a trace can't touch another net (a short circuit), route the shield on one layer with a detour, then on two layers with a trace on the bottom, and compare the copper.
+time: 45
+timing: "Predict and Try 10 min · Worked example 8 min · Vary 12 min · Practise and Make 15 min"
+goals:
+  - I can route copper traces that join every net without a short circuit.
+  - I can explain when a trace goes round and when it goes to the other layer.
+  - I can explain what a via is for.
+struggle: "Routing takes patience: one cell at a time, and some nets block others. Suggest routing the short nets first and using Undo freely."
+before: |
+  The board model: one trace per grid cell per layer, through-hole pads on both layers, steps of one cell (no diagonals). Real tools route at angles of 45°, check gaps (clearance) between copper, and route at finer grids; KiCad and EasyEDA both have an interactive router that pushes other traces aside.
+
+  Keyboard: the board can be focused (Tab); arrow keys move a cursor and Enter acts on the cell.
+
+  Curriculum hooks: Design and Technologies, engineering principles and systems; Digital Technologies, digital systems (hardware).
+running:
+  - "Predict: hold up two wires and ask what happens if two bare copper strips touch."
+  - "Try: when GND is blocked, stop and ask for both answers (round, or under)."
+  - "Vary: the one-layer route takes a while; let early finishers try a different GND path."
+  - "Make: compare copper lengths across the class."
+stuck:
+  - see: "A trace won't start."
+    ask: "Did you click a pad (or a trace) of a net?"
+    fix: "Start on a pad."
+  - see: "A step is refused."
+    ask: "Is that cell next to the last one, and free of other nets on this layer?"
+    fix: "Go round, or switch layer."
+  - see: "A net still has a thin line after a trace finished."
+    ask: "How many pads does the net have?"
+    fix: "Start a new trace from a joined pad to the next one."
+stretch: "Route the shield so GND is a wide area of copper on the bottom (a ground plane, many cells). Why do real boards do this?"
+support: "Give the VCC and OUT paths as cell lists to follow, then let students route GND."
+leads: |
+  Next: Design rules and ordering.
+
+  Real tools route at 45°, check clearance between copper, and pour ground planes; the Capstone project Design a PCB uses one.
+exit:
+  q: "Two nets must cross on a board. Give two ways to do it, and one cost of each."
+  a: "Go round on the same layer (longer copper, more space) or go to the other layer (a two-layer board; vias if surface-mount pads are involved)."
+explain: |
+  **Routing** turns each ratsnest line into a copper **trace**. Copper is bare, so traces of different nets must never touch: that would be a **short circuit**.
+
+  When two nets must cross, one trace goes **round**, or drops to the **other layer** of the board. Through-hole pads go right through, so traces on either side reach them; a **via** is a plated hole that takes a trace from one side to the other anywhere else.
+sources:
+  - { title: "KiCad documentation: PCB editor (benchmark for the model; wording our own)", url: "https://docs.kicad.org/", checked: 2026-10-12 }
