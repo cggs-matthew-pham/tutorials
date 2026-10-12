@@ -15,6 +15,14 @@ on:
       jobs:
         description: Parallel recording jobs (1 to 8)
         default: "4"
+      method:
+        description: "rebuild = the old way (download every clip, force-push a rebuilt site). overlay = take the live branch and add only what changed (faster, new, test it on a spare branch first)"
+        type: choice
+        options: [rebuild, overlay]
+        default: rebuild
+      branch:
+        description: "Branch to publish to. Use gh-pages-test to try overlay without touching the live site."
+        default: gh-pages
 
 permissions:
   contents: write
@@ -207,6 +215,7 @@ jobs:
       # WP_DEADLINE in the past records nothing: a clip no job delivered keeps its live version (and the next run
       # records it). No browser is needed.
       - name: Fill in unchanged and missing clips from the live site
+        if: inputs.method != 'overlay'
         run: WP_DEADLINE=1 WP_LIVE_SITE="$SITE" node tools/render.mjs --seed "$SITE"
 
       # Spoken lines: the last saved set plus every recording job's, saved for the next run.
@@ -235,10 +244,38 @@ jobs:
         if: needs.record.result == 'failure'
         run: echo "::warning::A recording job failed (see its log). Its missing clips keep their live version; run this workflow again to record them."
 
+      # overlay: the live branch already holds every unchanged clip, so copy its clips folders in (nothing already in
+      # dist, i.e. just recorded, is replaced) instead of downloading each file over the web.
+      - name: Take the live branch (overlay)
+        if: inputs.method == 'overlay'
+        run: |
+          URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$URL" "${{ inputs.branch }}" >/dev/null; then SRC="${{ inputs.branch }}"; else SRC=gh-pages; fi
+          git clone -q --depth 1 --branch "$SRC" "$URL" live
+          rsync -a --ignore-existing --include='*/' --include='clips/***' --exclude='*' live/ dist/
+          echo "Took $SRC: $(find live -path '*/clips/*' -type f | wc -l) clip files."
+
       - name: Build site
         run: npm run build
 
-      - name: Publish to gh-pages
+      # overlay: make the live checkout match the new build, then commit only the difference (a normal commit, so a bad
+      # publish can be undone by reverting it). A summary of files removed is printed so a missing folder is easy to spot.
+      - name: Publish (overlay)
+        if: inputs.method == 'overlay'
+        run: |
+          touch dist/.nojekyll
+          rsync -a --delete --exclude='.git' dist/ live/
+          cd live
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          { echo "### Overlay publish to ${{ inputs.branch }}"; echo "Added: $(git diff --cached --diff-filter=A --name-only | wc -l), changed: $(git diff --cached --diff-filter=M --name-only | wc -l), removed: $(git diff --cached --diff-filter=D --name-only | wc -l)"; echo; echo "Removed files (first 40):"; git diff --cached --diff-filter=D --name-only | head -40; } | tee -a "$GITHUB_STEP_SUMMARY"
+          git diff --cached --quiet && { echo "Nothing changed."; exit 0; }
+          git commit -q -m "Site build from ${GITHUB_SHA::7}"
+          git push origin HEAD:refs/heads/${{ inputs.branch }}
+
+      - name: Publish to gh-pages (rebuild)
+        if: inputs.method != 'overlay'
         run: |
           touch dist/.nojekyll
           cd dist
@@ -247,4 +284,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -q -m "Site build from ${GITHUB_SHA::7}"
-          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages:${{ inputs.branch }}
