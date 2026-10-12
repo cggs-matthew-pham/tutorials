@@ -39,6 +39,6 @@ solutions:
   step-4#t1: functions.py#sol-resize
   step-4#t2: functions.py#sol-triangle
   step-4#t3: functions.py#sol-both
-  step-5: functions.py#sol-make
-  step-6: functions.py#sol-door
+  step-6: functions.py#sol-make
+  step-7: functions.py#sol-door
 struggle: "A def on its own does nothing until it's called. When nothing draws, ask where the function is called."

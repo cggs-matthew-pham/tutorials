@@ -160,6 +160,28 @@ Make the button bigger and move it to a new place.
 
 Make each click add 5 instead of 1.
 
+
+## Mix it up
+
+```step
+stage: investigate
+insight: "A hit test is a decision: the code under if runs only when the condition is true."
+check:
+  type: number
+  q: "The student clicks at x = 120. How many times does \"pressed\" appear?"
+  answer: 0
+  explain: "120 is not between 0 and 100, so the condition is false and the print does not run. Zero times."
+```
+
+Work this out on paper first.
+
+```python
+# the button covers x from 0 to 100
+def clicked(x, y):
+    if x >= 0 and x <= 100:
+        print("pressed")
+```
+
 ## Make
 
 ```step

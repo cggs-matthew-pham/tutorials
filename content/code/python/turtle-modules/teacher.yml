@@ -38,6 +38,6 @@ explain: |
   A module should only hold the functions (the `def` blocks). The program that imports it does the calling.
 solutions:
   step-5: modules.py#sol-move
-  step-6: modules.py#sol-make
-  step-7: modules.py#sol-street
+  step-7: modules.py#sol-make
+  step-8: modules.py#sol-street
 struggle: "Seeing why a module beats copying, and that a def with the same name replaces an import. Ask how many places they'd have to fix if the code were copied."

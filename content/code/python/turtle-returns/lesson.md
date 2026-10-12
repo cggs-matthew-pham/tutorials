@@ -127,6 +127,30 @@ Write `def area(width, depth)` that **returns** the area.
 
 Print the area of the room that the program draws.
 
+
+## Mix it up
+
+```step
+stage: investigate
+insight: "A function with an if returns one answer per call: whichever path runs decides it."
+check:
+  type: question
+  q: "What does label(50) give back?"
+  options: ["small", "big", "50", "nothing"]
+  answer: 0
+  explain: "50 > 50 is False, because 50 is not more than 50. So the else path runs and the function returns \"small\"."
+```
+
+Work this out on paper first.
+
+```python
+def label(n):
+    if n > 50:
+        return "big"
+    else:
+        return "small"
+```
+
 ## Make a street
 
 ```step

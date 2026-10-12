@@ -135,6 +135,31 @@ Change the size and colour of the dot.
 
 Make each click stamp a square.
 
+
+## Mix it up
+
+```step
+stage: investigate
+insight: "A function can change a name each time it is called, like an update in a loop."
+check:
+  type: number
+  q: "The student clicks the screen 5 times. What is score afterwards?"
+  answer: 5
+  explain: "Each click calls add_point once, and each call adds 1. Because of global score, the change is kept between clicks, so score is 5."
+```
+
+Work this out on paper first.
+
+```python
+score = 0
+
+def add_point(x, y):
+    global score
+    score = score + 1
+
+onscreenclick(add_point)
+```
+
 ## Make
 
 ```step

@@ -119,6 +119,28 @@ Call `polygon` with sides and size of your choice.
 
 Change `polygon` so each call can choose its own pen colour, like `polygon(3, 80, "red")`.
 
+
+## Mix it up
+
+```step
+stage: investigate
+insight: "A parameter can be used in a calculation, like any name."
+check:
+  type: number
+  q: "What is the turn in degrees for polygon(8, 50)?"
+  answer: 45
+  explain: "The turn is 360 / sides, and sides is 8, so 360 / 8 = 45. The size does not change the turn."
+```
+
+Work this out on paper first.
+
+```python
+def polygon(sides, size):
+    for i in range(sides):
+        forward(size)
+        right(360 / sides)
+```
+
 ## Make
 
 ```step

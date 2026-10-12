@@ -38,7 +38,7 @@ explain: |
 solutions:
   step-4#t1: returns.py#sol-area
   step-4#t2: returns.py#sol-print
-  step-5#t1: returns.py#sol-house
-  step-5#t2: returns.py#sol-street
-  step-6: returns.py#sol-vary
+  step-6#t1: returns.py#sol-house
+  step-6#t2: returns.py#sol-street
+  step-7: returns.py#sol-vary
 struggle: "return versus print: both show a number, but only return hands it back. Let the NoneType error happen, then ask what the function gives back."

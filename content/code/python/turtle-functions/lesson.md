@@ -165,6 +165,32 @@ Write `def triangle():` following the pattern of `square`.
 
 Draw a square, then a triangle, then a square again.
 
+
+## Mix it up
+
+```step
+stage: investigate
+insight: "A function and a loop work together: a loop inside a function runs every time the function is called."
+check:
+  type: number
+  q: "The program above calls square three times. How many times does forward(100) run altogether?"
+  answer: 12
+  explain: "Each call runs the loop 4 times, and the function is called 3 times, so forward(100) runs 4 \u00d7 3 = 12 times."
+```
+
+Work this out on paper first.
+
+```python
+def square():
+    for i in range(4):
+        forward(100)
+        right(90)
+
+square()
+square()
+square()
+```
+
 ## Make
 
 ```step

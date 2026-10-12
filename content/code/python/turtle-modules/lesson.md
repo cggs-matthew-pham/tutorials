@@ -162,6 +162,34 @@ check: { type: reflect, text: "I moved my functions into a module, imported them
 
 These three functions are all in one file, and the wall does not close. Click **+ module**, move them into it, and import `house` back into `main.py`. Then fix the turn in `wall`, once, in the module. Work it out from the shape, as you did with variables: `360 / 4`, not a guessed number.
 
+
+## Mix it up
+
+```step
+stage: investigate
+insight: "A module is functions kept in a file. Calling them still follows the same rules."
+check:
+  type: number
+  q: "How far does the turtle draw in total, counting only the lines (not the turns)?"
+  answer: 320
+  explain: "square(30) draws 4 \u00d7 30 = 120 and square(50) draws 4 \u00d7 50 = 200, so 320 altogether."
+```
+
+Work this out on paper first.
+
+```python
+# shapes.py
+def square(size):
+    for i in range(4):
+        forward(size)
+        right(90)
+
+# main program
+from shapes import *
+square(30)
+square(50)
+```
+
 ## Make
 
 ```step

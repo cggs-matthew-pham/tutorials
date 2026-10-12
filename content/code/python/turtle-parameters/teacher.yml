@@ -39,6 +39,6 @@ explain: |
 solutions:
   step-4#t1: params.py#sol-fourth
   step-4#t2: params.py#sol-colour
-  step-5: params.py#sol-pattern
-  step-7: params.py#sol-rooms
+  step-6: params.py#sol-pattern
+  step-8: params.py#sol-rooms
 struggle: "Arguments fill parameters in order. Read the call and the def aloud side by side and match each value to its name."
