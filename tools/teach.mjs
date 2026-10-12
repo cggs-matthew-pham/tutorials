@@ -163,10 +163,19 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
   BLOCKS = blocks;
   const T = lesson.teacher || {};
   const slides = [];
+  // "Running the lesson" items (teacher.yml running:) start with the stage they belong to ("Predict: ...", "Modify: ...").
+  // Each goes into the speaker note of that stage's first slide; any that match no stage go on the Today slide.
+  const RUN_STAGE = { watch: 'info', predict: 'predict', run: 'run', investigate: 'investigate', modify: 'modify', make: 'make', engage: 'predict', explore: 'run', explain: 'investigate', elaborate: 'modify', practise: 'practise' };
+  const runBy = {}, runOther = [], runUsed = new Set();
+  for (const r of T.running || []) {
+    const m = /^\s*([A-Za-z]+)\b[^:]{0,24}:\s*([\s\S]*)$/.exec(String(r)), st = m && RUN_STAGE[m[1].toLowerCase()];
+    if (st && !runBy[st]) runBy[st] = m[2]; else runOther.push(String(r));
+  }
+  let extrasDone = false;
   const note = (t) => (t ? `\n\n<!-- Speaker note: ${oneLine(t).replace(/-->/g, '- ->')} -->` : '');
   const srcNote = sourceList(T).length ? ` Sources: ${sourceList(T).map((x) => `${x.title}, ${x.url}${x.checked ? ` (checked ${x.checked})` : ''}`).join('; ')}.` : '';
-  slides.push(`# ${pt(lesson.title)}\n\n${course}${unit ? ` · ${unit}` : ''}` + note(`${T.summary || lesson.summary}${T.time ? ` About ${T.time} minutes${T.timing ? ` (${T.timing})` : ''}.` : ''}${srcNote}`));
-  slides.push(`## Today\n\n**We are learning to** ${lowerFirst(lesson.summary.replace(/\.$/, ''))}.\n\n${(T.goals || []).map((g) => `- ${pt(g)}`).join('\n')}` + note(T.before ? `Before class: ${T.before}` : ''));
+  slides.push(`# ${pt(lesson.title)}\n\n${course}${unit ? ` · ${unit}` : ''}` + note(`${T.summary || lesson.summary}${T.time ? ` About ${T.time} minutes${T.timing ? ` (${T.timing})` : ''}.` : ''}${LANG === 'python' || LANG === 'html' ? ' The Run, Modify and Make slides have the live playground in them; the tutorial link under it is the backup.' : ''}${srcNote}`));
+  slides.push(`## Today\n\n**We are learning to** ${lowerFirst(lesson.summary.replace(/\.$/, ''))}.\n\n${(T.goals || []).map((g) => `- ${pt(g)}`).join('\n')}` + note([T.before ? `Before class: ${T.before}` : '', ...runOther.map((r) => `Teacher: ${r}`)].filter(Boolean).join(' ')));
   if (lesson.hook) slides.push(`## Why it matters\n\n> ${lesson.hook}` + note(lesson.intro));
   // Class plan (content/<course>/class/<lesson>.yml): activities and questions for the room, placed after the first
   // step of their stage (or at the start or end). The site stays self-paced; the deck carries the talk.
@@ -219,6 +228,7 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
   const runIt = (step, label = LANG === 'maths' ? 'Try it' : E5 ? 'Explore it' : 'Run it') => boardUrl(step) ? boardSlide(step, label) : playUrl(step) ? playSlide(step, label) : `${BADGE.activity}\n\n## ${label}\n\nOpen the lesson at this step and try it together.\n\n[${stepUrl(lesson, step).replace(/^https:\/\//, '')}](${stepUrl(lesson, step)})`;
   let stuckDone = false;
   for (const s of lesson.steps) {
+    const before = slides.length;
     const c = s.config, stage = c.stage, title = capMaths(bare(s.title));
     const code = c.code ? snip(c.code) : '';
     if (stage === 'predict' && !DESIGN) {
@@ -265,6 +275,7 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
       const text = prose(s.body);
       const hints = [...(Array.isArray(c.hint) ? c.hint : c.hint ? [c.hint] : []), ...s.tasks.flatMap((t) => (Array.isArray(t.config.hint) ? t.config.hint : t.config.hint ? [t.config.hint] : []))];
       let n = `${c.insight ? `What this step is for: ${c.insight} ` : ''}${hints.length ? `Hints, in order: ${hints.join(' / ')} ` : ''}`;
+      if (!extrasDone && (T.support || T.stretch)) { n += `${T.support ? `For students who need more support: ${T.support} ` : ''}${T.stretch ? `For early finishers: ${T.stretch} ` : ''}`; extrasDone = true; }
       if (!stuckDone && T.struggle) n += `The hard part, on purpose: ${T.struggle} `;
       if (!stuckDone && T.stuck?.length) { n += 'When students get stuck: ' + T.stuck.map((x) => `${x.see} Ask: ${x.ask} Fix: ${x.fix}`).join(' / '); stuckDone = true; }
       else if (T.struggle) stuckDone = true;
@@ -275,9 +286,10 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
       slides.push(`## ${title}\n\n${prose(s.body)}`);
     }
     if (stage) classSlides(stage);
+    if (runBy[stage] && !runUsed.has(stage) && slides.length > before) { slides[before] += note(`Teacher: ${runBy[stage]}`); runUsed.add(stage); }
   }
   for (const at of CLASS_AT) classSlides(at);
-  if (T.exit) slides.push(`${BADGE.check}\n\n## Exit ticket\n\n**${pt(T.exit.q)}**\n\n* ${pt(oneLine(T.exit.a))}` + note('Students answer on paper or a mini whiteboard before the reveal. Anyone who cannot answer needs the main idea again next lesson.'));
+  if (T.exit) slides.push(`${BADGE.check}\n\n## Exit ticket\n\n**${pt(T.exit.q)}**\n\n* ${pt(oneLine(T.exit.a))}` + note(`Students answer on paper or a mini whiteboard before the reveal. Anyone who cannot answer needs the main idea again next lesson.${T.leads ? ` Where this leads: ${T.leads}` : ''}`));
   return `---\nmarp: true\ntheme: default\nhtml: true\n---\n\n${slides.map(fitCode).join('\n\n---\n\n')}\n`;
 }
 const lowerFirst = (t) => t.charAt(0).toLowerCase() + t.slice(1);
@@ -498,7 +510,7 @@ export function lessonGuideBody(lesson, { esc, md, snip, highlightCode, codeBloc
     sec('Timing', T.timing ? `<p>${esc(T.timing)}</p>` : '') +
     sec('Before class', T.before ? md(T.before) : '') +
     sec('Running the lesson', T.running ? `<ol>${T.running.map((r) => `<li>${md(r).replace(/^<p>|<\/p>\s*$/g, '')}</li>`).join('')}</ol>` : '') +
-    sec('In class', (lesson.classPlan?.inquiry || (lesson.classPlan?.activities || []).length || (lesson.classPlan?.questions || []).length) ? `<p class="muted">On the slides at these points. Students can do the whole lesson on their own; these are for the room.</p><ul>${lesson.classPlan.inquiry ? `<li><b>Think, pair, share</b> <span class="muted">(start)</span><br>${esc(lesson.classPlan.inquiry.q)}${(lesson.classPlan.inquiry.prompts || []).length ? `<ul>${lesson.classPlan.inquiry.prompts.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}${lesson.classPlan.inquiry.notes ? `<p class="muted">${esc(lesson.classPlan.inquiry.notes)}</p>` : ''}</li>` : ''}${(lesson.classPlan.activities || []).map((a) => `<li><b>${esc(a.title)}</b> <span class="muted">(${esc(a.at)}${a.minutes ? `, ${a.minutes} min` : ''})</span>${md(a.do)}${a.notes ? `<p class="muted">${esc(a.notes)}</p>` : ''}</li>`).join('')}${(lesson.classPlan.questions || []).map((q, i) => { const p = checkParts(q, snip, `${lesson.slug}/class-${i}`); return `<li><b>${esc(q.title || 'Class question')}</b> <span class="muted">(${esc(q.at)})</span><br>${esc(p.q)}<br><span class="ans">${esc(p.answer)}</span>${p.explain ? `<br><span class="muted">${esc(p.explain)}</span>` : ''}</li>`; }).join('')}</ul>` : '') +
+    sec('In class', (lesson.classPlan?.inquiry || (lesson.classPlan?.activities || []).length || (lesson.classPlan?.questions || []).length) ? `<p class="muted">On the slides at these points. Students can do the whole lesson on their own; these are for the room. In the deck, the Run, Modify and Make slides have the live playground in them (the tutorial link is the backup), and the notes above are in each slide's speaker notes.</p><ul>${lesson.classPlan.inquiry ? `<li><b>Think, pair, share</b> <span class="muted">(start)</span><br>${esc(lesson.classPlan.inquiry.q)}${(lesson.classPlan.inquiry.prompts || []).length ? `<ul>${lesson.classPlan.inquiry.prompts.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}${lesson.classPlan.inquiry.notes ? `<p class="muted">${esc(lesson.classPlan.inquiry.notes)}</p>` : ''}</li>` : ''}${(lesson.classPlan.activities || []).map((a) => `<li><b>${esc(a.title)}</b> <span class="muted">(${esc(a.at)}${a.minutes ? `, ${a.minutes} min` : ''})</span>${md(a.do)}${a.notes ? `<p class="muted">${esc(a.notes)}</p>` : ''}</li>`).join('')}${(lesson.classPlan.questions || []).map((q, i) => { const p = checkParts(q, snip, `${lesson.slug}/class-${i}`); return `<li><b>${esc(q.title || 'Class question')}</b> <span class="muted">(${esc(q.at)})</span><br>${esc(p.q)}<br><span class="ans">${esc(p.answer)}</span>${p.explain ? `<br><span class="muted">${esc(p.explain)}</span>` : ''}</li>`; }).join('')}</ul>` : '') +
     sec('The hard part (on purpose)', T.struggle ? `<p>${esc(T.struggle)}</p>` : '') +
     sec('When students get stuck', stuck) +
     sec('Answers to the checks', answers ? `<ol class="answers">${answers}</ol>` : '') +

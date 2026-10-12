@@ -9,9 +9,9 @@ before: |
   Open the lesson, run the first program and draw the triangle from the Modify step yourself. It takes about five minutes and you will meet the same surprise students do: the turn is 120 degrees, not 60.
 running:
   - "Predict: show the loop and ask what it draws. Take two or three answers before anyone runs it; each wrong option is a different idea of what a loop repeats (only the first line, only once, nothing because i is unused)."
-  - "Run: students run it and compare with their prediction. Ask: which lines ran four times, and how do you know?"
+  - "Run: run it live on the slide, then students run it on their own screens and compare with their prediction. Ask: which lines ran four times, and how do you know?"
   - "Investigate: the key idea is that a loop does the same work as copied lines, but stays the same size. Ask a student to say why the loop version is easier to change. The bug task (right(90) not indented) comes after students have seen the loop work. The trace task traces the counter i (0, 1, 2, 3); say that it counts from 0, because later lessons use it."
-  - "Modify: let students get the triangle wrong first. If they try 60 degrees, ask them to walk the shape themselves: how far do you turn at each corner?"
+  - "Modify: work the triangle live on the slide first if the room is unsure, then let students go on alone. Let them get it wrong first. If they try 60 degrees, ask them to walk the shape themselves: how far do you turn at each corner?"
   - "Make: the staircase reverses the lesson: students find the part that repeats in a picture and write it once. Early finishers can try the house (a square, then a roof turning left 60 and right 120)."
 stuck:
   - see: The triangle has a gap, or the shape looks like a star.

@@ -11,8 +11,8 @@ running:
   - "Watch: play the clip once, whole class. Pause after each caption and ask what the next lines will do before they appear. The captions are the program's parts: name the numbers, move to the start, one house (walls, roof, step along), work out the length."
   - "Predict: students commit to the printed length for 5 houses before running. The common wrong answer is 400 (5 gaps instead of 4): ask them to count the gaps on the 4-house picture."
   - "Investigate: this is the heart of the lesson. The match and trace tasks are about parts and how they connect, not single lines. Ask: which lines would you change to make the roofs taller? (None alone: the roof is drawn with width, so it follows the walls.)"
-  - "Modify: students change one thing and run. The third task is a real question: after the houses grow, the printed length is wrong, because the formula assumes every house is the same width."
-  - "Make: the new part needs its own loop and variable. Early finishers can make it depend on an existing variable (a fence as long as the street)."
+  - "Modify: use the live slide to change one number together (houses to 6 shows the length growing), then students work on their own screens. They change one thing and run. The third task is a real question: after the houses grow, the printed length is wrong, because the formula assumes every house is the same width."
+  - "Make: students work alone here; walk round, or use the live slide to build one part with the whole class. The new part needs its own loop and variable. Early finishers can make it depend on an existing variable (a fence as long as the street)."
 stuck:
   - see: The houses are drawn on top of each other, or only one house appears.
     ask: Which lines move the turtle along, and are they indented under the house loop?
