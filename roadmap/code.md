@@ -230,7 +230,11 @@ Every route through the Web pathway (hand-built pages, Bootstrap, the DOM, Vue) 
 
 **Parked: Node.js.** It does not run in a browser. StackBlitz's WebContainers is proprietary, heavy, and needs security headers GitHub Pages cannot set. Local installs or online editors need accounts. Flask already teaches servers and APIs, and schools generally prefer Python. Revisit only if a school wants a JavaScript-only path.
 
-## Pilot (12 Oct 2026, branch `pilot/drawing-unit-primm`, not on main): concept lessons, then PRIMM on a bigger program
+## Pilot (12 Oct 2026, on main): concept lessons, then PRIMM on a bigger program; class plans
+
+Class plans (AUTHORING › Class plan) put votes, playing turtle, jigsaw reading and show-and-tell on the deck; Modify and Make stay self-paced on the site. Lessons 1 and 2.5 have class plans; their extra Investigate checks moved to the slides. Next: the same pass over the whole Python pathway, split across chats.
+
+### Original pilot notes: concept lessons, then PRIMM on a bigger program
 
 Question: is full PRIMM on every small snippet the best use of it? Research behind PRIMM (Block Model, tracing before writing, expertise reversal, faded worked examples) suggests short explicit concept lessons, then one full PRIMM on a longer program that combines them, where Investigate can ask about parts and how they connect. Piloted on the Drawing unit:
 - **1 Drawing with a turtle** (concept, 40 min): Predict now asks what the loop draws, with options that are wrong ideas of a loop (only the first line repeats, it runs once, nothing because `i` is unused; misconception `loop-body-indent`). Investigate keeps line counting, the counter trace and the heading question, and adds an indent bug task. Make is a staircase (find the repeating part, write it once), replacing the house, whose roof was angle work. The tiles example moves to lesson 2.5.
