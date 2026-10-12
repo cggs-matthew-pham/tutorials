@@ -1,0 +1,52 @@
+summary: Students slide a pivot along a bar until a 200 N push lifts a 600 N rock, learn that turning effects (force × distance from the pivot) balance and that the hand moves farther by the same factor, meet class 2 and class 3 levers in a wheelbarrow and their own arm, and design a lever that meets two competing criteria.
+time: 45
+timing: "Predict and Try 8 min · Worked example 12 min · Vary 12 min · Practise and Make 13 min"
+goals:
+  - I can work out the push a lever needs from force × distance on each side of the pivot.
+  - I can explain that a lever makes my push bigger by the same factor it makes my hand move farther.
+  - I can say whether a lever is class 1, 2 or 3 from where the pivot, the load and the push are.
+  - I can design a lever that meets more than one criterion.
+struggle: "Students measure distances from the end of the bar, not the pivot, and expect a stronger push to come free. Keep asking 'from where?' and 'how far did your hand move?'"
+before: |
+  Do Gear up the winch first if you can: this lesson makes the same trade (force for distance, not speed) and the Practise match ties the two together.
+
+  A metre ruler on a pencil with coins makes a good start: balance two coins against one and measure from the pencil.
+
+  Simplifications: the bar weighs nothing and does not bend, there is no friction at the pivot, and the push and the load act straight down (or up). The board exaggerates the bar's tilt so the movement is easy to see.
+
+  Curriculum hooks: Design and Technologies, engineering principles and systems (primary); Science, forces and simple machines (Year 7 forces); Maths, multiplying and dividing decimals.
+running:
+  - "Predict: take a vote, then ask someone who chose 'middle is best' to explain. Keep their reason for after the Try."
+  - "Try: when the rock lifts, ask how far the hand would have to move."
+  - "Worked example: write force × distance on both sides of a drawn pivot. Point at where each distance starts."
+  - "Find the mistake: ask Leo's question back: 2 m from where?"
+  - "Vary, arm: have students hold a bag at the hand and then at the elbow. Which is easier, and why?"
+  - "Make: compare designs. Who moved the push instead of the pivot?"
+stuck:
+  - see: "A student measures from the end of the bar."
+    ask: "Where does the bar turn? Measure from there."
+    fix: "Every distance starts at the pivot."
+  - see: "A student thinks the lever gives extra force for nothing."
+    ask: "How far did your hand move to lift the rock 10 cm?"
+    fix: "Less force, more distance, by the same factor."
+  - see: "A student cannot tell the classes apart."
+    ask: "Find the pivot first. What is in the middle?"
+    fix: "Pivot in the middle: 1. Load in the middle: 2. Push in the middle: 3."
+  - see: "A student says class 3 levers are useless."
+    ask: "What happens to the end of a fishing rod when you move the handle a little?"
+    fix: "Class 3 gives up force to gain distance and speed."
+stretch: "A 2 m bar that weighs 50 N has its weight at its middle. With the pivot 0.5 m from the 600 N rock, the bar's own weight is 0.5 m on your side. What push do you need now?"
+support: "Give a drawn bar with the pivot marked and a table: force, distance from pivot, force × distance, for each side."
+leads: |
+  Next: Pulleys, the same trade with ropes.
+
+  Real examples: crowbars, scissors, wheelbarrows, nutcrackers, oars, tweezers, the arm, a hockey or cricket swing.
+exit:
+  q: "A 400 N load is 0.25 m from a pivot. You push 1 m from the pivot on the other side. What push balances it, and how far does your hand move to lift the load 0.1 m?"
+  a: "400 × 0.25 = 100, so 100 ÷ 1 = 100 N; the hand is 4 times as far from the pivot, so it moves 0.4 m."
+explain: |
+  A **lever** is a bar that turns on a **pivot**. A force's **turning effect** is the force × its distance from the pivot. It balances when the turning effects on both sides are equal: 600 N × 0.5 m = 200 N × 1.5 m.
+
+  Pushing far from the pivot makes your push stronger, by the same factor that your hand moves farther: 3 times the force, 3 times the distance. Where the pivot, the load and the push sit gives three kinds of lever; the one in your arm gives up force to gain speed.
+sources:
+  - { title: "TeachEngineering: K-12 engineering design challenges (benchmark; the briefs and wording are our own)", url: "https://www.teachengineering.org/", checked: 2026-10-12 }

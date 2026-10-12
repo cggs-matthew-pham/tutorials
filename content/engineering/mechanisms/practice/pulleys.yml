@@ -1,0 +1,29 @@
+# Practice for "Pulleys": count the ropes holding the moving block.
+templates:
+  - q: "{n} ropes hold up a {L} N load. What pull lifts it, in newtons?"
+    vars: { n: "2..6", p: "50..250 by 10" }
+    let: { L: "n * p" }
+    answer: "{p}"
+    feedback:
+      - ["{L / (n + 1)}", "Count only the ropes holding the load: {n}, not the rope you pull."]
+      - ["{L}", "The {n} ropes share the load: divide by {n}."]
+    explain: "{L} ÷ {n} = {p} N."
+  - q: "{n} ropes hold up the hook. To lift it {h} m, how much rope do you pull, in metres?"
+    vars: { n: "2..8", h: "1..6" }
+    answer: "{n * h}"
+    feedback:
+      - ["{h}", "Each of the {n} ropes gets {h} m shorter."]
+    explain: "{n} × {h} = {n * h} m."
+  - q: "You can pull {p} N. What is the fewest ropes that lift a {L} N load?"
+    vars: { p: "100..250 by 50", L: "300..1500 by 100" }
+    let: { n: "ceil(L / p)" }
+    where: "n >= 2 and n <= 8 and L / p != n"
+    answer: "{n}"
+    feedback:
+      - ["{n - 1}", "{n - 1} ropes would need {L / (n - 1)|f1} N each: more than {p} N."]
+    explain: "{L} ÷ {p} = {L / p|f1}, so round up: {n} ropes (each holds {L / n|f1} N)."
+  - q: "A pulley system lifts a {L} N load {h} m with a {p} N pull. How much rope do you pull, in metres? (Work in = work out.)"
+    vars: { n: "2..6", p: "50..200 by 50", h: "1..4" }
+    let: { L: "n * p" }
+    answer: "{n * h}"
+    explain: "Work out = {L} × {h} = {L * h}. Work in = {p} × rope, so rope = {L * h} ÷ {p} = {n * h} m."

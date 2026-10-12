@@ -1,0 +1,38 @@
+# Boards for "Pulleys". A 400 N sack; the most you can pull is 150 N; lift it 1 m. No friction; pulleys weigh nothing.
+
+# region: run
+widget: lever
+mode: pulley
+ropes: 1
+choose: on
+load: 400
+push: 150
+numbers: off
+# endregion
+
+# region: explain
+widget: lever
+mode: pulley
+ropes: 4
+load: 400
+push: 150
+# endregion
+
+# region: vary-brief
+widget: lever
+mode: pulley
+ropes: 2
+choose: on
+load: 900
+push: 200
+# endregion
+
+# region: make
+widget: lever
+mode: pulley
+ropes: 1
+choose: on
+brief: edit
+load: 400
+push: 150
+# endregion

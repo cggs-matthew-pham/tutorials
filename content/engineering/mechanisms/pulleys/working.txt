@@ -1,0 +1,8 @@
+# Mia's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: mia
+Mia's block and tackle: 4 ropes hold up the bottom block, and she pulls a fifth rope that goes over the top.
+That is 5 ropes, so it shares the 400 N five ways.
+Pull = 400 ÷ 5 = 80 N.
+To lift the sack 1 m she pulls 5 × 1 = 5 m of rope.
+# endregion

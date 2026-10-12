@@ -275,5 +275,7 @@
   "looks-is-structure": {"home": "systems/web/layers", "text": "A style sheet is thought to change what a part of a page is (big text becomes a heading); CSS changes only how it looks, and the HTML tag says what it is."},
   "same-look-same-page": {"home": "systems/web/separation", "text": "Two pages that look the same are thought to be the same for everyone; screen readers, search engines and phone layouts use the structure, so faked headings and lists fail them."},
   "compound-ratios-add": {"home": "engineering/mechanisms/trains", "text": "The stage ratios of a compound gear train are thought to add; they multiply, because each stage slows down (and strengthens) a turn the stage before has already slowed."},
-  "idler-changes-ratio": {"home": "engineering/mechanisms/trains", "text": "A gear between two others (an idler) is thought to change the ratio, more for a bigger idler; its teeth cancel out, so it changes only the direction of the turn."}
+  "idler-changes-ratio": {"home": "engineering/mechanisms/trains", "text": "A gear between two others (an idler) is thought to change the ratio, more for a bigger idler; its teeth cancel out, so it changes only the direction of the turn."},
+  "lever-distance-from-end": {"home": "engineering/mechanisms/levers", "text": "Distances on a lever are measured from the end of the bar; turning effects use each force's distance from the pivot."},
+  "pulley-count-pull-rope": {"home": "engineering/mechanisms/pulleys", "text": "The rope you pull is counted as holding the load; only the ropes holding up the moving block share it, so a rope that goes over the top block adds nothing."}
 }

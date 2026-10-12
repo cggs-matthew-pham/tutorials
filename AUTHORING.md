@@ -745,6 +745,19 @@ Vary, Practise, Make).
     `n_pass` counts trains from the box (changing only the choosable gears) that meet the brief. Checks:
     `"l = 1 and load_g = 600 and t_2 < 40"`, `"load_g = 1500 and l = 1 and time_s <= 40"`, `"load_g > 1000 and p = 1 and l = 1"`.
     Ready selector `.gearsvg`.
+  - `widget: lever` (first used by `engineering/mechanisms/levers` and `pulleys`): no friction, weightless bar and
+    pulleys. `mode: lever`: a bar on a pivot with a load (a box) and a push (an arrow, down for class 1, up for 2 and 3).
+    `length: 2`, `pivot:`, `loadat:`, `effortat:` (m from the left end), `load:` and `push:` (N; push is the most the
+    student can push), `move: pivot` (a list of pivot, load, effort, or none: a slider each, `step: 0.1`), `rise: 0.1`
+    (m the load lifts), `travel:` (m the hand may move; a criterion), `numbers: off`, `brief: edit` (load, push, travel).
+    Push lifts the load (the bar turns about the pivot) or shakes; ± 50 N buttons unless `brief: edit`. Values `f_m`,
+    `x_l`, `x_e`, `d_l`, `d_e` (from the pivot), `e_n` (push needed), `m_a`, `k` (class 1, 2 or 3), `load_n`, `push_n`,
+    `move_e`, `travel_m`, `l`, `s`, `p`. `mode: pulley`: a top block, a bottom block and `ropes:` holding it (1 to 6;
+    `choose: on` with `options:`); the rope pulled goes over the top block, in orange. `load:`, `push:`, `height: 1`.
+    Pull lifts the load (the hand moves farther) or shakes; the note says how much rope was pulled even with numbers off.
+    Values `n`, `e_n`, `m_a`, `load_n`, `push_n`, `pull_m`, `h_m`, `l`, `s`, `p`, `n_min` (fewest ropes in the options
+    that lift it). Checks: `"s = 1 and f_m = 1"`, `"l = 1 and k = 2"`, `"load_n = 900 and l = 1 and n = 5"`,
+    `"n = 4 and l = 1 and n_min = 4"`. Ready selector `.gearsvg`.
   - `widget: circuit` (first used by `engineering/circuits/`): parts wired to a micro:bit's pins, from a simple stated
     model (pin 3.3 V, LED drops 2 V and is damaged above 20 mA, analog read 0–1023 for 0–3.3 V). `mode: led`: pin 0 →
     resistor → LED → GND; `resistor:` (ohms, 0 = none), `place: after`, `output: off`, `gnd: off`, `turned: on`, and

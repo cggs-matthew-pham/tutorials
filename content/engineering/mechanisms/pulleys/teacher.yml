@@ -1,0 +1,49 @@
+summary: Students find that one fixed pulley changes only the direction of a pull, add ropes until 150 N lifts a 400 N sack, work out the pull (load ÷ supporting ropes) and the rope pulled (height × ropes), see that work in equals work out, choose a system for a brief and write a brief that needs four ropes.
+time: 45
+timing: "Predict and Try 8 min · Worked example 12 min · Vary 10 min · Practise and Make 15 min"
+goals:
+  - I can explain that one fixed pulley changes the direction of a pull, not its size.
+  - I can work out the pull and the rope pulled by counting the ropes that hold the load up.
+  - I can explain that a pulley system's work in equals its work out.
+  - I can choose the fewest pulleys that meet a brief.
+struggle: "Students count the rope they pull as a supporting rope, and expect any pulley to help. Ask 'does this rope hold the bottom block up?' for every rope."
+before: |
+  Do Levers first: the Practise match ties gears, levers and pulleys together as one trade.
+
+  A pair of broom handles and a rope makes a striking demonstration: wrap the rope between them 3 or 4 times and one student can pull two others together.
+
+  Simplifications: no friction, and the pulleys, blocks and rope weigh nothing. Real systems lose a lot to friction, so they need more ropes than the model says.
+
+  Curriculum hooks: Design and Technologies, engineering principles and systems (primary); Science, forces and simple machines (Year 7), energy and work (Year 8–9); Maths, multiplication and division.
+running:
+  - "Predict: most students choose 200 N. After the Try, ask why one pulley did not help."
+  - "Try: ask students to count the rope they pulled before the note appears."
+  - "Worked example: trace each rope with a finger and ask: does this one hold the block up?"
+  - "Find the mistake: Mia's fifth rope goes over the top block. Point at where it is tied."
+  - "Vary: link the fixed pulley back to the idler gear: direction, not size."
+  - "Make: compare briefs; whose load ÷ pull ratio is closest to 4?"
+stuck:
+  - see: "A student counts the rope they pull."
+    ask: "Does this rope hold the bottom block up, or does it go over the top?"
+    fix: "Count only the ropes between the blocks."
+  - see: "A student thinks one pulley halves the pull."
+    ask: "How many ropes hold the sack up?"
+    fix: "One rope: the whole load. A fixed pulley only turns the pull round."
+  - see: "A student thinks more ropes means less work."
+    ask: "How much rope did you pull, and with what force?"
+    fix: "Pull × rope pulled = load × height, whatever the number of ropes."
+stretch: "Each pulley wheel loses about 5% of the force to friction. With 4 ropes (and so 4 wheels), roughly what pull lifts the 400 N sack now?"
+support: "Give a table with columns ropes, pull, rope pulled for 1 m, work in, and fill the 1-rope and 2-rope rows together."
+leads: |
+  Next: the Capstone projects (Physical computing) include a lift and a winch where these trade-offs meet a motor.
+
+  Real examples: cranes, sailing boats (a mainsheet), flagpoles, window blinds, gym machines, rescue hauling systems.
+exit:
+  q: "5 ropes hold up a 1000 N load. What pull lifts it, and how much rope do you pull to lift it 2 m?"
+  a: "1000 ÷ 5 = 200 N, and 5 × 2 = 10 m."
+explain: |
+  One **fixed pulley** changes the direction of a pull, not its size: 400 N still needs 400 N, but you can pull down.
+
+  Ropes that hold up a **moving** block share the load. Count only those ropes: with 4 of them, each holds a quarter, so you pull 100 N. But each of the 4 ropes must get shorter, so you pull 4 m of rope to lift the load 1 m. Work in (100 N × 4 m) equals work out (400 N × 1 m), just like gears and levers.
+sources:
+  - { title: "TeachEngineering: K-12 engineering design challenges (benchmark; the briefs and wording are our own)", url: "https://www.teachengineering.org/", checked: 2026-10-12 }

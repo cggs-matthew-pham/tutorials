@@ -1,0 +1,60 @@
+# Boards for "Levers". A 2 m bar, a 600 N rock, and the most you can push: 200 N. No friction; the bar weighs nothing.
+
+# region: run
+widget: lever
+length: 2
+loadat: 0
+effortat: 2
+pivot: 1
+load: 600
+push: 200
+move: pivot
+numbers: off
+# endregion
+
+# region: explain
+widget: lever
+length: 2
+loadat: 0
+effortat: 2
+pivot: 0.5
+load: 600
+push: 200
+move: none
+# endregion
+
+# region: vary-barrow
+widget: lever
+length: 1.5
+pivot: 0
+effortat: 1.5
+loadat: 1
+load: 600
+push: 200
+move: load
+# endregion
+
+# region: vary-arm
+widget: lever
+length: 0.4
+step: 0.05
+pivot: 0
+effortat: 0.05
+loadat: 0.35
+load: 50
+push: 400
+move: none
+# endregion
+
+# region: make
+widget: lever
+length: 2
+step: 0.05
+loadat: 0
+effortat: 2
+pivot: 1
+load: 900
+push: 200
+travel: 0.5
+move: pivot, effort
+# endregion

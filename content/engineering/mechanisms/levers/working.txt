@@ -1,0 +1,8 @@
+# Leo's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: leo
+The pivot is 0.4 m from the 600 N rock. I push at the other end of the 2 m bar.
+Turning effect of the rock = 600 × 0.4 = 240
+My push is 2 m from the end of the bar, so push = 240 ÷ 2 = 120 N.
+120 N is less than 200 N, so I can lift it easily.
+# endregion

@@ -9,8 +9,8 @@ pathways:
     fit: "Start here: no kits needed, and every lesson works in the browser."
     about: "Design and Technologies (Engineering principles and systems) is the home; ratio from Maths, forces and simple machines from Science and loops from Code are applied, not taught. Each lesson is the maths shape (Predict, Try on a board, Worked example, Vary, Practise, Make) around a design brief with criteria and constraints. LEGO Technic or Meccano gears make a good hands-on start before the board."
     courses:
-      - { path: engineering/mechanisms, id: mechanisms, stage: foundations, tagline: "Gear up a winch and trade speed for strength." }
-      - { title: Levers and pulleys, id: levers, stage: extensions, after: [mechanisms], summary: "Trade distance for force with levers, pulleys and linkages.", tagline: "Lift more by moving further." }
+      - { path: engineering/mechanisms, id: mechanisms, stage: foundations, tagline: "Gears, levers and pulleys: trade speed or distance for strength." }
+      - { title: Linkages and cams, id: linkages, stage: extensions, after: [mechanisms], summary: "Turn one motion into another: rotating to back and forth, a cam's shape to a follower's path.", tagline: "Change how things move." }
   - id: physical
     title: Physical computing
     summary: Circuits, sensors and motors, from the micro:bit in Tinkercad to Arduino C++ on real hardware.

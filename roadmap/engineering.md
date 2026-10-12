@@ -56,10 +56,14 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 - `engineering/mechanisms/trains` (lesson 2, unit gears): an idler changes direction, not ratio (Predict, then the board with a choosable idler); a compound train multiplies its stage ratios (worked example 8 → 24 = 8 → 40 is strong enough but too slow; faded 16 → 40 = 8 → 24 passes; Kai adds the ratios); Vary chooses four gears for 1500 g in 40 s and the fastest train for 2500 g; Practise with a clock; Make a brief only a compound train can meet. New `train` widget (`geartrain.js`), misconceptions `compound-ratios-add` and `idler-changes-ratio`, primer updated.
 - Practice page for Mechanisms (`practice/winch.yml`, `practice/trains.yml`): ratio, speed, strength, lift time, swapped gears; compound ratio, idler, compound speed, least ratio for a load.
 
+## Done (12 Oct 2026): Levers and pulleys
+
+- Mechanisms unit 2 (`levers`): `engineering/mechanisms/levers` (slide a pivot until 200 N lifts a 600 N rock; turning effects from the pivot; hand travel; class 2 wheelbarrow and class 3 forearm; sort the classes; Make a lever with two competing criteria, advantage 4.5 to 5) and `pulleys` (one fixed pulley changes direction only; add ropes; pull = load ÷ supporting ropes, rope = height × ropes, work in = work out; Mia counts the pulled rope; Make a brief that needs exactly 4 ropes; a match tying gears, levers and pulleys together). New `lever` widget (`mode: lever | pulley`), misconceptions `lever-distance-from-end` and `pulley-count-pull-rope`, primer `levers.md`, practice files for both. The Engineering index's planned "Levers and pulleys" course became "Linkages and cams" (planned).
+
 ## Next
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.
-2. Mechanisms: levers and pulleys (a new board); efficiency per mesh on the `train` board (Years 9–10; now a stretch task).
+2. Mechanisms: linkages and cams (planned course); efficiency per mesh on the `train` board and friction on pulleys (Years 9–10; now stretch tasks).
 3. Optional: let `B.serial` accept an Uno's USB ids. (Done 12 Oct: compound gear trains; `shape: design` decks and worksheets say Inquire, not Predict.)
 4. `tools/concepts.mjs` `prerequisites()` reads `code, maths, science, systems`: add `engineering` if an Engineering lesson ever uses the concept lint (its lessons are `language: maths`, which the lint skips).
 

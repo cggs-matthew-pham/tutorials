@@ -1,0 +1,32 @@
+# Practice for "Levers": turning effects from the pivot; push and hand travel.
+templates:
+  - q: "A {L} N load is {a} m from the pivot. You push {b} m from the pivot on the other side. What push balances it, in newtons?"
+    vars: { k: [2, 3, 4, 5, 6, 8], a: [0.2, 0.25, 0.4, 0.5], p: "20..200 by 10" }
+    let: { L: "p * k", b: "a * k" }
+    answer: "{p}"
+    feedback:
+      - ["{L * k}", "Your push is farther from the pivot, so it is smaller: divide."]
+    explain: "{L} × {a} = {L * a}, and {L * a} ÷ {b} = {p} N."
+  - q: "A seesaw: a {w1} N child sits {d1} m from the pivot. How far from the pivot must a {w2} N child sit to balance, in metres?"
+    vars: { a: "2..6", b: "2..6", u: [0.2, 0.3, 0.4] }
+    where: "a != b"
+    let: { w1: "100 * a", w2: "100 * b", d1: "u * b" }
+    answer: "{u * a}"
+    tolerance: 0.001
+    feedback:
+      - ["{w2 * d1 / w1}", "The heavier child sits closer: {w1} × {d1} = {w2} × distance."]
+    explain: "{w1} × {d1} = {w1 * d1}, and {w1 * d1} ÷ {w2} = {u * a} m."
+  - q: "On a lever the load is {a} m from the pivot and your push is {b} m from it. How many times as strong is your push (the mechanical advantage)?"
+    vars: { a: [0.1, 0.2, 0.25, 0.5], k: [2, 3, 4, 5, 6, 8, 10] }
+    let: { b: "a * k" }
+    answer: "{k}"
+    feedback:
+      - ["{a / b}", "Your distance over the load's: {b} ÷ {a}."]
+    explain: "{b} ÷ {a} = {k}."
+  - q: "A lever lets a {e} N push lift a {L} N load. The load rises {h} cm. How far does the push move, in centimetres?"
+    vars: { e: "50..200 by 50", k: [2, 3, 4, 5, 6], h: "2..10" }
+    let: { L: "e * k" }
+    answer: "{h * k}"
+    feedback:
+      - ["{h}", "Less force means more distance: {k} times as far."]
+    explain: "{L} ÷ {e} = {k} times the force, so {k} times the distance: {k} × {h} = {h * k} cm."

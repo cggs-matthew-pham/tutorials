@@ -482,6 +482,20 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .gearsvg .gbucket { fill: var(--line); stroke: var(--ink); stroke-width: 1.5; }
 .gearsvg .gbtext { font: 600 12px system-ui, sans-serif; fill: var(--ink); }
 .gearsvg .glabel { font: 600 14px system-ui, sans-serif; fill: var(--muted); }
+/* Levers and pulleys (lever) */
+.gearsvg .lvground { stroke: var(--muted); stroke-width: 2; }
+.gearsvg .lvpivot { fill: color-mix(in srgb, var(--left) 35%, var(--card)); stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+.gearsvg .lvbar { fill: color-mix(in srgb, var(--right) 30%, var(--card)); stroke: var(--ink); stroke-width: 1.5; }
+.gearsvg .lvtick { stroke: var(--ink); stroke-width: 1; opacity: 0.5; }
+.gearsvg .lvpush { fill: var(--accent); stroke: var(--ink); stroke-width: 1; }
+.gearsvg .lvhand { fill: var(--accent); stroke: var(--ink); stroke-width: 1.5; }
+.gearsvg .plblock { fill: var(--line); stroke: var(--ink); stroke-width: 1.5; }
+.gearsvg .plwheel { fill: var(--card); stroke: var(--ink); stroke-width: 1.5; }
+.gearsvg .plrope { stroke: var(--ink); stroke-width: 2.5; }
+.gearsvg .plfree { stroke: var(--accent); stroke-width: 2.5; }
+.lvslide { display: inline-flex; align-items: center; gap: 6px; }
+.lvslide input[type=range] { width: 160px; }
+.lvslide output { min-width: 3.5em; font: 14px ui-monospace, Menlo, Consolas, monospace; }
 .gfacts { margin: 2px 0 0; font: 15px/1.4 ui-monospace, Menlo, Consolas, monospace; }
 .oprow label { display: inline-flex; align-items: center; gap: 4px; }
 /* Security and privacy */
