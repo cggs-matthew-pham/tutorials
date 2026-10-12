@@ -1,0 +1,15 @@
+# Practice for "Pull or push": bottom pull = load × span ÷ (4 × height).
+templates:
+  - q: "A roof truss is {s} m wide and {h} m tall, with {p} N on the top. How hard does the bottom member pull, in newtons?"
+    vars: { s: [2, 4, 6, 8], h: [1, 2, 4], k: "1..9" }
+    let: { p: "k * 100 * h" }
+    answer: "{p * s / (4 * h)}"
+    feedback:
+      - ["{p / 2}", "That is each support's share. Use load × span ÷ (4 × height)."]
+    explain: "{p} × {s} ÷ (4 × {h}) = {p * s / (4 * h)} N."
+  - q: "A roof's height is doubled (same width and load). The bottom member's pull of {f} N becomes how many newtons?"
+    vars: { f: "200..1200 by 100" }
+    answer: "{f / 2}"
+    feedback:
+      - ["{f * 2}", "Taller means smaller forces."]
+    explain: "Twice as tall, half the pull: {f / 2} N."

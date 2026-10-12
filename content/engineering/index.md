@@ -11,6 +11,13 @@ pathways:
     courses:
       - { path: engineering/mechanisms, id: mechanisms, stage: foundations, tagline: "Gears, levers and pulleys: trade speed or distance for strength." }
       - { path: engineering/linkages, id: linkages, stage: extensions, after: [mechanisms], tagline: "Change how things move." }
+  - id: structures
+    title: Structures
+    summary: Frames, trusses and beams, and why some structures stand while others fold, buckle or sag.
+    fit: "Start here to see why bridges and towers are full of triangles."
+    about: "Design and Technologies (Engineering principles and systems) is the home; forces from Science and ratio and powers from Maths are applied, not taught. A pin-jointed truss model (members only pull or push; pushes buckle with length) and a pine beam model, both stated in each lesson's teacher notes. Spaghetti, straws or balsa make a good hands-on test to failure after the board."
+    courses:
+      - { path: engineering/structures, id: structures, stage: foundations, tagline: "Build it so it stays up." }
   - id: physical
     title: Physical computing
     summary: Circuits, sensors and motors, from the micro:bit in Tinkercad to Arduino C++ on real hardware.

@@ -1,0 +1,56 @@
+# Boards for "Design a bridge". An 8 m span, a 1000 N load in the middle, members $10 a metre.
+# Members pull up to 2000 N; a 2 m member buckles under a 2000 N push (8000 ÷ 2²), a 4.5 m one under about 400 N.
+
+# region: run
+widget: truss
+joint A: 0, 0 pin
+joint B: 2, 0
+joint C: 4, 0
+joint D: 6, 0
+joint E: 8, 0 roller
+joint F: 2, 2
+joint G: 4, 2
+joint H: 6, 2
+member: A-B, B-C, C-D, D-E
+load C: 1000 down
+strength: 2000
+buckle: 8000
+cost: 10
+edit: on
+# endregion
+
+# region: explain
+widget: truss
+joint A: 0, 0 pin
+joint B: 2, 0
+joint C: 4, 0
+joint D: 6, 0
+joint E: 8, 0 roller
+joint F: 2, 2
+joint G: 4, 2
+joint H: 6, 2
+member: A-B, B-C, C-D, D-E, A-F, F-G, G-H, H-E, B-F, C-G, D-H, F-C, H-C
+load C: 1000 down
+strength: 2000
+buckle: 8000
+cost: 10
+# endregion
+
+# region: make
+widget: truss
+joint A: 0, 0 pin
+joint B: 2, 0
+joint C: 4, 0
+joint D: 6, 0
+joint E: 8, 0 roller
+joint F: 2, 2
+joint G: 4, 2
+joint H: 6, 2
+member: A-B, B-C, C-D, D-E
+load C: 1000 down
+strength: 2000
+buckle: 8000
+cost: 10
+budget: 300
+edit: on
+# endregion

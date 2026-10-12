@@ -1,0 +1,8 @@
+# Zoe's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: zoe
+Zoe's frame has 6 joints, on a pin and a roller.
+The rule: members + 3 = 2 × joints.
+So members = 2 × 6 + 3 = 15.
+She needs 15 members to make it rigid.
+# endregion

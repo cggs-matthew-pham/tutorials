@@ -1,0 +1,46 @@
+summary: Students find a pinned deck collapses and a big triangle buckles, learn that a member's buckling load falls with its length squared, build a bridge of short triangles that holds 1000 N, then refine it to cost $300 or less and fail only at 1400 N or more.
+time: 50
+timing: "Predict and Try 10 min · Worked example 8 min · Vary 12 min · Practise and Make 20 min"
+goals:
+  - I can explain why long members buckle under a push.
+  - I can design a truss whose pushed members are short and whose long members pull.
+  - I can test a design to failure and talk about its safety factor.
+struggle: "Building takes trial and error, and a design can collapse for a missing member or fail for a long pushed one. Ask which of the two happened."
+before: |
+  Do Pull or push and Triangles hold their shape first.
+
+  The model: a pin-jointed truss; any member pulls up to 2000 N; a member L m long buckles under 8000 ÷ L² N (Euler's buckling falls with length squared; the constant is chosen for the lesson). The load hangs at C only. A Pratt or Howe truss of 13 members ($293) is the cheapest design that meets the Make brief on this grid; teachers may find others.
+
+  A spaghetti or straw bridge tested to failure is the natural class follow-up, using the same rules.
+
+  Curriculum hooks: Design and Technologies, engineering principles and systems (primary); Science, forces; Maths, powers and inverse proportion.
+running:
+  - "Predict: hang a chain between two hands: why does it sag?"
+  - "Try: ask what made A-G fail when its force was under 2000 N."
+  - "Worked example: push on a long straw and a short one."
+  - "Make: share costs and failure loads on the board; who was cheapest and still safe?"
+stuck:
+  - see: "The bridge collapses."
+    ask: "Which joint has members in only one direction?"
+    fix: "Every joint needs members in two directions."
+  - see: "A long member fails."
+    ask: "Is it red (pushed)? Can you make it shorter, or make it pull?"
+    fix: "Short pushes, long pulls."
+  - see: "It is over budget."
+    ask: "Which members carry 0 N?"
+    fix: "Zero-force members may be removable, but test: some hold a joint in place."
+stretch: "Find a design that fails at 2000 N or more. What does it cost, and is the extra safety worth it?"
+support: "Give the Pratt truss as a member list to type in, then ask students to remove one member and test."
+leads: |
+  Next: the Capstone projects, where a lift or drive base meets a real structure.
+
+  Real examples: Pratt and Howe trusses (railway bridges), Warren trusses, the Sydney Harbour Bridge arch, roof trusses.
+exit:
+  q: "A 3 m member on this board is pushed with 1000 N. Will it buckle? Show the sum."
+  a: "8000 ÷ 3² = 8000 ÷ 9 ≈ 889 N, less than 1000 N, so it buckles."
+explain: |
+  Under a **pull**, a member only fails when it snaps. Under a **push**, a long thin member **buckles** (bows sideways) at a much smaller force, and the longer it is the worse: twice as long buckles at a quarter of the push.
+
+  Good trusses are rows of short triangles: pushed members kept short, long members arranged to pull. **Testing to failure** shows how much margin a design has: its failure load ÷ its working load is its **safety factor**.
+sources:
+  - { title: "TeachEngineering: K-12 engineering design challenges (benchmark; the briefs and wording are our own)", url: "https://www.teachengineering.org/", checked: 2026-10-12 }

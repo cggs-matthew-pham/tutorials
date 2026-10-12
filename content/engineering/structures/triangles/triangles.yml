@@ -1,0 +1,58 @@
+# Boards for "Triangles hold their shape". A square frame pushed sideways at the top. Forces in newtons.
+
+# region: run
+widget: truss
+joint A: 0, 0 pin
+joint B: 2, 0 roller
+joint C: 2, 2
+joint D: 0, 2
+member: A-B, B-C, C-D, D-A
+load D: 500 right
+strength: 5000
+buckle: 20000
+edit: on
+# endregion
+
+# region: explain
+widget: truss
+joint A: 0, 0 pin
+joint B: 2, 0 roller
+joint C: 2, 2
+joint D: 0, 2
+member: A-B, B-C, C-D, D-A, A-C
+load D: 500 right
+strength: 5000
+buckle: 20000
+# endregion
+
+# region: vary
+widget: truss
+joint A: 0, 0 pin
+joint B: 2, 0 roller
+joint C: 2, 2
+joint D: 0, 2
+joint E: 0, 4
+joint F: 2, 4
+member: A-B, B-C, C-D, D-A, C-F, F-E, E-D
+load E: 500 right
+strength: 5000
+buckle: 20000
+edit: on
+# endregion
+
+# region: make
+widget: truss
+joint A: 0, 0 pin
+joint B: 2, 0 roller
+joint C: 2, 2
+joint D: 0, 2
+joint E: 0, 4
+joint F: 2, 4
+joint G: 0, 6
+joint H: 2, 6
+member: A-B, B-C, C-D, D-A, C-F, F-E, E-D, F-H, H-G, G-E
+load G: 500 right
+strength: 5000
+buckle: 20000
+edit: on
+# endregion

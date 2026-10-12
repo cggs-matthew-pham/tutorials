@@ -1,0 +1,41 @@
+summary: Students compare four cross-sections with about the same wood (a strip flat and on edge, an I-beam, a tube), find depth counts cubed, work out how a beam's supports share a load, and choose a section for a shelf brief.
+time: 40
+timing: "Predict and Try 8 min · Worked example 10 min · Vary 8 min · Practise and Make 14 min"
+goals:
+  - I can work out how much each support of a beam holds.
+  - I can explain why a deeper beam is much stiffer, and why I-beams are shaped as they are.
+  - I can choose a beam section to meet a sag limit.
+struggle: "Students expect the same material to behave the same way. Have them flex a ruler flat and on its edge."
+before: |
+  A ruler between two books, flat then on its edge, is the whole lesson in ten seconds; then the board puts numbers on it.
+
+  The model: a simply supported pine beam (E = 10 000 N/mm²), 500 mm span, a point load; sag at the load point = P a² b² ÷ (3 E I L). Sections (mm): flat 30 × 3, edge 3 × 30, I-beam 30 deep with 20 × 1.5 flanges and a 1.5 web, square tube 20 × 20 × 1.2. Strength (breaking) isn't modelled, only sag. The picture exaggerates the sag.
+
+  Curriculum hooks: Design and Technologies, materials and technologies (properties of materials), engineering principles and systems; Maths, powers (cubes) and proportion.
+running:
+  - "Predict: hand out rulers before the board."
+  - "Try: ask where the I-beam keeps its wood."
+  - "Worked example: link the support shares back to Levers (Mechanisms)."
+  - "Make: ask why a builder might not choose the I-beam anyway (cost, joining, looks)."
+stuck:
+  - see: "A student says the nearer support holds less."
+    ask: "If the load sat right on a support, how much would the other one hold?"
+    fix: "The nearer support holds more."
+  - see: "A student says twice as deep is twice as stiff."
+    ask: "What does the formula do to depth?"
+    fix: "Cubes it: 2³ = 8."
+stretch: "Stiffness of a rectangle is width × depth³ ÷ 12. Design a 90 mm² rectangle stiffer than the I-beam. Why don't builders use it?"
+support: "Give the four sections drawn to scale, and ask students to rank them before the board."
+leads: |
+  Next: the Capstone projects; Mechanisms › Levers for the support-share rule from the other side.
+
+  Real examples: floor joists on edge, steel I-beams, aluminium extrusions, bike frames (tubes).
+exit:
+  q: "A plank 20 mm deep is replaced by one 40 mm deep, the same width. How does its sag change?"
+  a: "Twice as deep is 2³ = 8 times stiffer, so it sags an eighth as much."
+explain: |
+  A beam's **supports share its load** like a lever: the nearer support holds more. Each share is the load × the far distance ÷ the span.
+
+  How much a beam **sags** depends on its shape more than on how much material it has: stiffness grows with **depth cubed**. A strip on its edge is 100 times stiffer than flat; an **I-beam** puts its material at the top and bottom, far from the middle, where it does most good.
+sources:
+  - { title: "TeachEngineering: K-12 engineering design challenges (benchmark; the briefs and wording are our own)", url: "https://www.teachengineering.org/", checked: 2026-10-12 }

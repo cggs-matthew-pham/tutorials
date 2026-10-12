@@ -1,0 +1,38 @@
+# Boards for "Pull or push". A roof truss: 4 m wide, 1000 N on the top joint. Forces in newtons.
+
+# region: run
+widget: truss
+joint A: 0, 0 pin
+joint B: 4, 0 roller
+joint C: 2, 2
+member: A-B, A-C, B-C
+load C: 1000 down
+strength: 2000
+buckle: 8000
+# endregion
+
+# region: vary
+widget: truss
+joint A: 0, 0 pin
+joint B: 4, 0 roller
+joint C: 2, 2
+member: A-B, A-C, B-C
+load C: 1000 down
+raise C: 1, 4
+strength: 2000
+buckle: 8000
+# endregion
+
+# region: make
+widget: truss
+joint A: 0, 0 pin
+joint B: 4, 0 roller
+joint C: 2, 1
+member: A-B, A-C, B-C
+load C: 1000 down
+raise C: 1, 4
+strength: 600
+buckle: 100000
+cost: 10
+budget: 125
+# endregion

@@ -1,0 +1,14 @@
+# Practice for "Triangles hold their shape": members = 2 × joints − 3 (a pin and a roller).
+templates:
+  - q: "A frame has {j} joints, on a pin and a roller. How many members does it need to be rigid with none spare?"
+    vars: { j: "3..14" }
+    answer: "{2 * j - 3}"
+    feedback:
+      - ["{2 * j + 3}", "Take 3 away, don't add it."]
+      - ["{2 * j}", "Then take away 3 for the supports."]
+    explain: "2 × {j} − 3 = {2 * j - 3}."
+  - q: "A frame has {j} joints and {m} members, on a pin and a roller. How many more members does it need to be rigid?"
+    vars: { j: "4..12", g: "1..3" }
+    let: { m: "2 * j - 3 - g" }
+    answer: "{g}"
+    explain: "It needs 2 × {j} − 3 = {2 * j - 3}; it has {m}, so {g} more."

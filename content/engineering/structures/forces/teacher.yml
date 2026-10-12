@@ -1,0 +1,44 @@
+summary: Students test a roof truss and read which members pull (tension) and push (compression), explain why slanted members carry more than their share, find that a taller roof halves the forces each time its height doubles, and choose a height that keeps every member within 600 N and the timber within budget.
+time: 40
+timing: "Predict and Try 8 min · Worked example 10 min · Vary 6 min · Practise and Make 16 min"
+goals:
+  - I can say whether a member of a frame is in tension (pulls) or compression (pushes).
+  - I can explain why a flatter roof has bigger forces in its members.
+  - I can choose a design that meets a force limit and a budget.
+struggle: "Students think a load only squashes. Ask what would happen to the feet if the bottom member were cut."
+before: |
+  The board is a pin-jointed truss: members are straight, joined by pins that can't hold a turn, so each member only pulls or pushes along its length; loads act at joints; members weigh nothing. It is solved by the stiffness method (all members equally stiff), so frames with spare members work too.
+
+  A quick demonstration: two rulers leaning together on a table, feet free, then with a string tying the feet. The string goes tight.
+
+  Curriculum hooks: Design and Technologies, engineering principles and systems (primary); Science, forces (Year 7); Maths, proportion.
+running:
+  - "Predict: draw the roof and ask students to mark each member 'stretch' or 'squash' before testing."
+  - "Try: point at the colours; blue pulls, red pushes."
+  - "Worked example: fill in the three heights from the board as a table, then find the rule."
+  - "Make: let students tell you why 3 m fails (force) and 4 m fails (cost)."
+stuck:
+  - see: "A student thinks the bottom member is squashed."
+    ask: "If you cut it, what would the feet do?"
+    fix: "They would spread apart, so the member is holding them together: tension."
+  - see: "A student expects the slanted push to be 500 N."
+    ask: "How much of a slanted push points straight up?"
+    fix: "Only part, so the push must be bigger."
+  - see: "A student keeps raising the roof to cut forces."
+    ask: "What happens to the cost?"
+    fix: "Taller means longer members: a trade-off."
+stretch: "Add a vertical member from C down to the middle of A-B (add a joint there in your head). What force would it carry, and why?"
+support: "Give a table: height, pull in A-B, push in A-C, cost. Fill the first row together."
+leads: |
+  Next: Triangles hold their shape.
+
+  Real examples: roof trusses, A-frames, ladders, crane jibs, the Sydney Harbour Bridge's arch and deck.
+exit:
+  q: "A roof truss 6 m wide and 1.5 m tall carries 900 N at the top. How hard does the bottom member pull, and is it in tension or compression?"
+  a: "900 × 6 ÷ (4 × 1.5) = 900 N, in tension."
+explain: |
+  In a frame joined by pins, each member only **pulls** (tension: being stretched) or **pushes** (compression: being squashed). In a roof truss under a load, the sloping members push and the bottom member pulls, holding the feet together.
+
+  Slanted members must carry more than their share, because only part of a slanted force holds the load up. So a flatter roof has bigger forces, and a taller one smaller forces but longer, dearer members.
+sources:
+  - { title: "TeachEngineering: K-12 engineering design challenges (benchmark; the briefs and wording are our own)", url: "https://www.teachengineering.org/", checked: 2026-10-12 }

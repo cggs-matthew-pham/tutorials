@@ -525,6 +525,24 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .gearsvg .pcbvia { fill: #d4a537; stroke: #1e4a2b; stroke-width: 2; }
 .gearsvg .pcbcursor { fill: none; stroke: #ffd166; stroke-width: 1.5; stroke-dasharray: 3 2; }
 .pcbsvg:not(:focus) .pcbcursor { display: none; }
+/* Structures (truss) */
+.gearsvg .trmem { stroke: var(--muted); stroke-linecap: round; }
+.gearsvg .trmem.pull { stroke: #2f6fb3; }
+.gearsvg .trmem.push { stroke: #c2410c; }
+.gearsvg .trmem.zero { stroke: var(--line); }
+.gearsvg .trmem.loose { stroke: var(--muted); stroke-dasharray: 8 6; }
+.gearsvg .trmem.over { stroke-dasharray: 10 5; }
+.gearsvg .trmem.weak { stroke: #b42318; stroke-dasharray: 6 4; }
+.gearsvg .trjoint { fill: var(--card); stroke: var(--ink); stroke-width: 2; }
+.gearsvg .trjoint[role=button] { cursor: pointer; }
+.gearsvg .trjoint.sel { fill: #ffd166; }
+.gearsvg .trname { font: 700 14px system-ui, sans-serif; fill: var(--ink); }
+.gearsvg .trtag { fill: var(--card); stroke: var(--line); }
+.gearsvg .trnum { font: 600 12px ui-monospace, Menlo, Consolas, monospace; fill: var(--ink); }
+.gearsvg .trload { stroke: var(--accent); stroke-width: 4; }
+.gearsvg .trhead { fill: var(--accent); }
+.gearsvg .trbeam { fill: none; stroke: #b07a3f; stroke-width: 10; stroke-linecap: round; }
+.gearsvg .trsect { fill: #b07a3f; stroke: var(--ink); stroke-width: 0.3; }
 .gfacts { margin: 2px 0 0; font: 15px/1.4 ui-monospace, Menlo, Consolas, monospace; }
 .oprow label { display: inline-flex; align-items: center; gap: 4px; }
 /* Security and privacy */

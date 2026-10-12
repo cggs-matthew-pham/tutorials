@@ -1,0 +1,17 @@
+# Practice for "Beams and shapes": support shares; depth cubed.
+templates:
+  - q: "A {p} N load sits {a} m from the left support of a {L} m beam. How much does the left support hold, in newtons?"
+    vars: { L: [2, 4, 5], a: [0.5, 1, 1.5], k: "1..12" }
+    let: { p: "k * 10 * L" }
+    where: "a < L"
+    answer: "{p * (L - a) / L}"
+    feedback:
+      - ["{p * a / L}", "That is the far support's share. The nearer support holds more."]
+    explain: "{p} × {L - a} ÷ {L} = {p * (L - a) / L} N."
+  - q: "A beam is made {k} times as deep, the same width. How many times stiffer is it?"
+    vars: { k: [2, 3, 4, 5, 6, 10] }
+    answer: "{k * k * k}"
+    feedback:
+      - ["{k}", "Depth counts cubed."]
+      - ["{k * k}", "Cubed, not squared."]
+    explain: "{k}³ = {k * k * k}."

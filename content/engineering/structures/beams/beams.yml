@@ -1,0 +1,48 @@
+# Boards for "Beams". A pine beam 500 mm between supports; each shape uses about the same wood.
+
+# region: run
+widget: truss
+mode: beam
+span: 0.5
+load: 10
+shape: flat
+choose: on
+# endregion
+
+# region: explain
+widget: truss
+mode: beam
+span: 0.5
+load: 10
+shape: edge
+# endregion
+
+# region: vary-move
+widget: truss
+mode: beam
+span: 0.5
+load: 10
+at: 0.25
+shape: edge
+move: on
+# endregion
+
+# region: vary
+widget: truss
+mode: beam
+span: 0.5
+load: 10
+shape: flat
+choose: on
+limit: 0.5
+# endregion
+
+# region: make
+widget: truss
+mode: beam
+span: 0.5
+load: 25
+shape: flat
+choose: on
+limit: 0.5
+# endregion

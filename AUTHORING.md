@@ -785,6 +785,20 @@ Vary, Practise, Make).
     0.25 mm 0.8 A, 0.5 mm 1.4 A, 1 mm 2.4 A, 1.5 mm 3.2 A, 2 mm 3.9 A (IPC-2221, 1 oz, outer, 10 °C, rounded down);
     values `n_fail`, `n_net`, `w_<net>`, `ok_<net>` (lower case). Checks: `"sel_k = 5"`, `"p = 1"`,
     `"done = 1 and bot_mm = 0"`, `"done = 1 and len_mm <= 100"`, `"n_fail = 0 and w_ma >= 1"`. Ready selector `.pcbsvg`.
+  - `widget: truss` (first used by `engineering/structures/`). `mode: truss`: a pin-jointed frame solved by the
+    stiffness method (equal stiffness, so spare members work; a singular matrix means it collapses). `joint A: 0, 0 pin`
+    (metres; `pin` or `roller` supports; single capital letters), `member: A-B, A-C`, `load C: 1000 down` (up, left,
+    right; several allowed; the first sets `load_n`), `strength:` (most pull, N), `buckle:` (push that buckles a 1 m
+    member; a member L m long buckles at buckle ÷ L²), `edit: on` (click or Enter on a joint, then another, to add or
+    remove a member), `raise C: 1, 4` (a height slider), `cost:` ($ a metre) and `budget:`, `numbers: off`. Buttons
+    Test it and Load until it fails (forces scale to the failure load; the first member to go is dashed). Blue pulls,
+    red pushes, thickness grows with force. Values `stable`, `n_m`, `n_j`, `fail` (99 when it collapses), `max_t`,
+    `max_c`, `load_n`, `cost`, `fail_load`, `tested`, `h_<joint>`, `f_ab` (+ pull, − push). `mode: beam`: a pine beam
+    on two supports, `span:` (m), `load:` (N), `at:` (m from the left), `shape: flat | edge | ibeam | tube` (about the
+    same wood; `choose: on` gives a menu), `move: on` (load position slider), `limit:` (mm of sag); ± 5 N buttons.
+    Values `r_a`, `r_b`, `defl_mm`, `i_mm4`, `area_mm2`, `s` (1 to 4), `ok`, `load_n`, `at_m`. Checks:
+    `"stable = 1 and n_m = 9 and tested = 1"`, `"stable = 1 and fail = 0 and cost <= 300 and fail_load >= 1400"`,
+    `"ok = 1 and area_mm2 <= 90"`, `"r_a = 8"`. Ready selector `.trsvg`.
   - `widget: circuit` (first used by `engineering/circuits/`): parts wired to a micro:bit's pins, from a simple stated
     model (pin 3.3 V, LED drops 2 V and is damaged above 20 mA, analog read 0–1023 for 0–3.3 V). `mode: led`: pin 0 →
     resistor → LED → GND; `resistor:` (ohms, 0 = none), `place: after`, `output: off`, `gnd: off`, `turned: on`, and

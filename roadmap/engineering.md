@@ -68,6 +68,10 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 
 - Course `engineering/pcb` (Design your own board pathway, extensions; unit From breadboard to board): Place the parts (nets, ratsnest, a placement order, a 100 mm and a 70 mm small-board brief), Route the traces (shorts refused, one layer with a detour, two layers with GND underneath; 119 mm against 94 mm of copper), Design rules and ordering (width for current, a trace too wide to squeeze between pins, setup plus per-board cost). New `pcb` widget (`mode: layout | route | rules`), primer, practice page. The Capstone projects' Off the breadboard and Design a PCB follow it with real tools.
 
+## Done (12 Oct 2026): Structures
+
+- Pathway Structures (Engineering index) with course `engineering/structures`, units Frames and trusses and Beams: Pull or push (a roof truss; tension and compression; bottom pull = load × span ÷ (4 × height); a height that meets 600 N and $125), Triangles hold their shape (a square collapses; one diagonal; members = 2 × joints − 3; Zoe adds 3; towers of two and three storeys), Design a bridge (a pinned deck folds; a big triangle buckles; buckling = 8000 ÷ L²; any bridge that holds, then $300 or less failing at 1400 N or more: a Pratt or Howe truss, $293, 1414 N), Beams and shapes (support shares; depth cubed; flat, edge, I-beam, tube; a shelf only the I-beam meets). New `truss` widget (`mode: truss | beam`, stiffness-method solver), misconception `truss-count-add`, primers, practice page. Note for teachers: the counting rule is necessary, not sufficient (two diagonals in one panel and none in another still collapses; the board shows it).
+
 ## Next
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.

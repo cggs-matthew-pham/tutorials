@@ -1,0 +1,17 @@
+# Practice for "Design a bridge": buckling falls with length squared; safety factor.
+templates:
+  - q: "On the board, a member L m long buckles under 8000 ÷ L² newtons. At what push does a {L} m member buckle, in newtons?"
+    vars: { L: [0.5, 1, 2, 4, 5, 8, 10] }
+    answer: "{8000 / (L * L)}"
+    explain: "8000 ÷ {L}² = {8000 / (L * L)} N."
+  - q: "A pushed member is made {k} times shorter. How many times bigger a push can it take before it buckles?"
+    vars: { k: [2, 3, 4, 5, 6, 7, 8] }
+    answer: "{k * k}"
+    feedback:
+      - ["{k}", "Buckling goes with length squared: {k} × {k}."]
+    explain: "{k}² = {k * k} times."
+  - q: "A bridge carries {w} N and fails at {f} N. What is its safety factor?"
+    vars: { w: "500..2000 by 250", k: [1.2, 1.5, 2, 2.5, 3] }
+    let: { f: "w * k" }
+    answer: "{k}"
+    explain: "{f} ÷ {w} = {k}."
