@@ -4,23 +4,23 @@ theme: default
 html: true
 ---
 
-# Variables and operations
+# Name a value
 
 Python Foundations with Turtle · Drawing and repeating
 
-<!-- Speaker note: Students give numbers names (variables) and let the program calculate the turn, so one change at the top updates the whole shape. About 45 minutes (Predict and Run 10 min · Investigate 10 min · Modify 10 min · Make 10 min · Room plan 5 min). The Run, Modify and Make slides have the live playground in them; the tutorial link under it is the backup. -->
+<!-- Speaker note: Students give numbers names (variables) and let the program calculate the turn, so one change at the top updates the whole shape. About 40 minutes (Predict and Run 10 min · Investigate 12 min · Modify 6 min · Make 8 min · Room plan 4 min). The Run, Modify and Make slides have the live playground in them; the tutorial link under it is the backup. -->
 
 ---
 
 ## Today
 
-**We are learning to** give a number a name, then calculate with it.
+**We are learning to** give a number a name, then let the program work out the rest.
 
 - I can store a value in a variable and use its name instead of the number.
 - I can work out a value with a calculation, such as angle = 360 / sides.
 - I can change a whole drawing by changing one variable.
 
-<!-- Speaker note: Before class: Run the first program, then make the spiral from the Make step. The key line is `size = size + 5`, which looks wrong to anyone used to maths: in Python it means "work out size + 5, then store it back in size". Be ready to say that out loud. Teacher: Read = aloud as 'store'. sides = 5 means 'store 5 in sides', not 'sides equals 5'. This one habit prevents most confusion later. -->
+<!-- Speaker note: Before class: Run the first program, then make the shape generator from the Make step. Notice how little you change to get a different shape: that is the point of the lesson. Teacher: Read = aloud as 'store'. sides = 5 means 'store 5 in sides', not 'sides equals 5'. This one habit prevents most confusion later. -->
 
 ---
 
@@ -28,7 +28,7 @@ Python Foundations with Turtle · Drawing and repeating
 
 > Games keep score, maps keep scale and apps keep your settings. All of them store a value under a name and calculate with it.
 
-<!-- Speaker note: In the last lesson the numbers were typed straight into each command. Here you give a number a **name**, so you can change it in one place and calculate with it. -->
+<!-- Speaker note: In the last lesson the numbers were typed straight into each command. Here you give a number a **name**, so you can change it in one place and let the program work out the rest. -->
 
 ---
 
@@ -66,7 +66,7 @@ for i in range(sides):
 
 _If it does not load:_ [open this step in the tutorial](https://tutorials.learningwaypoints.com/code/python/turtle-variables/?full=step-2#step-2)
 
-<!-- Speaker note: Run it and compare it with your prediction. Students should be able to say: I can explain what sides, size and angle store, and where angle comes from. -->
+<!-- Speaker note: Run it and compare it with your prediction. Here is what each line does. | Line | What it does | Why | |---|---|---| | `sides = 5` | Stores 5 under the name `sides` | Read `=` as "store": put 5 in a box called `sides` | | `size = 80` | Stores 80 under the name `size` | Change it here and every `size` below changes | | `angle = 360 / sides` | Works out the turn and stores it | A full turn is 360 degrees, split between the corners | | `range(sides)` | Repeats `sides` times | The name stands in for 5 | | `right(angle)` | Turns by whatever `angle` holds | 72 here, but you never typed 72 | Change `sides` and the turn updates by itself. -->
 
 <style scoped>pre, marp-pre { font-size: 0.5em; line-height: 1.25; } section { font-size: 25px; }</style>
 
@@ -99,9 +99,9 @@ for i in range(sides):
     right(angle)
 ```
 
-<!-- Speaker note: `print(angle)` shows a value under the drawing. Change `sides` and watch what `angle` becomes. What this step is for: A variable is a named value: you can follow how it is used, find where it goes wrong, and change it in one place. -->
+<!-- Speaker note: `print(angle)` shows a value under the drawing. Copy it whenever you want to see what a name holds; the console lessons explain how it works. Change `sides` and watch what `angle` becomes, then work through the checks. What this step is for: A variable is a named value: you can follow how it is used, find where it goes wrong, and change it in one place. -->
 
-<!-- Speaker note: Teacher: print(angle) shows what is stored. Students change sides and watch angle change. Ask: why do we never need to type 72? The last two tasks teach size = size + 5 before the spiral: the question settles what it stores, and the table shows the value growing each pass. -->
+<!-- Speaker note: Teacher: students work the angle for 6 sides, find the multiply-for-divide bug, decide what a later store does to a line already drawn (it does nothing to it), and find the unindented turn in a loop they met last lesson. -->
 
 ---
 
@@ -158,74 +158,55 @@ for i in range(sides):
 
 <span style="background:#dcfce7; color:#1a1a1a; border:1.5px solid #22c55e; padding:6px 18px; border-radius:8px; font-size:1em; font-weight:500;">✅ Check</span>
 
-## Store it back
+## A name keeps its value
 
-<div class="side" style="display:grid;grid-template-columns:1fr 1fr;gap:1em">
-<div>
+A name holds one value at a time. Lines that ran earlier keep what they used.
 
 ```python
-from turtle import *
-
-sides = 5
-size = 80
-angle = 360 / sides
-print(angle)
-
-for i in range(sides):
-    forward(size)
-    right(angle)
+size = 50
+forward(size)
+size = 100
+forward(size)
 ```
 
-</div>
-<div>
+**The program stores size = 50 and draws a line. Later it stores size = 100 and draws another line. How long was the first line?**
 
-**A program has size = 20. Then it runs the line size = size + 5. What is stored in size afterwards?**
+- Storing size twice is an error
+- 50
+- 100
+- 150
 
-- Nothing: the line is an error
-- 5
-- 25
-- 20 + 5
+* Answer: 50
 
-* Answer: 25
+<!-- Speaker note: A line uses the value size holds at that moment. Storing a new value changes the lines drawn after it, not the ones already drawn. -->
 
-</div>
-</div>
-
-<!-- Speaker note: Read the line from the right. Python works out size + 5, which is 25, then stores 25 back in size. The = means store, not 'is equal to'. -->
-
-<style scoped>section { font-size: 27px; }</style>
+<style scoped>pre, marp-pre { font-size: 0.5em; line-height: 1.25; } section { font-size: 21px; }</style>
 
 ---
 
 <span style="background:#dcfce7; color:#1a1a1a; border:1.5px solid #22c55e; padding:6px 18px; border-radius:8px; font-size:1em; font-weight:500;">✅ Check</span>
 
-## Watch it grow
+## Spot the bug in the loop
 
-Follow `size` round this loop, which adds to it every pass.
+**This should draw a hexagon, but the turtle draws one long line and turns once at the end. Click the wrong line.**
 
-```python
-size = 10
-
-for i in range(4):
-    forward(size)
-    right(90)
-    size = size + 10
+```
+ 1  from turtle import *
+ 2  
+ 3  sides = 6
+ 4  size = 80
+ 5  angle = 360 / sides
+ 6  
+ 7  for i in range(sides):
+ 8      forward(size)
+ 9  right(angle)
 ```
 
-**Fill in the size that forward(size) uses on each pass.**
+* Answer: line 9
 
-| pass | size used by forward(size) |
-|---|---|
-| 1 | 10 |
-| 2 | ? |
-| 3 | ? |
-| 4 | ? |
+<!-- Speaker note: right(angle) is not indented, so it is not part of the loop. Indent it under the for line so both lines repeat. -->
 
-* Answer: 20, 30, 40
-
-<!-- Speaker note: The last line of each pass stores size + 10 back in size, so the next pass starts with a bigger size. This is how a spiral grows. -->
-
-<style scoped>pre, marp-pre { font-size: 0.5em; line-height: 1.25; } section { font-size: 19px; }</style>
+<style scoped>pre, marp-pre { font-size: 0.65em; line-height: 1.25; }</style>
 
 ---
 
@@ -233,12 +214,9 @@ for i in range(4):
 
 ## Modify
 
+Change one number at the top to draw a hexagon, then a 12-sided shape. Run it each time.
 
-
-- **Draw a hexagon, then a 12-sided shape:** Change one number at the top and run it each time.
-- **Choose the colour with a variable:** Add a variable for the pen colour and use it.
-
-<!-- Speaker note: What this step is for: Changing the program through a variable is safer than changing many numbers: one edit, whole shape updated. Hints, in order: You should only need to change one number. Which variable controls the number of sides? / A variable can hold text as well as numbers, for example a colour in quotes. / Give the colour a name at the top, then use that name inside pencolor( ). For students who need more support: Give students a table with two columns (sides, angle) and ask them to fill in angle for 3, 4, 5 and 6 before running anything. For early finishers: Make a shape generator. Change sides to 3, 4, 5 and up to 20, and record which values still look like the shape and which look like a circle. The hard part, on purpose: Following a value through a variable, especially size = size + 5. Have them trace the first three values on paper before running it. When students get stuck: The shape does not close, or the turtle spins in place. Ask: What is stored in angle when sides is 5? Print it. Fix: angle must be 360 / sides (divide, not multiply). / The spiral is a square: every line is the same length. Ask: Does anything change size while the loop runs? Fix: Add size = size + 5 as the last line inside the loop (indented). / A NameError says a name is not defined. Ask: Is the name spelt exactly the same everywhere, including capitals? Fix: Variable names must match exactly. Size and size are different names. -->
+<!-- Speaker note: What this step is for: Changing the program through a variable is safer than changing many numbers: one edit, whole shape updated. Hints, in order: You should only need to change one number. Which variable controls the number of sides? For students who need more support: Give students a table with two columns (sides, angle) and ask them to fill in angle for 3, 4, 5 and 6 before running anything. For early finishers: Change sides to 3, 4, 5 and up to 20, and record which values still look like the shape and which look like a circle. The hard part, on purpose: Seeing that a name holds a value the program can reuse. Ask them to say, for each line, which stored value it uses. When students get stuck: The shape does not close, or the turtle spins in place. Ask: What is stored in angle when sides is 5? Work it out on paper. Fix: angle must be 360 / sides (divide, not multiply). / A NameError says a name is not defined. Ask: Is the name spelt exactly the same everywhere, including capitals? Fix: Variable names must match exactly. Size and size are different names. / A student changes a variable after the loop and expects the shape to change. Ask: Which lines already ran before you changed it? Fix: Lines use the value a name holds when they run. Put the change above the loop. -->
 
 <!-- Speaker note: Teacher: students should only ever change the top numbers. If someone edits inside the loop, ask them to find the one variable that does the job. -->
 
@@ -262,11 +240,11 @@ _If it does not load:_ [open this step in the tutorial](https://tutorials.learni
 
 ## Make
 
-Draw a **square spiral**: each time round the loop, the line should be a little longer than the last.
+Make your own shape generator. Put three names at the top (`sides`, `size` and `colour`) and use all three below. Then change each one and watch the shape change.
 
-<!-- Speaker note: Hints, in order: The line should get longer every time round the loop. What can change `size` inside the loop? / Look back at 'Store it back' and 'Watch it grow'. Make the last line inside the loop store a bigger `size`. -->
+<!-- Speaker note: Hints, in order: Put three names at the top: sides, size and colour. Then use each name below. / A colour is text, so it goes in quotes: colour = "purple". Use it with pencolor(colour). -->
 
-<!-- Speaker note: Teacher: the spiral needs a variable that changes inside the loop. Let students struggle for a few minutes before showing the hint. -->
+<!-- Speaker note: Teacher: three names and a loop. Let students choose their own values; the check only needs a variable-coloured pen and a loop. -->
 
 ---
 
@@ -274,7 +252,7 @@ Draw a **square spiral**: each time round the loop, the line should be a little 
 
 ## Live: Make
 
-{{embed: https://tutorials.learningwaypoints.com/_playground/index.html?code=from+turtle+import+*%0A%0Asize+%3D+5%0A%0Afor+i+in+range%2850%29%3A%0A++++forward%28size%29%0A++++right%2890%29%0A++++%23+Make+the+line+longer+every+time+round+the+loop.%0A}}
+{{embed: https://tutorials.learningwaypoints.com/_playground/index.html?code=from+turtle+import+*%0A%0A%23+Name+the+sides%2C+the+size+and+the+colour%2C+then+draw+the+shape.%0A}}
 
 _If it does not load:_ [open this step in the tutorial](https://tutorials.learningwaypoints.com/code/python/turtle-variables/?full=step-5#step-5)
 
@@ -310,8 +288,8 @@ _If it does not load:_ [open this step in the tutorial](https://tutorials.learni
 
 ## Exit ticket
 
-**What does size = size + 5 do if size is 20?**
+**A program has sides = 8 and angle = 360 / sides. How far does the turtle turn at each corner?**
 
-* It works out 20 + 5 = 25 and stores 25 back in size.
+* 45 degrees (360 divided by 8).
 
-<!-- Speaker note: Students answer on paper or a mini whiteboard before the reveal. Anyone who cannot answer needs the main idea again next lesson. Where this leads: Next lesson reads a whole program (a street of houses) that combines loops and variables. After that, programs make decisions about values. Scores, counters, game settings and the scale on maps and plans all use variables. Class ideas: a spiral gallery; scale drawings of the classroom. -->
+<!-- Speaker note: Students answer on paper or a mini whiteboard before the reveal. Anyone who cannot answer needs the main idea again next lesson. Where this leads: Next lesson uses the loop counter, so a value can change each pass without being typed. After that, a value that grows. Scores, game settings and the scale on maps and plans all use variables. Class ideas: a spiral gallery; scale drawings of the classroom. -->
