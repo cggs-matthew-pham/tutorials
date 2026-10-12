@@ -1,0 +1,192 @@
+name: Publish changed lessons (manual)
+
+# Runs only when started by hand: Actions tab > Publish changed lessons (manual) > Run workflow.
+# For publishing a batch of lesson edits without the whole-site run. It works out which lessons changed on main
+# since they were last published (tools/changed-lessons.mjs), records only those lessons' clips (real voice; any
+# clip whose hash still matches is downloaded instead), builds, and copies onto the live gh-pages branch just:
+#   - each changed lesson's page and clips, and its teach/ guide, deck and worksheet
+#   - its course's own pages (course page, reference, practice, projects, cheat sheets), so new lessons are listed
+# Nothing else on the live site is touched. Changes outside content/ (tools, playgrounds, snippets, data) and the
+# subject and home pages still need "Build and publish (manual)"; the run summary says when there are any.
+# The live branch keeps published.json (lesson -> commit), so a lesson published here is not picked up again
+# until it changes. Leave "lessons" blank to publish whatever changed; tick "dry run" to see the list only.
+on:
+  workflow_dispatch:
+    inputs:
+      lessons:
+        description: "Blank = every lesson changed since it was last published. Or name them: code/python/turtle-intro, a course (code/python) or a folder name (turtle-intro), space separated"
+        default: ""
+      dry_run:
+        description: "Only list what would be published"
+        type: boolean
+        default: false
+      branch:
+        description: "Branch to publish to (gh-pages-test to try it without touching the live site)"
+        default: gh-pages
+
+permissions:
+  contents: write
+
+# Same group as the other publish workflows, so only one pushes to gh-pages at a time.
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+env:
+  SITE: https://cggs-matthew-pham.github.io/tutorials
+
+jobs:
+  lessons:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # the comparison needs the commit the live site was built from
+
+      - name: Take the live branch
+        run: |
+          URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$URL" "${{ inputs.branch }}" >/dev/null; then SRC="${{ inputs.branch }}"; else SRC=gh-pages; fi
+          git clone -q --depth 200 --branch "$SRC" "$URL" live
+
+      - name: Find the changed lessons
+        id: changed
+        run: |
+          node tools/changed-lessons.mjs --live live --lessons "${{ inputs.lessons }}" | tee changed.txt
+          { echo "### Lessons to publish"; echo '```'; cat changed.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/setup-node@v4
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run
+        with:
+          python-version: "3.12"
+      - name: Cache the browser
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ hashFiles('package-lock.json') }}
+
+      - name: Install site tools, browser and ffmpeg
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run
+        run: |
+          npm ci --omit=optional   # skip the sandbox-only bundled Chromium
+          npx playwright-core install --with-deps chromium
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+          node tools/build-playground.mjs
+
+      - name: Validate lessons
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run
+        run: npm run validate
+
+      - name: Install these lessons' dependencies
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run
+        run: |
+          for s in ${{ steps.changed.outputs.lessons }}; do
+            for f in $(find "content/$s" -name requirements.txt); do pip install -r "$f"; done
+            for f in $(find "content/$s" -name package.json -not -path '*/node_modules/*'); do (cd "$(dirname "$f")" && npm ci); done
+            grep -q '^voice:' "content/$s/lesson.md" && touch .needs-voice || true
+          done
+          if [ -f .needs-voice ]; then npm install --no-save --no-audit --no-fund kokoro-js@1.2.1; fi
+
+      # Same caches as the full publish: the voice model, and spoken lines reused when the words are unchanged.
+      - name: Cache the voice model
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run
+        uses: actions/cache@v4
+        with:
+          path: node_modules/@huggingface/transformers/.cache
+          key: kokoro-${{ hashFiles('tools/voice.mjs') }}
+      - name: Restore spoken lines
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run
+        uses: actions/cache/restore@v4
+        with:
+          path: .voice-cache
+          key: voice-${{ github.run_id }}
+          restore-keys: voice-
+
+      # Pictures first (MakeCode explain clips show them). Unchanged ones are downloaded; only new ones are drawn.
+      - name: Pictures
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run
+        run: |
+          node tools/render-pictures.mjs --seed "$SITE" --check
+          WP_DEADLINE=$(( $(date +%s) + 30 * 60 )) node tools/render-pictures.mjs --seed "$SITE"
+
+      # One lesson at a time; a failed lesson does not stop the others (its clips keep their live version).
+      - name: Record these lessons' clips
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run
+        run: |
+          export WP_DEADLINE=$(( $(date +%s) + 75 * 60 )) WP_LIVE_SITE="$SITE"
+          failed=""
+          for s in ${{ steps.changed.outputs.lessons }}; do
+            echo "::group::$s"
+            node tools/render.mjs --lesson "$s" --seed "$SITE" || failed="$failed $s"
+            echo "::endgroup::"
+          done
+          if [ -n "$failed" ]; then echo "::warning::Clips failed for:$failed (see the log). Their other clips are still published."; fi
+
+      - name: Save spoken lines
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run && hashFiles('.voice-cache/**') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .voice-cache
+          key: voice-${{ github.run_id }}
+
+      - name: Build site
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run
+        run: npm run build
+
+      # Copy the lessons and their courses' own pages onto the live branch. Other lessons' folders in the same course
+      # are left as they are live, so an unpublished edit to a neighbour does not slip out.
+      - name: Publish to ${{ inputs.branch }}
+        if: steps.changed.outputs.count != '0' && !inputs.dry_run
+        run: |
+          set -e
+          LESSONS="${{ steps.changed.outputs.lessons }}"
+          for c in ${{ steps.changed.outputs.courses }}; do
+            for root in "" "teach/"; do
+              src="dist/$root$c"; [ -d "$src" ] || continue
+              mkdir -p "live/$root$c"
+              # Course-level entries: everything in the course folder that is not a lesson folder.
+              for e in "$src"/* "$src"/.[!.]*; do
+                [ -e "$e" ] || continue
+                name="$(basename "$e")"
+                [ -f "content/$c/$name/lesson.md" ] && continue
+                rsync -a --delete "$e" "live/$root$c/"
+              done
+            done
+          done
+          for s in $LESSONS; do
+            for root in "" "teach/"; do
+              [ -d "dist/$root$s" ] || continue
+              mkdir -p "live/$root$s"
+              # --delete inside the lesson only, but never drop live clips that were not rebuilt here.
+              rsync -a --delete --filter='P clips/' "dist/$root$s/" "live/$root$s/"
+            done
+          done
+          # New or redrawn pictures (shared folder: add and replace, never remove).
+          [ -d dist/_pictures ] && rsync -a dist/_pictures/ live/_pictures/
+          # Remember which commit each lesson was published from.
+          node -e '
+            const fs = require("fs"), p = "live/published.json";
+            let j = {}; try { j = JSON.parse(fs.readFileSync(p, "utf8")); } catch {}
+            j.lessons = j.lessons || {};
+            for (const s of process.argv[1].split(" ").filter(Boolean)) j.lessons[s] = process.env.GITHUB_SHA;
+            fs.writeFileSync(p, JSON.stringify(j, null, 1) + "\n");
+          ' "$LESSONS"
+          cd live
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          { echo "### Published"; echo "Added: $(git diff --cached --diff-filter=A --name-only | wc -l), changed: $(git diff --cached --diff-filter=M --name-only | wc -l), removed: $(git diff --cached --diff-filter=D --name-only | wc -l)"; } >> "$GITHUB_STEP_SUMMARY"
+          git diff --cached --quiet && { echo "Nothing changed on the live site."; exit 0; }
+          git commit -q -m "Lessons from ${GITHUB_SHA::7}: $(echo $LESSONS | wc -w) lesson(s)" -m "$LESSONS"
+          git push origin HEAD:refs/heads/${{ inputs.branch }}
+
+      - name: Note shared changes
+        if: steps.changed.outputs.shared != ''
+        run: echo "::notice::Changed outside the lessons (${{ steps.changed.outputs.shared }}). Those reach the site only through Build and publish (manual)."
