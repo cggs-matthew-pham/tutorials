@@ -1,0 +1,47 @@
+summary: Students meet friction in the gear train and pulley boards, find the winch lifts 2700 g instead of 3000 g and that pulleys beyond about nine stop helping, multiply stage efficiencies, account for the lost work as heat and sound, and redo two earlier briefs with friction in them.
+time: 45
+timing: "Predict and Try 12 min · Worked example 10 min · Vary 6 min · Practise and Make 17 min"
+goals:
+  - I can work out a machine's overall efficiency by multiplying the efficiency of each stage.
+  - I can explain where the 'lost' work goes, and why energy is still conserved.
+  - I can explain why adding more pulleys or gears eventually stops helping.
+  - I can redesign a machine so it still meets its brief with friction.
+struggle: "Students subtract the losses (95% − 5% − 5%) or think energy is destroyed. Keep asking 'of what?': each stage passes on 95% of what it received."
+before: |
+  Do Gear trains and Pulleys first; Science › Year 9 Efficiency and Conservation are the Science homes of the ideas (the page links them).
+
+  The model: each gear mesh passes on a fixed fraction of the turning force (95%) and each pulley wheel a fixed fraction of the pull (90%), whatever the load; speed and rope length are unchanged. Real losses depend on lubrication, load and speed; 90–98% per stage is typical.
+
+  A hands-on check: a spring balance on a real block and tackle reads more than load ÷ ropes, and the gap grows with more pulleys.
+
+  Curriculum hooks: Design and Technologies, engineering principles and systems; Science, energy conservation and efficiency (Year 9); Maths, percentages and repeated multiplication.
+running:
+  - "Predict: most expect 'keep getting smaller'. Ask why riggers stop at about six."
+  - "Try: have students say the frictionless answer before each test."
+  - "Worked example: build the 0.9 × 0.9 × … chain on the board and stop to ask what each 0.9 is 90% of."
+  - "Make: compare the frictionless and friction answers to the same brief."
+stuck:
+  - see: "A student subtracts the losses."
+    ask: "The second mesh gets 95% of what?"
+    fix: "Of what the first passed on: multiply."
+  - see: "A student says friction destroys energy."
+    ask: "What do the gears feel like after a long run?"
+    fix: "Warm: the energy became heat."
+  - see: "A student keeps adding pulleys."
+    ask: "Did the last one make the pull smaller?"
+    fix: "Each extra wheel wastes more; past about 9 it costs more than it saves."
+stretch: "For 90% wheels, which number of ropes gives the smallest pull? Work out n × 0.9ⁿ for n = 8, 9, 10, 11."
+support: "Give a table: ropes, ideal pull, efficiency (0.9ⁿ), real pull. Fill rows 1 to 4 together."
+leads: |
+  Next: Linkages and cams; Structures.
+
+  Science: Year 9 Efficiency and Where does the energy go? (the Builds on links on this page).
+exit:
+  q: "A two-stage gear train has stages of 95% and 90%. What is its overall efficiency, and where does the rest of the energy go?"
+  a: "0.95 × 0.9 = 0.855, about 86%; the other 14% becomes heat and sound in the meshes."
+explain: |
+  Real machines rub, so each stage passes on only part of the work it receives: a gear mesh about 95%, a pulley wheel about 90%. **Efficiency** = useful work out ÷ work in, and stages **multiply**: two 95% meshes give 90%.
+
+  The 'lost' work isn't destroyed: it becomes **heat and sound** (energy is conserved). So a real machine needs more work in than an ideal one, and adding more pulleys or gears eventually stops helping, because each new stage wastes more.
+sources:
+  - { title: "TeachEngineering: K-12 engineering design challenges (benchmark; the briefs and wording are our own)", url: "https://www.teachengineering.org/", checked: 2026-10-12 }

@@ -11,7 +11,8 @@
 //   numbers: off         hide the push needed, the advantage and the distances (students find the spot by testing)
 //   brief: edit          students set the load, the push and the travel
 // mode pulley: a top block, a bottom block and n ropes holding the bottom block; the rope you pull goes over the top.
-//   ropes: 1             ropes holding the load up        choose: on (pick 1 to 6)   options: 1, 2, 3, 4, 5, 6
+//   ropes: 1             ropes holding the load up        choose: on (pick from options)   options: 1, 2, 3, 4, 5, 6 (up to 10)
+//   efficiency: 90       percent of the pull each pulley wheel passes on (default 100: no friction)
 //   load: 400  push: 150  height: 1 (m the load is lifted)  numbers: off  brief: edit
 // state: { scope: { vars: lever: { f_m (pivot), x_l, x_e (load and effort positions), d_l, d_e (distances from the
 //          pivot), e_n (push needed), m_a (load ÷ push needed), k (lever class 1, 2 or 3), load_n, push_n, move_e (m the
@@ -53,8 +54,9 @@
       if (Math.abs(s.xl0 - s.xe0) < EPS) throw new Error('loadat and effortat: two different places.');
     } else {
       s.opts = String(s.options || '1, 2, 3, 4, 5, 6').split(',').map(function (t) { return Number(t.trim()); });
-      if (s.opts.some(function (n) { return !(n >= 1 && n <= 6 && n === Math.round(n)); })) throw new Error('options: whole numbers of ropes from 1 to 6.');
-      s.n0 = num(s, 'ropes', s.opts[0], 1, 6);
+      if (s.opts.some(function (n) { return !(n >= 1 && n <= 10 && n === Math.round(n)); })) throw new Error('options: whole numbers of ropes from 1 to 10.');
+      s.n0 = num(s, 'ropes', s.opts[0], 1, 10);
+      s.eff = s.efficiency === undefined ? 1 : num(s, 'efficiency', 100, 10, 100) / 100;   // per pulley wheel
       s.height = num(s, 'height', 1, 0.01, 100); s.choose = on(s.choose);
     }
   }
@@ -162,8 +164,8 @@
   // ------------------------------------------------------------------ pulley
   function pl(n) {
     n = n || st.n;
-    var e = st.load / n;
-    return { e: e, pull: n * spec.height, ma: n, pass: st.load > 0 && e <= st.push + EPS };
+    var ov = Math.pow(spec.eff, n), e = st.load / (n * ov);   // each of the n wheels passes on spec.eff of the pull
+    return { e: e, ov: ov, pull: n * spec.height, ma: st.load > 0 ? st.load / e : n, pass: st.load > 0 && e <= st.push + EPS };
   }
   function nMin() {
     var ok = spec.opts.filter(function (n) { return pl(n).pass; });
@@ -286,16 +288,17 @@
     } else {
       var P = pl(), nm = nMin();
       if (!spec.hide) {
-        facts.push('Pull needed ' + st.load + ' ÷ ' + st.n + ' = ' + B.fmt(r2(P.e)) + ' N');
+        if (spec.eff < 1) facts.push('Pull needed ' + st.load + ' ÷ (' + st.n + ' × ' + Math.round(P.ov * 1000) / 1000 + ') = ' + B.fmt(r2(P.e)) + ' N (' + Math.round(P.ov * 1000) / 10 + '% efficient)');
+        else facts.push('Pull needed ' + st.load + ' ÷ ' + st.n + ' = ' + B.fmt(r2(P.e)) + ' N');
         facts.push('rope pulled ' + st.n + ' × ' + B.fmt(spec.height) + ' = ' + B.fmt(r2(P.pull)) + ' m');
         if (st.load > 0) crit = (P.pass ? '✓' : '✗') + ' pull ≤ ' + st.push + ' N';
       } else facts.push('You can pull ' + st.push + ' N');
-      vars = { n: st.n, e_n: r2(P.e), m_a: P.ma, load_n: st.load, push_n: st.push, pull_m: r2(P.pull), h_m: spec.height, l: st.l, s: st.s, p: P.pass ? 1 : 0, n_min: nm };
+      vars = { n: st.n, e_n: r2(P.e), m_a: r2(P.ma), eff_pct: Math.round(P.ov * 1000) / 10, load_n: st.load, push_n: st.push, pull_m: r2(P.pull), h_m: spec.height, l: st.l, s: st.s, p: P.pass ? 1 : 0, n_min: nm };
       say = st.n + (st.n === 1 ? ' rope holds ' : ' ropes hold ') + 'the ' + st.load + ' N load.';
       B.save({ n: st.n, load: st.load, push: st.push, s: st.s, l: st.l });
     }
     ui.facts.textContent = facts.join(' · ') + (crit ? '  ·  ' + crit : '');
-    ui.note.textContent = note || (spec.edit && spec.mode === 'pulley' ? (st.load > 0 ? 'Fewest ropes that lift it: ' + (vars.n_min || 'none of the options') + '.' : 'Set the load and your pull.') : 'No friction in this model, and the ' + (spec.mode === 'lever' ? 'bar weighs nothing.' : 'pulleys and rope weigh nothing.'));
+    ui.note.textContent = note || (spec.edit && spec.mode === 'pulley' ? (st.load > 0 ? 'Fewest ropes that lift it: ' + (vars.n_min || 'none of the options') + '.' : 'Set the load and your pull.') : spec.mode === 'pulley' && spec.eff < 1 ? 'Each pulley wheel loses ' + Math.round(100 - spec.eff * 100) + '% of the pull to friction (heat and sound).' : 'No friction in this model, and the ' + (spec.mode === 'lever' ? 'bar weighs nothing.' : 'pulleys and rope weigh nothing.'));
     B.say(say);
     B.post({ scope: { vars: vars, points: {} } }, say + (note ? ' ' + note : ''));
   }

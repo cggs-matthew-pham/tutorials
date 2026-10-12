@@ -75,7 +75,11 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 ## Done (12 Oct 2026): links to Science
 
 - Eleven theory concepts for Science ideas (`THEORY` in `tools/concepts-core.mjs`): physics lessons `introduces:` them (Year 7 arrows, balanced, weight; Year 8 kinds and transform; Year 9 conservation, efficiency, electric current; Year 10 third law, free body), Engineering lessons `assumes:` them (winch, levers, pulleys, crank, all four Structures lessons, circuits loop and resistor, power pin limit, H-bridge and batteries, PCB rules, the lift project). `turning-effect` is introduced by Engineering › Levers and assumed by Beams. Both pages show "Builds on" and "Put to work in". The concept lint now reads Engineering's pathways for course order (`prerequisites()`), and Structures is `after: [mechanisms]`.
-- Not done: efficiency is still absent from the Engineering models (all frictionless); a `node:` tag for Levers on the science map was not added (Engineering lessons don't carry nodes).
+- Not done: a `node:` tag for Levers on the science map was not added (Engineering lessons don't carry nodes).
+
+## Done (12 Oct 2026): Real machines lose energy
+
+- `engineering/mechanisms/losses` (Mechanisms unit Real machines; `assumes: [efficiency, energy-conservation, energy-transfer]`, so Science › Year 9 Efficiency and Conservation link to it): the winch's compound train lifts 2700 g, not 3000 g, at 95% per mesh; pulleys at 90% per wheel need 5 ropes instead of 3, and 9 and 10 ropes give the same pull; efficiencies multiply; work in = work out ÷ efficiency, the rest is heat and sound; a 900 N brief needs 6 ropes, not 3; the Gear trains brief redone (ratio 8.33 or 9 within 45 s). `efficiency:` option on the `train` and `lever` (pulley) widgets (default 100, so every earlier lesson is unchanged); pulleys now allow up to 10 ropes. Port 8600: Engineering's 8500–8539 are used up, so it continues at 8600–8639.
 
 ## Next
 

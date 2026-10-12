@@ -6,4 +6,5 @@ order: 1
 units:
   - { id: gears, title: Gears, summary: "Gear ratios, choosing a pair to meet a brief, then idlers and compound trains for bigger ratios." }
   - { id: levers, title: Levers and pulleys, summary: "Trading force for distance with a bar on a pivot and with ropes that share a load." }
+  - { id: losses, title: Real machines, summary: "Friction, efficiency, and why more pulleys stop helping." }
 ---

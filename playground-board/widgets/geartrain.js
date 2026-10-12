@@ -6,6 +6,7 @@
 //                            one axle (a compound train). 8 > 40 > 24 is a simple train with an idler.
 //   gears: 8, 16, 24, 40     the sizes in the box (any number of each; 6 to 60 teeth)
 //   choose: on               every gear can be changed (or a list of positions from 1, such as "choose: 2")
+//   efficiency: 95           percent of the turning force each mesh passes on (default 100: no friction)
 //   rpm: 120  lift: 200  drum: 0.1  height: 1  load: 450  addload: on  limit: 40  numbers: off  brief: edit
 //                            as for the gears widget
 // state: { scope: { vars: { r (overall ratio), r_1, r_2 (each stage's ratio; 0 when there is no second stage),
@@ -45,6 +46,7 @@
       if (s.pick.some(function (i) { return !(i >= 0 && i < s.t0.length && i === Math.round(i)); })) throw new Error('choose: on, or positions from 1 to ' + s.t0.length + ' (such as 2).');
     }
     s.rpm = num(s, 'rpm', 120, 1, 10000); s.lift = num(s, 'lift', 200, 1, 100000);
+    s.eff = s.efficiency === undefined ? 1 : num(s, 'efficiency', 100, 10, 100) / 100;   // per mesh
     s.drum = num(s, 'drum', 0.1, 0.001, 10); s.height = num(s, 'height', 1, 0.01, 1000);
     s.load0 = num(s, 'load', 0, 0, 100000); s.limit0 = s.limit === undefined ? null : num(s, 'limit', 15, 0.1, 100000);
     s.addload = on(s.addload); s.hide = /^off$/i.test(s.numbers || ''); s.edit = /^edit$/i.test(s.brief || '');
@@ -62,8 +64,8 @@
   function model(t) {
     var sr = stages(t), r = sr.reduce(function (a, b) { return a * b; }, 1);
     var nm = spec.links.filter(function (k) { return k === '>'; }).length;
-    var rpmw = spec.rpm / r, cap = spec.lift * r, turns = spec.height / spec.drum, time = turns / rpmw * 60;
-    return { sr: sr, r: r2(r), nm: nm, same: nm % 2 === 0 ? 1 : 0, rpmw: r2(rpmw), cap: r2(cap), t: r2(time),
+    var ov = Math.pow(spec.eff, nm), rpmw = spec.rpm / r, cap = spec.lift * r * ov, turns = spec.height / spec.drum, time = turns / rpmw * 60;
+    return { sr: sr, r: r2(r), nm: nm, ov: ov, same: nm % 2 === 0 ? 1 : 0, rpmw: r2(rpmw), cap: r2(cap), t: r2(time),
       pass: cap >= st.load - 1e-9 && (st.limit === null || time <= st.limit + 1e-9) };
   }
   // Every train from the box that changes only the choosable gears.
@@ -274,6 +276,7 @@
       spec.links.forEach(function (k, i) { if (k === '>') parts.push(t[i + 1] + ' ÷ ' + t[i]); });
       facts.push('Ratio ' + parts.join(' × ') + ' = ' + B.fmt(m.r));
       facts.push('winch ' + B.fmt(m.rpmw) + ' turns a minute');
+      if (spec.eff < 1) facts.push(Math.round(spec.eff * 100) + '% per mesh: ' + Math.round(m.ov * 1000) / 10 + '% overall');
       facts.push('lifts up to ' + B.fmt(m.cap) + ' g');
       facts.push(B.fmt(spec.height) + ' m in ' + B.fmt(m.t) + ' s');
       facts.push(m.same ? 'same way as the motor' : 'the other way to the motor');
@@ -281,12 +284,12 @@
     var crit = '';
     if (!spec.hide && st.load > 0 && st.limit !== null) crit = (m.cap >= st.load - 1e-9 ? '✓' : '✗') + ' lifts ' + st.load + ' g  ' + (m.t <= st.limit + 1e-9 ? '✓' : '✗') + ' within ' + B.fmt(st.limit) + ' s';
     ui.facts.textContent = facts.join(' · ') + (crit ? '  ·  ' + crit : '');
-    ui.note.textContent = note || (spec.edit ? (st.load > 0 ? 'Trains from the box (changing the gears you can choose) that meet the brief: ' + np + '.' : 'Set the bucket and the time limit.') : 'No friction in this model: each real mesh loses a little.');
+    ui.note.textContent = note || (spec.edit ? (st.load > 0 ? 'Trains from the box (changing the gears you can choose) that meet the brief: ' + np + '.' : 'Set the bucket and the time limit.') : spec.eff < 1 ? 'Each mesh loses ' + Math.round(100 - spec.eff * 100) + '% of the turning force to friction (heat and sound).' : 'No friction in this model: each real mesh loses a little.');
     B.say('Gear train ' + trainText(t) + ' teeth' + (st.load ? ', ' + st.load + ' g in the bucket.' : '.'));
     B.save({ t: t, load: st.load, limit: st.limit, tm: st.tm, tw: st.tw, s: st.s, l: st.l });
     var vars = { r: m.r, r_1: r2(m.sr[0]), r_2: m.sr.length > 1 ? r2(m.sr[1]) : 0, n_stage: m.sr.length, n_mesh: m.nm, same: m.same,
       rpm_w: m.rpmw, cap_g: m.cap, time_s: m.t, load_g: st.load, limit_s: st.limit === null ? 0 : st.limit,
-      turns_m: st.tm, turns_w: r2(st.tw), s: st.s, l: st.l, p: m.pass && st.load > 0 ? 1 : 0, n_pass: np };
+      turns_m: st.tm, turns_w: r2(st.tw), s: st.s, l: st.l, p: m.pass && st.load > 0 ? 1 : 0, n_pass: np, eff_pct: Math.round(m.ov * 1000) / 10 };
     for (var i = 0; i < 6; i++) vars['t_' + (i + 1)] = t[i] || 0;
     B.post({ scope: { vars: vars, points: {} } }, trainText(t) + ' teeth' + (note ? '. ' + note : ''));
   }

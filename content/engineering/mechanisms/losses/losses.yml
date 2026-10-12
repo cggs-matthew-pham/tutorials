@@ -1,0 +1,51 @@
+# Boards for "Real machines lose energy". The same winch motor (120 turns a minute, lifts 200 g with no gears) and
+# pulleys, now with friction: each gear mesh passes on 95% of the turning force, each pulley wheel 90% of the pull.
+
+# region: run-train
+widget: train
+train: 8 > 24 = 8 > 40
+efficiency: 95
+load: 2500
+addload: on
+numbers: off
+# endregion
+
+# region: run-pulley
+widget: lever
+mode: pulley
+ropes: 1
+choose: on
+options: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+efficiency: 90
+load: 400
+push: 150
+# endregion
+
+# region: explain
+widget: lever
+mode: pulley
+ropes: 4
+efficiency: 90
+load: 400
+push: 150
+# endregion
+
+# region: vary
+widget: lever
+mode: pulley
+ropes: 3
+choose: on
+options: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+efficiency: 90
+load: 900
+push: 300
+# endregion
+
+# region: make
+widget: train
+train: 8 > 24 = 8 > 40
+choose: on
+efficiency: 95
+load: 1500
+limit: 45
+# endregion

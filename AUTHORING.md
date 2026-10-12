@@ -747,7 +747,7 @@ Vary, Practise, Make).
     (teeth), and `rpm_w`, `cap_g`, `time_s`, `load_g`, `limit_s`, `turns_m`, `turns_w`, `s`, `l`, `p` as for `gears`;
     `n_pass` counts trains from the box (changing only the choosable gears) that meet the brief. Checks:
     `"l = 1 and load_g = 600 and t_2 < 40"`, `"load_g = 1500 and l = 1 and time_s <= 40"`, `"load_g > 1000 and p = 1 and l = 1"`.
-    Ready selector `.gearsvg`.
+    Ready selector `.gearsvg`. `efficiency: 95` (percent each mesh passes on; default 100) adds friction: the heaviest lift is × efficiency per mesh, and `eff_pct` gives the overall figure.
   - `widget: lever` (first used by `engineering/mechanisms/levers` and `pulleys`): no friction, weightless bar and
     pulleys. `mode: lever`: a bar on a pivot with a load (a box) and a push (an arrow, down for class 1, up for 2 and 3).
     `length: 2`, `pivot:`, `loadat:`, `effortat:` (m from the left end), `load:` and `push:` (N; push is the most the
@@ -759,7 +759,7 @@ Vary, Practise, Make).
     `choose: on` with `options:`); the rope pulled goes over the top block, in orange. `load:`, `push:`, `height: 1`.
     Pull lifts the load (the hand moves farther) or shakes; the note says how much rope was pulled even with numbers off.
     Values `n`, `e_n`, `m_a`, `load_n`, `push_n`, `pull_m`, `h_m`, `l`, `s`, `p`, `n_min` (fewest ropes in the options
-    that lift it). Checks: `"s = 1 and f_m = 1"`, `"l = 1 and k = 2"`, `"load_n = 900 and l = 1 and n = 5"`,
+    that lift it). With `efficiency: 90` (percent each pulley wheel passes on; options up to 10 ropes) the pull is load ÷ (ropes × efficiency^ropes), so extra pulleys eventually stop helping; `eff_pct`. Checks: `"s = 1 and f_m = 1"`, `"l = 1 and k = 2"`, `"load_n = 900 and l = 1 and n = 5"`,
     `"n = 4 and l = 1 and n_min = 4"`. Ready selector `.gearsvg`.
   - `widget: motion` (first used by `engineering/linkages/`): changing one motion into another, rigid parts, no
     friction. A trace graph on the right (crank and cam). `choose: on` adds sliders (and a cam menu); `numbers: off`

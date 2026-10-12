@@ -1,0 +1,21 @@
+# Practice for "Real machines lose energy": stage efficiencies multiply; work in = work out ÷ efficiency.
+templates:
+  - q: "Two stages are {a}% and {b}% efficient. What is the overall efficiency, in percent?"
+    vars: { a: [80, 90, 95], b: [80, 90, 95, 60, 70] }
+    answer: "{a * b / 100}"
+    tolerance: 0.01
+    feedback:
+      - ["{a + b - 100}", "Multiply the stages, don't subtract: {a}% of {b}%."]
+    explain: "{a / 100} × {b / 100} = {a * b / 10000}, so {a * b / 100}%."
+  - q: "A machine is {e}% efficient and does {w} J of useful work. How much work goes in, in joules?"
+    vars: { e: [50, 60, 75, 80], k: "2..12" }
+    let: { w: "k * 60" }
+    answer: "{w * 100 / e}"
+    feedback:
+      - ["{w * e / 100}", "The work in is bigger than the work out: divide by {e / 100}."]
+    explain: "{w} ÷ {e / 100} = {w * 100 / e} J."
+  - q: "A machine takes in {i} J and does {o} J of useful work. What is its efficiency, in percent?"
+    vars: { i: "200..1000 by 100", f: [0.5, 0.6, 0.75, 0.8, 0.9] }
+    let: { o: "i * f" }
+    answer: "{f * 100}"
+    explain: "{o} ÷ {i} = {f}, so {f * 100}%."
