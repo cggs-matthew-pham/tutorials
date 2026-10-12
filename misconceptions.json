@@ -295,5 +295,6 @@
   "truss-count-add": {"home": "engineering/structures/triangles", "text": "The members a rigid frame needs are worked out as 2 × joints + 3; the rule is members + 3 = 2 × joints (for a pin and a roller), so members = 2 × joints − 3."},
   "every-image-pixels": {"home": "systems/data/shapes-as-numbers", "text": "Every picture is thought to be made of pixels, so a blocky logo needs more pixels; a vector stores shapes as numbers and is drawn again sharp at any size."},
   "encoding-is-encryption": {"home": "systems/ctf/encoding", "text": "Data written in binary, hex or base64 is thought to be secret because it looks scrambled; the rule is public, so anyone can decode it. Encryption needs a secret key."},
-  "hidden-on-page-is-private": {"home": "systems/ctf/page-source", "text": "Something not shown on a web page (a comment, a hidden field, a script) is thought to be private; the whole page is sent to every visitor, so anyone can read its source."}
+  "hidden-on-page-is-private": {"home": "systems/ctf/page-source", "text": "Something not shown on a web page (a comment, a hidden field, a script) is thought to be private; the whole page is sent to every visitor, so anyone can read its source."},
+  "wifi-password-is-https": {"home": "systems/networks/ctf", "text": "A Wi-Fi password is thought to make everything sent on the network private; everyone with the password is on the network too, and past the router data crosses the internet, so only HTTPS protects it end to end."}
 }

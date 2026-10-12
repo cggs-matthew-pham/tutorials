@@ -937,6 +937,11 @@ Vary, Practise, Make).
   - `widget: source` (first used by `systems/ctf/`): a made-up page and what it gives away. `set: club | signup |
     archive`; `mode: find` (View source, Photo details, buttons "Line 4: mark as a leak") or `mode: fix` (three fixes per
     leak, labelled "Line 2: <fix>", wrong ones say why). Values v, p, l (leaks marked), n, x (wrong lines marked), f, w.
+  - `widget: netctf` (first used by `systems/networks/ctf`): four network puzzles. `mode: capture` (six packets from club
+    devices, "Open packet 3"; plain ones are readable; `fix: on` adds two fixes per plain device, labelled "Room 12
+    display: Switch it to HTTPS"; values o, r, n, u, w), `reorder` (`secret:` the message in base64, `size:`; buttons
+    "Move packet 4 earlier"; values s, m, n), `lost` (`packets: 16`, `missing: 11`; values n, a), `route` (routers A to
+    H with link delays, E overloaded; buttons "Router C", Clear; values v, t, b, p).
   - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
     between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
     `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b

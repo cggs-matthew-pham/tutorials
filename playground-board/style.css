@@ -890,3 +890,17 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .srline code, .srcode { font: 13px ui-monospace, Menlo, Consolas, monospace; overflow-wrap: anywhere; }
 .srline.marked code { background: rgba(180, 35, 24, .12); border-radius: 4px; }
 .srres { margin: 0; font-size: 14px; color: var(--muted); }
+
+/* netctf: network capture the flag */
+.ncrows { display: flex; flex-direction: column; gap: 6px; }
+.ncrow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.ncpk { margin: 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.ncpkt { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 4px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+.nclost { display: flex; flex-wrap: wrap; gap: 6px; }
+.ncnum { font: 700 16px ui-monospace, Menlo, Consolas, monospace; min-width: 2.2em; text-align: center; padding: 6px 4px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); }
+.ncmap { width: 100%; max-width: 560px; height: auto; }
+.nclink { stroke: var(--line); stroke-width: 4; } .nclink.on { stroke: var(--accent); stroke-width: 6; }
+.ncms { font: 13px system-ui, sans-serif; fill: var(--muted); text-anchor: middle; }
+.ncnode { fill: var(--card); stroke: var(--left); stroke-width: 2.5; } .ncnode.on { fill: var(--accent); stroke: var(--accent); }
+.ncnode.busy { stroke: #b42318; stroke-dasharray: 4 3; stroke-width: 3; }
+.nclab { font: 700 15px system-ui, sans-serif; fill: var(--ink); text-anchor: middle; pointer-events: none; }

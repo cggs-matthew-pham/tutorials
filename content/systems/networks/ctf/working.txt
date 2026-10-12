@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The club Wi-Fi has a password.
+Only members know the password.
+So everything sent on the club Wi-Fi is private.
+So the display board doesn't need HTTPS.
+# endregion

@@ -1,0 +1,44 @@
+summary: The Networks challenge. Students find four flags in the club's own (made-up) network traffic, each with one idea from the course (readable unencrypted packets, packet numbers to reorder a message, the packet TCP must resend, and the quickest route round an overloaded router), then fix every device that sends readable data (AC9TDI8K02 nodes 2 and 5). Defensive throughout. A 5E mission lesson.
+time: 45
+timing: "Engage 3 min · Explore (flags) 25 min · Explain 5 min · Elaborate 7 min · Evaluate 5 min"
+goals:
+  - I can find which data on a network anyone could read.
+  - I can use packet numbers to rebuild a message and find a missing packet.
+  - I can find a route round a busy router and say how to fix readable traffic.
+struggle: "Flag 4: students take the first route that reaches H. Ask them to list every route that avoids E and add up each one."
+before: |
+  Try each flag yourself. Everything is made up and runs on the board.
+
+  Flags (for you, not students): 1 WP{plain-text-is-public} (the Room 12 display's packet), 2 WP{numbers-put-it-back} (packets in number order), 3 WP{resend-11}, 4 WP{ABDGH} (19 ms; through E is 12 ms but loses packets).
+
+  Format: like most capture-the-flag events (picoCTF among them), each student works alone and only the score is shared. To run it as a class event, pairs race to four flags and you keep score.
+
+  Rules of the game: only capture traffic on a network you own or have permission to check, as here. Real tools (such as Wireshark) capture packets the same way; using them on networks you don't own is against school rules and the law.
+
+  Simplifications: the capture shows one packet per device; real captures show thousands. A Wi-Fi password does encrypt the radio link from each device to the router (WPA2/WPA3), but others with the password are on the same network, and past the router the data crosses the internet, so HTTPS is what protects it end to end.
+running:
+  - "Engage: ask what the Wi-Fi password protects, and from whom."
+  - "Explore: circulate; ask which lesson's idea each flag needs before giving a hint."
+  - "Explain: name the idea behind each flag together."
+  - "Elaborate: ask why sending updates at night isn't a fix."
+  - "Evaluate: discuss what to check before using a café's Wi-Fi."
+stuck:
+  - see: "A student thinks the Wi-Fi password makes everything private (Sam's mistake)."
+    ask: "Who else knows the password? Where does the data go after the router?"
+    fix: "Only HTTPS protects it all the way."
+  - see: "A student tries to read the out-of-order message as it arrived."
+    ask: "What does each packet carry besides its piece of the message?"
+    fix: "Its number: put them in number order."
+stretch: "Change the map: if the link from D to G became 15 ms, which route would you use? Work it out, then design your own map with a busy router and a unique best route."
+support: "A card with the four ideas: encryption, packet numbers, TCP resends, routes."
+leads: |
+  End of the course. Capture the flag (Digital systems) and Security and privacy have more.
+exit:
+  q: "Why do packets carry numbers? Give two reasons."
+  a: "So the receiver can put them back in order, and so it can tell which one is missing and ask for just that one (TCP)."
+explain: |
+  In a **capture the flag**, you look for what a system gives away, with permission, and fix what you find.
+
+  - Data sent **without encryption** can be read by anyone who captures it; HTTPS protects it all the way.
+  - **Packet numbers** put a message back in order and show which packet is **missing**, so TCP asks for just that one.
+  - **Routers** send packets round busy or broken parts of the network.

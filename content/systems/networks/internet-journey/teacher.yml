@@ -28,7 +28,7 @@ stuck:
 stretch: "Look up a map of undersea internet cables. Which ones connect Australia to the rest of the world?"
 support: "Give the eight journey steps on cards to order before the board."
 leads: |
-  This closes the Networks course.
+  Next: Network capture the flag (the course challenge).
 
   Next (Years 9–10): Security and privacy (addresses and routing, passwords and hashing, public key encryption). Code links: Secret messages.
 exit:

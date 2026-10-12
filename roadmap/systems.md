@@ -64,10 +64,16 @@ Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 
 - Data representation lesson 3.5, Shapes as numbers (8K03 n3, 5E mission): a picture as two shapes and as a bitmap, zoom to 8×, more pixels still step; change a vector's numbers; a cube turned into a pyramid by moving corners; build the club badge from numbers. New `shapes` widget, theory concept `vector-graphics` (p5 Shapes now assumes it), misconception `every-image-pixels`.
 - New course `systems/ctf`, Capture the flag (Years 8–10; Networks and security pathway, after Cyber safety, Networks and How a web page is made): Encoding is not encryption (8K02 n4: send a message past Eve, decode stored and layered data, read an encrypted reply with the shared key word), What your page gives away (10P14 n3: comments, hidden fields, scripts, a photo's location; checks belong on the server), and the challenge Capture the flag: the old archive (five flags: layered decoding, page source, ls -a and grep, the tiny processor's output as character codes, and a key word kept beside its data; then fix the page). New `encode` and `source` widgets, theory concept `encoding`, misconceptions `encoding-is-encryption`, `hidden-on-page-is-private`. Defensive throughout: the student's own made-up pages and files. Points and hints that cost points were not built: hints escalate and never give the flag.
 
+## Done (12 Oct 2026): Network capture the flag
+
+Networks gains a challenge unit: Network capture the flag (8K02 n2, n5; 5E mission). Four flags on the club's own made-up traffic: the readable packet in a Wi-Fi capture, a message put back in packet-number order, the packet TCP must ask for again, and the quickest route round an overloaded router; then fix every device that sends readable data. New `netctf` widget, misconception `wifi-password-is-https`. Single-player, like most jeopardy-style CTFs; run it as a class race if wanted.
+
+Parked: a real-machine command-line CTF (Bandit-style levels over SSH on a Raspberry Pi or a virtual machine, with a setup script and site flag checks). Needs kit or a server, IT approval for SSH, and an isolated network, so it waits.
+
 ## Next
 
 1. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
-2. More CTF: a Networks mini-CTF (the packet Eve could read; the route round the busy router); a points and hints-cost scoreboard if classes want one.
+2. A CTF scoreboard (points, hints that cost points) only if classes want one; it would need storage the site doesn't have.
 3. Decide after classroom trials whether to retrofit other Digital systems courses to 5E missions.
 
 ## Open questions

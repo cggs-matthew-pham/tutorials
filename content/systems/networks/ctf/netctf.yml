@@ -1,0 +1,41 @@
+# Boards for "Network capture the flag". Flags are in the teacher notes.
+
+# region: capture
+widget: netctf
+mode: capture
+# endregion
+
+# region: reorder
+widget: netctf
+mode: reorder
+secret: V1B7bnVtYmVycy1wdXQtaXQtYmFja30=
+size: 3
+# endregion
+
+# region: lost
+widget: netctf
+mode: lost
+packets: 16
+missing: 11
+# endregion
+
+# region: route
+widget: netctf
+mode: route
+# endregion
+
+# region: explain
+widget: netctf
+mode: route
+# endregion
+
+# region: explain-pic
+widget: netctf
+mode: route
+# endregion
+
+# region: fix
+widget: netctf
+mode: capture
+fix: on
+# endregion
