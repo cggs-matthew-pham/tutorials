@@ -16,8 +16,12 @@
 //   size: 3              characters a packet (sizes: on adds a slider, 1 to 12)
 //   drop: 2              the packet that a busy router loses on its first try (0 for none)
 //   tcp: on              on | off (choose: on adds a TCP switch)
+//   numbers: on          on | off: off sends packets with no numbers, so the receiver joins them in arrival order and
+//                        TCP can't tell which one is missing (first used by the 5E Packets lesson)
+//   switches: numbers, tcp   adds a switch for each (choose: on is the same as switches: tcp)
 //   Values: n (packets), a (packets arrived), o (1 if they arrived out of order), r (packets sent again),
-//           k (1 when the whole message arrived correctly), x (broken links), t (1 TCP on), f (sends so far).
+//           k (1 when the whole message arrived correctly), x (broken links), t (1 TCP on), f (sends so far),
+//           q (1 packets numbered).
 // mode: snoop    The message goes through a café Wi-Fi where someone else is listening. Eve's panel shows what she
 //                can read. Encrypt (a shift of every letter and digit by the key) makes it unreadable without the key.
 //   message: PIN 4821    encrypt: off    key: 3
@@ -38,7 +42,10 @@
   function parse(s) {
     s.m = String(s.mode || 'packets').toLowerCase();
     if (MODES.indexOf(s.m) < 0) throw new Error('mode: link, packets, snoop or journey.');
-    s.chooseTcp = /^on$/i.test(s.choose || '') && s.m === 'packets';
+    var sw = String(s.switches || '').toLowerCase();
+    s.chooseTcp = (/^on$/i.test(s.choose || '') || /\btcp\b/.test(sw)) && s.m === 'packets';
+    s.chooseNum = /\bnumbers\b/.test(sw) && s.m === 'packets';
+    s.num0 = !/^off$/i.test(s.numbers || '');
     s.choose = !/^off$/i.test(s.choose || '');
     s.link0 = String(s.link || 'wired').toLowerCase();
     if (['wired', 'wifi', 'mobile'].indexOf(s.link0) < 0) throw new Error('link: wired, wifi or mobile.');
@@ -199,10 +206,10 @@
       if (encOn()) s.appendChild(chips(spec.m === 'journey' ? 'Encrypted (HTTPS)' : 'Encrypted, key ' + st.key, [{ t: shift(st.msg, keyOf()) }], 'secret'));
     }
     if (st.f) {
-      if (spec.m === 'packets' || spec.m === 'journey') s.appendChild(chips('Arrived, in arrival order', st.arrived.map(function (p) { return { t: '#' + (p.seq + 1) + ' ' + p.data.replace(/ /g, '·') + (p.again ? ' (sent again)' : '') }; }), 'pk'));
+      if (spec.m === 'packets' || spec.m === 'journey') s.appendChild(chips('Arrived, in arrival order', st.arrived.map(function (p) { return { t: (st.num ? '#' + (p.seq + 1) + ' ' : '') + p.data.replace(/ /g, '·') + (p.again ? ' (sent again)' : '') }; }), 'pk'));
       if (G() && G().eve) s.appendChild(chips('Eve sees', st.eveSaw.length ? st.eveSaw.map(function (t) { return { t: t.replace(/ /g, '·') }; }) : [{ t: '…' }], st.eveRead ? 'plain' : 'secret'));
-      var got = st.parts.map(function (x) { return x === null ? '▢' : x; }).join('');
-      s.appendChild(chips(spec.m === 'packets' ? 'Put back in order' : 'Received' + (encOn() ? ' and decrypted' : ''), [{ t: (encOn() ? shift(got.replace(/▢/g, '\u0000'), -keyOf()).replace(/\u0000/g, '▢') : got) || '…' }], 'got'));
+      var got = st.num ? st.parts.map(function (x) { return x === null ? '▢' : x; }).join('') : st.arrived.map(function (p) { return p.data; }).join('').replace(/ /g, '·');
+      s.appendChild(chips(spec.m === 'packets' ? (st.num ? 'Put back in order' : 'Joined in arrival order (no numbers)') : 'Received' + (encOn() ? ' and decrypted' : ''), [{ t: (encOn() ? shift(got.replace(/▢/g, '\u0000'), -keyOf()).replace(/\u0000/g, '▢') : got) || '…' }], 'got'));
     }
     if (st.log && st.log.length) {
       var ol = document.createElement('ul'); ol.className = 'nwlog';
@@ -261,7 +268,7 @@
       }
       var x = a[0] + (b[0] - a[0]) * u, y = a[1] + (b[1] - a[1]) * u;
       el('circle', { cx: x, cy: y, r: 12, class: 'nwpk' + (p.again ? ' again' : '') }, layer);
-      txt(x, y + 5, String(p.seq + 1), 'nwpkl', layer);
+      txt(x, y + 5, st.num ? String(p.seq + 1) : '', 'nwpkl', layer);
       return true;
     });
     raf = pk.length ? requestAnimationFrame(frame) : 0;
@@ -278,7 +285,8 @@
       if (pk.length || st.pending) return;
       var missing = st.parts.map(function (x, i) { return x === null ? i : -1; }).filter(function (i) { return i >= 0; });
       var tcp = spec.m === 'journey' ? true : st.tcp;
-      if (missing.length && tcp && !st.askedAgain) {
+      if (missing.length && tcp && !st.num && !st.askedAgain) { st.askedAgain = true; B.say('TCP is on, but the packets have no numbers, so the receiver can’t tell which one is missing.'); }
+      else if (missing.length && tcp && !st.askedAgain) {
         st.askedAgain = true;
         if (spec.m === 'journey') log2('7. The shop’s computer noticed a number missing and asked for it again (TCP).');
         else B.say('TCP: the receiver never confirmed packet ' + missing.map(function (i) { return i + 1; }).join(', ') + ', so it is sent again.');
@@ -322,12 +330,15 @@
       });
     }
     if (spec.m !== 'link') bar.appendChild(btn('Send', send, 'go'));
-    if (spec.chooseTcp) { var t = btn('TCP: ' + (st.tcp ? 'on' : 'off'), function () { st.tcp = !st.tcp; B.moved = true; t.textContent = 'TCP: ' + (st.tcp ? 'on' : 'off'); t.dataset.on = String(st.tcp); syncToggles(); report(); }); t.dataset.on = String(st.tcp); ui.toggles.push(t); bar.appendChild(t); }
+    if (spec.chooseNum) { var nb = btn('Numbers: ' + (st.num ? 'on' : 'off'), function () { if (st.sending) return; st.num = !st.num; B.moved = true; fresh(); nb.textContent = 'Numbers: ' + (st.num ? 'on' : 'off'); nb.dataset.on = String(st.num); syncToggles(); report(); }); nb.dataset.on = String(st.num); ui.toggles.push(nb); bar.appendChild(nb); }
+    if (spec.chooseTcp) { var t = btn('TCP: ' + (st.tcp ? 'on' : 'off'), function () { if (spec.chooseNum && st.sending) return; st.tcp = !st.tcp; B.moved = true; if (spec.chooseNum) fresh(); t.textContent = 'TCP: ' + (st.tcp ? 'on' : 'off'); t.dataset.on = String(st.tcp); syncToggles(); report(); }); t.dataset.on = String(st.tcp); ui.toggles.push(t); bar.appendChild(t); }
     if (spec.m === 'snoop') { var e = btn('Encrypt: ' + (st.enc ? 'on' : 'off'), function () { st.enc = !st.enc; B.moved = true; e.textContent = 'Encrypt: ' + (st.enc ? 'on' : 'off'); e.dataset.on = String(st.enc); syncToggles(); side(); report(); }); e.dataset.on = String(st.enc); ui.toggles.push(e); bar.appendChild(e); }
     if (spec.m === 'journey') { var h = btn('HTTPS: ' + (st.https ? 'on' : 'off'), function () { st.https = !st.https; B.moved = true; h.textContent = 'HTTPS: ' + (st.https ? 'on' : 'off'); h.dataset.on = String(st.https); syncToggles(); side(); report(); }); h.dataset.on = String(st.https); ui.toggles.push(h); bar.appendChild(h); }
     bar.appendChild(btn('Start again', function () { clearTimers(); B.restart(); }, 'quiet'));
     panel.appendChild(bar); syncToggles();
   }
+  // With a Numbers switch, changing a switch clears the last send, so a check on the result needs a send with the new settings.
+  function fresh() { clearTimers(); st.arrived = []; st.parts = []; st.resent = 0; st.log = []; side(); }
   function syncToggles() { ui.toggles.forEach(function (b2) { b2.setAttribute('aria-pressed', b2.dataset.on); }); }
 
   function report(finished) {
@@ -337,15 +348,16 @@
       vars = { w: { wired: 1, wifi: 2, mobile: 3 }[st.link], b: m.b, l: m.l, p: m.p, s: m.s, d: st.dist, k: st.walls };
       out = { wired: 'Cable', wifi: 'Wi-Fi', mobile: 'Mobile data' }[st.link] + ': ' + m.b + ' Mb/s, ' + m.l + ' ms delay, ' + m.p + '% lost; ' + st.file + ' MB in ' + m.s + ' s';
     } else {
-      var complete = st.f > 0 && !st.sending && st.parts.length > 0 && st.parts.every(function (x) { return x !== null; });
+      var complete = st.f > 0 && !st.sending && st.parts.length > 0 && st.parts.every(function (x) { return x !== null; }) &&
+        (st.num || st.arrived.map(function (p) { return p.data; }).join('') === st.parts.join(''));
       var order = st.arrived.map(function (p) { return p.seq; }), ooo = order.some(function (v, i) { return i && v < order[i - 1]; }) ? 1 : 0;
       var broken = Object.keys(st.broken).filter(function (k) { return st.broken[k]; }).length;
-      vars = { u: st.noRoute ? 1 : 0, z: st.key % 10 === 0 ? 1 : 0, n: Math.ceil(st.msg.length / st.size), a: st.arrived.length, o: ooo, r: st.resent || 0, k: complete ? 1 : 0, x: broken, t: st.tcp ? 1 : 0, f: st.f, e: st.enc ? 1 : 0, s: st.key, v: st.f && st.eveRead ? 1 : 0, h: st.https ? 1 : 0 };
+      vars = { u: st.noRoute ? 1 : 0, z: st.key % 10 === 0 ? 1 : 0, n: Math.ceil(st.msg.length / st.size), a: st.arrived.length, o: ooo, r: st.resent || 0, k: complete ? 1 : 0, x: broken, t: st.tcp ? 1 : 0, q: st.num ? 1 : 0, f: st.f, e: st.enc ? 1 : 0, s: st.key, v: st.f && st.eveRead ? 1 : 0, h: st.https ? 1 : 0 };
       out = st.sending ? 'Sending ' + vars.n + ' packets…' : !st.f ? (spec.m === 'packets' ? vars.n + ' packets ready. Press Send.' : 'Press Send.') : st.noRoute ? 'No route to the receiver.' :
-        (complete ? 'Delivered: all ' + vars.n + ' packets' : 'Arrived with a gap: ' + vars.a + ' of ' + vars.n + ' packets') + (ooo ? ', out of order' : '') + (vars.r ? ', ' + vars.r + ' sent again' : '') + (G().eve ? (st.eveRead ? '. Eve could read it.' : '. Eve saw only scrambled text.') : '.');
+        (complete ? 'Delivered: all ' + vars.n + ' packets' : vars.a < vars.n ? 'Arrived with a gap: ' + vars.a + ' of ' + vars.n + ' packets' : 'Arrived jumbled: all ' + vars.n + ' packets, joined in the wrong order') + (ooo ? ', out of order' : '') + (vars.r ? ', ' + vars.r + ' sent again' : '') + (G().eve ? (st.eveRead ? '. Eve could read it.' : '. Eve saw only scrambled text.') : '.');
     }
     ui.work.textContent = out; B.say(out);
-    B.save({ st: { link: st.link, dist: st.dist, walls: st.walls, size: st.size, tcp: st.tcp, enc: st.enc, key: st.key, https: st.https, broken: st.broken } });
+    B.save({ st: { link: st.link, dist: st.dist, walls: st.walls, size: st.size, tcp: st.tcp, num: st.num, enc: st.enc, key: st.key, https: st.https, broken: st.broken } });
     B.post({ scope: { vars: vars, points: {} } }, out);
     void finished;
   }
@@ -360,7 +372,7 @@
       var sv = fresh ? null : B.saved(), o = sv && sv.st ? sv.st : {};
       st = {
         link: o.link || spec.link0, dist: o.dist || spec.dist0, walls: o.walls != null ? o.walls : spec.walls0, file: spec.file0,
-        size: o.size || spec.size0, tcp: o.tcp != null ? o.tcp : spec.tcp0, enc: o.enc != null ? o.enc : spec.enc0, key: o.key != null ? o.key : spec.key0,
+        size: o.size || spec.size0, tcp: o.tcp != null ? o.tcp : spec.tcp0, num: o.num != null ? o.num : spec.num0, enc: o.enc != null ? o.enc : spec.enc0, key: o.key != null ? o.key : spec.key0,
         https: o.https != null ? o.https : spec.https0, broken: o.broken || {}, msg: spec.msg, drop: spec.drop0,
         f: 0, sending: false, arrived: [], eveSaw: [], parts: [], resent: 0, log: [], eveRead: true, n: 0,
       };

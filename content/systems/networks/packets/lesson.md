@@ -3,23 +3,24 @@ order: 2
 unit: moving
 node: AC9TDI8K02 n2
 introduces: [packets]
+shape: 5e
 title: Packets
 summary: "Data is sent as small numbered packets, not one long stream. Routers pass each packet on, so packets can take different routes, arrive out of order or get lost. The TCP protocol has the receiver confirm each packet; any packet not confirmed is sent again, and the numbers put the message back in order."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }
-hook: "When you send a message, it doesn't travel in one piece. It is chopped up, scattered across the internet and rebuilt. How does it come back together?"
+hook: "Your message to Ali is about to be chopped into pieces and scattered across a network. Can you get it there in one piece?"
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-board" 8471
   url: http://127.0.0.1:8471/index.html
   readySelector: ".nwbox"
   layout: full
-explainPicture: { ref: packets.yml#explain-pic, caption: "A message on its way: numbered packets, six routers and more than one route from you to your friend." }
+explainPicture: { ref: packets.yml#explain-pic, caption: "A message on its way to Ali: numbered packets, six routers and more than one route." }
 explainClip:
   query: { code: "@packets.yml#explain", fresh: 1, id: explain }
   caption: "Sending in packets"
   say: "The message is split into numbered packets."
   clip:
-    - caption: { text: "HELLO WORLD becomes 4 packets of 3 characters.", say: "Four numbered packets set off." }
+    - caption: { text: "MEET AT NOON becomes 4 packets of 3 characters.", say: "Four numbered packets set off." }
     - click: { selector: "button.go" }
     - wait: 3200
     - caption: { text: "Router C is busy: packet 2 is lost, and the others take different routes.", say: "One is lost. The others arrive out of order." }
@@ -28,45 +29,48 @@ explainClip:
     - caption: { text: "TCP asks for packet 2 again; the numbers put the message back in order.", say: "The missing packet is sent again, and the numbers fix the order." }
     - wait: 1800
 ---
-Data isn't sent as one long stream. It is split into small **packets**. Each packet carries a piece of the data, a **number** and the address it is going to. **Routers** are the computers along the way that pass packets on, choosing a route for each one.
+**Your mission:** get the message **MEET AT NOON** to your friend Ali, across a network of six routers. One of them, router C, is busy.
 
-## Predict: back in order
+## Engage: a message in pieces
 
 ```step
 stage: predict
-insight: "Committing to how the receiver gets the order right tests the new move before students see it: packets are numbered, can arrive in any order, and are sorted by number."
+insight: "Committing to what Ali receives when the pieces carry only their letters sets up the new move: pieces travel separately, so they need numbers to be put back in order, and a way to replace any that go missing."
 check:
   type: predict
-  q: "A message is split into 4 numbered packets, and they take different routes to your friend. How does your friend's computer get the words in the right order?"
-  options: ["It sorts the packets by their numbers", "Packets always arrive in the order they were sent", "It guesses from the words", "The routers keep them in order"]
-  actual: "It sorts them by their numbers. Packets on different routes often arrive out of order, and some get lost, so each one carries its number."
+  q: "The network chops your message into 4 pieces of 3 letters. Each piece finds its own way to Ali. The pieces carry their letters and nothing else. What will Ali's computer show?"
+  options: ["MEET AT NOON, exactly as you sent it", "The pieces joined in a jumbled order, maybe with one missing", "Nothing, until every piece has arrived in order", "The message in order, because the routers sort the pieces"]
+  actual: "Jumbled, and here a piece was lost as well. With nothing but letters, Ali's computer can only join the pieces in the order they arrive."
 ```
 
-## Try: send a message
+## Explore: get the message to Ali
 
 ```step
 stage: run
-insight: "Sending the message settles the prediction: packets arrive out of order (and one is sent again), then the numbers put them back."
-try: { playground: board, starter: "packets.yml#run", height: 520 }
-check: { type: board, text: "Press Send and watch. In what order did the packets arrive? Did the message come out right?", when: "o = 1 and k = 1", explain: "The packets arrived out of order and one was lost at the busy router and sent again, but the numbers put HELLO WORLD back together." }
+insight: "Students make the message work by switching on the two things the lesson is about, in the order they need them: numbers fix the order, then TCP fills the gap the numbers reveal. Each failure is the reason for the next fix."
+try: { playground: board, starter: "packets.yml#explore", height: 540 }
+tasks:
+  - check: { type: board, text: "Send it as it is. What does Ali get?", when: "q = 0 and t = 0 and a >= 1", explain: "The pieces arrived jumbled, and the one lost at busy router C is simply missing. Ali's computer had no way to know the right order, or that anything was lost." }
+  - hint: ["Each piece needs something that says where it goes in the message.", "Switch on Numbers, then send again."]
+    check: { type: board, text: "Fix the order. Switch on one thing, then send again.", when: "q = 1 and t = 0 and a >= 1", explain: "With numbers, Ali's computer puts the pieces back in order. Now it can also see that number 2 is missing: there is a gap ▢ where it should be." }
+  - hint: ["Ali's computer knows which number is missing. Who could send it again?", "Switch on TCP, then send."]
+    check: { type: board, text: "Fill the gap. Ali's computer can now see which number is missing. Switch on what you need, then send.", when: "q = 1 and t = 1 and k = 1 and r > 0", explain: "With TCP, Ali's computer confirms each piece it gets. Piece 2 was never confirmed, so it was sent again, and the numbers put it in its place." }
 ```
 
-Was your prediction right? Watch which route each packet takes.
+Was your prediction right? Watch which way each piece goes.
 
-## Worked example: one message, four packets
+### Send it as it is
+
+### Fix the order
+
+### Fill the gap
+
+## Explain: packets, routers and TCP
 
 ```step
 stage: investigate
-insight: "Following HELLO WORLD from split to reassembly models the new move, including a lost packet and TCP's acknowledgements. Sam thinks a lost packet means starting again, the misconception planted after the method."
+insight: "The teacher models the mission live, naming each part of what students just did: packets, routers, numbers, acknowledgements. Sam's mistake (resend everything) comes after the method."
 tasks:
-  - check:
-      type: answer
-      q: "A message is 12 characters long. Each packet carries 3 characters. How many packets?"
-      answer: "4"
-      feedback:
-        - ["36", "Divide, don't multiply: 12 characters shared into packets of 3."]
-        - ["3", "3 is the size of each packet."]
-      explain: "12 ÷ 3 = 4 packets."
   - check:
       type: bug
       code: "working.txt#sam"
@@ -84,106 +88,63 @@ tasks:
       explain: "Packets let everyone share the network, find a way round problems, and fix losses cheaply."
 ```
 
-### Split, send, rebuild
+What you just did has names. The pieces are **packets**: each carries a piece of the data, a **number** and the address it is going to. **Routers** are the computers along the way; each one reads a packet's address and passes it on. **TCP** is the set of rules that has the receiver confirm (**acknowledge**) each packet, so any packet never confirmed is sent again. Your mission, one step at a time:
 
 ```worked
-\text{HEL | LO· | WOR | LD} :: Split into 4 packets of 3 characters (· is the space). Each gets a number: 1, 2, 3, 4.
-\text{routes differ} :: Routers send packets different ways; the busy router C is slow.
-\text{arrive: } 1, 3, 4 :: Packet 2 was lost at router C; 3 and 4 came another way.
-\text{TCP: confirm each packet} :: The receiver confirms 1, 3 and 4. Packet 2 is never confirmed.
+\text{MEE | T·A | T·N | OON} :: Split into 4 packets of 3 characters (· is the space). Each gets a number: 1 to 4.
+\text{routes differ} :: Each router passes each packet on. Busy router C is slow.
+\text{arrive: } 3, 1, 4 :: Packet 2 was lost at C; the others arrived out of order.
+\text{TCP: confirm } 1, 3, 4 :: Ali's computer acknowledges each packet it gets. Packet 2 is never confirmed.
 \text{packet 2 sent again} :: Only the missing packet is resent.
-1, 2, 3, 4 \to \text{HELLO WORLD} :: The numbers put the message back in order.
+1, 2, 3, 4 \to \text{MEET AT NOON} :: The numbers put the message back in order.
 ```
-
-Now count the packets for a 12-character message.
 
 ### Find the mistake
 
 ### Why packets?
 
-## Vary: change one thing
+## Elaborate: when the network breaks
 
 ```step
 stage: modify
-insight: "Each task changes one thing about the network: TCP off, TCP on again, a broken link, then no route at all, then what a router decides."
-try: { playground: board, starter: "packets.yml#modify", height: 520 }
+insight: "The same idea in a new situation, one change at a time: a broken link (packets go round it), then every route broken (spare links are why networks keep working)."
+try: { playground: board, starter: "packets.yml#elaborate", height: 520 }
 tasks:
-  - check: { type: board, text: "Switch TCP off and send. What does your friend get?", when: "t = 0 and f >= 1 and k = 0", explain: "A gap: without TCP nobody asks for the lost packet, so the message arrives with a piece missing." }
-  - check: { type: board, text: "Switch TCP on again and send.", when: "t = 1 and k = 1 and r > 0", explain: "The lost packet is asked for and sent again, so the whole message arrives." }
-  - check: { type: board, text: "Click the link from C to E to break it, then send.", when: "x > 0 and k = 1", explain: "The packets go round the broken link through D. The network keeps working because there is more than one route." }
-  - check: { type: board, text: "Break links until nothing can reach your friend, then try to send.", when: "u = 1", explain: "With every route broken, nothing gets through: that is why networks are built with spare links." }
-  - check:
-      type: question
-      q: "What does a router do with each packet?"
-      options: ["Reads its address and passes it on towards that address", "Reads the message and checks the spelling", "Keeps it until the whole message arrives", "Sends it back to the sender"]
-      answer: 0
-      feedback: [null, "Routers look only at the address, not the contents.", "Routers pass packets on straight away.", "Only lost packets are re-sent, by the sender, when asked."]
-      explain: "A router reads the address and forwards the packet along a route towards it."
+  - check: { type: board, text: "Roadworks cut the cable from C to E. Click that link to break it, then send. Does Ali still get the message?", when: "x > 0 and k = 1", explain: "The packets went round the broken link through D. The network keeps working because there is more than one route." }
+  - check: { type: board, text: "How much can break before Ali is cut off? Break links until nothing can reach Ali, then try to send.", when: "u = 1", explain: "With every route broken, nothing gets through: that is why networks are built with spare links." }
 ```
 
-### TCP off
+### Roadworks
 
-### TCP on
+### Cut off
 
-### A broken link
-
-### No route
-
-### What routers do
-
-## Practise: packets
-
-```step
-stage: practise
-insight: "Counting packets, putting packets back in order, what TCP's acknowledgements do, and a review of link properties."
-tasks:
-  - check:
-      type: answer
-      q: "A 20-character message is sent 4 characters a packet. How many packets?"
-      answer: "5"
-      feedback:
-        - ["80", "Divide: 20 ÷ 4."]
-        - ["4", "4 is the size of each packet."]
-      explain: "20 ÷ 4 = 5 packets."
-  - check:
-      type: question
-      q: "Three packets arrive in this order: #3 **·DAY**, #1 **GO**, #2 **OD** (· is a space). What message does the receiver show?"
-      options: ["GOOD DAY", "·DAYGOOD", "DAY GOOD", "GOOD"]
-      answer: 0
-      feedback: [null, "That is arrival order. The receiver sorts by number.", "Sort by the numbers 1, 2, 3.", "Packet 3 arrived too."]
-      explain: "Sorted 1, 2, 3: GO + OD + ·DAY = GOOD DAY."
-  - check:
-      type: question
-      q: "In TCP, what is an acknowledgement?"
-      options: ["A message back saying a packet arrived", "A packet's number", "A password for the network", "An error message"]
-      answer: 0
-      feedback: [null, "The number puts packets in order; the acknowledgement confirms they arrived.", "TCP isn't about passwords.", "It means the packet arrived fine."]
-      explain: "The receiver acknowledges each packet. One that is never acknowledged is sent again."
-  - check:
-      type: question
-      q: "Review: which link usually loses the most packets?"
-      options: ["Wi-Fi far away through walls", "A cable", "Fibre", "They all lose the same"]
-      answer: 0
-      feedback: [null, "Cables are the most reliable.", "Fibre is very reliable.", "Wireless loses more."]
-      explain: "Distance and walls weaken Wi-Fi, so more packets get lost and TCP has more to resend."
-```
-
-### Count packets
-
-### Sort by number
-
-### Acknowledgements
-
-### Review: links
-
-## Make: avoid the busy router
+## Elaborate: the fast route
 
 ```step
 stage: make
-insight: "Breaking links to steer every packet away from the busy router reverses the process: students use routes to get the message there in order, with nothing lost."
+insight: "Reversing the process: instead of watching TCP recover a loss, students design the routes so nothing is lost and nothing waits."
 try: { playground: board, starter: "packets.yml#make", height: 520 }
 hint: ["Router C is busy: slow, and it loses packets.", "Break a link so no route goes through C.", "Breaking C to E is enough: every packet then goes through D."]
-check: { type: board, text: "Break links so the message arrives in order with nothing sent again, then send it.", when: "x >= 1 and k = 1 and o = 0 and r = 0", explain: "With C cut off, every packet took the same route through D, so they arrived in order and none was lost. Real routers try to avoid busy routes for the same reason." }
+check: { type: board, text: "Ali needs the message fast, with nothing lost and nothing resent. Break links so every packet avoids busy router C, then send.", when: "x >= 1 and k = 1 and o = 0 and r = 0", explain: "With C cut off, every packet took the same route through D, so they arrived in order and none was lost. Real routers try to avoid busy routes for the same reason." }
 ```
 
 Then: what would happen if D broke too?
+
+## Evaluate: look back
+
+```step
+stage: info
+tasks:
+  - check:
+      type: question
+      q: "A live video call doesn't wait for lost packets: it doesn't use TCP. A packet goes missing during a call. What do you notice?"
+      options: ["A small glitch, and the call carries on", "The call freezes until the packet is sent again", "The whole call starts again", "Nothing: packets are never lost on calls"]
+      answer: 0
+      feedback: [null, "That is what TCP would do. A call that skips TCP never waits.", "Not even TCP resends the whole thing; only the missing packet.", "Calls go through the same busy routers as everything else."]
+      explain: "On a live call a late packet is useless, so it is skipped and you see a glitch. For a file or a message, TCP waits for the missing packet, because every piece matters."
+  - check: { type: reflect, text: "I compared my prediction with what Ali got, and I can explain why packets carry numbers and why TCP resends only the missing one." }
+```
+
+### Video calls
+
+### Look back

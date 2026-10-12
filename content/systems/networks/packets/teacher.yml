@@ -1,31 +1,41 @@
-summary: Students send a message as numbered packets through a small network, see packets take different routes, arrive out of order and get lost, and see TCP's acknowledgements bring the missing one back (AC9TDI8K02 node 2).
+summary: Students try to get a message to Ali across a small network. Sent as bare pieces it arrives jumbled with a gap; numbering the packets fixes the order and shows what is missing; TCP's acknowledgements bring the missing one back. Then they route round broken links (AC9TDI8K02 node 2). A 5E pilot (shape 5e) for Digital systems.
 time: 40
-timing: "Predict and Try 6 min · Worked example 12 min · Vary 12 min · Practise and Make 10 min"
+timing: "Engage 5 min · Explore 10 min · Explain 10 min · Elaborate 10 min · Evaluate 5 min"
 goals:
   - I can explain why data is sent in packets.
   - I can describe what happens when a packet is lost.
   - I can explain how TCP gets the whole message there in order.
-struggle: "Students expect the network to be one pipe. Keep pointing at the numbers on the packets: each one makes its own trip."
+struggle: "Students expect the network to be one pipe. In Explore, let the jumbled message surprise them before anyone mentions numbers; the fix means more if they needed it."
 before: |
-  Try the Try and Vary boards yourself. A paper version works well first: cut a sentence into numbered strips, hand them out across the room, and have students pass them to a "receiver", with one strip "lost" on the way.
+  Try the Explore and Elaborate boards yourself. The Explore board starts with Numbers and TCP off; students switch them on as they need them.
 
-  Simplifications: real packets carry about 1500 bytes, and real TCP uses acknowledgement numbers and timers; the board waits until everything else has arrived before asking again. Router C is set to be busy (slow, and it loses the second packet).
+  Engage works well unplugged first: cut MEET AT NOON into four strips with no numbers, hand them out across the room, have students pass them to an "Ali" by different paths, and keep one strip "lost". Ask Ali to read out what arrived. Then take the predictions.
+
+  Explain is modelled live: send the message on the projector, narrate each part with its name (packet, number, router, acknowledgement), then reveal the worked lines to compare.
+
+  Simplifications: real packets carry about 1500 bytes, and real TCP uses acknowledgement numbers and timers; the board waits until everything else has arrived before asking again. Without numbers the board has TCP give up, since TCP needs sequence numbers to know what is missing. Router C is set to be busy (slow, and it loses the second packet).
+
+  Review: open the next lesson with a quick question on this one, and this one with one on Wired or wireless (which link loses the most packets?).
 
   Links: Secret messages' checksum lesson is how a receiver tells a packet was damaged.
 running:
-  - "Predict: students who chose \"always in order\" picture one pipe; let the Try surprise them."
-  - "Try: ask why packet 2 came last."
-  - "Worked example: before the TCP line, ask how the receiver could know something is missing."
-  - "Vary: ask why a network has spare links."
-  - "Make: compare: did anyone find a different link to break?"
+  - "Engage: students who chose \"exactly as sent\" picture one pipe; let Explore surprise them."
+  - "Explore task 1: ask what Ali's computer would need to fix this. Don't name numbers yet."
+  - "Explore task 2: point at the gap. How does Ali's computer know something is missing now, when it didn't before?"
+  - "Explain: model the mission live, naming each part, then reveal the worked lines."
+  - "Elaborate: ask why a network has spare links. Make: did anyone find a different link to break?"
+  - "Evaluate: ask who would rather have a glitch than a freeze, and why."
 stuck:
   - see: "A student says the whole message is resent (Sam's mistake)."
-    ask: "Which packets did your friend confirm?"
+    ask: "Which packets did Ali's computer confirm?"
     fix: "Only the unconfirmed one is sent again."
   - see: "A student thinks the routers reorder packets."
     ask: "Where do the packets get put back in order?"
     fix: "At the receiver, using the numbers."
-stretch: "Video calls often use UDP, which never resends lost packets. Why might that be better for a live call than waiting for a resend?"
+  - see: "A student switches on TCP first and it doesn't help."
+    ask: "How would Ali's computer know which piece to ask for?"
+    fix: "It can't without numbers. Switch Numbers on too."
+stretch: "Video calls often use UDP, which never resends lost packets. Why is that better for a live call than waiting for a resend, and worse for downloading a file?"
 support: "Give the five words with a picture each: packet, number, router, route, acknowledgement."
 leads: |
   Next: Who can see your data? (packets pass through routers you don't control).
@@ -37,4 +47,4 @@ exit:
 explain: |
   Data is sent in small **packets**. Each carries a piece of the data, a **number** and an address. **Routers** pass each packet on, so packets can take different routes, arrive out of order or get lost at a busy router.
 
-  The **TCP** protocol has the receiver confirm (acknowledge) each packet. Any packet that isn't confirmed is sent again, and the numbers put the message back in order.
+  Without numbers, the receiver can only join the pieces in the order they arrive. With numbers it can put them in order and see which is missing. The **TCP** protocol has the receiver confirm (acknowledge) each packet; any packet that isn't confirmed is sent again.

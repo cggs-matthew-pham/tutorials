@@ -339,7 +339,7 @@ export function parseLessonText(raw, slug = 'lesson') {
     teachers: meta.teachers ? String(meta.teachers).trim() : '',
     modules: Array.isArray(meta.modules) ? meta.modules.map(String) : [],
     language: meta.language || 'python',
-    shape: meta.shape === 'design' ? 'design' : '',  // design: a design-cycle project (Inquire, Develop, Create, Test, Evaluate)
+    shape: ['design', '5e'].includes(meta.shape) ? meta.shape : '',  // design: a design-cycle project (Inquire, Develop, Create, Test, Evaluate); 5e: 5E words outside science (Digital systems)
     extensions: meta.extensions,                     // MakeCode extensions by key (MAKECODE_EXTENSIONS), e.g. [robot]
     app: meta.app || null,
     pacing: { ...DEFAULT_PACING, ...(meta.pacing || {}) },
