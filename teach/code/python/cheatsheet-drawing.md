@@ -69,40 +69,10 @@ pendown()
 
 :::keep-together
 
-**pensize**: Set how thick the line is.
-
-```python
-pensize(5)
-```
-
-:::
-
-:::keep-together
-
-**pencolor**: Set the line colour, using a colour name.
-
-```python
-pencolor("red")
-```
-
-:::
-
-:::keep-together
-
 **speed**: How fast the turtle moves, from 1 (slow) to 10 (fast).
 
 ```python
 speed(10)
-```
-
-:::
-
-:::keep-together
-
-**circle**: Draw a circle with this radius.
-
-```python
-circle(50)
 ```
 
 :::

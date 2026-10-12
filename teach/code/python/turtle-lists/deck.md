@@ -167,7 +167,7 @@ circle(60)
 
 ## Last place
 
-<div class="side" style="display:grid;grid-template-columns:1fr 740px;gap:1em">
+<div class="side" style="display:grid;grid-template-columns:1fr 3fr;gap:1em">
 <div>
 
 **A list has 8 items. What is the place number of the last one?**

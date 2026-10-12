@@ -7,43 +7,56 @@ subtitle: "Python Foundations with Turtle · Drawing and repeating · Lesson 1"
 
 **Name:** {{field-24}} **Date:** {{field-15}} **Class:** {{field-15}}
 
-> **Key question:** Loops are how a program draws 100 tiles, sends 100 emails or reads 100 sensors without 100 lines of code.
+> **Key question:** Every animation, game character and robot is moved by a list of commands that run in order. Today you give the commands.
 
 
 :::teacher-note
 
-**In one sentence:** Students meet the turtle, read and run a tiny program, then find out why programmers use loops instead of copying the same lines.
+**In one sentence:** Students meet the turtle, read a short program that follows its commands in order, and learn that the order is the picture.
 
-**Students should be able to say:** I can say what forward, right and left do to the turtle. I can use a loop to repeat lines instead of copying them. I can work out the turn for a shape with any number of sides.
+**Students should be able to say:** I can say what forward and right do to the turtle. I can say why the order of the commands matters. I can write a program of several commands that draws a shape.
 
 **Width:** the unmarked parts are the floor every student does (predict, run, investigate and make). Typical adds the modify practice; wider adds the real-world contexts. They add contexts, not difficulty. Students work in the online tutorial alongside this sheet.
 
 :::
 
 
+## Meet the commands
+
+A program is a list of commands. The turtle follows them one at a time, from the top down.
+
+| Line | What it does | Why |
+|---|---|---|
+| `from turtle import *` | Gives your program the turtle commands | Copy this to the top of every program for now. A later lesson shows how it works |
+| `forward(100)` | Moves the turtle 100 steps and draws a line | The number is how far |
+| `right(90)` | Turns the turtle a quarter turn, on the spot | It does not move or draw. 90 is a quarter of a full turn |
+| `forward(100)` | Moves again, now in the new direction | The turn changed which way is forward |
+
+`left(90)` turns the other way.
+
+The order matters. The turtle does the first line first. Swap two lines and you get a different picture.
+
 ## Predict
 
-`forward(100)` moves the turtle 100 steps and draws a line. `right(90)` turns it a quarter turn. The line `for i in range(4):` is new. Read the code. What will the turtle draw?
+Read the code and decide. Which picture will it draw?
 
 ```python
 from turtle import *
 
-for i in range(4):
-    forward(100)
-    right(90)
+forward(100)
+right(90)
+forward(50)
 ```
 
 :::keep-together
 
 **What will the turtle draw?**
 
-☐ nothing, because i is never used
+☐ 50 steps across first, then 100 steps down
 
-☐ one side, then a turn
+☐ An L: 100 steps across, a turn, then 50 steps down
 
-☐ one long line
-
-☐ a square
+☐ A line of 100 steps, then a line of 90 steps
 
 My prediction, and why:
 
@@ -54,7 +67,7 @@ My prediction, and why:
 
 :::teacher-note
 
-**What happens:** A square. The two indented lines run 4 times: a side of 100, then a quarter turn, four times over. The turtle finishes where it started, facing right.
+**What happens:** An L. forward(100) draws across, right(90) turns without drawing, and forward(50) draws down. The turn is not a line (so not 90 steps), and the lines run in the order written (so 100 comes before 50).
 
 :::
 
@@ -65,174 +78,57 @@ Run the program in the tutorial. Was your prediction right? What was different?
 
 {{lines-2}}
 
-## Investigate
+## Put the lines in order
 
-Compare the two programs. They draw the same square.
+Look at the picture, then put the lines in the order that draws it.
 
 ```python
-# Without a loop
 forward(100)
 right(90)
-forward(100)
+forward(60)
 right(90)
-forward(100)
-right(90)
-forward(100)
-right(90)
-
-# With a loop
-for i in range(4):
-    forward(100)
-    right(90)
+forward(30)
 ```
 
 :::keep-together
 
-### Count the lines
+**These five lines are mixed up. Put them in the order that draws the picture.**
 
-**The square without a loop uses 8 lines of drawing code. A 20-sided shape drawn the same way would use how many lines?**
+A. `right(90)`
 
-Answer: {{field-15}}
+B. `forward(30)`
 
-:::
+C. `forward(100)`
 
+D. `forward(60)`
 
-:::teacher-note
+E. `right(90)`
 
-**Answer:** 40
-
-Each side needs 2 lines (forward and a turn), so 20 sides need 40.
-
-:::
-
-
-:::keep-together
-
-### Spot the bug
-
-**This was meant to draw a square. Instead the turtle draws one long line and turns once at the very end. Click the wrong line.**
-
-```
- 1  from turtle import *
- 2  
- 3  for i in range(4):
- 4      forward(100)
- 5  right(90)
-```
-
-Line: {{field-15}}
-
-Why is it wrong?
-
-{{lines-2}}
+Correct order (letters): {{field-24}}
 
 :::
 
 
 :::teacher-note
 
-**Answer:** line 5
+**Answer:** see the program below
 
-right(90) is not indented, so it is not part of the loop. The loop draws four sides in a straight line, and the turn runs once afterwards. Indent it under the for line so both lines repeat.
-
-:::
-
-
-:::keep-together
-
-### Follow the counter
-
-**for i in range(4): makes a counter called i. It starts at 0 and goes up by 1 each time round the loop. Fill in the table for the square.**
-
-{{rows 1}}
-
-| pass | i | turned so far |
-|---|---|---|
-| 1 | 0 | 90 |
-| 2 |   |   |
-| 3 |   |   |
-| 4 |   |   |
-
-:::
-
-
-:::teacher-note
-
-**Answer:** 1, 180, 2, 270, 3, 360
-
-i counts 0, 1, 2, 3: four passes, starting from 0. This square never uses i, but it is there, and later programs will use it. After four turns of 90 the turtle has turned 360 degrees, a full turn.
-
-:::
-
-
-:::typical
-
-## Modify
-
-Change the loop in small steps. Run after each change.
-
-**Draw a triangle.** Change the loop so it draws a triangle instead of a square.
-
-**Double the sides.** Make each side of your triangle twice as long.
-
-**Change the pen.** Give your triangle a colour. Try a thicker line too.
-
-Work in the tutorial. Plan first: what will you change, and how will you test it?
-
-{{box-4}}
-
-:::teacher-note
-
-**One possible solution.** Other correct programs are fine; check that the program runs and does what the task asks.
-
-**Draw a triangle:**
+The turtle draws 100 across, turns, draws 60, turns, then draws 30, so each line is shorter and the picture hooks inward. Any other order draws a different picture, because each turn changes which way the next forward goes.
 
 ```python
-from turtle import *
-
-for i in range(3):
-    forward(100)
-    right(120)
+forward(100)
+right(90)
+forward(60)
+right(90)
+forward(30)
 ```
-
-**Double the sides:**
-
-```python
-from turtle import *
-
-for i in range(3):
-    forward(200)
-    right(120)
-```
-
-**Change the pen:**
-
-```python
-from turtle import *
-
-pencolor("red")
-pensize(5)
-for i in range(3):
-    forward(200)
-    right(120)
-```
-
-:::
 
 :::
 
 
 ## Make
 
-A loop works for any pattern, not only shapes. Find the part that repeats, write it once, and say how many times.
-
-**Draw a staircase.** Draw a staircase with 5 steps, like the picture.
-
-**Make it taller.** Make it 10 steps.
-
-**Your own pattern.** Try a zigzag, a row of battlements or a dashed line. Find the part that repeats first.
-
-Next lesson adds variables. Then you put loops and variables to work on a whole program: a street of houses.
+Draw a square. Each side is 100 steps long. Write every command out, one after another. Next lesson shows a shorter way.
 
 Work in the tutorial. Plan first: what will you change, and how will you test it?
 
@@ -242,28 +138,17 @@ Work in the tutorial. Plan first: what will you change, and how will you test it
 
 **One possible solution.** Other correct programs are fine; check that the program runs and does what the task asks.
 
-**Draw a staircase:**
-
 ```python
 from turtle import *
 
-for i in range(5):
-    left(90)
-    forward(20)
-    right(90)
-    forward(20)
-```
-
-**Make it taller:**
-
-```python
-from turtle import *
-
-for i in range(10):
-    left(90)
-    forward(20)
-    right(90)
-    forward(20)
+forward(100)
+right(90)
+forward(100)
+right(90)
+forward(100)
+right(90)
+forward(100)
+right(90)
 ```
 
 :::
@@ -273,7 +158,7 @@ for i in range(10):
 
 :::keep-together
 
-**A turtle draws a shape with 5 equal sides using a loop. How many times does the loop repeat, and how far does the turtle turn each time?**
+**A turtle runs forward(100), right(90), forward(50). How many lines does it draw, and which is longer, the first or the second?**
 
 {{lines-3}}
 
@@ -282,7 +167,7 @@ for i in range(10):
 
 :::teacher-note
 
-**Answer:** 5 times, turning 72 degrees each time (360 divided by 5).
+**Answer:** Two lines (the turn does not draw). The first is longer: 100 steps against 50.
 
 :::
 

@@ -19,6 +19,26 @@ goto(0, 0)
 
 :::keep-together
 
+**pensize**: Set how thick the line is.
+
+```python
+pensize(5)
+```
+
+:::
+
+:::keep-together
+
+**pencolor**: Set the line colour, using a colour name.
+
+```python
+pencolor("red")
+```
+
+:::
+
+:::keep-together
+
 **fillcolor**: Choose the colour to fill shapes with.
 
 ```python
@@ -35,6 +55,16 @@ fillcolor("blue")
 begin_fill()
 
 end_fill()
+```
+
+:::
+
+:::keep-together
+
+**circle**: Draw a circle with this radius.
+
+```python
+circle(50)
 ```
 
 :::

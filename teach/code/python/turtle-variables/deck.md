@@ -109,7 +109,7 @@ for i in range(sides):
 
 ## Calculate the angle
 
-<div class="side" style="display:grid;grid-template-columns:1fr 740px;gap:1em">
+<div class="side" style="display:grid;grid-template-columns:1fr 3fr;gap:1em">
 <div>
 
 **If sides = 6, what is angle?**

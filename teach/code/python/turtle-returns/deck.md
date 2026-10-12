@@ -107,7 +107,7 @@ forward(metres(3))
 
 ## What comes back?
 
-<div class="side" style="display:grid;grid-template-columns:1fr 740px;gap:1em">
+<div class="side" style="display:grid;grid-template-columns:1fr 3fr;gap:1em">
 <div>
 
 **scale is 20. What number does metres(5) give back?**
