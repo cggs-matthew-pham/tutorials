@@ -37,7 +37,7 @@ explainClip:
     - wait: 1200
     - expect: { selector: "#turtle-state", contains: "heading 0" }
 ---
-Last lesson you drew a square with eight lines. There is a shorter way.
+Last lesson you drew digits by writing every command one after another. A square written that way takes eight lines. There is a shorter way.
 
 ## Predict
 
@@ -101,7 +101,7 @@ clip:
 tasks:
   - check:
       type: number
-      q: "Your square last lesson used 8 lines of drawing code. A 20-sided shape drawn the same way would use how many lines?"
+      q: "A square drawn one command at a time uses 8 lines of drawing code. A 20-sided shape drawn the same way would use how many lines?"
       answer: 40
       explain: "Each side needs 2 lines (forward and a turn), so 20 sides need 40."
   - check:

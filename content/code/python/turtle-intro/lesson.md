@@ -1,6 +1,7 @@
 ---
 order: 1
 unit: drawing
+moveId: commands-in-order
 introduces: []
 recipes: [import-star]
 title: Drawing with a turtle
@@ -37,7 +38,7 @@ explainClip:
     - click: "Run"
     - expect: { selector: "#status", contains: "Finished" }
 ---
-A turtle walks across the screen, leaving a line behind. Your program tells it where to go.
+A turtle walks across the screen, leaving a line behind. Your program tells it where to go. By the end you will draw digits, the way a calculator or a digital clock does.
 
 ## Meet the commands
 
@@ -64,59 +65,58 @@ A program is a list of commands. The turtle follows them one at a time, from the
 |---|---|---|
 | `from turtle import *` | Gives your program the turtle commands | Copy this to the top of every program for now. A later lesson shows how it works |
 | `forward(100)` | Moves the turtle 100 steps and draws a line | The number is how far |
-| `right(90)` | Turns the turtle a quarter turn, on the spot | It does not move or draw. 90 is a quarter of a full turn |
+| `right(90)` | Turns the turtle a quarter turn clockwise, on the spot | It does not move or draw. 90 is a quarter of a full turn |
+| `left(90)` | Turns the turtle a quarter turn the other way | Also on the spot, also no line |
 | `forward(100)` | Moves again, now in the new direction | The turn changed which way is forward |
 
-`left(90)` turns the other way.
-
-The order matters. The turtle does the first line first. Swap two lines and you get a different picture.
+The turtle starts in the middle, facing right. The order matters: swap two lines and you get a different picture.
 
 ## Predict
 
 ```step
 stage: predict
-code: square.py#commit
+code: lesson.py#digital2
 reveal: true
 check:
   type: predict
   q: "What will the turtle draw?"
   options:
-    - "An L: 100 steps across, a turn, then 50 steps down"
-    - "A line of 100 steps, then a line of 90 steps"
-    - "50 steps across first, then 100 steps down"
+    - "The digit 2, like a calculator shows it"
+    - "A straight line, 300 steps long"
+    - "The digit 5, like a calculator shows it"
   fault: logic
   misconception: turn-draws
-  actual: "An L. forward(100) draws across, right(90) turns without drawing, and forward(50) draws down. The turn is not a line (so not 90 steps), and the lines run in the order written (so 100 comes before 50)."
+  actual: "The digit 2. Five lines of 60, with a turn between each pair: across, down, across, down, across. The turns change direction without drawing (so not one straight line), and the first turn is right, so the turtle goes down on the right side first (so 2, not 5)."
 app: true
 clip:
   - caption: The turtle starts in the middle, facing right.
   - type:
       into: Python code
-      text: "@square.py#commit"
+      text: "@lesson.py#digital2"
   - click: Run
   - expect: { selector: "#status", contains: Finished }
 ```
 
-Read the code and decide. Which picture will it draw?
+Read the code line by line, as if you were the turtle. Which picture will it draw?
 
 ## Run
 
 ```step
 stage: run
-code: square.py#commit
-try: { starter: "square.py#commit", height: 420 }
+code: lesson.py#digital2
+try: { starter: "lesson.py#digital2", height: 420 }
 ```
 
-Run the program and compare it with your prediction. Did the turn draw anything?
+Run the program and compare it with your prediction. Which lines did the drawing, and which only turned?
 
 ## Put the lines in order
 
 ```step
 stage: investigate
-code: square.py#parsons
+code: lesson.py#parsons
 insight: "The order of the commands is the picture: the same lines in a different order make a different drawing."
 app: true
-query: { code: "@square.py#hook-pic", view: output, autorun: 1 }
+query: { code: "@lesson.py#step-pic", view: output, autorun: 1 }
 clip:
   - wait: 600
   - expect: { selector: "#status", contains: Finished }
@@ -124,31 +124,159 @@ caption: "The picture to match"
 reveal: Show the picture to match
 check:
   type: parsons
-  code: square.py#parsons
+  code: lesson.py#parsons
   text: "These five lines are mixed up. Put them in the order that draws the picture."
   fault: logic
   misconception: order-free
-  explain: "The turtle draws 100 across, turns, draws 60, turns, then draws 30, so each line is shorter and the picture hooks inward. Any other order draws a different picture, because each turn changes which way the next forward goes."
+  explain: "The turtle goes across 60, turns left to face up, goes 40, turns right to face across again, then goes 60 more. Any other order draws a different picture, because each turn changes which way the next forward goes."
 ```
 
-Look at the picture, then put the lines in the order that draws it.
+Look at the picture, then put the lines in order.
 
 ## Make
 
 ```step
 stage: make
-try: { starter: "square.py#make", height: 420 }
+try: { starter: "lesson.py#make", height: 420 }
 app: true
-query: { code: "@square.py#sol-square", view: output, autorun: 1 }
+query: { code: "@lesson.py#sol-four", view: output, autorun: 1 }
 clip:
   - wait: 600
   - expect: { selector: "#status", contains: Finished }
-caption: "The expected result: a square"
-reveal: Show what the square should look like
+caption: "The expected result: the digit 4"
+reveal: Show what the 4 should look like
 hint:
-  - "A square has four equal sides. How many forward lines will you need? How many turns?"
-  - "Draw one side, then turn a quarter turn (90). Do that four times, one line after another."
-check: { type: code, text: "Draw a square with forward and right.", rules: { uses: [forward, right] } }
+  - "Start at the top left. The first stroke goes down 50, then across 50 to the right, then up 50 to the top."
+  - "You can go back over a line you already drew. After the stroke up, turn right twice (right(180)) and go down 100 for the long stroke."
+check: { type: code, text: "Draw a 4 with forward, left and right.", rules: { uses: [forward, left, right] } }
 ```
 
-Draw a square. Each side is 100 steps long. Write every command out, one after another. Next lesson shows a shorter way.
+Draw a **4** like the one on a calculator: a short stroke down, a bar across, then one long stroke from top to bottom. Use bars of 50 steps. The turtle may draw over a line it has already drawn, so you do not need to lift the pen.
+
+```teacher
+summary: Students meet the turtle, read a program that draws a digital 2, learn that the order of commands is the picture, and draw a 4 themselves.
+time: 35
+timing: "Meet the commands 8 min · Predict and Run 8 min · Put the lines in order 7 min · Make 12 min"
+goals:
+  - I can say what forward, right and left do to the turtle.
+  - I can say why the order of the commands matters.
+  - I can write a program of several commands that draws a digit.
+before: |
+  Draw the 4 yourself. It takes two minutes, and you will see why the last turn is right(180).
+running:
+  - "Meet the commands: you explain, at the board. Run the three lines live, one at a time. Say what forward and right do, that right does not move the turtle, and that left turns the other way."
+  - "Predict: show the digit-2 program and take a vote before anyone runs it. Ask students to walk it as the turtle. The wrong options are two slips: thinking the turns draw, and mixing up right with left."
+  - "Run: run it on the slide, then students run it themselves. Ask: which lines drew, and which only turned?"
+  - "Put the lines in order: students do the ordering on their own screens. Circulate; if a student is stuck, ask which way the turtle is facing after the first turn."
+  - "Make: the 4. Hints are in the speaker notes. If the room is unsure, model the first stroke on the board and let students write the rest. The last stroke goes over a line already drawn, which is allowed."
+stuck:
+  - see: The turtle draws a line where the student expected a turn.
+    ask: Does right(90) move the turtle, or only turn it?
+    fix: right and left turn the turtle on the spot. Only forward draws.
+  - see: The 4 comes out back to front, or the strokes point the wrong way.
+    ask: Read the lines aloud in order, as if you were the turtle. Where does it face after each turn?
+    fix: Each line happens after the one above it, and each turn changes which way forward goes. Swap a left for a right, or the other way, and see.
+  - see: A NameError or "forward is not defined".
+    ask: What is the first line of your program?
+    fix: Every program starts with from turtle import *. Copy it to the top.
+stretch: Draw a second digit beside the first, such as an 8 or a 7. Where does the turtle have to start?
+support: Give the first stroke and the first turn, and ask the student to add the rest.
+leads: "Next lesson: the same commands again and again. A square is eight lines written out, and a loop makes it three."
+exit:
+  q: "A turtle runs forward(100), right(90), forward(50). How many lines does it draw, and which is longer, the first or the second?"
+  a: "Two lines (the turn does not draw). The first is longer: 100 steps against 50."
+explain: |
+  A program is a list of commands the computer follows in order, from the top down. `forward(100)` moves the turtle 100 steps and draws a line. `right(90)` turns it on the spot, a quarter of a full turn clockwise; it does not move or draw. `left(90)` turns the other way.
+
+  Because each turn changes the way the turtle faces, the order of the commands is the picture. Swapping two lines gives a different drawing.
+
+  The first line, `from turtle import *`, gives a program the turtle commands. Students copy it for now; Functions and Modules explain how it works.
+solutions:
+  step-5: lesson.py#sol-four
+struggle: "Remembering that right and left turn without drawing. Ask what the turtle did on that line, instead of telling them."
+class:
+  inquiry:
+    q: "A robot follows its commands in the wrong order and walks into a wall. Whose fault is it: the robot's or the programmer's?"
+    prompts:
+      - "Did the robot do what it was told?"
+      - "What could the programmer have done to catch the mistake before running it?"
+    notes: "Let students defend both sides. The robot did exactly what the program said, so the mistake is in the program. Return to this after the ordering task: did anyone's first order give a surprising picture?"
+  activities:
+    - at: start
+      kind: info
+      title: "By the end of this lesson"
+      do: |
+        Here is a digital 2 made from five lines of commands. By the end of the lesson you will write commands that draw a 4.
+      notes: "Show the finished 2 on the projector before anything else."
+    - at: predict
+      kind: discussion
+      title: Vote, then argue
+      minutes: 3
+      do: |
+        Decide with your partner: what will the turtle draw?
+        Hold up 1, 2 or 3 fingers for the option you chose.
+      notes: "Count the votes before anyone runs it. Ask one pair from each option to say why. The wrong options are two different slips: turns that draw, and right mixed up with left."
+    - at: investigate
+      title: Play turtle
+      minutes: 5
+      do: |
+        One volunteer is the turtle, standing in the middle facing the window.
+        The class reads the commands aloud, one at a time. The turtle obeys: 3 steps for each forward, a quarter turn for right(90) or left(90).
+      notes: "Papert designed the turtle so learners could play it. Walking the commands makes it concrete that a turn changes which way forward goes."
+    - at: end
+      title: Show a friend
+      minutes: 3
+      do: |
+        Turn to the next pair. Show your 4 and point to the line that turns the turtle round for the long stroke.
+```
+
+```code lesson.py#digital2
+from turtle import *
+
+forward(60)
+right(90)
+forward(60)
+right(90)
+forward(60)
+left(90)
+forward(60)
+left(90)
+forward(60)
+```
+
+```code lesson.py#parsons
+forward(60)
+left(90)
+forward(40)
+right(90)
+forward(60)
+```
+
+```code lesson.py#step-pic
+from turtle import *
+
+forward(60)
+left(90)
+forward(40)
+right(90)
+forward(60)
+```
+
+```code lesson.py#make
+from turtle import *
+
+# Draw a 4. Each bar is 50 steps.
+```
+
+```code lesson.py#sol-four
+from turtle import *
+
+right(90)
+forward(50)
+left(90)
+forward(50)
+left(90)
+forward(50)
+right(180)
+forward(100)
+```
