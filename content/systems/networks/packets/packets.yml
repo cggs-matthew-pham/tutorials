@@ -1,17 +1,21 @@
-# Boards for "Packets". Router C is busy: it is slow, and loses packet 2 the first time.
+# Boards for "Packets" (5E pilot). The mission: get MEET AT NOON to Ali. Router C is busy: it is slow, and loses
+# packet 2 the first time.
 
-# region: run
+# region: explore
 widget: network
 mode: packets
-message: HELLO WORLD
+message: MEET AT NOON
 size: 3
 drop: 2
+numbers: off
+tcp: off
+switches: numbers, tcp
 # endregion
 
 # region: explain
 widget: network
 mode: packets
-message: HELLO WORLD
+message: MEET AT NOON
 size: 3
 drop: 2
 # endregion
@@ -19,18 +23,17 @@ drop: 2
 # region: explain-pic
 widget: network
 mode: packets
-message: HELLO WORLD
+message: MEET AT NOON
 size: 3
 drop: 0
 # endregion
 
-# region: modify
+# region: elaborate
 widget: network
 mode: packets
-message: HELLO WORLD
+message: MEET AT NOON
 size: 3
 drop: 2
-choose: on
 # endregion
 
 # region: make

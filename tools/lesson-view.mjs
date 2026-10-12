@@ -35,6 +35,14 @@ export const STAGE_INFO_SCIENCE = {
   make: ['Elaborate', 'Use the same idea in a new context.'],
   info: ['Evaluate', 'Look back at your first ideas and what changed.'],
 };
+/** The 5E words outside science (shape: 5e, first used by Digital systems theory lessons): the same stages as science,
+ * with Explain about the idea, not the particle model. The last Elaborate task is the Make. */
+export const STAGE_INFO_5E = {
+  ...STAGE_INFO_SCIENCE,
+  investigate: ['Explain', 'Put a name to what you saw, and why it works.'],
+  modify: ['Elaborate', 'Use the idea in a new situation.'],
+  make: ['Elaborate', 'Use the idea in a new situation.'],
+};
 /** Design projects (shape: design) use design-cycle words on the same stages: predict = Inquire, investigate = Develop,
  * make = Create, modify = Test, practise = Evaluate. Steps go in that order. */
 export const STAGE_INFO_DESIGN = {
@@ -640,16 +648,16 @@ export function lessonPageHtml(lesson, deps) {
     const s = t.replace(STAGE_PREFIX, '');
     return md.parseInline(s.charAt(0).toUpperCase() + s.slice(1));
   };
-  const isSci = lesson.language === 'science';
+  const isSci = lesson.language === 'science' || lesson.shape === '5e';
   const stagesUsed = [...new Set(lesson.steps.map((s) => s.config.stage).filter((s) => s !== 'info' || isSci))];
   const tierAttr = (c) => (c.tier ? ` data-tier="${esc(c.tier)}"` : '');
   const nav = lesson.steps.map((s) => `<a href="#${s.id}" style="--c:var(--${s.config.stage})"${tierAttr(s.config)}><i></i>${heading(s.title)}${s.tasks.length ? '<span class="cnt"></span>' : ''}</a>`).join('');
-  const SI = lesson.shape === 'design' ? STAGE_INFO_DESIGN : lesson.language === 'maths' ? STAGE_INFO_MATHS : isSci ? STAGE_INFO_SCIENCE : STAGE_INFO;
+  const SI = lesson.shape === 'design' ? STAGE_INFO_DESIGN : lesson.shape === '5e' ? STAGE_INFO_5E : lesson.language === 'maths' ? STAGE_INFO_MATHS : isSci ? STAGE_INFO_SCIENCE : STAGE_INFO;
   // Width tiers: steps marked typical or wider are extra contexts. A teacher sets the starting width with ?width=;
   // students can widen but not narrow. Tiered checks are not needed to finish the lesson.
   const tiered = lesson.steps.some((s) => s.config.tier);
   const widthBar = !tiered ? '' : `<div class="widthbar" aria-label="Lesson width"><div><b>Width</b><span class="wnote">More contexts, same idea.</span></div><div class="wseg" role="group" aria-label="Choose width">${TIERS_UI.map((t) => `<button type="button" data-w="${t}" aria-pressed="false">${t[0].toUpperCase() + t.slice(1)}</button>`).join('')}</div></div>`;
-  const legend = stagesUsed.filter((k) => SI[k]).map((k) => `<li style="--c:var(--${k})"><b>${SI[k][0]}</b>: ${esc(SI[k][1])}</li>`).join('');
+  const legend = stagesUsed.filter((k, i) => SI[k] && stagesUsed.findIndex((j) => SI[j]?.[0] === SI[k][0]) === i).map((k) => `<li style="--c:var(--${k})"><b>${SI[k][0]}</b>: ${esc(SI[k][1])}</li>`).join('');
 
   const steps = lesson.steps.map((s) => {
     const c = s.config;
