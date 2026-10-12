@@ -7,13 +7,24 @@
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join, resolve, relative, sep } from 'node:path';
 import YAML from 'yaml';
-import { snippetFrom, parseLessonText, validateLessonCore, snippetId, FEATURES } from './lesson-core.mjs';
+import { snippetFrom, extractInlineCode, parseLessonText, validateLessonCore, snippetId, FEATURES } from './lesson-core.mjs';
 
 export * from './lesson-core.mjs';
 
 export const CONTENT_ROOT = resolve('content');
 
-const readIn = (dir) => (file) => { const p = join(dir, file); return existsSync(p) ? readFileSync(p, 'utf8') : undefined; };
+// Code in a lesson's folder, else code written inside its lesson.md (```code file#region blocks; see extractInlineCode).
+const inlineCache = new Map();
+function inlineCode(dir) {
+  const p = join(dir, 'lesson.md');
+  if (!existsSync(p)) return {};
+  const m = statSync(p).mtimeMs, hit = inlineCache.get(dir);
+  if (hit && hit.m === m) return hit.inline;
+  const inline = extractInlineCode(readFileSync(p, 'utf8').replace(/\r\n/g, '\n')).inline;
+  inlineCache.set(dir, { m, inline });
+  return inline;
+}
+const readIn = (dir) => (file) => { const p = join(dir, file); return existsSync(p) ? readFileSync(p, 'utf8') : inlineCode(dir)[file]; };
 
 export function listLessonDirs(root = CONTENT_ROOT) {
   const out = [];

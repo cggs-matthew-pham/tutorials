@@ -19,7 +19,7 @@ export { CONCEPTS, conceptIds, conceptsIn, THEORY };
 
 /** The code students see in a lesson, by section ("frontmatter", then each "## " step title): [where, code, raw] (raw keeps string contents; Python comments are dropped from both). */
 export function visibleCode(lesson, read) {
-  const raw = readFileSync(join(lesson.dir, 'lesson.md'), 'utf8').replace(/\r\n/g, '\n');
+  const raw = readFileSync(join(lesson.dir, 'lesson.md'), 'utf8').replace(/\r\n/g, '\n').replace(/^```(?:code|teacher)\b[^\n]*\n[\s\S]*?\n```[ \t]*$\n?/gm, '');
   const fm = raw.match(/^---\n[\s\S]*?\n---\n?/)?.[0] || '';
   const sections = [['frontmatter', fm], ...raw.slice(fm.length).split(/^## /m).slice(1).map((s) => [s.slice(0, s.indexOf('\n')).trim(), s])];
   return sections.map(([where, text]) => {

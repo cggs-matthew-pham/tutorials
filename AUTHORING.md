@@ -60,6 +60,18 @@ steps without a `clip` are plain text and need no app.
 
 ## 3. Showing code: regions
 
+**Code inside `lesson.md` (13 Oct).** A lesson can be one file. Write each region as a fenced block whose first line is ```` ```code file#region ````, anywhere in `lesson.md`; the block is cut out of the student page, and the lesson refers to it exactly as if `file` existed (`code: lesson.py#loop`, `starter:`, clips' `@lesson.py#loop`, `solutions:`). A real file of that name in the folder wins. The marker style follows the extension (`.py` `#`, `.html` `<!-- -->`, `.css` `/* */`, others `//`). Editing code in `lesson.md` re-records the lesson's clips, like editing a code file. Existing lessons keep their files.
+
+`````markdown
+```code lesson.py#loop
+from turtle import *
+
+for i in range(4):
+    forward(100)
+    right(90)
+```
+`````
+
 Mark the parts of a source file you want to show:
 
 ```python

@@ -287,12 +287,31 @@ export function arrangeOptions(k, seed) {
   return out;
 }
 
+/**
+ * Code can live in lesson.md itself: a fenced block whose first line is "```code file#region" holds that region of
+ * "file", which then needs no file of its own (the references `file#region` in steps, clips and checks are unchanged).
+ * Returns { rest, inline }: the text with those blocks cut out, and { 'file': 'text with region markers' } for read().
+ */
+export function extractInlineCode(text) {
+  const inline = {};
+  const marks = (file, name) => /\.(html?|xml|svg|md)$/i.test(file) ? [`<!-- region: ${name} -->`, '<!-- endregion -->']
+    : /\.css$/i.test(file) ? [`/* region: ${name} */`, '/* endregion */']
+    : /\.(py|rb|sh|yml|yaml)$/i.test(file) ? [`# region: ${name}`, '# endregion'] : [`// region: ${name}`, '// endregion'];
+  const rest = text.replace(/^```code[ \t]+([\w.\-/]+)#([\w-]+)[ \t]*\n([\s\S]*?)\n```[ \t]*$\n?/gm, (_, file, name, body) => {
+    const [open, close] = marks(file, name);
+    inline[file] = (inline[file] ? inline[file] + '\n' : '') + `${open}\n${body}\n${close}\n`;
+    return '';
+  });
+  return { rest, inline };
+}
+
 export function parseLessonText(raw, slug = 'lesson') {
   raw = raw.replace(/\r\n/g, '\n');
   const fm = raw.match(/^---\n([\s\S]*?)\n---\n?/);
   if (!fm) throw new Error(`${slug}: lesson.md must start with --- frontmatter ---`);
   const meta = YAML.parse(fm[1]) || {};
-  let rest = raw.slice(fm[0].length);
+  const ic = extractInlineCode(raw.slice(fm[0].length));
+  let rest = ic.rest;
   // Teacher notes can live in the lesson: a ```teacher block (the fields of teacher.yml) is cut out here, so it never
   // reaches the student page. The last such block wins; a teacher.yml beside the lesson is read only when there is none.
   let teacher, classPlan;
@@ -331,6 +350,7 @@ export function parseLessonText(raw, slug = 'lesson') {
     return { index: i + 1, id: `step-${i + 1}`, title, body: body.trim(), config, tasks };
   });
   return {
+    ...(Object.keys(ic.inline).length ? { inline: ic.inline } : {}),
     ...(teacher ? { teacher } : {}),
     ...(classPlan ? { classPlan } : {}),
     slug,

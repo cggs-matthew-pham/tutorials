@@ -168,10 +168,10 @@ const knownIds = () => {
 };
 
 function render() {
-  const read = (f) => files[f];
   let lesson;
   try { lesson = parseLessonText(files['lesson.md'] || '', 'my-lesson'); }
   catch (e) { problemsList(['lesson.md: ' + e.message.split('\n')[0]]); return; }
+  const read = (f) => files[f] ?? lesson.inline?.[f];   // a file tab, else code written inside lesson.md
   const errs = validateLessonCore(lesson, read, knownIds(), sharedModules).map((m) => m.replace(/^my-lesson › /, ''));
   // clip checks that need an app are skipped here: clips are only recorded by the repository build
   problemsList(errs, 'Looks good.');

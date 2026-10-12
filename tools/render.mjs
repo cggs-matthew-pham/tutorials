@@ -53,6 +53,7 @@ function stepHash(lesson, step) {
     const p = join(lesson.dir, f);
     if (f !== 'lesson.md' && statSync(p).isFile()) h.update(f).update(readFileSync(p));
   }
+  if (lesson.inline) h.update(JSON.stringify(lesson.inline));   // code written inside lesson.md counts like a code file
   h.update(stageHtml).update(rendererSrc).update(sharedFilesHash(lesson));
   const vs = voiceSpec(lesson.voice);
   if (vs) h.update(voiceHashInput(vs)).update(JSON.stringify(otherVoices(vs)));
