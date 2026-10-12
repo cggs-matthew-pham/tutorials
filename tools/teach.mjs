@@ -167,7 +167,7 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
   const srcNote = sourceList(T).length ? ` Sources: ${sourceList(T).map((x) => `${x.title}, ${x.url}${x.checked ? ` (checked ${x.checked})` : ''}`).join('; ')}.` : '';
   slides.push(`# ${pt(lesson.title)}\n\n${course}${unit ? ` · ${unit}` : ''}` + note(`${T.summary || lesson.summary}${T.time ? ` About ${T.time} minutes${T.timing ? ` (${T.timing})` : ''}.` : ''}${srcNote}`));
   slides.push(`## Today\n\n**We are learning to** ${lowerFirst(lesson.summary.replace(/\.$/, ''))}.\n\n${(T.goals || []).map((g) => `- ${pt(g)}`).join('\n')}` + note(T.before ? `Before class: ${T.before}` : ''));
-  if (lesson.hook) slides.push(`${BADGE.discussion}\n\n## Why it matters\n\n> ${lesson.hook}` + note(lesson.intro));
+  if (lesson.hook) slides.push(`## Why it matters\n\n> ${lesson.hook}` + note(lesson.intro));
   // Class plan (content/<course>/class/<lesson>.yml): activities and questions for the room, placed after the first
   // step of their stage (or at the start or end). The site stays self-paced; the deck carries the talk.
   const CP = lesson.classPlan || {}, placed = new Set();
@@ -175,7 +175,7 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
     if (placed.has(at)) return;
     placed.add(at);
     for (const a of CP.activities || []) if (a.at === at) {
-      slides.push(`${BADGE[a.kind || 'activity']}\n\n## ${pt(a.title)}${a.minutes ? ` <span style="font-size:.6em;color:#64748b">(${a.minutes} min)</span>` : ''}\n\n${prose(a.do)}` + note(a.notes || ''));
+      slides.push(`${a.kind === 'info' ? '' : BADGE[a.kind || 'activity'] + '\n\n'}## ${pt(a.title)}${a.minutes ? ` <span style="font-size:.6em;color:#64748b">(${a.minutes} min)</span>` : ''}\n\n${prose(a.do)}` + note(a.notes || ''));
     }
     (CP.questions || []).filter((q) => q.at === at).forEach((q, i) => {
       const p = checkPartsMd(q, snip, `${lesson.slug}/class-${at}-${i}`);
@@ -186,6 +186,10 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
       slides.push(`${BADGE.check}\n\n## ${pt(q.title || 'Class question')}\n\n${body}\n\n* Answer: ${oneLine(p.answer)}` + note(`${p.explain || ''} Ask on mini whiteboards or by show of hands before the reveal.`));
     });
   };
+  if (CP.inquiry) {
+    const iq = CP.inquiry;
+    slides.push(`${BADGE.discussion}\n\n## Think, pair, share\n\n**${pt(iq.q)}**${(iq.prompts || []).length ? '\n\n' + iq.prompts.map((x) => `- ${pt(x)}`).join('\n') : ''}` + note(`${iq.notes || ''} Give 30 seconds alone, 2 minutes in pairs, then take answers from both sides. There is no single right answer: ask for a reason, and let students change their minds.`));
+  }
   classSlides('start');
   // Programs too long for a slide are read in the tutorial instead.
   const showCode = (code, step) => blocksDeck(code) || (code.split('\n').length > 27
@@ -481,7 +485,7 @@ export function lessonGuideBody(lesson, { esc, md, snip, highlightCode, codeBloc
     sec('Timing', T.timing ? `<p>${esc(T.timing)}</p>` : '') +
     sec('Before class', T.before ? md(T.before) : '') +
     sec('Running the lesson', T.running ? `<ol>${T.running.map((r) => `<li>${md(r).replace(/^<p>|<\/p>\s*$/g, '')}</li>`).join('')}</ol>` : '') +
-    sec('In class', (lesson.classPlan?.activities || []).length || (lesson.classPlan?.questions || []).length ? `<p class="muted">On the slides at these points. Students can do the whole lesson on their own; these are for the room.</p><ul>${(lesson.classPlan.activities || []).map((a) => `<li><b>${esc(a.title)}</b> <span class="muted">(${esc(a.at)}${a.minutes ? `, ${a.minutes} min` : ''})</span>${md(a.do)}${a.notes ? `<p class="muted">${esc(a.notes)}</p>` : ''}</li>`).join('')}${(lesson.classPlan.questions || []).map((q, i) => { const p = checkParts(q, snip, `${lesson.slug}/class-${i}`); return `<li><b>${esc(q.title || 'Class question')}</b> <span class="muted">(${esc(q.at)})</span><br>${esc(p.q)}<br><span class="ans">${esc(p.answer)}</span>${p.explain ? `<br><span class="muted">${esc(p.explain)}</span>` : ''}</li>`; }).join('')}</ul>` : '') +
+    sec('In class', (lesson.classPlan?.inquiry || (lesson.classPlan?.activities || []).length || (lesson.classPlan?.questions || []).length) ? `<p class="muted">On the slides at these points. Students can do the whole lesson on their own; these are for the room.</p><ul>${lesson.classPlan.inquiry ? `<li><b>Think, pair, share</b> <span class="muted">(start)</span><br>${esc(lesson.classPlan.inquiry.q)}${(lesson.classPlan.inquiry.prompts || []).length ? `<ul>${lesson.classPlan.inquiry.prompts.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}${lesson.classPlan.inquiry.notes ? `<p class="muted">${esc(lesson.classPlan.inquiry.notes)}</p>` : ''}</li>` : ''}${(lesson.classPlan.activities || []).map((a) => `<li><b>${esc(a.title)}</b> <span class="muted">(${esc(a.at)}${a.minutes ? `, ${a.minutes} min` : ''})</span>${md(a.do)}${a.notes ? `<p class="muted">${esc(a.notes)}</p>` : ''}</li>`).join('')}${(lesson.classPlan.questions || []).map((q, i) => { const p = checkParts(q, snip, `${lesson.slug}/class-${i}`); return `<li><b>${esc(q.title || 'Class question')}</b> <span class="muted">(${esc(q.at)})</span><br>${esc(p.q)}<br><span class="ans">${esc(p.answer)}</span>${p.explain ? `<br><span class="muted">${esc(p.explain)}</span>` : ''}</li>`; }).join('')}</ul>` : '') +
     sec('The hard part (on purpose)', T.struggle ? `<p>${esc(T.struggle)}</p>` : '') +
     sec('When students get stuck', stuck) +
     sec('Answers to the checks', answers ? `<ol class="answers">${answers}</ol>` : '') +

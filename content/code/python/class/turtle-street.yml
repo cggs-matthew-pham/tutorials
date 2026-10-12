@@ -1,6 +1,13 @@
+inquiry:
+  q: "Programmers spend more time reading code than writing it. Is that a good use of their time, or a sign something is wrong?"
+  prompts:
+    - "Who reads your code besides you?"
+    - "What makes a program easy to read? Is that the same as short?"
+    - "Would you rather have a program that is short or one you can change easily?"
+  notes: "Expect both views. Reading is how you find where to make a change safely, so readable code saves time overall; but unclear code is a sign something is wrong. Come back to this at the jigsaw: which parts of the street program made it easy or hard to read?"
 activities:
   - at: start
-    kind: discussion
+    kind: info
     title: Today's program
     do: |
       Today's program is 30 lines long. It uses only loops and variables, which you already know.

@@ -459,9 +459,13 @@ and a one-line description.
 **Class plan (12 Oct 2026).** The site is a complete self-paced lesson; the deck is where PRIMM's talk happens. A lesson can have `content/<course>/class/<lesson>.yml` (kept outside the lesson folder, so editing it never re-records clips). It adds slides to the deck and an "In class" section to the teacher guide:
 
 ```yaml
+inquiry:                 # optional: a question the class can disagree about, shown as a Think, pair, share slide after the hook
+  q: "Would you rather ... or ...? What could go wrong with each?"
+  prompts: ["A follow-up that makes students take a side", "..."]
+  notes: "Both views and when each is right; where to come back to it."
 activities:
   - at: predict          # start | predict | run | investigate | modify | make | end
-    kind: discussion     # activity (default) | discussion | check: the slide's badge
+    kind: discussion     # activity (default) | discussion | check (the slide's badge) | info (no badge)
     title: Vote, then argue
     minutes: 3           # optional
     do: |                # on the slide, for students (Markdown)
@@ -477,7 +481,7 @@ questions:               # class questions: question, number, trace or match, th
     explain: "..."
 ```
 
-Slides go after the first step of their stage (Predict activities go before the "What happened?" reveal); `start` goes after the hook and `end` before the exit ticket. Validate checks the fields and that the stage exists. How to use it (a typical lesson): whole class for hook, Predict, Run and Investigate on the slides (votes, playing turtle or human computer, jigsaw reading of longer programs), then Modify and Make self-paced on the site, then a short show-and-tell. On the site keep at most about three checks per step (the Predict, the misconception and bug tasks); move further questions here as class questions.
+The hook slide ("Why it matters") is plain context; a Discussion badge is for something students can argue about, so write an `inquiry` (a trade-off, "is it better to...", "what would break if...") rather than leaning on the hook. Slides go after the first step of their stage (Predict activities go before the "What happened?" reveal); `start` goes after the hook and `end` before the exit ticket. Validate checks the fields and that the stage exists. How to use it (a typical lesson): whole class for hook, Predict, Run and Investigate on the slides (votes, playing turtle or human computer, jigsaw reading of longer programs), then Modify and Make self-paced on the site, then a short show-and-tell. On the site keep at most about three checks per step (the Predict, the misconception and bug tasks); move further questions here as class questions.
 
 ## 11. Maths lessons
 

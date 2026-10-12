@@ -752,14 +752,22 @@ export function workItems(lesson) {
 
 /** Where a class activity or question goes in the deck: after the first step of that stage, or at the start or end. */
 export const CLASS_AT = ['start', 'predict', 'run', 'investigate', 'modify', 'make', 'end'];
-export const CLASS_KINDS = ['activity', 'discussion', 'check'];
+export const CLASS_KINDS = ['activity', 'discussion', 'check', 'info'];
 export const CLASS_CHECKS = ['question', 'number', 'trace', 'match'];
 
-/** content/<course>/class/<lesson>.yml: { activities: [{ at, title, do, notes?, kind?, minutes? }], questions: [{ at, title?, type, ...check }] } */
+/** content/<course>/class/<lesson>.yml: { inquiry: { q, prompts?, notes? }, activities: [{ at, title, do, notes?, kind?, minutes? }], questions: [{ at, title?, type, ...check }] } */
 function validateClassPlan(lesson, err) {
   const c = lesson.classPlan, w = `../class/${lesson.slug.split('/').pop()}.yml`;
   if (typeof c !== 'object' || Array.isArray(c)) return err(w, 'must be a mapping with activities and/or questions');
-  for (const k of Object.keys(c)) if (!['activities', 'questions'].includes(k)) err(w, `unknown field "${k}" (use activities, questions)`);
+  for (const k of Object.keys(c)) if (!['inquiry', 'activities', 'questions'].includes(k)) err(w, `unknown field "${k}" (use inquiry, activities, questions)`);
+  if (c.inquiry !== undefined) {
+    const q = c.inquiry;
+    if (!q || typeof q !== 'object' || typeof q.q !== 'string' || !q.q.trim()) err(w, 'inquiry needs q: a question the class can disagree about');
+    else {
+      if (q.prompts !== undefined && !(Array.isArray(q.prompts) && q.prompts.every((x) => typeof x === 'string'))) err(w, 'inquiry.prompts must be a list of text');
+      if (q.notes !== undefined && typeof q.notes !== 'string') err(w, 'inquiry.notes must be text');
+    }
+  }
   const stages = new Set(lesson.steps.map((s) => s.config.stage));
   const where = (x, i, list) => {
     if (!CLASS_AT.includes(x.at)) err(w, `${list}[${i}].at must be one of ${CLASS_AT.join(', ')}`);

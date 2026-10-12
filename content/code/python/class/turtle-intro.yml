@@ -1,6 +1,13 @@
+inquiry:
+  q: "Would you rather give a robot 100 separate instructions, or one instruction to repeat 100 times? What could go wrong with each?"
+  prompts:
+    - "Which is easier to change if the plan changes?"
+    - "Which is easier to get wrong without noticing?"
+    - "Is there ever a time copying the lines would be the better choice?"
+  notes: "Let students defend both sides. Copying wins when each step is different, when you will only ever do it once, or when a reader needs to see every step. The loop wins when the steps are the same and the count may change. Return to this after the staircase Make: did anyone choose copying, and why?"
 activities:
   - at: start
-    kind: discussion
+    kind: info
     title: "By the end of this lesson"
     do: |
       Here is a shape drawn by 3 lines of Python. By the end of the lesson you will write programs like it.
