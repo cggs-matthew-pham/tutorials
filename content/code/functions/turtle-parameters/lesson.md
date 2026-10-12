@@ -1,5 +1,5 @@
 ---
-order: 14
+order: 3
 unit: functions
 moveId: function-inputs
 reviews: [name-steps, name-a-value]

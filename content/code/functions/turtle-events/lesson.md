@@ -1,5 +1,5 @@
 ---
-order: 18
+order: 7
 unit: interaction
 moveId: react-to-event
 reviews: [value-update, name-steps]

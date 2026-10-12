@@ -1,5 +1,5 @@
 ---
-order: 19
+order: 8
 unit: interaction
 moveId: build-a-button
 reviews: [react-to-event, if-else]

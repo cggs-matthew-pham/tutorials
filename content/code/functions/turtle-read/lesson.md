@@ -1,5 +1,5 @@
 ---
-order: 12
+order: 1
 unit: reading
 moveId: read-for-the-job
 reviews: [loop-counter, value-update, if-else, list-position]

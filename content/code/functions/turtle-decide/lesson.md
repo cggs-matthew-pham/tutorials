@@ -1,5 +1,5 @@
 ---
-order: 16
+order: 5
 unit: functions
 moveId: function-decides
 reviews: [if-else, list-position, for-each, function-answers]

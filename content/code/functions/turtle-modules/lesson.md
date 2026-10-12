@@ -1,5 +1,5 @@
 ---
-order: 17
+order: 6
 unit: functions
 moveId: module-toolbox
 reviews: [name-steps, function-inputs]

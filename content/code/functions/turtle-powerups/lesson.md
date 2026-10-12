@@ -1,5 +1,5 @@
 ---
-order: 21
+order: 10
 unit: challenge
 reviews: [value-update, if-else, react-to-event]
 assumes: [callback, global, variable-update, if, list]

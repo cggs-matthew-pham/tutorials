@@ -1,5 +1,5 @@
 ---
-order: 15
+order: 4
 unit: functions
 moveId: function-answers
 reviews: [if-else, function-inputs]

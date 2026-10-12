@@ -1,5 +1,5 @@
 ---
-order: 20
+order: 9
 unit: challenge
 introduces: [bool-value, random]
 recipes: [import-module, dotted-call]

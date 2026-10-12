@@ -1,5 +1,5 @@
 ---
-order: 22
+order: 11
 unit: challenge
 optional: true
 title: "Optional: Control panel"

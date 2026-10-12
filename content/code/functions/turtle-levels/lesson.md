@@ -1,5 +1,5 @@
 ---
-order: 23
+order: 12
 unit: challenge
 optional: true
 title: "Optional: Game levels"
