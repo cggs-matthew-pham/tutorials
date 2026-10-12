@@ -177,6 +177,7 @@ hint:
   - "Trace one step with your finger. Which moves and turns make one step?"
   - "One step is four lines: up, turn, across, turn back. Put those under a for line."
 check: { type: code, text: "Draw a staircase with 5 steps using a loop.", rules: { loops: 1 } }
+unlocks: [for-loop]
 ```
 
 A loop works for any pattern, not only shapes. Find the part that repeats, write it once, and say how many times.

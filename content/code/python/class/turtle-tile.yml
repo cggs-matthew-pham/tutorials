@@ -1,0 +1,25 @@
+activities:
+  - at: start
+    kind: info
+    title: "By the end of this lesson"
+    do: |
+      Here is the finished program running. By the end of the lesson you will write one like it.
+    notes: "Run the finished example on the projector before anything else."
+  - at: predict
+    kind: discussion
+    title: "Predict the count"
+    minutes: 3
+    do: |
+      Decide with your partner. Hold up 1, 2, 3 or 4 fingers for the option you chose.
+    notes: "Rows times columns. Ask which loop is which."
+  - at: investigate
+    title: "Predict, then run"
+    minutes: 5
+    do: |
+      Each pair changes one thing, writes down what they expect, then runs it. Share the biggest surprise.
+    notes: "Make the idea physical before it goes back to the screen."
+  - at: end
+    title: Show a friend
+    minutes: 3
+    do: |
+      Turn to the next pair. Gallery walk: look at three tiles and guess each tile's rule.

@@ -1,0 +1,25 @@
+activities:
+  - at: start
+    kind: info
+    title: "By the end of this lesson"
+    do: |
+      Here is the finished program running. By the end of the lesson you will write one like it.
+    notes: "Run the finished example on the projector before anything else."
+  - at: predict
+    kind: discussion
+    title: "Vote on the third colour"
+    minutes: 3
+    do: |
+      Decide with your partner. Hold up 1, 2, 3 or 4 fingers for the option you chose.
+    notes: "Many say orange because they count from 1. Do not correct until it runs."
+  - at: investigate
+    title: "Human list"
+    minutes: 5
+    do: |
+      Five students hold colour cards in places 0 to 4. Call colours[2]; the student steps forward. Then call colours[5].
+    notes: "Make the idea physical before it goes back to the screen."
+  - at: end
+    title: Show a friend
+    minutes: 3
+    do: |
+      Turn to the next pair. Show your longer list and say its last place.

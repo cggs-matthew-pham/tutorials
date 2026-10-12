@@ -1,0 +1,25 @@
+activities:
+  - at: start
+    kind: info
+    title: "By the end of this lesson"
+    do: |
+      Here is the finished program running. By the end of the lesson you will write one like it.
+    notes: "Run the finished example on the projector before anything else."
+  - at: predict
+    kind: discussion
+    title: "Vote on the spiral"
+    minutes: 3
+    do: |
+      Decide with your partner. Hold up 1, 2, 3 or 4 fingers for the option you chose.
+    notes: "Wrong options: a square (i never changes), a circle, an error because i was never stored."
+  - at: investigate
+    title: "Walk the counter"
+    minutes: 5
+    do: |
+      Four volunteers say i aloud as the loop runs, 0, 1, 2, 3, while the class says each line length.
+    notes: "Make the idea physical before it goes back to the screen."
+  - at: end
+    title: Show a friend
+    minutes: 3
+    do: |
+      Turn to the next pair. Show your spiral and say what i is on the third pass.
