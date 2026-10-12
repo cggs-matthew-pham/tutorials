@@ -230,6 +230,14 @@ Every route through the Web pathway (hand-built pages, Bootstrap, the DOM, Vue) 
 
 **Parked: Node.js.** It does not run in a browser. StackBlitz's WebContainers is proprietary, heavy, and needs security headers GitHub Pages cannot set. Local installs or online editors need accounts. Flask already teaches servers and APIs, and schools generally prefer Python. Revisit only if a school wants a JavaScript-only path.
 
+## Pilot (12 Oct 2026, branch `pilot/drawing-unit-primm`, not on main): concept lessons, then PRIMM on a bigger program
+
+Question: is full PRIMM on every small snippet the best use of it? Research behind PRIMM (Block Model, tracing before writing, expertise reversal, faded worked examples) suggests short explicit concept lessons, then one full PRIMM on a longer program that combines them, where Investigate can ask about parts and how they connect. Piloted on the Drawing unit:
+- **1 Drawing with a turtle** (concept, 40 min): Predict now asks what the loop draws, with options that are wrong ideas of a loop (only the first line repeats, it runs once, nothing because `i` is unused; misconception `loop-body-indent`). Investigate keeps line counting, the counter trace and the heading question, and adds an indent bug task. Make is a staircase (find the repeating part, write it once), replacing the house, whose roof was angle work. The tiles example moves to lesson 2.5.
+- **2 Variables and operations** (concept, 45 min): the corner trace is dropped (lesson 1 owns the full turn).
+- **2.5 A street of houses** (new, `turtle-street`): a build-along clip (captions name each part: name the numbers, move to the start, one house, step along, work out the length), then PRIMM on the 30-line program. Predict a change (5 houses: 380); Investigate matches parts to jobs, traces where houses start, follows a change to `width`, asks why a line is needed, and a bug that hides while `houses` is 4 (`count-wrong-variable`); Modify six houses, growing houses, is the length still right; Make adds a part with its own loop and variable. Introduces nothing new.
+- Watch-then-PRIMM: a worked example (the build clip, segmented with subgoal captions), then reading and changing the result. Not yet tried with a class. If it works, repeat per unit (Catch already plays this role for the challenge unit).
+
 ## Parked
 
 - Pygame: only after a prototype proves the in-browser runtime. microStudio covers games for now.

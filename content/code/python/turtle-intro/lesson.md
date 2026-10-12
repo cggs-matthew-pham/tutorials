@@ -44,37 +44,39 @@ A turtle walks across the screen, leaving a line behind. Your program tells it w
 
 ```step
 stage: predict
-code: square.py#square
+code: square.py#loop
 reveal: true
 check:
   type: predict
-  q: "What shape will the turtle draw?"
-  options: ["a square", "a triangle", "a long line", "a rectangle"]
-  actual: "A square: four sides of 100 steps, turning right 90 degrees each time. The turtle finishes back where it started, facing right."
+  q: "What will the turtle draw?"
+  options: ["a square", "one long line", "one side, then a turn", "nothing, because i is never used"]
+  fault: logic
+  misconception: loop-body-indent
+  actual: "A square. The two indented lines run 4 times: a side of 100, then a quarter turn, four times over. The turtle finishes where it started, facing right."
 app: true
 clip:
   - caption: The turtle starts in the middle, facing right.
   - type:
       into: Python code
-      text: "@square.py#square"
+      text: "@square.py#loop"
   - click: Run
   - expect: { selector: "#status", contains: Finished }
   - expect: { selector: "#turtle-state", contains: "heading 0" }
 ```
 
-Read the code. What shape will the turtle draw? Where will it finish?
+`forward(100)` moves the turtle 100 steps and draws a line. `right(90)` turns it a quarter turn. The line `for i in range(4):` is new. Read the code. What will the turtle draw?
 
 ## Run
 
 ```step
 stage: run
-code: square.py#square
-try: { starter: "square.py#square", height: 420 }
+code: square.py#loop
+try: { starter: "square.py#loop", height: 420 }
 check: { type: reflect, text: "I can explain what forward(100) and right(90) do to the turtle." }
 unlocks: [forward, backward, right, left]
 ```
 
-Run the program and compare it with your prediction.
+Run the program and compare it with your prediction. Which lines ran four times?
 
 The first line, `from turtle import *`, gives your program the turtle commands. Copy it to the top of every program for now; a later lesson shows how it works.
 
@@ -103,11 +105,13 @@ tasks:
       answer: 2
       explain: "Only range(20) and the turn (360 / 20 = 18 degrees). The loop is the same 3 lines."
   - check:
-      type: question
-      q: "In the loop version, which part is repeated?"
-      options: ["Only the first line", "The two indented lines", "The whole program", "Nothing"]
-      answer: 1
-      explain: "Indented lines belong to the loop. range(4) says how many times they repeat."
+      type: bug
+      code: square.py#bug
+      text: "This was meant to draw a square. Instead the turtle draws one long line and turns once at the very end. Click the wrong line."
+      answer: 5
+      fault: logic
+      misconception: loop-body-indent
+      explain: "right(90) is not indented, so it is not part of the loop. The loop draws four sides in a straight line, and the turn runs once afterwards. Indent it under the for line so both lines repeat."
   - check:
       type: trace
       text: "for i in range(4): makes a counter called i. It starts at 0 and goes up by 1 each time round the loop. Fill in the table for the square."
@@ -138,9 +142,9 @@ How much code does each way need as the shape gets more sides?
 
 Now imagine the shape needs to change. Which version is easier to change?
 
-### Read the loop
+### Spot the bug
 
-Look at the loop version one more time. What belongs to it, and what controls how often it runs?
+Indented lines belong to the loop. Find the line that should repeat but doesn't.
 
 ### Follow the counter
 
@@ -195,39 +199,35 @@ Give your triangle a colour. Try a thicker line too.
 ```step
 stage: make
 try: { starter: "square.py#make", height: 420 }
+app: true
+query: { code: "@square.py#sol-stairs", view: output, autorun: 1 }
+clip:
+  - wait: 600
+  - expect: { selector: "#status", contains: Finished }
+caption: "The expected result: a staircase with 5 steps"
+reveal: Show what the staircase should look like
 tasks:
-  - check: { type: reflect, text: "I drew the walls of a house." }
-  - check: { type: reflect, text: "I drew a roof on top of the walls." }
-  - check: { type: reflect, text: "I coloured my house." }
+  - hint:
+      - "Trace one step with your finger. Which moves and turns make one step?"
+      - "One step is four lines: up, turn, across, turn back. Put those under a for line."
+    check: { type: code, text: "Draw a staircase with 5 steps using a loop.", rules: { loops: 1 } }
+  - hint: "Only one number needs to change."
+    check: { type: reflect, text: "I made the staircase 10 steps by changing one number." }
+  - check: { type: reflect, text: "I drew a pattern of my own: I found the part that repeats and wrote it once." }
 ```
 
-Build a house, one part at a time.
+A loop works for any pattern, not only shapes. Find the part that repeats, write it once, and say how many times.
 
-### Draw the walls
+### Draw a staircase
 
-Draw a square for the walls.
+Draw a staircase with 5 steps, like the picture.
 
-### Add the roof
+### Make it taller
 
-Add two lines on top that meet in a point for the roof.
+Make it 10 steps.
 
-### Colour it
+### Your own pattern
 
-Use `pencolor("red")` and other colours to finish your house.
+Try a zigzag, a row of battlements or a dashed line. Find the part that repeats first.
 
-## Extend a row of floor tiles
-
-```step
-stage: info
-```
-
-Tilers and architects plan floors and rooms with exactly this idea. Where could you use it? Try drawing a row of floor tiles, or a plan of your own bedroom, with loops.
-
-## In the real world
-
-```step
-stage: modify
-try: { starter: "square.py#use", height: 420 }
-```
-
-Tilers and architects plan floors like this: one tile, repeated. Run it, then change the number of tiles, make them bigger, or add a second row.
+Next lesson adds variables. Then you put loops and variables to work on a whole program: a street of houses.

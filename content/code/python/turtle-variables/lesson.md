@@ -75,17 +75,6 @@ code: variables.py#print
 insight: "A variable is a named value: you can follow how it is used, find where it goes wrong, and change it in one place."
 tasks:
   - check:
-      type: trace
-      text: "sides = 5, so angle is 72. Fill in how many degrees the turtle has turned in total after each corner."
-      table: |
-        | corner | turned so far |
-        | 0 | 72 |
-        | 1 | [144] |
-        | 2 | [216] |
-        | 3 | [288] |
-        | 4 | [360] |
-      explain: "Every corner adds 72, and after 5 corners the turtle has made one full turn."
-  - check:
       type: number
       q: "If sides = 6, what is angle?"
       answer: 60
@@ -117,10 +106,6 @@ tasks:
 ```
 
 `print(angle)` shows a value under the drawing. Change `sides` and watch what `angle` becomes.
-
-### Trace the corners
-
-Follow the turtle round the shape.
 
 ### Calculate the angle
 

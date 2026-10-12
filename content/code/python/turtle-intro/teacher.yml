@@ -1,6 +1,6 @@
 summary: Students meet the turtle, read and run a tiny program, then find out why programmers use loops instead of copying the same lines.
-time: 50
-timing: "Predict and Run 10 min · Investigate 10 min · Modify 15 min · Make 15 min"
+time: 40
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 10 min · Make 10 min"
 goals:
   - I can say what forward, right and left do to the turtle.
   - I can use a loop to repeat lines instead of copying them.
@@ -8,11 +8,11 @@ goals:
 before: |
   Open the lesson, run the first program and draw the triangle from the Modify step yourself. It takes about five minutes and you will meet the same surprise students do: the turn is 120 degrees, not 60.
 running:
-  - "Predict: show the first program and ask what shape it draws and where the turtle finishes. Take two or three answers before anyone runs it."
-  - "Run: students run it and compare with their prediction. Ask: where did the turtle end up, and which way is it facing?"
-  - "Investigate: the key idea is that a loop does the same work as copied lines, but stays the same size. Ask a student to say why the loop version is easier to change. The last task traces the counter i (0, 1, 2, 3); say that it counts from 0, because later lessons use it."
+  - "Predict: show the loop and ask what it draws. Take two or three answers before anyone runs it; each wrong option is a different idea of what a loop repeats (only the first line, only once, nothing because i is unused)."
+  - "Run: students run it and compare with their prediction. Ask: which lines ran four times, and how do you know?"
+  - "Investigate: the key idea is that a loop does the same work as copied lines, but stays the same size. Ask a student to say why the loop version is easier to change. The bug task (right(90) not indented) comes after students have seen the loop work. The trace task traces the counter i (0, 1, 2, 3); say that it counts from 0, because later lessons use it."
   - "Modify: let students get the triangle wrong first. If they try 60 degrees, ask them to walk the shape themselves: how far do you turn at each corner?"
-  - "Make: the house is built in three small steps. Students who finish early can add a door or a window."
+  - "Make: the staircase reverses the lesson: students find the part that repeats in a picture and write it once. Early finishers can try the house (a square, then a roof turning left 60 and right 120)."
 stuck:
   - see: The triangle has a gap, or the shape looks like a star.
     ask: How many times does the loop repeat, and how far does the turtle turn each time?
@@ -25,7 +25,7 @@ stuck:
     fix: Ask them to draw a 50-sided shape both ways. The loop stays 3 lines; the copied version needs 100.
 stretch: Draw a shape with 50 sides and turn 360 / 50 degrees. What does it start to look like, and why?
 support: Give the loop version and ask the student to change only one number at a time, running after each change.
-leads: "Loops come back in every lesson, and in tessellations, logo design and generative art. Next lesson stores numbers in variables, so the turn can be worked out instead of guessed. Class ideas: design a floor tile and repeat it; recreate a simple logo from code."
+leads: "Loops come back in every lesson, and in tessellations, logo design and generative art. Next lesson stores numbers in variables, so the turn can be worked out instead of guessed. Then lesson 3 (A street of houses) reads a whole program that uses both. Class ideas: design a floor tile and repeat it; recreate a simple logo from code."
 exit:
   q: "A turtle draws a shape with 5 equal sides using a loop. How many times does the loop repeat, and how far does the turtle turn each time?"
   a: "5 times, turning 72 degrees each time (360 divided by 5)."
@@ -41,8 +41,6 @@ solutions:
   step-4#t1: square.py#sol-triangle
   step-4#t2: square.py#sol-double
   step-4#t3: square.py#sol-pen
-  step-5#t1: square.py#sol-walls
-  step-5#t2: square.py#sol-roof
-  step-5#t3: square.py#sol-colour
-  step-7: square.py#sol-tiles
+  step-5#t1: square.py#sol-stairs
+  step-5#t2: square.py#sol-stairs10
 struggle: "Working out the turn angle for a shape. Ask how far the turtle turns in total and how many turns there are, instead of giving the number."

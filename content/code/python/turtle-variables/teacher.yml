@@ -1,6 +1,6 @@
 summary: Students give numbers names (variables) and let the program calculate the turn, so one change at the top updates the whole shape.
-time: 50
-timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 10 min · Room plan 5 min"
+time: 45
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 10 min · Make 10 min · Room plan 5 min"
 goals:
   - I can store a value in a variable and use its name instead of the number.
   - I can work out a value with a calculation, such as angle = 360 / sides.
@@ -25,7 +25,7 @@ stuck:
     fix: Variable names must match exactly. Size and size are different names.
 stretch: Make a shape generator. Change sides to 3, 4, 5 and up to 20, and record which values still look like the shape and which look like a circle.
 support: Give students a table with two columns (sides, angle) and ask them to fill in angle for 3, 4, 5 and 6 before running anything.
-leads: "Next lesson the program makes decisions about values. Scores, counters, game settings and the scale on maps and plans all use variables. Class ideas: a spiral gallery; scale drawings of the classroom."
+leads: "Next lesson reads a whole program (a street of houses) that combines loops and variables. After that, programs make decisions about values. Scores, counters, game settings and the scale on maps and plans all use variables. Class ideas: a spiral gallery; scale drawings of the classroom."
 exit:
   q: "What does size = size + 5 do if size is 20?"
   a: "It works out 20 + 5 = 25 and stores 25 back in size."

@@ -32,7 +32,15 @@ for i in range(4):
 # region: make
 from turtle import *
 
-# Draw your own shape here.
+# Draw a staircase with a loop.
+# endregion
+
+# region: bug
+from turtle import *
+
+for i in range(4):
+    forward(100)
+right(90)
 # endregion
 
 # region: triangle
@@ -41,18 +49,6 @@ from turtle import *
 for i in range(3):
     forward(100)
     right(120)
-# endregion
-
-# region: use
-from turtle import *
-
-for tile in range(5):
-    for side in range(4):
-        forward(40)
-        right(90)
-    penup()
-    forward(40)
-    pendown()
 # endregion
 
 # region: compare
@@ -98,59 +94,22 @@ for i in range(3):
     right(120)
 # endregion
 
-# region: sol-walls
+# region: sol-stairs
 from turtle import *
 
-for i in range(4):
-    forward(100)
-    right(90)
-# endregion
-
-# region: sol-roof
-from turtle import *
-
-for i in range(4):
-    forward(100)
-    right(90)
-
-left(60)
-forward(100)
-right(120)
-forward(100)
-# endregion
-
-# region: sol-colour
-from turtle import *
-
-pencolor("brown")
-pensize(4)
-for i in range(4):
-    forward(100)
-    right(90)
-
-pencolor("red")
-left(60)
-forward(100)
-right(120)
-forward(100)
-# endregion
-
-# region: sol-tiles
-from turtle import *
-
-# Two rows of six bigger tiles.
-for row in range(2):
-    for tile in range(6):
-        for side in range(4):
-            forward(50)
-            right(90)
-        penup()
-        forward(50)
-        pendown()
-    penup()
-    backward(300)
-    right(90)
-    forward(50)
+for i in range(5):
     left(90)
-    pendown()
+    forward(20)
+    right(90)
+    forward(20)
+# endregion
+
+# region: sol-stairs10
+from turtle import *
+
+for i in range(10):
+    left(90)
+    forward(20)
+    right(90)
+    forward(20)
 # endregion

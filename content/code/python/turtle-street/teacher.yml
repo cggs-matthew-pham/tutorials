@@ -1,0 +1,43 @@
+summary: Students watch a 30-line program being built part by part, then read it closely, change it and add to it. It uses only loops, variables and calculations from lessons 1 and 2; the new skill is reading a whole program.
+time: 45
+timing: "Watch 5 min · Predict and Run 5 min · Investigate 15 min · Modify 10 min · Make 10 min"
+goals:
+  - I can find the lines in a longer program that do one job.
+  - I can say what changes when I change one variable, before I run it.
+  - I can add a new part to a program without breaking the rest.
+before: |
+  Watch the build clip, then try the bug task with houses = 6. The bug (a loop that repeats houses times instead of 4) hides while houses is 4; that is the point of the lesson: parts of a program depend on each other in ways you only see when something changes.
+running:
+  - "Watch: play the clip once, whole class. Pause after each caption and ask what the next lines will do before they appear. The captions are the program's parts: name the numbers, move to the start, one house (walls, roof, step along), work out the length."
+  - "Predict: students commit to the printed length for 5 houses before running. The common wrong answer is 400 (5 gaps instead of 4): ask them to count the gaps on the 4-house picture."
+  - "Investigate: this is the heart of the lesson. The match and trace tasks are about parts and how they connect, not single lines. Ask: which lines would you change to make the roofs taller? (None alone: the roof is drawn with width, so it follows the walls.)"
+  - "Modify: students change one thing and run. The third task is a real question: after the houses grow, the printed length is wrong, because the formula assumes every house is the same width."
+  - "Make: the new part needs its own loop and variable. Early finishers can make it depend on an existing variable (a fence as long as the street)."
+stuck:
+  - see: The houses are drawn on top of each other, or only one house appears.
+    ask: Which lines move the turtle along, and are they indented under the house loop?
+    fix: penup, forward(gap) and pendown must be inside the house loop, so the turtle steps along after every house.
+  - see: The roofs point sideways or downwards after changing houses.
+    ask: How many times does the walls loop repeat? Should that depend on how many houses there are?
+    fix: A square always has 4 sides, so the walls loop is range(4), not range(houses).
+  - see: A student's new part starts in the wrong place.
+    ask: Where is the turtle, and which way is it facing, when the house loop ends?
+    fix: It is at the ground after the last gap, facing right. Start the new part from there, or move with penup first.
+stretch: Make the fence exactly as long as the street, using the same calculation as the last line.
+support: Give the match task first on paper, cutting the program into its parts, before students touch the code.
+leads: "This is the shape of every later unit: a few short lessons on new ideas, then a longer program that puts them together. Next unit adds decisions (if) and lists, and its programs grow the same way."
+exit:
+  q: "The street has houses = 3, width = 50 and gap = 10. What does the last line print, and where does house 2 start if house 1 starts at x = -220?"
+  a: "170 (3 × 50 + 2 × 10). House 2 starts at -160 (-220 + 50 + 10)."
+explain: |
+  A longer program is made of **parts**, each with one job. Here: name the numbers, move to the start, then a loop that repeats one house (walls, roof, step along), and a last line that works out the street's length.
+
+  The house loop has a loop inside it: the inner loop draws the four walls, the outer loop repeats the whole house. Everything indented under `for house in range(houses):` happens once per house.
+
+  The parts are joined by **variables**. `width` is used by the walls, the roof and the length, so changing it changes all three. That is why reading a program means asking, for each variable, "where else is this used?"
+solutions:
+  step-5#t1: street.py#sol-six
+  step-5#t2: street.py#sol-grow
+  step-6#t1: street.py#sol-fence
+  step-7: street.py#sol-tiles
+struggle: "Reading a program longer than one screen. Ask students to say the job of each part aloud before they look at any single line."
