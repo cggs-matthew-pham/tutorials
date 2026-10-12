@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 //   cheatsheet    one Print reference sheet per unit, from the snippets the unit unlocks
 // plus the teacher guide pages under /teach/. Students never see solutions on lesson pages.
 import { snippetPattern } from './snippet-pattern.mjs';
-import { snippetFrom, splitFiles, parseTrace, workItems, sourceList } from './lesson-core.mjs';
+import { CLASS_AT, snippetFrom, splitFiles, parseTrace, workItems, sourceList } from './lesson-core.mjs';
 
 export const SITE_URL = (process.env.SITE_URL || 'https://tutorials.learningwaypoints.com').replace(/\/$/, '');
 export const PREPARE_URL = 'https://prepare.learningwaypoints.com/';
@@ -168,6 +168,25 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
   slides.push(`# ${pt(lesson.title)}\n\n${course}${unit ? ` · ${unit}` : ''}` + note(`${T.summary || lesson.summary}${T.time ? ` About ${T.time} minutes${T.timing ? ` (${T.timing})` : ''}.` : ''}${srcNote}`));
   slides.push(`## Today\n\n**We are learning to** ${lowerFirst(lesson.summary.replace(/\.$/, ''))}.\n\n${(T.goals || []).map((g) => `- ${pt(g)}`).join('\n')}` + note(T.before ? `Before class: ${T.before}` : ''));
   if (lesson.hook) slides.push(`${BADGE.discussion}\n\n## Why it matters\n\n> ${lesson.hook}` + note(lesson.intro));
+  // Class plan (content/<course>/class/<lesson>.yml): activities and questions for the room, placed after the first
+  // step of their stage (or at the start or end). The site stays self-paced; the deck carries the talk.
+  const CP = lesson.classPlan || {}, placed = new Set();
+  const classSlides = (at) => {
+    if (placed.has(at)) return;
+    placed.add(at);
+    for (const a of CP.activities || []) if (a.at === at) {
+      slides.push(`${BADGE[a.kind || 'activity']}\n\n## ${pt(a.title)}${a.minutes ? ` <span style="font-size:.6em;color:#64748b">(${a.minutes} min)</span>` : ''}\n\n${prose(a.do)}` + note(a.notes || ''));
+    }
+    (CP.questions || []).filter((q) => q.at === at).forEach((q, i) => {
+      const p = checkPartsMd(q, snip, `${lesson.slug}/class-${at}-${i}`);
+      let body = p.q ? `**${p.q}**` : '';
+      if (p.options) body += '\n\n' + p.options.map((o) => `- ${o}`).join('\n');
+      if (p.trace) body += '\n\n' + traceTable(p.trace, true);
+      if (p.match) body += '\n\n' + `| | |\n|---|---|\n` + p.match.lefts.map((l, j) => `| \`${l}\` | ${letters[j]}. ${p.match.rights[j]} |`).join('\n');
+      slides.push(`${BADGE.check}\n\n## ${pt(q.title || 'Class question')}\n\n${body}\n\n* Answer: ${oneLine(p.answer)}` + note(`${p.explain || ''} Ask on mini whiteboards or by show of hands before the reveal.`));
+    });
+  };
+  classSlides('start');
   // Programs too long for a slide are read in the tutorial instead.
   const showCode = (code, step) => blocksDeck(code) || (code.split('\n').length > 27
     ? `*The program is ${code.split('\n').length} lines long: open it in the tutorial and read it together.*\n\n[Open this step](${stepUrl(lesson, step)})`.replace(/^\*|\*(?=\n)/g, '_')
@@ -190,6 +209,7 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
     if (stage === 'predict' && !DESIGN) {
       const k = c.check?.type === 'predict' ? checkPartsMd(c.check, snip, s.id) : null;
       slides.push(`${BADGE.discussion}\n\n## ${E5 ? 'Engage: predict' : 'Predict'}\n\n${code ? showCode(code, s) + '\n\n' : ''}${k ? `**${k.q}**${k.options ? '\n\n' + k.options.map((o) => `- ${o}`).join('\n') : ''}` : prose(s.body)}` + note(`${k?.answer ? `What happens: ${k.answer}` : ''} Take two or three predictions before anyone runs it.`));
+      classSlides('predict');
       if (k?.answer) slides.push(`${BADGE.check}\n\n## What happened?\n\n* ${oneLine(k.answer)}` + note('Reveal after running. Ask who predicted it, and what made them think so.'));
     } else if (stage === 'run') {
       slides.push(runIt(s) + note(`${prose(s.body)} ${c.check?.type === 'reflect' ? `Students should be able to say: ${c.check.text}` : ''}`));
@@ -237,7 +257,9 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
     } else if (s.body.trim()) {
       slides.push(`## ${title}\n\n${prose(s.body)}`);
     }
+    if (stage) classSlides(stage);
   }
+  for (const at of CLASS_AT) classSlides(at);
   if (T.exit) slides.push(`${BADGE.check}\n\n## Exit ticket\n\n**${pt(T.exit.q)}**\n\n* ${pt(oneLine(T.exit.a))}` + note('Students answer on paper or a mini whiteboard before the reveal. Anyone who cannot answer needs the main idea again next lesson.'));
   return `---\nmarp: true\ntheme: default\nhtml: true\n---\n\n${slides.map(fitCode).join('\n\n---\n\n')}\n`;
 }
@@ -459,6 +481,7 @@ export function lessonGuideBody(lesson, { esc, md, snip, highlightCode, codeBloc
     sec('Timing', T.timing ? `<p>${esc(T.timing)}</p>` : '') +
     sec('Before class', T.before ? md(T.before) : '') +
     sec('Running the lesson', T.running ? `<ol>${T.running.map((r) => `<li>${md(r).replace(/^<p>|<\/p>\s*$/g, '')}</li>`).join('')}</ol>` : '') +
+    sec('In class', (lesson.classPlan?.activities || []).length || (lesson.classPlan?.questions || []).length ? `<p class="muted">On the slides at these points. Students can do the whole lesson on their own; these are for the room.</p><ul>${(lesson.classPlan.activities || []).map((a) => `<li><b>${esc(a.title)}</b> <span class="muted">(${esc(a.at)}${a.minutes ? `, ${a.minutes} min` : ''})</span>${md(a.do)}${a.notes ? `<p class="muted">${esc(a.notes)}</p>` : ''}</li>`).join('')}${(lesson.classPlan.questions || []).map((q, i) => { const p = checkParts(q, snip, `${lesson.slug}/class-${i}`); return `<li><b>${esc(q.title || 'Class question')}</b> <span class="muted">(${esc(q.at)})</span><br>${esc(p.q)}<br><span class="ans">${esc(p.answer)}</span>${p.explain ? `<br><span class="muted">${esc(p.explain)}</span>` : ''}</li>`; }).join('')}</ul>` : '') +
     sec('The hard part (on purpose)', T.struggle ? `<p>${esc(T.struggle)}</p>` : '') +
     sec('When students get stuck', stuck) +
     sec('Answers to the checks', answers ? `<ol class="answers">${answers}</ol>` : '') +

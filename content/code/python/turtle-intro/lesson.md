@@ -100,11 +100,6 @@ tasks:
       answer: 40
       explain: "Each side needs 2 lines (forward and a turn), so 20 sides need 40."
   - check:
-      type: number
-      q: "Now think about the loop version drawing a 20-sided shape. How many numbers in it change?"
-      answer: 2
-      explain: "Only range(20) and the turn (360 / 20 = 18 degrees). The loop is the same 3 lines."
-  - check:
       type: bug
       code: square.py#bug
       text: "This was meant to draw a square. Instead the turtle draws one long line and turns once at the very end. Click the wrong line."
@@ -122,14 +117,6 @@ tasks:
         | 3 | [2] | [270] |
         | 4 | [3] | [360] |
       explain: "i counts 0, 1, 2, 3: four passes, starting from 0. This square never uses i, but it is there, and later programs will use it. After four turns of 90 the turtle has turned 360 degrees, a full turn."
-  - check:
-      type: question
-      q: "The turtle starts in the middle, facing right. After the square, which way is it facing?"
-      options: ["Up", "Down", "Right", "Left"]
-      answer: 2
-      feedback: ["Up is after three right turns of 90 (270 degrees). Count the fourth turn.", "Down is after one right turn of 90. The loop turns four times.", null, "Left is after two turns (180 degrees). The loop turns four times."]
-      explain: "Four turns of 90 make 360 degrees, a full turn, so the turtle faces right again, where it started. Any shape that closes up turns a full 360 degrees in total."
-unlocks: [for-loop, square-loop]
 ```
 
 Compare the two programs. They draw the same square.
@@ -138,10 +125,6 @@ Compare the two programs. They draw the same square.
 
 How much code does each way need as the shape gets more sides?
 
-### Count the changes
-
-Now imagine the shape needs to change. Which version is easier to change?
-
 ### Spot the bug
 
 Indented lines belong to the loop. Find the line that should repeat but doesn't.
@@ -149,10 +132,6 @@ Indented lines belong to the loop. Find the line that should repeat but doesn't.
 ### Follow the counter
 
 In `for i in range(4):`, the name `i` is a counter. Follow it round the loop.
-
-### Which way now?
-
-Use the last column of your table. Then run the square and check the turtle.
 
 ## Modify
 

@@ -46,6 +46,10 @@ export function loadLesson(dir) {
   // teacher.yml beside lesson.md: notes, goals, exit ticket, student explanation and solutions (see AUTHORING.md).
   const t = join(dir, 'teacher.yml');
   if (existsSync(t)) lesson.teacher = YAML.parse(readFileSync(t, 'utf8')) || {};
+  // Class activities (content/<course>/class/<lesson>.yml): kept outside the lesson folder so editing them never
+  // re-records the lesson's clips. They become slides in the deck and a section of the teacher guide (AUTHORING › Class plan).
+  const c = join(dir, '..', 'class', `${dir.split(sep).pop()}.yml`);
+  if (existsSync(c)) lesson.classPlan = YAML.parse(readFileSync(c, 'utf8')) || {};
   return lesson;
 }
 

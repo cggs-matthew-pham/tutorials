@@ -86,27 +86,10 @@ tasks:
         - ["for house in range(houses):", "repeats everything indented under it, once per house"]
       explain: "The outer loop repeats a whole house: walls, roof and the move along. The inner loop repeats only the walls."
   - check:
-      type: trace
-      text: "The first house starts at x = -220. Fill in where each house starts."
-      table: |
-        | house | starts at x |
-        | 1 | -220 |
-        | 2 | [-140] |
-        | 3 | [-60] |
-        | 4 | [20] |
-      explain: "Each house moves the turtle along width + gap = 60 + 20 = 80 before the next one starts."
-  - check:
       type: number
       q: "Back to 4 houses. Change width to 70 and leave the rest. What will the last line print?"
       answer: 340
       explain: "4 × 70 + 3 × 20 = 340. Every part that uses width follows the change: the walls, the roof and the length."
-  - check:
-      type: question
-      q: "Inside the roof, forward(width) on the line after left(90) draws over a wall that is already there. Why is it needed?"
-      options: ["It takes the turtle up to the corner where the roof starts", "It makes the wall thicker", "It is a mistake and can be deleted", "It draws the roof"]
-      answer: 0
-      feedback: [null, "The pen draws the same line twice; that adds nothing you can see.", "Delete it and run: where does the roof start now?", "The roof starts after it, with right(30)."]
-      explain: "After the walls the turtle is back at the bottom-left corner. The roof starts at the top-left, so the turtle has to get there first."
   - check:
       type: bug
       code: street.py#bug
@@ -121,17 +104,9 @@ tasks:
 
 Match each part with its job.
 
-### Follow the houses
-
-Work out where each house starts.
-
 ### Follow a change
 
 What depends on `width`?
-
-### Why is this line here?
-
-Some lines do a job you can't see in the picture.
 
 ### Spot the bug
 

@@ -1,0 +1,60 @@
+activities:
+  - at: start
+    kind: discussion
+    title: Today's program
+    do: |
+      Today's program is 30 lines long. It uses only loops and variables, which you already know.
+      The skill today is reading: which part does which job?
+    notes: "Play the Watch it built clip on the projector, pausing after each caption: what will the next lines do?"
+  - at: predict
+    kind: discussion
+    title: Vote, then argue
+    minutes: 3
+    do: |
+      With your partner: change houses to 5. What number prints?
+      Write it on a mini whiteboard and hold it up.
+    notes: "The common wrong answer is 400 (5 gaps instead of 4). Ask a 400 pair and a 380 pair to count the gaps on the 4-house picture."
+  - at: investigate
+    title: Jigsaw the program
+    minutes: 8
+    do: |
+      Half the pairs read the walls and the roof. The other half read the move along and the last line.
+      You have 3 minutes. Then find a pair from the other half and explain your part, line by line.
+    notes: "This is Code.org's jigsaw from its Investigate lessons. Finish with the class naming the plan: repeat a unit, then step along. Ask where else they would use it (a fence, a row of tiles, a bar chart)."
+  - at: investigate
+    kind: discussion
+    title: Two plans worth naming
+    do: |
+      **Repeat a unit, then step along:** draw one thing, move to where the next one starts, loop.
+      **Work it out from the variables:** the last line calculates the length from houses, width and gap.
+      Where else could you use each one?
+  - at: modify
+    title: "Optional: pairs at one computer"
+    do: |
+      Driver types, navigator checks the printed length after every change. Swap after each task.
+  - at: end
+    title: Gallery walk
+    minutes: 4
+    do: |
+      Leave your street on screen. Walk round and find one street that does something yours doesn't.
+      Back at your desk: in one sentence, what does your program do?
+    notes: "The one-sentence summary is the standard test of reading a whole program (explain in plain English). Collect a few aloud."
+questions:
+  - at: investigate
+    title: Follow the houses
+    type: trace
+    text: "The first house starts at x = -220. Fill in where each house starts."
+    table: |
+      | house | starts at x |
+      | 1 | -220 |
+      | 2 | [-140] |
+      | 3 | [-60] |
+      | 4 | [20] |
+    explain: "Each house moves the turtle along width + gap = 60 + 20 = 80 before the next one starts."
+  - at: investigate
+    title: Why is this line here?
+    type: question
+    q: "Inside the roof, forward(width) on the line after left(90) draws over a wall that is already there. Why is it needed?"
+    options: ["It takes the turtle up to the corner where the roof starts", "It makes the wall thicker", "It is a mistake and can be deleted", "It draws the roof"]
+    answer: 0
+    explain: "After the walls the turtle is back at the bottom-left corner. The roof starts at the top-left, so the turtle has to get there first."

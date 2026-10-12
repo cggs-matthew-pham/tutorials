@@ -695,6 +695,7 @@ export function validateLessonCore(lesson, read, known, shared = {}) {
     }
   }
   if (lesson.teacher) validateTeacher(lesson, snip, err);
+  if (lesson.classPlan) validateClassPlan(lesson, err);
   return errs;
 }
 
@@ -747,6 +748,38 @@ export function expectedItems(lesson) {
 export function workItems(lesson) {
   return lesson.steps.flatMap((s) => (s.tasks.length ? s.tasks.map((t) => ({ id: t.id, step: s, task: t, check: t.config.check })) : [{ id: s.id, step: s, task: null, check: s.config.check }]))
     .filter((w) => ['modify', 'make'].includes(w.step.config.stage) && w.step.config.try);
+}
+
+/** Where a class activity or question goes in the deck: after the first step of that stage, or at the start or end. */
+export const CLASS_AT = ['start', 'predict', 'run', 'investigate', 'modify', 'make', 'end'];
+export const CLASS_KINDS = ['activity', 'discussion', 'check'];
+export const CLASS_CHECKS = ['question', 'number', 'trace', 'match'];
+
+/** content/<course>/class/<lesson>.yml: { activities: [{ at, title, do, notes?, kind?, minutes? }], questions: [{ at, title?, type, ...check }] } */
+function validateClassPlan(lesson, err) {
+  const c = lesson.classPlan, w = `../class/${lesson.slug.split('/').pop()}.yml`;
+  if (typeof c !== 'object' || Array.isArray(c)) return err(w, 'must be a mapping with activities and/or questions');
+  for (const k of Object.keys(c)) if (!['activities', 'questions'].includes(k)) err(w, `unknown field "${k}" (use activities, questions)`);
+  const stages = new Set(lesson.steps.map((s) => s.config.stage));
+  const where = (x, i, list) => {
+    if (!CLASS_AT.includes(x.at)) err(w, `${list}[${i}].at must be one of ${CLASS_AT.join(', ')}`);
+    else if (!['start', 'end'].includes(x.at) && !stages.has(x.at)) err(w, `${list}[${i}].at is ${x.at}, but the lesson has no ${x.at} step`);
+  };
+  (c.activities || []).forEach((a, i) => {
+    if (!a || typeof a !== 'object') return err(w, `activities[${i}] must be a mapping`);
+    where(a, i, 'activities');
+    if (typeof a.title !== 'string' || !a.title.trim()) err(w, `activities[${i}] needs a title`);
+    if (typeof a.do !== 'string' || !a.do.trim()) err(w, `activities[${i}] needs do: what students do (shown on the slide)`);
+    if (a.notes !== undefined && typeof a.notes !== 'string') err(w, `activities[${i}].notes must be text`);
+    if (a.kind !== undefined && !CLASS_KINDS.includes(a.kind)) err(w, `activities[${i}].kind must be one of ${CLASS_KINDS.join(', ')}`);
+    if (a.minutes !== undefined && !(Number.isInteger(a.minutes) && a.minutes > 0)) err(w, `activities[${i}].minutes must be a whole number`);
+  });
+  (c.questions || []).forEach((q, i) => {
+    if (!q || typeof q !== 'object') return err(w, `questions[${i}] must be a mapping`);
+    where(q, i, 'questions');
+    if (!CLASS_CHECKS.includes(q.type)) err(w, `questions[${i}].type must be one of ${CLASS_CHECKS.join(', ')}`);
+    if (q.type !== 'trace' && typeof q.q !== 'string') err(w, `questions[${i}] needs q`);
+  });
 }
 
 function validateTeacher(lesson, snip, err) {
