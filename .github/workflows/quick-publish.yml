@@ -5,8 +5,17 @@ name: Quick publish, no recording (manual)
 # it builds main, reuses every clip and picture already on the live site, records and draws nothing, and
 # publishes to gh-pages. A clip whose lesson changed keeps its old live version (a new clip shows no video)
 # until the full "Build and publish (manual)" run records it. About 5 minutes instead of 20 or more.
+#
+# With "paths" (for example code/python) it is faster still: it builds main, takes the live gh-pages branch as it is
+# (every clip and picture already there) and copies over only those folders and their teach/ pages, leaving
+# the rest of the live site untouched. Shared pages outside the folders (pathway trails, the curriculum map)
+# and the playgrounds update only on a whole-site run.
 on:
   workflow_dispatch:
+    inputs:
+      paths:
+        description: "Folders to publish, space or comma separated, e.g. code/python (blank = the whole site)"
+        default: ""
 
 permissions:
   contents: write
@@ -40,16 +49,40 @@ jobs:
 
       # Pictures whose hash matches the live site are downloaded; changed ones are left for the full run.
       - name: Fetch unchanged pictures
+        if: inputs.paths == ''
         run: node tools/render-pictures.mjs --seed "$SITE" --check
 
       # WP_DEADLINE in the past records nothing: every clip keeps its live version where its hash matches.
       - name: Fill in unchanged clips from the live site
+        if: inputs.paths == ''
         run: WP_DEADLINE=1 WP_LIVE_SITE="$SITE" node tools/render.mjs --seed "$SITE"
 
       - name: Build site
         run: npm run build
 
+      # Only the named folders (and teach/<folder>) are copied onto the live branch; clips already there are kept.
+      - name: Publish the named folders to gh-pages
+        if: inputs.paths != ''
+        run: |
+          git clone -q --depth 1 --branch gh-pages "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" live
+          for p in $(echo "${{ inputs.paths }}" | tr ',' ' '); do
+            p="${p#/}"; p="${p%/}"
+            for d in "$p" "teach/$p"; do
+              test -d "dist/$d" || { echo "::error::dist/$d does not exist (check the folder name)"; exit 1; }
+              mkdir -p "live/$d"
+              rsync -a --exclude 'clips/' "dist/$d/" "live/$d/"
+            done
+          done
+          cd live
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo "Nothing changed in those folders."; exit 0; }
+          git commit -q -m "Quick publish of ${{ inputs.paths }} from ${GITHUB_SHA::7}"
+          git push origin HEAD:gh-pages
+
       - name: Publish to gh-pages
+        if: inputs.paths == ''
         run: |
           touch dist/.nojekyll
           cd dist
