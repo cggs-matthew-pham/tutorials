@@ -98,6 +98,15 @@ An intention, not a rule; pilot it on one lesson before deciding. Applies to eve
 - **Keep the door open:** stable ids on steps, tasks and predictions (mostly there already), so a signal tool can name "prediction 1 of Variables" without the tutorials knowing about it. Later, perhaps a small hook: when a session code is set, the lesson page posts a prediction or stuck status to that tool and stores nothing itself.
 - **Open:** pilot lesson (Python Variables suggested); whether Present replaces the Marp decks or sits beside them; how a lesson marks where Present ends and Lab begins (default: at Modify).
 
+## Speculative: test out, a fast track for students who already know it (12 Oct 2026, discussion only)
+
+An intention, not a rule; pilot it before deciding. Applies to every subject.
+
+- **Why:** PRIMM has evidence for novices (Sentance, Waite and Kallia, 2019: about 500 Year 7–8 students did better than comparison classes), but support that helps novices can stop helping students who already know the idea: they learn less, not just enjoy it less (the expertise reversal effect, Kalyuga). Confident beginners often overrate what they know, so the fast track is earned by a check, never self-declared.
+- **Intent:** a "Know this already? Try the Make" button on a lesson. Pass the Make and the lesson counts as done, with the earlier steps folded into a recap; fail and the student goes back to Predict, with no penalty and no record of the attempt beyond the usual progress.
+- **Leanings:** a confident, correct prediction plus a correct trace could skip Investigate, while a wrong one keeps the full path; fast students need somewhere to go next (optional challenge lessons, Wider tiers, open projects), not just less waiting; in class it pairs with Present mode (above): capable students start Lab early on the Make or a stretch task while the teacher models for everyone else.
+- **Open:** whether a Make alone is a fair test (it shows production, not tracing or explaining), or whether test out also needs one Investigate-style question; whether teachers can switch it off for a class (a `?testout=0` link, as `?width=` sets a floor); pilot course (Python Foundations suggested).
+
 ## Proposed: Nib and Nib's notebook (11 Oct 2026, discussed, not decided)
 
 Replaces the Python-only "turtle companion" proposal (was in `roadmap/code.md`) with one character for every subject.
