@@ -205,7 +205,18 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
     return `${SITE_URL}/${dir}/index.html?${new URLSearchParams(q)}`;
   };
   const boardSlide = (step, heading) => `${BADGE.activity}\n\n## ${heading}\n\n{{embed: ${boardUrl(step)}}}\n\n[Open this step in the tutorial](${stepUrl(lesson, step)})`;
-  const runIt = (step, label = LANG === 'maths' ? 'Try it' : E5 ? 'Explore it' : 'Run it') => boardUrl(step) ? boardSlide(step, label) : `${BADGE.activity}\n\n## ${label}\n\nOpen the lesson at this step and try it together.\n\n[${stepUrl(lesson, step).replace(/^https:\/\//, '')}](${stepUrl(lesson, step)})`;
+  // Turtle and HTML steps embed the live playground on the Run slide, loaded with the step's starter and no `id`, so
+  // it opens fresh every time and keeps nothing. Very long starters fall back to the link (the address would be huge).
+  const playUrl = (step) => {
+    const t = step.config.try;
+    const kind = t?.playground || (LANG === 'html' ? 'html' : 'turtle');
+    const dir = { turtle: '_playground', html: '_playground-html' }[kind];
+    if (!dir || !t?.starter || (LANG !== 'python' && LANG !== 'html')) return null;
+    const url = `${SITE_URL}/${dir}/index.html?${new URLSearchParams({ code: snip(t.starter) })}`;
+    return url.length <= 6000 ? url : null;
+  };
+  const playSlide = (step, heading) => `${BADGE.activity}\n\n## ${heading}\n\n{{embed: ${playUrl(step)}}}\n\n_If it does not load:_ [open this step in the tutorial](${stepUrl(lesson, step)})`;
+  const runIt = (step, label = LANG === 'maths' ? 'Try it' : E5 ? 'Explore it' : 'Run it') => boardUrl(step) ? boardSlide(step, label) : playUrl(step) ? playSlide(step, label) : `${BADGE.activity}\n\n## ${label}\n\nOpen the lesson at this step and try it together.\n\n[${stepUrl(lesson, step).replace(/^https:\/\//, '')}](${stepUrl(lesson, step)})`;
   let stuckDone = false;
   for (const s of lesson.steps) {
     const c = s.config, stage = c.stage, title = capMaths(bare(s.title));
