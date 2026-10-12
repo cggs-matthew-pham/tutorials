@@ -1,7 +1,19 @@
-# Boards for "Packets" (5E pilot). The mission: get MEET AT NOON to Ali. Router C is busy: it is slow, and loses
-# packet 2 the first time.
+# Boards for "Packets" (a 5E lesson). The mission: get MEET AT NOON to Ali. Router C is busy: it is slow, and loses
+# packet 2 the first time. Explore names nothing: the pieces carry no numbers, and the resend switch is called
+# "Ask again" until Explain names it TCP.
 
 # region: explore
+widget: network
+mode: packets
+message: MEET AT NOON
+size: 3
+sizes: on
+drop: 2
+numbers: off
+tcp: off
+# endregion
+
+# region: invent
 widget: network
 mode: packets
 message: MEET AT NOON
@@ -10,6 +22,7 @@ drop: 2
 numbers: off
 tcp: off
 switches: numbers, tcp
+tcpname: Ask again
 # endregion
 
 # region: explain
@@ -29,14 +42,6 @@ drop: 0
 # endregion
 
 # region: elaborate
-widget: network
-mode: packets
-message: MEET AT NOON
-size: 3
-drop: 2
-# endregion
-
-# region: make
 widget: network
 mode: packets
 message: MEET AT NOON

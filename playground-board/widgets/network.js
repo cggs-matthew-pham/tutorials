@@ -19,6 +19,7 @@
 //   numbers: on          on | off: off sends packets with no numbers, so the receiver joins them in arrival order and
 //                        TCP can't tell which one is missing (first used by the 5E Packets lesson)
 //   switches: numbers, tcp   adds a switch for each (choose: on is the same as switches: tcp)
+//   tcpname: Ask again   names the TCP switch and its messages in plain words, for an Explore before TCP is named
 //   Values: n (packets), a (packets arrived), o (1 if they arrived out of order), r (packets sent again),
 //           k (1 when the whole message arrived correctly), x (broken links), t (1 TCP on), f (sends so far),
 //           q (1 packets numbered).
@@ -58,6 +59,7 @@
     s.sizes = /^on$/i.test(s.sizes || '');
     s.drop0 = s.drop === undefined ? (s.m === 'snoop' ? 0 : 2) : Number(s.drop);
     s.tcp0 = !/^off$/i.test(s.tcp || '');
+    s.tcpName = String(s.tcpname || 'TCP').slice(0, 24);
     s.enc0 = /^on$/i.test(s.encrypt || '');
     s.key0 = s.key === undefined ? 3 : Number(s.key);
     s.https0 = !/^off$/i.test(s.https || '');
@@ -285,11 +287,11 @@
       if (pk.length || st.pending) return;
       var missing = st.parts.map(function (x, i) { return x === null ? i : -1; }).filter(function (i) { return i >= 0; });
       var tcp = spec.m === 'journey' ? true : st.tcp;
-      if (missing.length && tcp && !st.num && !st.askedAgain) { st.askedAgain = true; B.say('TCP is on, but the packets have no numbers, so the receiver can’t tell which one is missing.'); }
+      if (missing.length && tcp && !st.num && !st.askedAgain) { st.askedAgain = true; B.say(spec.tcpName + ' is on, but the packets have no numbers, so the receiver can’t tell which one is missing.'); }
       else if (missing.length && tcp && !st.askedAgain) {
         st.askedAgain = true;
         if (spec.m === 'journey') log2('7. The shop’s computer noticed a number missing and asked for it again (TCP).');
-        else B.say('TCP: the receiver never confirmed packet ' + missing.map(function (i) { return i + 1; }).join(', ') + ', so it is sent again.');
+        else B.say(spec.tcpName + ': the receiver never confirmed packet ' + missing.map(function (i) { return i + 1; }).join(', ') + ', so it is sent again.');
         missing.forEach(function (i, k) { st.resent++; st.launch(i, true, 300 + k * 200); });
         return;
       }
@@ -331,7 +333,7 @@
     }
     if (spec.m !== 'link') bar.appendChild(btn('Send', send, 'go'));
     if (spec.chooseNum) { var nb = btn('Numbers: ' + (st.num ? 'on' : 'off'), function () { if (st.sending) return; st.num = !st.num; B.moved = true; fresh(); nb.textContent = 'Numbers: ' + (st.num ? 'on' : 'off'); nb.dataset.on = String(st.num); syncToggles(); report(); }); nb.dataset.on = String(st.num); ui.toggles.push(nb); bar.appendChild(nb); }
-    if (spec.chooseTcp) { var t = btn('TCP: ' + (st.tcp ? 'on' : 'off'), function () { if (spec.chooseNum && st.sending) return; st.tcp = !st.tcp; B.moved = true; if (spec.chooseNum) fresh(); t.textContent = 'TCP: ' + (st.tcp ? 'on' : 'off'); t.dataset.on = String(st.tcp); syncToggles(); report(); }); t.dataset.on = String(st.tcp); ui.toggles.push(t); bar.appendChild(t); }
+    if (spec.chooseTcp) { var t = btn(spec.tcpName + ': ' + (st.tcp ? 'on' : 'off'), function () { if (spec.chooseNum && st.sending) return; st.tcp = !st.tcp; B.moved = true; if (spec.chooseNum) fresh(); t.textContent = spec.tcpName + ': ' + (st.tcp ? 'on' : 'off'); t.dataset.on = String(st.tcp); syncToggles(); report(); }); t.dataset.on = String(st.tcp); ui.toggles.push(t); bar.appendChild(t); }
     if (spec.m === 'snoop') { var e = btn('Encrypt: ' + (st.enc ? 'on' : 'off'), function () { st.enc = !st.enc; B.moved = true; e.textContent = 'Encrypt: ' + (st.enc ? 'on' : 'off'); e.dataset.on = String(st.enc); syncToggles(); side(); report(); }); e.dataset.on = String(st.enc); ui.toggles.push(e); bar.appendChild(e); }
     if (spec.m === 'journey') { var h = btn('HTTPS: ' + (st.https ? 'on' : 'off'), function () { st.https = !st.https; B.moved = true; h.textContent = 'HTTPS: ' + (st.https ? 'on' : 'off'); h.dataset.on = String(st.https); syncToggles(); side(); report(); }); h.dataset.on = String(st.https); ui.toggles.push(h); bar.appendChild(h); }
     bar.appendChild(btn('Start again', function () { clearTimers(); B.restart(); }, 'quiet'));

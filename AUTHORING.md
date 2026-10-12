@@ -501,7 +501,8 @@ Vary, Practise, Make).
   `q`; `steps` (the model solution, each `["statement", "reason"]`, Markdown with `$...$`); optional `answer` (the
   final value, marked like an `answer` check; a ° is ignored) with `feedback` pairs; optional `picks`, the one or two
   steps where the misconception bites: `{ step: 1, options: [reasons], answer: 0, feedback: [null, ...] }` (students
-  choose that step's reason); optional `criteria` (self-check sentences; default: each step says what it finds, each
+  choose that step's reason; a pick's own `q:` replaces the default "Why is <statement>?"); optional `placeholder`
+  (the working box's example; the default is an angle one); optional `criteria` (self-check sentences; default: each step says what it finds, each
   step has a reason, my answer matches the model); `explain`. It needs `answer`, `picks` or both. Check marks the
   answer and picks; when they are right, the student's working and the model show side by side with the self-check
   (ticked by the student, not needed to complete). After three wrong tries, **Show a model solution** reveals the model
@@ -718,8 +719,10 @@ Vary, Practise, Make).
     3 mobile), `b`, `l`, `p`, `s` (seconds), `d`, `k` (walls). `mode: packets`: a message (`message:`, `size:` characters
     a packet, `sizes: on` slider) sent as numbered packets through six routers; busy router C is slow and loses packet
     `drop:` once; links can be clicked to break (aria-label "Link C (busy) to E, working…"); `tcp: off`, `choose: on`
-    adds a TCP switch; values `n`, `a` (arrived), `o` (out of order), `r` (resent), `k` (complete), `x` (broken links),
-    `u` (no route), `t` (TCP), `f` (sends). `mode: snoop`: past a café Wi-Fi where Eve copies packets; Encrypt button and
+    adds a TCP switch; `numbers: off` sends unnumbered pieces (joined in arrival order; TCP can't tell what is missing),
+    `switches: numbers, tcp` adds a switch for each, `tcpname: Ask again` names the TCP switch and its messages in plain
+    words (for an Explore before TCP is named); values `n`, `a` (arrived), `o` (out of order), `r` (resent), `k`
+    (complete), `x` (broken links), `u` (no route), `t` (TCP), `q` (numbered), `f` (sends). `mode: snoop`: past a café Wi-Fi where Eve copies packets; Encrypt button and
     Key slider (a shift of letters and digits); values `e`, `s` (key), `v` (Eve could read it), `z` (key leaves digits
     unchanged), `k`, `f`. `mode: journey`: laptop, Wi-Fi, home router, fibre, provider, two routes, shop, with a step log;
     HTTPS button; values `h`, `k`, `r`, `v`, `f`. A Send press counts as using the board. Ready selector for clips:

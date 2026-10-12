@@ -70,11 +70,21 @@ Networks gains a challenge unit: Network capture the flag (8K02 n2, n5; 5E missi
 
 Parked: a real-machine command-line CTF (Bandit-style levels over SSH on a Raspberry Pi or a virtual machine, with a setup script and site flag checks). Needs kit or a server, IT approval for SSH, and an isolated network, so it waits.
 
+## Done (12 Oct 2026): Packets as a real 5E lesson
+
+The "5E missions" so far are PRIMM or the maths shape with 5E labels: Explore is a scripted board that fails on purpose, and Explain hands students a bug and a recap. Packets is rebuilt as inquiry first, as the model for any retrofit:
+- Engage: a typed guess (what could go wrong?), no options, no right answer.
+- Explore 1: a board with no fix and nothing named (unnumbered pieces, size slider, breakable links); send three times, sort what you saw from what you assumed, try your own changes.
+- Explore 2: invent a fix with two plain switches, Numbers and Ask again (TCP, unnamed: new `tcpname:` on the network widget), and two goals with different routes: every link working (needs both), switches off (cut off busy C).
+- Explain: students write their own explanation first (`reasoning` check: free text, one pick, model, self-check), then the names (packet, router, acknowledgement, TCP) are matched to what they did, then why the internet numbers and resends instead of avoiding busy routers, then Sam's bug.
+- Elaborate: TCP and spare routes together, every route broken, live video. Evaluate: a download at 99%, reread the Engage guess, self-check against the goals.
+The `reasoning` check gains `placeholder:` and a per-pick `q:` (defaults unchanged). Rule of thumb for others: 5E for concept lessons where students can find the idea on a board; the explicit shape for procedures.
+
 ## Next
 
 1. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
 2. A CTF scoreboard (points, hints that cost points) only if classes want one; it would need storage the site doesn't have.
-3. Decide after classroom trials whether to retrofit other Digital systems courses to 5E missions.
+3. Trial Packets (inquiry 5E) against an explicit-shape lesson on one concept, then decide which concept lessons to rebuild the same way (candidates: Everything is numbers, Who can see your data, Threat models).
 
 ## Open questions
 

@@ -554,10 +554,10 @@ export function checkHtml(lesson, step, names = {}, snippet = null, task = null,
     // Free working (not marked), the marked parts, then a model solution and a self-check (handler: ty==='reasoning').
     const steps = k.steps || [], picks = k.picks || [];
     const crit = k.criteria || ['Each step says which angle or value it finds.', 'Each step has a reason.', 'My answer matches the model.'];
-    const pickHtml = picks.map((pk, i) => `<fieldset class="rs-pick" data-i="${i}"><legend>Why is ${tx(String(steps[pk.step - 1]?.[0] ?? ''))}?</legend>${pk.options.map((o, j) => `<label><input type="radio" name="${esc(key)}-rs${i}" value="${j}"><span>${tx(String(o))}</span></label>`).join('')}</fieldset>`).join('');
+    const pickHtml = picks.map((pk, i) => `<fieldset class="rs-pick" data-i="${i}"><legend>${pk.q ? tx(String(pk.q)) : `Why is ${tx(String(steps[pk.step - 1]?.[0] ?? ''))}?`}</legend>${pk.options.map((o, j) => `<label><input type="radio" name="${esc(key)}-rs${i}" value="${j}"><span>${tx(String(o))}</span></label>`).join('')}</fieldset>`).join('');
     const marks = { answer: k.answer !== undefined ? String(k.answer) : null, feedback: (k.feedback || []).map(([a, m]) => [a, plain(m)]), picks: picks.map((pk) => ({ answer: pk.answer, feedback: (pk.feedback || []).map((f) => (f ? plain(f) : null)) })) };
     return `<div class="check rs" ${base} data-marks="${esc(JSON.stringify(marks))}"><p class="check-q">${tx(k.q)}</p>`
-      + `<label class="rs-lab">Your working <span>(your own notes and reasons; this part is not marked)</span><textarea class="wk-in rs-in" rows="5" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="For example: b = 70, vert. opp."></textarea></label>`
+      + `<label class="rs-lab">Your working <span>(your own notes and reasons; this part is not marked)</span><textarea class="wk-in rs-in" rows="5" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="${esc(k.placeholder || 'For example: b = 70, vert. opp.')}"></textarea></label>`
       + (k.answer !== undefined ? `<label class="numrow ansrow rs-ans"><span>${esc(k.answerLabel || 'Answer')}</span><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="${esc(k.answerLabel || 'Your answer')}" placeholder="Your answer"></label>` : '')
       + pickHtml
       + `<button type="button" class="rs-go">Check</button> <button type="button" class="rs-show" hidden>Show a model solution</button>${msg}`
