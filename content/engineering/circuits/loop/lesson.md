@@ -2,6 +2,7 @@
 order: 1
 unit: outputs
 title: A complete loop
+assumes: [electric-current]
 summary: "Current only flows around a complete loop: out of pin 0, through the resistor and the LED, and back to GND. Break the loop anywhere, or turn the LED round, and the current stops everywhere at once."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

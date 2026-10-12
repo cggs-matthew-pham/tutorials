@@ -2,6 +2,7 @@
 order: 1
 unit: drive
 title: Why a motor can't run from a pin
+assumes: [electric-current]
 summary: "A pin is a signal, not a power supply: it can give about 20 mA, and a motor needs hundreds. The pin switches a transistor, and the transistor switches the motor's own battery. A diode across the motor catches the spike when it switches off."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

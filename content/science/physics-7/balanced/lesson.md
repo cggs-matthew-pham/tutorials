@@ -3,6 +3,7 @@ order: 2
 node: AC9S7U04 n2
 unit: forces
 title: Does balanced mean no forces?
+introduces: [balanced-forces]
 summary: Balanced forces cancel out (the net force is zero), so the motion doesn't change. The object stays still or keeps moving at a steady speed. Unbalanced forces change the motion.
 language: science
 voice: { name: bf_emma, speed: 1.05 }

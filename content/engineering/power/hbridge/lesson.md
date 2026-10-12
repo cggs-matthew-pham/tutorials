@@ -2,6 +2,7 @@
 order: 2
 unit: drive
 title: Motor drivers
+assumes: [electric-current]
 summary: "A motor driver (an H-bridge) lets two pins choose the direction: IN1 HIGH and IN2 LOW is forwards, swapped is backwards, the same is stop. A third, PWM pin on ENA sets the speed with analogWrite. Two jobs, two kinds of signal."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

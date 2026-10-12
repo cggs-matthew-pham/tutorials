@@ -2,6 +2,7 @@
 order: 4
 unit: beams
 title: Beams and shapes
+assumes: [turning-effect, balanced-forces]
 summary: "A beam's supports share its load like a lever, and its stiffness depends on its shape far more than on how much material it has: depth counts cubed. Students compare a strip flat and on its edge, an I-beam and a tube, work out support forces, and choose a section to a brief."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

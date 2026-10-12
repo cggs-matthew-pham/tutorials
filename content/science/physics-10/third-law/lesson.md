@@ -3,6 +3,7 @@ order: 5
 node: AC9S10U05 n5
 unit: newton
 title: Push the wall, and it pushes you?
+introduces: [force-pairs]
 summary: "Forces come in pairs. When object A pushes or pulls object B, B pushes or pulls A back with a force of the same size in the opposite direction. The two forces act on different objects, so they never cancel each other out."
 language: science
 voice: { name: bf_emma, speed: 1.05 }

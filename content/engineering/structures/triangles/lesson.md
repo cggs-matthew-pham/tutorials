@@ -2,6 +2,7 @@
 order: 2
 unit: frames
 title: Triangles hold their shape
+assumes: [balanced-forces]
 summary: "A square frame on pins folds flat when pushed sideways; a triangle can't change shape without a member stretching. Students brace frames with diagonals, use the counting rule (members = 2 × joints − 3) to find how many they need, and brace a tower with the fewest members."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

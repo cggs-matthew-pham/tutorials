@@ -2,6 +2,7 @@
 order: 2
 unit: outputs
 title: Why the resistor
+assumes: [electric-current]
 summary: "With no resistor, far too much current flows and the LED is damaged. A resistor limits the current: current = voltage ÷ resistance (Ohm's law). Bigger resistor, less current. In a single loop it works on either side of the LED."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

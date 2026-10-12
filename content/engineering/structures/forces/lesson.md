@@ -2,6 +2,7 @@
 order: 1
 unit: frames
 title: Pull or push
+assumes: [force-arrows, balanced-forces, free-body]
 summary: "In a frame joined by pins, every member either pulls (tension) or pushes (compression). Students test a roof truss, read which members pull and push, find that a taller roof means smaller forces, and choose a roof height that keeps every member within its limit and the budget."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

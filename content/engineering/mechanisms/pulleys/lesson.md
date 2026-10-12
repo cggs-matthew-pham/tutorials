@@ -2,6 +2,7 @@
 order: 4
 unit: levers
 title: Pulleys
+assumes: [weight, balanced-forces, energy-conservation]
 summary: "One pulley changes the direction of a pull, not its size. Ropes that hold up a moving block share the load, so the pull shrinks, but you pull more rope by the same factor. Students test pulleys, work out pulls and rope lengths, see that work in equals work out, and choose a pulley system for a brief."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

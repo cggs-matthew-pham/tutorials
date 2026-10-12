@@ -3,6 +3,7 @@ order: 6
 unit: advanced
 optional: true
 title: Lift
+assumes: [weight, energy-transfer]
 summary: "Design a motor-driven lift that raises a load to a height within a time: choose a gear ratio against the brief, drive the motor through a driver, and compare the measured result with the prediction."
 language: maths
 shape: design

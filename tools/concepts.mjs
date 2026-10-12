@@ -50,7 +50,7 @@ const theoryTags = (l) => list(l.introduces).length > 0 || list(l.assumes).some(
 export function prerequisites(loadDirMeta, root) {
   const after = {};
   const alias = {};   // a built course listed with both path and id: `after:` may name either
-  for (const subj of ['code', 'maths', 'science', 'systems']) {
+  for (const subj of ['code', 'maths', 'science', 'systems', 'engineering']) {
     for (const p of loadDirMeta(join(root, subj)).pathways || []) for (const c of p.courses || []) {
       if (c.path && c.id) { alias[c.id] = c.path; alias[c.path] = c.id; }
       if (c.path || c.id) after[c.path || c.id] = c.after || [];   // planned courses (id:) pass their prerequisites on

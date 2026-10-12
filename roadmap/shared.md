@@ -455,3 +455,4 @@ One block per playground. Course status is in `code.md`.
 - 12 Oct (engineering chat): new board widget `motion` (`playground-board/widgets/motion.js`, `mode: crank | cam | linkage`), registered in `playground-board/index.html`, styles `.mv*`.
 - 12 Oct (engineering chat): new board widget `pcb` (`playground-board/widgets/pcb.js`, `mode: layout | route | rules`), registered in `playground-board/index.html`, styles `.pcb*`.
 - 12 Oct (engineering chat): new board widget `truss` (`playground-board/widgets/truss.js`, `mode: truss | beam`), registered in `playground-board/index.html`, styles `.tr*`.
+- 12 Oct (engineering chat): `THEORY` gained eleven Science ids (forces, energy, current, turning effect); physics lessons in `content/science/physics-7` to `physics-10` got one-line `introduces:` tags (no other change); `prerequisites()` in `tools/concepts.mjs` reads `engineering`. Science lesson pages now show "Put to work in" links to Engineering.

@@ -2,6 +2,7 @@
 order: 3
 unit: frames
 title: Design a bridge
+assumes: [balanced-forces, force-pairs]
 summary: "Long members buckle under a push long before they snap under a pull, so good bridges keep pushed members short. Students find a deck on pins collapses, a big triangle buckles, then design a bridge that holds 1000 N within a budget and test it to failure."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

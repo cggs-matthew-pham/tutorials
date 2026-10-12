@@ -2,6 +2,7 @@
 order: 4
 unit: battery
 title: Choosing a battery
+assumes: [energy-transfer, electric-current]
 summary: "Voltage (V) is how hard a battery pushes; capacity (mAh) is how much charge it holds. Run time ≈ capacity ÷ current, and plan on using about 80% of it. A battery for a robot has to meet every criterion: voltage in range, enough run time, light enough to carry."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

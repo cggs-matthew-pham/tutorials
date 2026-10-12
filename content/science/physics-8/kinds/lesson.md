@@ -3,6 +3,7 @@ order: 1
 node: [AC9S8U05 n1, AC9S8U05 n2]
 unit: energy
 title: Moving or stored?
+introduces: [energy-stores]
 summary: "Energy comes in two big families. Kinetic energy is energy of activity: movement, heat, sound, light and electricity. Potential energy is stored, ready to be released: chemical (food, fuel, batteries), gravitational (things up high) and elastic (things stretched or squashed). Energy can change from one to the other and back."
 language: science
 voice: { name: bf_emma, speed: 1.05 }

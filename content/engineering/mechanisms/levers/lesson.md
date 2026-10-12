@@ -2,6 +2,8 @@
 order: 3
 unit: levers
 title: Levers
+assumes: [force-arrows, balanced-forces]
+introduces: [turning-effect]
 summary: "A lever trades force for distance: a small push far from the pivot lifts a big load near it, and your hand moves farther than the load. Students find where to put a pivot by testing, work out the push from turning effects, meet the three classes of lever (including the one in their arm), and design a lever to a brief."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

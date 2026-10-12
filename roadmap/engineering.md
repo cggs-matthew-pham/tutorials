@@ -72,12 +72,17 @@ Principles: borrow first and build only where a lesson needs a check (benchmark 
 
 - Pathway Structures (Engineering index) with course `engineering/structures`, units Frames and trusses and Beams: Pull or push (a roof truss; tension and compression; bottom pull = load × span ÷ (4 × height); a height that meets 600 N and $125), Triangles hold their shape (a square collapses; one diagonal; members = 2 × joints − 3; Zoe adds 3; towers of two and three storeys), Design a bridge (a pinned deck folds; a big triangle buckles; buckling = 8000 ÷ L²; any bridge that holds, then $300 or less failing at 1400 N or more: a Pratt or Howe truss, $293, 1414 N), Beams and shapes (support shares; depth cubed; flat, edge, I-beam, tube; a shelf only the I-beam meets). New `truss` widget (`mode: truss | beam`, stiffness-method solver), misconception `truss-count-add`, primers, practice page. Note for teachers: the counting rule is necessary, not sufficient (two diagonals in one panel and none in another still collapses; the board shows it).
 
+## Done (12 Oct 2026): links to Science
+
+- Eleven theory concepts for Science ideas (`THEORY` in `tools/concepts-core.mjs`): physics lessons `introduces:` them (Year 7 arrows, balanced, weight; Year 8 kinds and transform; Year 9 conservation, efficiency, electric current; Year 10 third law, free body), Engineering lessons `assumes:` them (winch, levers, pulleys, crank, all four Structures lessons, circuits loop and resistor, power pin limit, H-bridge and batteries, PCB rules, the lift project). `turning-effect` is introduced by Engineering › Levers and assumed by Beams. Both pages show "Builds on" and "Put to work in". The concept lint now reads Engineering's pathways for course order (`prerequisites()`), and Structures is `after: [mechanisms]`.
+- Not done: efficiency is still absent from the Engineering models (all frictionless); a `node:` tag for Levers on the science map was not added (Engineering lessons don't carry nodes).
+
 ## Next
 
 1. Practise with code: the sample lesson's Python loop over every gear pair. A maths lesson has no Python playground; either a short linked Python task (console bridge) or leave it to the Code pathway.
 2. Mechanisms: efficiency per mesh on the `train` board and friction on pulleys (Years 9–10; now stretch tasks); Structures (loads, trusses) as a later pathway.
 3. Optional: let `B.serial` accept an Uno's USB ids; surface-mount parts and 45° routing on the `pcb` board if a class wants them. (Done 12 Oct: compound gear trains; `shape: design` decks and worksheets say Inquire, not Predict.)
-4. `tools/concepts.mjs` `prerequisites()` reads `code, maths, science, systems`: add `engineering` if an Engineering lesson ever uses the concept lint (its lessons are `language: maths`, which the lint skips).
+4. (Done 12 Oct: `prerequisites()` reads `engineering` too.)
 
 ## Parked
 

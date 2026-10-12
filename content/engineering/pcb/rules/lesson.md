@@ -2,6 +2,7 @@
 order: 3
 unit: board
 title: Design rules and ordering
+assumes: [electric-current, energy-transfer]
 summary: "A trace that carries a motor's current must be wider than one that carries a signal, or it heats up. Students set trace widths against current, meet a trace too wide to pass between pins, then work out what an order of boards costs."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

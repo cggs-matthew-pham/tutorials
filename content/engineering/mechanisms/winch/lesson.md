@@ -2,6 +2,7 @@
 order: 1
 unit: gears
 title: Gear up the winch
+assumes: [weight, energy-transfer]
 summary: "A gear ratio trades speed for turning force: a small gear driving a big gear turns the output slower but stronger, by the same factor. Students test gears on a winch, work out the ratio, speed, strength and lift time, then choose a pair that meets a brief, and find a brief where the constraints conflict."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }

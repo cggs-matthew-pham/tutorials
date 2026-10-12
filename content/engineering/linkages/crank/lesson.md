@@ -2,6 +2,7 @@
 order: 1
 unit: motion
 title: Cranks and sliders
+assumes: [energy-transfer]
 summary: "A crank and slider turns rotation into back-and-forth motion: one turn is one stroke out and back, and the stroke is twice the crank's radius, whatever the rod's length. Students find the stroke by turning, work out a pump's flow, and size a crank to a brief."
 language: maths
 voice: { name: bf_emma, speed: 1.05 }
