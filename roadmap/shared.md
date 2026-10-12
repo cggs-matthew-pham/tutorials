@@ -87,6 +87,17 @@ An intention, not a rule; pilot it before anything becomes a design rule. Applie
 - **Open:** pilot lesson (the winch, or a maths hinge node); how authored options and branches are written in the lesson format.
 - **First use (maths, 11 Oct):** the `reasoning` check follows "write, then choose, then compare": free working (not marked), a reason chosen at the key step (marked, with misconception feedback), then a model and a self-check. In *Reasoning with angles* and *Unknown angles in shapes*; no Nib yet.
 
+## Speculative: Present mode, with a class signal later (12 Oct 2026, discussion only)
+
+An intention, not a rule; pilot it on one lesson before deciding. Applies to every subject.
+
+- **Why:** self-paced lessons, coding and theory alike, can feel like a chore: many small steps, a check after every action, and every idea arriving as text. Novices learn best from modelling, then guided, then independent practice (Rosenshine), and a prediction made in front of the class matters more than one made alone.
+- **Intent:** the same lesson in two modes. **Present** (teacher drives, on the projector): one step per screen, large code or board, Predict with a reveal (mini whiteboards or hands), Run and Investigate live, the teacher thinking aloud. **Lab** (students drive): their lesson page from Modify onwards, with the earlier steps folded into a recap and checks mainly here. The self-paced path stays for catch-up, absent students and revision.
+- **Leanings:** short follow-along only (students run the code, they don't type it); students do something every few minutes (vote, predict, spot a planted bug); a timer and the task on screen during Lab. Builds on what exists: board embeds, `?full=step-N`, explain clips and the Prepare decks; Present is a live view of the lesson page, so there's no export step.
+- **Signal, later and separate:** the interactions that matter most work without data (whiteboards, hands, reading the room). A class signal would add a live prediction split for peer instruction ("convince your neighbour", re-vote) and "done" or "stuck on step N" during Lab. It bends the account-free, no-tracking stance, so it would be a separate classroom tool, never part of the tutorials: a session code, nothing kept after the session, no names or first names only.
+- **Keep the door open:** stable ids on steps, tasks and predictions (mostly there already), so a signal tool can name "prediction 1 of Variables" without the tutorials knowing about it. Later, perhaps a small hook: when a session code is set, the lesson page posts a prediction or stuck status to that tool and stores nothing itself.
+- **Open:** pilot lesson (Python Variables suggested); whether Present replaces the Marp decks or sits beside them; how a lesson marks where Present ends and Lab begins (default: at Modify).
+
 ## Proposed: Nib and Nib's notebook (11 Oct 2026, discussed, not decided)
 
 Replaces the Python-only "turtle companion" proposal (was in `roadmap/code.md`) with one character for every subject.
