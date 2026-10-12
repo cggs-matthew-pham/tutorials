@@ -1,57 +1,33 @@
 inquiry:
-  q: "Would you rather give a robot 100 separate instructions, or one instruction to repeat 100 times? What could go wrong with each?"
+  q: "A robot follows its commands in the wrong order and walks into a wall. Whose fault is it: the robot's or the programmer's?"
   prompts:
-    - "Which is easier to change if the plan changes?"
-    - "Which is easier to get wrong without noticing?"
-    - "Is there ever a time copying the lines would be the better choice?"
-  notes: "Let students defend both sides. Copying wins when each step is different, when you will only ever do it once, or when a reader needs to see every step. The loop wins when the steps are the same and the count may change. Return to this after the staircase Make: did anyone choose copying, and why?"
+    - "Did the robot do what it was told?"
+    - "What could the programmer have done to catch the mistake before running it?"
+  notes: "Let students defend both sides. The robot did exactly what the program said, so the mistake is in the program. Return to this after the ordering task: did anyone's first order give a surprising picture?"
 activities:
   - at: start
     kind: info
     title: "By the end of this lesson"
     do: |
-      Here is a shape drawn by 3 lines of Python. By the end of the lesson you will write programs like it.
-    notes: "Run the 36-sided shape from the stretch task on the projector (for i in range(36): forward(20) right(10)) before anything else. Ask: how many lines of code do you think that took?"
+      Here is a picture made from commands. By the end of the lesson you will write commands that draw a shape.
+    notes: "Run the three-line L on the projector before anything else."
   - at: predict
     kind: discussion
     title: Vote, then argue
     minutes: 3
     do: |
       Decide with your partner: what will the turtle draw?
-      Hold up 1, 2, 3 or 4 fingers for the option you chose.
-    notes: "Count the votes before anyone runs it. Ask one pair from each option to say why. The wrong options are different ideas of what a loop repeats: only the first line, only once, nothing because i is unused."
+      Hold up 1, 2 or 3 fingers for the option you chose.
+    notes: "Count the votes before anyone runs it. Ask one pair from each option to say why. The wrong options are two different slips: a turn that draws, and lines in the wrong order."
   - at: investigate
     title: Play turtle
     minutes: 5
     do: |
       One volunteer is the turtle, standing in the middle facing the window.
-      The class reads the loop aloud, one line at a time. The turtle obeys: 3 steps for forward(100), a quarter turn for right(90).
-      Now try it with range(3) and right(120). Where does the turtle end up?
-    notes: "Papert designed the turtle so learners could play it. Walking the shape makes two things concrete: only the indented lines repeat, and a closed shape turns all the way round (360). If the turtle turns 60 for the triangle, ask the class to watch which way they end up facing."
-  - at: modify
-    title: "Optional: pairs at one computer"
-    do: |
-      One person types (driver), the other reads the task and checks each run (navigator).
-      Swap at every new shape.
-    notes: "Pair programming keeps both students thinking and talking, and it helps students who are less confident."
+      The class reads the commands aloud, one at a time. The turtle obeys: 3 steps for each forward, a quarter turn for right(90).
+    notes: "Papert designed the turtle so learners could play it. Walking the commands makes it concrete that a turn changes which way forward goes."
   - at: end
     title: Show a friend
     minutes: 3
     do: |
-      Turn to the next pair. Show your pattern from Make and point to the part that repeats.
-questions:
-  - at: investigate
-    title: Count the changes
-    type: number
-    slideCode: square.py#loop
-    q: "The loop version draws a 20-sided shape. How many numbers in it change?"
-    answer: 2
-    explain: "Only range(20) and the turn (360 / 20 = 18 degrees). The loop is the same 3 lines."
-  - at: investigate
-    title: Which way now?
-    type: question
-    slideCode: square.py#loop
-    q: "The turtle starts in the middle, facing right. After the square, which way is it facing?"
-    options: ["Up", "Down", "Right", "Left"]
-    answer: 2
-    explain: "Four turns of 90 make 360 degrees, a full turn, so the turtle faces right again. Any shape that closes up turns 360 degrees in total."
+      Turn to the next pair. Show your square and point to the line that makes the turn.

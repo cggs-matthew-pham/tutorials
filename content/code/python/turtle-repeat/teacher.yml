@@ -1,0 +1,41 @@
+summary: Students see that the square they drew with eight lines can be written with three, using a loop, and find out how to change the count and the turn.
+time: 35
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 8 min · Make 7 min"
+goals:
+  - I can use a loop to repeat lines instead of copying them.
+  - I can say which lines belong to a loop.
+  - I can work out the turn for a shape with any number of sides.
+before: |
+  Open the lesson, run the first program and draw the triangle from the Modify step yourself. It takes about five minutes and you will meet the same surprise students do: the turn is 120 degrees, not 60.
+running:
+  - "Predict: show the loop and ask what it draws. Take two or three answers before anyone runs it; each wrong option is a different idea of what a loop repeats (only the first line, only once, nothing because i is unused)."
+  - "Run: run it live on the slide, then students run it on their own screens and compare with their prediction. Ask: which lines ran four times, and how do you know? Then show the eight-line square beside the loop."
+  - "Investigate: the key idea is that a loop does the same work as copied lines, but stays the same size. Ask a student to say why the loop version is easier to change. The bug task (right(90) not indented) comes after students have seen the loop work. The trace task traces the counter i (0, 1, 2, 3); say that it counts from 0, because later lessons use it."
+  - "Modify: work the triangle live on the slide first if the room is unsure, then let students go on alone. Let them get it wrong first. If they try 60 degrees, ask them to walk the shape themselves: how far do you turn at each corner?"
+  - "Make: the staircase reverses the lesson: students find the part that repeats in a picture and write it once. Early finishers can try the house (a square, then a roof turning left 60 and right 120)."
+stuck:
+  - see: The triangle has a gap, or the shape looks like a star.
+    ask: How many times does the loop repeat, and how far does the turtle turn each time?
+    fix: A shape with 3 sides repeats 3 times and turns 120 degrees. All the turns add up to 360.
+  - see: Only the first line repeats, or the program stops with an indentation error.
+    ask: Which lines are pushed in under the for line?
+    fix: The lines that repeat must be indented (four spaces) under the for line.
+  - see: A student types forward(100) and right(90) many times and sees no reason to change.
+    ask: How long would that be for a 50-sided shape?
+    fix: Ask them to draw a 50-sided shape both ways. The loop stays 3 lines; the copied version needs 100.
+stretch: Draw a shape with 50 sides and turn 360 / 50 degrees. What does it start to look like, and why?
+support: Give the loop version and ask the student to change only one number at a time, running after each change.
+leads: "Loops come back in every lesson, and in tessellations, logo design and generative art. Next lesson stores numbers in variables, so the turn can be worked out instead of guessed. Then A street of houses reads a whole program that uses both. Class ideas: design a floor tile and repeat it; recreate a simple logo from code."
+exit:
+  q: "A turtle draws a shape with 5 equal sides using a loop. How many times does the loop repeat, and how far does the turtle turn each time?"
+  a: "5 times, turning 72 degrees each time (360 divided by 5)."
+explain: |
+  A **loop** repeats the lines indented under it. `for i in range(4):` means "do the indented lines 4 times". Instead of writing the same two lines four times, you write them once and say how often. The name `i` is a counter that takes the values 0, 1, 2, 3 on the four passes. A square does not use it, but later programs do.
+
+  `forward(100)` moves the turtle 100 steps and draws a line. `right(90)` turns it on the spot, a quarter of a full turn.
+
+  To close any shape, the turtle turns all the way round once in total: 360 degrees. Split that between the corners: 360 ÷ 4 = 90 for a square, 360 ÷ 3 = 120 for a triangle.
+solutions:
+  step-4: square.py#sol-triangle
+  step-5: square.py#sol-stairs
+struggle: "Working out the turn angle for a shape. Ask how far the turtle turns in total and how many turns there are, instead of giving the number."

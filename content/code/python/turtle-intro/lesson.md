@@ -1,10 +1,10 @@
 ---
 order: 1
 unit: drawing
-introduces: [repeat]
+introduces: []
 recipes: [import-star]
 title: Drawing with a turtle
-summary: Predict, run and change short Python programs that draw shapes.
+summary: Give a turtle commands, in order, and watch the picture they make.
 language: python
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground" 8123
@@ -13,166 +13,125 @@ app:
   layout: full
 pacing:
   keyDelayMs: 30
-hook: "Loops are how a program draws 100 tiles, sends 100 emails or reads 100 sensors without 100 lines of code."
+hook: "Every animation, game character and robot is moved by a list of commands that run in order. Today you give the commands."
 voice: true
 explainClip:
   query: { code: "", speed: 6 }
-  caption: "A loop repeats lines, so you write them once"
-  say: "A program runs from the top down, and a loop repeats lines for you."
+  caption: "The turtle follows your commands from the top down"
+  say: "The turtle follows your commands one at a time, from the top down."
   pacing: { keyDelayMs: 22 }
   clip:
     - type: { into: "Python code", text: "from turtle import *\n\n", append: true }
     - caption:
-        text: "for i in range(4): does the indented lines 4 times."
-        say: "A for loop does the lines indented under it, here four times."
-    - type: { into: "Python code", text: "for i in range(4):\n", append: true }
+        text: "forward(100) moves the turtle 100 steps and draws a line."
+        say: "Forward 100 moves the turtle 100 steps and draws a line."
+    - type: { into: "Python code", text: "forward(100)\n", append: true }
     - caption:
-        text: "forward(100) draws a line. right(90) turns a quarter turn."
-        say: "forward 100 draws a line, and right 90 turns a quarter of a full turn."
-    - type: { into: "Python code", text: "    forward(100)\n    right(90)\n", append: true }
+        text: "right(90) turns it a quarter turn. It does not move or draw."
+        say: "Right 90 turns the turtle a quarter turn without moving."
+    - type: { into: "Python code", text: "right(90)\n", append: true }
+    - caption:
+        text: "The next forward goes in the new direction."
+        say: "The next forward goes the new way."
+    - type: { into: "Python code", text: "forward(100)\n", append: true }
     - click: "Run"
     - expect: { selector: "#status", contains: "Finished" }
-    - caption:
-        text: "4 turns of 90 make one full turn: 360 degrees."
-        say: "Four turns of 90 degrees add up to one full turn, 360 degrees."
-    - wait: 1200
-    - expect: { selector: "#turtle-state", contains: "heading 0" }
 ---
 A turtle walks across the screen, leaving a line behind. Your program tells it where to go.
+
+## Meet the commands
+
+```step
+stage: info
+app: true
+query: { code: "", speed: 8 }
+clip:
+  - caption: "A program is a list of commands. The turtle follows them from the top down."
+  - type: { into: "Python code", text: "from turtle import *\n\n", append: true }
+  - caption: "forward(100) moves the turtle 100 steps and draws a line."
+  - type: { into: "Python code", text: "forward(100)\n", append: true }
+  - caption: "right(90) turns it a quarter turn. It does not move or draw."
+  - type: { into: "Python code", text: "right(90)\n", append: true }
+  - caption: "The next forward goes in the new direction."
+  - type: { into: "Python code", text: "forward(100)\n", append: true }
+  - click: Run
+  - expect: { selector: "#status", contains: Finished }
+```
+
+A program is a list of commands. The turtle follows them one at a time, from the top down.
+
+| Line | What it does | Why |
+|---|---|---|
+| `from turtle import *` | Gives your program the turtle commands | Copy this to the top of every program for now. A later lesson shows how it works |
+| `forward(100)` | Moves the turtle 100 steps and draws a line | The number is how far |
+| `right(90)` | Turns the turtle a quarter turn, on the spot | It does not move or draw. 90 is a quarter of a full turn |
+| `forward(100)` | Moves again, now in the new direction | The turn changed which way is forward |
+
+`left(90)` turns the other way.
+
+The order matters. The turtle does the first line first. Swap two lines and you get a different picture.
 
 ## Predict
 
 ```step
 stage: predict
-code: square.py#loop
+code: square.py#commit
 reveal: true
 check:
   type: predict
   q: "What will the turtle draw?"
-  options: ["a square", "one long line", "one side, then a turn", "nothing, because i is never used"]
+  options:
+    - "An L: 100 steps across, a turn, then 50 steps down"
+    - "A line of 100 steps, then a line of 90 steps"
+    - "50 steps across first, then 100 steps down"
   fault: logic
-  misconception: loop-body-indent
-  actual: "A square. The two indented lines run 4 times: a side of 100, then a quarter turn, four times over. The turtle finishes where it started, facing right."
+  misconception: turn-draws
+  actual: "An L. forward(100) draws across, right(90) turns without drawing, and forward(50) draws down. The turn is not a line (so not 90 steps), and the lines run in the order written (so 100 comes before 50)."
 app: true
 clip:
   - caption: The turtle starts in the middle, facing right.
   - type:
       into: Python code
-      text: "@square.py#loop"
+      text: "@square.py#commit"
   - click: Run
   - expect: { selector: "#status", contains: Finished }
-  - expect: { selector: "#turtle-state", contains: "heading 0" }
 ```
 
-`forward(100)` moves the turtle 100 steps and draws a line. `right(90)` turns it a quarter turn. The line `for i in range(4):` is new. Read the code. What will the turtle draw?
+Read the code and decide. Which picture will it draw?
 
 ## Run
 
 ```step
 stage: run
-code: square.py#loop
-try: { starter: "square.py#loop", height: 420 }
-check: { type: reflect, text: "I can explain what forward(100) and right(90) do to the turtle." }
-unlocks: [forward, backward, right, left]
+code: square.py#commit
+try: { starter: "square.py#commit", height: 420 }
 ```
 
-Run the program and compare it with your prediction. Which lines ran four times?
+Run the program and compare it with your prediction. Did the turn draw anything?
 
-The first line, `from turtle import *`, gives your program the turtle commands. Copy it to the top of every program for now; a later lesson shows how it works.
-
-## Investigate
+## Put the lines in order
 
 ```step
 stage: investigate
-code: square.py#compare
-insight: "Repetition has a cost: without a loop the code grows with every side, and a loop does the same work with a number you can change."
+code: square.py#parsons
+insight: "The order of the commands is the picture: the same lines in a different order make a different drawing."
 app: true
-clip:
-  - type:
-      into: Python code
-      text: "@square.py#loop"
-  - click: Run
-  - expect: { selector: "#status", contains: Finished }
-tasks:
-  - check:
-      type: number
-      q: "The square without a loop uses 8 lines of drawing code. A 20-sided shape drawn the same way would use how many lines?"
-      answer: 40
-      explain: "Each side needs 2 lines (forward and a turn), so 20 sides need 40."
-  - check:
-      type: bug
-      code: square.py#bug
-      text: "This was meant to draw a square. Instead the turtle draws one long line and turns once at the very end. Click the wrong line."
-      answer: 5
-      fault: logic
-      misconception: loop-body-indent
-      explain: "right(90) is not indented, so it is not part of the loop. The loop draws four sides in a straight line, and the turn runs once afterwards. Indent it under the for line so both lines repeat."
-  - check:
-      type: trace
-      slideCode: square.py#loop
-      text: "for i in range(4): makes a counter called i. It starts at 0 and goes up by 1 each time round the loop. Fill in the table for the square."
-      table: |
-        | pass | i | turned so far |
-        | 1 | 0 | 90 |
-        | 2 | [1] | [180] |
-        | 3 | [2] | [270] |
-        | 4 | [3] | [360] |
-      explain: "i counts 0, 1, 2, 3: four passes, starting from 0. This square never uses i, but it is there, and later programs will use it. After four turns of 90 the turtle has turned 360 degrees, a full turn."
-```
-
-Compare the two programs. They draw the same square.
-
-### Count the lines
-
-How much code does each way need as the shape gets more sides?
-
-### Spot the bug
-
-Indented lines belong to the loop. Find the line that should repeat but doesn't.
-
-### Follow the counter
-
-In `for i in range(4):`, the name `i` is a counter. Follow it round the loop.
-
-## Modify
-
-```step
-stage: modify
-insight: "Change a working program one small step at a time and check each result; the turn angle comes from the shape, not from guessing."
-try: { starter: "square.py#modify", height: 420 }
-app: true
-query: { code: "@square.py#triangle", view: output, autorun: 1 }
+query: { code: "@square.py#hook-pic", view: output, autorun: 1 }
 clip:
   - wait: 600
   - expect: { selector: "#status", contains: Finished }
-  - expect: { selector: "#turtle-state", contains: "heading 0" }
-caption: "The expected result: a triangle"
-reveal: Show what the triangle should look like
-tasks:
-  - hint:
-      - "A square turns the turtle 90 degrees four times. How many times does a triangle turn, and what do all the turns add up to?"
-      - "Two numbers change: how many times the loop repeats, and how far the turtle turns each time."
-    check: { type: reflect, text: "I changed the loop so it draws a triangle." }
-  - hint: "Only one number needs to change."
-    check: { type: reflect, text: "I made the triangle's sides twice as long by changing one number." }
-  - hint: "pencolor(\"red\") goes before the loop. pensize(5) makes the line thicker."
-    check: { type: code, text: "Change the pen colour with pencolor and run it.", rules: { uses: [pencolor] } }
-unlocks: [pencolor, pensize, circle]
+caption: "The picture to match"
+reveal: Show the picture to match
+check:
+  type: parsons
+  code: square.py#parsons
+  text: "These five lines are mixed up. Put them in the order that draws the picture."
+  fault: logic
+  misconception: order-free
+  explain: "The turtle draws 100 across, turns, draws 60, turns, then draws 30, so each line is shorter and the picture hooks inward. Any other order draws a different picture, because each turn changes which way the next forward goes."
 ```
 
-Change the loop in small steps. Run after each change.
-
-### Draw a triangle
-
-Change the loop so it draws a triangle instead of a square.
-
-### Double the sides
-
-Make each side of your triangle twice as long.
-
-### Change the pen
-
-Give your triangle a colour. Try a thicker line too.
+Look at the picture, then put the lines in the order that draws it.
 
 ## Make
 
@@ -180,34 +139,16 @@ Give your triangle a colour. Try a thicker line too.
 stage: make
 try: { starter: "square.py#make", height: 420 }
 app: true
-query: { code: "@square.py#sol-stairs", view: output, autorun: 1 }
+query: { code: "@square.py#sol-square", view: output, autorun: 1 }
 clip:
   - wait: 600
   - expect: { selector: "#status", contains: Finished }
-caption: "The expected result: a staircase with 5 steps"
-reveal: Show what the staircase should look like
-tasks:
-  - hint:
-      - "Trace one step with your finger. Which moves and turns make one step?"
-      - "One step is four lines: up, turn, across, turn back. Put those under a for line."
-    check: { type: code, text: "Draw a staircase with 5 steps using a loop.", rules: { loops: 1 } }
-  - hint: "Only one number needs to change."
-    check: { type: reflect, text: "I made the staircase 10 steps by changing one number." }
-  - check: { type: reflect, text: "I drew a pattern of my own: I found the part that repeats and wrote it once." }
+caption: "The expected result: a square"
+reveal: Show what the square should look like
+hint:
+  - "A square has four equal sides. How many forward lines will you need? How many turns?"
+  - "Draw one side, then turn a quarter turn (90). Do that four times, one line after another."
+check: { type: code, text: "Draw a square with forward and right.", rules: { uses: [forward, right] } }
 ```
 
-A loop works for any pattern, not only shapes. Find the part that repeats, write it once, and say how many times.
-
-### Draw a staircase
-
-Draw a staircase with 5 steps, like the picture.
-
-### Make it taller
-
-Make it 10 steps.
-
-### Your own pattern
-
-Try a zigzag, a row of battlements or a dashed line. Find the part that repeats first.
-
-Next lesson adds variables. Then you put loops and variables to work on a whole program: a street of houses.
+Draw a square. Each side is 100 steps long. Write every command out, one after another. Next lesson shows a shorter way.

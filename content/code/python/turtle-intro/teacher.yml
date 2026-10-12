@@ -1,46 +1,40 @@
-summary: Students meet the turtle, read and run a tiny program, then find out why programmers use loops instead of copying the same lines.
-time: 40
-timing: "Predict and Run 10 min · Investigate 10 min · Modify 10 min · Make 10 min"
+summary: Students meet the turtle, read a short program that follows its commands in order, and learn that the order is the picture.
+time: 35
+timing: "Meet the commands 8 min · Predict and Run 7 min · Put the lines in order 8 min · Make 12 min"
 goals:
-  - I can say what forward, right and left do to the turtle.
-  - I can use a loop to repeat lines instead of copying them.
-  - I can work out the turn for a shape with any number of sides.
+  - I can say what forward and right do to the turtle.
+  - I can say why the order of the commands matters.
+  - I can write a program of several commands that draws a shape.
 before: |
-  Open the lesson, run the first program and draw the triangle from the Modify step yourself. It takes about five minutes and you will meet the same surprise students do: the turn is 120 degrees, not 60.
+  Run the first program and draw the square yourself. It takes two minutes.
 running:
-  - "Predict: show the loop and ask what it draws. Take two or three answers before anyone runs it; each wrong option is a different idea of what a loop repeats (only the first line, only once, nothing because i is unused)."
-  - "Run: run it live on the slide, then students run it on their own screens and compare with their prediction. Ask: which lines ran four times, and how do you know?"
-  - "Investigate: the key idea is that a loop does the same work as copied lines, but stays the same size. Ask a student to say why the loop version is easier to change. The bug task (right(90) not indented) comes after students have seen the loop work. The trace task traces the counter i (0, 1, 2, 3); say that it counts from 0, because later lessons use it."
-  - "Modify: work the triangle live on the slide first if the room is unsure, then let students go on alone. Let them get it wrong first. If they try 60 degrees, ask them to walk the shape themselves: how far do you turn at each corner?"
-  - "Make: the staircase reverses the lesson: students find the part that repeats in a picture and write it once. Early finishers can try the house (a square, then a roof turning left 60 and right 120)."
+  - "Meet the commands: you explain, at the board. Run the three lines live, one at a time. Say what forward and right do, and that right does not move the turtle."
+  - "Predict: show the three-line program and take a vote before anyone runs it. The wrong options are two slips: thinking right(90) draws or moves 90 steps, and thinking the order does not matter."
+  - "Run: run it on the slide, then students run it themselves. Ask: did the turn draw anything?"
+  - "Put the lines in order: students do the ordering on their own screens. Circulate; if a student is stuck, ask which way the turtle is facing after the first turn."
+  - "Make: the square. Hints are in the speaker notes. If the room is unsure, model one side on the board and let students write the rest."
 stuck:
-  - see: The triangle has a gap, or the shape looks like a star.
-    ask: How many times does the loop repeat, and how far does the turtle turn each time?
-    fix: A shape with 3 sides repeats 3 times and turns 120 degrees. All the turns add up to 360.
-  - see: Only the first line repeats, or the program stops with an indentation error.
-    ask: Which lines are pushed in under the for line?
-    fix: The lines that repeat must be indented (four spaces) under the for line.
-  - see: A student types forward(100) and right(90) many times and sees no reason to change.
-    ask: How long would that be for a 50-sided shape?
-    fix: Ask them to draw a 50-sided shape both ways. The loop stays 3 lines; the copied version needs 100.
-stretch: Draw a shape with 50 sides and turn 360 / 50 degrees. What does it start to look like, and why?
-support: Give the loop version and ask the student to change only one number at a time, running after each change.
-leads: "Loops come back in every lesson, and in tessellations, logo design and generative art. Next lesson stores numbers in variables, so the turn can be worked out instead of guessed. Then lesson 3 (A street of houses) reads a whole program that uses both. Class ideas: design a floor tile and repeat it; recreate a simple logo from code."
+  - see: The turtle draws a line where the student expected a turn.
+    ask: Does right(90) move the turtle, or only turn it?
+    fix: right turns the turtle on the spot. Only forward draws.
+  - see: The shape comes out in the wrong order or looks mixed up.
+    ask: Read the lines aloud in order, as if you were the turtle. Where does it face after each turn?
+    fix: Each line happens after the one above it, and each turn changes which way forward goes.
+  - see: A NameError or "forward is not defined".
+    ask: What is the first line of your program?
+    fix: Every program starts with from turtle import *. Copy it to the top.
+stretch: Make a rectangle, with two side lengths. How many different numbers do you need?
+support: Give the first side and turn, and ask the student to add the other three.
+leads: "Next lesson: the same square, but the eight lines become three. Then variables, so the numbers can be worked out instead of guessed."
 exit:
-  q: "A turtle draws a shape with 5 equal sides using a loop. How many times does the loop repeat, and how far does the turtle turn each time?"
-  a: "5 times, turning 72 degrees each time (360 divided by 5)."
+  q: "A turtle runs forward(100), right(90), forward(50). How many lines does it draw, and which is longer, the first or the second?"
+  a: "Two lines (the turn does not draw). The first is longer: 100 steps against 50."
 explain: |
-  A program is a list of instructions the computer follows in order, from the top down. `forward(100)` moves the turtle 100 steps and draws a line. `right(90)` turns it on the spot, a quarter of a full turn.
+  A program is a list of commands the computer follows in order, from the top down. `forward(100)` moves the turtle 100 steps and draws a line. `right(90)` turns it on the spot, a quarter of a full turn; it does not move or draw. `left(90)` turns the other way.
 
-  A **loop** repeats the lines indented under it. `for i in range(4):` means "do the indented lines 4 times". Instead of writing the same two lines four times, you write them once and say how often. The name `i` is a counter that takes the values 0, 1, 2, 3 on the four passes. A square does not use it, but later programs do.
+  Because each turn changes the way the turtle faces, the order of the commands is the picture. Swapping two lines gives a different drawing.
 
-  The first line of every program, `from turtle import *`, gives it the turtle commands. Students copy it for now; Functions and Modules explain how it works.
-
-  To close any shape, the turtle turns all the way round once in total: 360 degrees. Split that between the corners: 360 ÷ 4 = 90 for a square, 360 ÷ 3 = 120 for a triangle.
+  The first line, `from turtle import *`, gives a program the turtle commands. Students copy it for now; Functions and Modules explain how it works.
 solutions:
-  step-4#t1: square.py#sol-triangle
-  step-4#t2: square.py#sol-double
-  step-4#t3: square.py#sol-pen
-  step-5#t1: square.py#sol-stairs
-  step-5#t2: square.py#sol-stairs10
-struggle: "Working out the turn angle for a shape. Ask how far the turtle turns in total and how many turns there are, instead of giving the number."
+  step-5: square.py#sol-square
+struggle: "Remembering that right turns without drawing. Ask what the turtle did on that line, instead of telling them."
