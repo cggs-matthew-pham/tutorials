@@ -1,0 +1,61 @@
+name: Quick publish, no recording (manual)
+
+# Runs only when started by hand: Actions tab > Quick publish, no recording (manual) > Run workflow.
+# No push, schedule or other trigger on purpose. For checking decks, teacher guides, lesson text and checks:
+# it builds main, reuses every clip and picture already on the live site, records and draws nothing, and
+# publishes to gh-pages. A clip whose lesson changed keeps its old live version (a new clip shows no video)
+# until the full "Build and publish (manual)" run records it. About 5 minutes instead of 20 or more.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Same group as the full publish, so the two never push to gh-pages at once.
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+env:
+  SITE: https://cggs-matthew-pham.github.io/tutorials
+
+jobs:
+  quick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install site tools
+        run: |
+          npm ci --omit=optional   # skip the sandbox-only bundled Chromium
+          node tools/build-playground.mjs
+
+      - name: Validate lessons
+        run: npm run validate
+
+      # Pictures whose hash matches the live site are downloaded; changed ones are left for the full run.
+      - name: Fetch unchanged pictures
+        run: node tools/render-pictures.mjs --seed "$SITE" --check
+
+      # WP_DEADLINE in the past records nothing: every clip keeps its live version where its hash matches.
+      - name: Fill in unchanged clips from the live site
+        run: WP_DEADLINE=1 WP_LIVE_SITE="$SITE" node tools/render.mjs --seed "$SITE"
+
+      - name: Build site
+        run: npm run build
+
+      - name: Publish to gh-pages
+        run: |
+          touch dist/.nojekyll
+          cd dist
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Quick site build (no recording) from ${GITHUB_SHA::7}"
+          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
