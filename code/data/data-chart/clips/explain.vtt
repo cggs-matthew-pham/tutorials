@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:05.000
+A dictionary keeps one count for each genre, and each count becomes a bar.
+
+2
+00:00:05.751 --> 00:00:08.401
+counts starts as an empty dictionary.
+
+3
+00:00:09.302 --> 00:00:13.802
+Each song adds one to its genre's count, or starts that count at one.
+
+4
+00:00:17.077 --> 00:00:21.652
+Then the hash sign, times the count, draws one bar for each genre.

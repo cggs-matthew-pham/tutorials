@@ -1,0 +1,56 @@
+{
+ "def-draw": {
+  "hash": "b45cf53d6dd1ccae",
+  "w": 640,
+  "h": 400,
+  "div": 2
+ },
+ "screen-clear": {
+  "hash": "0fa685eb76b21ff7",
+  "w": 640,
+  "h": 400,
+  "div": 2
+ },
+ "screen-fillrect": {
+  "hash": "73b334069caba434",
+  "w": 640,
+  "h": 400,
+  "div": 2
+ },
+ "screen-fillround": {
+  "hash": "feeb8ff6b6169719",
+  "w": 640,
+  "h": 400,
+  "div": 2
+ },
+ "screen-drawrect-and-drawround": {
+  "hash": "7af381209ea582ce",
+  "w": 640,
+  "h": 400,
+  "div": 2
+ },
+ "screen-drawline": {
+  "hash": "8ead9198925d2834",
+  "w": 640,
+  "h": 400,
+  "div": 2
+ },
+ "screen-drawtext": {
+  "hash": "48ce5c08d89a19b9",
+  "w": 640,
+  "h": 400,
+  "div": 2
+ },
+ "colours": {
+  "hash": "8a2db161099dd043",
+  "w": 640,
+  "h": 400,
+  "div": 2
+ },
+ "class-with-move-and-draw": {
+  "hash": "c14876994747f4ed",
+  "w": 640,
+  "h": 400,
+  "div": 2
+ }
+}

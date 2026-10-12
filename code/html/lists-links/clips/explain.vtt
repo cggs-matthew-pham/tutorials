@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.200
+A list is a box of items, and a link carries its address.
+
+2
+00:00:05.151 --> 00:00:07.676
+&lt;ul&gt; opens a box for a list.
+
+3
+00:00:08.503 --> 00:00:11.703
+Each &lt;li&gt; is one item, inside the list.
+
+4
+00:00:12.703 --> 00:00:15.453
+The closing U L tag ends the list.
+
+5
+00:00:16.379 --> 00:00:21.754
+A link uses href to say where it goes. It goes inside the opening tag.
+
+6
+00:00:22.680 --> 00:00:25.980
+The words between the tags are what people click.

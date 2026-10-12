@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.650
+Running time counts the milliseconds since the micro:bit switched on.
+
+2
+00:00:05.526 --> 00:00:08.701
+Store it as start, at the moment the heart appears.
+
+3
+00:00:09.553 --> 00:00:13.803
+At the press, running time minus start is your reaction time.
+
+4
+00:00:16.496 --> 00:00:20.921
+waiting catches early presses, and best keeps your fastest time.

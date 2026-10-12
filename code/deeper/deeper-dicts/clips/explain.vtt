@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:03.151
+A dictionary looks a value up by its name.
+
+2
+00:00:03.879 --> 00:00:07.904
+Each key is paired with a value. North leads to the kitchen.
+
+3
+00:00:08.730 --> 00:00:12.830
+exits, north, looks it up, and in checks whether a key is there.
+
+4
+00:00:14.638 --> 00:00:18.263
+There is no exit to the west, so the answer is False.

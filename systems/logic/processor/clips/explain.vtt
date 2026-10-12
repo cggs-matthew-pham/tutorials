@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.625
+A program in memory, and a processor to run it.
+
+2
+00:00:04.253 --> 00:00:09.278
+Fetch: copy the instruction from cell 0. The program counter moves on.
+
+3
+00:00:11.228 --> 00:00:13.778
+Decode: work out what it means.
+
+4
+00:00:15.497 --> 00:00:18.722
+Execute: the accumulator is now 5.
+
+5
+00:00:24.003 --> 00:00:28.003
+The same three steps, again and again. The output is 8.

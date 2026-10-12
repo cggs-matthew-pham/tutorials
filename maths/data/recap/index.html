@@ -1,0 +1,1204 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recap: Data and chance</title><style>
+:root{--bg:#fbfaf8;--ink:#1d2430;--muted:#5d6978;--card:#fff;--line:#e4e1da;--accent:#c2570a;--code:#141a22;--codeink:#e6edf3;
+--kw:#ff7b72;--str:#a5d6ff;--fn:#d2a8ff;--com:#7f8fa1;--num:#79c0ff;
+--predict:#8a5cf6;--run:#16a05d;--investigate:#2b7de9;--modify:#c2570a;--practise:#0e7f86;--make:#d63384;--info:#5d6978}
+@media(prefers-color-scheme:dark){:root{--bg:#0f141a;--ink:#e6edf3;--muted:#9aa7b6;--card:#161d26;--line:#26303c;--accent:#ff9d3d;--code:#0b0f14;
+--predict:#b794ff;--run:#4ade80;--investigate:#6cb6ff;--modify:#ff9d3d;--practise:#4fd1c5;--make:#ff8fc0}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px 80px}
+header.top{padding:44px 0 18px}header.top .crumb{font-size:14px;color:var(--muted);text-decoration:none}
+h1{font-size:2.1rem;line-height:1.2;margin:.3em 0 .2em}.by{margin:-.6em 0 1em;color:var(--muted);font-size:14px}.lede{color:var(--muted);font-size:1.1rem;margin:0 0 1em}
+nav.steps{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:18px 0 8px;position:sticky;top:calc(var(--nav,0px) + var(--cb,0px));z-index:9;padding:10px 0;background:var(--bg);border-bottom:1px solid var(--line);scrollbar-width:thin}
+nav.steps a{flex:none;white-space:nowrap}
+nav.steps a.here{border-color:var(--c);box-shadow:inset 0 0 0 1px var(--c)}
+section.step{scroll-margin-top:calc(var(--nav,0px) + var(--cb,0px) + 64px)}
+.coursebar{position:sticky;top:var(--nav,0px);z-index:11;display:flex;align-items:center;justify-content:space-between;gap:8px;height:46px;background:var(--bg);border-bottom:1px solid var(--line)}
+.coursebar a,.cb-toggle{font:inherit;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;background:none;border:0;cursor:pointer;padding:6px 8px;border-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:34vw}
+.coursebar a:hover,.cb-toggle:hover{background:var(--card)}
+.cb-prev,.cb-next{flex:0 1 auto;min-width:34px}.cb-next{text-align:right}
+.cb-mid{position:relative;flex:1;min-width:0;text-align:center}.cb-toggle{max-width:100%}
+.cb-menu{position:absolute;left:50%;transform:translateX(-50%);top:42px;width:min(92vw,440px);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 8px 28px rgba(0,0,0,.18);text-align:left}
+.cb-menu[hidden]{display:none}.cb-menu ul{list-style:none;margin:0;padding:0}
+.cb-menu li a{display:flex;gap:8px;align-items:center;max-width:none;white-space:normal;font-weight:500}.cb-menu li a[aria-current]{font-weight:700;background:var(--bg)}
+.cb-menu .tick{flex:none;width:18px;height:18px;border-radius:50%;border:2px solid var(--line);display:inline-block}.cb-menu .tick.on{background:var(--run);border-color:var(--run)}
+.cb-menu .cb-tools{display:flex;flex-wrap:wrap;gap:4px;border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+@media(max-width:560px){.cb-prev span,.cb-next span{display:none}}
+.nextcard{display:block;margin:34px 0 0;padding:18px 22px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none}
+.nextcard small{display:block;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.nextcard b{display:block;font-size:1.15rem}.nextcard span{color:var(--muted);font-size:15px}
+.nextcard:hover{border-color:var(--accent)}
+.nowcan{margin:34px 0 0;padding:16px 22px;border-left:4px solid var(--accent);background:var(--card);border-radius:0 14px 14px 0}.nowcan small{display:block;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.nowcan ul{margin:6px 0 0;padding-left:20px}.nowcan+.nextcard{margin-top:14px}.practicecard+.nextcard{margin-top:14px}.practicecard{border-left:4px solid var(--accent)}
+.rules{list-style:none;margin:6px 0 0;padding:0}.rules li{display:flex;gap:8px;align-items:center;margin:3px 0}.rules li::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid var(--line);flex:none}.rules li.ok::before{background:var(--run);border-color:var(--run)}
+
+nav.steps a{font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--card);padding:5px 11px;border-radius:99px}
+nav.steps a i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;background:var(--c)}
+section.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin:26px 0;border-top:4px solid var(--c)}
+section.step h2{font-size:1.4rem;line-height:1.3;margin:.15em 0 .5em}
+.chip{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.chip small{font-weight:500;letter-spacing:0;text-transform:none;color:var(--muted);margin-left:8px;font-size:13px}
+.code{margin:16px 0;border-radius:10px;overflow:hidden;background:var(--code)}
+.code-head{display:flex;justify-content:space-between;align-items:center;padding:7px 14px;font:12px ui-monospace,Menlo,Consolas,monospace;color:#8b98a8;border-bottom:1px solid #26303c}
+.code-head button{font:inherit;background:none;border:1px solid #3a4756;color:#c3cdd9;border-radius:6px;padding:2px 9px;cursor:pointer}
+.code pre{margin:0;padding:14px 16px;overflow-x:auto;color:var(--codeink);font:14px/1.55 ui-monospace,Menlo,Consolas,monospace}
+.kw{color:var(--kw)}.str{color:var(--str)}.fn{color:var(--fn)}.com{color:var(--com)}.num{color:var(--num)}
+p code,li code{background:color-mix(in srgb,var(--ink) 9%,transparent);padding:1px 6px;border-radius:5px;font-size:.9em}
+figure.clip{margin:18px 0}figure.clip video{width:100%;border-radius:10px;border:1px solid var(--line);display:block;background:#0b0f14}
+figure.clip figcaption{font-size:14px;color:var(--muted);margin-top:6px}
+figure.clip .voiced-note{white-space:nowrap}
+figure.clip .vpick{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;margin-left:6px;white-space:nowrap}figure.clip .vpick button{font:inherit;font-size:13px;padding:2px 9px;border-radius:99px;border:1px solid var(--line);background:transparent;color:inherit;cursor:pointer}figure.clip .vpick button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;aspect-ratio:16/9;border:2px dashed var(--line);border-radius:10px;color:var(--muted);text-align:center;font-size:15px;padding:12px}
+.placeholder b{color:var(--ink)}
+.try{margin:20px 0 6px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.try-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:9px 14px;font-size:14px;background:color-mix(in srgb,var(--c) 10%,transparent);border-bottom:1px solid var(--line)}
+.try-head span{color:var(--muted);flex:1}
+.try-full{font:inherit;font-size:13px;padding:2px 10px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink);cursor:pointer}.try-full:hover{border-color:var(--c,var(--accent))}
+.try.full{position:fixed;inset:0;z-index:50;margin:0;border:0;border-radius:0;display:flex;flex-direction:column;background:var(--bg)}
+.try-task,.tt-toggle{display:none}.try.full .try-task{display:block;max-height:38vh;overflow:auto;padding:6px 14px 8px;border-bottom:1px solid var(--line);background:var(--card);font-size:15px}
+.try.full .tt-toggle{display:inline-block;margin-left:auto;margin-right:8px;font:inherit;font-size:13px;padding:2px 10px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink);cursor:pointer}
+.tt-title{font-weight:700;margin:.2em 0 .3em}.tt-body p,.tt-body ul,.tt-body ol{margin:.3em 0}.tt-body img{max-height:24vh;width:auto}.tt-body .hints{margin:.3em 0;padding-top:4px;padding-bottom:4px}
+.try-task.closed .tt-body{display:none}.try-checks{display:flex;flex-wrap:wrap;gap:4px 16px;padding:6px 0 2px;margin-top:4px;position:sticky;bottom:-8px;background:var(--card);border-top:1px dashed var(--line);font-size:14px;color:var(--muted)}.try-task.closed .try-checks{border-top:0;margin-top:0}.try-checks .ok{color:var(--run);font-weight:600}.try.full iframe{flex:1;height:auto!important}
+body.try-open{overflow:hidden}
+.try iframe{display:block;width:100%;border:0;background:var(--card)}
+.try iframe[hidden]{display:none}.mkload{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:var(--card);color:var(--muted);font-size:14px;text-align:center;padding:16px}.try.full .mkload{height:calc(100% - 40px)!important}
+.mkopen{font:inherit;font-size:16px;font-weight:600;padding:10px 18px;border-radius:10px;border:0;background:var(--c,var(--accent));color:#fff;cursor:pointer}@media(prefers-color-scheme:dark){.mkopen{color:#0f141a}}
+figure.shown{margin:10px 0 16px}figure.shown img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff;display:block}figure.shown figcaption{font-size:13px;color:var(--muted);margin-top:4px}
+details.expected figure{margin:8px 0 14px}details.expected img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff;display:block}details.expected figcaption{font-size:13px;color:var(--muted);margin-top:4px}
+details.reveal{margin:16px 0;border:1px solid var(--line);border-radius:10px;padding:0 16px}
+details.hints{margin:12px 0;border:1px solid var(--line);border-radius:10px;padding:0 16px}
+details.hints summary{cursor:pointer;font-weight:600;padding:10px 0}
+details.hints[open] summary{border-bottom:1px solid var(--line);margin-bottom:6px}
+.tasks{margin:14px 0}
+.taskpills{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+.taskpills .tp{font:inherit;font-size:14px;font-weight:600;padding:5px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.taskpills .tp i{width:10px;height:10px;border-radius:50%;border:2px solid var(--c)}.taskpills .tp.done i{background:var(--c)}
+.taskpills .tp.active{border-color:var(--c);box-shadow:inset 0 0 0 1px var(--c)}
+.tpanel{display:none}.tpanel.active{display:block}
+.tmsg{margin:8px 0 0;font-size:14px;font-weight:600;color:var(--run)}
+.resetstart{font:inherit;font-size:13px;margin:6px 0;padding:4px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+nav.steps a .cnt{font-weight:500;color:var(--muted);margin-left:5px}
+.buglines{margin:6px 0;padding:0 0 0 2.2em;background:var(--code);border-radius:10px;font:14px/1.7 ui-monospace,Menlo,Consolas,monospace;list-style:decimal;color:var(--com)}
+.buglines li{padding-right:6px}.check .buglines button{display:block;width:100%;margin:0;padding:0 8px;border:0;border-radius:6px;background:none;text-align:left;color:var(--codeink);cursor:pointer}
+.check .buglines button:hover{background:rgba(255,255,255,.1)}.check .buglines button.no{background:rgba(255,100,100,.25)}.check .buglines button.yes{background:rgba(74,222,128,.28)}
+.buglines code{white-space:pre;font:inherit}
+.bugfile{margin:8px 0}.bugfile-name,.files .code-head span{font:600 13px ui-monospace,Menlo,Consolas,monospace}.bugfile-name{margin:0 0 2px;color:var(--ink)}.files{display:grid;gap:8px}
+.mrow{display:flex;gap:10px;align-items:center;margin:6px 0;flex-wrap:wrap}.mrow span{flex:1 1 180px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px}.mrow select{font:inherit;font-size:14px;padding:4px 6px;border-radius:6px;max-width:100%}
+.mrow select.ok{outline:2px solid var(--run)}.mrow select.no{outline:2px solid var(--make)}
+.tscroll{overflow-x:auto}.trace{border-collapse:collapse;margin:8px 0;font:14px ui-monospace,Menlo,Consolas,monospace}.trace th,.trace td{border:1px solid var(--line);padding:4px 10px;text-align:center}.trace th{background:var(--card)}
+.trace input{width:5em;font:inherit;text-align:center;padding:3px;border-radius:4px;border:1px solid var(--line)}.trace input.ok{outline:2px solid var(--run)}.trace input.no{outline:2px solid var(--make)}
+.numrow input{font:inherit;padding:5px 8px;border-radius:6px;border:1px solid var(--line);width:9em}
+.parsons{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}@media(max-width:620px){.parsons{grid-template-columns:1fr}}
+.pcol b{font-size:13px;color:var(--muted)}.pcol ul,.pcol ol{margin:4px 0;padding:0;list-style:none;min-height:3em;border:1px dashed var(--line);border-radius:10px;padding:6px}
+.pcol li{display:flex;align-items:center;gap:6px;margin:3px 0;background:var(--code);border-radius:6px;padding:2px 6px}.pcol code{flex:1;white-space:pre;color:var(--codeink);font:13px ui-monospace,Menlo,Consolas,monospace;overflow-x:auto}
+.check .pcol button{margin:0;padding:1px 8px;border-radius:6px;font-size:13px}.check .pcol button.piece{flex:1;text-align:left;background:none;border:0;padding:0}.pprog li[draggable=true]{cursor:grab}
+details.insights{margin:10px 0}
+details.teachers{margin:28px 0 0;border:1px solid var(--line);border-radius:8px;padding:0 16px}
+details.teachers summary{cursor:pointer;font-weight:600;padding:12px 0}
+details.teachers h3{font-size:1rem;margin:16px 0 4px}.tguide{background:color-mix(in srgb,var(--accent) 8%,transparent);border-radius:8px;padding:8px 12px}
+.xbtn{flex:none;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13px;font-weight:600;color:var(--investigate);border:1px solid var(--investigate);background:var(--card);padding:4px 11px 4px 5px;border-radius:99px;cursor:pointer}.xbtn b{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--investigate);color:#fff;font-size:12px}.xbtn[aria-expanded=true]{box-shadow:inset 0 0 0 1px var(--investigate)}.xdrawer{position:fixed;z-index:40;right:0;top:var(--nav,0px);bottom:0;width:min(520px,100vw);overflow:auto;background:var(--card);border-left:1px solid var(--line);box-shadow:-8px 0 24px rgba(0,0,0,.12);padding:0 20px 24px}.xd-head{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);padding:14px 0 10px;border-bottom:1px solid var(--line);margin-bottom:12px}.xd-head h2{margin:0;font-size:1.1rem;color:var(--investigate)}.xd-close{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 10px;cursor:pointer}.xpop{position:fixed;z-index:41;max-width:min(300px,calc(100vw - 32px));margin:0;padding:9px 13px;font-size:14px;line-height:1.4;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--predict,#7c3aed);border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.14)}.xd-body video{max-width:100%}details.explain{margin:12px 0 4px;border:1px solid var(--line);border-left:4px solid var(--investigate);border-radius:8px;padding:0 16px;background:var(--card)}details.explain summary{cursor:pointer;font-weight:600;padding:10px 0;color:var(--investigate)}
+.clinks{margin:-6px 0 14px;font-size:14px;color:var(--muted,#5d6675)}.clinks p{margin:2px 0}.clinks .clw{opacity:.8}
+.hook{margin:0 0 16px;padding:8px 14px;border-left:4px solid var(--c,#2563eb);background:rgba(37,99,235,.07);border-radius:4px}
+details.reveal summary{cursor:pointer;font-weight:600;padding:12px 0;color:var(--c)}
+details.reveal[open] summary{border-bottom:1px solid var(--line);margin-bottom:6px}
+.legend{display:grid;gap:6px;margin:10px 0 0;padding:0;list-style:none;font-size:15px;color:var(--muted)}
+.legend b{color:var(--c)}
+.widthbar{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px 14px;margin:14px 0 0}
+.widthbar .wnote{display:block;font-size:14px;color:var(--muted)}.wseg{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:99px;padding:3px;background:var(--bg)}
+.wseg button{font:inherit;font-size:14px;font-weight:600;border:0;background:transparent;color:var(--ink);border-radius:99px;padding:5px 12px;cursor:pointer}.wseg button[aria-pressed=true]{background:var(--accent);color:#fff}
+@media(prefers-color-scheme:dark){.wseg button[aria-pressed=true]{color:#0f141a}}.wseg button:disabled{opacity:.4;cursor:not-allowed}
+.tierchip{font-size:11px;letter-spacing:.06em;padding:1px 7px;border-radius:99px;border:1px solid currentColor;margin-left:6px}
+[data-tier][hidden]{display:none!important}footer code{overflow-wrap:anywhere}.srow{flex-wrap:wrap}.srow span{font-family:inherit;font-size:15px}.srow .swhy{flex-basis:100%;color:var(--muted)}
+ul.lessons{list-style:none;padding:0;display:grid;gap:14px}ul.lessons a{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;text-decoration:none;color:inherit}
+.ctop{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.ctop h1{margin-bottom:0}
+.chips{display:flex;gap:8px}.chip{font-size:14px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--card);padding:6px 14px;border-radius:99px;text-transform:none;letter-spacing:normal}.chip:hover{border-color:var(--accent)}
+.continue{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:center;margin:22px 0 18px;padding:16px 20px;border-radius:14px;text-decoration:none;color:#fff;background:var(--accent)}
+.continue .ck{grid-row:span 2;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.2)}
+.continue b{font-size:1.15rem}.continue .cstep{font-size:14px;opacity:.9}.continue .cstep:empty{display:none}.continue:hover{filter:brightness(1.06)}
+@media(prefers-color-scheme:dark){.continue{color:#1a1006}.continue .ck{background:rgba(0,0,0,.15)}}
+.pathway{margin:30px 0 8px}.pathway h2{margin:0;font-size:1.4rem}.pathway h2 a{color:inherit;text-decoration:none}.pathway h2 a:hover{color:var(--accent)}.pathway h2 a::after{content:' ›';color:var(--muted)}.pabout{max-width:680px}.home-about h2,.approach h2{font-size:1.2rem;margin:28px 0 8px}.home-about p,.approach p,.approach li{line-height:1.6}.home-subjects{font-size:1.2rem;margin:34px 0 12px}.home-about a,.approach a{color:var(--accent)}.pnote{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:12px 16px;color:var(--muted)}.psum{margin:2px 0 10px;color:var(--muted)}
+.pstage h3{margin:14px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.pcard{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:inherit}.pcard:hover{border-color:var(--accent)}
+.pcard b{display:block;font-size:1.05rem}.pcard .ptag{color:var(--ink);font-size:15px;margin-top:4px}.pcard.pmap{margin:6px 0 4px;border-color:var(--accent)}.pcard.pmap b::after{content:' →';color:var(--accent)}.pafter{display:block;font-size:12.5px;color:var(--muted);margin-top:6px}.pcard span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.pcard.soon{background:transparent;border-style:dashed}.pcard.soon b{color:var(--muted)}.pcard em{display:inline-block;margin-top:8px;font-style:normal;font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:1px 9px}
+.pcard .cprog{display:block;font-style:normal;font-weight:400;font-size:13px;color:var(--muted);margin-top:8px;border:0;padding:0;border-radius:0}.pcard .cbar{display:block;height:6px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:4px}.pcard .cbar i{display:block;height:100%;background:var(--run)}
+.ptools{margin:34px 0 0;color:var(--muted);font-size:14px}
+.course{display:grid;gap:22px}.unit .uhead{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:0 12px;margin:0 2px 8px}
+.unit .uhead h2{margin:0;font-size:1.05rem}.unit .uhead p{grid-column:1/-1;margin:2px 0 0;color:var(--muted);font-size:14px}.ustat{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.urows{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}
+.crow{border-top:1px solid var(--line)}.crow:first-child{border-top:0}
+.crow summary{display:grid;grid-template-columns:30px 1fr auto auto;gap:12px;align-items:center;padding:11px 16px;cursor:pointer;list-style:none}.crow summary::-webkit-details-marker{display:none}
+.crow summary:hover{background:color-mix(in srgb,var(--accent) 4%,transparent)}.crow summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.crow summary::after{content:'▸';color:var(--muted);font-size:12px;transition:transform .15s}.crow[open] summary::after{transform:rotate(90deg)}
+.crow summary .cstat{grid-column:3}.crow summary::after{grid-column:4}
+.cnum{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-weight:700;font-size:14px;border:2px solid var(--line);color:var(--muted)}
+.crow.started .cnum{border-color:var(--accent);color:var(--accent)}.crow.done .cnum{background:var(--run);border-color:var(--run);color:#fff;font-size:0}.crow.done .cnum::after{content:'✓';font-size:15px}
+.crow.next>summary{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.ctitle{font-weight:650;color:var(--ink);min-width:0}.opt{font-style:normal;font-weight:600;font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:1px 8px;margin-left:6px;vertical-align:2px}
+.crow summary .segs{grid-column:2;grid-row:2;display:flex;gap:3px;max-width:340px;margin-top:-4px}.seg{flex:1;height:6px;border-radius:3px;background:color-mix(in srgb,var(--c) 16%,var(--line))}.seg.on{background:var(--c)}
+.cstat{font-size:13px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}.crow.done .cstat{color:var(--run);font-weight:600}
+.cbody{padding:2px 16px 14px 58px}.csum{margin:0 0 8px;color:var(--muted);font-size:15px}
+.csteps{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:2px}.csteps a{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--ink);text-decoration:none;padding:3px 0}.csteps a:hover{text-decoration:underline}
+.sdot{flex:none;width:12px;height:12px;border-radius:50%;border:2px solid var(--c)}.sdot.on{background:var(--c)}
+.cgo{display:inline-block;font-size:14px;font-weight:600;text-decoration:none;color:#fff;background:var(--accent);padding:6px 14px;border-radius:8px}@media(prefers-color-scheme:dark){.cgo{color:#1a1006}}
+.badge{display:inline-block;margin-top:10px;font-size:14px;font-weight:700;color:#7a4b00;background:#ffe9a8;border-radius:99px;padding:4px 12px}.badge[hidden]{display:none}
+.cfoot{margin:14px 2px;color:var(--muted);font-size:14px}.cfoot b{color:var(--ink);font-weight:600}
+@media(max-width:560px){.crow summary{grid-template-columns:30px 1fr auto;padding:10px 12px}.crow summary::after{display:none}.cbody{padding:2px 12px 12px 54px}.crow summary .segs{max-width:none}}
+ul.lessons a:hover{border-color:var(--accent)}ul.lessons .cprog{display:block;font-style:normal;font-size:13px;color:var(--muted);margin-top:8px}ul.lessons .cbar{display:block;height:6px;max-width:260px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:4px}ul.lessons .cbar i{display:block;height:100%;background:var(--run)}ul.lessons b{display:block;font-size:1.15rem}ul.lessons span{color:var(--muted);font-size:15px}
+.compare{margin:14px 0;padding:12px 16px;border-left:4px solid var(--predict);background:color-mix(in srgb,var(--predict) 8%,transparent);border-radius:0 8px 8px 0}.compare p{margin:2px 0}
+.check{margin:20px 0 4px;padding:14px 16px;border:1px dashed var(--c);border-radius:10px;background:color-mix(in srgb,var(--c) 6%,transparent)}
+.check legend,.check .check-q{font-weight:600;margin:0 0 8px;padding:0}.check fieldset{border:0;margin:0;padding:0}
+.check label{display:flex;gap:10px;align-items:flex-start;margin:6px 0;cursor:pointer}.check input{margin-top:.35em;accent-color:var(--c)}
+.check button{font:inherit;font-size:14px;margin-top:6px;padding:5px 14px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.check .msg{margin:8px 0 0;font-size:14px;color:var(--muted)}.check .msg.ok{color:var(--run);font-weight:600}.check .msg.no{color:var(--make)}
+.check.done{border-style:solid}
+.ref-group{margin:28px 0 8px;font-size:1.15rem}.ref-item{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr);gap:6px 18px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}
+.ref-item .code{margin:0}.ref-item .ref-id{font-size:12px;margin-top:2px}
+.ref-ex{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:10px 0 4px}.ref-pic{margin:8px 0 0}.ref-pic img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:#fff;display:block}.ref-pic figcaption{font-size:12px;color:var(--muted);margin-top:3px}.ref-print{margin:14px 0 0}.ref-item p{margin:0;color:var(--muted);font-size:15px}.ref-item b{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
+.ref-search{width:100%;box-sizing:border-box;margin:18px 0 0;padding:10px 14px;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}.ref-search:focus{outline:2px solid var(--accent);outline-offset:1px}.ref-item[hidden],.ref-section[hidden]{display:none}
+@media(max-width:640px){.ref-item{grid-template-columns:1fr}}
+@media print{.ref-search{display:none}}
+@media print{body{background:#fff;color:#000}.ref-item{break-inside:avoid}}
+footer{margin-top:50px;color:var(--muted);font-size:14px}
+.sitenav{background:var(--card);border-bottom:1px solid var(--line);font-size:14px;position:sticky;top:0;z-index:20}
+html{scroll-padding-top:var(--nav,0px)}
+.sn-in{max-width:1080px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:4px;min-height:48px;flex-wrap:wrap}
+.sitenav a{color:var(--ink);text-decoration:none;font-weight:600;padding:6px 10px;border-radius:8px;white-space:nowrap}
+.sitenav a:hover{background:var(--bg)}.sitenav a[aria-current]{color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent);border-radius:0}
+.sitenav .sn-brand{font-weight:800;letter-spacing:-.01em;margin-right:4px;color:var(--muted)}.sn-brand span{font-weight:400}
+.sn-main,.sn-tools{display:flex;gap:2px;align-items:center}.sn-grow{flex:1}
+.sn-dd{position:relative;display:flex;align-items:center}.sn-dd.on>.sn-top{color:var(--accent)}
+.sn-caret{font:inherit;background:none;border:0;color:var(--muted);cursor:pointer;padding:6px 4px;margin-left:-8px;border-radius:6px}.sn-caret:hover{color:var(--ink)}
+.sn-sub{display:none;position:absolute;top:100%;left:0;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);padding:6px;flex-direction:column}
+.sn-sub a{display:block}.sn-sub a[aria-current]{box-shadow:inset 3px 0 0 var(--accent);border-radius:4px}
+.sn-dd:hover .sn-sub,.sn-dd:focus-within .sn-sub,.sn-dd.open .sn-sub{display:flex}
+.sn-menu{display:none;font:inherit;font-weight:600;color:var(--ink);background:none;border:1px solid var(--line);border-radius:8px;padding:4px 10px;cursor:pointer}
+.sitenav .sn-back{color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:99px;margin-right:6px;max-width:42vw;overflow:hidden;text-overflow:ellipsis}
+.sitenav .sn-back[hidden]{display:none}
+@media(max-width:700px){.sn-menu{display:inline-block;margin-left:auto}.sn-main{display:none;order:9;flex-basis:100%;flex-direction:column;align-items:stretch;padding:4px 0 8px}.sitenav.open .sn-main{display:flex;max-height:calc(100vh - 120px);overflow-y:auto}
+.sn-dd{flex-direction:column;align-items:stretch}.sn-caret{display:none}.sn-sub{display:flex;position:static;border:0;box-shadow:none;padding:0 0 0 16px;min-width:0;background:none}
+.sitenav a[aria-current]{box-shadow:none}.sn-tools{order:8;flex-basis:100%;justify-content:flex-start;padding-bottom:6px;overflow-x:auto}.sitenav .sn-back{order:7;flex-basis:100%;max-width:none;margin:2px 0 6px;text-align:center}}
+@media print{.sitenav{display:none}}</style></head><body><nav class="sitenav" data-here="course" aria-label="Site"><div class="sn-in"><a class="sn-brand" href="https://learningwaypoints.com/" title="Learning Waypoints: the main site">Learning Waypoints <span aria-hidden="true">↗</span></a><button type="button" class="sn-menu" aria-expanded="false" aria-controls="sn-main">Menu ▾</button><div class="sn-main" id="sn-main"><a href="../../../">Tutorials</a><div class="sn-dd"><a class="sn-top" href="../../../code/">Code</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-0" aria-label="Code pathways">▾</button><div class="sn-sub" id="sn-sub-0"><a href="../../../code/paths/python/">Python</a><a href="../../../code/paths/web/">Web</a><a href="../../../code/paths/makecode/">MakeCode</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../systems/">Digital systems</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-1" aria-label="Digital systems pathways">▾</button><div class="sn-sub" id="sn-sub-1"><a href="../../../systems/paths/data/">Data representation</a><a href="../../../systems/paths/networks/">Networks and security</a><a href="../../../systems/paths/hardware/">Hardware and logic</a><a href="../../../systems/paths/cli/">The command line</a><a href="../../../systems/map/">Curriculum map</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../engineering/">Engineering</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-2" aria-label="Engineering pathways">▾</button><div class="sn-sub" id="sn-sub-2"><a href="../../../engineering/paths/mechanisms/">Mechanisms</a><a href="../../../engineering/paths/structures/">Structures</a><a href="../../../engineering/paths/physical/">Physical computing</a><a href="../../../engineering/paths/cad/">CAD and fabrication</a><a href="../../../engineering/paths/boards/">Design your own board</a></div></div><div class="sn-dd on"><a class="sn-top" href="../../../maths/">Maths</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-3" aria-label="Maths pathways">▾</button><div class="sn-sub" id="sn-sub-3"><a href="../../../maths/paths/algebra/">Algebra</a><a href="../../../maths/paths/number/">Number</a><a href="../../../maths/paths/space/">Geometry and measurement</a><a href="../../../maths/paths/data/" aria-current="page">Statistics and probability</a><a href="../../../maths/map/">Curriculum map</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../science/">Science</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-4" aria-label="Science pathways">▾</button><div class="sn-sub" id="sn-sub-4"><a href="../../../science/paths/chemistry/">Chemistry</a><a href="../../../science/paths/biology/">Biology</a><a href="../../../science/paths/physics/">Physics</a><a href="../../../science/paths/earth-space/">Earth and space</a><a href="../../../science/map/">Curriculum map</a></div></div></div><span class="sn-grow"></span><a class="sn-back" href="#" hidden></a><div class="sn-tools"><a href="../../../maths/data/reference/">Reference</a><a href="../../../maths/data/" aria-current="page">My progress</a></div></div></nav><div class="wrap"><style>
+.rcunit{margin:28px 0 8px}.rcunit h2{font-size:1.15rem;margin:0 0 4px}.rcunit>p{margin:0 0 10px;color:var(--muted);font-size:15px}
+.rc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:10px 0}
+.rc h3{margin:0 0 6px;font-size:1.05rem}.rc h3 a{color:inherit;text-decoration:none}.rc h3 a:hover{text-decoration:underline}
+.rcq{margin:0;font-size:16px}.rcq b{color:var(--predict,#7c3aed);font-size:13px;letter-spacing:.04em;text-transform:uppercase;margin-right:6px}
+.rc details{margin-top:8px}.rc summary{cursor:pointer;font-weight:600;color:var(--investigate);padding:4px 0}
+.rca{margin:6px 0 10px;padding:8px 12px;border-left:4px solid var(--run);background:color-mix(in srgb,var(--run) 8%,var(--card));border-radius:6px}
+.rcx{font-size:15.5px}.rcx p{margin:6px 0}.rc figure{margin:10px 0}.rc img,.rc video{max-width:100%;height:auto;border-radius:8px}
+.rcgo{display:inline-block;margin-top:6px;font-size:14px;font-weight:600}
+.rccoach{margin:12px 0 0;padding:10px 14px;border:1px dashed var(--line);border-radius:10px;font-size:14.5px}.rccoach p{margin:0 0 6px}
+.rccoach button{font:inherit;font-size:14px;padding:4px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer}
+.rccoach textarea{width:100%;min-height:9em;margin-top:8px;font:13px/1.4 ui-monospace,monospace}
+</style><header class="top"><a class="crumb" href="../">← Data and chance</a><h1>Data and chance: recap</h1><p class="lede">Answer each question in your head or on paper first, then check it.</p></header><section class="rcunit"><h2>Data</h2><article class="rc" id="kinds-of-data"><h3><a href="../kinds-of-data/">1. Counting and measuring</a></h3><p class="rcq"><b>Try first</b>Classify: (a) number of apps on a phone, (b) battery temperature, (c) screen size in inches. Explain one.</p><details><summary>Check your answer</summary><p class="rca">(a) discrete (counted), (b) continuous (measured), (c) continuous (measured, though sold in common sizes).</p><div class="rcx"><p><strong>Discrete</strong> data is counted: it takes separate values, such as 0, 1, 2 siblings. <strong>Continuous</strong> data is measured: it can be any value in a range, such as a 100 m time of 14.37 s.</p>
+<p>Measured values are always rounded: 152 cm to the nearest centimetre means from 151.5 cm up to 152.5 cm. Decimals alone do not make data continuous: shoe sizes (7, 7.5, 8) are discrete.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/kinds-of-data/explain.png?v=d13e34222b04f315" alt="Number of siblings: counted, so only whole numbers (discrete). Nobody has 1.5 siblings." width="594" height="142" loading="lazy"><figcaption>Number of siblings: counted, so only whole numbers (discrete). Nobody has 1.5 siblings.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../kinds-of-data/clips/explain.jpg"><source src="../kinds-of-data/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../kinds-of-data/clips/explain.vtt"></video><figcaption>Counted or measured? <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../kinds-of-data/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 7 student in Australia. Help me understand ONE idea only, from the lesson &quot;Counting and measuring&quot;.
+
+The idea: Distinguishing discrete and continuous numerical variables: I can Students distinguish discrete from continuous numerical variables and understand how this affects data acquisition.
+
+What understanding looks like:
+- Correctly classifies given variables as discrete or continuous.
+- Explains the key distinction (countable vs measurable).
+- Identifies appropriate units and precision for a continuous variable.
+
+Mistakes students often make here:
+- A student calls any decimal data continuous (Ava's mistake).
+- A student calls large counts continuous.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Counting and measuring&quot;.</textarea></div></details></article><article class="rc" id="measures-of-centre"><h3><a href="../measures-of-centre/">2. Mean, median, mode and range</a></h3><p class="rcq"><b>Try first</b>Find the mean, median, mode and range of 6, 2, 9, 6, 7, 12.</p><details><summary>Check your answer</summary><p class="rca">Mean 42 ÷ 6 = 7; median (6 + 7) ÷ 2 = 6.5; mode 6; range 10.</p><div class="rcx"><p>Four numbers sum up a data set:</p>
+<ul>
+<li><strong>mean</strong>: add the values, then divide by how many there are (3, 5, 5, 6, 11: 30 ÷ 5 = 6);</li>
+<li><strong>median</strong>: sort the values and take the middle one; for an even count, halfway between the two middle values;</li>
+<li><strong>mode</strong>: the most common value (there can be two, or none);</li>
+<li><strong>range</strong>: highest minus lowest (11 − 3 = 8), a measure of spread.</li>
+</ul>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/measures-of-centre/explain.png?v=fddea1dfcce459ad" alt="3, 5, 5, 6, 11: mean 6 (▲), median 5 (dashed), mode 5, range 11 − 3 = 8 (arrow)." width="591" height="181" loading="lazy"><figcaption>3, 5, 5, 6, 11: mean 6 (▲), median 5 (dashed), mode 5, range 11 − 3 = 8 (arrow).</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../measures-of-centre/clips/explain.jpg"><source src="../measures-of-centre/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../measures-of-centre/clips/explain.vtt"></video><figcaption>Four numbers that sum up the data <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../measures-of-centre/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 7 student in Australia. Help me understand ONE idea only, from the lesson &quot;Mean, median, mode and range&quot;.
+
+The idea: Calculating range, median, mean and mode: I can Students calculate all four summary statistics for a given data set.
+
+What understanding looks like:
+- Correctly calculates range, median, mean and mode for a given data set.
+- Handles even-count data sets correctly for median.
+- Recognises and handles data sets with no mode or multiple modes.
+
+Mistakes students often make here:
+- A student takes the middle of the unsorted list (Leo's mistake).
+- A student gives the total as the mean.
+- A student picks one of two middle values for an even count.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- If I seem to be missing the idea that comes before this one (Distinguishing discrete and continuous numerical variables), check it quickly, then come back.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Mean, median, mode and range&quot;.</textarea></div></details></article><article class="rc" id="which-measure"><h3><a href="../which-measure/">3. Which measure?</a></h3><p class="rcq"><b>Try first</b>Salaries in a small company ($ thousands): 50, 52, 55, 58, 400. Which measure would you report as typical, and why?</p><details><summary>Check your answer</summary><p class="rca">The median, 55: the 400 is an outlier that pulls the mean up to 123, more than four of the five salaries.</p><div class="rcx"><p>The mean, median and mode can disagree. Look for <strong>outliers</strong> first (values far from the rest):</p>
+<ul>
+<li>An outlier pulls the <strong>mean</strong> towards it, so with one the <strong>median</strong> usually describes a typical value better ($5, 6, 6, 7, 8, 40$: mean 12, median 6.5).</li>
+<li>With no outliers, the <strong>mean</strong> is a fair summary because it uses every value.</li>
+<li>For &quot;which is most common?&quot;, use the <strong>mode</strong>.</li>
+</ul>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/which-measure/explain.png?v=5be432d4ee60fa74" alt="One outlier (40) pulls the mean (▲) up to 12, past every other value; the median (dashed) stays at 6.5, among the typical values." width="591" height="181" loading="lazy"><figcaption>One outlier (40) pulls the mean (▲) up to 12, past every other value; the median (dashed) stays at 6.5, among the typical values.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../which-measure/clips/explain.jpg"><source src="../which-measure/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../which-measure/clips/explain.vtt"></video><figcaption>An outlier drags the mean <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../which-measure/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 7 student in Australia. Help me understand ONE idea only, from the lesson &quot;Which measure?&quot;.
+
+The idea: Justifying which measure is most useful: I can Students reason about which measure of central tendency best describes a given distribution, considering outliers, skewness, and the purpose of the summary.
+
+What understanding looks like:
+- Identifies which measure best represents a given distribution and justifies the choice.
+- Explains the effect of outliers on mean vs median.
+- Selects different measures for different contexts appropriately.
+
+Mistakes students often make here:
+- A student always picks the mean (Sam's mistake).
+- A student cannot spot an outlier.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- If I seem to be missing the idea that comes before this one (Calculating range, median, mean and mode), check it quickly, then come back.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Which measure?&quot;.</textarea></div></details></article><article class="rc" id="stem-and-leaf"><h3><a href="../stem-and-leaf/">4. Stem-and-leaf plots</a></h3><p class="rcq"><b>Try first</b>Draw a stem-and-leaf plot of 17, 25, 22, 41, 18, 29, 26 and find its median.</p><details><summary>Check your answer</summary><p class="rca">1 | 7 8, 2 | 2 5 6 9, 3 | (empty), 4 | 1. Median: the 4th of 7 values, 25.</p><div class="rcx"><p>A <strong>stem-and-leaf plot</strong> keeps every value and shows the shape. For two-digit numbers the <strong>stem</strong> is the tens digit and the <strong>leaf</strong> is the units digit; leaves go in order along their stem&#39;s row. Include every stem from the smallest to the largest, even with no leaves, and give a key: $3 \mid 5$ means $35$.</p>
+<p>Read the median by counting leaves to the middle; the range is the last value minus the first.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/stem-and-leaf/explain.png?v=4e488c06f01e04ad" alt="Stems are the tens, leaves the units, in order: 3 | 1 5 5 8 is 31, 35, 35 and 38." width="189" height="258" loading="lazy"><figcaption>Stems are the tens, leaves the units, in order: 3 | 1 5 5 8 is 31, 35, 35 and 38.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../stem-and-leaf/clips/explain.jpg"><source src="../stem-and-leaf/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../stem-and-leaf/clips/explain.vtt"></video><figcaption>Tens as stems, units as leaves <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../stem-and-leaf/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 7 student in Australia. Help me understand ONE idea only, from the lesson &quot;Stem-and-leaf plots&quot;.
+
+The idea: Creating stem-and-leaf plots: I can Students construct ordered stem-and-leaf plots from a data set and read values from them accurately.
+
+What understanding looks like:
+- Constructs an ordered stem-and-leaf plot with correct stems and leaves.
+- Orders the leaves within each stem.
+- Includes a key explaining what the stem and leaf represent.
+
+Mistakes students often make here:
+- A student leaves out an empty stem (Jo's mistake).
+- A student reads a leaf as a value.
+- A student writes leaves out of order.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Stem-and-leaf plots&quot;.</textarea></div></details></article><article class="rc" id="comparing-data"><h3><a href="../comparing-data/">5. Comparing data sets</a></h3><p class="rcq"><b>Try first</b>Group 1 reaction times (s): median 0.32, range 0.10. Group 2: median 0.28, range 0.35. Compare the groups in one sentence.</p><details><summary>Check your answer</summary><p class="rca">Group 2 was faster on a typical try (median 0.28 s against 0.32 s), but much less consistent (range 0.35 s against 0.10 s).</p><div class="rcx"><p>Describe a data set by its <strong>shape</strong> (symmetrical, or <strong>skewed</strong> with a tail; clusters, gaps, outliers), its <strong>centre</strong> (median or mean) and its <strong>spread</strong> (range).</p>
+<p>To <strong>compare</strong> two sets, compare the centres <strong>and</strong> the spreads, with numbers and in context: &quot;Similar medians (15 and 16), but Class A is more consistent (range 6 against 16).&quot; One value, such as the highest score, does not describe a set.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/comparing-data/explain.png?v=3e01f03ac10d01e8" alt="Class B's median (16) is a little higher, but its range (16) is much wider than Class A's (6): A is more consistent." width="465" height="257" loading="lazy"><figcaption>Class B's median (16) is a little higher, but its range (16) is much wider than Class A's (6): A is more consistent.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../comparing-data/clips/explain.jpg"><source src="../comparing-data/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../comparing-data/clips/explain.vtt"></video><figcaption>Compare centre and spread <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../comparing-data/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 7 student in Australia. Help me understand the ideas in ONE lesson only, from the lesson &quot;Comparing data sets&quot;.
+
+The ideas:
+- Describing distribution shape, centre, spread and outliers: I can Students describe the distribution of data in terms of its shape (symmetrical, skewed), centre, spread and the presence of outliers.
+- Comparing distributions: I can Students compare two distributions using displays and summary statistics, making statements about differences in shape, centre and spread.
+
+What understanding looks like:
+- Describes the shape of a distribution using appropriate vocabulary.
+- Identifies the appropriate measure of centre for the distribution's shape.
+- Identifies outliers and comments on their effect.
+- Makes at least two comparative statements about two distributions (using statistics and display features).
+- States conclusions in context, not just in mathematical terms.
+- Does not compare individual values as if they represent the distributions.
+
+Mistakes students often make here:
+- A student compares one value from each set (Mia's mistake).
+- A student gives numbers without meaning.
+- A student confuses the direction of skew.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- If I seem to be missing the idea that comes before this one (Creating stem-and-leaf plots), check it quickly, then come back.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Comparing data sets&quot;.</textarea></div></details></article><article class="rc" id="investigations"><h3><a href="../investigations/">9. Statistical investigations</a></h3><p class="rcq"><b>Try first</b>A survey asks only the first 10 students into school how they travel. Give one reason it may not represent the school.</p><details><summary>Check your answer</summary><p class="rca">Students who arrive early may travel differently (for example, by bus or parent drop-off), so the sample is biased.</p><div class="rcx"><p>A <strong>statistical investigation</strong> asks a question data can answer, plans the variable and a fair <strong>sample</strong>, collects and displays the data, summarises its <strong>shape, centre and spread</strong>, and reports an answer with its <strong>limits</strong>.</p>
+<p>A sample that is small or chosen for convenience may be <strong>biased</strong>, so the report says who was measured and how.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/investigations/explain.png?v=d1db954d69729918" alt="Fifteen students' hours of sleep: the median is 8.5 hours and the range is 3.5 hours." width="590" height="181" loading="lazy"><figcaption>Fifteen students' hours of sleep: the median is 8.5 hours and the range is 3.5 hours.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../investigations/clips/explain.jpg"><source src="../investigations/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../investigations/clips/explain.vtt"></video><figcaption>From a question to a report <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../investigations/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 7 student in Australia. Help me understand the ideas in ONE lesson only, from the lesson &quot;Statistical investigations&quot;.
+
+The ideas:
+- Planning a statistical investigation: I can Students identify a statistical question, plan data collection (including variable type, measurement method and sample), and anticipate potential sources of bias.
+- Conducting, analysing and reporting: I can Students collect data, display it appropriately, analyse the distribution using summary statistics, and report findings in terms of the statistical question.
+
+What understanding looks like:
+- Writes a clear statistical question that can be answered with data.
+- Identifies the variable type (discrete or continuous) and appropriate measurement method.
+- Identifies at least one potential source of variability in their data collection.
+- Collects, displays and analyses data appropriate to the variable type.
+- Reports findings that address the original statistical question.
+- Uses distribution language (shape, centre, spread) in the report.
+
+Mistakes students often make here:
+- A student asks an opinion question.
+- A student generalises from a few friends.
+- A student reports only the mean.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Statistical investigations&quot;.</textarea></div></details></article></section><section class="rcunit"><h2>Chance</h2><article class="rc" id="sample-space"><h3><a href="../sample-space/">6. Sample spaces and probability</a></h3><p class="rcq"><b>Try first</b>A bag has 2 red, 3 green and 5 yellow counters. List the sample space and give each probability.</p><details><summary>Check your answer</summary><p class="rca">{red, green, yellow}: P(red) = 2/10 = 1/5, P(green) = 3/10, P(yellow) = 5/10 = 1/2. They add to 1.</p><div class="rcx"><p>The <strong>sample space</strong> is the list of every possible outcome. If the outcomes are <strong>equally likely</strong>,</p>
+<p>$P(\text{event}) = \dfrac{\text{favourable outcomes}}{\text{total outcomes}}$, so $P(\text{even on a dice}) = \tfrac{3}{6} = \tfrac{1}{2}$.</p>
+<p>If they are not (a half-red spinner, a bag with more of one colour), use the sizes or the counts: $P(\text{red}) = \tfrac{1}{2}$. The probabilities of all the outcomes add to 1; 0 means impossible, 1 means certain.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/sample-space/explain.png?v=8e11a426fc6e3878" alt="Sample space {red, blue, green}, but not equally likely: P(red) = 1/2, P(blue) = 1/4, P(green) = 1/4. They add to 1." width="462" height="199" loading="lazy"><figcaption>Sample space {red, blue, green}, but not equally likely: P(red) = 1/2, P(blue) = 1/4, P(green) = 1/4. They add to 1.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../sample-space/clips/explain.jpg"><source src="../sample-space/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../sample-space/clips/explain.vtt"></video><figcaption>List the outcomes, then share out the chance <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../sample-space/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 7 student in Australia. Help me understand the ideas in ONE lesson only, from the lesson &quot;Sample spaces and probability&quot;.
+
+The ideas:
+- Identifying and listing sample spaces: I can Students identify the sample space for a single-stage event and list all possible outcomes systematically.
+- Assigning probabilities to outcomes: I can Students assign theoretical probabilities to outcomes of a single-stage event using P = favourable/total and express these as fractions, decimals or percentages.
+
+What understanding looks like:
+- Lists a complete sample space for a given single-stage event.
+- Explains what sample space means.
+- Verifies completeness (all outcomes accounted for).
+- Correctly assigns the probability to each outcome in a sample space.
+- Verifies that all probabilities sum to 1.
+- Expresses probability in the most appropriate form for the context.
+
+Mistakes students often make here:
+- A student gives each colour 1/3 (Kai's mistake).
+- A student counts colours instead of counters.
+- A student gives the count instead of the probability (3 instead of 1/2).
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Sample spaces and probability&quot;.</textarea></div></details></article><article class="rc" id="predict-and-test"><h3><a href="../predict-and-test/">7. Predict and test</a></h3><p class="rcq"><b>Try first</b>A spinner has P(blue) = 0.4. How many blues do you expect in 50 spins? You get 23. Is the spinner unfair?</p><details><summary>Check your answer</summary><p class="rca">20 expected. 23 is close to 20, so there is no reason to think it is unfair.</p><div class="rcx"><p>A probability predicts what happens over many trials: <strong>expected count = probability × number of trials</strong>. In 60 rolls of a fair dice, expect about $60 \times \tfrac{1}{6} = 10$ sixes.</p>
+<p>Then test it: run the experiment and record the counts. The <strong>relative frequency</strong> is count ÷ trials. In a short experiment the results vary: 7 or 12 sixes in 60 rolls is normal, so do not judge a dice on a few rolls.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/predict-and-test/explain.png?v=419affb6431b009c" alt="60 rolls: about 10 sixes expected (60 × 1/6). The actual count is near 10, but not exactly 10." width="454" height="199" loading="lazy"><figcaption>60 rolls: about 10 sixes expected (60 × 1/6). The actual count is near 10, but not exactly 10.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../predict-and-test/clips/explain.jpg"><source src="../predict-and-test/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../predict-and-test/clips/explain.vtt"></video><figcaption>Expected count, then the real count <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../predict-and-test/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 7 student in Australia. Help me understand the ideas in ONE lesson only, from the lesson &quot;Predict and test&quot;.
+
+The ideas:
+- Predicting relative frequencies: I can Students use theoretical probability to predict how often an outcome will occur in a given number of trials.
+- Running experiments and recording results: I can Students conduct repeated chance experiments and record observed frequencies systematically.
+
+What understanding looks like:
+- Correctly predicts the relative frequency for a given number of trials.
+- Understands that predictions are expected values, not certainties.
+- Can adjust predictions for non-fair devices.
+- Records observed frequencies in an organised frequency table.
+- Calculates relative frequency from observed results.
+- Compares observed relative frequency to theoretical probability.
+
+Mistakes students often make here:
+- A student expects the predicted count exactly (Noah's mistake).
+- A student gives the probability as the expected count.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- If I seem to be missing the idea that comes before this one (Assigning probabilities to outcomes), check it quickly, then come back.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Predict and test&quot;.</textarea></div></details></article><article class="rc" id="many-trials"><h3><a href="../many-trials/">8. Many trials</a></h3><p class="rcq"><b>Try first</b>After 40 spins a spinner gave 18 reds; after 4000 spins, 1230 reds. Which estimate of P(red) is better, and what is it?</p><details><summary>Check your answer</summary><p class="rca">The 4000-spin one: 1230 ÷ 4000 ≈ 0.31. More trials give a more reliable estimate.</p><div class="rcx"><p>Over a few trials, the <strong>relative frequency</strong> (count ÷ trials) jumps about. Over many trials it <strong>settles close to the probability</strong>: the law of large numbers. One more head moves 7/10 a lot, but 501/1000 hardly at all.</p>
+<p>It is not because results balance out: a coin has no memory, and after 5 tails heads is still exactly 1/2. Large experiments are how we estimate probabilities we cannot work out, such as a drawing pin landing point-up.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/many-trials/explain.png?v=e69c403dace0b132" alt="2000 flips: the relative frequency of heads jumps about at first, then settles near 0.5 (dashed)." width="463" height="199" loading="lazy"><figcaption>2000 flips: the relative frequency of heads jumps about at first, then settles near 0.5 (dashed).</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../many-trials/clips/explain.jpg"><source src="../many-trials/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../many-trials/clips/explain.vtt"></video><figcaption>More trials, a steadier estimate <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../many-trials/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 7 student in Australia. Help me understand ONE idea only, from the lesson &quot;Many trials&quot;.
+
+The idea: Law of large numbers — observed vs predicted: I can Students observe that relative frequencies become closer to theoretical probability as the number of trials increases, and explain why short-run results may differ from predictions.
+
+What understanding looks like:
+- States that relative frequencies approach theoretical probability as trials increase.
+- Explains why short-run results can differ significantly from predictions.
+- Does not commit the gambler's fallacy (thinking past outcomes affect future probabilities).
+
+Mistakes students often make here:
+- A student thinks heads is 'due' (Zara's mistake).
+- A student thinks large experiments give the probability exactly.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- If I seem to be missing the idea that comes before this one (Running experiments and recording results), check it quickly, then come back.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Many trials&quot;.</textarea></div></details></article><article class="rc" id="complementary-events"><h3><a href="../complementary-events/">10. Complementary events</a></h3><p class="rcq"><b>Try first</b>P(it snows tomorrow) = 0.08. What is P(it does not snow)? Then: two coins are tossed; what is P(at least one tail)?</p><details><summary>Check your answer</summary><p class="rca">0.92. And 1 − P(HH) = 1 − 1/4 = 3/4.</p><div class="rcx"><p>The <strong>complement</strong> of an event A, written <strong>not A</strong>, is every other outcome. A and not A cover every outcome exactly once, so <strong>P(A) + P(not A) = 1</strong>, and P(not A) = 1 − P(A).</p>
+<p>This makes <strong>at least one</strong> easy: count the outcomes with none, and subtract from 1. Two events that just can&#39;t happen together are not complementary unless they cover every outcome too.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/complementary-events/explain.png?v=17d892cb6bf4cedb" alt="A dice: A is 'roll 1 or 2' (blue, 2 outcomes); not A is the other 4 (orange). 2/6 + 4/6 = 1." width="614" height="187" loading="lazy"><figcaption>A dice: A is 'roll 1 or 2' (blue, 2 outcomes); not A is the other 4 (orange). 2/6 + 4/6 = 1.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../complementary-events/clips/explain.jpg"><source src="../complementary-events/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../complementary-events/clips/explain.vtt"></video><figcaption>An event and its complement <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../complementary-events/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 8 student in Australia. Help me understand the ideas in ONE lesson only, from the lesson &quot;Complementary events&quot;.
+
+The ideas:
+- Recognising complementary events: I can Students recognise complementary events as pairs that together cover all outcomes, and state that P(A) + P(not A) = 1.
+- Using the complement relationship to calculate probabilities: I can Students use P(not A) = 1 − P(A) to calculate probabilities in applied contexts, including cases where finding the complement is more efficient than direct calculation.
+
+What understanding looks like:
+- Correctly identifies the complement of a given event.
+- States P(A) + P(not A) = 1 and verifies it for a specific case.
+- Does not confuse complementary events with mutually exclusive events.
+- Correctly calculates P(not A) given P(A) and vice versa.
+- Identifies at least one context where finding the complement is more efficient.
+- Applies the complement relationship correctly to a practical problem.
+
+Mistakes students often make here:
+- A student says a heart and a spade are complementary.
+- A student counts 12 outcomes with at least one six.
+- A student writes P(not A) = P(A).
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Complementary events&quot;.</textarea></div></details></article><article class="rc" id="two-way-tables"><h3><a href="../two-way-tables/">11. Venn diagrams and two-way tables</a></h3><p class="rcq"><b>Try first</b>50 students: 30 study French, 25 study Japanese, 10 study both. How many study neither?</p><details><summary>Check your answer</summary><p class="rca">French only 20, Japanese only 15, both 10: 45, so 5 study neither.</p><div class="rcx"><p>Sorting a group by two yes/no properties makes four groups: <strong>one only</strong>, <strong>the other only</strong>, <strong>both</strong> and <strong>neither</strong>. Everyone is in exactly one.</p>
+<p>A <strong>Venn diagram</strong> shows them as two overlapping circles in a box; a <strong>two-way table</strong> shows them as four cells with totals. Write <strong>both</strong> first, then take it from each total.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/two-way-tables/explain.png?v=eb7729870a692729" alt="30 students: 12 sport only, 8 both, 5 music only, 5 neither. Music (shaded) is 8 + 5 = 13: the table's Music total." width="641" height="194" loading="lazy"><figcaption>30 students: 12 sport only, 8 both, 5 music only, 5 neither. Music (shaded) is 8 + 5 = 13: the table's Music total.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../two-way-tables/clips/explain.jpg"><source src="../two-way-tables/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../two-way-tables/clips/explain.vtt"></video><figcaption>Four groups, two pictures <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../two-way-tables/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 8 student in Australia. Help me understand ONE idea only, from the lesson &quot;Venn diagrams and two-way tables&quot;.
+
+The idea: Representing two-event combinations: I can Students represent all possible combinations for two events using two-way tables, tree diagrams and Venn diagrams.
+
+What understanding looks like:
+- Correctly lists all combinations for a two-event situation.
+- Represents combinations accurately using at least one method.
+- Identifies the advantage of each representation for different questions.
+
+Mistakes students often make here:
+- A student writes the whole total in the 'only' part.
+- A student forgets the 'neither' group.
+- A student mixes up rows and columns in the table.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Venn diagrams and two-way tables&quot;.</textarea></div></details></article><article class="rc" id="grids-and-trees"><h3><a href="../grids-and-trees/">12. Grids and tree diagrams</a></h3><p class="rcq"><b>Try first</b>A spinner shows 1, 2 or 3 (equal parts) and a coin is tossed. List the outcomes. What is P(an odd number and heads)?</p><details><summary>Check your answer</summary><p class="rca">1H, 1T, 2H, 2T, 3H, 3T: 6 outcomes. 1H and 3H, so 2/6 = 1/3.</p><div class="rcx"><p>Two events one after the other make <strong>pairs</strong>. A <strong>tree diagram</strong> splits each first outcome into every second outcome; a <strong>grid</strong> puts one event down the side and the other across. Both list every pair once, so each is equally likely.</p>
+<p>The number of outcomes is the two counts <strong>multiplied</strong>. Order matters: HT and TH are different outcomes. Then P(event) = outcomes in the event ÷ all outcomes.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/grids-and-trees/explain.png?v=ecfc9980af46a020" alt="A coin then a dice: 2 branches, then 6 from each, makes 12 outcomes. Tails and more than 4: 2 of them." width="248" height="302" loading="lazy"><figcaption>A coin then a dice: 2 branches, then 6 from each, makes 12 outcomes. Tails and more than 4: 2 of them.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../grids-and-trees/clips/explain.jpg"><source src="../grids-and-trees/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../grids-and-trees/clips/explain.vtt"></video><figcaption>A tree diagram <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../grids-and-trees/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 8 student in Australia. Help me understand ONE idea only, from the lesson &quot;Grids and tree diagrams&quot;.
+
+The idea: Representing two-event combinations: I can Students represent all possible combinations for two events using two-way tables, tree diagrams and Venn diagrams.
+
+What understanding looks like:
+- Correctly lists all combinations for a two-event situation.
+- Represents combinations accurately using at least one method.
+- Identifies the advantage of each representation for different questions.
+
+Mistakes students often make here:
+- A student adds the outcomes (2 + 6 = 8).
+- A student lists HT and TH once.
+- A student says P(sum is 7) = 1/11.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Grids and tree diagrams&quot;.</textarea></div></details></article><article class="rc" id="and-or-not"><h3><a href="../and-or-not/">13. And, or and not</a></h3><p class="rcq"><b>Try first</b>40 students: 25 like maths, 18 like art, 10 like both. Find P(maths or art) and P(neither).</p><details><summary>Check your answer</summary><p class="rca">25 + 18 − 10 = 33, so 33/40. Neither: 7/40.</p><div class="rcx"><p><strong>A and B</strong>: both happen (the overlap). <strong>A or B</strong>: at least one happens, both included (everything inside the circles). <strong>Not A</strong>: everything outside A. <strong>Neither</strong>: outside both.</p>
+<p>Count each outcome once. From totals: P(A or B) = P(A) + P(B) − P(A and B), because the overlap is in both totals.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/and-or-not/explain.png?v=1236a5ef821ddc08" alt="Dog or cat: everything inside the circles, 9 + 4 + 6 = 19. The 4 with both are counted once." width="640" height="223" loading="lazy"><figcaption>Dog or cat: everything inside the circles, 9 + 4 + 6 = 19. The 4 with both are counted once.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../and-or-not/clips/explain.jpg"><source src="../and-or-not/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../and-or-not/clips/explain.vtt"></video><figcaption>And, or <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../and-or-not/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 8 student in Australia. Help me understand ONE idea only, from the lesson &quot;And, or and not&quot;.
+
+The idea: Calculating compound event probabilities: I can Students use representations to calculate probabilities of compound events using 'and', 'or' (inclusive and exclusive), and 'at least' language.
+
+What understanding looks like:
+- Correctly calculates P(A and B) and P(A or B) from a representation.
+- Distinguishes inclusive and exclusive 'or' in context.
+- Uses the representation systematically rather than guessing.
+
+Mistakes students often make here:
+- A student adds the two totals for 'or'.
+- A student gives 'and' as everyone in either circle.
+- A student leaves out the 'both' people from 'or'.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- If I seem to be missing the idea that comes before this one (Representing two-event combinations), check it quickly, then come back.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;And, or and not&quot;.</textarea></div></details></article><article class="rc" id="simulations"><h3><a href="../simulations/">14. Simulating compound events</a></h3><p class="rcq"><b>Try first</b>A simulation gives a total of 8 on two dice 68 times in 500 trials. Find the relative frequency and compare it with the probability.</p><details><summary>Check your answer</summary><p class="rca">68 ÷ 500 = 0.136. P(8) = 5/36 ≈ 0.139: very close.</p><div class="rcx"><p>A <strong>simulation</strong> repeats a chance experiment many times with random numbers. Record each result in a <strong>frequency table</strong>, then <strong>relative frequency</strong> = count ÷ trials.</p>
+<p>Compare it with the <strong>probability</strong> from the sample space. A short run can be well off; over many trials the relative frequency settles close to the probability. A simulation estimates; the grid gives the exact value.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/simulations/explain.png?v=b50894774806f833" alt="Two dice: a total of 8 is 5 of the 36 outcomes, P = 5/36 ≈ 0.14. A simulation's relative frequency should come close to this over many trials." width="284" height="301" loading="lazy"><figcaption>Two dice: a total of 8 is 5 of the 36 outcomes, P = 5/36 ≈ 0.14. A simulation's relative frequency should come close to this over many trials.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../simulations/clips/explain.jpg"><source src="../simulations/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../simulations/clips/explain.vtt"></video><figcaption>A simulation <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../simulations/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 8 student in Australia. Help me understand the ideas in ONE lesson only, from the lesson &quot;Simulating compound events&quot;.
+
+The ideas:
+- Setting up and running compound event simulations: I can Students use digital simulation tools to simulate two-event compound scenarios and record results systematically.
+- Using simulation results to determine and describe probabilities: I can Students compare simulated relative frequencies to theoretical probabilities for compound events and describe what the results reveal.
+
+What understanding looks like:
+- Sets up and runs a digital simulation for a compound event.
+- Records results in an organised frequency table.
+- Selects an appropriate number of trials for the simulation.
+- Calculates relative frequency from simulation results correctly.
+- Compares observed relative frequency to theoretical probability.
+- Explains discrepancies using the concept of sampling variation.
+
+Mistakes students often make here:
+- A student says the simulation is wrong because 7 came up 15 times in 100, not 17.
+- A student reports a count as a relative frequency.
+- A student expects the sums 2 to 12 to be equally likely.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Simulating compound events&quot;.</textarea></div></details></article></section><section class="rcunit"><h2>Samples</h2><article class="rc" id="collecting-data"><h3><a href="../collecting-data/">15. Census, sample, experiment or observation</a></h3><p class="rcq"><b>Try first</b>A cereal company wants to check the weight of its boxes. Census or sample? Why?</p><details><summary>Check your answer</summary><p class="rca">A sample: weighing every box costs time; checking a random sample of boxes each hour is enough to spot problems.</p><div class="rcx"><p>The <strong>population</strong> is everyone the question is about. A <strong>census</strong> measures all of them (exact, but often slow and costly); a <strong>sample</strong> measures some (quicker and cheaper, an estimate).</p>
+<p>An <strong>experiment</strong> changes something on purpose and measures the effect; an <strong>observation</strong> watches without changing anything. Choose the technique that fits the question, the cost and the time.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/collecting-data/explain.png?v=d1da3133b029b44c" alt="The population: 200 students in four year groups. A census measures all of them; this random sample (orange rings) measures 20." width="458" height="240" loading="lazy"><figcaption>The population: 200 students in four year groups. A census measures all of them; this random sample (orange rings) measures 20.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../collecting-data/clips/explain.jpg"><source src="../collecting-data/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../collecting-data/clips/explain.vtt"></video><figcaption>Census or sample <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../collecting-data/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 8 student in Australia. Help me understand ONE idea only, from the lesson &quot;Census, sample, experiment or observation&quot;.
+
+The idea: Census vs sampling and collection technique selection: I can Students distinguish census from sampling and identify when each is appropriate; describe the main data collection techniques.
+
+What understanding looks like:
+- Correctly distinguishes census from sampling.
+- Identifies an appropriate collection technique for a given context and justifies the choice.
+- Explains at least one practical limitation of sampling.
+
+Mistakes students often make here:
+- A student says a sample is always worse.
+- A student calls any survey an experiment.
+- A student forgets to name the population.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Census, sample, experiment or observation&quot;.</textarea></div></details></article><article class="rc" id="bias"><h3><a href="../bias/">16. Bias in collecting data</a></h3><p class="rcq"><b>Try first</b>A gym surveys its members on how often people exercise. Name the bias and which way it pushes the result.</p><details><summary>Check your answer</summary><p class="rca">Sampling bias: gym members exercise more than most people, so the result is too high.</p><div class="rcx"><p><strong>Bias</strong> is anything in how data is collected that pushes the result one way. <strong>Sampling bias</strong>: the sample isn&#39;t like the population (only people at a gym). <strong>Response bias</strong>: the question or setting pushes answers (leading questions, no privacy). <strong>Measurement bias</strong>: the tool or method is off.</p>
+<p>A bigger sample doesn&#39;t fix bias. Random choice, neutral questions, anonymous answers and checked tools do.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/bias/explain.png?v=b60d3fbf3351df18" alt="A convenience sample: the 20 students nearest the door, all from Year 7. Year 7s play more sport, so the sample overstates the school's proportion." width="455" height="240" loading="lazy"><figcaption>A convenience sample: the 20 students nearest the door, all from Year 7. Year 7s play more sport, so the sample overstates the school's proportion.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../bias/clips/explain.jpg"><source src="../bias/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../bias/clips/explain.vtt"></video><figcaption>A biased sample <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../bias/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 8 student in Australia. Help me understand ONE idea only, from the lesson &quot;Bias in collecting data&quot;.
+
+The idea: Bias in data collection: I can Students recognise and explain sources of bias in data collection and describe how bias affects conclusions.
+
+What understanding looks like:
+- Identifies a source of bias in a data collection scenario.
+- Explains the likely direction and effect of the bias.
+- Suggests a concrete method to reduce the identified bias.
+
+Mistakes students often make here:
+- A student says the sample is fine because it is big.
+- A student can name bias but not its direction.
+- A student calls any small sample biased.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- If I seem to be missing the idea that comes before this one (Census vs sampling and collection technique selection), check it quickly, then come back.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Bias in collecting data&quot;.</textarea></div></details></article><article class="rc" id="sampling-methods"><h3><a href="../sampling-methods/">17. Ways to choose a sample</a></h3><p class="rcq"><b>Try first</b>A school has 400 Year 9 and 200 Year 10 students. Describe how to take a stratified sample of 30.</p><details><summary>Check your answer</summary><p class="rca">In proportion: 20 Year 9s and 10 Year 10s, each chosen at random from its year's list.</p><div class="rcx"><p><strong>Simple random</strong>: every member has the same chance. <strong>Systematic</strong>: every kth member of a list from a random start (k = population ÷ sample size). <strong>Stratified</strong>: split into groups and choose at random within each, in proportion, so each group gets its fair share. <strong>Convenience</strong>: whoever is easiest, often biased. <strong>Quota</strong>: fixed shares, but the collector chooses, so it can be biased too.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/sampling-methods/explain.png?v=5d8f6b3f32b44445" alt="A stratified sample of 20: 5 chosen at random from each year group, so every year has its fair share." width="458" height="240" loading="lazy"><figcaption>A stratified sample of 20: 5 chosen at random from each year group, so every year has its fair share.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../sampling-methods/clips/explain.jpg"><source src="../sampling-methods/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../sampling-methods/clips/explain.vtt"></video><figcaption>Four ways to choose <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../sampling-methods/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 8 student in Australia. Help me understand ONE idea only, from the lesson &quot;Ways to choose a sample&quot;.
+
+The idea: Comparing sampling methods: I can Students compare simple random, systematic, stratified and convenience sampling methods and evaluate the reliability of each.
+
+What understanding looks like:
+- Describes at least three different sampling methods.
+- Explains the reliability advantage of random over convenience sampling.
+- Selects and justifies an appropriate sampling method for a given context.
+
+Mistakes students often make here:
+- A student thinks random means 'whoever I happen to pick'.
+- A student divides the wrong way for the systematic step.
+- A student gives every stratum the same number when the groups differ in size.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Ways to choose a sample&quot;.</textarea></div></details></article><article class="rc" id="sample-distributions"><h3><a href="../sample-distributions/">18. Describing a sample</a></h3><p class="rcq"><b>Try first</b>A random sample of 25 students spends a median of 40 minutes on homework a night (range 0 to 120). Write one sentence about the school.</p><details><summary>Check your answer</summary><p class="rca">Students at the school probably spend about 40 minutes on homework a night, though some spend much more, based on a random sample of 25.</p><div class="rcx"><p>To <strong>report</strong> on a sample: describe its <strong>shape</strong> (symmetric or skewed, clusters, outliers), <strong>centre</strong> (mean, median) and <strong>spread</strong> (range). Then give an <strong>estimate</strong> for the population, with the sampling method and size, using words like &quot;about&quot;.</p>
+<p><strong>Primary</strong> data you collect yourself; <strong>secondary</strong> data someone else collected. Either way, say where it came from.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/sample-distributions/explain.png?v=0b926602d78a7849" alt="A random sample of 40 students' sleep: most between 8 and 10 hours, a few lower. The dashed line is the whole school's mean." width="389" height="206" loading="lazy"><figcaption>A random sample of 40 students' sleep: most between 8 and 10 hours, a few lower. The dashed line is the whole school's mean.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../sample-distributions/clips/explain.jpg"><source src="../sample-distributions/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../sample-distributions/clips/explain.vtt"></video><figcaption>Reporting on a sample <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../sample-distributions/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 8 student in Australia. Help me understand ONE idea only, from the lesson &quot;Describing a sample&quot;.
+
+The idea: Analysing and reporting on sample distributions: I can Students collect or obtain a sample, analyse the distribution, and report findings from primary or secondary sources.
+
+What understanding looks like:
+- Collects or obtains a sample using a valid method.
+- Analyses and describes the distribution appropriately.
+- Comments on how the sampling method may have affected the distribution.
+
+Mistakes students often make here:
+- A student reports only the mean.
+- A student writes the sample's mean as exact for the school.
+- A student can't describe the shape.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- If I seem to be missing the idea that comes before this one (Comparing sampling methods), check it quickly, then come back.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Describing a sample&quot;.</textarea></div></details></article><article class="rc" id="sampling-variation"><h3><a href="../sampling-variation/">19. How samples vary</a></h3><p class="rcq"><b>Try first</b>Two random samples of 10 students give 0.4 and 0.7 for the proportion who walk to school. Is one wrong? What would you do?</p><details><summary>Check your answer</summary><p class="rca">Not necessarily: small samples vary a lot. Take bigger samples (or more of them) for a more reliable estimate.</p><div class="rcx"><p><strong>Sampling variation</strong>: random samples from the same population give different results, because each holds different members. It isn&#39;t a mistake.</p>
+<p><strong>Bigger samples vary less</strong>, so their results are more reliable. Fair samples scatter around the population&#39;s value; bias pushes them all to one side.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/sampling-variation/explain.png?v=cb365a7a6880030a" alt="20 random samples of 20 students: each gives a different proportion who play sport, scattered around the school's 0.57 (dashed)." width="390" height="206" loading="lazy"><figcaption>20 random samples of 20 students: each gives a different proportion who play sport, scattered around the school's 0.57 (dashed).</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../sampling-variation/clips/explain.jpg"><source src="../sampling-variation/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../sampling-variation/clips/explain.vtt"></video><figcaption>Samples vary <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../sampling-variation/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 8 student in Australia. Help me understand the ideas in ONE lesson only, from the lesson &quot;How samples vary&quot;.
+
+The ideas:
+- Sampling variation — same population, different samples: I can Students recognise that samples from the same population produce different distributions due to chance, and describe the range of variation.
+- Effect of sample size on variation: I can Students investigate and describe how increasing sample size reduces variation in sample statistics, and apply this to making inferences.
+
+What understanding looks like:
+- Explains that samples from the same population will naturally vary.
+- Describes the range of variation observed across multiple samples.
+- Does not conclude that sampling variation means the data is wrong.
+- States that larger samples produce less variation in statistics.
+- Demonstrates the relationship using simulation data.
+- Applies the principle to justify a recommendation about sample size in a practical context.
+
+Mistakes students often make here:
+- A student thinks a different result means a mistake.
+- A student thinks bigger samples are always closer.
+- A student confuses variation with bias.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;How samples vary&quot;.</textarea></div></details></article><article class="rc" id="sample-investigations"><h3><a href="../sample-investigations/">20. Investigating with samples</a></h3><p class="rcq"><b>Try first</b>A random sample of 50 students at your school shows a median of 2 hours of screen time on school nights. Write an inference with its uncertainty.</p><details><summary>Check your answer</summary><p class="rca">Students at our school probably have about 2 hours of screen time on school nights, from a random sample of 50; another sample might give a slightly different value.</p><div class="rcx"><p>An <strong>investigation with samples</strong> asks a question about a <strong>population</strong>, plans a <strong>fair and ethical</strong> sample (random, consent, anonymous, neutral questions), collects and describes the data, then makes an <strong>inference</strong>.</p>
+<p>A good inference is about the population sampled, gives an <strong>estimate</strong> (&quot;about&quot;), and states the <strong>uncertainty</strong>: the sample&#39;s size and method, and that another sample might differ a little.</p>
+</div><figure class="shown boardpic"><img src="../../../_pictures/board/maths/data/sample-investigations/explain.png?v=b51d81e32635f9f2" alt="A random sample of 40 with the population hidden: the sample's centre is the estimate, and the population's value is unknown." width="430" height="228" loading="lazy"><figcaption>A random sample of 40 with the population hidden: the sample's centre is the estimate, and the population's value is unknown.</figcaption></figure><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="none" poster="../sample-investigations/clips/explain.jpg"><source src="../sample-investigations/clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="../sample-investigations/clips/explain.vtt"></video><figcaption>Inferring from a sample <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><a class="rcgo" href="../sample-investigations/">Open the lesson →</a><div class="rccoach" hidden><p><b>Still stuck?</b> Try the lesson again first. Then, if your teacher has said you can, copy a coach prompt into the AI tool your school allows. It asks you questions; it won't give you the answers.</p><button type="button">Copy a coach prompt</button><textarea readonly hidden>You are a patient maths coach for a Year 8 student in Australia. Help me understand the ideas in ONE lesson only, from the lesson &quot;Investigating with samples&quot;.
+
+The ideas:
+- Planning an ethical investigation with sampling: I can Students plan a statistical investigation including ethical and fair sampling methods, anticipate sources of uncertainty, and identify how findings will be used to make inferences.
+- Conducting, inferring and reporting with uncertainty: I can Students conduct the investigation, make inferences about the population from the sample, and report findings while explicitly acknowledging the uncertainty introduced by sampling.
+
+What understanding looks like:
+- Specifies the population, sample, and sampling method.
+- Identifies at least one ethical consideration and addresses it in the plan.
+- States what inference will be drawn from the investigation.
+- Makes a valid inference about the population from the sample.
+- Explicitly acknowledges uncertainty in the report.
+- Connects the degree of uncertainty to the sample size and method.
+
+Mistakes students often make here:
+- A student writes an exact value for the population.
+- A student generalises to a bigger group.
+- A student forgets ethics in the plan.
+
+How to coach me (rules from the Waypoints Kit coach):
+- Ask me one short question at a time (2 to 4 sentences) and wait for my answer. Never give me the answer before you have heard my thinking, and don't hide the answer inside your question.
+- Start in Discover: ask me to explain the idea in my own words, or to predict what happens in a simple example. I can switch any time: &quot;teach it back&quot; (you play a beginner and I explain), &quot;spot the flaw&quot; (you show me an answer with one common mistake and I find it), or &quot;check&quot; (I explain, and you tell me what is solid and what to revisit).
+- If I am stuck or say &quot;just tell me&quot;, ask what I think first, then give a small hint or a simpler example. Explain only after I have had a real go.
+- Stay in this idea: don't teach later ideas or add extra content. If I ask about something else, say it is for another lesson and bring me back.
+- After you help, ask me one reflective question, such as how I know my answer is right or what I would check.
+- Praise my effort and method, not my ability.
+- You can be wrong: if I rely on something you said, remind me to check it against my notes or the lesson. If you don't know, say so.
+- Use simple words.
+- Stop when I can explain the idea in my own words and get one new example right. Then tell me to go back to the lesson &quot;Investigating with samples&quot;.</textarea></div></details></article></section><script>if(/[?&]coach=1(&|$)/.test(location.search))document.querySelectorAll('.rccoach').forEach(function(b){b.hidden=false});
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.rccoach button');if(!b)return;var box=b.closest('.rccoach'),t=box.querySelector('textarea'),done=function(){b.textContent='Copied. Paste it into the AI tool your school allows.'};
+if(navigator.clipboard)navigator.clipboard.writeText(t.value).then(done,function(){t.hidden=false;t.select()});else{t.hidden=false;t.select()}});</script></div><script>var evalRules=function evalRules(rules, text, kind) {
+  // kind 'html': HTML and CSS (comments are <!-- --> and /* */; # is a colour or a link, not a comment; case does not matter).
+  if (kind === 'html') {
+    const src = String(text).replace(/<!--[\s\S]*?-->/g, '').replace(/\/\*[\s\S]*?\*\//g, '').toLowerCase();
+    const out = [];
+    (rules.tags || []).forEach((t) => out.push({ label: `Use <${t}>`, ok: new RegExp('<' + String(t).toLowerCase() + '[\\s>/]').test(src) }));
+    const flatH = src.replace(/\s+/g, '');
+    (rules.contains || []).forEach((frag) => out.push({ label: `Your code has ${frag}`, ok: flatH.includes(String(frag).toLowerCase().replace(/\s+/g, '')) }));
+    return out;
+  }
+  // kind 'p5': JavaScript for p5.js. Comments are // and /* */ (quotes respected). defs/params/calls read the student's own
+  // functions (`function name(a, b)`); p5's own hooks (setup, draw, mousePressed...) are not counted as theirs.
+  if (kind === 'p5') {
+    const HOOKS = ['setup', 'draw', 'preload', 'mousePressed', 'mouseReleased', 'mouseClicked', 'mouseMoved', 'mouseDragged', 'doubleClicked', 'mouseWheel', 'keyPressed', 'keyReleased', 'keyTyped', 'windowResized', 'touchStarted', 'touchEnded', 'touchMoved'];
+    const noJs = (l) => { let q = null; for (let i = 0; i < l.length; i++) { const c = l[i]; if (q) { if (c === '\\') i++; else if (c === q) q = null; } else if (c === '"' || c === "'" || c === '`') q = c; else if (c === '/' && l[i + 1] === '/') return l.slice(0, i); } return l; };
+    const lines = String(text).replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(noJs);
+    const src = lines.join('\n');
+    const fdefs = []; src.replace(/\bfunction\s+([A-Za-z_$][\w$]*)\s*\(([^)]*)\)/g, (m, n, ps) => { if (!HOOKS.includes(n)) fdefs.push({ name: n, params: ps.split(',').filter((x) => x.trim()).length }); return m; });
+    const esc$ = (n) => String(n).replace(/\$/g, '\\$');
+    const fcalls = (n) => (src.match(new RegExp('(^|[^\\w$.])' + esc$(n) + '\\s*\\(', 'g')) || []).length - (src.match(new RegExp('function\\s+' + esc$(n) + '\\s*\\(', 'g')) || []).length;
+    const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+    const out = [];
+    if (rules.defs) out.push({ label: `Write at least ${plural(rules.defs, 'function')} of your own`, ok: fdefs.length >= rules.defs });
+    if (rules.params) out.push({ label: `Write a function with at least ${plural(rules.params, 'parameter')}`, ok: fdefs.some((d) => d.params >= rules.params) });
+    if (rules.calls) out.push({ label: rules.calls === 1 ? 'Call your function' : `Call one of your functions at least ${rules.calls} times`, ok: Math.max(0, ...fdefs.map((d) => fcalls(d.name))) >= rules.calls });
+    if (rules.loops) out.push({ label: rules.loops === 1 ? 'Use a loop' : `Use at least ${rules.loops} loops`, ok: lines.filter((l) => /\b(for|while)\s*\(/.test(l)).length >= rules.loops });
+    if (rules.returns) out.push({ label: 'Use return to give a value back', ok: lines.filter((l) => /\breturn\b/.test(l)).length >= rules.returns });
+    (rules.uses || []).forEach((n) => out.push({ label: `Use ${n}`, ok: new RegExp('(^|[^\\w$])' + esc$(n) + '([^\\w$]|$)').test(src) }));
+    const flatP = src.replace(/\s+/g, '');
+    (rules.contains || []).forEach((frag) => out.push({ label: `Your code has ${frag}`, ok: flatP.includes(String(frag).replace(/\s+/g, '')) }));
+    return out;
+  }
+  // kind 'microbit' / 'arcade': MakeCode JavaScript (main.ts). Comments are // and /* */; everything is compared with
+  // spaces removed, so `basic.forever(function () {` and `basic.forever(function(){` match.
+  //   inside: { "basic.forever": [fragments] }   fragments in the first { ... } block after each place the key appears
+  //   count: { "basic.show": 3 }                 a fragment appears at least this many times
+  //   defs / params / calls                      named functions (`function name (points: number)`); event blocks
+  //                                              are anonymous `function ()`, so they never count as a definition
+  // Labels are for teachers and the validator; students working in blocks see the check's own text instead.
+  if (kind === 'microbit' || kind === 'arcade') {
+    const plain = String(text).replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
+    const flatM = (s) => String(s).replace(/\s+/g, '');
+    const fm = flatM(plain);
+    const block = (key) => {
+      const out = []; let i = 0; const k = flatM(key);
+      while ((i = fm.indexOf(k, i)) >= 0) {
+        const j = fm.indexOf('{', i + k.length); if (j < 0) break; let d = 0;
+        for (let x = j; x < fm.length; x++) { if (fm[x] === '{') d++; else if (fm[x] === '}' && --d === 0) { out.push(fm.slice(j + 1, x)); break; } }
+        i = j;
+      }
+      return out.join('|');
+    };
+    const fdefs = []; plain.replace(/function\s+([A-Za-z_]\w*)\s*\(([^)]*)\)/g, (m, n, ps) => { fdefs.push({ name: n, params: ps.split(',').filter((x) => x.trim()).length }); return m; });
+    const fcalls = (n) => (plain.match(new RegExp('\\b' + n + '\\s*\\(', 'g')) || []).length - 1;
+    const out = [];
+    (rules.contains || []).forEach((frag) => out.push({ label: `Has ${frag}`, ok: fm.includes(flatM(frag)) }));
+    Object.keys(rules.inside || {}).forEach((key) => { const b = block(key); [].concat(rules.inside[key]).forEach((frag) => out.push({ label: `Inside ${key}: ${frag}`, ok: b.includes(flatM(frag)) })); });
+    Object.keys(rules.count || {}).forEach((frag) => out.push({ label: `${frag} at least ${rules.count[frag]} times`, ok: fm.split(flatM(frag)).length - 1 >= rules.count[frag] }));
+    if (rules.defs) out.push({ label: `At least ${rules.defs} function${rules.defs === 1 ? '' : 's'} of your own`, ok: fdefs.length >= rules.defs });
+    if (rules.params) out.push({ label: `A function with at least ${rules.params} parameter${rules.params === 1 ? '' : 's'}`, ok: fdefs.some((d) => d.params >= rules.params) });
+    if (rules.calls) out.push({ label: rules.calls === 1 ? 'Call your function' : `Call one of your functions at least ${rules.calls} times`, ok: Math.max(0, ...fdefs.map((d) => fcalls(d.name))) >= rules.calls });
+    return out;
+  }
+  // Comments end at the line's end; a # inside quotes ("#" * 5, "#ff0000") is text, not a comment.
+  const noComment = (l) => { let q = null; for (let i = 0; i < l.length; i++) { const c = l[i]; if (q) { if (c === '\\') i++; else if (c === q) q = null; } else if (c === '"' || c === "'") q = c; else if (c === '#') return l.slice(0, i); } return l; };
+  const code = String(text).split('\n').map(noComment);
+  const defs = [];
+  code.forEach((l) => { const m = l.match(/^\s*def\s+([A-Za-z_]\w*)\s*\(([^)]*)\)/); if (m) defs.push({ name: m[1], params: m[2].split(',').filter((x) => x.trim()).length }); });
+  const count = (re) => code.filter((l) => re.test(l)).length;
+  const callsOf = (name) => code.filter((l) => !/^\s*def\s/.test(l)).reduce((n, l) => n + (l.match(new RegExp('\\b' + name + '\\s*\\(', 'g')) || []).length, 0);
+  const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+  const out = [];
+  if (rules.defs) out.push({ label: `Define at least ${plural(rules.defs, 'function')} with def`, ok: defs.length >= rules.defs });
+  if (rules.params) out.push({ label: `Write a function with at least ${plural(rules.params, 'parameter')}`, ok: defs.some((d) => d.params >= rules.params) });
+  if (rules.calls) out.push({ label: rules.calls === 1 ? 'Call your function' : `Call one of your functions at least ${rules.calls} times`, ok: Math.max(0, ...defs.map((d) => callsOf(d.name))) >= rules.calls });
+  if (rules.loops) out.push({ label: rules.loops === 1 ? 'Use a loop' : `Use at least ${rules.loops} loops`, ok: count(/^\s*(for|while)\b/) >= rules.loops });
+  if (rules.returns) out.push({ label: 'Use return to give a value back', ok: count(/^\s*return\b/) >= rules.returns });
+  (rules.uses || []).forEach((n) => out.push({ label: `Use ${n}`, ok: code.some((l) => new RegExp('\\b' + n + '\\b').test(l)) }));
+  (rules.imports || []).forEach((m) => out.push({ label: `Import from ${m}`, ok: code.some((l) => new RegExp('^\\s*(from|import)\\s+' + m + '\\b').test(l)) }));
+  // contains: code fragments that must appear somewhere (spaces ignored, comments skipped), shown as written.
+  const flat = code.join('\n').replace(/\s+/g, '');
+  (rules.contains || []).forEach((frag) => out.push({ label: `Your code has ${frag}`, ok: flat.includes(String(frag).replace(/\s+/g, '')) }));
+  return out;
+};
+var WPM=(function makeMath() {
+  function tokens(s) {
+    s = String(s).replace(/[−–]/g, '-').replace(/×|·/g, '*').replace(/÷/g, '/').replace(/\s+/g, '');
+    var out = [], i = 0;
+    while (i < s.length) {
+      var c = s[i], m;
+      if ((m = /^\d+(\.\d+)?|^\.\d+/.exec(s.slice(i)))) { out.push({ t: 'n', v: parseFloat(m[0]) }); i += m[0].length; }
+      // A name with an underscore is one variable (acc_messy, has_neither): board values with long names. Students
+      // never type "_" in algebra, so 2xy is still 2 × x × y.
+      else if ((m = /^[a-zA-Z]\w*_\w*/.exec(s.slice(i)))) { out.push({ t: 'v', v: m[0] }); i += m[0].length; }
+      else if (/[a-zA-Z]/.test(c)) { out.push({ t: 'v', v: c }); i++; }
+      else if ('+-*/^()='.indexOf(c) >= 0) { out.push({ t: c }); i++; }
+      else throw new Error('I do not understand "' + c + '".');
+    }
+    // Implicit multiplication: 2x, 2(x + 1), (x + 1)(x - 1), x(3), xy
+    var r = [];
+    for (var k = 0; k < out.length; k++) {
+      var a = r[r.length - 1], b = out[k];
+      if (a && (a.t === 'n' || a.t === 'v' || a.t === ')') && (b.t === 'n' || b.t === 'v' || b.t === '(') && !(a.t === 'n' && b.t === 'n')) r.push({ t: '*' });
+      r.push(b);
+    }
+    return r;
+  }
+  // Recursive descent: expr = term (+|- term)*, term = unary (*|/ unary)*, unary = -unary | power, power = atom (^ unary)?
+  function parse(s) {
+    var tk = tokens(s), p = 0;
+    function peek() { return tk[p] && tk[p].t; }
+    function expr() { var n = term(); while (peek() === '+' || peek() === '-') { var o = tk[p++].t; n = { o: o, a: n, b: term() }; } return n; }
+    function term() { var n = unary(); while (peek() === '*' || peek() === '/') { var o = tk[p++].t; n = { o: o, a: n, b: unary() }; } return n; }
+    function unary() { if (peek() === '-') { p++; return { o: 'neg', a: unary() }; } if (peek() === '+') { p++; return unary(); } return power(); }
+    function power() { var n = atom(); if (peek() === '^') { p++; n = { o: '^', a: n, b: unary() }; } return n; }
+    function atom() {
+      var t = tk[p++];
+      if (!t) throw new Error('Something is missing at the end.');
+      if (t.t === 'n') return { n: t.v };
+      if (t.t === 'v') return { v: t.v };
+      if (t.t === '(') { var n = expr(); if (peek() !== ')') throw new Error('A bracket is not closed.'); p++; return n; }
+      throw new Error('Something is missing before "' + t.t + '".');
+    }
+    if (!tk.length) throw new Error('Type an answer first.');
+    var tree = expr();
+    if (p < tk.length) throw new Error(tk[p].t === '=' ? 'Use only one = sign.' : 'Check the end of your answer.');
+    return tree;
+  }
+  function ev(n, vars) {
+    if (n.n !== undefined) return n.n;
+    if (n.v !== undefined) { if (!(n.v in vars)) throw new Error('What is ' + n.v + '?'); return vars[n.v]; }
+    var a = ev(n.a, vars);
+    if (n.o === 'neg') return -a;
+    var b = ev(n.b, vars);
+    return n.o === '+' ? a + b : n.o === '-' ? a - b : n.o === '*' ? a * b : n.o === '/' ? a / b : Math.pow(a, b);
+  }
+  function names(n, set) { set = set || {}; if (n.v !== undefined) set[n.v] = 1; if (n.a) names(n.a, set); if (n.b) names(n.b, set); return set; }
+  function evaluate(s, vars) { return ev(parse(s), vars || {}); }
+  var close = function (a, b) { return Math.abs(a - b) <= 1e-9 * Math.max(1, Math.abs(a), Math.abs(b)); };
+  // Same value for every tested value of each variable (both directions, so extra variables are caught).
+  function equivalent(a, b) {
+    var ta = parse(a), tb = parse(b), vs = Object.keys(Object.assign(names(ta), names(tb)));
+    var pts = [-2.5, -1, 0.5, 1.75, 3, 7.25];
+    for (var i = 0; i < pts.length; i++) {
+      var vars = {};
+      vs.forEach(function (v, j) { vars[v] = pts[(i + j * 2) % pts.length] + j * 0.37; });
+      var x = ev(ta, vars), y = ev(tb, vars);
+      if (!isFinite(x) || !isFinite(y)) continue;
+      if (!close(x, y)) return false;
+    }
+    return true;
+  }
+  // "x = 4" -> { name: 'x', value: '4' }; "4" -> { name: null, value: '4' }
+  function splitAnswer(s) { var m = /^\s*([a-zA-Z])\s*=\s*(.+)$/.exec(String(s)); return m ? { name: m[1], value: m[2] } : { name: null, value: String(s) }; }
+  // An equation's two sides, or null if there is not exactly one "=".
+  function sides(s) { var parts = String(s).split('='); return parts.length === 2 && parts[0].trim() && parts[1].trim() ? parts : null; }
+  // Does this value make the equation true?
+  function satisfies(eq, vars) { var sd = sides(eq); if (!sd) throw new Error('An equation needs one = sign with something on each side.'); return close(evaluate(sd[0], vars), evaluate(sd[1], vars)); }
+  // A parsed expression as a function of its variables: compile("mx + c")({ m: 2, c: 1, x: 3 }) = 7.
+  function compile(s) { var t = parse(s); return function (vars) { return ev(t, vars || {}); }; }
+  // Conditions on a board's scope ({ vars: { m: 2 }, points: { A: [1, 3] } }), for board checks:
+  //   "m = 2", "c > 0", "2m + c <= 7"          compare two expressions (= is equal, within rounding)
+  //   "A on y = 2x + 1"                        the point's coordinates make the equation true
+  //   "x(A) = 3", "y(B) > y(A)"                a point's coordinates in an expression
+  //   clause and clause                        all must hold
+  var CMP = /<=|>=|≤|≥|<|>|=/;
+  function clauses(cond) {
+    var cs = String(cond).split(/\band\b/i).map(function (c) { return c.trim(); });
+    if (!cs.every(Boolean)) throw new Error('Something is missing next to "and".');
+    return cs.map(function (c) {
+      var on = /^([A-Z])\s+on\s+(.+)$/.exec(c);
+      if (on) { if (!sides(on[2])) throw new Error('"' + c + '": after "on", write an equation, such as y = 2x + 1.'); return { on: on[1], eq: on[2] }; }
+      var m = CMP.exec(c);
+      if (!m) throw new Error('"' + c + '" needs a comparison (=, <, >, <= or >=), or "A on y = ...".');
+      var a = c.slice(0, m.index), b = c.slice(m.index + m[0].length);
+      if (CMP.test(b)) throw new Error('"' + c + '": use one comparison per part (join parts with "and").');
+      return { a: a, op: { '≤': '<=', '≥': '>=' }[m[0]] || m[0], b: b };
+    });
+  }
+  // x(A), y(A) -> numbers from the scope (or a placeholder when only checking that it parses)
+  function coords(s, points) {
+    return String(s).replace(/\b([xy])\(([A-Z])\)/g, function (m, k, n) {
+      if (!points) return '1';
+      if (!points[n]) throw new Error('There is no point ' + n + '.');
+      var v = points[n][k === 'x' ? 0 : 1]; return '(' + v + ')';
+    });
+  }
+  // Throws a message when the condition cannot be read; returns the point and variable names it uses.
+  function checkCondition(cond) {
+    var used = { vars: {}, points: {} };
+    clauses(cond).forEach(function (c) {
+      String(c.on ? c.eq : c.a + ' ' + c.b).replace(/\b[xy]\(([A-Z])\)/g, function (m, n) { used.points[n] = 1; return m; });
+      if (c.on) { used.points[c.on] = 1; var sd = sides(c.eq); parse(sd[0]); parse(sd[1]); Object.assign(used.vars, names(parse(sd[0])), names(parse(sd[1]))); delete used.vars.x; delete used.vars.y; }
+      else { var ta = parse(coords(c.a)), tb = parse(coords(c.b)); Object.assign(used.vars, names(ta), names(tb)); }
+    });
+    return { vars: Object.keys(used.vars), points: Object.keys(used.points) };
+  }
+  function holds(cond, scope) {
+    scope = scope || {};
+    var vars = scope.vars || {}, points = scope.points || {};
+    return clauses(cond).every(function (c) {
+      if (c.on) {
+        var P = points[c.on];
+        if (!P) throw new Error('There is no point ' + c.on + '.');
+        return satisfies(c.eq, Object.assign({}, vars, { x: P[0], y: P[1] }));
+      }
+      var a = evaluate(coords(c.a, points), vars), b = evaluate(coords(c.b, points), vars), eq = close(a, b);
+      return c.op === '=' ? eq : c.op === '<' ? a < b && !eq : c.op === '>' ? a > b && !eq : c.op === '<=' ? a < b || eq : a > b || eq;
+    });
+  }
+  return { parse: parse, evaluate: evaluate, compile: compile, equivalent: equivalent, splitAnswer: splitAnswer, sides: sides, satisfies: satisfies, holds: holds, checkCondition: checkCondition, vars: function (s) { return Object.keys(names(parse(s))); } };
+})();
+(function(){var t=document.querySelector('.cb-toggle'),m=document.getElementById('cb-menu');if(!t||!m)return;
+t.addEventListener('click',function(){var o=m.hidden;m.hidden=!o;t.setAttribute('aria-expanded',String(o))});
+document.addEventListener('click',function(e){if(!m.hidden&&!e.target.closest('.cb-mid')){m.hidden=true;t.setAttribute('aria-expanded','false')}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden){m.hidden=true;t.setAttribute('aria-expanded','false');t.focus()}});
+var d=(function(){try{return JSON.parse(localStorage.getItem('wp-progress'))||{}}catch(e){return {}}})().done||{};
+[].forEach.call(m.querySelectorAll('li a'),function(a){var ks=(a.dataset.checks||'').split('|').filter(Boolean);
+if(ks.length&&ks.every(function(k){return d[k]}))a.querySelector('.tick').classList.add('on')});
+var h=document.querySelector('h1');try{localStorage.setItem('wp-last-lesson',JSON.stringify({href:location.pathname,title:h?h.textContent:document.title}))}catch(e){}})();
+(function(){var links=[].slice.call(document.querySelectorAll('nav.steps a'));if(!links.length||!window.IntersectionObserver)return;
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+var io=new IntersectionObserver(function(){var cur=0;secs.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<window.innerHeight*0.4)cur=i});
+links.forEach(function(a,i){a.classList.toggle('here',i===cur);if(i===cur)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current')})},{threshold:[0,0.1,0.5,1]});
+secs.forEach(function(el){if(el)io.observe(el)});window.addEventListener('scroll',function(){io.takeRecords()},{passive:true})})();
+document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+var t=b.closest('.code').querySelector('code').innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1200)})})});
+(function(){
+var KEY='wp-progress';
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
+function save(s){try{localStorage.setItem(KEY,JSON.stringify(s))}catch(e){}}
+var ov=new URLSearchParams(location.search).get('unlock');
+if(ov){var s0=load();s0.all=ov==='all';save(s0)}
+function sync(wrap){var s=load(),d=s.done||{},keys=(wrap.dataset.keys||'').split('|').filter(Boolean),n=0;keys.forEach(function(k){if(d[k])n++});
+[].forEach.call(wrap.querySelectorAll('.tp'),function(p){p.classList.toggle('done',!!d[p.dataset.key])});
+var cnt=document.querySelector('nav.steps a[href="#'+wrap.dataset.step+'"] .cnt');if(cnt)cnt.textContent=keys.length?n+'/'+keys.length:'';
+var tm=wrap.querySelector('.tmsg');
+if(keys.length&&n===keys.length){var ids=(wrap.dataset.unlocks||'').split(',').filter(Boolean);
+if(!d[wrap.dataset.stepkey]){s.done=s.done||{};s.done[wrap.dataset.stepkey]=true;s.unlocked=s.unlocked||{};ids.forEach(function(id){s.unlocked[wrap.dataset.kind+':'+id]=true});save(s)}
+tm.textContent='All tasks done.'+(ids.length?' Unlocked: '+(wrap.dataset.names||'').split('|').join(', ')+'.':'')}else{tm.textContent=''}}
+document.querySelectorAll('.check').forEach(function(box){
+var key=box.dataset.key,kind=box.dataset.kind,ids=(box.dataset.unlocks||'').split(',').filter(Boolean),names=(box.dataset.names||'').split('|');
+var msg=box.querySelector('.msg');var wrap=box.closest('.tasks'),ty=box.dataset.type||'';
+function pass(){
+var s=load();s.done=s.done||{};s.unlocked=s.unlocked||{};s.done[key]=true;
+ids.forEach(function(id){s.unlocked[kind+':'+id]=true});save(s);show(true);if(wrap)sync(wrap)}
+function show(fresh){
+box.classList.add('done');
+if(ids.length){msg.className='msg ok';msg.textContent=(fresh?'Unlocked: ':'Unlocked: ')+names.join(', ')+'. Find '+(names.length>1?'them':'it')+' under Reference in the playground.'}
+else{msg.className='msg ok';msg.textContent='Got it.'}}
+if((load().done||{})[key])show(false);
+if(box.dataset.type==='code'){var rules=JSON.parse(box.dataset.rules),ul=box.querySelector('.rules');
+// The last report from each playground, so a task's check can catch up when its pill opens (window.wpLast, below).
+if(!window.wpLast){window.wpLast={};window.addEventListener('message',function(e){var m=e.data;if(e.origin===location.origin&&m&&m.wp==='run'&&m.id)window.wpLast[m.id]=m})}
+function paint(res){ul.replaceChildren();res.forEach(function(r){var li=document.createElement('li');li.textContent=r.label;if(r.ok)li.className='ok';ul.appendChild(li)})}
+var done0=(load().done||{})[key];paint(evalRules(rules,'',kind).map(function(r){return {label:r.label,ok:!!done0}}));
+window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='run'||m.id!==(box.dataset.play||key))return;var pn=box.closest('.tpanel'),stp=box.closest('.step');
+// Only the open task listens. MakeCode in full screen is the exception: the bar shows every task of the step and pills cannot be switched.
+if(pn&&!pn.classList.contains('active')&&!((m.kind==='microbit'||m.kind==='arcade')&&stp&&stp.querySelector('.try.full')))return;
+var res=evalRules(rules,m.code||'',kind);paint(res);
+if(m.quiet&&!(load().done||{})[key]){}
+else if(res.every(function(r){return r.ok})&&(m.status==='done'||m.status==='stopped')){pass()}
+else if(m.kind==='html'){if(!m.quiet){msg.className='msg';msg.textContent='Not quite yet. Keep going: the list shows what your page still needs.'}}
+else if(m.kind==='microbit'||m.kind==='arcade'){if(!m.quiet){msg.className='msg';msg.textContent='Not quite yet. Keep building: this ticks by itself when your blocks do what is asked.'}}
+else{msg.className='msg';msg.textContent=m.status==='done'?'Not quite yet. Change your code, then run it again.':'Fix the error, then run it again.'}})}
+var cb=box.querySelector('input[type=checkbox]');
+if(cb){if((load().done||{})[key])cb.checked=true;cb.addEventListener('change',function(){if(cb.checked)pass()})}
+var go=ty==='question'?box.querySelector('button'):null;
+if(go){go.addEventListener('click',function(){
+var pick=box.querySelector('input[type=radio]:checked');
+if(!pick){msg.className='msg no';msg.textContent='Choose an answer first.';return}
+if(Number(pick.value)===Number(box.dataset.answer)){pass();if(box.dataset.explain)msg.textContent=box.dataset.explain+' '+msg.textContent}
+else{msg.className='msg no';var fbk=box.dataset.feedback?JSON.parse(box.dataset.feedback)[Number(pick.value)]:'';msg.textContent=fbk?'Not quite. '+fbk:(box.dataset.subj==='maths'||box.dataset.subj==='science'||kind==='science')?'Not quite. Read it again and try another answer.':'Not quite. Look at the code again and try another answer.'}})}
+function win(){pass();if(box.dataset.explain)msg.textContent=box.dataset.explain+' '+msg.textContent}
+function bad(t){msg.className='msg no';msg.textContent=t}
+var btn=box.querySelector('button');
+if(ty==='number'&&btn){btn.addEventListener('click',function(){var v=parseFloat(box.querySelector('input').value);if(isNaN(v))return bad('Type a number first.');
+if(Math.abs(v-Number(box.dataset.answer))<=Number(box.dataset.tol||0))return win();var nf=JSON.parse(box.dataset.feedback||'[]');for(var q=0;q<nf.length;q++){if(Math.abs(v-nf[q][0])<=Math.max(Number(box.dataset.tol||0),1e-9))return bad('Not quite. '+nf[q][1])}bad(box.dataset.subj==='maths'?'Not quite. Check your working and try another number.':'Not quite. Look at the code again and try another number.')})}
+if(ty==='flag'&&btn){btn.addEventListener('click',function(){var t=box.querySelector('input').value.trim().toLowerCase();if(!t)return bad('Type the flag first.');
+if(!(window.crypto&&crypto.subtle))return bad('This needs a secure page (https).');
+crypto.subtle.digest('SHA-256',new TextEncoder().encode('wp-flag:'+t)).then(function(b){var h=[].map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('');if(h===box.dataset.hash)win();else bad('Not the flag. Check it is exactly what the puzzle gives, including the WP{ } part.')})})}
+if(ty==='bug'){var good=JSON.parse(box.dataset.answers).map(String),found={};[].forEach.call(box.querySelectorAll('.buglines button'),function(b){b.addEventListener('click',function(){
+var n=String(b.dataset.line);if(good.indexOf(n)>=0){b.className='yes';found[n]=1;var left=good.filter(function(g){return !found[g]}).length;if(!left)win();else{msg.className='msg';msg.textContent='Yes. '+left+' more to find.'}}else{b.className='no';bad(box.dataset.subj==='maths'?'Not that line. Read the working again, one line at a time.':'Not that line. Read the code again, one line at a time.')}})})}
+if(ty==='sort'&&btn){btn.addEventListener('click',function(){var want=JSON.parse(box.dataset.answers),all=true;
+[].forEach.call(box.querySelectorAll('.srow'),function(r,i){var sel=r.querySelector('select'),ok=sel.value===want[i];sel.className=sel.value?(ok?'ok':'no'):'';if(!ok)all=false;var w=r.querySelector('.swhy');if(w)w.hidden=!ok});
+if(all)win();else bad('Some are not in the right group yet. Check the ones outlined in red.')})}
+if(ty==='match'&&btn){btn.addEventListener('click',function(){var want=JSON.parse(box.dataset.answers),all=true;
+[].forEach.call(box.querySelectorAll('select'),function(sel,i){var ok=sel.value===want[i];sel.className=sel.value?(ok?'ok':'no'):'';if(!ok)all=false});
+if(all)win();else bad('Some do not match yet. Check the ones outlined in red.')})}
+if(ty==='trace'&&btn){btn.addEventListener('click',function(){var all=true;
+[].forEach.call(box.querySelectorAll('input.tcell'),function(inp){var nz=function(t){return t.trim().replace(/÷/g,'/').replace(/×/g,'*').replace(/[−–]/g,'-').replace(/\s*([+*\/-])\s*/g,'$1')};var a=inp.dataset.answer,v=inp.value.trim(),ok=v!==''&&(v===a||nz(v)===nz(a)||(!isNaN(Number(v))&&!isNaN(Number(a))&&Number(v)===Number(a)));inp.className='tcell '+(ok?'ok':'no');if(!ok)all=false});
+if(all)win();else bad(box.dataset.subj==='maths'?'Some cells are not right yet. Work through it again, one step at a time.':'Some cells are not right yet. Trace the code again, one step at a time.')})}
+if(ty==='predict'&&btn){var PK='wp-predict';
+function pload(){try{return JSON.parse(localStorage.getItem(PK))||{}}catch(e){return {}}}
+function plock(v){var p=pload();p[key]=v;try{localStorage.setItem(PK,JSON.stringify(p))}catch(e){}}
+function freeze(v){[].forEach.call(box.querySelectorAll('input'),function(i){i.disabled=true;if(i.type==='radio')i.checked=(i.value===v);else i.value=v});btn.hidden=true;msg.className='msg ok';msg.textContent=kind==='science'?'Locked in. Now try it on the board and compare.':'Locked in. Now run it and compare.'}
+var saved=pload()[key];if(saved!==undefined&&saved!==null)freeze(saved);
+btn.addEventListener('click',function(){var r=box.querySelector('input[type=radio]:checked'),i=box.querySelector('input.pin'),v=r?r.value:(i?i.value.trim():'');
+if(!v)return bad('Make a prediction first. You cannot change it after you lock it in.');plock(v);freeze(v);pass();freeze(v);try{document.dispatchEvent(new CustomEvent('wp-predict',{detail:key}))}catch(e){}})}
+if(ty==='parsons'){parsons(box,win,bad)}
+if(ty==='working'&&btn){var ta=box.querySelector('textarea'),ol=box.querySelector('.wk-lines');btn.addEventListener('click',function(){var lines=ta.value.split('\n');if(!lines.join('').trim())return bad('Write your working, one step per line.');if(!window.WPF_READY)return bad('The checker did not load. Reload the page and try again.');msg.className='msg';msg.textContent='Checking...';window.WPF_READY.then(function(F){var r=F.working(lines,box.dataset.start,box.dataset.form),shown=lines.map(function(l){return l.trim()}).filter(Boolean);ol.replaceChildren();r.lines.forEach(function(x,i){var li=document.createElement('li');li.className=x.ok?'ok':'no';li.textContent=(x.ok?'\u2713 ':'\u2717 ')+shown[i];ol.appendChild(li)});if(r.ok)win();else bad(r.why)})})}
+if(ty==='answer'&&btn){var inp=box.querySelector('input'),fb=JSON.parse(box.dataset.feedback||'[]');
+function tryIt(){var v=inp.value.trim();if(!v)return bad('Type your answer first.');
+try{if(box.dataset.equation){var vals=JSON.parse(box.dataset.equation),sd=WPM.sides(v);if(!sd)return bad('An equation needs one = sign, with something on each side.');
+var need=Object.keys(vals),used=WPM.vars(sd[0]).concat(WPM.vars(sd[1]));if(!need.some(function(n){return used.indexOf(n)>=0}))return bad('Use '+need.join(' and ')+' in your equation.');
+if(WPM.satisfies(v,vals))return win();var shown=need.map(function(n){return n+' = '+vals[n]}).join(', ');return bad('Not quite: when '+shown+', the two sides are not equal. Check each side.')}
+if(box.dataset.form){if(!window.WPF_READY)return bad('The checker did not load. Reload the page and try again.');msg.className='msg';msg.textContent='Checking...';return window.WPF_READY.then(function(F){var r=F.check(v,box.dataset.answer,box.dataset.form);if(r.ok){win();if(r.unsure){msg.textContent=r.why}return}
+if(!r.equivalent)for(var i=0;i<fb.length;i++){try{if(!F.check(String(fb[i][0]),v,'').equivalent)continue;return bad(fb[i][1])}catch(e){}}
+else{var nm=function(t){return String(t).replace(/[\u2212\u2013]/g,'-').replace(/[\u00d7\u00b7]/g,'*').replace(/\s+/g,'')};for(var j=0;j<fb.length;j++){if(nm(fb[j][0])===nm(v))return bad(fb[j][1])}}
+bad(r.why)})}
+var a=WPM.splitAnswer(v).value.replace(/s*(%|°)s*$/,'');if(WPM.equivalent(a,box.dataset.answer))return win();
+for(var i=0;i<fb.length;i++){try{if(WPM.equivalent(a,String(fb[i][0])))return bad(fb[i][1])}catch(e){}}
+bad('Not quite. Check your working and try again.')}catch(e){bad(e.message)}}
+btn.addEventListener('click',tryIt);inp.addEventListener('keydown',function(e){if(e.key==='Enter')tryIt()})}
+if(ty==='reasoning'){var mk=JSON.parse(box.dataset.marks),ta=box.querySelector('.rs-in'),ai=box.querySelector('.rs-ans input'),go2=box.querySelector('.rs-go'),sh=box.querySelector('.rs-show'),md=box.querySelector('.rs-model'),tries=0;
+var RK='wp-reasoning',rl=function(){try{return JSON.parse(localStorage.getItem(RK)||'{}')}catch(e){return {}}},rs=function(o){try{localStorage.setItem(RK,JSON.stringify(o))}catch(e){}};
+var keep=rl()[key];if(keep){ta.value=keep.text||'';if(ai&&keep.answer)ai.value=keep.answer;(keep.crit||[]).forEach(function(c,i){var cb=box.querySelectorAll('.rs-crit input')[i];if(cb)cb.checked=!!c})}
+function store(){var o=rl();o[key]={text:ta.value,answer:ai?ai.value:'',crit:[].map.call(box.querySelectorAll('.rs-crit input'),function(c){return c.checked})};rs(o)}
+ta.addEventListener('input',store);if(ai)ai.addEventListener('input',store);box.querySelectorAll('.rs-crit input').forEach(function(c){c.addEventListener('change',store)});
+function reveal(){box.querySelector('.rs-mine').textContent=ta.value.trim()||'(nothing written)';md.hidden=false}
+if((load().done||{})[key])reveal();
+function wrong(t){tries++;bad(t);if(tries>=3)sh.hidden=false}
+sh.addEventListener('click',function(){reveal();msg.className='msg';msg.textContent='Compare, then fix your answer and choices above.'});
+go2.addEventListener('click',function(){if(!ta.value.trim())return bad('Write your working first: your own notes and reasons. This part is not marked.');
+if(ai&&mk.answer!==null){var v=ai.value.replace(/°|degrees?/g,'').trim();if(!v)return bad('Type your answer.');try{var a=WPM.splitAnswer(v).value;if(!WPM.equivalent(a,mk.answer)){for(var i=0;i<mk.feedback.length;i++){try{if(WPM.equivalent(a,String(mk.feedback[i][0])))return wrong(mk.feedback[i][1])}catch(e){}}return wrong('Not quite: check your answer against your working.')}}catch(e){return wrong(e.message)}}
+var fs=box.querySelectorAll('.rs-pick');for(var j=0;j<fs.length;j++){var pk=mk.picks[j],ch=fs[j].querySelector('input:checked');if(!ch)return bad('Choose a reason for each question.');var n=Number(ch.value);if(n!==pk.answer)return wrong('Not that reason. '+(pk.feedback[n]||'Look at where the two angles are.'))}
+reveal();sh.hidden=true;win();store()})}
+if(ty==='board'){var want=JSON.parse(box.dataset.expect||'{}');
+window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='run'||(m.kind==='maths'?'board':m.kind)!==(box.dataset.kind==='maths'?'board':box.dataset.kind)||m.id!==box.dataset.play||!m.moved)return;var pn=box.closest('.tpanel');if(pn&&!pn.classList.contains('active'))return;
+var ok=Object.keys(want).every(function(k){var a=m.state&&m.state[k],b=want[k];return typeof b==='number'?Math.abs(Number(a)-b)<1e-9:a===b});if(ok&&box.dataset.when){try{ok=WPM.holds(box.dataset.when,m.state&&m.state.scope)}catch(er){ok=false}}
+if(ok){if(!box.classList.contains('done'))win()}else if(!box.classList.contains('done')){msg.className='msg';msg.textContent='Keep going.'}})}
+});
+document.querySelectorAll('.compare').forEach(function(c){var pk=c.dataset.predict;
+function mine(){try{return (JSON.parse(localStorage.getItem('wp-predict'))||{})[pk]}catch(e){return undefined}}
+var last=null;
+document.addEventListener('wp-predict',function(e){if(e.detail===pk&&last)show(last)});
+window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='run'||m.id!==c.dataset.play||m.status!=='done'&&m.status!=='stopped')return;last=m;show(m)});
+function show(m){
+var v=mine();c.replaceChildren();
+function line(label,text){var p=document.createElement('p');var b=document.createElement('b');b.textContent=label+' ';p.appendChild(b);p.appendChild(document.createTextNode(text));c.appendChild(p)}
+if(v===undefined||v===null){line('No prediction locked in.','Go back to the Predict step if you want to compare next time.')}
+else{line('You predicted:',v);var out=(m.output||'').trim(),a=c.dataset.actual||'';
+if(a)line('It actually:',a);else if(out)line('It printed:',out);else line('Now compare:','look at the '+(m.kind==='html'?'page':m.kind==='microbit'?'micro:bit':m.kind==='arcade'?'game':'drawing')+'. Was your prediction right? What did you notice?')}
+c.hidden=false}});
+// Full screen / inline for each playground: a class, not the Fullscreen API, so it works on iPads and the
+// playground keeps its state. Esc (on the page, or in the playground when its drawer is closed) comes back.
+function mkOpen(t){var f=t.querySelector('iframe[data-src]'),l=t.querySelector('.mkload');if(!f||f.src)return;f.src=f.dataset.src;f.hidden=false;if(l)l.remove()}
+document.querySelectorAll('.mkopen').forEach(function(b){b.addEventListener('click',function(){var t=b.closest('.try');mkOpen(t);if(t.dataset.wide&&t._full)t._full(true)})});
+// In full screen the step's instructions and checks are hidden behind the playground, so a task drawer repeats them:
+// the step's (or the open task's) text, hints and code pictures, then the code checks with their ticks. Hide task folds the text away.
+document.querySelectorAll('.try').forEach(function(t){var s=t.closest('.step'),h=t.querySelector('.try-head');if(!s||!h)return;
+var w=t.closest('.tasks'),cs=[].slice.call(s.querySelectorAll('.check[data-type="code"]'));
+var box=document.createElement('div');box.className='try-task';var body=document.createElement('div');body.className='tt-body';
+var bar=document.createElement('div');bar.className='try-checks';bar.setAttribute('aria-live','polite');box.appendChild(body);if(cs.length)box.appendChild(bar);
+function strip(n){if(n.removeAttribute)n.removeAttribute('id');if(n.querySelectorAll)[].forEach.call(n.querySelectorAll('[id]'),function(x){x.removeAttribute('id')});return n}
+function fill(){var title=document.createElement('p');title.className='tt-title';var src;
+if(w){var tp=w.querySelector('.tp.active');title.textContent=tp?tp.textContent:'';src=[w.querySelector(':scope > .tpanel.active[role="tabpanel"]')]}
+else{var h2=s.querySelector('h2');title.textContent=h2?h2.textContent:'';src=[].filter.call(s.children,function(ch){return !(ch.matches('.chip,h2,.try,.check,.compare,.tasks,video')||ch.querySelector('video,iframe'))})}
+body.replaceChildren.apply(body,[title].concat(src.filter(Boolean).map(function(n){return strip(n.cloneNode(true))})))}
+function upd(){bar.replaceChildren.apply(bar,cs.map(function(c){var d=c.classList.contains('done'),e=document.createElement('span'),q=c.querySelector('.check-q');e.className=d?'ok':'';e.textContent=(d?'✓ ':'○ ')+(q?q.textContent:'');return e}))}
+fill();upd();cs.forEach(function(c){new MutationObserver(upd).observe(c,{attributes:true,attributeFilter:['class']})});
+if(w)[].forEach.call(w.querySelectorAll(':scope > .tpanel[role="tabpanel"]'),function(p){new MutationObserver(fill).observe(p,{attributes:true,attributeFilter:['class']})});
+var tg=document.createElement('button');tg.type='button';tg.className='tt-toggle';tg.setAttribute('aria-expanded','true');tg.textContent='Hide task';
+tg.addEventListener('click',function(){var off=box.classList.toggle('closed');tg.textContent=off?'Show task':'Hide task';tg.setAttribute('aria-expanded',String(!off))});
+h.insertBefore(tg,h.querySelector('.try-full'));h.after(box)});
+document.querySelectorAll('.try').forEach(function(t){var b=t.querySelector('.try-full');if(!b)return;
+t._full=function(on){t.classList.toggle('full',on);document.body.classList.toggle('try-open',!!document.querySelector('.try.full'));b.setAttribute('aria-pressed',String(on));b.textContent=on?'Exit full screen':'Full screen';if(!on)b.focus()};
+b.addEventListener('click',function(){mkOpen(t);t._full(!t.classList.contains('full'))})});
+document.addEventListener('keydown',function(e){var f=document.querySelector('.try.full');if(e.key==='Escape'&&f)f._full(false)});
+(function(){var id=new URLSearchParams(location.search).get('full');if(!id)return;var sec=document.getElementById(id);var t=sec&&sec.querySelector('.try');if(!t||!t._full)return;
+var ifr=t.querySelector('iframe');if(ifr)ifr.loading='eager';mkOpen(t);setTimeout(function(){t._full(true)},50)})();
+window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='esc')return;
+document.querySelectorAll('.try.full').forEach(function(f){var i=f.querySelector('iframe');if(i&&i.contentWindow===e.source)f._full(false)})});
+document.querySelectorAll('.worked').forEach(function(w){var lis=w.querySelectorAll('li'),nx=w.querySelector('.wnext'),al=w.querySelector('.wall');if(!nx)return;
+function upd(){var left=[].filter.call(lis,function(l){return l.hidden}).length;nx.hidden=al.hidden=!left;nx.textContent=left?'Next step ('+left+' left)':''}
+nx.addEventListener('click',function(){var h=[].find.call(lis,function(l){return l.hidden});if(h){h.hidden=false;h.classList.add('new')}upd()});
+al.addEventListener('click',function(){[].forEach.call(lis,function(l){l.hidden=false});upd()});upd()});
+function parsons(box,win,bad){var lines=JSON.parse(box.dataset.lines),extra=JSON.parse(box.dataset.extra||'[]');
+var pool=box.querySelector('.ppool'),prog=box.querySelector('.pprog'),inProg=[];
+var all=lines.concat(extra).map(function(t,i){return {t:t,i:i}});
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),x=a[i];a[i]=a[j];a[j]=x}return a}
+var order=shuffle(all),tries=0;
+while(tries++<8&&JSON.stringify(order.slice(0,lines.length).map(function(o){return o.t}))===JSON.stringify(lines))order=shuffle(all);
+function code(t){var c=document.createElement('code');c.textContent=t;return c}
+function draw(){pool.replaceChildren();prog.replaceChildren();
+order.filter(function(o){return inProg.indexOf(o)<0}).forEach(function(o){var li=document.createElement('li'),b=document.createElement('button');b.type='button';b.className='piece';b.title='Add to your program';b.appendChild(code(o.t));b.addEventListener('click',function(){inProg.push(o);draw()});li.appendChild(b);pool.appendChild(li)});
+inProg.forEach(function(o,n){var li=document.createElement('li');li.draggable=true;li.appendChild(code(o.t));
+[['↑',-1,'Move up'],['↓',1,'Move down'],['×',0,'Remove']].forEach(function(a){var b=document.createElement('button');b.type='button';b.textContent=a[0];b.setAttribute('aria-label',a[2]);
+b.addEventListener('click',function(){if(a[1]===0)inProg.splice(n,1);else{var m=n+a[1];if(m<0||m>=inProg.length)return;var t=inProg[n];inProg[n]=inProg[m];inProg[m]=t}draw()});li.appendChild(b)});
+li.addEventListener('dragstart',function(e){e.dataTransfer.setData('text/plain',String(n))});li.addEventListener('dragover',function(e){e.preventDefault()});
+li.addEventListener('drop',function(e){e.preventDefault();var f=Number(e.dataTransfer.getData('text/plain'));if(isNaN(f)||f===n)return;var t=inProg.splice(f,1)[0];inProg.splice(n,0,t);draw()});
+prog.appendChild(li)})}
+draw();
+box.querySelector('.pcheck').addEventListener('click',function(){if(JSON.stringify(inProg.map(function(o){return o.t}))===JSON.stringify(lines))win();else bad(inProg.length<lines.length?'Keep going: some lines are still in the pieces list, or not needed.':(box.dataset.subj==='maths'?'Not in the right order yet. Read your steps top to bottom: does each line follow from the one above?':'Not in the right order yet. Read your program top to bottom and picture what it does.'))});
+box.querySelector('.preset').addEventListener('click',function(){inProg=[];draw()})}
+[].forEach.call(document.querySelectorAll('.tasks'),function(w){
+[].forEach.call(w.querySelectorAll('.tp'),function(p){p.addEventListener('click',function(){var i=p.dataset.i;
+[].forEach.call(w.querySelectorAll('.tp,.tpanel'),function(el){var on=el.dataset.i===i;el.classList.toggle('active',on);if(el.classList.contains('tp'))el.setAttribute('aria-selected',String(on))});
+// MakeCode: the newly opened task checks the work already in the editor (the last report), without waiting for an edit.
+var oc=w.querySelector('.tpanel.active .check[data-type="code"][data-play]');if(oc&&(oc.dataset.kind==='microbit'||oc.dataset.kind==='arcade')&&window.wpLast&&window.wpLast[oc.dataset.play])window.postMessage(window.wpLast[oc.dataset.play],location.origin);
+if(w.dataset.kind==='board'||w.dataset.kind==='maths'||w.dataset.kind==='science'){var rs=w.querySelector('.tpanel.active .resetstart'),f=w.querySelector('iframe');if(rs&&f&&f.contentWindow)f.contentWindow.postMessage({wp:'set-code',code:rs.dataset.code},location.origin)}})});
+[].forEach.call(w.querySelectorAll('.resetstart'),function(b){b.addEventListener('click',function(){var f=w.querySelector('iframe');if(f&&f.contentWindow)f.contentWindow.postMessage({wp:'set-code',code:b.dataset.code},location.origin)})});
+sync(w)});
+})();(function(){var n=document.querySelector('.sitenav');if(!n)return;var K='wp-from',here=n.dataset.here;
+// Sticky navbar: publish its height as --nav (course bar, step pills and anchors sit below it).
+var nh=function(){document.documentElement.style.setProperty('--nav',n.offsetHeight+'px')};nh();if(window.ResizeObserver)new ResizeObserver(nh).observe(n);else window.addEventListener('resize',nh);
+var mb=n.querySelector('.sn-menu');if(mb)mb.addEventListener('click',function(){var o=n.classList.toggle('open');mb.setAttribute('aria-expanded',String(o))});
+[].forEach.call(n.querySelectorAll('.sn-caret'),function(c){var d=c.parentNode;c.addEventListener('click',function(){var o=d.classList.toggle('open');c.setAttribute('aria-expanded',String(o))})});
+document.addEventListener('click',function(e){[].forEach.call(n.querySelectorAll('.sn-dd.open'),function(d){if(!d.contains(e.target)){d.classList.remove('open');d.querySelector('.sn-caret').setAttribute('aria-expanded','false')}})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')[].forEach.call(n.querySelectorAll('.sn-dd.open'),function(d){d.classList.remove('open')})});
+if(here==='lesson'){var h=document.querySelector('h1'),worked=null;
+// The step to come back to is the last one the student worked in (clicked, typed, used its playground), not the
+// one in view (the student may scroll elsewhere before using the navbar). Before any work, the step in view.
+function pill(id){var a=id?document.querySelector('nav.steps a[href="#'+id+'"]'):(document.querySelector('nav.steps a.here')||document.querySelector('nav.steps a')),t='';if(a)[].forEach.call(a.childNodes,function(c){if(c.nodeType===3)t+=c.textContent});return {a:a,t:t.trim()}}
+var save=function(){var s=pill(worked);try{sessionStorage.setItem(K,JSON.stringify({href:location.pathname+(s.a?s.a.getAttribute('href'):''),title:h?h.textContent:document.title,step:s.t}))}catch(e){}};
+function mark(el){var sec=el&&el.closest&&el.closest('section.step');if(sec&&sec.id){worked=sec.id;save()}}
+['click','input','focusin'].forEach(function(ev){document.addEventListener(ev,function(e){if(!(e.target.closest&&e.target.closest('.sitenav,.coursebar,nav.steps')))mark(e.target)},true)});
+window.addEventListener('blur',function(){setTimeout(function(){var f=document.activeElement;if(f&&f.tagName==='IFRAME')mark(f)},0)});
+try{var prev=JSON.parse(sessionStorage.getItem(K));if(prev&&prev.href&&prev.href.split('#')[0]===location.pathname&&prev.href.indexOf('#')>0)worked=prev.href.split('#')[1]}catch(e){}
+save();window.addEventListener('pagehide',save);return}
+var b=n.querySelector('.sn-back'),f=null;try{f=JSON.parse(sessionStorage.getItem(K))}catch(e){}
+if(f&&f.href){b.href=f.href;b.textContent='\u2190 Back to '+f.title+(f.step?' \u203a '+f.step:'');b.title=b.textContent;b.hidden=false;return}
+if(here==='playground'||here==='reference'){try{var l=JSON.parse(localStorage.getItem('wp-last-lesson'));if(l&&l.href){b.href=l.href;b.textContent='Continue: '+(l.title||'your lesson');b.hidden=false}}catch(e){}}})();(function(){var figs=[].slice.call(document.querySelectorAll('figure.clip[data-voices]'));if(!figs.length)return;
+var K='wp-voice',all=[],AC=window.AudioContext||window.webkitAudioContext,ctx=null;
+var canVol=(function(){var v=document.createElement('video');try{v.volume=0.5}catch(e){}return v.volume===0.5})(),web=!!AC&&canVol;
+function saved(){try{return localStorage.getItem(K)||''}catch(e){return ''}}
+function save(v){try{localStorage.setItem(K,v)}catch(e){}}
+function audioCtx(){if(!ctx){try{ctx=new AC()}catch(e){web=false;return null}}if(ctx.state==='suspended')ctx.resume();return ctx}
+function alt(s){return s.cur!==s.own&&!!s.audio}
+function route(s){if(!web||s.gain||!alt(s))return;var c=audioCtx();if(!c)return;try{var n=c.createMediaElementSource(s.vid);s.gain=c.createGain();n.connect(s.gain);s.gain.connect(c.destination)}catch(e){web=false}}
+function hush(s){var on=alt(s);if(web&&s.gain){s.gain.gain.value=on?0:1;s.sound=!s.vid.muted}else if(on&&!s.vid.muted){s.self++;s.vid.muted=true;s.sound=true}if(s.audio){s.audio.muted=web?s.vid.muted:false;s.audio.volume=canVol?s.vid.volume:1}note(s)}
+function note(s){var n=s.fig.querySelector('.voiced-note');if(!n)return;if(!n.dataset.t)n.dataset.t=n.textContent;n.textContent=alt(s)&&!web?' · '+s.label+(s.sound?' on: press sound to stop':': press sound to hear'):n.dataset.t}
+function sync(s,hard){var a=s.audio,t=s.vid.currentTime;if(!a)return;if(hard||Math.abs(a.currentTime-t)>0.3){try{a.currentTime=t}catch(e){}}if(a.playbackRate!==s.vid.playbackRate)a.playbackRate=s.vid.playbackRate}
+function go(s){var a=s.audio;if(!a)return;if(s.vid.paused||s.wait||!s.sound||(web&&s.vid.muted)){a.pause();return}sync(s,true);var p=a.play();if(p&&p.catch)p.catch(function(){})}
+function unlock(s){var a=s.audio;if(!a||!a.paused||s.unlocked)return;s.unlocked=true;var m=a.muted;a.muted=true;var p=a.play();if(p&&p.then)p.then(function(){if(s.vid.paused||!s.sound)a.pause();a.muted=m;go(s)},function(){a.muted=m});else{a.pause();a.muted=m}}
+function use(s,v,gesture){if(v!==s.own&&s.others.indexOf(v)<0)v=s.own;
+[].forEach.call(s.fig.querySelectorAll('.vpick button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.v===v));if(b.dataset.v===v)s.label=b.textContent});
+if(s.audio){s.audio.pause();s.audio=null}s.cur=v;s.unlocked=false;
+if(v!==s.own){var a=new Audio(),src=(s.vid.currentSrc||s.vid.querySelector('source').src).replace(/\.mp4(?=$|[?#])/,'.'+v+'.m4a');a.preload='auto';a.src=src;
+a.addEventListener('error',function(){if(s.audio!==a)return;s.audio=null;s.cur=s.own;var w=s.sound&&!web;hush(s);if(w&&s.vid.muted){s.self++;s.vid.muted=false}[].forEach.call(s.fig.querySelectorAll('.vpick button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.v===s.own))})});
+s.audio=a;if(gesture)route(s)}
+else if(!web&&s.sound&&s.vid.muted&&gesture){s.self++;s.vid.muted=false}
+hush(s);if(gesture)unlock(s);go(s)}
+figs.forEach(function(fig){var vid=fig.querySelector('video');if(!vid)return;
+var s={fig:fig,vid:vid,own:fig.dataset.voice,others:fig.dataset.voices.split(' '),cur:fig.dataset.voice,audio:null,gain:null,sound:!vid.muted,self:0,last:0,wait:false,label:''};all.push(s);
+var pick=fig.querySelector('.vpick');if(pick){pick.hidden=false;pick.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button[data-v]');if(!b)return;save(b.dataset.v);all.forEach(function(o){use(o,b.dataset.v,true)})})}
+vid.addEventListener('volumechange',function(){if(s.self){s.self--;return}if(!alt(s)){s.sound=!vid.muted;return}
+if(web&&s.gain){hush(s);go(s);return}
+if(!vid.muted){s.sound=!s.sound;s.self++;vid.muted=true;note(s);unlock(s);go(s)}});
+['play','playing'].forEach(function(ev){vid.addEventListener(ev,function(){s.wait=false;go(s)})});
+['pause','waiting'].forEach(function(ev){vid.addEventListener(ev,function(){if(ev!=='pause')s.wait=true;if(s.audio)s.audio.pause()})});
+['seeked','ratechange'].forEach(function(ev){vid.addEventListener(ev,function(){sync(s,ev==='seeked');go(s)})});
+vid.addEventListener('timeupdate',function(){var t=vid.currentTime;if(t+0.5<s.last){sync(s,true);go(s)}else if(s.audio&&!s.audio.paused)sync(s,false);s.last=t});
+use(s,saved()||s.own,false)});
+function gest(){if(ctx&&ctx.state==='suspended')ctx.resume();all.forEach(function(s){if(alt(s)){route(s);hush(s);unlock(s)}})}
+['pointerdown','click','keydown'].forEach(function(ev){document.addEventListener(ev,gest,true)});
+})();</script></body></html>

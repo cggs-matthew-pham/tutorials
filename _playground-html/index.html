@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML playground</title>
+<link rel="stylesheet" href="style.css?v=edb6215770">
+<link rel="stylesheet" href="snippets.css?v=edb6215770">
+</head>
+<body>
+<div class="pg">
+  <section class="pane editor-pane" aria-label="Code">
+    <div class="bar">
+      <span class="title">HTML &amp; CSS</span>
+      <button id="boxmodel" class="btn ghost" type="button" aria-pressed="false" title="Point at any box to see its margin (orange), border (gold), padding (green) and content (blue). Does not change the page.">Box model</button>
+      <button id="boxes" class="btn ghost" type="button" aria-pressed="false" title="Draw a labelled box around every element, to see how the tags nest">Boxes</button>
+      <button id="reset" class="btn ghost" type="button">Reset</button>
+      <button id="download" class="btn ghost" type="button" title="Save this page as index.html, to open from your computer or put online">Download</button>
+    </div>
+    <textarea id="code" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="HTML code" wrap="off"></textarea>
+    <div id="status" role="status" data-state="ready">Preview ready</div>
+    <div id="dl" class="dl" role="status" hidden></div>
+  </section>
+  <section class="pane preview-pane" aria-label="Preview">
+    <iframe id="preview" title="Page preview" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox"></iframe>
+    <output id="preview-text" aria-label="Page text"></output>
+  </section>
+</div>
+<script type="module" src="main.js?v=edb6215770"></script>
+</body>
+</html>

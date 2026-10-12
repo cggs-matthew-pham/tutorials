@@ -1,0 +1,86 @@
+{
+ "code/p5/p5-art/explain": {
+  "hash": "8a7b82476cb37007",
+  "w": 600,
+  "h": 600,
+  "div": 2
+ },
+ "code/p5/p5-art/exp-step-4-t2": {
+  "hash": "52c08659d9f3123d",
+  "w": 600,
+  "h": 600,
+  "div": 2
+ },
+ "code/p5/p5-decide/explain": {
+  "hash": "0adba2dae9675346",
+  "w": 600,
+  "h": 400,
+  "div": 2
+ },
+ "code/p5/p5-functions/explain": {
+  "hash": "efa0ab65afb102f4",
+  "w": 600,
+  "h": 400,
+  "div": 2
+ },
+ "code/p5/p5-functions/exp-step-4-t1": {
+  "hash": "037aa23e827df6a3",
+  "w": 600,
+  "h": 400,
+  "div": 2
+ },
+ "code/p5/p5-game/explain": {
+  "hash": "ee3e226d97f7447a",
+  "w": 600,
+  "h": 400,
+  "div": 2
+ },
+ "code/p5/p5-lists/explain": {
+  "hash": "b204a26d08b7d9d0",
+  "w": 600,
+  "h": 400,
+  "div": 2
+ },
+ "code/p5/p5-lists/exp-step-4-t1": {
+  "hash": "7549d2635b04f790",
+  "w": 600,
+  "h": 400,
+  "div": 2
+ },
+ "code/p5/p5-lists/exp-step-4-t2": {
+  "hash": "11156e070e137ad1",
+  "w": 600,
+  "h": 400,
+  "div": 2
+ },
+ "code/p5/p5-move/explain": {
+  "hash": "2cd4c445116de53e",
+  "w": 600,
+  "h": 400,
+  "div": 2
+ },
+ "code/p5/p5-objects/explain": {
+  "hash": "3d17ba1780a078c1",
+  "w": 600,
+  "h": 400,
+  "div": 2
+ },
+ "code/p5/p5-shapes/explain": {
+  "hash": "e5e39f45a166f30d",
+  "w": 600,
+  "h": 400,
+  "div": 2
+ },
+ "code/p5/p5-shapes/exp-step-4-t1": {
+  "hash": "d8008c8be47d854e",
+  "w": 600,
+  "h": 400,
+  "div": 2
+ },
+ "code/p5/p5-shapes/exp-step-4-t2": {
+  "hash": "4ec6a2fb81133034",
+  "w": 600,
+  "h": 400,
+  "div": 2
+ }
+}

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MakeCode playground</title>
+<link rel="stylesheet" href="style.css?v=3269f3347d">
+</head>
+<body>
+<div class="pg">
+  <div class="bar">
+    <span class="title" id="title">MakeCode</span>
+    <span id="status" role="status" data-state="loading">Loading MakeCode…</span>
+    <button id="reset" class="btn ghost" type="button" title="Throw away your changes in this step and load its starting blocks again">Start again</button>
+  </div>
+  <div class="stage">
+    <iframe id="editor" title="MakeCode editor" allow="usb; autoplay; camera; microphone"></iframe>
+    <pre id="debug" hidden></pre>
+  </div>
+</div>
+<script type="module" src="main.js?v=3269f3347d"></script>
+</body>
+</html>

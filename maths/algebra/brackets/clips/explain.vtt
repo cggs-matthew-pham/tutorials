@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.900
+Brackets keep a part together, so it is worked out first.
+
+2
+00:00:04.277 --> 00:00:07.177
+Add three to n, then double the result.
+
+3
+00:00:07.753 --> 00:00:10.303
+The first step is n plus three.
+
+4
+00:00:10.981 --> 00:00:15.231
+Double the whole result, so brackets keep n plus three together.
+
+5
+00:00:15.807 --> 00:00:19.657
+With four: four plus three is seven, doubled is fourteen.
+
+6
+00:00:21.411 --> 00:00:24.261
+With five: eight, doubled, is sixteen.

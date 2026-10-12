@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:03.726
+An if runs its blocks only when its question is true.
+
+2
+00:00:04.504 --> 00:00:08.904
+In on start, the question is asked once, before the game begins.
+
+3
+00:00:09.731 --> 00:00:14.606
+In on game update, it's asked every frame, about 30 times a second.
+
+4
+00:00:17.348 --> 00:00:21.073
+To keep checking something, put the if in on game update.

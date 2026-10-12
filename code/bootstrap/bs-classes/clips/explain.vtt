@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.675
+Link Bootstrap, then style by adding its class names
+
+2
+00:00:04.303 --> 00:00:07.228
+A plain page, with the browser's own button.
+
+3
+00:00:08.080 --> 00:00:11.980
+Link Bootstrap's stylesheet: CSS that someone else wrote.
+
+4
+00:00:12.959 --> 00:00:16.509
+Its rules apply at once: the heading's font changes.
+
+5
+00:00:17.234 --> 00:00:21.034
+Now add two class names: one for the shape, one for the colour.
+
+6
+00:00:22.071 --> 00:00:25.896
+No CSS of your own. The class names did the styling.

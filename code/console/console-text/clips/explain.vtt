@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.975
+A console program asks a question, waits for an answer, and replies.
+
+2
+00:00:05.826 --> 00:00:10.101
+input shows a question, then waits for someone to type an answer.
+
+3
+00:00:10.852 --> 00:00:14.702
+The plus sign joins pieces of text into one line.
+
+4
+00:00:18.464 --> 00:00:22.164
+Whatever was typed is stored in name, so print can use it.

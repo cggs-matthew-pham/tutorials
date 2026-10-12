@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.175
+A class is a pattern for making objects of your own kind.
+
+2
+00:00:05.076 --> 00:00:09.326
+init runs each time a pet is made, and self is the new pet.
+
+3
+00:00:10.427 --> 00:00:14.627
+Pet Rex, four, makes a pet, and stores its own name and legs.
+
+4
+00:00:16.582 --> 00:00:20.182
+Two pets from one pattern. Each keeps its own values.

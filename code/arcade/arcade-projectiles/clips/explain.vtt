@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.750
+A projectile is fired from a sprite, and it's its own kind: Projectile.
+
+2
+00:00:06.026 --> 00:00:10.051
+So a hit is an overlap between a projectile and an enemy.
+
+3
+00:00:11.080 --> 00:00:15.805
+Array of sprites of kind enemy is a list of every enemy right now.
+
+4
+00:00:18.709 --> 00:00:23.509
+A for element loop runs once for each one, so one press destroys them all.

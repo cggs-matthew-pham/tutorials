@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.400
+Two gates whose outputs feed back into each other.
+
+2
+00:00:04.002 --> 00:00:06.777
+Turn Set on, and Q becomes 1.
+
+3
+00:00:09.838 --> 00:00:13.363
+Turn Set off, and Q stays 1. It remembers.
+
+4
+00:00:15.258 --> 00:00:17.758
+Reset makes it 0 again.

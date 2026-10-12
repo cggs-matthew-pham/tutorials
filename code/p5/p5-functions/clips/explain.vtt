@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:04.351
+A function gives code a name, and parameters make each use different
+
+2
+00:00:05.151 --> 00:00:09.751
+function names a recipe. x, y and size are its parameters.
+
+3
+00:00:11.520 --> 00:00:16.345
+Defining draws nothing. Each call below does the work, with its own values.
+
+4
+00:00:22.006 --> 00:00:25.156
+One definition, three calls, three flowers.

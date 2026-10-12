@@ -1,0 +1,701 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rotations</title><style>
+:root{--bg:#fbfaf8;--ink:#1d2430;--muted:#5d6978;--card:#fff;--line:#e4e1da;--accent:#c2570a;--code:#141a22;--codeink:#e6edf3;
+--kw:#ff7b72;--str:#a5d6ff;--fn:#d2a8ff;--com:#7f8fa1;--num:#79c0ff;
+--predict:#8a5cf6;--run:#16a05d;--investigate:#2b7de9;--modify:#c2570a;--practise:#0e7f86;--make:#d63384;--info:#5d6978}
+@media(prefers-color-scheme:dark){:root{--bg:#0f141a;--ink:#e6edf3;--muted:#9aa7b6;--card:#161d26;--line:#26303c;--accent:#ff9d3d;--code:#0b0f14;
+--predict:#b794ff;--run:#4ade80;--investigate:#6cb6ff;--modify:#ff9d3d;--practise:#4fd1c5;--make:#ff8fc0}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px 80px}
+header.top{padding:44px 0 18px}header.top .crumb{font-size:14px;color:var(--muted);text-decoration:none}
+h1{font-size:2.1rem;line-height:1.2;margin:.3em 0 .2em}.by{margin:-.6em 0 1em;color:var(--muted);font-size:14px}.lede{color:var(--muted);font-size:1.1rem;margin:0 0 1em}
+nav.steps{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:18px 0 8px;position:sticky;top:calc(var(--nav,0px) + var(--cb,0px));z-index:9;padding:10px 0;background:var(--bg);border-bottom:1px solid var(--line);scrollbar-width:thin}
+nav.steps a{flex:none;white-space:nowrap}
+nav.steps a.here{border-color:var(--c);box-shadow:inset 0 0 0 1px var(--c)}
+section.step{scroll-margin-top:calc(var(--nav,0px) + var(--cb,0px) + 64px)}
+.coursebar{position:sticky;top:var(--nav,0px);z-index:11;display:flex;align-items:center;justify-content:space-between;gap:8px;height:46px;background:var(--bg);border-bottom:1px solid var(--line)}
+.coursebar a,.cb-toggle{font:inherit;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;background:none;border:0;cursor:pointer;padding:6px 8px;border-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:34vw}
+.coursebar a:hover,.cb-toggle:hover{background:var(--card)}
+.cb-prev,.cb-next{flex:0 1 auto;min-width:34px}.cb-next{text-align:right}
+.cb-mid{position:relative;flex:1;min-width:0;text-align:center}.cb-toggle{max-width:100%}
+.cb-menu{position:absolute;left:50%;transform:translateX(-50%);top:42px;width:min(92vw,440px);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 8px 28px rgba(0,0,0,.18);text-align:left}
+.cb-menu[hidden]{display:none}.cb-menu ul{list-style:none;margin:0;padding:0}
+.cb-menu li a{display:flex;gap:8px;align-items:center;max-width:none;white-space:normal;font-weight:500}.cb-menu li a[aria-current]{font-weight:700;background:var(--bg)}
+.cb-menu .tick{flex:none;width:18px;height:18px;border-radius:50%;border:2px solid var(--line);display:inline-block}.cb-menu .tick.on{background:var(--run);border-color:var(--run)}
+.cb-menu .cb-tools{display:flex;flex-wrap:wrap;gap:4px;border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+@media(max-width:560px){.cb-prev span,.cb-next span{display:none}}
+.nextcard{display:block;margin:34px 0 0;padding:18px 22px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none}
+.nextcard small{display:block;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.nextcard b{display:block;font-size:1.15rem}.nextcard span{color:var(--muted);font-size:15px}
+.nextcard:hover{border-color:var(--accent)}
+.nowcan{margin:34px 0 0;padding:16px 22px;border-left:4px solid var(--accent);background:var(--card);border-radius:0 14px 14px 0}.nowcan small{display:block;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.nowcan ul{margin:6px 0 0;padding-left:20px}.nowcan+.nextcard{margin-top:14px}.practicecard+.nextcard{margin-top:14px}.practicecard{border-left:4px solid var(--accent)}
+.rules{list-style:none;margin:6px 0 0;padding:0}.rules li{display:flex;gap:8px;align-items:center;margin:3px 0}.rules li::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid var(--line);flex:none}.rules li.ok::before{background:var(--run);border-color:var(--run)}
+
+nav.steps a{font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--card);padding:5px 11px;border-radius:99px}
+nav.steps a i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;background:var(--c)}
+section.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin:26px 0;border-top:4px solid var(--c)}
+section.step h2{font-size:1.4rem;line-height:1.3;margin:.15em 0 .5em}
+.chip{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.chip small{font-weight:500;letter-spacing:0;text-transform:none;color:var(--muted);margin-left:8px;font-size:13px}
+.code{margin:16px 0;border-radius:10px;overflow:hidden;background:var(--code)}
+.code-head{display:flex;justify-content:space-between;align-items:center;padding:7px 14px;font:12px ui-monospace,Menlo,Consolas,monospace;color:#8b98a8;border-bottom:1px solid #26303c}
+.code-head button{font:inherit;background:none;border:1px solid #3a4756;color:#c3cdd9;border-radius:6px;padding:2px 9px;cursor:pointer}
+.code pre{margin:0;padding:14px 16px;overflow-x:auto;color:var(--codeink);font:14px/1.55 ui-monospace,Menlo,Consolas,monospace}
+.kw{color:var(--kw)}.str{color:var(--str)}.fn{color:var(--fn)}.com{color:var(--com)}.num{color:var(--num)}
+p code,li code{background:color-mix(in srgb,var(--ink) 9%,transparent);padding:1px 6px;border-radius:5px;font-size:.9em}
+figure.clip{margin:18px 0}figure.clip video{width:100%;border-radius:10px;border:1px solid var(--line);display:block;background:#0b0f14}
+figure.clip figcaption{font-size:14px;color:var(--muted);margin-top:6px}
+figure.clip .voiced-note{white-space:nowrap}
+figure.clip .vpick{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;margin-left:6px;white-space:nowrap}figure.clip .vpick button{font:inherit;font-size:13px;padding:2px 9px;border-radius:99px;border:1px solid var(--line);background:transparent;color:inherit;cursor:pointer}figure.clip .vpick button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;aspect-ratio:16/9;border:2px dashed var(--line);border-radius:10px;color:var(--muted);text-align:center;font-size:15px;padding:12px}
+.placeholder b{color:var(--ink)}
+.try{margin:20px 0 6px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.try-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:9px 14px;font-size:14px;background:color-mix(in srgb,var(--c) 10%,transparent);border-bottom:1px solid var(--line)}
+.try-head span{color:var(--muted);flex:1}
+.try-full{font:inherit;font-size:13px;padding:2px 10px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink);cursor:pointer}.try-full:hover{border-color:var(--c,var(--accent))}
+.try.full{position:fixed;inset:0;z-index:50;margin:0;border:0;border-radius:0;display:flex;flex-direction:column;background:var(--bg)}
+.try-task,.tt-toggle{display:none}.try.full .try-task{display:block;max-height:38vh;overflow:auto;padding:6px 14px 8px;border-bottom:1px solid var(--line);background:var(--card);font-size:15px}
+.try.full .tt-toggle{display:inline-block;margin-left:auto;margin-right:8px;font:inherit;font-size:13px;padding:2px 10px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink);cursor:pointer}
+.tt-title{font-weight:700;margin:.2em 0 .3em}.tt-body p,.tt-body ul,.tt-body ol{margin:.3em 0}.tt-body img{max-height:24vh;width:auto}.tt-body .hints{margin:.3em 0;padding-top:4px;padding-bottom:4px}
+.try-task.closed .tt-body{display:none}.try-checks{display:flex;flex-wrap:wrap;gap:4px 16px;padding:6px 0 2px;margin-top:4px;position:sticky;bottom:-8px;background:var(--card);border-top:1px dashed var(--line);font-size:14px;color:var(--muted)}.try-task.closed .try-checks{border-top:0;margin-top:0}.try-checks .ok{color:var(--run);font-weight:600}.try.full iframe{flex:1;height:auto!important}
+body.try-open{overflow:hidden}
+.try iframe{display:block;width:100%;border:0;background:var(--card)}
+.try iframe[hidden]{display:none}.mkload{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:var(--card);color:var(--muted);font-size:14px;text-align:center;padding:16px}.try.full .mkload{height:calc(100% - 40px)!important}
+.mkopen{font:inherit;font-size:16px;font-weight:600;padding:10px 18px;border-radius:10px;border:0;background:var(--c,var(--accent));color:#fff;cursor:pointer}@media(prefers-color-scheme:dark){.mkopen{color:#0f141a}}
+figure.shown{margin:10px 0 16px}figure.shown img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff;display:block}figure.shown figcaption{font-size:13px;color:var(--muted);margin-top:4px}
+details.expected figure{margin:8px 0 14px}details.expected img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff;display:block}details.expected figcaption{font-size:13px;color:var(--muted);margin-top:4px}
+details.reveal{margin:16px 0;border:1px solid var(--line);border-radius:10px;padding:0 16px}
+details.hints{margin:12px 0;border:1px solid var(--line);border-radius:10px;padding:0 16px}
+details.hints summary{cursor:pointer;font-weight:600;padding:10px 0}
+details.hints[open] summary{border-bottom:1px solid var(--line);margin-bottom:6px}
+.tasks{margin:14px 0}
+.taskpills{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+.taskpills .tp{font:inherit;font-size:14px;font-weight:600;padding:5px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.taskpills .tp i{width:10px;height:10px;border-radius:50%;border:2px solid var(--c)}.taskpills .tp.done i{background:var(--c)}
+.taskpills .tp.active{border-color:var(--c);box-shadow:inset 0 0 0 1px var(--c)}
+.tpanel{display:none}.tpanel.active{display:block}
+.tmsg{margin:8px 0 0;font-size:14px;font-weight:600;color:var(--run)}
+.resetstart{font:inherit;font-size:13px;margin:6px 0;padding:4px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+nav.steps a .cnt{font-weight:500;color:var(--muted);margin-left:5px}
+.buglines{margin:6px 0;padding:0 0 0 2.2em;background:var(--code);border-radius:10px;font:14px/1.7 ui-monospace,Menlo,Consolas,monospace;list-style:decimal;color:var(--com)}
+.buglines li{padding-right:6px}.check .buglines button{display:block;width:100%;margin:0;padding:0 8px;border:0;border-radius:6px;background:none;text-align:left;color:var(--codeink);cursor:pointer}
+.check .buglines button:hover{background:rgba(255,255,255,.1)}.check .buglines button.no{background:rgba(255,100,100,.25)}.check .buglines button.yes{background:rgba(74,222,128,.28)}
+.buglines code{white-space:pre;font:inherit}
+.bugfile{margin:8px 0}.bugfile-name,.files .code-head span{font:600 13px ui-monospace,Menlo,Consolas,monospace}.bugfile-name{margin:0 0 2px;color:var(--ink)}.files{display:grid;gap:8px}
+.mrow{display:flex;gap:10px;align-items:center;margin:6px 0;flex-wrap:wrap}.mrow span{flex:1 1 180px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px}.mrow select{font:inherit;font-size:14px;padding:4px 6px;border-radius:6px;max-width:100%}
+.mrow select.ok{outline:2px solid var(--run)}.mrow select.no{outline:2px solid var(--make)}
+.tscroll{overflow-x:auto}.trace{border-collapse:collapse;margin:8px 0;font:14px ui-monospace,Menlo,Consolas,monospace}.trace th,.trace td{border:1px solid var(--line);padding:4px 10px;text-align:center}.trace th{background:var(--card)}
+.trace input{width:5em;font:inherit;text-align:center;padding:3px;border-radius:4px;border:1px solid var(--line)}.trace input.ok{outline:2px solid var(--run)}.trace input.no{outline:2px solid var(--make)}
+.numrow input{font:inherit;padding:5px 8px;border-radius:6px;border:1px solid var(--line);width:9em}
+.parsons{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}@media(max-width:620px){.parsons{grid-template-columns:1fr}}
+.pcol b{font-size:13px;color:var(--muted)}.pcol ul,.pcol ol{margin:4px 0;padding:0;list-style:none;min-height:3em;border:1px dashed var(--line);border-radius:10px;padding:6px}
+.pcol li{display:flex;align-items:center;gap:6px;margin:3px 0;background:var(--code);border-radius:6px;padding:2px 6px}.pcol code{flex:1;white-space:pre;color:var(--codeink);font:13px ui-monospace,Menlo,Consolas,monospace;overflow-x:auto}
+.check .pcol button{margin:0;padding:1px 8px;border-radius:6px;font-size:13px}.check .pcol button.piece{flex:1;text-align:left;background:none;border:0;padding:0}.pprog li[draggable=true]{cursor:grab}
+details.insights{margin:10px 0}
+details.teachers{margin:28px 0 0;border:1px solid var(--line);border-radius:8px;padding:0 16px}
+details.teachers summary{cursor:pointer;font-weight:600;padding:12px 0}
+details.teachers h3{font-size:1rem;margin:16px 0 4px}.tguide{background:color-mix(in srgb,var(--accent) 8%,transparent);border-radius:8px;padding:8px 12px}
+.xbtn{flex:none;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13px;font-weight:600;color:var(--investigate);border:1px solid var(--investigate);background:var(--card);padding:4px 11px 4px 5px;border-radius:99px;cursor:pointer}.xbtn b{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--investigate);color:#fff;font-size:12px}.xbtn[aria-expanded=true]{box-shadow:inset 0 0 0 1px var(--investigate)}.xdrawer{position:fixed;z-index:40;right:0;top:var(--nav,0px);bottom:0;width:min(520px,100vw);overflow:auto;background:var(--card);border-left:1px solid var(--line);box-shadow:-8px 0 24px rgba(0,0,0,.12);padding:0 20px 24px}.xd-head{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);padding:14px 0 10px;border-bottom:1px solid var(--line);margin-bottom:12px}.xd-head h2{margin:0;font-size:1.1rem;color:var(--investigate)}.xd-close{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 10px;cursor:pointer}.xpop{position:fixed;z-index:41;max-width:min(300px,calc(100vw - 32px));margin:0;padding:9px 13px;font-size:14px;line-height:1.4;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--predict,#7c3aed);border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.14)}.xd-body video{max-width:100%}details.explain{margin:12px 0 4px;border:1px solid var(--line);border-left:4px solid var(--investigate);border-radius:8px;padding:0 16px;background:var(--card)}details.explain summary{cursor:pointer;font-weight:600;padding:10px 0;color:var(--investigate)}
+.clinks{margin:-6px 0 14px;font-size:14px;color:var(--muted,#5d6675)}.clinks p{margin:2px 0}.clinks .clw{opacity:.8}
+.hook{margin:0 0 16px;padding:8px 14px;border-left:4px solid var(--c,#2563eb);background:rgba(37,99,235,.07);border-radius:4px}
+details.reveal summary{cursor:pointer;font-weight:600;padding:12px 0;color:var(--c)}
+details.reveal[open] summary{border-bottom:1px solid var(--line);margin-bottom:6px}
+.legend{display:grid;gap:6px;margin:10px 0 0;padding:0;list-style:none;font-size:15px;color:var(--muted)}
+.legend b{color:var(--c)}
+.widthbar{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px 14px;margin:14px 0 0}
+.widthbar .wnote{display:block;font-size:14px;color:var(--muted)}.wseg{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:99px;padding:3px;background:var(--bg)}
+.wseg button{font:inherit;font-size:14px;font-weight:600;border:0;background:transparent;color:var(--ink);border-radius:99px;padding:5px 12px;cursor:pointer}.wseg button[aria-pressed=true]{background:var(--accent);color:#fff}
+@media(prefers-color-scheme:dark){.wseg button[aria-pressed=true]{color:#0f141a}}.wseg button:disabled{opacity:.4;cursor:not-allowed}
+.tierchip{font-size:11px;letter-spacing:.06em;padding:1px 7px;border-radius:99px;border:1px solid currentColor;margin-left:6px}
+[data-tier][hidden]{display:none!important}footer code{overflow-wrap:anywhere}.srow{flex-wrap:wrap}.srow span{font-family:inherit;font-size:15px}.srow .swhy{flex-basis:100%;color:var(--muted)}
+ul.lessons{list-style:none;padding:0;display:grid;gap:14px}ul.lessons a{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;text-decoration:none;color:inherit}
+.ctop{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.ctop h1{margin-bottom:0}
+.chips{display:flex;gap:8px}.chip{font-size:14px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--card);padding:6px 14px;border-radius:99px;text-transform:none;letter-spacing:normal}.chip:hover{border-color:var(--accent)}
+.continue{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:center;margin:22px 0 18px;padding:16px 20px;border-radius:14px;text-decoration:none;color:#fff;background:var(--accent)}
+.continue .ck{grid-row:span 2;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.2)}
+.continue b{font-size:1.15rem}.continue .cstep{font-size:14px;opacity:.9}.continue .cstep:empty{display:none}.continue:hover{filter:brightness(1.06)}
+@media(prefers-color-scheme:dark){.continue{color:#1a1006}.continue .ck{background:rgba(0,0,0,.15)}}
+.pathway{margin:30px 0 8px}.pathway h2{margin:0;font-size:1.4rem}.pathway h2 a{color:inherit;text-decoration:none}.pathway h2 a:hover{color:var(--accent)}.pathway h2 a::after{content:' ›';color:var(--muted)}.pabout{max-width:680px}.home-about h2,.approach h2{font-size:1.2rem;margin:28px 0 8px}.home-about p,.approach p,.approach li{line-height:1.6}.home-subjects{font-size:1.2rem;margin:34px 0 12px}.home-about a,.approach a{color:var(--accent)}.pnote{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:12px 16px;color:var(--muted)}.psum{margin:2px 0 10px;color:var(--muted)}
+.pstage h3{margin:14px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.pcard{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:inherit}.pcard:hover{border-color:var(--accent)}
+.pcard b{display:block;font-size:1.05rem}.pcard .ptag{color:var(--ink);font-size:15px;margin-top:4px}.pcard.pmap{margin:6px 0 4px;border-color:var(--accent)}.pcard.pmap b::after{content:' →';color:var(--accent)}.pafter{display:block;font-size:12.5px;color:var(--muted);margin-top:6px}.pcard span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.pcard.soon{background:transparent;border-style:dashed}.pcard.soon b{color:var(--muted)}.pcard em{display:inline-block;margin-top:8px;font-style:normal;font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:1px 9px}
+.pcard .cprog{display:block;font-style:normal;font-weight:400;font-size:13px;color:var(--muted);margin-top:8px;border:0;padding:0;border-radius:0}.pcard .cbar{display:block;height:6px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:4px}.pcard .cbar i{display:block;height:100%;background:var(--run)}
+.ptools{margin:34px 0 0;color:var(--muted);font-size:14px}
+.course{display:grid;gap:22px}.unit .uhead{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:0 12px;margin:0 2px 8px}
+.unit .uhead h2{margin:0;font-size:1.05rem}.unit .uhead p{grid-column:1/-1;margin:2px 0 0;color:var(--muted);font-size:14px}.ustat{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.urows{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}
+.crow{border-top:1px solid var(--line)}.crow:first-child{border-top:0}
+.crow summary{display:grid;grid-template-columns:30px 1fr auto auto;gap:12px;align-items:center;padding:11px 16px;cursor:pointer;list-style:none}.crow summary::-webkit-details-marker{display:none}
+.crow summary:hover{background:color-mix(in srgb,var(--accent) 4%,transparent)}.crow summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.crow summary::after{content:'▸';color:var(--muted);font-size:12px;transition:transform .15s}.crow[open] summary::after{transform:rotate(90deg)}
+.crow summary .cstat{grid-column:3}.crow summary::after{grid-column:4}
+.cnum{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-weight:700;font-size:14px;border:2px solid var(--line);color:var(--muted)}
+.crow.started .cnum{border-color:var(--accent);color:var(--accent)}.crow.done .cnum{background:var(--run);border-color:var(--run);color:#fff;font-size:0}.crow.done .cnum::after{content:'✓';font-size:15px}
+.crow.next>summary{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.ctitle{font-weight:650;color:var(--ink);min-width:0}.opt{font-style:normal;font-weight:600;font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:1px 8px;margin-left:6px;vertical-align:2px}
+.crow summary .segs{grid-column:2;grid-row:2;display:flex;gap:3px;max-width:340px;margin-top:-4px}.seg{flex:1;height:6px;border-radius:3px;background:color-mix(in srgb,var(--c) 16%,var(--line))}.seg.on{background:var(--c)}
+.cstat{font-size:13px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}.crow.done .cstat{color:var(--run);font-weight:600}
+.cbody{padding:2px 16px 14px 58px}.csum{margin:0 0 8px;color:var(--muted);font-size:15px}
+.csteps{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:2px}.csteps a{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--ink);text-decoration:none;padding:3px 0}.csteps a:hover{text-decoration:underline}
+.sdot{flex:none;width:12px;height:12px;border-radius:50%;border:2px solid var(--c)}.sdot.on{background:var(--c)}
+.cgo{display:inline-block;font-size:14px;font-weight:600;text-decoration:none;color:#fff;background:var(--accent);padding:6px 14px;border-radius:8px}@media(prefers-color-scheme:dark){.cgo{color:#1a1006}}
+.badge{display:inline-block;margin-top:10px;font-size:14px;font-weight:700;color:#7a4b00;background:#ffe9a8;border-radius:99px;padding:4px 12px}.badge[hidden]{display:none}
+.cfoot{margin:14px 2px;color:var(--muted);font-size:14px}.cfoot b{color:var(--ink);font-weight:600}
+@media(max-width:560px){.crow summary{grid-template-columns:30px 1fr auto;padding:10px 12px}.crow summary::after{display:none}.cbody{padding:2px 12px 12px 54px}.crow summary .segs{max-width:none}}
+ul.lessons a:hover{border-color:var(--accent)}ul.lessons .cprog{display:block;font-style:normal;font-size:13px;color:var(--muted);margin-top:8px}ul.lessons .cbar{display:block;height:6px;max-width:260px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:4px}ul.lessons .cbar i{display:block;height:100%;background:var(--run)}ul.lessons b{display:block;font-size:1.15rem}ul.lessons span{color:var(--muted);font-size:15px}
+.compare{margin:14px 0;padding:12px 16px;border-left:4px solid var(--predict);background:color-mix(in srgb,var(--predict) 8%,transparent);border-radius:0 8px 8px 0}.compare p{margin:2px 0}
+.check{margin:20px 0 4px;padding:14px 16px;border:1px dashed var(--c);border-radius:10px;background:color-mix(in srgb,var(--c) 6%,transparent)}
+.check legend,.check .check-q{font-weight:600;margin:0 0 8px;padding:0}.check fieldset{border:0;margin:0;padding:0}
+.check label{display:flex;gap:10px;align-items:flex-start;margin:6px 0;cursor:pointer}.check input{margin-top:.35em;accent-color:var(--c)}
+.check button{font:inherit;font-size:14px;margin-top:6px;padding:5px 14px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.check .msg{margin:8px 0 0;font-size:14px;color:var(--muted)}.check .msg.ok{color:var(--run);font-weight:600}.check .msg.no{color:var(--make)}
+.check.done{border-style:solid}
+.ref-group{margin:28px 0 8px;font-size:1.15rem}.ref-item{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr);gap:6px 18px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}
+.ref-item .code{margin:0}.ref-item .ref-id{font-size:12px;margin-top:2px}
+.ref-ex{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:10px 0 4px}.ref-pic{margin:8px 0 0}.ref-pic img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:#fff;display:block}.ref-pic figcaption{font-size:12px;color:var(--muted);margin-top:3px}.ref-print{margin:14px 0 0}.ref-item p{margin:0;color:var(--muted);font-size:15px}.ref-item b{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
+.ref-search{width:100%;box-sizing:border-box;margin:18px 0 0;padding:10px 14px;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}.ref-search:focus{outline:2px solid var(--accent);outline-offset:1px}.ref-item[hidden],.ref-section[hidden]{display:none}
+@media(max-width:640px){.ref-item{grid-template-columns:1fr}}
+@media print{.ref-search{display:none}}
+@media print{body{background:#fff;color:#000}.ref-item{break-inside:avoid}}
+footer{margin-top:50px;color:var(--muted);font-size:14px}
+.sitenav{background:var(--card);border-bottom:1px solid var(--line);font-size:14px;position:sticky;top:0;z-index:20}
+html{scroll-padding-top:var(--nav,0px)}
+.sn-in{max-width:1080px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:4px;min-height:48px;flex-wrap:wrap}
+.sitenav a{color:var(--ink);text-decoration:none;font-weight:600;padding:6px 10px;border-radius:8px;white-space:nowrap}
+.sitenav a:hover{background:var(--bg)}.sitenav a[aria-current]{color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent);border-radius:0}
+.sitenav .sn-brand{font-weight:800;letter-spacing:-.01em;margin-right:4px;color:var(--muted)}.sn-brand span{font-weight:400}
+.sn-main,.sn-tools{display:flex;gap:2px;align-items:center}.sn-grow{flex:1}
+.sn-dd{position:relative;display:flex;align-items:center}.sn-dd.on>.sn-top{color:var(--accent)}
+.sn-caret{font:inherit;background:none;border:0;color:var(--muted);cursor:pointer;padding:6px 4px;margin-left:-8px;border-radius:6px}.sn-caret:hover{color:var(--ink)}
+.sn-sub{display:none;position:absolute;top:100%;left:0;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);padding:6px;flex-direction:column}
+.sn-sub a{display:block}.sn-sub a[aria-current]{box-shadow:inset 3px 0 0 var(--accent);border-radius:4px}
+.sn-dd:hover .sn-sub,.sn-dd:focus-within .sn-sub,.sn-dd.open .sn-sub{display:flex}
+.sn-menu{display:none;font:inherit;font-weight:600;color:var(--ink);background:none;border:1px solid var(--line);border-radius:8px;padding:4px 10px;cursor:pointer}
+.sitenav .sn-back{color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:99px;margin-right:6px;max-width:42vw;overflow:hidden;text-overflow:ellipsis}
+.sitenav .sn-back[hidden]{display:none}
+@media(max-width:700px){.sn-menu{display:inline-block;margin-left:auto}.sn-main{display:none;order:9;flex-basis:100%;flex-direction:column;align-items:stretch;padding:4px 0 8px}.sitenav.open .sn-main{display:flex;max-height:calc(100vh - 120px);overflow-y:auto}
+.sn-dd{flex-direction:column;align-items:stretch}.sn-caret{display:none}.sn-sub{display:flex;position:static;border:0;box-shadow:none;padding:0 0 0 16px;min-width:0;background:none}
+.sitenav a[aria-current]{box-shadow:none}.sn-tools{order:8;flex-basis:100%;justify-content:flex-start;padding-bottom:6px;overflow-x:auto}.sitenav .sn-back{order:7;flex-basis:100%;max-width:none;margin:2px 0 6px;text-align:center}}
+@media print{.sitenav{display:none}}</style></head><body><nav class="sitenav" data-here="lesson" aria-label="Site"><div class="sn-in"><a class="sn-brand" href="https://learningwaypoints.com/" title="Learning Waypoints: the main site">Learning Waypoints <span aria-hidden="true">↗</span></a><button type="button" class="sn-menu" aria-expanded="false" aria-controls="sn-main">Menu ▾</button><div class="sn-main" id="sn-main"><a href="../../../">Tutorials</a><div class="sn-dd"><a class="sn-top" href="../../../code/">Code</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-0" aria-label="Code pathways">▾</button><div class="sn-sub" id="sn-sub-0"><a href="../../../code/paths/python/">Python</a><a href="../../../code/paths/web/">Web</a><a href="../../../code/paths/makecode/">MakeCode</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../systems/">Digital systems</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-1" aria-label="Digital systems pathways">▾</button><div class="sn-sub" id="sn-sub-1"><a href="../../../systems/paths/data/">Data representation</a><a href="../../../systems/paths/networks/">Networks and security</a><a href="../../../systems/paths/hardware/">Hardware and logic</a><a href="../../../systems/paths/cli/">The command line</a><a href="../../../systems/map/">Curriculum map</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../engineering/">Engineering</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-2" aria-label="Engineering pathways">▾</button><div class="sn-sub" id="sn-sub-2"><a href="../../../engineering/paths/mechanisms/">Mechanisms</a><a href="../../../engineering/paths/structures/">Structures</a><a href="../../../engineering/paths/physical/">Physical computing</a><a href="../../../engineering/paths/cad/">CAD and fabrication</a><a href="../../../engineering/paths/boards/">Design your own board</a></div></div><div class="sn-dd on"><a class="sn-top" href="../../../maths/">Maths</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-3" aria-label="Maths pathways">▾</button><div class="sn-sub" id="sn-sub-3"><a href="../../../maths/paths/algebra/">Algebra</a><a href="../../../maths/paths/number/">Number</a><a href="../../../maths/paths/space/" aria-current="page">Geometry and measurement</a><a href="../../../maths/paths/data/">Statistics and probability</a><a href="../../../maths/map/">Curriculum map</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../science/">Science</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-4" aria-label="Science pathways">▾</button><div class="sn-sub" id="sn-sub-4"><a href="../../../science/paths/chemistry/">Chemistry</a><a href="../../../science/paths/biology/">Biology</a><a href="../../../science/paths/physics/">Physics</a><a href="../../../science/paths/earth-space/">Earth and space</a><a href="../../../science/map/">Curriculum map</a></div></div></div><span class="sn-grow"></span><a class="sn-back" href="#" hidden></a><div class="sn-tools"><a href="../../../maths/angles/reference/">Reference</a><a href="../../../maths/angles/">My progress</a></div></div></nav><div class="wrap">
+<link rel="stylesheet" href="../../../_katex/katex.min.css"><style>.check label.rs-lab{display:block;margin:.4em 0;font-weight:600;cursor:auto}.rs-lab span{font-weight:400;color:var(--muted)}.rs-pick{border:1px solid var(--line);border-radius:8px;margin:.5em 0;padding:.4em .8em}.rs-pick legend{padding:0 .3em}.rs-pick label{display:block;margin:.2em 0}.rs-model{margin-top:.8em;border-top:1px solid var(--line);padding-top:.6em}.rs-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1em}.rs-h{font-weight:600;margin:.3em 0}.rs-mine{white-space:pre-wrap;font:15px/1.5 ui-monospace,Menlo,Consolas,monospace;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:0}.rs-steps{margin:0;padding-left:1.4em}.rs-steps li{margin:.25em 0}.rs-why{color:var(--muted)}.rs-why::before{content:'(';}.rs-why::after{content:')'}.rs-crit{list-style:none;padding:0;margin:.2em 0}.wk-start{margin:.3em 0}.wk-in{display:block;width:100%;box-sizing:border-box;font:16px/1.5 ui-monospace,Menlo,Consolas,monospace;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);margin:.4em 0}.wk-lines{margin:.3em 0;padding-left:1.6em;font:15px/1.5 ui-monospace,Menlo,Consolas,monospace}.wk-lines .ok{color:var(--ok,#1a7f37)}.wk-lines .no{color:#b42318}
+.mathblock{overflow-x:auto;overflow-y:hidden;margin:.6em 0}.katex{font-size:1.12em}
+.worked{border:1px solid var(--line);border-left:4px solid var(--c,var(--accent));border-radius:10px;background:var(--card);padding:12px 16px;margin:14px 0}
+.worked-head{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin-bottom:6px}.worked-head span{color:var(--muted);font-size:14px}
+.worked ol{margin:0;padding-left:1.4em}.worked li{padding:6px 0;border-top:1px dashed var(--line)}.worked li:first-child{border-top:0}
+.worked li.new{animation:wfade .35s ease-out}@keyframes wfade{from{opacity:0;transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){.worked li.new{animation:none}}
+.worked .wm{display:block;font-size:1.08em;overflow-x:auto}.worked .why{display:block;color:var(--muted);font-size:15px;margin-top:2px}
+.worked-go{display:flex;gap:8px;margin-top:8px}.worked-go button{font:inherit;font-size:14px;font-weight:600;padding:5px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.worked-go button[hidden]{display:none}.worked-go .wnext{background:var(--c,var(--accent));border-color:transparent;color:#fff}@media(prefers-color-scheme:dark){.worked-go .wnext{color:#0f141a}}
+.ansrow input{width:14em;font-family:ui-monospace,Menlo,Consolas,monospace}</style><div class="coursebar" role="navigation" aria-label="Lesson navigation"><style>:root{--cb:46px}</style><a class="cb-prev" href="../reflections/" title="13. Reflections">‹ <span>13. Reflections</span></a><div class="cb-mid"><button type="button" class="cb-toggle" aria-expanded="false" aria-controls="cb-menu">14 of 21 · Rotations ▾</button><div class="cb-menu" id="cb-menu" hidden><ul><li><a href="../parallel-lines/" data-checks="maths/angles/parallel-lines/step-1|maths/angles/parallel-lines/step-2|maths/angles/parallel-lines/step-3#t1|maths/angles/parallel-lines/step-3#t2|maths/angles/parallel-lines/step-3#t3|maths/angles/parallel-lines/step-4#t1|maths/angles/parallel-lines/step-4#t2|maths/angles/parallel-lines/step-4#t3|maths/angles/parallel-lines/step-4#t4|maths/angles/parallel-lines/step-4#t5|maths/angles/parallel-lines/step-5#t1|maths/angles/parallel-lines/step-5#t2|maths/angles/parallel-lines/step-5#t3|maths/angles/parallel-lines/step-5#t4|maths/angles/parallel-lines/step-6"><i class="tick"></i><span>1. Angles at parallel lines</span></a></li><li><a href="../parallel-angles/" data-checks="maths/angles/parallel-angles/step-1|maths/angles/parallel-angles/step-2|maths/angles/parallel-angles/step-3#t1|maths/angles/parallel-angles/step-3#t2|maths/angles/parallel-angles/step-3#t3|maths/angles/parallel-angles/step-4#t1|maths/angles/parallel-angles/step-4#t2|maths/angles/parallel-angles/step-4#t3|maths/angles/parallel-angles/step-4#t4|maths/angles/parallel-angles/step-4#t5|maths/angles/parallel-angles/step-5#t1|maths/angles/parallel-angles/step-5#t2|maths/angles/parallel-angles/step-5#t3|maths/angles/parallel-angles/step-5#t4|maths/angles/parallel-angles/step-6"><i class="tick"></i><span>2. Finding angles with parallel lines</span></a></li><li><a href="../angle-reasoning/" data-checks="maths/angles/angle-reasoning/step-1|maths/angles/angle-reasoning/step-2|maths/angles/angle-reasoning/step-3#t1|maths/angles/angle-reasoning/step-3#t2|maths/angles/angle-reasoning/step-3#t3|maths/angles/angle-reasoning/step-4#t1|maths/angles/angle-reasoning/step-4#t2|maths/angles/angle-reasoning/step-4#t3|maths/angles/angle-reasoning/step-4#t4|maths/angles/angle-reasoning/step-4#t5|maths/angles/angle-reasoning/step-5#t1|maths/angles/angle-reasoning/step-5#t2|maths/angles/angle-reasoning/step-5#t3|maths/angles/angle-reasoning/step-6"><i class="tick"></i><span>3. Reasoning with angles</span></a></li><li><a href="../triangle-angles/" data-checks="maths/angles/triangle-angles/step-1|maths/angles/triangle-angles/step-2|maths/angles/triangle-angles/step-3#t1|maths/angles/triangle-angles/step-3#t2|maths/angles/triangle-angles/step-3#t3|maths/angles/triangle-angles/step-4#t1|maths/angles/triangle-angles/step-4#t2|maths/angles/triangle-angles/step-4#t3|maths/angles/triangle-angles/step-4#t4|maths/angles/triangle-angles/step-5#t1|maths/angles/triangle-angles/step-5#t2|maths/angles/triangle-angles/step-5#t3|maths/angles/triangle-angles/step-5#t4|maths/angles/triangle-angles/step-6"><i class="tick"></i><span>4. Angles in a triangle</span></a></li><li><a href="../polygon-angles/" data-checks="maths/angles/polygon-angles/step-1|maths/angles/polygon-angles/step-2|maths/angles/polygon-angles/step-3#t1|maths/angles/polygon-angles/step-3#t2|maths/angles/polygon-angles/step-3#t3|maths/angles/polygon-angles/step-4#t1|maths/angles/polygon-angles/step-4#t2|maths/angles/polygon-angles/step-4#t3|maths/angles/polygon-angles/step-4#t4|maths/angles/polygon-angles/step-5#t1|maths/angles/polygon-angles/step-5#t2|maths/angles/polygon-angles/step-5#t3|maths/angles/polygon-angles/step-5#t4|maths/angles/polygon-angles/step-6"><i class="tick"></i><span>5. Angles in a polygon</span></a></li><li><a href="../unknown-angles/" data-checks="maths/angles/unknown-angles/step-1|maths/angles/unknown-angles/step-2|maths/angles/unknown-angles/step-3#t1|maths/angles/unknown-angles/step-3#t2|maths/angles/unknown-angles/step-3#t3|maths/angles/unknown-angles/step-4#t1|maths/angles/unknown-angles/step-4#t2|maths/angles/unknown-angles/step-4#t3|maths/angles/unknown-angles/step-4#t4|maths/angles/unknown-angles/step-4#t5|maths/angles/unknown-angles/step-5#t1|maths/angles/unknown-angles/step-5#t2|maths/angles/unknown-angles/step-5#t3|maths/angles/unknown-angles/step-5#t4|maths/angles/unknown-angles/step-6"><i class="tick"></i><span>6. Unknown angles in shapes</span></a></li><li><a href="../classifying-triangles/" data-checks="maths/angles/classifying-triangles/step-1|maths/angles/classifying-triangles/step-2|maths/angles/classifying-triangles/step-3#t1|maths/angles/classifying-triangles/step-3#t2|maths/angles/classifying-triangles/step-3#t3|maths/angles/classifying-triangles/step-4#t1|maths/angles/classifying-triangles/step-4#t2|maths/angles/classifying-triangles/step-4#t3|maths/angles/classifying-triangles/step-4#t4|maths/angles/classifying-triangles/step-5#t1|maths/angles/classifying-triangles/step-5#t2|maths/angles/classifying-triangles/step-5#t3|maths/angles/classifying-triangles/step-5#t4|maths/angles/classifying-triangles/step-6"><i class="tick"></i><span>7. Classifying triangles</span></a></li><li><a href="../quadrilaterals/" data-checks="maths/angles/quadrilaterals/step-1|maths/angles/quadrilaterals/step-2|maths/angles/quadrilaterals/step-3#t1|maths/angles/quadrilaterals/step-3#t2|maths/angles/quadrilaterals/step-3#t3|maths/angles/quadrilaterals/step-4#t1|maths/angles/quadrilaterals/step-4#t2|maths/angles/quadrilaterals/step-4#t3|maths/angles/quadrilaterals/step-4#t4|maths/angles/quadrilaterals/step-5#t1|maths/angles/quadrilaterals/step-5#t2|maths/angles/quadrilaterals/step-5#t3|maths/angles/quadrilaterals/step-5#t4|maths/angles/quadrilaterals/step-6"><i class="tick"></i><span>8. The quadrilateral family</span></a></li><li><a href="../polygons/" data-checks="maths/angles/polygons/step-1|maths/angles/polygons/step-2|maths/angles/polygons/step-3#t1|maths/angles/polygons/step-3#t2|maths/angles/polygons/step-3#t3|maths/angles/polygons/step-4#t1|maths/angles/polygons/step-4#t2|maths/angles/polygons/step-4#t3|maths/angles/polygons/step-4#t4|maths/angles/polygons/step-5#t1|maths/angles/polygons/step-5#t2|maths/angles/polygons/step-5#t3|maths/angles/polygons/step-5#t4|maths/angles/polygons/step-6"><i class="tick"></i><span>9. Polygons</span></a></li><li><a href="../nets/" data-checks="maths/angles/nets/step-1|maths/angles/nets/step-2|maths/angles/nets/step-3#t1|maths/angles/nets/step-3#t2|maths/angles/nets/step-3#t3|maths/angles/nets/step-4#t1|maths/angles/nets/step-4#t2|maths/angles/nets/step-4#t3|maths/angles/nets/step-4#t4|maths/angles/nets/step-5#t1|maths/angles/nets/step-5#t2|maths/angles/nets/step-5#t3|maths/angles/nets/step-5#t4|maths/angles/nets/step-5#t5|maths/angles/nets/step-6"><i class="tick"></i><span>10. Nets</span></a></li><li><a href="../views/" data-checks="maths/angles/views/step-1|maths/angles/views/step-2|maths/angles/views/step-3#t1|maths/angles/views/step-3#t2|maths/angles/views/step-3#t3|maths/angles/views/step-4#t1|maths/angles/views/step-4#t2|maths/angles/views/step-4#t3|maths/angles/views/step-4#t4|maths/angles/views/step-4#t5|maths/angles/views/step-5#t1|maths/angles/views/step-5#t2|maths/angles/views/step-5#t3|maths/angles/views/step-5#t4|maths/angles/views/step-6"><i class="tick"></i><span>11. Views of a solid</span></a></li><li><a href="../translations/" data-checks="maths/angles/translations/step-1|maths/angles/translations/step-2|maths/angles/translations/step-3#t1|maths/angles/translations/step-3#t2|maths/angles/translations/step-3#t3|maths/angles/translations/step-4#t1|maths/angles/translations/step-4#t2|maths/angles/translations/step-4#t3|maths/angles/translations/step-4#t4|maths/angles/translations/step-5#t1|maths/angles/translations/step-5#t2|maths/angles/translations/step-5#t3|maths/angles/translations/step-5#t4|maths/angles/translations/step-6"><i class="tick"></i><span>12. Translations</span></a></li><li><a href="../reflections/" data-checks="maths/angles/reflections/step-1|maths/angles/reflections/step-2|maths/angles/reflections/step-3#t1|maths/angles/reflections/step-3#t2|maths/angles/reflections/step-3#t3|maths/angles/reflections/step-4#t1|maths/angles/reflections/step-4#t2|maths/angles/reflections/step-4#t3|maths/angles/reflections/step-4#t4|maths/angles/reflections/step-5#t1|maths/angles/reflections/step-5#t2|maths/angles/reflections/step-5#t3|maths/angles/reflections/step-5#t4|maths/angles/reflections/step-6"><i class="tick"></i><span>13. Reflections</span></a></li><li><a href="../rotations/" data-checks="maths/angles/rotations/step-1|maths/angles/rotations/step-2|maths/angles/rotations/step-3#t1|maths/angles/rotations/step-3#t2|maths/angles/rotations/step-3#t3|maths/angles/rotations/step-4#t1|maths/angles/rotations/step-4#t2|maths/angles/rotations/step-4#t3|maths/angles/rotations/step-4#t4|maths/angles/rotations/step-5#t1|maths/angles/rotations/step-5#t2|maths/angles/rotations/step-5#t3|maths/angles/rotations/step-5#t4|maths/angles/rotations/step-6" aria-current="page"><i class="tick"></i><span>14. Rotations</span></a></li><li><a href="../classifying-algorithms/" data-checks="maths/angles/classifying-algorithms/step-1|maths/angles/classifying-algorithms/step-2|maths/angles/classifying-algorithms/step-3#t1|maths/angles/classifying-algorithms/step-3#t2|maths/angles/classifying-algorithms/step-3#t3|maths/angles/classifying-algorithms/step-4#t1|maths/angles/classifying-algorithms/step-4#t2|maths/angles/classifying-algorithms/step-4#t3|maths/angles/classifying-algorithms/step-4#t4|maths/angles/classifying-algorithms/step-5#t1|maths/angles/classifying-algorithms/step-5#t2|maths/angles/classifying-algorithms/step-5#t3|maths/angles/classifying-algorithms/step-5#t4|maths/angles/classifying-algorithms/step-6"><i class="tick"></i><span>15. Algorithms for classifying shapes</span></a></li><li><a href="../congruent-triangles/" data-checks="maths/angles/congruent-triangles/step-1|maths/angles/congruent-triangles/step-2|maths/angles/congruent-triangles/step-3#t1|maths/angles/congruent-triangles/step-3#t2|maths/angles/congruent-triangles/step-3#t3|maths/angles/congruent-triangles/step-4#t1|maths/angles/congruent-triangles/step-4#t2|maths/angles/congruent-triangles/step-4#t3|maths/angles/congruent-triangles/step-4#t4|maths/angles/congruent-triangles/step-5#t1|maths/angles/congruent-triangles/step-5#t2|maths/angles/congruent-triangles/step-5#t3|maths/angles/congruent-triangles/step-5#t4|maths/angles/congruent-triangles/step-6"><i class="tick"></i><span>16. Congruent triangles</span></a></li><li><a href="../similar-shapes/" data-checks="maths/angles/similar-shapes/step-1|maths/angles/similar-shapes/step-2|maths/angles/similar-shapes/step-3#t1|maths/angles/similar-shapes/step-3#t2|maths/angles/similar-shapes/step-3#t3|maths/angles/similar-shapes/step-4#t1|maths/angles/similar-shapes/step-4#t2|maths/angles/similar-shapes/step-4#t3|maths/angles/similar-shapes/step-4#t4|maths/angles/similar-shapes/step-5#t1|maths/angles/similar-shapes/step-5#t2|maths/angles/similar-shapes/step-5#t3|maths/angles/similar-shapes/step-5#t4|maths/angles/similar-shapes/step-6"><i class="tick"></i><span>17. Similar shapes</span></a></li><li><a href="../quadrilateral-proofs/" data-checks="maths/angles/quadrilateral-proofs/step-1|maths/angles/quadrilateral-proofs/step-2|maths/angles/quadrilateral-proofs/step-3#t1|maths/angles/quadrilateral-proofs/step-3#t2|maths/angles/quadrilateral-proofs/step-3#t3|maths/angles/quadrilateral-proofs/step-4#t1|maths/angles/quadrilateral-proofs/step-4#t2|maths/angles/quadrilateral-proofs/step-4#t3|maths/angles/quadrilateral-proofs/step-4#t4|maths/angles/quadrilateral-proofs/step-5#t1|maths/angles/quadrilateral-proofs/step-5#t2|maths/angles/quadrilateral-proofs/step-5#t3|maths/angles/quadrilateral-proofs/step-5#t4|maths/angles/quadrilateral-proofs/step-6"><i class="tick"></i><span>18. Proving quadrilateral properties</span></a></li><li><a href="../quadrilateral-problems/" data-checks="maths/angles/quadrilateral-problems/step-1|maths/angles/quadrilateral-problems/step-2|maths/angles/quadrilateral-problems/step-3#t1|maths/angles/quadrilateral-problems/step-3#t2|maths/angles/quadrilateral-problems/step-3#t3|maths/angles/quadrilateral-problems/step-4#t1|maths/angles/quadrilateral-problems/step-4#t2|maths/angles/quadrilateral-problems/step-4#t3|maths/angles/quadrilateral-problems/step-4#t4|maths/angles/quadrilateral-problems/step-5#t1|maths/angles/quadrilateral-problems/step-5#t2|maths/angles/quadrilateral-problems/step-5#t3|maths/angles/quadrilateral-problems/step-5#t4|maths/angles/quadrilateral-problems/step-6"><i class="tick"></i><span>19. Problems with quadrilaterals</span></a></li><li><a href="../congruence-algorithms/" data-checks="maths/angles/congruence-algorithms/step-1|maths/angles/congruence-algorithms/step-2|maths/angles/congruence-algorithms/step-3#t1|maths/angles/congruence-algorithms/step-3#t2|maths/angles/congruence-algorithms/step-3#t3|maths/angles/congruence-algorithms/step-4#t1|maths/angles/congruence-algorithms/step-4#t2|maths/angles/congruence-algorithms/step-4#t3|maths/angles/congruence-algorithms/step-4#t4|maths/angles/congruence-algorithms/step-5#t1|maths/angles/congruence-algorithms/step-5#t2|maths/angles/congruence-algorithms/step-5#t3|maths/angles/congruence-algorithms/step-5#t4|maths/angles/congruence-algorithms/step-6"><i class="tick"></i><span>20. Algorithms for congruence</span></a></li><li><a href="../3d-coordinates/" data-checks="maths/angles/3d-coordinates/step-1|maths/angles/3d-coordinates/step-2|maths/angles/3d-coordinates/step-3#t1|maths/angles/3d-coordinates/step-3#t2|maths/angles/3d-coordinates/step-3#t3|maths/angles/3d-coordinates/step-4#t1|maths/angles/3d-coordinates/step-4#t2|maths/angles/3d-coordinates/step-4#t3|maths/angles/3d-coordinates/step-4#t4|maths/angles/3d-coordinates/step-5#t1|maths/angles/3d-coordinates/step-5#t2|maths/angles/3d-coordinates/step-5#t3|maths/angles/3d-coordinates/step-5#t4|maths/angles/3d-coordinates/step-6"><i class="tick"></i><span>21. Coordinates in 3D</span></a></li></ul><div class="cb-tools"><a href="../">All Angles and shapes lessons and my progress</a></div></div></div><a class="cb-next" href="../classifying-algorithms/" title="15. Algorithms for classifying shapes"><span>15. Algorithms for classifying shapes</span> ›</a></div><header class="top"><a class="crumb" href="../">← Angles and shapes</a><h1>Rotations</h1><p class="lede">A rotation turns a shape about a centre by an angle in a direction. About the origin, a quarter turn anticlockwise changes (x, y) to (−y, x) and a half turn changes it to (−x, −y).</p></header>
+<p class="hook">The hands of a clock, a Ferris wheel, a spinning fan. Each turns about a centre by a certain angle, in a certain direction.</p>
+<p>A <strong>rotation</strong> turns a shape about a fixed point, the <strong>centre of rotation</strong>. To describe one, give the <strong>centre</strong>, the <strong>angle</strong> and the <strong>direction</strong> (clockwise or anticlockwise). The shape keeps its size and shape.</p>
+<p>About the origin, an anticlockwise turn of 90° changes <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x, y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mclose">)</span></span></span></span> to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mo>−</mo><mi>y</mi><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(-y, x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>; 180° (a half turn) changes it to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mo>−</mo><mi>x</mi><mo separator="true">,</mo><mo>−</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(-x, -y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mclose">)</span></span></span></span>; 270° changes it to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>y</mi><mo separator="true">,</mo><mo>−</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(y, -x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">−</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>.</p>
+
+<ul class="legend"><li style="--c:var(--predict)"><b>Predict</b>: Read the problem and decide what you think before you try anything. A wrong guess is fine: it shows you what to look for.</li><li style="--c:var(--run)"><b>Try</b>: Try it on the board and compare the result with your prediction.</li><li style="--c:var(--investigate)"><b>Investigate</b>: Work out why it happens, one step at a time.</li><li style="--c:var(--modify)"><b>Modify</b>: Change the problem on purpose and see what happens.</li><li style="--c:var(--practise)"><b>Practise</b>: A few on your own, to check you have it.</li><li style="--c:var(--make)"><b>Make</b>: Make your own problem using what you have learned. Expect a few tries; that is normal.</li></ul>
+
+<nav class="steps"><button type="button" class="xbtn" aria-controls="xdrawer" aria-expanded="false" title="Explain it to me"><b aria-hidden="true">?</b><span>Explain</span></button><a href="#step-1" style="--c:var(--predict)"><i></i>A quarter turn</a><a href="#step-2" style="--c:var(--run)"><i></i>Turn the triangle</a><a href="#step-3" style="--c:var(--investigate)"><i></i>How to turn a point<span class="cnt"></span></a><a href="#step-4" style="--c:var(--modify)"><i></i>Change the turn and the centre<span class="cnt"></span></a><a href="#step-5" style="--c:var(--practise)"><i></i>Rotations<span class="cnt"></span></a><a href="#step-6" style="--c:var(--make)"><i></i>Turn to a target</a></nav>
+<aside id="xdrawer" class="xdrawer" hidden aria-labelledby="xd-title"><div class="xd-head"><h2 id="xd-title">Explain it to me</h2><button type="button" class="xd-close">Close</button></div><div class="xd-body"><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="metadata" poster="clips/explain.jpg"><source src="clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="clips/explain.vtt"></video><figcaption>Turning about the origin <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><p>A <strong>rotation</strong> turns a shape about a <strong>centre</strong> by an <strong>angle</strong> in a <strong>direction</strong> (clockwise or anticlockwise). The shape keeps its size.</p>
+<p>About the origin, anticlockwise: 90° changes <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x, y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mclose">)</span></span></span></span> to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mo>−</mo><mi>y</mi><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(-y, x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>; 180° changes it to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mo>−</mo><mi>x</mi><mo separator="true">,</mo><mo>−</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(-x, -y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mclose">)</span></span></span></span>; 270° changes it to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>y</mi><mo separator="true">,</mo><mo>−</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(y, -x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">−</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>.</p>
+<figure class="shown boardpic"><img src="../../../_pictures/board/maths/angles/rotations/explain.png?v=086a7a8a2bb4bbc7" alt="A quarter turn anticlockwise about the origin: (2, 1) becomes (-1, 2)." width="656" height="313" loading="lazy"><figcaption>A quarter turn anticlockwise about the origin: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>2</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(2, 1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span> becomes <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(-1, 2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mclose">)</span></span></span></span>.</figcaption></figure></div></aside><p class="xpop" role="status" hidden>Make your prediction first. Help opens once you've locked it in.</p><script>(function(){var d=document.getElementById('xdrawer'),b=document.querySelector('.xbtn'),pop=document.querySelector('.xpop');if(!d||!b)return;var tm,y0=0;
+function locked(){var pc=document.querySelector('.check[data-type="predict"]'),pk=pc&&pc.dataset.key;if(!pk)return true;try{var p=JSON.parse(localStorage.getItem('wp-predict'))||{};return p[pk]!==undefined&&p[pk]!==null}catch(e){return true}}
+function hidePop(){if(pop)pop.hidden=true;clearTimeout(tm)}
+function showPop(){if(!pop)return;var r=b.getBoundingClientRect();y0=window.scrollY;pop.hidden=false;pop.style.top=(r.bottom+8)+'px';pop.style.left=Math.max(16,Math.min(r.left,window.innerWidth-pop.offsetWidth-16))+'px';clearTimeout(tm);tm=setTimeout(hidePop,4000)}
+function open(){hidePop();d.hidden=false;b.setAttribute('aria-expanded','true');d.querySelector('.xd-close').focus()}
+function shut(){d.hidden=true;b.setAttribute('aria-expanded','false');[].forEach.call(d.querySelectorAll('video'),function(v){v.pause()})}
+b.addEventListener('click',function(e){e.stopPropagation();if(!d.hidden)return shut();if(!locked())return pop&&!pop.hidden?hidePop():showPop();open()});
+d.querySelector('.xd-close').addEventListener('click',function(){shut();b.focus()});
+document.addEventListener('click',function(e){if(pop&&!pop.hidden&&e.target!==pop)hidePop()});
+window.addEventListener('scroll',function(){if(pop&&!pop.hidden&&Math.abs(window.scrollY-y0)>60)hidePop()},{passive:true});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){hidePop();if(!d.hidden){shut();b.focus()}}});})();</script>
+<section class="step" id="step-1" style="--c:var(--predict)"><div class="chip">Predict<small>Read the problem and decide what you think before you try anything. A wrong guess is fine: it shows you what to look for.</small></div><h2>A quarter turn</h2><p>Picture a clock hand pointing right, turning up.</p>
+<div class="check" data-key="maths/angles/rotations/step-1" data-play="maths/angles/rotations/step-1" data-kind="turtle" data-subj="maths" data-type="predict" data-unlocks="" data-names="" data-explain=""><fieldset><legend class="check-q">Point A is at (2, 1). The triangle turns 90° anticlockwise about the origin. Where does A land?</legend><label><input type="radio" name="p-maths/angles/rotations/step-1" value="(−2, −1)"><span>(−2, −1)</span></label><label><input type="radio" name="p-maths/angles/rotations/step-1" value="(−1, 2)"><span>(−1, 2)</span></label><label><input type="radio" name="p-maths/angles/rotations/step-1" value="(1, 2)"><span>(1, 2)</span></label><label><input type="radio" name="p-maths/angles/rotations/step-1" value="(1, −2)"><span>(1, −2)</span></label></fieldset><button type="button">Lock in my prediction</button><p class="msg" aria-live="polite"></p></div></section><section class="step" id="step-2" style="--c:var(--run)"><div class="chip">Try<small>Try it on the board and compare the result with your prediction.</small></div><h2>Turn the triangle</h2><p>The black dot is the centre of rotation. The sliders turn the shape anticlockwise.</p>
+<div class="try"><div class="try-head"><b>Try it yourself</b><span>Your edits are saved in this browser.</span><button type="button" class="try-full" aria-pressed="false" title="Give the playground the whole screen (Esc to come back)">Full screen</button></div><iframe title="Board" loading="lazy" style="height:600px" src="../../../_playground-board/index.html?id=maths%2Fangles%2Frotations%2Fstep-2&amp;code=widget%3A+transform%0Amode%3A+rotate%0Ashape%3A+2%2C1%3B+4%2C1%3B+4%2C2%0Arange%3A+6%0Aslider+t%3A+0%2C+360%2C+0%2C+90%0A&amp;v=3e35ff1e64"></iframe></div><div class="compare" hidden aria-live="polite" data-predict="maths/angles/rotations/step-1" data-play="maths/angles/rotations/step-2" data-actual="(−1, 2). A is right of the centre, so it turns up and to the left. Its distance from the origin stays the same."></div><div class="check" data-key="maths/angles/rotations/step-2" data-play="maths/angles/rotations/step-2" data-kind="board" data-subj="maths" data-type="board" data-unlocks="" data-names="" data-explain="A (2, 1) becomes A′ (−1, 2): the new x is the old y with its sign changed, and the new y is the old x." data-expect="{}" data-when="t = 90 and x(A) = -1 and y(A) = 2"><p class="check-q">Turn the triangle 90° anticlockwise. Was your prediction right?</p><p class="msg" aria-live="polite">Use the board. This ticks when you get there.</p></div></section><section class="step" id="step-3" style="--c:var(--investigate)"><div class="chip">Investigate<small>Work out why it happens, one step at a time.</small></div><h2>How to turn a point</h2><div class="tasks" style="--c:var(--investigate)" data-step="step-3" data-stepkey="maths/angles/rotations/step-3" data-kind="turtle" data-keys="maths/angles/rotations/step-3#t1|maths/angles/rotations/step-3#t2|maths/angles/rotations/step-3#t3" data-unlocks="" data-names=""><div class="taskpills" role="tablist" aria-label="Tasks"><button type="button" role="tab" class="tp active" data-i="0" data-key="maths/angles/rotations/step-3#t1" aria-selected="true"><i></i>1 · A half turn</button><button type="button" role="tab" class="tp" data-i="1" data-key="maths/angles/rotations/step-3#t2" aria-selected="false"><i></i>2 · Find the mistake</button><button type="button" role="tab" class="tp" data-i="2" data-key="maths/angles/rotations/step-3#t3" aria-selected="false"><i></i>3 · What describes a rotation</button></div><div class="tpanel active" data-i="0" role="tabpanel"><p>Both signs change.</p>
+</div><div class="tpanel" data-i="1" role="tabpanel"><p>Read Lee&#39;s working. Which way does P turn?</p>
+</div><div class="tpanel" data-i="2" role="tabpanel"></div><div class="tpanel active" data-i="0"><div class="check" data-key="maths/angles/rotations/step-3#t1" data-play="maths/angles/rotations/step-3" data-kind="turtle" data-subj="maths" data-type="question" data-unlocks="" data-names="" data-explain="A half turn changes both signs: (−4, −1)." data-answer="3" data-feedback="[&quot;That is a reflection in the x-axis.&quot;,&quot;That swaps the coordinates.&quot;,&quot;That is a reflection in the y-axis.&quot;,&quot;&quot;]"><fieldset><legend>B is at (4, 1). It turns 180° about the origin. Where does B′ land?</legend><label><input type="radio" name="q-maths-angles-rotations-step-3-t1" value="0"><span>(4, −1)</span></label><label><input type="radio" name="q-maths-angles-rotations-step-3-t1" value="1"><span>(1, 4)</span></label><label><input type="radio" name="q-maths-angles-rotations-step-3-t1" value="2"><span>(−4, 1)</span></label><label><input type="radio" name="q-maths-angles-rotations-step-3-t1" value="3"><span>(−4, −1)</span></label></fieldset><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="1"><div class="check" data-key="maths/angles/rotations/step-3#t2" data-play="maths/angles/rotations/step-3" data-kind="turtle" data-subj="maths" data-type="bug" data-unlocks="" data-names="" data-explain="Line 3: a quarter turn also changes a sign. P turns up and to the left, so the image is (−1, 3), not (1, 3)." data-answers="[&quot;3&quot;]" data-need="1"><p class="check-q">Lee turns P (3, 1) by 90° anticlockwise about the origin. Click the line where his reasoning goes wrong.</p><ol class="buglines"><li><button type="button" data-line="1"><code>The point P is (3, 1). Lee turns it 90° anticlockwise about the origin.</code></button></li><li><button type="button" data-line="2"><code>A quarter turn is a big move, so P goes round to the next quadrant.</code></button></li><li><button type="button" data-line="3"><code>A quarter turn just swaps the coordinates.</code></button></li><li><button type="button" data-line="4"><code>So the image of P is (1, 3).</code></button></li></ol><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="2"><div class="check" data-key="maths/angles/rotations/step-3#t3" data-play="maths/angles/rotations/step-3" data-kind="turtle" data-subj="maths" data-type="question" data-unlocks="" data-names="" data-explain="The same angle about a different centre, or in the other direction, gives a different image." data-answer="1" data-feedback="[&quot;Turning 90° about different centres gives different images.&quot;,&quot;&quot;,&quot;The size does not change in a rotation.&quot;,&quot;Axes belong to reflections.&quot;]"><fieldset><legend>What three things do you need to describe a rotation?</legend><label><input type="radio" name="q-maths-angles-rotations-step-3-t3" value="0"><span>The angle only</span></label><label><input type="radio" name="q-maths-angles-rotations-step-3-t3" value="1"><span>The centre, the angle and the direction</span></label><label><input type="radio" name="q-maths-angles-rotations-step-3-t3" value="2"><span>The centre and the size of the shape</span></label><label><input type="radio" name="q-maths-angles-rotations-step-3-t3" value="3"><span>The axis and the angle</span></label></fieldset><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><p class="tmsg" aria-live="polite"></p></div></section><section class="step" id="step-4" style="--c:var(--modify)"><div class="chip">Modify<small>Change the problem on purpose and see what happens.</small></div><h2>Change the turn and the centre</h2><div class="tasks" style="--c:var(--modify)" data-step="step-4" data-stepkey="maths/angles/rotations/step-4" data-kind="board" data-keys="maths/angles/rotations/step-4#t1|maths/angles/rotations/step-4#t2|maths/angles/rotations/step-4#t3|maths/angles/rotations/step-4#t4" data-unlocks="" data-names=""><div class="taskpills" role="tablist" aria-label="Tasks"><button type="button" role="tab" class="tp active" data-i="0" data-key="maths/angles/rotations/step-4#t1" aria-selected="true"><i></i>1 · Three quarter turns</button><button type="button" role="tab" class="tp" data-i="1" data-key="maths/angles/rotations/step-4#t2" aria-selected="false"><i></i>2 · A different centre</button><button type="button" role="tab" class="tp" data-i="2" data-key="maths/angles/rotations/step-4#t3" aria-selected="false"><i></i>3 · Clockwise</button><button type="button" role="tab" class="tp" data-i="3" data-key="maths/angles/rotations/step-4#t4" aria-selected="false"><i></i>4 · A full turn</button></div><div class="tpanel active" data-i="0" role="tabpanel"><details class="hints"><summary>Need a hint?</summary><p>A is at (2, 1).</p>
+</details><details class="hints"><summary>Another hint</summary><p>Three quarter turns anticlockwise is 270°.</p>
+</details><button type="button" class="resetstart" data-code="widget: transform
+mode: rotate
+shape: 2,1; 4,1; 4,2
+range: 6
+slider t: 0, 360, 0, 90
+">Reset to this task's start</button></div><div class="tpanel" data-i="1" role="tabpanel"><details class="hints"><summary>Need a hint?</summary><p>The centre is now (1, 0), not the origin.</p>
+</details><details class="hints"><summary>Another hint</summary><p>A is one right and one up from the centre. A quarter turn takes it to one left and one up.</p>
+</details><button type="button" class="resetstart" data-code="widget: transform
+mode: rotate
+shape: 2,1; 4,1; 4,2
+range: 6
+centre: 1, 0
+slider t: 0, 360, 0, 90
+">Reset to this task's start</button></div><div class="tpanel" data-i="2" role="tabpanel"></div><div class="tpanel" data-i="3" role="tabpanel"></div><div class="try"><div class="try-head"><b>Try it yourself</b><span>Your edits are saved in this browser.</span><button type="button" class="try-full" aria-pressed="false" title="Give the playground the whole screen (Esc to come back)">Full screen</button></div><iframe title="Board" loading="lazy" style="height:600px" src="../../../_playground-board/index.html?id=maths%2Fangles%2Frotations%2Fstep-4&amp;code=widget%3A+transform%0Amode%3A+rotate%0Ashape%3A+2%2C1%3B+4%2C1%3B+4%2C2%0Arange%3A+6%0Aslider+t%3A+0%2C+360%2C+0%2C+90%0A&amp;v=3e35ff1e64"></iframe></div><div class="tpanel active" data-i="0"><div class="check" data-key="maths/angles/rotations/step-4#t1" data-play="maths/angles/rotations/step-4" data-kind="board" data-subj="maths" data-type="board" data-unlocks="" data-names="" data-explain="A turn of 270° anticlockwise changes (2, 1) to (1, −2)." data-expect="{}" data-when="t = 270 and x(A) = 1 and y(A) = -2"><p class="check-q">Turn the triangle so that A′ lands at (1, −2).</p><p class="msg" aria-live="polite">Use the board. This ticks when you get there.</p></div></div><div class="tpanel" data-i="1"><div class="check" data-key="maths/angles/rotations/step-4#t2" data-play="maths/angles/rotations/step-4" data-kind="board" data-subj="maths" data-type="board" data-unlocks="" data-names="" data-explain="A is (1, 1) from the centre; after a quarter turn it is (−1, 1) from the centre, which is (0, 1)." data-expect="{}" data-when="t = 90 and x(A) = 0 and y(A) = 1"><p class="check-q">The centre of rotation is (1, 0). Turn the triangle 90° anticlockwise. Where does A land?</p><p class="msg" aria-live="polite">Use the board. This ticks when you get there.</p></div></div><div class="tpanel" data-i="2"><div class="check" data-key="maths/angles/rotations/step-4#t3" data-play="maths/angles/rotations/step-4" data-kind="board" data-subj="maths" data-type="question" data-unlocks="" data-names="" data-explain="A quarter turn clockwise is three quarter turns anticlockwise: 270°." data-answer="2" data-feedback="[&quot;Those are opposite directions.&quot;,&quot;That is a half turn.&quot;,&quot;&quot;,&quot;That is back where it started.&quot;]"><fieldset><legend>A turn of 90° clockwise ends in the same place as a turn of how many degrees anticlockwise?</legend><label><input type="radio" name="q-maths-angles-rotations-step-4-t3" value="0"><span>90°</span></label><label><input type="radio" name="q-maths-angles-rotations-step-4-t3" value="1"><span>180°</span></label><label><input type="radio" name="q-maths-angles-rotations-step-4-t3" value="2"><span>270°</span></label><label><input type="radio" name="q-maths-angles-rotations-step-4-t3" value="3"><span>360°</span></label></fieldset><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="3"><div class="check" data-key="maths/angles/rotations/step-4#t4" data-play="maths/angles/rotations/step-4" data-kind="board" data-subj="maths" data-type="question" data-unlocks="" data-names="" data-explain="A full turn brings every point back to where it started." data-answer="2" data-feedback="[&quot;A rotation about a centre does not slide.&quot;,&quot;A rotation never changes the size.&quot;,&quot;&quot;,&quot;A flip is a reflection.&quot;]"><fieldset><legend>What does a rotation of 360° do?</legend><label><input type="radio" name="q-maths-angles-rotations-step-4-t4" value="0"><span>Moves the shape one unit</span></label><label><input type="radio" name="q-maths-angles-rotations-step-4-t4" value="1"><span>Doubles its size</span></label><label><input type="radio" name="q-maths-angles-rotations-step-4-t4" value="2"><span>Nothing: the shape ends up where it started</span></label><label><input type="radio" name="q-maths-angles-rotations-step-4-t4" value="3"><span>Flips the shape</span></label></fieldset><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><p class="tmsg" aria-live="polite"></p></div></section><section class="step" id="step-5" style="--c:var(--practise)"><div class="chip">Practise<small>A few on your own, to check you have it.</small></div><h2>Rotations</h2><div class="tasks" style="--c:var(--practise)" data-step="step-5" data-stepkey="maths/angles/rotations/step-5" data-kind="board" data-keys="maths/angles/rotations/step-5#t1|maths/angles/rotations/step-5#t2|maths/angles/rotations/step-5#t3|maths/angles/rotations/step-5#t4" data-unlocks="" data-names=""><div class="taskpills" role="tablist" aria-label="Tasks"><button type="button" role="tab" class="tp active" data-i="0" data-key="maths/angles/rotations/step-5#t1" aria-selected="true"><i></i>1 · A half turn</button><button type="button" role="tab" class="tp" data-i="1" data-key="maths/angles/rotations/step-5#t2" aria-selected="false"><i></i>2 · Which turn</button><button type="button" role="tab" class="tp" data-i="2" data-key="maths/angles/rotations/step-5#t3" aria-selected="false"><i></i>3 · A quarter turn</button><button type="button" role="tab" class="tp" data-i="3" data-key="maths/angles/rotations/step-5#t4" aria-selected="false"><i></i>4 · Review: reflections</button></div><div class="tpanel active" data-i="0" role="tabpanel"></div><div class="tpanel" data-i="1" role="tabpanel"></div><div class="tpanel" data-i="2" role="tabpanel"></div><div class="tpanel" data-i="3" role="tabpanel"></div><div class="try"><div class="try-head"><b>Try it yourself</b><span>Your edits are saved in this browser.</span><button type="button" class="try-full" aria-pressed="false" title="Give the playground the whole screen (Esc to come back)">Full screen</button></div><iframe title="Board" loading="lazy" style="height:600px" src="../../../_playground-board/index.html?id=maths%2Fangles%2Frotations%2Fstep-5&amp;code=widget%3A+transform%0Amode%3A+rotate%0Ashape%3A+2%2C1%3B+4%2C1%3B+4%2C2%0Arange%3A+6%0Aslider+t%3A+0%2C+360%2C+0%2C+90%0A&amp;v=3e35ff1e64"></iframe></div><div class="tpanel active" data-i="0"><div class="check" data-key="maths/angles/rotations/step-5#t1" data-play="maths/angles/rotations/step-5" data-kind="board" data-subj="maths" data-type="answer" data-unlocks="" data-names="" data-explain="x changes sign: −4. The image is (−4, −1)." data-answer="-4" data-feedback="[[&quot;4&quot;,&quot;A half turn changes the sign of both coordinates.&quot;]]"><p class="check-q">B is at (4, 1). After a 180° turn about the origin, what is the x-coordinate of B′?</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="Your answer"></label><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="1"><div class="check" data-key="maths/angles/rotations/step-5#t2" data-play="maths/angles/rotations/step-5" data-kind="board" data-subj="maths" data-type="question" data-unlocks="" data-names="" data-explain="(2, 1) to (−1, 2) is the rule (x, y) → (−y, x): a quarter turn anticlockwise." data-answer="2" data-feedback="[&quot;That would take it to (−2, −1).&quot;,&quot;That would take (2, 1) to (1, −2).&quot;,&quot;&quot;,&quot;That would take it to (1, −2).&quot;]"><fieldset><legend>Which turn about the origin takes (2, 1) to (−1, 2)?</legend><label><input type="radio" name="q-maths-angles-rotations-step-5-t2" value="0"><span>180°</span></label><label><input type="radio" name="q-maths-angles-rotations-step-5-t2" value="1"><span>90° clockwise</span></label><label><input type="radio" name="q-maths-angles-rotations-step-5-t2" value="2"><span>90° anticlockwise</span></label><label><input type="radio" name="q-maths-angles-rotations-step-5-t2" value="3"><span>270° anticlockwise</span></label></fieldset><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="2"><div class="check" data-key="maths/angles/rotations/step-5#t3" data-play="maths/angles/rotations/step-5" data-kind="board" data-subj="maths" data-type="answer" data-unlocks="" data-names="" data-explain="(x, y) → (−y, x), so (3, 1) becomes (−1, 3)." data-answer="3" data-feedback="[[&quot;1&quot;,&quot;The new y is the old x.&quot;]]"><p class="check-q">The point (3, 1) turns 90° anticlockwise about the origin. What is the y-coordinate of the image?</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="Your answer"></label><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="3"><div class="check" data-key="maths/angles/rotations/step-5#t4" data-play="maths/angles/rotations/step-5" data-kind="board" data-subj="maths" data-type="answer" data-unlocks="" data-names="" data-explain="(3, 5) becomes (3, −5)." data-answer="-5" data-feedback="[[&quot;5&quot;,&quot;In the x-axis, y changes sign.&quot;]]"><p class="check-q">Review: the point (3, 5) is reflected in the x-axis. What is the y-coordinate of the image?</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="Your answer"></label><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><p class="tmsg" aria-live="polite"></p></div></section><section class="step" id="step-6" style="--c:var(--make)"><div class="chip">Make<small>Make your own problem using what you have learned. Expect a few tries; that is normal.</small></div><h2>Turn to a target</h2><p>Then describe the rotation fully: the centre, the angle and the direction. How else could you say it, turning clockwise?</p>
+<div class="try"><div class="try-head"><b>Try it yourself</b><span>Your edits are saved in this browser.</span><button type="button" class="try-full" aria-pressed="false" title="Give the playground the whole screen (Esc to come back)">Full screen</button></div><iframe title="Board" loading="lazy" style="height:600px" src="../../../_playground-board/index.html?id=maths%2Fangles%2Frotations%2Fstep-6&amp;code=widget%3A+transform%0Amode%3A+rotate%0Ashape%3A+2%2C1%3B+4%2C1%3B+4%2C2%0Arange%3A+6%0Aslider+t%3A+0%2C+360%2C+0%2C+90%0A&amp;v=3e35ff1e64"></iframe></div><details class="hints"><summary>Need a hint?</summary><p>Corner B is at (4, 1).</p>
+</details><details class="hints"><summary>Another hint</summary><p>Try each turn and read B′.</p>
+</details><div class="check" data-key="maths/angles/rotations/step-6" data-play="maths/angles/rotations/step-6" data-kind="board" data-subj="maths" data-type="board" data-unlocks="" data-names="" data-explain="A turn of 270° anticlockwise about the origin changes (4, 1) to (1, −4)." data-expect="{}" data-when="x(B) = 1 and y(B) = -4"><p class="check-q">Turn the triangle so that B′ is at (1, −4).</p><p class="msg" aria-live="polite">Use the board. This ticks when you get there.</p></div></section>
+<details class="teachers"><summary>For teachers</summary><p>Students turn a shape about a centre and find the image of each corner for quarter and half turns (AC9M7SP03, node 3). <b>About 35 minutes.</b></p><p class="tguide"><a href="../../../teach/maths/angles/rotations/">Open the teacher guide</a>: answers, solutions, slides and a worksheet.</p><h3>Students will be able to</h3><ul><li>I can rotate a shape 90°, 180° or 270° about the origin.</li><li>I can describe a rotation by its centre, angle and direction.</li><li>I can use the pattern in the coordinates to check an answer.</li></ul><h3>Before class</h3><p>Do the Run board yourself first. Students need translations and reflections (previous lessons).</p>
+<p>The one idea: a rotation needs a centre, an angle and a direction. About the origin, an anticlockwise quarter turn is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>→</mo><mo stretchy="false">(</mo><mo>−</mo><mi>y</mi><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x, y) \to (-y, x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>; the half turn changes both signs. The common mistake is only swapping the coordinates (Lee&#39;s mistake).</p>
+<p>The board turns anticlockwise only; clockwise turns are the questions in Modify and Make (90° clockwise is 270° anticlockwise).</p>
+<p>Rotation is the hardest transformation to reason about: let students trace and turn before using the rule. The rule is a check on the answer, not the method.</p>
+<p>Turning about another centre (the second Modify task) is done by the picture: the rule does not apply.</p>
+<h3>Running the lesson</h3><ol><li>Predict: ask students to point a pencil and turn it a quarter.</li><li>Run: ask what stays the same after each turn (the distance to the centre).</li><li>Investigate: ask how Lee could test his answer.</li><li>Modify: for the centre (1, 0), ask where A is measured from.</li><li>Make: ask for the description with the direction.</li></ol><h3>The hard part (on purpose)</h3><p>Picturing the turn. Use tracing paper pinned at the centre, or have students point a pencil at the shape and turn it.</p><h3>When students get stuck</h3><ul><li><b>A student swaps the coordinates without a sign.</b> Ask: Which quadrant should the image be in? Fix: Picture the turn first, then use the rule to check.</li><li><b>A student turns clockwise.</b> Ask: Which way do clock hands go? Which way do we turn here? Fix: The board turns anticlockwise; clockwise 90° is 270° anticlockwise.</li><li><b>A student forgets the centre.</b> Ask: What point does the shape turn about? Fix: Always name the centre, the angle and the direction.</li></ul><h3>Stretch and support</h3><p><b>Stretch:</b> Show that reflecting in the x-axis and then the y-axis gives the same image as a 180° rotation about the origin. Which two reflections (one in the line y = x) make a 90° rotation?</p><p><b>Support:</b> Use tracing paper: trace the shape, pin the centre and turn the paper a quarter at a time.</p><h3>Where it leads</h3><p>This completes AC9M7SP03.</p>
+<p>Where it leads: combining transformations and tessellations (Year 8); rotational symmetry.</p>
+<h3>What each step is for</h3><ul><li><b>a quarter turn:</b> Committing to the image of a point after a quarter turn shows whether they swap coordinates or picture the turn.</li><li><b>turn the triangle:</b> Turning the triangle in quarter steps and reading the corners shows how each coordinate changes for 90°, 180° and 270°.</li><li><b>how to turn a point:</b> A quarter turn swaps and changes one sign, depending on the direction (Lee only swaps); a rotation needs a centre, an angle and a direction.</li><li><b>change the turn and the centre:</b> Choosing an angle to reach a target, then moving the centre, shows the image depends on the centre; clockwise and anticlockwise turns are linked.</li><li><b>rotations:</b> Half turns, finding the turn between two points and a reflection review, mixed; swapping without a sign is the planted slip; the review keeps mirrors fresh.</li><li><b>turn to a target:</b> Finding the turn that puts a chosen corner on a target applies the rule and then states the full description: centre, angle and direction.</li></ul></details>
+<section class="nowcan" aria-label="Now you can"><small>Now you can</small><ul><li>Rotate a shape 90°, 180° or 270° about the origin.</li><li>Describe a rotation by its centre, angle and direction.</li><li>Use the pattern in the coordinates to check an answer.</li></ul></section><a class="nextcard practicecard" href="../practice/?skill=rotations"><small>Practise this skill</small><b>New questions, new numbers each time</b><span>Get 3 right in a row to mark it practised.</span></a><a class="nextcard" href="../classifying-algorithms/"><small>Next lesson</small><b>15. Algorithms for classifying shapes</b><span>An algorithm is a clear set of steps and decisions. A classification algorithm asks yes/no questions about a shape's sides and angles, in an order that gives each shape its own name, and you test it on one shape of every class.</span></a>
+<footer>Source: <code>content/maths/angles/rotations/lesson.md</code></footer></div><script>var evalRules=function evalRules(rules, text, kind) {
+  // kind 'html': HTML and CSS (comments are <!-- --> and /* */; # is a colour or a link, not a comment; case does not matter).
+  if (kind === 'html') {
+    const src = String(text).replace(/<!--[\s\S]*?-->/g, '').replace(/\/\*[\s\S]*?\*\//g, '').toLowerCase();
+    const out = [];
+    (rules.tags || []).forEach((t) => out.push({ label: `Use <${t}>`, ok: new RegExp('<' + String(t).toLowerCase() + '[\\s>/]').test(src) }));
+    const flatH = src.replace(/\s+/g, '');
+    (rules.contains || []).forEach((frag) => out.push({ label: `Your code has ${frag}`, ok: flatH.includes(String(frag).toLowerCase().replace(/\s+/g, '')) }));
+    return out;
+  }
+  // kind 'p5': JavaScript for p5.js. Comments are // and /* */ (quotes respected). defs/params/calls read the student's own
+  // functions (`function name(a, b)`); p5's own hooks (setup, draw, mousePressed...) are not counted as theirs.
+  if (kind === 'p5') {
+    const HOOKS = ['setup', 'draw', 'preload', 'mousePressed', 'mouseReleased', 'mouseClicked', 'mouseMoved', 'mouseDragged', 'doubleClicked', 'mouseWheel', 'keyPressed', 'keyReleased', 'keyTyped', 'windowResized', 'touchStarted', 'touchEnded', 'touchMoved'];
+    const noJs = (l) => { let q = null; for (let i = 0; i < l.length; i++) { const c = l[i]; if (q) { if (c === '\\') i++; else if (c === q) q = null; } else if (c === '"' || c === "'" || c === '`') q = c; else if (c === '/' && l[i + 1] === '/') return l.slice(0, i); } return l; };
+    const lines = String(text).replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(noJs);
+    const src = lines.join('\n');
+    const fdefs = []; src.replace(/\bfunction\s+([A-Za-z_$][\w$]*)\s*\(([^)]*)\)/g, (m, n, ps) => { if (!HOOKS.includes(n)) fdefs.push({ name: n, params: ps.split(',').filter((x) => x.trim()).length }); return m; });
+    const esc$ = (n) => String(n).replace(/\$/g, '\\$');
+    const fcalls = (n) => (src.match(new RegExp('(^|[^\\w$.])' + esc$(n) + '\\s*\\(', 'g')) || []).length - (src.match(new RegExp('function\\s+' + esc$(n) + '\\s*\\(', 'g')) || []).length;
+    const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+    const out = [];
+    if (rules.defs) out.push({ label: `Write at least ${plural(rules.defs, 'function')} of your own`, ok: fdefs.length >= rules.defs });
+    if (rules.params) out.push({ label: `Write a function with at least ${plural(rules.params, 'parameter')}`, ok: fdefs.some((d) => d.params >= rules.params) });
+    if (rules.calls) out.push({ label: rules.calls === 1 ? 'Call your function' : `Call one of your functions at least ${rules.calls} times`, ok: Math.max(0, ...fdefs.map((d) => fcalls(d.name))) >= rules.calls });
+    if (rules.loops) out.push({ label: rules.loops === 1 ? 'Use a loop' : `Use at least ${rules.loops} loops`, ok: lines.filter((l) => /\b(for|while)\s*\(/.test(l)).length >= rules.loops });
+    if (rules.returns) out.push({ label: 'Use return to give a value back', ok: lines.filter((l) => /\breturn\b/.test(l)).length >= rules.returns });
+    (rules.uses || []).forEach((n) => out.push({ label: `Use ${n}`, ok: new RegExp('(^|[^\\w$])' + esc$(n) + '([^\\w$]|$)').test(src) }));
+    const flatP = src.replace(/\s+/g, '');
+    (rules.contains || []).forEach((frag) => out.push({ label: `Your code has ${frag}`, ok: flatP.includes(String(frag).replace(/\s+/g, '')) }));
+    return out;
+  }
+  // kind 'microbit' / 'arcade': MakeCode JavaScript (main.ts). Comments are // and /* */; everything is compared with
+  // spaces removed, so `basic.forever(function () {` and `basic.forever(function(){` match.
+  //   inside: { "basic.forever": [fragments] }   fragments in the first { ... } block after each place the key appears
+  //   count: { "basic.show": 3 }                 a fragment appears at least this many times
+  //   defs / params / calls                      named functions (`function name (points: number)`); event blocks
+  //                                              are anonymous `function ()`, so they never count as a definition
+  // Labels are for teachers and the validator; students working in blocks see the check's own text instead.
+  if (kind === 'microbit' || kind === 'arcade') {
+    const plain = String(text).replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
+    const flatM = (s) => String(s).replace(/\s+/g, '');
+    const fm = flatM(plain);
+    const block = (key) => {
+      const out = []; let i = 0; const k = flatM(key);
+      while ((i = fm.indexOf(k, i)) >= 0) {
+        const j = fm.indexOf('{', i + k.length); if (j < 0) break; let d = 0;
+        for (let x = j; x < fm.length; x++) { if (fm[x] === '{') d++; else if (fm[x] === '}' && --d === 0) { out.push(fm.slice(j + 1, x)); break; } }
+        i = j;
+      }
+      return out.join('|');
+    };
+    const fdefs = []; plain.replace(/function\s+([A-Za-z_]\w*)\s*\(([^)]*)\)/g, (m, n, ps) => { fdefs.push({ name: n, params: ps.split(',').filter((x) => x.trim()).length }); return m; });
+    const fcalls = (n) => (plain.match(new RegExp('\\b' + n + '\\s*\\(', 'g')) || []).length - 1;
+    const out = [];
+    (rules.contains || []).forEach((frag) => out.push({ label: `Has ${frag}`, ok: fm.includes(flatM(frag)) }));
+    Object.keys(rules.inside || {}).forEach((key) => { const b = block(key); [].concat(rules.inside[key]).forEach((frag) => out.push({ label: `Inside ${key}: ${frag}`, ok: b.includes(flatM(frag)) })); });
+    Object.keys(rules.count || {}).forEach((frag) => out.push({ label: `${frag} at least ${rules.count[frag]} times`, ok: fm.split(flatM(frag)).length - 1 >= rules.count[frag] }));
+    if (rules.defs) out.push({ label: `At least ${rules.defs} function${rules.defs === 1 ? '' : 's'} of your own`, ok: fdefs.length >= rules.defs });
+    if (rules.params) out.push({ label: `A function with at least ${rules.params} parameter${rules.params === 1 ? '' : 's'}`, ok: fdefs.some((d) => d.params >= rules.params) });
+    if (rules.calls) out.push({ label: rules.calls === 1 ? 'Call your function' : `Call one of your functions at least ${rules.calls} times`, ok: Math.max(0, ...fdefs.map((d) => fcalls(d.name))) >= rules.calls });
+    return out;
+  }
+  // Comments end at the line's end; a # inside quotes ("#" * 5, "#ff0000") is text, not a comment.
+  const noComment = (l) => { let q = null; for (let i = 0; i < l.length; i++) { const c = l[i]; if (q) { if (c === '\\') i++; else if (c === q) q = null; } else if (c === '"' || c === "'") q = c; else if (c === '#') return l.slice(0, i); } return l; };
+  const code = String(text).split('\n').map(noComment);
+  const defs = [];
+  code.forEach((l) => { const m = l.match(/^\s*def\s+([A-Za-z_]\w*)\s*\(([^)]*)\)/); if (m) defs.push({ name: m[1], params: m[2].split(',').filter((x) => x.trim()).length }); });
+  const count = (re) => code.filter((l) => re.test(l)).length;
+  const callsOf = (name) => code.filter((l) => !/^\s*def\s/.test(l)).reduce((n, l) => n + (l.match(new RegExp('\\b' + name + '\\s*\\(', 'g')) || []).length, 0);
+  const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+  const out = [];
+  if (rules.defs) out.push({ label: `Define at least ${plural(rules.defs, 'function')} with def`, ok: defs.length >= rules.defs });
+  if (rules.params) out.push({ label: `Write a function with at least ${plural(rules.params, 'parameter')}`, ok: defs.some((d) => d.params >= rules.params) });
+  if (rules.calls) out.push({ label: rules.calls === 1 ? 'Call your function' : `Call one of your functions at least ${rules.calls} times`, ok: Math.max(0, ...defs.map((d) => callsOf(d.name))) >= rules.calls });
+  if (rules.loops) out.push({ label: rules.loops === 1 ? 'Use a loop' : `Use at least ${rules.loops} loops`, ok: count(/^\s*(for|while)\b/) >= rules.loops });
+  if (rules.returns) out.push({ label: 'Use return to give a value back', ok: count(/^\s*return\b/) >= rules.returns });
+  (rules.uses || []).forEach((n) => out.push({ label: `Use ${n}`, ok: code.some((l) => new RegExp('\\b' + n + '\\b').test(l)) }));
+  (rules.imports || []).forEach((m) => out.push({ label: `Import from ${m}`, ok: code.some((l) => new RegExp('^\\s*(from|import)\\s+' + m + '\\b').test(l)) }));
+  // contains: code fragments that must appear somewhere (spaces ignored, comments skipped), shown as written.
+  const flat = code.join('\n').replace(/\s+/g, '');
+  (rules.contains || []).forEach((frag) => out.push({ label: `Your code has ${frag}`, ok: flat.includes(String(frag).replace(/\s+/g, '')) }));
+  return out;
+};
+var WPM=(function makeMath() {
+  function tokens(s) {
+    s = String(s).replace(/[−–]/g, '-').replace(/×|·/g, '*').replace(/÷/g, '/').replace(/\s+/g, '');
+    var out = [], i = 0;
+    while (i < s.length) {
+      var c = s[i], m;
+      if ((m = /^\d+(\.\d+)?|^\.\d+/.exec(s.slice(i)))) { out.push({ t: 'n', v: parseFloat(m[0]) }); i += m[0].length; }
+      // A name with an underscore is one variable (acc_messy, has_neither): board values with long names. Students
+      // never type "_" in algebra, so 2xy is still 2 × x × y.
+      else if ((m = /^[a-zA-Z]\w*_\w*/.exec(s.slice(i)))) { out.push({ t: 'v', v: m[0] }); i += m[0].length; }
+      else if (/[a-zA-Z]/.test(c)) { out.push({ t: 'v', v: c }); i++; }
+      else if ('+-*/^()='.indexOf(c) >= 0) { out.push({ t: c }); i++; }
+      else throw new Error('I do not understand "' + c + '".');
+    }
+    // Implicit multiplication: 2x, 2(x + 1), (x + 1)(x - 1), x(3), xy
+    var r = [];
+    for (var k = 0; k < out.length; k++) {
+      var a = r[r.length - 1], b = out[k];
+      if (a && (a.t === 'n' || a.t === 'v' || a.t === ')') && (b.t === 'n' || b.t === 'v' || b.t === '(') && !(a.t === 'n' && b.t === 'n')) r.push({ t: '*' });
+      r.push(b);
+    }
+    return r;
+  }
+  // Recursive descent: expr = term (+|- term)*, term = unary (*|/ unary)*, unary = -unary | power, power = atom (^ unary)?
+  function parse(s) {
+    var tk = tokens(s), p = 0;
+    function peek() { return tk[p] && tk[p].t; }
+    function expr() { var n = term(); while (peek() === '+' || peek() === '-') { var o = tk[p++].t; n = { o: o, a: n, b: term() }; } return n; }
+    function term() { var n = unary(); while (peek() === '*' || peek() === '/') { var o = tk[p++].t; n = { o: o, a: n, b: unary() }; } return n; }
+    function unary() { if (peek() === '-') { p++; return { o: 'neg', a: unary() }; } if (peek() === '+') { p++; return unary(); } return power(); }
+    function power() { var n = atom(); if (peek() === '^') { p++; n = { o: '^', a: n, b: unary() }; } return n; }
+    function atom() {
+      var t = tk[p++];
+      if (!t) throw new Error('Something is missing at the end.');
+      if (t.t === 'n') return { n: t.v };
+      if (t.t === 'v') return { v: t.v };
+      if (t.t === '(') { var n = expr(); if (peek() !== ')') throw new Error('A bracket is not closed.'); p++; return n; }
+      throw new Error('Something is missing before "' + t.t + '".');
+    }
+    if (!tk.length) throw new Error('Type an answer first.');
+    var tree = expr();
+    if (p < tk.length) throw new Error(tk[p].t === '=' ? 'Use only one = sign.' : 'Check the end of your answer.');
+    return tree;
+  }
+  function ev(n, vars) {
+    if (n.n !== undefined) return n.n;
+    if (n.v !== undefined) { if (!(n.v in vars)) throw new Error('What is ' + n.v + '?'); return vars[n.v]; }
+    var a = ev(n.a, vars);
+    if (n.o === 'neg') return -a;
+    var b = ev(n.b, vars);
+    return n.o === '+' ? a + b : n.o === '-' ? a - b : n.o === '*' ? a * b : n.o === '/' ? a / b : Math.pow(a, b);
+  }
+  function names(n, set) { set = set || {}; if (n.v !== undefined) set[n.v] = 1; if (n.a) names(n.a, set); if (n.b) names(n.b, set); return set; }
+  function evaluate(s, vars) { return ev(parse(s), vars || {}); }
+  var close = function (a, b) { return Math.abs(a - b) <= 1e-9 * Math.max(1, Math.abs(a), Math.abs(b)); };
+  // Same value for every tested value of each variable (both directions, so extra variables are caught).
+  function equivalent(a, b) {
+    var ta = parse(a), tb = parse(b), vs = Object.keys(Object.assign(names(ta), names(tb)));
+    var pts = [-2.5, -1, 0.5, 1.75, 3, 7.25];
+    for (var i = 0; i < pts.length; i++) {
+      var vars = {};
+      vs.forEach(function (v, j) { vars[v] = pts[(i + j * 2) % pts.length] + j * 0.37; });
+      var x = ev(ta, vars), y = ev(tb, vars);
+      if (!isFinite(x) || !isFinite(y)) continue;
+      if (!close(x, y)) return false;
+    }
+    return true;
+  }
+  // "x = 4" -> { name: 'x', value: '4' }; "4" -> { name: null, value: '4' }
+  function splitAnswer(s) { var m = /^\s*([a-zA-Z])\s*=\s*(.+)$/.exec(String(s)); return m ? { name: m[1], value: m[2] } : { name: null, value: String(s) }; }
+  // An equation's two sides, or null if there is not exactly one "=".
+  function sides(s) { var parts = String(s).split('='); return parts.length === 2 && parts[0].trim() && parts[1].trim() ? parts : null; }
+  // Does this value make the equation true?
+  function satisfies(eq, vars) { var sd = sides(eq); if (!sd) throw new Error('An equation needs one = sign with something on each side.'); return close(evaluate(sd[0], vars), evaluate(sd[1], vars)); }
+  // A parsed expression as a function of its variables: compile("mx + c")({ m: 2, c: 1, x: 3 }) = 7.
+  function compile(s) { var t = parse(s); return function (vars) { return ev(t, vars || {}); }; }
+  // Conditions on a board's scope ({ vars: { m: 2 }, points: { A: [1, 3] } }), for board checks:
+  //   "m = 2", "c > 0", "2m + c <= 7"          compare two expressions (= is equal, within rounding)
+  //   "A on y = 2x + 1"                        the point's coordinates make the equation true
+  //   "x(A) = 3", "y(B) > y(A)"                a point's coordinates in an expression
+  //   clause and clause                        all must hold
+  var CMP = /<=|>=|≤|≥|<|>|=/;
+  function clauses(cond) {
+    var cs = String(cond).split(/\band\b/i).map(function (c) { return c.trim(); });
+    if (!cs.every(Boolean)) throw new Error('Something is missing next to "and".');
+    return cs.map(function (c) {
+      var on = /^([A-Z])\s+on\s+(.+)$/.exec(c);
+      if (on) { if (!sides(on[2])) throw new Error('"' + c + '": after "on", write an equation, such as y = 2x + 1.'); return { on: on[1], eq: on[2] }; }
+      var m = CMP.exec(c);
+      if (!m) throw new Error('"' + c + '" needs a comparison (=, <, >, <= or >=), or "A on y = ...".');
+      var a = c.slice(0, m.index), b = c.slice(m.index + m[0].length);
+      if (CMP.test(b)) throw new Error('"' + c + '": use one comparison per part (join parts with "and").');
+      return { a: a, op: { '≤': '<=', '≥': '>=' }[m[0]] || m[0], b: b };
+    });
+  }
+  // x(A), y(A) -> numbers from the scope (or a placeholder when only checking that it parses)
+  function coords(s, points) {
+    return String(s).replace(/\b([xy])\(([A-Z])\)/g, function (m, k, n) {
+      if (!points) return '1';
+      if (!points[n]) throw new Error('There is no point ' + n + '.');
+      var v = points[n][k === 'x' ? 0 : 1]; return '(' + v + ')';
+    });
+  }
+  // Throws a message when the condition cannot be read; returns the point and variable names it uses.
+  function checkCondition(cond) {
+    var used = { vars: {}, points: {} };
+    clauses(cond).forEach(function (c) {
+      String(c.on ? c.eq : c.a + ' ' + c.b).replace(/\b[xy]\(([A-Z])\)/g, function (m, n) { used.points[n] = 1; return m; });
+      if (c.on) { used.points[c.on] = 1; var sd = sides(c.eq); parse(sd[0]); parse(sd[1]); Object.assign(used.vars, names(parse(sd[0])), names(parse(sd[1]))); delete used.vars.x; delete used.vars.y; }
+      else { var ta = parse(coords(c.a)), tb = parse(coords(c.b)); Object.assign(used.vars, names(ta), names(tb)); }
+    });
+    return { vars: Object.keys(used.vars), points: Object.keys(used.points) };
+  }
+  function holds(cond, scope) {
+    scope = scope || {};
+    var vars = scope.vars || {}, points = scope.points || {};
+    return clauses(cond).every(function (c) {
+      if (c.on) {
+        var P = points[c.on];
+        if (!P) throw new Error('There is no point ' + c.on + '.');
+        return satisfies(c.eq, Object.assign({}, vars, { x: P[0], y: P[1] }));
+      }
+      var a = evaluate(coords(c.a, points), vars), b = evaluate(coords(c.b, points), vars), eq = close(a, b);
+      return c.op === '=' ? eq : c.op === '<' ? a < b && !eq : c.op === '>' ? a > b && !eq : c.op === '<=' ? a < b || eq : a > b || eq;
+    });
+  }
+  return { parse: parse, evaluate: evaluate, compile: compile, equivalent: equivalent, splitAnswer: splitAnswer, sides: sides, satisfies: satisfies, holds: holds, checkCondition: checkCondition, vars: function (s) { return Object.keys(names(parse(s))); } };
+})();
+(function(){var t=document.querySelector('.cb-toggle'),m=document.getElementById('cb-menu');if(!t||!m)return;
+t.addEventListener('click',function(){var o=m.hidden;m.hidden=!o;t.setAttribute('aria-expanded',String(o))});
+document.addEventListener('click',function(e){if(!m.hidden&&!e.target.closest('.cb-mid')){m.hidden=true;t.setAttribute('aria-expanded','false')}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden){m.hidden=true;t.setAttribute('aria-expanded','false');t.focus()}});
+var d=(function(){try{return JSON.parse(localStorage.getItem('wp-progress'))||{}}catch(e){return {}}})().done||{};
+[].forEach.call(m.querySelectorAll('li a'),function(a){var ks=(a.dataset.checks||'').split('|').filter(Boolean);
+if(ks.length&&ks.every(function(k){return d[k]}))a.querySelector('.tick').classList.add('on')});
+var h=document.querySelector('h1');try{localStorage.setItem('wp-last-lesson',JSON.stringify({href:location.pathname,title:h?h.textContent:document.title}))}catch(e){}})();
+(function(){var links=[].slice.call(document.querySelectorAll('nav.steps a'));if(!links.length||!window.IntersectionObserver)return;
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+var io=new IntersectionObserver(function(){var cur=0;secs.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<window.innerHeight*0.4)cur=i});
+links.forEach(function(a,i){a.classList.toggle('here',i===cur);if(i===cur)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current')})},{threshold:[0,0.1,0.5,1]});
+secs.forEach(function(el){if(el)io.observe(el)});window.addEventListener('scroll',function(){io.takeRecords()},{passive:true})})();
+document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+var t=b.closest('.code').querySelector('code').innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1200)})})});
+(function(){
+var KEY='wp-progress';
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
+function save(s){try{localStorage.setItem(KEY,JSON.stringify(s))}catch(e){}}
+var ov=new URLSearchParams(location.search).get('unlock');
+if(ov){var s0=load();s0.all=ov==='all';save(s0)}
+function sync(wrap){var s=load(),d=s.done||{},keys=(wrap.dataset.keys||'').split('|').filter(Boolean),n=0;keys.forEach(function(k){if(d[k])n++});
+[].forEach.call(wrap.querySelectorAll('.tp'),function(p){p.classList.toggle('done',!!d[p.dataset.key])});
+var cnt=document.querySelector('nav.steps a[href="#'+wrap.dataset.step+'"] .cnt');if(cnt)cnt.textContent=keys.length?n+'/'+keys.length:'';
+var tm=wrap.querySelector('.tmsg');
+if(keys.length&&n===keys.length){var ids=(wrap.dataset.unlocks||'').split(',').filter(Boolean);
+if(!d[wrap.dataset.stepkey]){s.done=s.done||{};s.done[wrap.dataset.stepkey]=true;s.unlocked=s.unlocked||{};ids.forEach(function(id){s.unlocked[wrap.dataset.kind+':'+id]=true});save(s)}
+tm.textContent='All tasks done.'+(ids.length?' Unlocked: '+(wrap.dataset.names||'').split('|').join(', ')+'.':'')}else{tm.textContent=''}}
+document.querySelectorAll('.check').forEach(function(box){
+var key=box.dataset.key,kind=box.dataset.kind,ids=(box.dataset.unlocks||'').split(',').filter(Boolean),names=(box.dataset.names||'').split('|');
+var msg=box.querySelector('.msg');var wrap=box.closest('.tasks'),ty=box.dataset.type||'';
+function pass(){
+var s=load();s.done=s.done||{};s.unlocked=s.unlocked||{};s.done[key]=true;
+ids.forEach(function(id){s.unlocked[kind+':'+id]=true});save(s);show(true);if(wrap)sync(wrap)}
+function show(fresh){
+box.classList.add('done');
+if(ids.length){msg.className='msg ok';msg.textContent=(fresh?'Unlocked: ':'Unlocked: ')+names.join(', ')+'. Find '+(names.length>1?'them':'it')+' under Reference in the playground.'}
+else{msg.className='msg ok';msg.textContent='Got it.'}}
+if((load().done||{})[key])show(false);
+if(box.dataset.type==='code'){var rules=JSON.parse(box.dataset.rules),ul=box.querySelector('.rules');
+// The last report from each playground, so a task's check can catch up when its pill opens (window.wpLast, below).
+if(!window.wpLast){window.wpLast={};window.addEventListener('message',function(e){var m=e.data;if(e.origin===location.origin&&m&&m.wp==='run'&&m.id)window.wpLast[m.id]=m})}
+function paint(res){ul.replaceChildren();res.forEach(function(r){var li=document.createElement('li');li.textContent=r.label;if(r.ok)li.className='ok';ul.appendChild(li)})}
+var done0=(load().done||{})[key];paint(evalRules(rules,'',kind).map(function(r){return {label:r.label,ok:!!done0}}));
+window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='run'||m.id!==(box.dataset.play||key))return;var pn=box.closest('.tpanel'),stp=box.closest('.step');
+// Only the open task listens. MakeCode in full screen is the exception: the bar shows every task of the step and pills cannot be switched.
+if(pn&&!pn.classList.contains('active')&&!((m.kind==='microbit'||m.kind==='arcade')&&stp&&stp.querySelector('.try.full')))return;
+var res=evalRules(rules,m.code||'',kind);paint(res);
+if(m.quiet&&!(load().done||{})[key]){}
+else if(res.every(function(r){return r.ok})&&(m.status==='done'||m.status==='stopped')){pass()}
+else if(m.kind==='html'){if(!m.quiet){msg.className='msg';msg.textContent='Not quite yet. Keep going: the list shows what your page still needs.'}}
+else if(m.kind==='microbit'||m.kind==='arcade'){if(!m.quiet){msg.className='msg';msg.textContent='Not quite yet. Keep building: this ticks by itself when your blocks do what is asked.'}}
+else{msg.className='msg';msg.textContent=m.status==='done'?'Not quite yet. Change your code, then run it again.':'Fix the error, then run it again.'}})}
+var cb=box.querySelector('input[type=checkbox]');
+if(cb){if((load().done||{})[key])cb.checked=true;cb.addEventListener('change',function(){if(cb.checked)pass()})}
+var go=ty==='question'?box.querySelector('button'):null;
+if(go){go.addEventListener('click',function(){
+var pick=box.querySelector('input[type=radio]:checked');
+if(!pick){msg.className='msg no';msg.textContent='Choose an answer first.';return}
+if(Number(pick.value)===Number(box.dataset.answer)){pass();if(box.dataset.explain)msg.textContent=box.dataset.explain+' '+msg.textContent}
+else{msg.className='msg no';var fbk=box.dataset.feedback?JSON.parse(box.dataset.feedback)[Number(pick.value)]:'';msg.textContent=fbk?'Not quite. '+fbk:(box.dataset.subj==='maths'||box.dataset.subj==='science'||kind==='science')?'Not quite. Read it again and try another answer.':'Not quite. Look at the code again and try another answer.'}})}
+function win(){pass();if(box.dataset.explain)msg.textContent=box.dataset.explain+' '+msg.textContent}
+function bad(t){msg.className='msg no';msg.textContent=t}
+var btn=box.querySelector('button');
+if(ty==='number'&&btn){btn.addEventListener('click',function(){var v=parseFloat(box.querySelector('input').value);if(isNaN(v))return bad('Type a number first.');
+if(Math.abs(v-Number(box.dataset.answer))<=Number(box.dataset.tol||0))return win();var nf=JSON.parse(box.dataset.feedback||'[]');for(var q=0;q<nf.length;q++){if(Math.abs(v-nf[q][0])<=Math.max(Number(box.dataset.tol||0),1e-9))return bad('Not quite. '+nf[q][1])}bad(box.dataset.subj==='maths'?'Not quite. Check your working and try another number.':'Not quite. Look at the code again and try another number.')})}
+if(ty==='flag'&&btn){btn.addEventListener('click',function(){var t=box.querySelector('input').value.trim().toLowerCase();if(!t)return bad('Type the flag first.');
+if(!(window.crypto&&crypto.subtle))return bad('This needs a secure page (https).');
+crypto.subtle.digest('SHA-256',new TextEncoder().encode('wp-flag:'+t)).then(function(b){var h=[].map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('');if(h===box.dataset.hash)win();else bad('Not the flag. Check it is exactly what the puzzle gives, including the WP{ } part.')})})}
+if(ty==='bug'){var good=JSON.parse(box.dataset.answers).map(String),found={};[].forEach.call(box.querySelectorAll('.buglines button'),function(b){b.addEventListener('click',function(){
+var n=String(b.dataset.line);if(good.indexOf(n)>=0){b.className='yes';found[n]=1;var left=good.filter(function(g){return !found[g]}).length;if(!left)win();else{msg.className='msg';msg.textContent='Yes. '+left+' more to find.'}}else{b.className='no';bad(box.dataset.subj==='maths'?'Not that line. Read the working again, one line at a time.':'Not that line. Read the code again, one line at a time.')}})})}
+if(ty==='sort'&&btn){btn.addEventListener('click',function(){var want=JSON.parse(box.dataset.answers),all=true;
+[].forEach.call(box.querySelectorAll('.srow'),function(r,i){var sel=r.querySelector('select'),ok=sel.value===want[i];sel.className=sel.value?(ok?'ok':'no'):'';if(!ok)all=false;var w=r.querySelector('.swhy');if(w)w.hidden=!ok});
+if(all)win();else bad('Some are not in the right group yet. Check the ones outlined in red.')})}
+if(ty==='match'&&btn){btn.addEventListener('click',function(){var want=JSON.parse(box.dataset.answers),all=true;
+[].forEach.call(box.querySelectorAll('select'),function(sel,i){var ok=sel.value===want[i];sel.className=sel.value?(ok?'ok':'no'):'';if(!ok)all=false});
+if(all)win();else bad('Some do not match yet. Check the ones outlined in red.')})}
+if(ty==='trace'&&btn){btn.addEventListener('click',function(){var all=true;
+[].forEach.call(box.querySelectorAll('input.tcell'),function(inp){var nz=function(t){return t.trim().replace(/÷/g,'/').replace(/×/g,'*').replace(/[−–]/g,'-').replace(/\s*([+*\/-])\s*/g,'$1')};var a=inp.dataset.answer,v=inp.value.trim(),ok=v!==''&&(v===a||nz(v)===nz(a)||(!isNaN(Number(v))&&!isNaN(Number(a))&&Number(v)===Number(a)));inp.className='tcell '+(ok?'ok':'no');if(!ok)all=false});
+if(all)win();else bad(box.dataset.subj==='maths'?'Some cells are not right yet. Work through it again, one step at a time.':'Some cells are not right yet. Trace the code again, one step at a time.')})}
+if(ty==='predict'&&btn){var PK='wp-predict';
+function pload(){try{return JSON.parse(localStorage.getItem(PK))||{}}catch(e){return {}}}
+function plock(v){var p=pload();p[key]=v;try{localStorage.setItem(PK,JSON.stringify(p))}catch(e){}}
+function freeze(v){[].forEach.call(box.querySelectorAll('input'),function(i){i.disabled=true;if(i.type==='radio')i.checked=(i.value===v);else i.value=v});btn.hidden=true;msg.className='msg ok';msg.textContent=kind==='science'?'Locked in. Now try it on the board and compare.':'Locked in. Now run it and compare.'}
+var saved=pload()[key];if(saved!==undefined&&saved!==null)freeze(saved);
+btn.addEventListener('click',function(){var r=box.querySelector('input[type=radio]:checked'),i=box.querySelector('input.pin'),v=r?r.value:(i?i.value.trim():'');
+if(!v)return bad('Make a prediction first. You cannot change it after you lock it in.');plock(v);freeze(v);pass();freeze(v);try{document.dispatchEvent(new CustomEvent('wp-predict',{detail:key}))}catch(e){}})}
+if(ty==='parsons'){parsons(box,win,bad)}
+if(ty==='working'&&btn){var ta=box.querySelector('textarea'),ol=box.querySelector('.wk-lines');btn.addEventListener('click',function(){var lines=ta.value.split('\n');if(!lines.join('').trim())return bad('Write your working, one step per line.');if(!window.WPF_READY)return bad('The checker did not load. Reload the page and try again.');msg.className='msg';msg.textContent='Checking...';window.WPF_READY.then(function(F){var r=F.working(lines,box.dataset.start,box.dataset.form),shown=lines.map(function(l){return l.trim()}).filter(Boolean);ol.replaceChildren();r.lines.forEach(function(x,i){var li=document.createElement('li');li.className=x.ok?'ok':'no';li.textContent=(x.ok?'\u2713 ':'\u2717 ')+shown[i];ol.appendChild(li)});if(r.ok)win();else bad(r.why)})})}
+if(ty==='answer'&&btn){var inp=box.querySelector('input'),fb=JSON.parse(box.dataset.feedback||'[]');
+function tryIt(){var v=inp.value.trim();if(!v)return bad('Type your answer first.');
+try{if(box.dataset.equation){var vals=JSON.parse(box.dataset.equation),sd=WPM.sides(v);if(!sd)return bad('An equation needs one = sign, with something on each side.');
+var need=Object.keys(vals),used=WPM.vars(sd[0]).concat(WPM.vars(sd[1]));if(!need.some(function(n){return used.indexOf(n)>=0}))return bad('Use '+need.join(' and ')+' in your equation.');
+if(WPM.satisfies(v,vals))return win();var shown=need.map(function(n){return n+' = '+vals[n]}).join(', ');return bad('Not quite: when '+shown+', the two sides are not equal. Check each side.')}
+if(box.dataset.form){if(!window.WPF_READY)return bad('The checker did not load. Reload the page and try again.');msg.className='msg';msg.textContent='Checking...';return window.WPF_READY.then(function(F){var r=F.check(v,box.dataset.answer,box.dataset.form);if(r.ok){win();if(r.unsure){msg.textContent=r.why}return}
+if(!r.equivalent)for(var i=0;i<fb.length;i++){try{if(!F.check(String(fb[i][0]),v,'').equivalent)continue;return bad(fb[i][1])}catch(e){}}
+else{var nm=function(t){return String(t).replace(/[\u2212\u2013]/g,'-').replace(/[\u00d7\u00b7]/g,'*').replace(/\s+/g,'')};for(var j=0;j<fb.length;j++){if(nm(fb[j][0])===nm(v))return bad(fb[j][1])}}
+bad(r.why)})}
+var a=WPM.splitAnswer(v).value.replace(/s*(%|°)s*$/,'');if(WPM.equivalent(a,box.dataset.answer))return win();
+for(var i=0;i<fb.length;i++){try{if(WPM.equivalent(a,String(fb[i][0])))return bad(fb[i][1])}catch(e){}}
+bad('Not quite. Check your working and try again.')}catch(e){bad(e.message)}}
+btn.addEventListener('click',tryIt);inp.addEventListener('keydown',function(e){if(e.key==='Enter')tryIt()})}
+if(ty==='reasoning'){var mk=JSON.parse(box.dataset.marks),ta=box.querySelector('.rs-in'),ai=box.querySelector('.rs-ans input'),go2=box.querySelector('.rs-go'),sh=box.querySelector('.rs-show'),md=box.querySelector('.rs-model'),tries=0;
+var RK='wp-reasoning',rl=function(){try{return JSON.parse(localStorage.getItem(RK)||'{}')}catch(e){return {}}},rs=function(o){try{localStorage.setItem(RK,JSON.stringify(o))}catch(e){}};
+var keep=rl()[key];if(keep){ta.value=keep.text||'';if(ai&&keep.answer)ai.value=keep.answer;(keep.crit||[]).forEach(function(c,i){var cb=box.querySelectorAll('.rs-crit input')[i];if(cb)cb.checked=!!c})}
+function store(){var o=rl();o[key]={text:ta.value,answer:ai?ai.value:'',crit:[].map.call(box.querySelectorAll('.rs-crit input'),function(c){return c.checked})};rs(o)}
+ta.addEventListener('input',store);if(ai)ai.addEventListener('input',store);box.querySelectorAll('.rs-crit input').forEach(function(c){c.addEventListener('change',store)});
+function reveal(){box.querySelector('.rs-mine').textContent=ta.value.trim()||'(nothing written)';md.hidden=false}
+if((load().done||{})[key])reveal();
+function wrong(t){tries++;bad(t);if(tries>=3)sh.hidden=false}
+sh.addEventListener('click',function(){reveal();msg.className='msg';msg.textContent='Compare, then fix your answer and choices above.'});
+go2.addEventListener('click',function(){if(!ta.value.trim())return bad('Write your working first: your own notes and reasons. This part is not marked.');
+if(ai&&mk.answer!==null){var v=ai.value.replace(/°|degrees?/g,'').trim();if(!v)return bad('Type your answer.');try{var a=WPM.splitAnswer(v).value;if(!WPM.equivalent(a,mk.answer)){for(var i=0;i<mk.feedback.length;i++){try{if(WPM.equivalent(a,String(mk.feedback[i][0])))return wrong(mk.feedback[i][1])}catch(e){}}return wrong('Not quite: check your answer against your working.')}}catch(e){return wrong(e.message)}}
+var fs=box.querySelectorAll('.rs-pick');for(var j=0;j<fs.length;j++){var pk=mk.picks[j],ch=fs[j].querySelector('input:checked');if(!ch)return bad('Choose a reason for each question.');var n=Number(ch.value);if(n!==pk.answer)return wrong('Not that reason. '+(pk.feedback[n]||'Look at where the two angles are.'))}
+reveal();sh.hidden=true;win();store()})}
+if(ty==='board'){var want=JSON.parse(box.dataset.expect||'{}');
+window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='run'||(m.kind==='maths'?'board':m.kind)!==(box.dataset.kind==='maths'?'board':box.dataset.kind)||m.id!==box.dataset.play||!m.moved)return;var pn=box.closest('.tpanel');if(pn&&!pn.classList.contains('active'))return;
+var ok=Object.keys(want).every(function(k){var a=m.state&&m.state[k],b=want[k];return typeof b==='number'?Math.abs(Number(a)-b)<1e-9:a===b});if(ok&&box.dataset.when){try{ok=WPM.holds(box.dataset.when,m.state&&m.state.scope)}catch(er){ok=false}}
+if(ok){if(!box.classList.contains('done'))win()}else if(!box.classList.contains('done')){msg.className='msg';msg.textContent='Keep going.'}})}
+});
+document.querySelectorAll('.compare').forEach(function(c){var pk=c.dataset.predict;
+function mine(){try{return (JSON.parse(localStorage.getItem('wp-predict'))||{})[pk]}catch(e){return undefined}}
+var last=null;
+document.addEventListener('wp-predict',function(e){if(e.detail===pk&&last)show(last)});
+window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='run'||m.id!==c.dataset.play||m.status!=='done'&&m.status!=='stopped')return;last=m;show(m)});
+function show(m){
+var v=mine();c.replaceChildren();
+function line(label,text){var p=document.createElement('p');var b=document.createElement('b');b.textContent=label+' ';p.appendChild(b);p.appendChild(document.createTextNode(text));c.appendChild(p)}
+if(v===undefined||v===null){line('No prediction locked in.','Go back to the Predict step if you want to compare next time.')}
+else{line('You predicted:',v);var out=(m.output||'').trim(),a=c.dataset.actual||'';
+if(a)line('It actually:',a);else if(out)line('It printed:',out);else line('Now compare:','look at the '+(m.kind==='html'?'page':m.kind==='microbit'?'micro:bit':m.kind==='arcade'?'game':'drawing')+'. Was your prediction right? What did you notice?')}
+c.hidden=false}});
+// Full screen / inline for each playground: a class, not the Fullscreen API, so it works on iPads and the
+// playground keeps its state. Esc (on the page, or in the playground when its drawer is closed) comes back.
+function mkOpen(t){var f=t.querySelector('iframe[data-src]'),l=t.querySelector('.mkload');if(!f||f.src)return;f.src=f.dataset.src;f.hidden=false;if(l)l.remove()}
+document.querySelectorAll('.mkopen').forEach(function(b){b.addEventListener('click',function(){var t=b.closest('.try');mkOpen(t);if(t.dataset.wide&&t._full)t._full(true)})});
+// In full screen the step's instructions and checks are hidden behind the playground, so a task drawer repeats them:
+// the step's (or the open task's) text, hints and code pictures, then the code checks with their ticks. Hide task folds the text away.
+document.querySelectorAll('.try').forEach(function(t){var s=t.closest('.step'),h=t.querySelector('.try-head');if(!s||!h)return;
+var w=t.closest('.tasks'),cs=[].slice.call(s.querySelectorAll('.check[data-type="code"]'));
+var box=document.createElement('div');box.className='try-task';var body=document.createElement('div');body.className='tt-body';
+var bar=document.createElement('div');bar.className='try-checks';bar.setAttribute('aria-live','polite');box.appendChild(body);if(cs.length)box.appendChild(bar);
+function strip(n){if(n.removeAttribute)n.removeAttribute('id');if(n.querySelectorAll)[].forEach.call(n.querySelectorAll('[id]'),function(x){x.removeAttribute('id')});return n}
+function fill(){var title=document.createElement('p');title.className='tt-title';var src;
+if(w){var tp=w.querySelector('.tp.active');title.textContent=tp?tp.textContent:'';src=[w.querySelector(':scope > .tpanel.active[role="tabpanel"]')]}
+else{var h2=s.querySelector('h2');title.textContent=h2?h2.textContent:'';src=[].filter.call(s.children,function(ch){return !(ch.matches('.chip,h2,.try,.check,.compare,.tasks,video')||ch.querySelector('video,iframe'))})}
+body.replaceChildren.apply(body,[title].concat(src.filter(Boolean).map(function(n){return strip(n.cloneNode(true))})))}
+function upd(){bar.replaceChildren.apply(bar,cs.map(function(c){var d=c.classList.contains('done'),e=document.createElement('span'),q=c.querySelector('.check-q');e.className=d?'ok':'';e.textContent=(d?'✓ ':'○ ')+(q?q.textContent:'');return e}))}
+fill();upd();cs.forEach(function(c){new MutationObserver(upd).observe(c,{attributes:true,attributeFilter:['class']})});
+if(w)[].forEach.call(w.querySelectorAll(':scope > .tpanel[role="tabpanel"]'),function(p){new MutationObserver(fill).observe(p,{attributes:true,attributeFilter:['class']})});
+var tg=document.createElement('button');tg.type='button';tg.className='tt-toggle';tg.setAttribute('aria-expanded','true');tg.textContent='Hide task';
+tg.addEventListener('click',function(){var off=box.classList.toggle('closed');tg.textContent=off?'Show task':'Hide task';tg.setAttribute('aria-expanded',String(!off))});
+h.insertBefore(tg,h.querySelector('.try-full'));h.after(box)});
+document.querySelectorAll('.try').forEach(function(t){var b=t.querySelector('.try-full');if(!b)return;
+t._full=function(on){t.classList.toggle('full',on);document.body.classList.toggle('try-open',!!document.querySelector('.try.full'));b.setAttribute('aria-pressed',String(on));b.textContent=on?'Exit full screen':'Full screen';if(!on)b.focus()};
+b.addEventListener('click',function(){mkOpen(t);t._full(!t.classList.contains('full'))})});
+document.addEventListener('keydown',function(e){var f=document.querySelector('.try.full');if(e.key==='Escape'&&f)f._full(false)});
+(function(){var id=new URLSearchParams(location.search).get('full');if(!id)return;var sec=document.getElementById(id);var t=sec&&sec.querySelector('.try');if(!t||!t._full)return;
+var ifr=t.querySelector('iframe');if(ifr)ifr.loading='eager';mkOpen(t);setTimeout(function(){t._full(true)},50)})();
+window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='esc')return;
+document.querySelectorAll('.try.full').forEach(function(f){var i=f.querySelector('iframe');if(i&&i.contentWindow===e.source)f._full(false)})});
+document.querySelectorAll('.worked').forEach(function(w){var lis=w.querySelectorAll('li'),nx=w.querySelector('.wnext'),al=w.querySelector('.wall');if(!nx)return;
+function upd(){var left=[].filter.call(lis,function(l){return l.hidden}).length;nx.hidden=al.hidden=!left;nx.textContent=left?'Next step ('+left+' left)':''}
+nx.addEventListener('click',function(){var h=[].find.call(lis,function(l){return l.hidden});if(h){h.hidden=false;h.classList.add('new')}upd()});
+al.addEventListener('click',function(){[].forEach.call(lis,function(l){l.hidden=false});upd()});upd()});
+function parsons(box,win,bad){var lines=JSON.parse(box.dataset.lines),extra=JSON.parse(box.dataset.extra||'[]');
+var pool=box.querySelector('.ppool'),prog=box.querySelector('.pprog'),inProg=[];
+var all=lines.concat(extra).map(function(t,i){return {t:t,i:i}});
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),x=a[i];a[i]=a[j];a[j]=x}return a}
+var order=shuffle(all),tries=0;
+while(tries++<8&&JSON.stringify(order.slice(0,lines.length).map(function(o){return o.t}))===JSON.stringify(lines))order=shuffle(all);
+function code(t){var c=document.createElement('code');c.textContent=t;return c}
+function draw(){pool.replaceChildren();prog.replaceChildren();
+order.filter(function(o){return inProg.indexOf(o)<0}).forEach(function(o){var li=document.createElement('li'),b=document.createElement('button');b.type='button';b.className='piece';b.title='Add to your program';b.appendChild(code(o.t));b.addEventListener('click',function(){inProg.push(o);draw()});li.appendChild(b);pool.appendChild(li)});
+inProg.forEach(function(o,n){var li=document.createElement('li');li.draggable=true;li.appendChild(code(o.t));
+[['↑',-1,'Move up'],['↓',1,'Move down'],['×',0,'Remove']].forEach(function(a){var b=document.createElement('button');b.type='button';b.textContent=a[0];b.setAttribute('aria-label',a[2]);
+b.addEventListener('click',function(){if(a[1]===0)inProg.splice(n,1);else{var m=n+a[1];if(m<0||m>=inProg.length)return;var t=inProg[n];inProg[n]=inProg[m];inProg[m]=t}draw()});li.appendChild(b)});
+li.addEventListener('dragstart',function(e){e.dataTransfer.setData('text/plain',String(n))});li.addEventListener('dragover',function(e){e.preventDefault()});
+li.addEventListener('drop',function(e){e.preventDefault();var f=Number(e.dataTransfer.getData('text/plain'));if(isNaN(f)||f===n)return;var t=inProg.splice(f,1)[0];inProg.splice(n,0,t);draw()});
+prog.appendChild(li)})}
+draw();
+box.querySelector('.pcheck').addEventListener('click',function(){if(JSON.stringify(inProg.map(function(o){return o.t}))===JSON.stringify(lines))win();else bad(inProg.length<lines.length?'Keep going: some lines are still in the pieces list, or not needed.':(box.dataset.subj==='maths'?'Not in the right order yet. Read your steps top to bottom: does each line follow from the one above?':'Not in the right order yet. Read your program top to bottom and picture what it does.'))});
+box.querySelector('.preset').addEventListener('click',function(){inProg=[];draw()})}
+[].forEach.call(document.querySelectorAll('.tasks'),function(w){
+[].forEach.call(w.querySelectorAll('.tp'),function(p){p.addEventListener('click',function(){var i=p.dataset.i;
+[].forEach.call(w.querySelectorAll('.tp,.tpanel'),function(el){var on=el.dataset.i===i;el.classList.toggle('active',on);if(el.classList.contains('tp'))el.setAttribute('aria-selected',String(on))});
+// MakeCode: the newly opened task checks the work already in the editor (the last report), without waiting for an edit.
+var oc=w.querySelector('.tpanel.active .check[data-type="code"][data-play]');if(oc&&(oc.dataset.kind==='microbit'||oc.dataset.kind==='arcade')&&window.wpLast&&window.wpLast[oc.dataset.play])window.postMessage(window.wpLast[oc.dataset.play],location.origin);
+if(w.dataset.kind==='board'||w.dataset.kind==='maths'||w.dataset.kind==='science'){var rs=w.querySelector('.tpanel.active .resetstart'),f=w.querySelector('iframe');if(rs&&f&&f.contentWindow)f.contentWindow.postMessage({wp:'set-code',code:rs.dataset.code},location.origin)}})});
+[].forEach.call(w.querySelectorAll('.resetstart'),function(b){b.addEventListener('click',function(){var f=w.querySelector('iframe');if(f&&f.contentWindow)f.contentWindow.postMessage({wp:'set-code',code:b.dataset.code},location.origin)})});
+sync(w)});
+})();(function(){var n=document.querySelector('.sitenav');if(!n)return;var K='wp-from',here=n.dataset.here;
+// Sticky navbar: publish its height as --nav (course bar, step pills and anchors sit below it).
+var nh=function(){document.documentElement.style.setProperty('--nav',n.offsetHeight+'px')};nh();if(window.ResizeObserver)new ResizeObserver(nh).observe(n);else window.addEventListener('resize',nh);
+var mb=n.querySelector('.sn-menu');if(mb)mb.addEventListener('click',function(){var o=n.classList.toggle('open');mb.setAttribute('aria-expanded',String(o))});
+[].forEach.call(n.querySelectorAll('.sn-caret'),function(c){var d=c.parentNode;c.addEventListener('click',function(){var o=d.classList.toggle('open');c.setAttribute('aria-expanded',String(o))})});
+document.addEventListener('click',function(e){[].forEach.call(n.querySelectorAll('.sn-dd.open'),function(d){if(!d.contains(e.target)){d.classList.remove('open');d.querySelector('.sn-caret').setAttribute('aria-expanded','false')}})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')[].forEach.call(n.querySelectorAll('.sn-dd.open'),function(d){d.classList.remove('open')})});
+if(here==='lesson'){var h=document.querySelector('h1'),worked=null;
+// The step to come back to is the last one the student worked in (clicked, typed, used its playground), not the
+// one in view (the student may scroll elsewhere before using the navbar). Before any work, the step in view.
+function pill(id){var a=id?document.querySelector('nav.steps a[href="#'+id+'"]'):(document.querySelector('nav.steps a.here')||document.querySelector('nav.steps a')),t='';if(a)[].forEach.call(a.childNodes,function(c){if(c.nodeType===3)t+=c.textContent});return {a:a,t:t.trim()}}
+var save=function(){var s=pill(worked);try{sessionStorage.setItem(K,JSON.stringify({href:location.pathname+(s.a?s.a.getAttribute('href'):''),title:h?h.textContent:document.title,step:s.t}))}catch(e){}};
+function mark(el){var sec=el&&el.closest&&el.closest('section.step');if(sec&&sec.id){worked=sec.id;save()}}
+['click','input','focusin'].forEach(function(ev){document.addEventListener(ev,function(e){if(!(e.target.closest&&e.target.closest('.sitenav,.coursebar,nav.steps')))mark(e.target)},true)});
+window.addEventListener('blur',function(){setTimeout(function(){var f=document.activeElement;if(f&&f.tagName==='IFRAME')mark(f)},0)});
+try{var prev=JSON.parse(sessionStorage.getItem(K));if(prev&&prev.href&&prev.href.split('#')[0]===location.pathname&&prev.href.indexOf('#')>0)worked=prev.href.split('#')[1]}catch(e){}
+save();window.addEventListener('pagehide',save);return}
+var b=n.querySelector('.sn-back'),f=null;try{f=JSON.parse(sessionStorage.getItem(K))}catch(e){}
+if(f&&f.href){b.href=f.href;b.textContent='\u2190 Back to '+f.title+(f.step?' \u203a '+f.step:'');b.title=b.textContent;b.hidden=false;return}
+if(here==='playground'||here==='reference'){try{var l=JSON.parse(localStorage.getItem('wp-last-lesson'));if(l&&l.href){b.href=l.href;b.textContent='Continue: '+(l.title||'your lesson');b.hidden=false}}catch(e){}}})();(function(){var figs=[].slice.call(document.querySelectorAll('figure.clip[data-voices]'));if(!figs.length)return;
+var K='wp-voice',all=[],AC=window.AudioContext||window.webkitAudioContext,ctx=null;
+var canVol=(function(){var v=document.createElement('video');try{v.volume=0.5}catch(e){}return v.volume===0.5})(),web=!!AC&&canVol;
+function saved(){try{return localStorage.getItem(K)||''}catch(e){return ''}}
+function save(v){try{localStorage.setItem(K,v)}catch(e){}}
+function audioCtx(){if(!ctx){try{ctx=new AC()}catch(e){web=false;return null}}if(ctx.state==='suspended')ctx.resume();return ctx}
+function alt(s){return s.cur!==s.own&&!!s.audio}
+function route(s){if(!web||s.gain||!alt(s))return;var c=audioCtx();if(!c)return;try{var n=c.createMediaElementSource(s.vid);s.gain=c.createGain();n.connect(s.gain);s.gain.connect(c.destination)}catch(e){web=false}}
+function hush(s){var on=alt(s);if(web&&s.gain){s.gain.gain.value=on?0:1;s.sound=!s.vid.muted}else if(on&&!s.vid.muted){s.self++;s.vid.muted=true;s.sound=true}if(s.audio){s.audio.muted=web?s.vid.muted:false;s.audio.volume=canVol?s.vid.volume:1}note(s)}
+function note(s){var n=s.fig.querySelector('.voiced-note');if(!n)return;if(!n.dataset.t)n.dataset.t=n.textContent;n.textContent=alt(s)&&!web?' · '+s.label+(s.sound?' on: press sound to stop':': press sound to hear'):n.dataset.t}
+function sync(s,hard){var a=s.audio,t=s.vid.currentTime;if(!a)return;if(hard||Math.abs(a.currentTime-t)>0.3){try{a.currentTime=t}catch(e){}}if(a.playbackRate!==s.vid.playbackRate)a.playbackRate=s.vid.playbackRate}
+function go(s){var a=s.audio;if(!a)return;if(s.vid.paused||s.wait||!s.sound||(web&&s.vid.muted)){a.pause();return}sync(s,true);var p=a.play();if(p&&p.catch)p.catch(function(){})}
+function unlock(s){var a=s.audio;if(!a||!a.paused||s.unlocked)return;s.unlocked=true;var m=a.muted;a.muted=true;var p=a.play();if(p&&p.then)p.then(function(){if(s.vid.paused||!s.sound)a.pause();a.muted=m;go(s)},function(){a.muted=m});else{a.pause();a.muted=m}}
+function use(s,v,gesture){if(v!==s.own&&s.others.indexOf(v)<0)v=s.own;
+[].forEach.call(s.fig.querySelectorAll('.vpick button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.v===v));if(b.dataset.v===v)s.label=b.textContent});
+if(s.audio){s.audio.pause();s.audio=null}s.cur=v;s.unlocked=false;
+if(v!==s.own){var a=new Audio(),src=(s.vid.currentSrc||s.vid.querySelector('source').src).replace(/\.mp4(?=$|[?#])/,'.'+v+'.m4a');a.preload='auto';a.src=src;
+a.addEventListener('error',function(){if(s.audio!==a)return;s.audio=null;s.cur=s.own;var w=s.sound&&!web;hush(s);if(w&&s.vid.muted){s.self++;s.vid.muted=false}[].forEach.call(s.fig.querySelectorAll('.vpick button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.v===s.own))})});
+s.audio=a;if(gesture)route(s)}
+else if(!web&&s.sound&&s.vid.muted&&gesture){s.self++;s.vid.muted=false}
+hush(s);if(gesture)unlock(s);go(s)}
+figs.forEach(function(fig){var vid=fig.querySelector('video');if(!vid)return;
+var s={fig:fig,vid:vid,own:fig.dataset.voice,others:fig.dataset.voices.split(' '),cur:fig.dataset.voice,audio:null,gain:null,sound:!vid.muted,self:0,last:0,wait:false,label:''};all.push(s);
+var pick=fig.querySelector('.vpick');if(pick){pick.hidden=false;pick.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button[data-v]');if(!b)return;save(b.dataset.v);all.forEach(function(o){use(o,b.dataset.v,true)})})}
+vid.addEventListener('volumechange',function(){if(s.self){s.self--;return}if(!alt(s)){s.sound=!vid.muted;return}
+if(web&&s.gain){hush(s);go(s);return}
+if(!vid.muted){s.sound=!s.sound;s.self++;vid.muted=true;note(s);unlock(s);go(s)}});
+['play','playing'].forEach(function(ev){vid.addEventListener(ev,function(){s.wait=false;go(s)})});
+['pause','waiting'].forEach(function(ev){vid.addEventListener(ev,function(){if(ev!=='pause')s.wait=true;if(s.audio)s.audio.pause()})});
+['seeked','ratechange'].forEach(function(ev){vid.addEventListener(ev,function(){sync(s,ev==='seeked');go(s)})});
+vid.addEventListener('timeupdate',function(){var t=vid.currentTime;if(t+0.5<s.last){sync(s,true);go(s)}else if(s.audio&&!s.audio.paused)sync(s,false);s.last=t});
+use(s,saved()||s.own,false)});
+function gest(){if(ctx&&ctx.state==='suspended')ctx.resume();all.forEach(function(s){if(alt(s)){route(s);hush(s);unlock(s)}})}
+['pointerdown','click','keydown'].forEach(function(ev){document.addEventListener(ev,gest,true)});
+})();</script><script src="../../../progress.js" data-root="../../../" defer></script></body></html>

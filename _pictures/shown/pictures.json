@@ -1,0 +1,332 @@
+{
+ "code/bootstrap/bs-classes/step-3": {
+  "hash": "a9fa9d86a397d39b",
+  "w": 1048,
+  "h": 464,
+  "div": 2
+ },
+ "code/bootstrap/bs-classes/explain": {
+  "hash": "f6a4126b6329b939",
+  "w": 1048,
+  "h": 192,
+  "div": 2
+ },
+ "code/bootstrap/bs-components/step-3": {
+  "hash": "cf827af5d7285670",
+  "w": 1048,
+  "h": 480,
+  "div": 2
+ },
+ "code/bootstrap/bs-components/explain": {
+  "hash": "399c21bdd493e7f3",
+  "w": 1048,
+  "h": 176,
+  "div": 2
+ },
+ "code/bootstrap/bs-yours/step-4-t1": {
+  "hash": "05c749e2b2834f8b",
+  "w": 1048,
+  "h": 300,
+  "div": 2
+ },
+ "code/bootstrap/bs-yours/step-4-t2": {
+  "hash": "815e4f98bdce2365",
+  "w": 1048,
+  "h": 204,
+  "div": 2
+ },
+ "code/bootstrap/bs-yours/step-4-t3": {
+  "hash": "9cee3c7e6a3640ec",
+  "w": 1048,
+  "h": 204,
+  "div": 2
+ },
+ "code/bootstrap/bs-yours/explain": {
+  "hash": "d1a7630a626fba2d",
+  "w": 1044,
+  "h": 196,
+  "div": 2
+ },
+ "code/dom/dom-change/explain": {
+  "hash": "0fb7a3b4d789deee",
+  "w": 1048,
+  "h": 224,
+  "div": 2
+ },
+ "code/dom/dom-click/explain": {
+  "hash": "2d6a02f5bb9ff0ac",
+  "w": 1048,
+  "h": 230,
+  "div": 2
+ },
+ "code/dom/dom-console/explain": {
+  "hash": "98d984307bf752a0",
+  "w": 1048,
+  "h": 292,
+  "div": 2
+ },
+ "code/dom/dom-fetch/explain": {
+  "hash": "71853ac4b45a9604",
+  "w": 1048,
+  "h": 576,
+  "div": 2
+ },
+ "code/dom/dom-input/explain": {
+  "hash": "bd6b22acc614e732",
+  "w": 1048,
+  "h": 224,
+  "div": 2
+ },
+ "code/dom/dom-list/explain": {
+  "hash": "faa005d5b8d99842",
+  "w": 502,
+  "h": 86,
+  "div": 2
+ },
+ "code/dom/dom-quiz/explain": {
+  "hash": "2337fd8c04749c2c",
+  "w": 1048,
+  "h": 366,
+  "div": 2
+ },
+ "code/dom/dom-save/explain": {
+  "hash": "caafe8c0583d76f9",
+  "w": 1048,
+  "h": 304,
+  "div": 2
+ },
+ "code/dom/dom-state/explain": {
+  "hash": "c93c5b86153fc593",
+  "w": 1048,
+  "h": 238,
+  "div": 2
+ },
+ "code/dom/dom-style/explain": {
+  "hash": "e0234f0a91c49d6d",
+  "w": 1028,
+  "h": 280,
+  "div": 2
+ },
+ "code/html/boxes/step-3": {
+  "hash": "fb5eacd3153b7e18",
+  "w": 810,
+  "h": 364,
+  "div": 2
+ },
+ "code/html/boxes/step-3-t3": {
+  "hash": "4fb62edd2ac7eb08",
+  "w": 1048,
+  "h": 214,
+  "div": 2
+ },
+ "code/html/boxes/step-3-t5": {
+  "hash": "a3da33978f546f02",
+  "w": 824,
+  "h": 956,
+  "div": 2
+ },
+ "code/html/boxes/explain": {
+  "hash": "d0695c3f7a9f8bd9",
+  "w": 810,
+  "h": 244,
+  "div": 2
+ },
+ "code/html/club-page/step-1": {
+  "hash": "0f1e6f6bb0115cb1",
+  "w": 1048,
+  "h": 1974,
+  "div": 2
+ },
+ "code/html/club-page/explain": {
+  "hash": "0f1e6f6bb0115cb1",
+  "w": 1048,
+  "h": 1974,
+  "div": 2
+ },
+ "code/html/first-page/step-3-t5": {
+  "hash": "14ce21d6244a2174",
+  "w": 1048,
+  "h": 242,
+  "div": 2
+ },
+ "code/html/first-page/explain": {
+  "hash": "600424fdfaf09597",
+  "w": 1048,
+  "h": 262,
+  "div": 2
+ },
+ "code/html/flexbox/step-3": {
+  "hash": "699a83c27f73e92b",
+  "w": 1048,
+  "h": 508,
+  "div": 2
+ },
+ "code/html/flexbox/step-3-t4": {
+  "hash": "e5630f7e12fc2761",
+  "w": 1048,
+  "h": 394,
+  "div": 2
+ },
+ "code/html/flexbox/explain": {
+  "hash": "d993f446c4ba2d05",
+  "w": 1048,
+  "h": 96,
+  "div": 2
+ },
+ "code/html/forms/step-3": {
+  "hash": "fcac1388d349ab72",
+  "w": 1048,
+  "h": 128,
+  "div": 2
+ },
+ "code/html/forms/step-3-t4": {
+  "hash": "09d9441d6fbf5c21",
+  "w": 596,
+  "h": 422,
+  "div": 2
+ },
+ "code/html/forms/explain": {
+  "hash": "d451f8ec2f8df281",
+  "w": 1048,
+  "h": 86,
+  "div": 2
+ },
+ "code/html/grid/step-3-t2": {
+  "hash": "c0697610531c36f1",
+  "w": 524,
+  "h": 436,
+  "div": 2
+ },
+ "code/html/grid/explain": {
+  "hash": "b02efc58596415f0",
+  "w": 1048,
+  "h": 328,
+  "div": 2
+ },
+ "code/html/images/step-3-t4": {
+  "hash": "10f97a047b220896",
+  "w": 1048,
+  "h": 646,
+  "div": 2
+ },
+ "code/html/images/explain": {
+  "hash": "363735fd46ce2553",
+  "w": 1048,
+  "h": 464,
+  "div": 2
+ },
+ "code/html/lists-links/step-3-t5": {
+  "hash": "bd0e50e6c6ac3234",
+  "w": 1048,
+  "h": 598,
+  "div": 2
+ },
+ "code/html/lists-links/explain": {
+  "hash": "6591743290fbc515",
+  "w": 1048,
+  "h": 290,
+  "div": 2
+ },
+ "code/html/sections/step-3-t3": {
+  "hash": "d4d4922f02c3ad25",
+  "w": 1048,
+  "h": 800,
+  "div": 2
+ },
+ "code/html/sections/explain": {
+  "hash": "8304c4ce66de26ec",
+  "w": 1048,
+  "h": 490,
+  "div": 2
+ },
+ "code/html/selectors/step-3-t4": {
+  "hash": "202028d6220469b0",
+  "w": 1048,
+  "h": 526,
+  "div": 2
+ },
+ "code/html/selectors/explain": {
+  "hash": "3ef271a5f68033f7",
+  "w": 1048,
+  "h": 344,
+  "div": 2
+ },
+ "code/html/tables/step-3-t5": {
+  "hash": "1ec3fb3f9e067d28",
+  "w": 886,
+  "h": 460,
+  "div": 2
+ },
+ "code/html/tables/explain": {
+  "hash": "98a3c14c979f01a2",
+  "w": 424,
+  "h": 216,
+  "div": 2
+ },
+ "code/site/site-everyone/step-3": {
+  "hash": "a1130d4d4cd91502",
+  "w": 1048,
+  "h": 746,
+  "div": 2
+ },
+ "code/site/site-everyone/explain": {
+  "hash": "5c745a8b3b11bcc8",
+  "w": 1048,
+  "h": 360,
+  "div": 2
+ },
+ "code/site/site-publish/explain": {
+  "hash": "333f29e9be724bdd",
+  "w": 1048,
+  "h": 660,
+  "div": 2
+ },
+ "code/vue/vue-compare/explain": {
+  "hash": "6b0e2c7f81c9cd1d",
+  "w": 1048,
+  "h": 760,
+  "div": 2
+ },
+ "code/vue/vue-components/explain": {
+  "hash": "7143e5afa7ef4ae9",
+  "w": 1048,
+  "h": 946,
+  "div": 2
+ },
+ "code/vue/vue-computed/explain": {
+  "hash": "9c309ab46acfd3ef",
+  "w": 1048,
+  "h": 372,
+  "div": 2
+ },
+ "code/vue/vue-data/explain": {
+  "hash": "d80c9f4dacf65be1",
+  "w": 1048,
+  "h": 298,
+  "div": 2
+ },
+ "code/vue/vue-events/explain": {
+  "hash": "331457921180e53d",
+  "w": 1048,
+  "h": 402,
+  "div": 2
+ },
+ "code/vue/vue-lists/explain": {
+  "hash": "0975a5ede0ad55a2",
+  "w": 1048,
+  "h": 370,
+  "div": 2
+ },
+ "code/vue/vue-todo/step-1": {
+  "hash": "b791d22633190655",
+  "w": 1048,
+  "h": 488,
+  "div": 2
+ },
+ "code/vue/vue-todo/explain": {
+  "hash": "b791d22633190655",
+  "w": 1048,
+  "h": 488,
+  "div": 2
+ }
+}

@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.225
+create Element makes an element, and append puts it on the page.
+
+2
+00:00:05.075 --> 00:00:09.000
+An empty list on the page, and an array of items in the script.
+
+3
+00:00:11.544 --> 00:00:15.269
+For each item: make an L I, give it the text, and add it.
+
+4
+00:00:21.625 --> 00:00:25.225
+Three items in the array, three bullet points on the page.

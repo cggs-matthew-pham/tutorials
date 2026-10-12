@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.150
+console dot log shows what your code sees.
+
+2
+00:00:04.027 --> 00:00:08.502
+console dot log writes messages in the Console, not on the page.
+
+3
+00:00:09.278 --> 00:00:12.578
+Log the heading text to see what the script has found.
+
+4
+00:00:13.328 --> 00:00:17.503
+query Selector All finds every match, and length says how many.
+
+5
+00:00:20.886 --> 00:00:24.961
+Two messages in the Console. The page itself did not change.

@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.125
+The old laptop loads a big game level.
+
+2
+00:00:03.901 --> 00:00:08.576
+The hard disk takes 80 of the 90 seconds. That is the bottleneck.
+
+3
+00:00:13.192 --> 00:00:18.817
+With an SSD it takes 14 seconds, and the processor is now the slowest part.

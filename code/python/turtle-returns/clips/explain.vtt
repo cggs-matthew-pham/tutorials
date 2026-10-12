@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.650
+Some functions do something. Others give an answer back, with return.
+
+2
+00:00:05.475 --> 00:00:10.400
+metres of 5 works out five times twenty, and gives back one hundred.
+
+3
+00:00:11.350 --> 00:00:15.025
+The inner call runs first, so forward gets one hundred.
+
+4
+00:00:19.336 --> 00:00:23.686
+print only shows a value on screen. The program cannot use it.

@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>micro:bit playground</title><style>:root{--bg:#fbfaf8;--ink:#1d2430;--line:#e4e1da;--card:#fff;--accent:#c2570a}
+@media(prefers-color-scheme:dark){:root{--bg:#0f141a;--ink:#e6edf3;--line:#26303c;--card:#161d26;--accent:#ff9d3d}}
+html,body{height:100%;margin:0}body{display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.pgbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:4px 14px;border-bottom:1px solid var(--line);font-size:14px}
+.pgbar a,.pgbar button{font:inherit;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;background:none;border:1px solid transparent;border-radius:8px;padding:5px 8px;cursor:pointer}
+.pgbar a:hover,.pgbar button:hover{background:var(--card);border-color:var(--line)}.pgbar button{font-weight:500;color:inherit;opacity:.85}.grow{flex:1}
+iframe{flex:1;width:100%;border:0;min-height:0}.sitenav{background:var(--card);border-bottom:1px solid var(--line);font-size:14px;position:sticky;top:0;z-index:20}
+html{scroll-padding-top:var(--nav,0px)}
+.sn-in{max-width:1080px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:4px;min-height:48px;flex-wrap:wrap}
+.sitenav a{color:var(--ink);text-decoration:none;font-weight:600;padding:6px 10px;border-radius:8px;white-space:nowrap}
+.sitenav a:hover{background:var(--bg)}.sitenav a[aria-current]{color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent);border-radius:0}
+.sitenav .sn-brand{font-weight:800;letter-spacing:-.01em;margin-right:4px;color:var(--muted)}.sn-brand span{font-weight:400}
+.sn-main,.sn-tools{display:flex;gap:2px;align-items:center}.sn-grow{flex:1}
+.sn-dd{position:relative;display:flex;align-items:center}.sn-dd.on>.sn-top{color:var(--accent)}
+.sn-caret{font:inherit;background:none;border:0;color:var(--muted);cursor:pointer;padding:6px 4px;margin-left:-8px;border-radius:6px}.sn-caret:hover{color:var(--ink)}
+.sn-sub{display:none;position:absolute;top:100%;left:0;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);padding:6px;flex-direction:column}
+.sn-sub a{display:block}.sn-sub a[aria-current]{box-shadow:inset 3px 0 0 var(--accent);border-radius:4px}
+.sn-dd:hover .sn-sub,.sn-dd:focus-within .sn-sub,.sn-dd.open .sn-sub{display:flex}
+.sn-menu{display:none;font:inherit;font-weight:600;color:var(--ink);background:none;border:1px solid var(--line);border-radius:8px;padding:4px 10px;cursor:pointer}
+.sitenav .sn-back{color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:99px;margin-right:6px;max-width:42vw;overflow:hidden;text-overflow:ellipsis}
+.sitenav .sn-back[hidden]{display:none}
+@media(max-width:700px){.sn-menu{display:inline-block;margin-left:auto}.sn-main{display:none;order:9;flex-basis:100%;flex-direction:column;align-items:stretch;padding:4px 0 8px}.sitenav.open .sn-main{display:flex;max-height:calc(100vh - 120px);overflow-y:auto}
+.sn-dd{flex-direction:column;align-items:stretch}.sn-caret{display:none}.sn-sub{display:flex;position:static;border:0;box-shadow:none;padding:0 0 0 16px;min-width:0;background:none}
+.sitenav a[aria-current]{box-shadow:none}.sn-tools{order:8;flex-basis:100%;justify-content:flex-start;padding-bottom:6px;overflow-x:auto}.sitenav .sn-back{order:7;flex-basis:100%;max-width:none;margin:2px 0 6px;text-align:center}}
+@media print{.sitenav{display:none}}</style></head><body>
+<nav class="sitenav" data-here="playground" aria-label="Site"><div class="sn-in"><a class="sn-brand" href="https://learningwaypoints.com/" title="Learning Waypoints: the main site">Learning Waypoints <span aria-hidden="true">↗</span></a><button type="button" class="sn-menu" aria-expanded="false" aria-controls="sn-main">Menu ▾</button><div class="sn-main" id="sn-main"><a href="../../../">Tutorials</a><div class="sn-dd on"><a class="sn-top" href="../../../code/">Code</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-0" aria-label="Code pathways">▾</button><div class="sn-sub" id="sn-sub-0"><a href="../../../code/paths/python/">Python</a><a href="../../../code/paths/web/">Web</a><a href="../../../code/paths/makecode/" aria-current="page">MakeCode</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../systems/">Digital systems</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-1" aria-label="Digital systems pathways">▾</button><div class="sn-sub" id="sn-sub-1"><a href="../../../systems/paths/data/">Data representation</a><a href="../../../systems/paths/networks/">Networks and security</a><a href="../../../systems/paths/hardware/">Hardware and logic</a><a href="../../../systems/paths/cli/">The command line</a><a href="../../../systems/map/">Curriculum map</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../engineering/">Engineering</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-2" aria-label="Engineering pathways">▾</button><div class="sn-sub" id="sn-sub-2"><a href="../../../engineering/paths/mechanisms/">Mechanisms</a><a href="../../../engineering/paths/structures/">Structures</a><a href="../../../engineering/paths/physical/">Physical computing</a><a href="../../../engineering/paths/cad/">CAD and fabrication</a><a href="../../../engineering/paths/boards/">Design your own board</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../maths/">Maths</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-3" aria-label="Maths pathways">▾</button><div class="sn-sub" id="sn-sub-3"><a href="../../../maths/paths/algebra/">Algebra</a><a href="../../../maths/paths/number/">Number</a><a href="../../../maths/paths/space/">Geometry and measurement</a><a href="../../../maths/paths/data/">Statistics and probability</a><a href="../../../maths/map/">Curriculum map</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../science/">Science</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-4" aria-label="Science pathways">▾</button><div class="sn-sub" id="sn-sub-4"><a href="../../../science/paths/chemistry/">Chemistry</a><a href="../../../science/paths/biology/">Biology</a><a href="../../../science/paths/physics/">Physics</a><a href="../../../science/paths/earth-space/">Earth and space</a><a href="../../../science/map/">Curriculum map</a></div></div></div><span class="sn-grow"></span><a class="sn-back" href="#" hidden></a><div class="sn-tools"><a href="../../../code/microbit/playground/" aria-current="page">Playground</a><a href="../../../code/microbit/reference/">Reference</a><a href="../../../code/microbit/">My progress</a></div></div></nav>
+<header class="pgbar"><b>micro:bit playground</b><span class="grow"></span>
+<button type="button" id="unlock" aria-pressed="false" title="Some snippets are for things you haven't learned yet." hidden>Unlock all snippets (use this if your progress was lost)</button><span>Your program is saved in this browser.</span></header>
+<iframe title="micro:bit playground" src="../../../_playground-makecode/index.html?id=free/microbit&amp;free=1&amp;v=3269f3347d&amp;target=microbit"></iframe>
+<script>
+(function(){var KEY='wp-progress',b=document.getElementById('unlock');
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
+function paint(){var on=!!load().free;b.setAttribute('aria-pressed',String(on));b.textContent=on?'Re-lock snippets':'Unlock all snippets (use this if your progress was lost)'}
+b.addEventListener('click',function(){var p=load();p.free=!p.free;try{localStorage.setItem(KEY,JSON.stringify(p))}catch(e){}paint();
+var f=document.querySelector('iframe');try{f.contentWindow.dispatchEvent(new StorageEvent('storage',{key:KEY}))}catch(e){}});
+paint()})();
+(function(){var n=document.querySelector('.sitenav');if(!n)return;var K='wp-from',here=n.dataset.here;
+// Sticky navbar: publish its height as --nav (course bar, step pills and anchors sit below it).
+var nh=function(){document.documentElement.style.setProperty('--nav',n.offsetHeight+'px')};nh();if(window.ResizeObserver)new ResizeObserver(nh).observe(n);else window.addEventListener('resize',nh);
+var mb=n.querySelector('.sn-menu');if(mb)mb.addEventListener('click',function(){var o=n.classList.toggle('open');mb.setAttribute('aria-expanded',String(o))});
+[].forEach.call(n.querySelectorAll('.sn-caret'),function(c){var d=c.parentNode;c.addEventListener('click',function(){var o=d.classList.toggle('open');c.setAttribute('aria-expanded',String(o))})});
+document.addEventListener('click',function(e){[].forEach.call(n.querySelectorAll('.sn-dd.open'),function(d){if(!d.contains(e.target)){d.classList.remove('open');d.querySelector('.sn-caret').setAttribute('aria-expanded','false')}})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')[].forEach.call(n.querySelectorAll('.sn-dd.open'),function(d){d.classList.remove('open')})});
+if(here==='lesson'){var h=document.querySelector('h1'),worked=null;
+// The step to come back to is the last one the student worked in (clicked, typed, used its playground), not the
+// one in view (the student may scroll elsewhere before using the navbar). Before any work, the step in view.
+function pill(id){var a=id?document.querySelector('nav.steps a[href="#'+id+'"]'):(document.querySelector('nav.steps a.here')||document.querySelector('nav.steps a')),t='';if(a)[].forEach.call(a.childNodes,function(c){if(c.nodeType===3)t+=c.textContent});return {a:a,t:t.trim()}}
+var save=function(){var s=pill(worked);try{sessionStorage.setItem(K,JSON.stringify({href:location.pathname+(s.a?s.a.getAttribute('href'):''),title:h?h.textContent:document.title,step:s.t}))}catch(e){}};
+function mark(el){var sec=el&&el.closest&&el.closest('section.step');if(sec&&sec.id){worked=sec.id;save()}}
+['click','input','focusin'].forEach(function(ev){document.addEventListener(ev,function(e){if(!(e.target.closest&&e.target.closest('.sitenav,.coursebar,nav.steps')))mark(e.target)},true)});
+window.addEventListener('blur',function(){setTimeout(function(){var f=document.activeElement;if(f&&f.tagName==='IFRAME')mark(f)},0)});
+try{var prev=JSON.parse(sessionStorage.getItem(K));if(prev&&prev.href&&prev.href.split('#')[0]===location.pathname&&prev.href.indexOf('#')>0)worked=prev.href.split('#')[1]}catch(e){}
+save();window.addEventListener('pagehide',save);return}
+var b=n.querySelector('.sn-back'),f=null;try{f=JSON.parse(sessionStorage.getItem(K))}catch(e){}
+if(f&&f.href){b.href=f.href;b.textContent='\u2190 Back to '+f.title+(f.step?' \u203a '+f.step:'');b.title=b.textContent;b.hidden=false;return}
+if(here==='playground'||here==='reference'){try{var l=JSON.parse(localStorage.getItem('wp-last-lesson'));if(l&&l.href){b.href=l.href;b.textContent='Continue: '+(l.title||'your lesson');b.hidden=false}}catch(e){}}})();
+</script></body></html>

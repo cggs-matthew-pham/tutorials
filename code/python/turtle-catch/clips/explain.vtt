@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.425
+A game is a few rules, some data, and a loop.
+
+2
+00:00:04.251 --> 00:00:08.576
+Press Start, and the loop begins. A timer makes the turtle hop.
+
+3
+00:00:12.057 --> 00:00:16.332
+The data is the score, the turtle's spot, and whether it is showing.
+
+4
+00:00:17.308 --> 00:00:21.658
+The rules say what each click means. Each one checks showing first.
+
+5
+00:00:22.384 --> 00:00:27.059
+The path is two lists of numbers, so good players predict the next spot.

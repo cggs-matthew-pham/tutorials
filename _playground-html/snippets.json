@@ -1,0 +1,632 @@
+{
+ "title": "HTML and CSS reference",
+ "summary": "Tags and CSS you can click to insert, with what each one does.",
+ "language": "html",
+ "groups": [
+  {
+   "name": "Page structure",
+   "items": [
+    {
+     "label": "<h1> heading",
+     "code": "<h1>‹Heading›</h1>\n",
+     "hint": "The biggest heading. Use it once for the page title.",
+     "example": "<h1>Robotics Club</h1>\n",
+     "shows": "The biggest heading"
+    },
+    {
+     "label": "<h2> subheading",
+     "code": "<h2>‹Subheading›</h2>\n",
+     "hint": "A smaller heading for a section.",
+     "example": "<h1>Robotics Club</h1>\n<h2>This term</h2>\n",
+     "shows": "A smaller heading under the title"
+    },
+    {
+     "label": "<p> paragraph",
+     "code": "<p>‹Some text›</p>\n",
+     "hint": "A paragraph of text.",
+     "example": "<p>We meet on Tuesdays.</p>\n<p>Everyone is welcome.</p>\n",
+     "shows": "Two paragraphs, with a gap between"
+    },
+    {
+     "label": "<div> box",
+     "code": "<div>\n  ‹Content›\n</div>\n",
+     "hint": "A container that groups things together, so you can style them as one."
+    },
+    {
+     "label": "<ul> list",
+     "code": "<ul>\n  <li>‹First›</li>\n  <li>‹Second›</li>\n</ul>\n",
+     "hint": "A bulleted list. Each item is an <li>.",
+     "example": "<ul>\n  <li>Apples</li>\n  <li>Pears</li>\n  <li>Plums</li>\n</ul>\n",
+     "shows": "A bullet for each <li>"
+    },
+    {
+     "label": "<ol> numbered list",
+     "code": "<ol>\n  <li>‹First›</li>\n  <li>‹Second›</li>\n</ol>\n",
+     "hint": "A numbered list.",
+     "example": "<ol>\n  <li>Plug in</li>\n  <li>Switch on</li>\n  <li>Press start</li>\n</ol>\n",
+     "shows": "The browser numbers the items"
+    },
+    {
+     "label": "comment",
+     "code": "<!-- ‹A note to yourself› -->\n",
+     "hint": "A note that the browser ignores.",
+     "example": "<p>You can see this.</p>\n<!-- You cannot see this. -->\n",
+     "shows": "The comment does not show"
+    }
+   ]
+  },
+  {
+   "name": "Content",
+   "items": [
+    {
+     "label": "<a> link",
+     "code": "<a href=\"‹https://example.com›\">‹Link text›</a>",
+     "hint": "A link. The address goes in href; the words between the tags are what people click.",
+     "example": "<p>Read the <a href=\"https://example.com\">club rules</a>.</p>\n",
+     "shows": "The link text is blue and underlined"
+    },
+    {
+     "label": "<img> image",
+     "code": "<img src=\"‹trophy.svg›\" alt=\"‹A gold trophy›\">\n",
+     "hint": "A picture. src is the picture file; alt describes it for people who cannot see it. There is no closing tag.",
+     "example": "<img src=\"medal.svg\" alt=\"A silver medal\" width=\"100\">\n<p>Second place</p>\n",
+     "shows": "The picture, 100 pixels wide"
+    },
+    {
+     "label": "<strong> bold",
+     "code": "<strong>‹important›</strong>",
+     "hint": "Make text stand out as important (usually bold).",
+     "example": "<p>Bring a <strong>hat</strong> tomorrow.</p>\n",
+     "shows": "Only the word inside is bold"
+    },
+    {
+     "label": "<em> emphasis",
+     "code": "<em>‹emphasis›</em>",
+     "hint": "Emphasise text (usually italic).",
+     "example": "<p>Do <em>not</em> run inside.</p>\n",
+     "shows": "Only the word inside is italic"
+    },
+    {
+     "label": "<button>",
+     "code": "<button>‹Click me›</button>\n",
+     "hint": "A button.",
+     "example": "<button>Start</button>\n",
+     "shows": "A button (clicking does nothing yet)"
+    },
+    {
+     "label": "<br> line break",
+     "code": "<br>\n",
+     "hint": "Start a new line.",
+     "example": "<p>Line one<br>Line two</p>\n",
+     "shows": "A new line inside one paragraph"
+    },
+    {
+     "label": "<hr> line",
+     "code": "<hr>\n",
+     "hint": "Draw a line across the page.",
+     "example": "<p>Above</p>\n<hr>\n<p>Below</p>\n",
+     "shows": "A line across the page"
+    }
+   ]
+  },
+  {
+   "name": "Table",
+   "items": [
+    {
+     "label": "<table>",
+     "code": "<table>\n  <tr>\n    <th>‹Name›</th>\n    <th>‹Score›</th>\n  </tr>\n  <tr>\n    <td>‹Sam›</td>\n    <td>‹10›</td>\n  </tr>\n</table>\n",
+     "hint": "A table: <tr> is a row, <th> a heading cell, <td> a normal cell.",
+     "example": "<table>\n  <tr>\n    <th>Team</th>\n    <th>Points</th>\n  </tr>\n  <tr>\n    <td>Owls</td>\n    <td>12</td>\n  </tr>\n  <tr>\n    <td>Hawks</td>\n    <td>9</td>\n  </tr>\n</table>\n",
+     "shows": "Headings in bold, one row per <tr>"
+    }
+   ]
+  },
+  {
+   "name": "Page sections",
+   "items": [
+    {
+     "label": "<header>",
+     "code": "<header>\n  ‹<h1>Site name</h1>›\n</header>\n",
+     "hint": "The top part of a page: usually the title and the menu. Looks like a div; the name tells browsers and screen readers what it is.",
+     "example": "<header>\n  <h1>Chess club</h1>\n</header>\n<p>Page content</p>\n",
+     "shows": "It looks like any block: the name is the difference"
+    },
+    {
+     "label": "<nav>",
+     "code": "<nav>\n  ‹<a href=\"#\">Home</a>›\n</nav>\n",
+     "hint": "The main menu of links.",
+     "example": "<nav>\n  <a href=\"#\">Home</a>\n  <a href=\"#\">Games</a>\n</nav>\n",
+     "shows": "A group of menu links"
+    },
+    {
+     "label": "<main>",
+     "code": "<main>\n  ‹The page's main content›\n</main>\n",
+     "hint": "The main content of the page. One per page.",
+     "example": "<main>\n  <h2>This week</h2>\n  <p>Practice on Wednesday.</p>\n</main>\n",
+     "shows": "The main content"
+    },
+    {
+     "label": "<section>",
+     "code": "<section>\n  ‹<h2>Part</h2>›\n</section>\n",
+     "hint": "One part of the page, usually with its own heading.",
+     "example": "<section>\n  <h2>Results</h2>\n  <p>We won 3 games.</p>\n</section>\n",
+     "shows": "One part of a page with its heading"
+    },
+    {
+     "label": "<footer>",
+     "code": "<footer>\n  ‹Contact and small print›\n</footer>\n",
+     "hint": "The bottom part of a page: contact details, small print.",
+     "example": "<p>Page content</p>\n<footer>\n  <p>Contact: chess@example.com</p>\n</footer>\n",
+     "shows": "The bottom of the page"
+    }
+   ]
+  },
+  {
+   "name": "Forms",
+   "items": [
+    {
+     "label": "<form>",
+     "code": "<form>\n  ‹fields›\n  <button>‹Send›</button>\n</form>\n",
+     "hint": "Holds the fields and the button that sends them. On its own, a form sends nowhere: code behind it does the work.",
+     "example": "<form>\n  <label for=\"town\">Town</label>\n  <input id=\"town\" type=\"text\">\n  <button>Go</button>\n</form>\n",
+     "shows": "A field and a button"
+    },
+    {
+     "label": "label and input",
+     "code": "<label for=\"‹name›\">‹Name›</label>\n<input id=\"‹name›\" type=\"‹text›\">\n",
+     "hint": "An input is a box to type in. Its label says what to type; for and id must match, so clicking the label puts the cursor in the box.",
+     "matches": "^\\s*<label\\b",
+     "example": "<label for=\"age\">Age</label>\n<input id=\"age\" type=\"number\">\n",
+     "shows": "A labelled box for a number"
+    },
+    {
+     "label": "<select> drop-down",
+     "code": "<select id=\"‹house›\">\n  <option>‹Owls›</option>\n  <option>‹Hawks›</option>\n</select>\n",
+     "hint": "A drop-down list: one option to choose.",
+     "example": "<label for=\"size\">Size</label>\n<select id=\"size\">\n  <option>Small</option>\n  <option>Large</option>\n</select>\n",
+     "shows": "A drop-down showing its first option"
+    }
+   ]
+  },
+  {
+   "name": "CSS",
+   "items": [
+    {
+     "label": "<style> block",
+     "code": "<style>\n  ‹h1› {\n    color: red;\n  }\n</style>\n",
+     "hint": "Where CSS lives. Each rule is: selector { property: value; }",
+     "example": "<style>\n  h2 {\n    color: purple;\n  }\n</style>\n<h2>Purple heading</h2>\n<p>Normal text</p>\n",
+     "shows": "The rule styles every <h2>"
+    },
+    {
+     "label": "rule",
+     "code": "‹p› {\n  ‹color›: ‹blue›;\n}\n",
+     "hint": "Style every element matching the selector.",
+     "example": "<style>\n  li {\n    color: teal;\n  }\n</style>\n<ul>\n  <li>One</li>\n  <li>Two</li>\n</ul>\n",
+     "shows": "Every <li> is teal"
+    },
+    {
+     "label": "class selector",
+     "code": ".‹note› {\n  ‹color›: ‹red›;\n}\n",
+     "hint": "Style only the elements you mark with class=\"note\" in the HTML. The dot is only in the CSS.",
+     "matches": "^\\s*\\.[A-Za-z][\\w-]*\\s*[{,]",
+     "example": "<style>\n  .tip {\n    font-style: italic;\n  }\n</style>\n<p>A normal paragraph.</p>\n<p class=\"tip\">A paragraph with class=\"tip\".</p>\n",
+     "shows": "Only the paragraph with the class changes"
+    },
+    {
+     "label": "several selectors",
+     "code": "‹h1›, ‹h2› {\n  ‹color›: ‹navy›;\n}\n",
+     "hint": "One rule for several kinds of element: list the selectors with commas.",
+     "matches": "^\\s*[A-Za-z.][\\w.-]*\\s*,\\s*[A-Za-z.]",
+     "example": "<style>\n  h1, li {\n    color: purple;\n  }\n</style>\n<h1>Title</h1>\n<ul>\n  <li>An item</li>\n</ul>\n<p>A paragraph</p>\n",
+     "shows": "The heading and the list item change; the paragraph does not"
+    },
+    {
+     "label": "color",
+     "code": "color: ‹red›;\n",
+     "hint": "The text colour.",
+     "example": "<style>\n  em {\n    color: crimson;\n  }\n</style>\n<p>A <em>red</em> word</p>\n",
+     "shows": "Text colour"
+    },
+    {
+     "label": "background-color",
+     "code": "background-color: ‹lightyellow›;\n",
+     "hint": "The background colour.",
+     "example": "<style>\n  h2 {\n    background-color: lightyellow;\n  }\n</style>\n<h2>Notice</h2>\n",
+     "shows": "The colour behind the text"
+    },
+    {
+     "label": "font-size",
+     "code": "font-size: ‹20px›;\n",
+     "hint": "How big the text is.",
+     "example": "<style>\n  h2 {\n    font-size: 40px;\n  }\n</style>\n<h2>Big</h2>\n<p>Normal</p>\n",
+     "shows": "A bigger heading"
+    },
+    {
+     "label": "font-family",
+     "code": "font-family: ‹sans-serif›;\n",
+     "hint": "Which font to use.",
+     "example": "<style>\n  p {\n    font-family: monospace;\n  }\n</style>\n<p>Code font</p>\n",
+     "shows": "A different font"
+    },
+    {
+     "label": "text-align",
+     "code": "text-align: ‹center›;\n",
+     "hint": "Align text: left, center or right.",
+     "example": "<style>\n  h2 {\n    text-align: center;\n  }\n</style>\n<h2>Centred</h2>\n<p>Left</p>\n",
+     "shows": "The heading moves to the middle"
+    },
+    {
+     "label": "display: flex",
+     "code": "display: flex;\n",
+     "hint": "Put it on the box that holds the items (the parent): its children line up in a row.",
+     "example": "<style>\n  .row {\n    display: flex;\n  }\n</style>\n<div class=\"row\">\n  <p>One</p>\n  <p>Two</p>\n  <p>Three</p>\n</div>\n",
+     "shows": "The three paragraphs sit side by side"
+    },
+    {
+     "label": "gap",
+     "code": "gap: ‹16px›;\n",
+     "hint": "Space between the items in a flex row (on the parent, with display: flex).",
+     "example": "<style>\n  .row {\n    display: flex;\n    gap: 40px;\n  }\n</style>\n<div class=\"row\">\n  <p>One</p>\n  <p>Two</p>\n  <p>Three</p>\n</div>\n",
+     "shows": "40 pixels between the items"
+    },
+    {
+     "label": "flex-wrap",
+     "code": "flex-wrap: wrap;\n",
+     "hint": "Let items move to the next line when the row is full.",
+     "example": "<style>\n  .row {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 8px;\n    width: 180px;\n  }\n</style>\n<div class=\"row\">\n  <img src=\"star.svg\" alt=\"Star\" width=\"50\">\n  <img src=\"star.svg\" alt=\"Star\" width=\"50\">\n  <img src=\"star.svg\" alt=\"Star\" width=\"50\">\n  <img src=\"star.svg\" alt=\"Star\" width=\"50\">\n</div>\n",
+     "shows": "The fourth star wraps to the next line"
+    },
+    {
+     "label": "justify-content",
+     "code": "justify-content: ‹center›;\n",
+     "hint": "Where the items sit along the row: flex-start, center, flex-end or space-between.",
+     "example": "<style>\n  .row {\n    display: flex;\n    justify-content: space-between;\n    width: 220px;\n    border: 1px solid gray;\n  }\n</style>\n<div class=\"row\">\n  <p>Left</p>\n  <p>Right</p>\n</div>\n",
+     "shows": "space-between pushes the items to the ends"
+    },
+    {
+     "label": "list-style",
+     "code": "list-style: none;\n",
+     "hint": "Remove the bullets or numbers from a list: menus are lists without bullets.",
+     "example": "<style>\n  ol {\n    list-style: none;\n  }\n</style>\n<ol>\n  <li>First</li>\n  <li>Second</li>\n</ol>\n",
+     "shows": "A list with no numbers"
+    },
+    {
+     "label": "display: grid",
+     "code": "display: grid;\n",
+     "hint": "Put it on the box that holds the items: its children are placed in rows and columns (with grid-template-columns).",
+     "example": "<style>\n  .grid {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 8px;\n  }\n  p {\n    background-color: lavender;\n  }\n</style>\n<div class=\"grid\">\n  <p>A</p>\n  <p>B</p>\n  <p>C</p>\n  <p>D</p>\n</div>\n",
+     "shows": "Four boxes in two columns"
+    },
+    {
+     "label": "grid-template-columns",
+     "code": "grid-template-columns: ‹200px 1fr›;\n",
+     "hint": "The width of each column, in order. 1fr means one share of the space left; repeat(3, 1fr) makes three equal columns.",
+     "example": "<style>\n  .grid {\n    display: grid;\n    grid-template-columns: 80px 1fr;\n    gap: 8px;\n  }\n  .cell {\n    background-color: lightblue;\n  }\n</style>\n<div class=\"grid\">\n  <div class=\"cell\">80px</div>\n  <div class=\"cell\">The rest</div>\n</div>\n",
+     "shows": "A fixed column, then one that takes the rest"
+    },
+    {
+     "label": "width",
+     "code": "width: ‹200px›;\n",
+     "hint": "How wide the content is. Padding and border are added on top of it.",
+     "example": "<style>\n  div {\n    width: 120px;\n    background-color: lightblue;\n  }\n</style>\n<div>A box 120 pixels wide</div>\n",
+     "shows": "The box is 120 pixels wide"
+    },
+    {
+     "label": "padding",
+     "code": "padding: ‹10px›;\n",
+     "hint": "Space inside an element, between its edge and its content.",
+     "example": "<style>\n  p {\n    background-color: lightblue;\n    padding: 20px;\n  }\n</style>\n<p>Room inside</p>\n",
+     "shows": "Space between the edge and the text"
+    },
+    {
+     "label": "margin",
+     "code": "margin: ‹10px›;\n",
+     "hint": "Space outside an element, between it and its neighbours.",
+     "example": "<style>\n  p {\n    border: 1px solid gray;\n    margin: 20px;\n  }\n</style>\n<p>One</p>\n<p>Two</p>\n",
+     "shows": "Space around each box"
+    },
+    {
+     "label": "border",
+     "code": "border: ‹2px solid black›;\n",
+     "hint": "A line around an element: thickness, style, colour.",
+     "example": "<style>\n  p {\n    border: 2px solid black;\n  }\n</style>\n<p>Boxed</p>\n",
+     "shows": "A line around the paragraph"
+    }
+   ]
+  },
+  {
+   "name": "JavaScript (recipes)",
+   "items": [
+    {
+     "label": "on click",
+     "code": "document.querySelector('‹#go›').addEventListener('click', function () {\n  ‹what to do›\n});\n",
+     "hint": "When the element with id=\"go\" is clicked, run the lines inside. # means id, as . means class.",
+     "matches": "addEventListener\\s*\\("
+    },
+    {
+     "label": "change the text",
+     "code": "document.querySelector('‹#message›').textContent = '‹Go!›';\n",
+     "hint": "Replace the words inside the element with id=\"message\".",
+     "matches": "\\.textContent\\s*="
+    },
+    {
+     "label": "read a box",
+     "code": "const ‹name› = document.querySelector('‹#name›').value;\n",
+     "hint": "Read what someone typed into the box with id=\"name\".",
+     "matches": "\\.value\\b"
+    }
+   ]
+  },
+  {
+   "name": "Bootstrap",
+   "items": [
+    {
+     "label": "Bootstrap link",
+     "code": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n",
+     "hint": "Loads Bootstrap's stylesheet: a big CSS file someone else wrote. Put it first, above your own <style>. On your own site, download it from getbootstrap.com and put it beside your page.",
+     "matches": "href\\s*=\\s*\"bootstrap(\\.min)?\\.css\""
+    },
+    {
+     "label": "container",
+     "code": "<div class=\"container\">\n  ‹content›\n</div>\n",
+     "hint": "A centred column with space at the sides. Most Bootstrap pages put everything inside one.",
+     "matches": "class\\s*=\\s*\"(?:[^\"]*\\s)?container[\\s\"]"
+    },
+    {
+     "label": "btn button",
+     "code": "<button class=\"btn btn-‹primary›\">‹Join›</button>\n",
+     "hint": "btn gives the button shape; a second class picks the colour: btn-primary, btn-secondary, btn-success, btn-danger, btn-warning, or btn-outline-primary for an outline. Add btn-lg or btn-sm for the size. It needs both btn and a colour.",
+     "matches": "class\\s*=\\s*\"(?:[^\"]*\\s)?btn[\\s\"]",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<button class=\"btn btn-primary\">Save</button>\n<button class=\"btn btn-outline-secondary\">Cancel</button>\n<button class=\"btn btn-danger btn-sm\">Delete</button>\n",
+     "shows": "Three buttons: blue, outlined and a small red one"
+    },
+    {
+     "label": "alert",
+     "code": "<div class=\"alert alert-‹warning›\">‹Message›</div>\n",
+     "hint": "A coloured message box. alert gives the box; alert-primary, alert-success, alert-danger, alert-warning or alert-info picks the colour.",
+     "matches": "\\balert-\\w",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<div class=\"alert alert-info\">The library is open at lunch.</div>\n",
+     "shows": "A light blue message box"
+    },
+    {
+     "label": "spacing and text classes",
+     "code": "<p class=\"‹mt-3 p-2 text-center›\">‹Text›</p>\n",
+     "hint": "m is margin and p is padding; then t, b, s, e (top, bottom, start, end), x (both sides) or y (top and bottom), then a size from 0 to 5: mt-3 is a space above. text-center centres text; lead makes a larger opening paragraph; fw-bold makes it bold.",
+     "matches": "class\\s*=\\s*\"[^\"]*\\b([mp][tbsexy]?-[0-5]|text-center|lead)\\b",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<p class=\"lead text-center\">Welcome!</p>\n<p class=\"mt-4 p-3 border\">A box with space above and padding inside.</p>\n",
+     "shows": "A large centred line, then a padded box lower down"
+    },
+    {
+     "label": "navbar",
+     "code": "<nav class=\"navbar navbar-expand bg-body-tertiary\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\">‹Club name›</a>\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\"><a class=\"nav-link\" href=\"#‹part›\">‹Link›</a></li>\n    </ul>\n  </div>\n</nav>\n",
+     "hint": "The bar across the top: the brand (your name) on the left, then the menu. navbar-expand keeps the menu in a row (folding it into a button on phones needs Bootstrap's JavaScript).",
+     "matches": "class\\s*=\\s*\"[^\"]*\\bnavbar\\b",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<nav class=\"navbar navbar-expand bg-body-tertiary\">\n  <div class=\"container\">\n    <a class=\"navbar-brand\" href=\"#\">Library</a>\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Books</a></li>\n      <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Hours</a></li>\n    </ul>\n  </div>\n</nav>\n",
+     "shows": "A grey bar with a name and two menu links"
+    },
+    {
+     "label": "card",
+     "code": "<div class=\"card\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">‹Title›</h5>\n    <p class=\"card-text\">‹Text›</p>\n  </div>\n</div>\n",
+     "hint": "A box with a border and rounded corners. The card-body inside gives it padding; card-title and card-text style what is in it.",
+     "matches": "class\\s*=\\s*\"[^\"]*\\bcard\\b",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<div class=\"card m-2\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Robotics</h5>\n    <p class=\"card-text\">Fridays in the lab.</p>\n  </div>\n</div>\n",
+     "shows": "A bordered box with a title and a line of text"
+    },
+    {
+     "label": "row and col",
+     "code": "<div class=\"row\">\n  <div class=\"col\">‹first›</div>\n  <div class=\"col\">‹second›</div>\n</div>\n",
+     "hint": "Bootstrap's grid: a row lines up the cols inside it, and each col takes an equal share. col-4 and col-8 split the row 4 to 8 (a row is 12 parts). Put a row inside a container.",
+     "matches": "class\\s*=\\s*\"(?:[^\"]*\\s)?(row|col(-[\\w-]+)?)[\\s\"]",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col border\">One</div>\n    <div class=\"col border\">Two</div>\n    <div class=\"col border\">Three</div>\n  </div>\n</div>\n",
+     "shows": "Three boxes sharing a line equally"
+    },
+    {
+     "label": "form-control",
+     "code": "<label for=\"‹email›\" class=\"form-label\">‹Email›</label>\n<input id=\"‹email›\" type=\"‹email›\" class=\"form-control\">\n",
+     "hint": "Bootstrap's look for a form: form-label on each label, form-control on each box, form-select on a drop-down. The for and id still link them.",
+     "matches": "\\bform-(control|label|select)\\b",
+     "example": "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">\n\n<div class=\"m-2\">\n  <label for=\"town\" class=\"form-label\">Town</label>\n  <input id=\"town\" type=\"text\" class=\"form-control\">\n</div>\n",
+     "shows": "A label above a full-width box"
+    },
+    {
+     "label": "table class",
+     "code": "<table class=\"table ‹table-striped›\">\n  ‹rows›\n</table>\n",
+     "hint": "Bootstrap's look for a table: lines between rows and padding in the cells. table-striped shades every other row; table-bordered adds borders.",
+     "matches": "<table\\s[^>]*class\\s*=\\s*\"[^\"]*\\btable\\b"
+    }
+   ]
+  },
+  {
+   "name": "Other CSS frameworks",
+   "items": [
+    {
+     "label": "Bulma button",
+     "code": "<link rel=\"stylesheet\" href=\"bulma.min.css\">\n<button class=\"button is-‹primary›\">‹Join›</button>\n",
+     "hint": "Bulma works like Bootstrap with different names: button for the shape, is-primary, is-success or is-danger for the colour, is-large for the size.",
+     "matches": "bulma(\\.min)?\\.css|class\\s*=\\s*\"[^\"]*\\bis-\\w",
+     "example": "<link rel=\"stylesheet\" href=\"bulma.min.css\">\n\n<div class=\"p-3\">\n  <button class=\"button is-primary\">Send</button>\n  <button class=\"button is-danger is-light\">Delete</button>\n</div>\n",
+     "shows": "Two Bulma buttons"
+    },
+    {
+     "label": "Tailwind utility classes",
+     "code": "<script src=\"tailwind.js\"></script>\n<button class=\"‹bg-blue-600 text-white px-4 py-2 rounded-lg›\">‹Join›</button>\n",
+     "hint": "Tailwind has one class per CSS property: bg-blue-600 is the background, text-white the text colour, px-4 and py-2 the padding, rounded-lg the corners. Here tailwind.js writes the CSS as the page loads (for trying things); real sites use a build tool.",
+     "matches": "tailwind\\.js",
+     "example": "<script src=\"tailwind.js\"></script>\n\n<p class=\"m-3 p-3 bg-yellow-100 text-lg font-bold rounded\">Sale today!</p>\n",
+     "shows": "A yellow box with large bold text"
+    },
+    {
+     "label": "daisyUI button",
+     "code": "<link rel=\"stylesheet\" href=\"daisyui.css\">\n<script src=\"tailwind.js\"></script>\n<button class=\"btn btn-‹primary›\">‹Join›</button>\n",
+     "hint": "daisyUI puts Bootstrap-style names (btn, card, alert) on top of Tailwind, so you can mix whole parts with Tailwind's one-property classes.",
+     "matches": "daisyui\\.css",
+     "example": "<link rel=\"stylesheet\" href=\"daisyui.css\">\n<script src=\"tailwind.js\"></script>\n\n<div class=\"p-3\">\n  <button class=\"btn btn-secondary\">Play</button>\n</div>\n",
+     "shows": "A daisyUI button"
+    },
+    {
+     "label": "Pico (no classes)",
+     "code": "<link rel=\"stylesheet\" href=\"pico.classless.min.css\">\n<main>\n  ‹plain tags›\n</main>\n",
+     "hint": "Pico's classless version styles plain tags: a page with headings, paragraphs, forms and buttons looks tidy with no class names at all. Put the page in a <main>.",
+     "matches": "pico(\\.classless)?(\\.min)?\\.css",
+     "example": "<link rel=\"stylesheet\" href=\"pico.classless.min.css\">\n\n<main>\n  <h3>Hello</h3>\n  <button>OK</button>\n</main>\n",
+     "shows": "A heading and a button, styled with no classes"
+    }
+   ]
+  },
+  {
+   "name": "Vue",
+   "items": [
+    {
+     "label": "Vue app",
+     "code": "<div id=\"app\">\n  ‹the page›\n</div>\n\n<script src=\"vue.js\"></script>\n<script>\n  const { createApp, ref, computed } = Vue;\n  createApp({\n    setup() {\n      ‹data and functions›\n      return { ‹names› };\n    }\n  }).mount(\"#app\");\n</script>\n",
+     "hint": "Vue looks after everything inside the div with id app. setup makes the data and functions, and returns the names the page can use. vue.js sits beside the page.",
+     "matches": "createApp\\s*\\(",
+     "example": "<div id=\"app\">\n  <p>Today: {{ temp }} °C</p>\n</div>\n\n<script src=\"vue.js\"></script>\n<script>\n  const { createApp, ref } = Vue;\n  createApp({\n    setup() {\n      const temp = ref(21);\n      return { temp };\n    }\n  }).mount(\"#app\");\n</script>\n",
+     "shows": "A sentence showing the data: Today: 21 °C"
+    },
+    {
+     "label": "ref data",
+     "code": "const ‹score› = ref(‹0›);\n",
+     "hint": "Data that Vue watches: when it changes, the page follows. Return it from setup. In the script its value is score.value; on the page, just score.",
+     "matches": "\\bref\\s*\\("
+    },
+    {
+     "label": "show data {{ }}",
+     "code": "{{ ‹score› }}\n",
+     "hint": "Shows a value from setup on the page, and keeps it up to date. Any short expression works: {{ score * 2 }}.",
+     "matches": "\\{\\{"
+    },
+    {
+     "label": "@click event",
+     "code": "<button @click=\"‹addPoint›\">‹Add›</button>\n",
+     "hint": "Runs a function from setup when the button is clicked. A short change works too: @click=\"score++\".",
+     "matches": "@click\\b"
+    },
+    {
+     "label": "v-for",
+     "code": "<li v-for=\"‹name› in ‹players›\">{{ ‹name› }}</li>\n",
+     "hint": "Makes this tag once for each item in the list. Put it on the tag you want more of (the li, not the ul).",
+     "matches": "\\sv-for\\s*=",
+     "example": "<ul id=\"app\">\n  <li v-for=\"fruit in fruits\">{{ fruit }}</li>\n</ul>\n\n<script src=\"vue.js\"></script>\n<script>\n  const { createApp, ref } = Vue;\n  createApp({\n    setup() {\n      const fruits = ref([\"Apple\", \"Pear\", \"Plum\"]);\n      return { fruits };\n    }\n  }).mount(\"#app\");\n</script>\n",
+     "shows": "A list with one item for each fruit"
+    },
+    {
+     "label": "v-if",
+     "code": "<p v-if=\"‹players.length === 0›\">‹No players yet.›</p>\n",
+     "hint": "Shows the tag only while the condition is true. v-else on the next tag shows when it is false.",
+     "matches": "\\sv-(if|else)\\b"
+    },
+    {
+     "label": "v-model",
+     "code": "<input v-model=\"‹newName›\">\n",
+     "hint": "Joins a box to a ref, both ways: typing changes the data, and changing the data changes the box. On a tick box it is true or false.",
+     "matches": "\\sv-model\\b"
+    },
+    {
+     "label": "function in setup",
+     "code": "function ‹addPoint›() {\n  ‹score›.value++;\n}\n",
+     "hint": "A function the page can run (return it from setup). In the script, a ref's value is in .value.",
+     "matches": "\\.value\\s*(\\+\\+|--|[-+]?=(?!=))"
+    },
+    {
+     "label": "computed",
+     "code": "const ‹total› = computed(() => ‹adults.value * 12›);\n",
+     "hint": "A value worked out from other data. Vue works it out again whenever that data changes, so it never goes stale. Never set it yourself.",
+     "matches": "\\bcomputed\\s*\\("
+    },
+    {
+     "label": "component and props",
+     "code": "app.component(\"‹player-card›\", {\n  props: [\"‹name›\"],\n  template: `‹<p>{{ name }}</p>›`\n});\n",
+     "hint": "A tag of your own, made once and used many times: <player-card :name=\"p.name\"></player-card>. The colon passes a value. Make the app with const app = createApp(...), add components, then app.mount(\"#app\").",
+     "matches": "\\.component\\s*\\("
+    }
+   ]
+  },
+  {
+   "name": "Frameworks",
+   "items": [
+    {
+     "label": "Preact app",
+     "code": "<div id=\"app\"></div>\n<script src=\"preact.js\"></script>\n<script>\n  const { html, render, useState } = htmPreact;\n  function App() {\n    ‹state and functions›\n    return html`‹the page›`;\n  }\n  render(html`<${App} />`, document.querySelector(\"#app\"));\n</script>\n",
+     "hint": "Preact works like React. A component is a function that returns its page, written in html`…` (htm). Preact runs the function again after every change.",
+     "matches": "htmPreact"
+    },
+    {
+     "label": "useState",
+     "code": "const [‹stars›, ‹setStars›] = useState(‹[]›);\n",
+     "hint": "Preact and React state: the value, and a function to change it. Always give it a new value: setStars([...stars, item]), never stars.push.",
+     "matches": "\\buseState\\s*\\("
+    },
+    {
+     "label": "Svelte component",
+     "code": "<textarea data-svelte hidden>\n  <script>\n    ‹state and functions›\n  </script>\n  ‹the page›\n</textarea>\n<script src=\"svelte.js\"></script>\n",
+     "hint": "Here a Svelte component sits in a hidden textarea and svelte.js compiles it in the page. In a real project it is its own file, App.svelte.",
+     "matches": "data-svelte",
+     "example": "<textarea data-svelte hidden>\n  <script>\n    let name = $state(\"world\");\n  </script>\n  <p>Hello, {name}!</p>\n</textarea>\n<script src=\"svelte.js\"></script>\n",
+     "shows": "Hello, world!"
+    },
+    {
+     "label": "$state and $derived",
+     "code": "let ‹count› = $state(‹0›);\nlet ‹double› = $derived(‹count * 2›);\n",
+     "hint": "Svelte's data that changes, and a value worked out from it. Change $state data directly (count++, list.push). Show it with {count}; choose with {#if …} … {/if}.",
+     "matches": "\\$(state|derived)\\s*\\("
+    }
+   ]
+  },
+  {
+   "name": "Fetch and JSON",
+   "items": [
+    {
+     "label": "fetch JSON",
+     "code": "const response = await fetch(\"‹weather.json›\");\nconst data = await response.json();\n",
+     "hint": "Asks for a file or web address, waits for the reply, then turns it into data (objects and arrays). Both lines need await, inside an async function.",
+     "matches": "\\bfetch\\s*\\(",
+     "example": "<p id=\"out\">Loading…</p>\n<script>\n  async function load() {\n    const response = await fetch(\"weather.json\");\n    const data = await response.json();\n    document.querySelector(\"#out\").textContent = \"Days: \" + data.daily.time.length;\n  }\n  load();\n</script>\n",
+     "shows": "Loading… becomes Days: 7 once the file has arrived"
+    },
+    {
+     "label": "async function",
+     "code": "async function ‹load›() {\n  ‹… await …›\n}\n‹load›();\n",
+     "hint": "A function that may wait for slow things with await. Call it like any function; the rest of the page keeps going while it waits.",
+     "matches": "\\basync\\s+function\\b"
+    },
+    {
+     "label": "try and catch",
+     "code": "try {\n  ‹what might fail›\n} catch (error) {\n  ‹plan B›\n}\n",
+     "hint": "Runs the lines in try; if one fails (no network, a blocked site), jumps to catch instead of stopping with an error.",
+     "matches": "\\btry\\s*\\{"
+    }
+   ]
+  },
+  {
+   "name": "A page for everyone, online",
+   "items": [
+    {
+     "label": "alt text",
+     "code": "<img src=\"‹trophy.svg›\" alt=\"‹A gold trophy›\">\n",
+     "hint": "Says what a picture shows, for anyone who can't see it (screen readers read it aloud). Use alt=\"\" for a picture that is only decoration.",
+     "matches": "\\balt\\s*="
+    },
+    {
+     "label": "heading outline",
+     "code": "<h1>‹Page title›</h1>\n<h2>‹A part of the page›</h2>\n<h3>‹A part of that part›</h3>\n",
+     "hint": "Headings are the page's outline: one h1, then h2 for each part, h3 inside those. Never pick a level for its size; set the size with CSS.",
+     "matches": "<h2\\b"
+    },
+    {
+     "label": "whole page",
+     "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>‹My page›</title>\n</head>\n<body>\n  ‹the page›\n</body>\n</html>\n",
+     "hint": "What a page file needs around its content: the language, the text encoding, a phone-friendly width and a title for the tab. The Download button adds it for you.",
+     "matches": "<!doctype"
+    },
+    {
+     "label": "relative path",
+     "code": "<img src=\"‹trophy.svg›\" alt=\"‹…›\">\n<link rel=\"stylesheet\" href=\"‹style.css›\">\n",
+     "hint": "A file name with no folder means \"beside this page\"; images/trophy.svg means \"in the images folder beside this page\". Never a path from your own computer (C:/Users/…).",
+     "matches": "src\\s*=\\s*\"[^\"/:]+\\.(svg|png|jpe?g|gif)\""
+    }
+   ]
+  }
+ ]
+}

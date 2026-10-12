@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.650
+First tidy what was typed, then cut it into words.
+
+2
+00:00:04.429 --> 00:00:09.154
+strip takes off spaces at the ends, and lower makes every letter small.
+
+3
+00:00:09.880 --> 00:00:12.755
+split cuts the text into a list of words.
+
+4
+00:00:18.652 --> 00:00:22.852
+words, place zero, is the first word, however it was typed.

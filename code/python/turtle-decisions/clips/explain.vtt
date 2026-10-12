@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.325
+An if lets your program choose which lines to run.
+
+2
+00:00:04.451 --> 00:00:09.126
+The if asks a question: does i divide by two with nothing left over?
+
+3
+00:00:09.852 --> 00:00:14.702
+If yes, the lines under if run. If not, the lines under else run.
+
+4
+00:00:18.429 --> 00:00:23.979
+Even sides are red, odd sides blue. Two equals signs ask; one stores.

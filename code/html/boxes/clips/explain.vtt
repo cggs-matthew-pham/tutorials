@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.325
+Every element is a box: content, padding, border, margin
+
+2
+00:00:04.852 --> 00:00:09.702
+Every element is a box. The words in the middle, in blue, are its content.
+
+3
+00:00:10.381 --> 00:00:13.981
+padding (green) adds space inside, around the content.
+
+4
+00:00:14.731 --> 00:00:17.681
+border (gold) is the line around the padding.
+
+5
+00:00:18.256 --> 00:00:22.331
+margin (orange) is space outside the border, between boxes.
+
+6
+00:00:23.107 --> 00:00:28.657
+Width sets the content only, so with padding and border the box is 250 wide.

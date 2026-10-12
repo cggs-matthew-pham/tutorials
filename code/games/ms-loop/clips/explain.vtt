@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.375
+in it runs once, then update and draw run 60 times a second.
+
+2
+00:00:05.225 --> 00:00:09.200
+in it runs once, when the game starts: x begins at the left.
+
+3
+00:00:10.125 --> 00:00:14.575
+update runs 60 times a second: it moves x a little each time.
+
+4
+00:00:15.425 --> 00:00:19.675
+draw runs after each update: clear the screen, then draw the dot.
+
+5
+00:00:22.304 --> 00:00:27.079
+Nobody calls these functions in the code: the engine does, over and over.

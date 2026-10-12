@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.225
+try runs code that might fail, and except says what to do then.
+
+2
+00:00:05.326 --> 00:00:09.226
+int on letters would stop the program with a value error.
+
+3
+00:00:10.490 --> 00:00:14.215
+So try it, and except value error catches that error.
+
+4
+00:00:19.471 --> 00:00:22.471
+The program replies, instead of stopping.

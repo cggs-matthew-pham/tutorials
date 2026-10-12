@@ -1,0 +1,1 @@
+Pyodide 314.0.7 (Mozilla Public License 2.0; packages under their own licences), the part the in-browser Python playground uses, plus Flask and its dependencies from PyPI (BSD-3-Clause). Made by tools/pyodide-vendor.mjs; do not edit by hand.

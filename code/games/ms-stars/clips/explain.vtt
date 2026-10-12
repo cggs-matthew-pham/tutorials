@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.850
+Each star moves itself and draws itself
+
+2
+00:00:03.628 --> 00:00:07.253
+Each Star keeps its own x, y and speed in self.
+
+3
+00:00:08.006 --> 00:00:12.156
+move changes this star's y, and draw paints it where it is now.
+
+4
+00:00:17.122 --> 00:00:22.072
+update asks every star to move, and draw asks every star to draw itself.

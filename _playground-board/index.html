@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Board</title>
+<link rel="stylesheet" href="vendor/jsxgraph.css?v=3e35ff1e64">
+<link rel="stylesheet" href="style.css?v=3e35ff1e64">
+</head>
+<body>
+<main>
+  <div id="board" class="jxgbox" role="img" aria-label=""></div>
+  <!-- Balance, try mode: change x and watch the scale -->
+  <div id="controls" hidden>
+    <label for="xval" id="xlabel">x</label>
+    <button type="button" id="minus" aria-label="Make x one less">−</button>
+    <input type="range" id="xval" aria-describedby="status">
+    <button type="button" id="plus" aria-label="Make x one more">+</button>
+    <output id="xshow" for="xval"></output>
+  </div>
+  <!-- Balance, solve mode: do the same to both sides -->
+  <div id="ops" hidden>
+    <div class="oprow">
+      <span>Take away</span>
+      <input type="number" id="takeN" min="1" step="1" value="1" aria-label="How many to take away">
+      <select id="takeWhat" aria-label="Take away what"><option value="b">blocks</option><option value="a">bags of x</option></select>
+      <button type="button" id="take">from both sides</button>
+    </div>
+    <div class="oprow">
+      <span>Share both sides into</span>
+      <input type="number" id="splitN" min="2" step="1" value="2" aria-label="How many equal groups">
+      <button type="button" id="split">equal groups</button>
+      <button type="button" id="restart" class="quiet">Start again</button>
+    </div>
+    <ol id="history" aria-label="Your steps"></ol>
+  </div>
+  <!-- Function machine: undo each step in reverse order -->
+  <div id="machine" hidden>
+    <div id="mrow" aria-label="The machine"></div>
+    <div class="oprow">
+      <span>Undo with</span>
+      <select id="undoOp" aria-label="Operation"><option value="+">+</option><option value="-">−</option><option value="*">×</option><option value="/">÷</option></select>
+      <input type="number" id="undoN" step="1" value="1" aria-label="Number">
+      <button type="button" id="undo">Undo a step</button>
+      <button type="button" id="mrestart" class="quiet">Start again</button>
+    </div>
+    <ol id="mhistory" aria-label="Your steps"></ol>
+  </div>
+  <!-- Graph: sliders, the relations with their values, a table of values -->
+  <div id="gpanel" hidden></div>
+  <p id="status" aria-live="polite"></p>
+  <p id="error" hidden></p>
+</main>
+<script src="vendor/jsxgraphcore.js?v=3e35ff1e64"></script>
+<script src="maths.js?v=3e35ff1e64"></script>
+<script src="core.js?v=3e35ff1e64"></script>
+<script src="widgets/balance.js?v=3e35ff1e64"></script>
+<script src="widgets/machine.js?v=3e35ff1e64"></script>
+<script src="widgets/graph.js?v=3e35ff1e64"></script>
+<script src="widgets/pattern.js?v=3e35ff1e64"></script>
+<script src="widgets/rule.js?v=3e35ff1e64"></script>
+<script src="widgets/formula.js?v=3e35ff1e64"></script>
+<script src="widgets/numberline.js?v=3e35ff1e64"></script>
+<script src="widgets/geometry.js?v=3e35ff1e64"></script>
+<script src="widgets/tiles.js?v=3e35ff1e64"></script>
+<script src="widgets/parallel.js?v=3e35ff1e64"></script>
+<script src="widgets/bars.js?v=3e35ff1e64"></script>
+<script src="widgets/data.js?v=3e35ff1e64"></script>
+<script src="widgets/chance.js?v=3e35ff1e64"></script>
+<script src="widgets/square.js?v=3e35ff1e64"></script>
+<script src="widgets/factortree.js?v=3e35ff1e64"></script>
+<script src="widgets/fracarea.js?v=3e35ff1e64"></script>
+<script src="widgets/percent.js?v=3e35ff1e64"></script>
+<script src="widgets/fracadd.js?v=3e35ff1e64"></script>
+<script src="widgets/area.js?v=3e35ff1e64"></script>
+<script src="widgets/prism.js?v=3e35ff1e64"></script>
+<script src="widgets/circle.js?v=3e35ff1e64"></script>
+<script src="widgets/pythag.js?v=3e35ff1e64"></script>
+<script src="widgets/placevalue.js?v=3e35ff1e64"></script>
+<script src="widgets/rounding.js?v=3e35ff1e64"></script>
+<script src="widgets/ratio.js?v=3e35ff1e64"></script>
+<script src="widgets/composite.js?v=3e35ff1e64"></script>
+<script src="widgets/circlearea.js?v=3e35ff1e64"></script>
+<script src="widgets/timezone.js?v=3e35ff1e64"></script>
+<script src="widgets/longdiv.js?v=3e35ff1e64"></script>
+<script src="widgets/zoomline.js?v=3e35ff1e64"></script>
+<script src="widgets/indexlaws.js?v=3e35ff1e64"></script>
+<script src="widgets/money.js?v=3e35ff1e64"></script>
+<script src="widgets/rate.js?v=3e35ff1e64"></script>
+<script src="widgets/congruence.js?v=3e35ff1e64"></script>
+<script src="widgets/similar.js?v=3e35ff1e64"></script>
+<script src="widgets/space3d.js?v=3e35ff1e64"></script>
+<script src="widgets/events.js?v=3e35ff1e64"></script>
+<script src="widgets/venn.js?v=3e35ff1e64"></script>
+<script src="widgets/sample.js?v=3e35ff1e64"></script>
+<script src="widgets/transform.js?v=3e35ff1e64"></script>
+<script src="widgets/net.js?v=3e35ff1e64"></script>
+<script src="widgets/views.js?v=3e35ff1e64"></script>
+<script src="widgets/forces.js?v=3e35ff1e64"></script>
+<script src="widgets/key.js?v=3e35ff1e64"></script>
+<script src="widgets/foodweb.js?v=3e35ff1e64"></script>
+<script src="widgets/classifier.js?v=3e35ff1e64"></script>
+<script src="widgets/serial.js?v=3e35ff1e64"></script>
+<script src="widgets/cell.js?v=3e35ff1e64"></script>
+<script src="widgets/coordination.js?v=3e35ff1e64"></script>
+<script src="widgets/cross.js?v=3e35ff1e64"></script>
+<script src="widgets/sky.js?v=3e35ff1e64"></script>
+<script src="widgets/layers.js?v=3e35ff1e64"></script>
+<script src="widgets/carbon.js?v=3e35ff1e64"></script>
+<script src="widgets/universe.js?v=3e35ff1e64"></script>
+<script src="widgets/atom.js?v=3e35ff1e64"></script>
+<script src="widgets/equation.js?v=3e35ff1e64"></script>
+<script src="widgets/energy.js?v=3e35ff1e64"></script>
+<script src="widgets/wave.js?v=3e35ff1e64"></script>
+<script src="widgets/charge.js?v=3e35ff1e64"></script>
+<script src="widgets/climate.js?v=3e35ff1e64"></script>
+<script src="widgets/bits.js?v=3e35ff1e64"></script>
+<script src="widgets/decode.js?v=3e35ff1e64"></script>
+<script src="widgets/pixels.js?v=3e35ff1e64"></script>
+<script src="widgets/sampling.js?v=3e35ff1e64"></script>
+<script src="widgets/logic.js?v=3e35ff1e64"></script>
+<script src="widgets/network.js?v=3e35ff1e64"></script>
+<script src="widgets/gears.js?v=3e35ff1e64"></script>
+<script src="widgets/geartrain.js?v=3e35ff1e64"></script>
+<script src="widgets/lever.js?v=3e35ff1e64"></script>
+<script src="widgets/motion.js?v=3e35ff1e64"></script>
+<script src="widgets/pcb.js?v=3e35ff1e64"></script>
+<script src="widgets/truss.js?v=3e35ff1e64"></script>
+<script src="widgets/circuit.js?v=3e35ff1e64"></script>
+<script src="widgets/arduino.js?v=3e35ff1e64"></script>
+<script src="widgets/breadboard.js?v=3e35ff1e64"></script>
+<script src="widgets/motor.js?v=3e35ff1e64"></script>
+<script src="widgets/fab.js?v=3e35ff1e64"></script>
+<script src="widgets/security.js?v=3e35ff1e64"></script>
+<script src="widgets/hardware.js?v=3e35ff1e64"></script>
+<script src="widgets/gates.js?v=3e35ff1e64"></script>
+<script src="widgets/cpu.js?v=3e35ff1e64"></script>
+<script src="widgets/webdoc.js?v=3e35ff1e64"></script>
+<script src="widgets/shell.js?v=3e35ff1e64"></script>
+<script src="widgets/cyber.js?v=3e35ff1e64"></script>
+<script src="widgets/shapes.js?v=3e35ff1e64"></script>
+<script src="widgets/encode.js?v=3e35ff1e64"></script>
+<script src="widgets/source.js?v=3e35ff1e64"></script>
+<script src="widgets/netctf.js?v=3e35ff1e64"></script>
+<script>WPB.boot();</script>
+</body>
+</html>

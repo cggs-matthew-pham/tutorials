@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.025
+Change the data, and Vue changes the page
+
+2
+00:00:03.927 --> 00:00:07.127
+The page shows the score in double curly brackets.
+
+3
+00:00:08.128 --> 00:00:10.828
+Load view, the file beside the page.
+
+4
+00:00:11.430 --> 00:00:14.430
+The score is a ref: data that Vue watches.
+
+5
+00:00:22.996 --> 00:00:26.246
+Each click changes the score; the page follows.

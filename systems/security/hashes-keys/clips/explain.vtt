@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:03.026
+The site stores a hash, not the password.
+
+2
+00:00:04.701 --> 00:00:07.301
+Hash what is typed and compare.
+
+3
+00:00:09.370 --> 00:00:12.745
+Change one letter, and the whole hash changes.

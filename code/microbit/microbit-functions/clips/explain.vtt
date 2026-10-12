@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.000
+A function is a named job. Making it does not run it.
+
+2
+00:00:04.803 --> 00:00:07.853
+A call block runs it, once for each call.
+
+3
+00:00:08.532 --> 00:00:13.782
+points is a parameter, an input. Calling show score 5 makes points five.
+
+4
+00:00:16.451 --> 00:00:21.001
+Every event block is a function too. The micro:bit calls it for you.

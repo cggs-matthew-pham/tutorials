@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.000
+The info blocks and timers do a lot of the work for you.
+
+2
+00:00:04.879 --> 00:00:09.679
+set life shows hearts, and at zero lives the game ends by itself.
+
+3
+00:00:10.484 --> 00:00:15.059
+A timer runs its blocks again every second, so it can make enemies.
+
+4
+00:00:17.733 --> 00:00:22.283
+An overlap runs every frame, so destroy the enemy when it hits.

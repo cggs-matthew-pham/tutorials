@@ -1,0 +1,626 @@
+{
+ "code/bootstrap/bs-classes/step-4-t1": {
+  "hash": "b7e3f8fb7d73f40a",
+  "w": 1040,
+  "h": 472,
+  "div": 2
+ },
+ "code/bootstrap/bs-classes/step-4-t2": {
+  "hash": "d806f05bddc5204a",
+  "w": 1040,
+  "h": 600,
+  "div": 2
+ },
+ "code/bootstrap/bs-components/step-4-t1": {
+  "hash": "84417ba73605d575",
+  "w": 1040,
+  "h": 576,
+  "div": 2
+ },
+ "code/bootstrap/bs-components/step-4-t2": {
+  "hash": "3fde6ed756e007d9",
+  "w": 1040,
+  "h": 856,
+  "div": 2
+ },
+ "code/bootstrap/bs-yours/step-5-t1": {
+  "hash": "dede22a777488bcc",
+  "w": 1040,
+  "h": 452,
+  "div": 2
+ },
+ "code/bootstrap/bs-yours/step-5-t2": {
+  "hash": "a67c3ff37745722b",
+  "w": 1040,
+  "h": 452,
+  "div": 2
+ },
+ "code/bootstrap/bs-yours/step-5-t3": {
+  "hash": "bf8cf13edf60637b",
+  "w": 1040,
+  "h": 328,
+  "div": 2
+ },
+ "code/dom/dom-change/step-4-t1": {
+  "hash": "5232985f23b5b90a",
+  "w": 1040,
+  "h": 244,
+  "div": 2
+ },
+ "code/dom/dom-change/step-4-t2": {
+  "hash": "39146d7dfc755eb8",
+  "w": 1040,
+  "h": 244,
+  "div": 2
+ },
+ "code/dom/dom-click/step-4-t1": {
+  "hash": "b3c92b6b40f7009b",
+  "w": 1040,
+  "h": 218,
+  "div": 2
+ },
+ "code/dom/dom-click/step-4-t2": {
+  "hash": "f6bc505e23ac3d32",
+  "w": 1040,
+  "h": 218,
+  "div": 2
+ },
+ "code/dom/dom-fetch/step-4-t1": {
+  "hash": "a0e9c4c3af6de884",
+  "w": 1040,
+  "h": 596,
+  "div": 2
+ },
+ "code/dom/dom-input/step-4-t1": {
+  "hash": "919d9544e2e71610",
+  "w": 1040,
+  "h": 74,
+  "div": 2
+ },
+ "code/dom/dom-input/step-4-t2": {
+  "hash": "47bec083980b9275",
+  "w": 1040,
+  "h": 244,
+  "div": 2
+ },
+ "code/dom/dom-list/step-4-t1": {
+  "hash": "ffa7a40ee82e9960",
+  "w": 1040,
+  "h": 74,
+  "div": 2
+ },
+ "code/dom/dom-list/step-4-t2": {
+  "hash": "3491a89a7d33ed26",
+  "w": 1040,
+  "h": 74,
+  "div": 2
+ },
+ "code/dom/dom-quiz/step-4-t1": {
+  "hash": "57cc8823c611fc02",
+  "w": 1040,
+  "h": 386,
+  "div": 2
+ },
+ "code/dom/dom-quiz/step-4-t2": {
+  "hash": "6c05034f65f37b66",
+  "w": 1040,
+  "h": 386,
+  "div": 2
+ },
+ "code/dom/dom-save/step-4-t1": {
+  "hash": "308a117ac5c37719",
+  "w": 1040,
+  "h": 292,
+  "div": 2
+ },
+ "code/dom/dom-save/step-4-t2": {
+  "hash": "51fc4cfc76cba00c",
+  "w": 1040,
+  "h": 398,
+  "div": 2
+ },
+ "code/dom/dom-state/step-4-t1": {
+  "hash": "2e288a5669b78e71",
+  "w": 1040,
+  "h": 258,
+  "div": 2
+ },
+ "code/dom/dom-state/step-4-t2": {
+  "hash": "42753e2a44b5d665",
+  "w": 1040,
+  "h": 258,
+  "div": 2
+ },
+ "code/dom/dom-style/step-4-t1": {
+  "hash": "c96af2647de234b9",
+  "w": 1040,
+  "h": 268,
+  "div": 2
+ },
+ "code/dom/dom-style/step-4-t2": {
+  "hash": "889c599b703ded9b",
+  "w": 1040,
+  "h": 268,
+  "div": 2
+ },
+ "code/html/boxes/step-4-t1": {
+  "hash": "78eb2e49abea9b1e",
+  "w": 1040,
+  "h": 216,
+  "div": 2
+ },
+ "code/html/boxes/step-4-t2": {
+  "hash": "895365e55bd427ad",
+  "w": 1040,
+  "h": 296,
+  "div": 2
+ },
+ "code/html/boxes/step-4-t3": {
+  "hash": "277a00e2fb8fa629",
+  "w": 1040,
+  "h": 296,
+  "div": 2
+ },
+ "code/html/boxes/step-4-t4": {
+  "hash": "5a0788674ded01e0",
+  "w": 1040,
+  "h": 296,
+  "div": 2
+ },
+ "code/html/boxes/step-5": {
+  "hash": "12dbe21109ec1a14",
+  "w": 1040,
+  "h": 600,
+  "div": 2
+ },
+ "code/html/boxes/step-6": {
+  "hash": "1d00833de2e5208b",
+  "w": 1040,
+  "h": 792,
+  "div": 2
+ },
+ "code/html/club-page/step-2-t1": {
+  "hash": "0f4babf906c8ba33",
+  "w": 1040,
+  "h": 308,
+  "div": 2
+ },
+ "code/html/club-page/step-2-t2": {
+  "hash": "b8c8bda9faec9e23",
+  "w": 1040,
+  "h": 1078,
+  "div": 2
+ },
+ "code/html/club-page/step-2-t3": {
+  "hash": "6bb4555b153f4b6b",
+  "w": 1040,
+  "h": 1800,
+  "div": 2
+ },
+ "code/html/club-page/step-3": {
+  "hash": "7f7a29dfd4a6a632",
+  "w": 1040,
+  "h": 1800,
+  "div": 2
+ },
+ "code/html/first-page/step-4-t2": {
+  "hash": "1ceea92f097db9ac",
+  "w": 1040,
+  "h": 508,
+  "div": 2
+ },
+ "code/html/first-page/step-4-t3": {
+  "hash": "ec76da6a2cb3cdf2",
+  "w": 1040,
+  "h": 508,
+  "div": 2
+ },
+ "code/html/first-page/step-5": {
+  "hash": "de5392705fe40a9d",
+  "w": 1040,
+  "h": 508,
+  "div": 2
+ },
+ "code/html/first-page/step-6": {
+  "hash": "db6bc310ebd0c2f8",
+  "w": 1040,
+  "h": 550,
+  "div": 2
+ },
+ "code/html/flexbox/step-4-t1": {
+  "hash": "8a2deeb253bc05df",
+  "w": 1040,
+  "h": 1784,
+  "div": 2
+ },
+ "code/html/flexbox/step-4-t2": {
+  "hash": "5eebce4da18d4584",
+  "w": 1040,
+  "h": 1784,
+  "div": 2
+ },
+ "code/html/flexbox/step-4-t3": {
+  "hash": "b9972293308827c3",
+  "w": 1040,
+  "h": 1784,
+  "div": 2
+ },
+ "code/html/flexbox/step-4-t4": {
+  "hash": "2f951736e0dd6eb9",
+  "w": 1040,
+  "h": 692,
+  "div": 2
+ },
+ "code/html/flexbox/step-5": {
+  "hash": "6faa254f2c91163b",
+  "w": 1040,
+  "h": 560,
+  "div": 2
+ },
+ "code/html/flexbox/step-6": {
+  "hash": "aad9b72b56e768c8",
+  "w": 1040,
+  "h": 336,
+  "div": 2
+ },
+ "code/html/forms/step-4-t1": {
+  "hash": "40fb03b0c2d776b5",
+  "w": 1040,
+  "h": 74,
+  "div": 2
+ },
+ "code/html/forms/step-4-t2": {
+  "hash": "eb5f2a75b654930a",
+  "w": 1040,
+  "h": 116,
+  "div": 2
+ },
+ "code/html/forms/step-4-t3": {
+  "hash": "a2622057ef7085f8",
+  "w": 1040,
+  "h": 230,
+  "div": 2
+ },
+ "code/html/forms/step-4-t4": {
+  "hash": "8a558a3a942110e4",
+  "w": 1040,
+  "h": 386,
+  "div": 2
+ },
+ "code/html/forms/step-5": {
+  "hash": "9af68660f1ffb03e",
+  "w": 1040,
+  "h": 500,
+  "div": 2
+ },
+ "code/html/forms/step-6": {
+  "hash": "7061c9c5769776ca",
+  "w": 1040,
+  "h": 416,
+  "div": 2
+ },
+ "code/html/grid/step-4-t1": {
+  "hash": "b71c2340946a4758",
+  "w": 1040,
+  "h": 862,
+  "div": 2
+ },
+ "code/html/grid/step-4-t2": {
+  "hash": "2a82416ba451002f",
+  "w": 1040,
+  "h": 862,
+  "div": 2
+ },
+ "code/html/grid/step-4-t3": {
+  "hash": "bb94a2786c8b5469",
+  "w": 1040,
+  "h": 518,
+  "div": 2
+ },
+ "code/html/grid/step-5": {
+  "hash": "e10af4cf6905ecdc",
+  "w": 1040,
+  "h": 344,
+  "div": 2
+ },
+ "code/html/grid/step-6": {
+  "hash": "8965da14f77df79d",
+  "w": 1040,
+  "h": 772,
+  "div": 2
+ },
+ "code/html/images/step-4-t1": {
+  "hash": "b11ab4523391b270",
+  "w": 1040,
+  "h": 460,
+  "div": 2
+ },
+ "code/html/images/step-4-t2": {
+  "hash": "8fad2682b0ba67ae",
+  "w": 1040,
+  "h": 770,
+  "div": 2
+ },
+ "code/html/images/step-4-t3": {
+  "hash": "95930b38e99eb165",
+  "w": 1040,
+  "h": 770,
+  "div": 2
+ },
+ "code/html/images/step-5": {
+  "hash": "2b0b3a0173cd5914",
+  "w": 1040,
+  "h": 526,
+  "div": 2
+ },
+ "code/html/images/step-6": {
+  "hash": "b5f990db5fb40336",
+  "w": 1040,
+  "h": 696,
+  "div": 2
+ },
+ "code/html/lists-links/step-4-t1": {
+  "hash": "6c241e05866fc81a",
+  "w": 1040,
+  "h": 478,
+  "div": 2
+ },
+ "code/html/lists-links/step-4-t2": {
+  "hash": "e10984542055a9d4",
+  "w": 1040,
+  "h": 684,
+  "div": 2
+ },
+ "code/html/lists-links/step-4-t3": {
+  "hash": "fc4b9ae8cd7bc5ce",
+  "w": 1040,
+  "h": 684,
+  "div": 2
+ },
+ "code/html/lists-links/step-4-t4": {
+  "hash": "1cdd807e39c0a1ab",
+  "w": 1040,
+  "h": 684,
+  "div": 2
+ },
+ "code/html/lists-links/step-5": {
+  "hash": "bd0c47934dd49e1e",
+  "w": 1040,
+  "h": 388,
+  "div": 2
+ },
+ "code/html/lists-links/step-6": {
+  "hash": "de0adf3428dad072",
+  "w": 1040,
+  "h": 590,
+  "div": 2
+ },
+ "code/html/make-it-react/step-4-t1": {
+  "hash": "d87c55e171c03d4d",
+  "w": 1040,
+  "h": 158,
+  "div": 2
+ },
+ "code/html/make-it-react/step-4-t2": {
+  "hash": "a886bb1ff3e38e9c",
+  "w": 1040,
+  "h": 158,
+  "div": 2
+ },
+ "code/html/make-it-react/step-4-t3": {
+  "hash": "72e4097317a77033",
+  "w": 1040,
+  "h": 158,
+  "div": 2
+ },
+ "code/html/sections/step-4-t1": {
+  "hash": "421c1686d388b0a1",
+  "w": 1040,
+  "h": 646,
+  "div": 2
+ },
+ "code/html/sections/step-4-t2": {
+  "hash": "6d5ce28546649b07",
+  "w": 1040,
+  "h": 722,
+  "div": 2
+ },
+ "code/html/sections/step-4-t3": {
+  "hash": "85a9f8b314464d51",
+  "w": 1040,
+  "h": 722,
+  "div": 2
+ },
+ "code/html/sections/step-4-t4": {
+  "hash": "70069e9d73306fb8",
+  "w": 1040,
+  "h": 538,
+  "div": 2
+ },
+ "code/html/sections/step-5": {
+  "hash": "dc6d0002e1dc1ed9",
+  "w": 1040,
+  "h": 424,
+  "div": 2
+ },
+ "code/html/sections/step-6": {
+  "hash": "d8ccf6b10c6e164c",
+  "w": 1040,
+  "h": 702,
+  "div": 2
+ },
+ "code/html/selectors/step-4-t1": {
+  "hash": "a1f5759342889717",
+  "w": 1040,
+  "h": 312,
+  "div": 2
+ },
+ "code/html/selectors/step-4-t2": {
+  "hash": "6ee877d3ae287d8d",
+  "w": 1040,
+  "h": 348,
+  "div": 2
+ },
+ "code/html/selectors/step-4-t3": {
+  "hash": "d1d1f89cb32f6c96",
+  "w": 1040,
+  "h": 348,
+  "div": 2
+ },
+ "code/html/selectors/step-4-t4": {
+  "hash": "746deeae83ba77bb",
+  "w": 1040,
+  "h": 348,
+  "div": 2
+ },
+ "code/html/selectors/step-5": {
+  "hash": "87a545d40cb3cba3",
+  "w": 1040,
+  "h": 676,
+  "div": 2
+ },
+ "code/html/selectors/step-6": {
+  "hash": "5e5208067f614ad5",
+  "w": 1040,
+  "h": 452,
+  "div": 2
+ },
+ "code/html/tables/step-4-t1": {
+  "hash": "15dd802b0c57e84e",
+  "w": 1040,
+  "h": 330,
+  "div": 2
+ },
+ "code/html/tables/step-4-t2": {
+  "hash": "3b40da986656c5e7",
+  "w": 1040,
+  "h": 330,
+  "div": 2
+ },
+ "code/html/tables/step-4-t3": {
+  "hash": "f355dc361e7bfa98",
+  "w": 1040,
+  "h": 330,
+  "div": 2
+ },
+ "code/html/tables/step-5": {
+  "hash": "103f8dd7924062c9",
+  "w": 1040,
+  "h": 312,
+  "div": 2
+ },
+ "code/html/tables/step-6": {
+  "hash": "465b359b085ff9ac",
+  "w": 1040,
+  "h": 400,
+  "div": 2
+ },
+ "code/site/site-everyone/step-4-t1": {
+  "hash": "03931c9e8cd3cb7c",
+  "w": 1040,
+  "h": 692,
+  "div": 2
+ },
+ "code/site/site-everyone/step-4-t2": {
+  "hash": "9401dd30fdbb1601",
+  "w": 1040,
+  "h": 524,
+  "div": 2
+ },
+ "code/site/site-publish/step-4": {
+  "hash": "464ddde14e7a472c",
+  "w": 1040,
+  "h": 408,
+  "div": 2
+ },
+ "code/vue/vue-compare/step-4-t1": {
+  "hash": "8c045676e9b114ac",
+  "w": 1040,
+  "h": 292,
+  "div": 2
+ },
+ "code/vue/vue-compare/step-4-t2": {
+  "hash": "b1d964f40564ab8f",
+  "w": 1040,
+  "h": 292,
+  "div": 2
+ },
+ "code/vue/vue-components/step-4-t1": {
+  "hash": "786354c2bf796bde",
+  "w": 1040,
+  "h": 1022,
+  "div": 2
+ },
+ "code/vue/vue-components/step-4-t2": {
+  "hash": "8d74ac224790b2ab",
+  "w": 1040,
+  "h": 1208,
+  "div": 2
+ },
+ "code/vue/vue-computed/step-4-t1": {
+  "hash": "33b30938225a7524",
+  "w": 1040,
+  "h": 460,
+  "div": 2
+ },
+ "code/vue/vue-computed/step-4-t2": {
+  "hash": "bb5233e8df487363",
+  "w": 1040,
+  "h": 392,
+  "div": 2
+ },
+ "code/vue/vue-data/step-4-t1": {
+  "hash": "365e69924de6615a",
+  "w": 1040,
+  "h": 286,
+  "div": 2
+ },
+ "code/vue/vue-data/step-4-t2": {
+  "hash": "fb2824fada2df1a8",
+  "w": 1040,
+  "h": 354,
+  "div": 2
+ },
+ "code/vue/vue-events/step-4-t1": {
+  "hash": "3a7888f13326f53e",
+  "w": 1040,
+  "h": 422,
+  "div": 2
+ },
+ "code/vue/vue-events/step-4-t2": {
+  "hash": "8569db61deaa556c",
+  "w": 1040,
+  "h": 422,
+  "div": 2
+ },
+ "code/vue/vue-lists/step-4-t1": {
+  "hash": "8d2c2aad0bbe460a",
+  "w": 1040,
+  "h": 358,
+  "div": 2
+ },
+ "code/vue/vue-lists/step-4-t2": {
+  "hash": "df837ec251e8c62f",
+  "w": 1040,
+  "h": 358,
+  "div": 2
+ },
+ "code/vue/vue-todo/step-2-t1": {
+  "hash": "696dfc53972d9836",
+  "w": 1040,
+  "h": 354,
+  "div": 2
+ },
+ "code/vue/vue-todo/step-2-t2": {
+  "hash": "310b98f062dae788",
+  "w": 1040,
+  "h": 434,
+  "div": 2
+ },
+ "code/vue/vue-todo/step-2-t3": {
+  "hash": "00c1765f24fab2dc",
+  "w": 1040,
+  "h": 476,
+  "div": 2
+ }
+}

@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:04.726
+A form is labels, boxes and a button, with nothing behind it yet
+
+2
+00:00:05.627 --> 00:00:08.227
+&lt;form&gt; holds the fields and the button.
+
+3
+00:00:09.152 --> 00:00:13.252
+A label says what to type and links to its box by I D.
+
+4
+00:00:14.103 --> 00:00:18.253
+&lt;input&gt; is the box to type in. It has no closing tag.
+
+5
+00:00:18.879 --> 00:00:20.854
+A button sends the form...
+
+6
+00:00:23.736 --> 00:00:28.361
+But nothing is connected to it yet. Code behind the form does the work.

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Create a lesson</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"yaml":"./vendor/yaml/index.js","marked":"./vendor/marked.esm.js"}}</script>
+</head>
+<body>
+<header class="bar">
+  <div><a class="crumb" href="../">← Code</a><h1>Create a lesson</h1></div>
+  <div class="actions">
+    <button id="example" type="button">Load example</button>
+    <button id="resetprog" type="button" title="Forget which checks you passed in the preview">Reset progress</button>
+    <label class="btn">Upload files<input id="upload" type="file" multiple hidden></label>
+    <button id="share" type="button">Copy share link</button>
+    <button id="request" type="button" hidden>Request publishing</button>
+    <button id="download" type="button" class="primary">Download folder (.zip)</button>
+  </div>
+</header>
+<p class="hint">Write or paste a <code>lesson.md</code> and its code files. The preview updates as you type, and the playground is live.
+Clips are recorded when the lesson is added to the repository; here they appear as placeholders.
+Format guide: <a href="https://github.com/cggs-matthew-pham/tutorials/blob/main/AUTHORING.md">AUTHORING.md</a>.</p>
+<main>
+  <section class="editor">
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="helpers" id="helpers">
+      <span>Add to this step:</span>
+      <button id="addtick" type="button">Tick box</button>
+      <button id="addq" type="button">Question</button>
+      <button id="addnum" type="button" title="A number the student works out">Number</button>
+      <button id="addmatch" type="button" title="Match items to descriptions">Match</button>
+      <button id="addtrace" type="button" title="A table with blanks to fill in">Trace table</button>
+      <button id="addbug" type="button" title="Click the line with the bug">Spot the bug</button>
+      <button id="addpars" type="button" title="Put scrambled lines in order">Order lines</button>
+      <button id="addpred" type="button" title="A prediction students lock in, then compare after Run">Lock-in prediction</button>
+      <button id="addcode" type="button" title="Ticks when the student's code meets rules (Python turtle)">Code rule</button>
+      <button id="addtasks" type="button" title="Split this step into sub-pills, each with its own check">Tasks (sub-pills)</button>
+      <button id="pick" type="button">Snippets to unlock…</button>
+    </div>
+    <label class="namebar">File name <input id="fname" type="text" spellcheck="false"></label>
+    <textarea id="text" spellcheck="false" aria-label="File contents"></textarea>
+    <div class="row"><button id="addfile" type="button">+ Add code file</button><button id="addmod" type="button" title="A Python file whose functions become buttons in the playground">+ Add module</button><button id="delfile" type="button">Delete this file</button></div>
+    <ul id="problems" class="problems" aria-live="polite"></ul>
+  </section>
+  <section class="preview"><iframe id="preview" title="Lesson preview"></iframe></section>
+</main>
+<dialog id="pickdlg" aria-labelledby="pickttl">
+  <form method="dialog">
+    <h2 id="pickttl">Snippets this step unlocks</h2>
+    <p class="muted" id="pickinfo"></p>
+    <div id="picklist"></div>
+    <div class="row"><button id="pickok" value="ok" type="submit" class="primary">Use these</button><button value="cancel" type="submit">Cancel</button></div>
+  </form>
+</dialog>
+<script type="module" src="create.js"></script>
+</body>
+</html>

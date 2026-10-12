@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.125
+Tags are boxes: the inner one closes first
+
+2
+00:00:03.953 --> 00:00:07.928
+Boxes view: every tag draws a box around its content.
+
+3
+00:00:08.454 --> 00:00:11.004
+&lt;p&gt; opens a box for a paragraph...
+
+4
+00:00:11.630 --> 00:00:14.555
+...and &lt;strong&gt; opens a smaller box inside it.
+
+5
+00:00:15.455 --> 00:00:18.405
+&lt;/strong&gt; closes the inner box first...
+
+6
+00:00:19.230 --> 00:00:21.955
+...then &lt;/p&gt; closes the outer box.
+
+7
+00:00:22.746 --> 00:00:26.071
+Inner box first, then the outer one: that is nesting.

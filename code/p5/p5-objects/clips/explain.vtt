@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.125
+An object keeps one star's values together
+
+2
+00:00:03.879 --> 00:00:08.654
+An object holds named values: where the star is and how fast it falls.
+
+3
+00:00:09.605 --> 00:00:13.880
+star dot y is this star's y. The if sends it back to the top.
+
+4
+00:00:20.319 --> 00:00:24.519
+A list of these objects, and a loop, gives you a whole sky of stars.

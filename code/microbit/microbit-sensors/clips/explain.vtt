@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.950
+A sensor measures something, and gives your program a number.
+
+2
+00:00:04.654 --> 00:00:09.329
+light level goes from zero, dark, to 255, bright.
+
+3
+00:00:10.209 --> 00:00:15.159
+temperature is in degrees Celsius. acceleration x tells you the tilt.
+
+4
+00:00:17.981 --> 00:00:22.031
+The world keeps changing the number, so read it again in forever.

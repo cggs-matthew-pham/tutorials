@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:05.350
+Choose a genre. The function filters the table, and Gradio shows the result.
+
+2
+00:00:06.176 --> 00:00:11.051
+Gradio makes this form from one function, and its inputs and outputs.
+
+3
+00:00:16.064 --> 00:00:20.514
+The function kept only the K-pop rows, for a table and a chart.

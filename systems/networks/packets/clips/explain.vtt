@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.175
+The message is split into numbered packets.
+
+2
+00:00:03.827 --> 00:00:06.377
+Four numbered packets set off.
+
+3
+00:00:11.212 --> 00:00:14.487
+One is lost. The others arrive out of order.
+
+4
+00:00:16.825 --> 00:00:20.875
+The missing packet is sent again, and the numbers fix the order.

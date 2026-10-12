@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.575
+A click runs a function you hand to add Event Listener.
+
+2
+00:00:04.403 --> 00:00:07.228
+A heading to change, and a button to click.
+
+3
+00:00:07.928 --> 00:00:11.603
+A function holds the change. Writing it does not run it.
+
+4
+00:00:12.453 --> 00:00:17.003
+add Event Listener runs start on a click. No brackets: we hand it over.
+
+5
+00:00:19.358 --> 00:00:22.783
+Nothing has changed: the page is waiting for a click.
+
+6
+00:00:25.898 --> 00:00:28.798
+The click ran start, and the heading changed.

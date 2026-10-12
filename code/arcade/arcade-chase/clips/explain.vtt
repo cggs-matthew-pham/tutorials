@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.950
+To chase, the enemy compares its position with the player's, every frame.
+
+2
+00:00:05.826 --> 00:00:10.251
+If the enemy is left of the player, a positive speed sends it right.
+
+3
+00:00:11.329 --> 00:00:15.829
+Otherwise a negative speed sends it left. Then the same for y.
+
+4
+00:00:18.689 --> 00:00:23.789
+if else always runs exactly one part. The follow block does this for you.

@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.800
+A dictionary keeps values together, each under a name.
+
+2
+00:00:04.529 --> 00:00:07.554
+Each key, in quotes, is paired with a value.
+
+3
+00:00:08.329 --> 00:00:13.479
+star, points in square brackets, reads or changes the value under that key.
+
+4
+00:00:15.052 --> 00:00:18.802
+Everything about one star stays together, in one place.

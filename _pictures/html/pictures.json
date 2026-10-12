@@ -1,0 +1,344 @@
+{
+ "h1-heading": {
+  "hash": "ed4c71051ae5240b",
+  "w": 422,
+  "h": 132,
+  "div": 3
+ },
+ "h2-subheading": {
+  "hash": "8f07e019bd438380",
+  "w": 422,
+  "h": 228,
+  "div": 3
+ },
+ "p-paragraph": {
+  "hash": "4d0cd903ead44ffd",
+  "w": 320,
+  "h": 150,
+  "div": 3
+ },
+ "ul-list": {
+  "hash": "71f76a1efb31f7cc",
+  "w": 204,
+  "h": 156,
+  "div": 3
+ },
+ "ol-numbered-list": {
+  "hash": "84b0486f55d88e4c",
+  "w": 244,
+  "h": 156,
+  "div": 3
+ },
+ "comment": {
+  "hash": "f1e915e9a3b55d7c",
+  "w": 248,
+  "h": 82,
+  "div": 3
+ },
+ "a-link": {
+  "hash": "516ecce92b5e7351",
+  "w": 288,
+  "h": 82,
+  "div": 3
+ },
+ "img-image": {
+  "hash": "b8aa2245b325c129",
+  "w": 232,
+  "h": 308,
+  "div": 3
+ },
+ "strong-bold": {
+  "hash": "6b66ee527d06d653",
+  "w": 320,
+  "h": 82,
+  "div": 3
+ },
+ "em-emphasis": {
+  "hash": "6cdcabce7c15dc58",
+  "w": 264,
+  "h": 82,
+  "div": 3
+ },
+ "button": {
+  "hash": "9082de080c0c3d19",
+  "w": 122,
+  "h": 74,
+  "div": 3
+ },
+ "br-line-break": {
+  "hash": "0bee7e35e7b1233d",
+  "w": 148,
+  "h": 118,
+  "div": 3
+ },
+ "hr-line": {
+  "hash": "0a99b8c260273391",
+  "w": 640,
+  "h": 186,
+  "div": 3
+ },
+ "table": {
+  "hash": "a58211d7ed226ee7",
+  "w": 228,
+  "h": 168,
+  "div": 3
+ },
+ "header": {
+  "hash": "217eab89e9a95991",
+  "w": 326,
+  "h": 210,
+  "div": 3
+ },
+ "nav": {
+  "hash": "14b89600b4240295",
+  "w": 208,
+  "h": 66,
+  "div": 3
+ },
+ "main": {
+  "hash": "57b5741aec5bf396",
+  "w": 336,
+  "h": 184,
+  "div": 3
+ },
+ "section": {
+  "hash": "c97532d7c4a3e320",
+  "w": 260,
+  "h": 184,
+  "div": 3
+ },
+ "footer": {
+  "hash": "51eeb69371e5c21f",
+  "w": 420,
+  "h": 150,
+  "div": 3
+ },
+ "form": {
+  "hash": "c2b5d7173e2f6b11",
+  "w": 558,
+  "h": 74,
+  "div": 3
+ },
+ "label-and-input": {
+  "hash": "2a224906e93debce",
+  "w": 464,
+  "h": 74,
+  "div": 3
+ },
+ "select-drop-down": {
+  "hash": "f9e190757b4cd2ad",
+  "w": 210,
+  "h": 70,
+  "div": 3
+ },
+ "style-block": {
+  "hash": "be88aa1deabd245a",
+  "w": 346,
+  "h": 184,
+  "div": 3
+ },
+ "rule": {
+  "hash": "2f81a2e2b14fb648",
+  "w": 170,
+  "h": 120,
+  "div": 3
+ },
+ "class-selector": {
+  "hash": "c188cdb36c534f7e",
+  "w": 422,
+  "h": 150,
+  "div": 3
+ },
+ "several-selectors": {
+  "hash": "b7e4fe6b4e35b4ba",
+  "w": 216,
+  "h": 278,
+  "div": 3
+ },
+ "color": {
+  "hash": "4be96e75e89194b9",
+  "w": 178,
+  "h": 82,
+  "div": 3
+ },
+ "background-color": {
+  "hash": "f3dc2ca28931c79f",
+  "w": 640,
+  "h": 110,
+  "div": 3
+ },
+ "font-size": {
+  "hash": "7cd0aca244580b64",
+  "w": 148,
+  "h": 278,
+  "div": 3
+ },
+ "font-family": {
+  "hash": "9c823593a3858695",
+  "w": 174,
+  "h": 72,
+  "div": 3
+ },
+ "text-align": {
+  "hash": "c9e3e7547c29b6c9",
+  "w": 420,
+  "h": 184,
+  "div": 3
+ },
+ "display-flex": {
+  "hash": "e93130a60c15dc62",
+  "w": 218,
+  "h": 98,
+  "div": 3
+ },
+ "gap": {
+  "hash": "fb88f86a7c374d42",
+  "w": 378,
+  "h": 98,
+  "div": 3
+ },
+ "flex-wrap": {
+  "hash": "9fe361285e6188b5",
+  "w": 364,
+  "h": 248,
+  "div": 3
+ },
+ "justify-content": {
+  "hash": "cbe6bc7d083271d1",
+  "w": 476,
+  "h": 136,
+  "div": 3
+ },
+ "list-style": {
+  "hash": "66c682e7bce324e9",
+  "w": 208,
+  "h": 120,
+  "div": 3
+ },
+ "display-grid": {
+  "hash": "2dcf0ce7c83f39e4",
+  "w": 640,
+  "h": 216,
+  "div": 3
+ },
+ "grid-template-columns": {
+  "hash": "7ace64c33a51299a",
+  "w": 640,
+  "h": 68,
+  "div": 3
+ },
+ "width": {
+  "hash": "ab669acc5da1dff1",
+  "w": 272,
+  "h": 104,
+  "div": 3
+ },
+ "padding": {
+  "hash": "3ee1e14017eeab1e",
+  "w": 640,
+  "h": 164,
+  "div": 3
+ },
+ "margin": {
+  "hash": "8210a3e601b79b2c",
+  "w": 600,
+  "h": 176,
+  "div": 3
+ },
+ "border": {
+  "hash": "79345a733901f120",
+  "w": 640,
+  "h": 92,
+  "div": 3
+ },
+ "btn-button": {
+  "hash": "da9449806ff6e12e",
+  "w": 456,
+  "h": 92,
+  "div": 3
+ },
+ "alert": {
+  "hash": "a8b07e7d7add9f88",
+  "w": 640,
+  "h": 132,
+  "div": 3
+ },
+ "spacing-and-text-classes": {
+  "hash": "510538f0ab5aac45",
+  "w": 640,
+  "h": 288,
+  "div": 3
+ },
+ "navbar": {
+  "hash": "c27fbbbc4e6525be",
+  "w": 640,
+  "h": 128,
+  "div": 3
+ },
+ "card": {
+  "hash": "609d953034ea248b",
+  "w": 640,
+  "h": 212,
+  "div": 3
+ },
+ "row-and-col": {
+  "hash": "de51579d672933a7",
+  "w": 640,
+  "h": 68,
+  "div": 3
+ },
+ "form-control": {
+  "hash": "2ae9b63fd692ecd3",
+  "w": 640,
+  "h": 172,
+  "div": 3
+ },
+ "bulma-button": {
+  "hash": "df95ce0713801696",
+  "w": 346,
+  "h": 120,
+  "div": 3
+ },
+ "tailwind-utility-classes": {
+  "hash": "eb67ceff02d1226d",
+  "w": 632,
+  "h": 144,
+  "div": 3
+ },
+ "daisyui-button": {
+  "hash": "1f1955a124b15114",
+  "w": 166,
+  "h": 120,
+  "div": 3
+ },
+ "pico-no-classes": {
+  "hash": "7237741269a13d3b",
+  "w": 188,
+  "h": 238,
+  "div": 3
+ },
+ "vue-app": {
+  "hash": "7a6f1434701f3c2d",
+  "w": 204,
+  "h": 82,
+  "div": 3
+ },
+ "v-for": {
+  "hash": "7bf4b037ddd0c53d",
+  "w": 192,
+  "h": 156,
+  "div": 3
+ },
+ "svelte-component": {
+  "hash": "0502990a2720659d",
+  "w": 206,
+  "h": 82,
+  "div": 3
+ },
+ "fetch-json": {
+  "hash": "9a5fadfc3937a2e2",
+  "w": 132,
+  "h": 82,
+  "div": 3
+ }
+}

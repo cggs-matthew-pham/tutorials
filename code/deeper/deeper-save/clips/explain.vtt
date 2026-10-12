@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.350
+Here the game is saved to a file, and loaded again in a new run.
+
+2
+00:00:05.450 --> 00:00:07.575
+Take the lamp, then save.
+
+3
+00:00:11.807 --> 00:00:16.482
+The save is a file called game dot json, kept in this browser.
+
+4
+00:00:20.469 --> 00:00:24.019
+A new run starts with an empty bag, until you load.

@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.850
+A variable called level remembers where the player is, starting at zero.
+
+2
+00:00:05.675 --> 00:00:10.325
+A list holds what changes, so speeds at level is this level's speed.
+
+3
+00:00:11.205 --> 00:00:15.030
+start level clears the old enemies and sets up the new one.
+
+4
+00:00:17.711 --> 00:00:21.661
+Level up where the score changes, not in on game update.

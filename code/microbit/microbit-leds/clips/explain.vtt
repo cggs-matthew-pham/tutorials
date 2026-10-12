@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:04.051
+The micro:bit runs blocks in order, from top to bottom.
+
+2
+00:00:04.980 --> 00:00:08.930
+Blocks in on start run once, so the last picture stays on.
+
+3
+00:00:09.882 --> 00:00:14.532
+Blocks in forever run again and again. That loop makes an animation.
+
+4
+00:00:17.141 --> 00:00:22.291
+pause keeps a picture on for longer. A thousand milliseconds is one second.

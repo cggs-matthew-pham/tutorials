@@ -1,0 +1,98 @@
+:root {
+  --bg: #ffffff; --ink: #1d2430; --muted: #5d6978; --line: #dcd9d1; --panel: #f7f6f3;
+  --accent: #c2570a; --ok: #167a47; --bad: #b3261e; --code-bg: #141a22; --code-ink: #e6edf3;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0f141a; --ink: #e6edf3; --muted: #9aa7b6; --line: #26303c; --panel: #161d26; --accent: #ff9d3d; --ok: #4ade80; --bad: #ff8a80; }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+
+.pg { display: grid; grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr); height: 100%; }
+.pane { min-width: 0; min-height: 0; display: flex; flex-direction: column; padding: 12px; gap: 8px; }
+.editor-pane { border-right: 1px solid var(--line); }
+
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.bar #reset { margin-left: auto; }
+.btn { font: inherit; font-weight: 600; padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; }
+.btn.primary { background: var(--ok); color: #fff; border-color: transparent; }
+.btn.ghost { background: transparent; }
+.btn:disabled { opacity: .45; cursor: default; }
+.btn:focus-visible, textarea:focus-visible, input:focus-visible, .view:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+#code { flex: 1; min-height: 120px; width: 100%; resize: none; padding: 12px 14px; border-radius: 10px; border: 0;
+  background: var(--code-bg); color: var(--code-ink); font: 14px/1.55 ui-monospace, Menlo, Consolas, monospace; tab-size: 4; white-space: pre; overflow: auto; }
+#status { font-size: 13px; font-weight: 600; color: var(--muted); }
+#status[data-state="running"], #status[data-state="loading"] { color: var(--accent); }
+#status[data-state="done"] { color: var(--ok); }
+#status[data-state="error"] { color: var(--bad); }
+
+.views { display: flex; gap: 4px; }
+.view { font: inherit; font-size: 14px; font-weight: 600; padding: 4px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--muted); cursor: pointer; }
+.view[aria-selected="true"] { background: var(--code-bg); color: var(--code-ink); border-color: var(--code-bg); }
+.view[hidden] { display: none; }
+#file-count:empty { display: none; }
+#file-count { font-weight: 400; }
+
+#output { flex: 1; margin: 0; min-height: 0; overflow: auto; padding: 12px 14px; border-radius: 10px;
+  background: var(--code-bg); color: var(--code-ink); font: 15px/1.55 ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+#output:empty::before { content: "Run the program. What it prints appears here, and you type your answers here."; color: #9aa7b6; }
+#output .err { color: #ff8a80; }
+#output .hint { color: #ffd479; }
+#output .typed { color: #7ee2a8; font-weight: 600; }
+#output .con-in { font: inherit; font-weight: 600; color: #7ee2a8; background: transparent; border: 0; border-bottom: 2px solid #7ee2a8;
+  padding: 0 2px; margin: 0; width: min(24ch, 60%); outline: none; caret-color: #7ee2a8; }
+#output[hidden], .app[hidden], .files[hidden] { display: none; }
+
+/* App: a mini-Gradio form, or a web app's pages in a frame with an address bar */
+.app { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 8px; }
+.app-body { flex: 1; min-height: 0; overflow: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.app-body iframe { width: 100%; height: 100%; border: 0; display: block; background: #fff; }
+.address { display: flex; gap: 6px; align-items: center; }
+.address[hidden] { display: none; }
+.addr-host { color: var(--muted); font: 13px ui-monospace, Menlo, Consolas, monospace; }
+.address input { flex: 1; min-width: 0; font: 14px ui-monospace, Menlo, Consolas, monospace; padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); }
+.gr { padding: 14px; display: grid; gap: 12px; }
+.gr h2 { margin: 0; font-size: 18px; }
+.gr p { margin: 0; color: var(--muted); }
+.gr label, .gr .field { display: grid; gap: 4px; font-size: 14px; font-weight: 600; }
+.gr input[type=text], .gr input[type=number], .gr select { font: inherit; font-weight: 400; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); }
+.gr .slider { display: flex; gap: 8px; align-items: center; }
+.gr .slider input { flex: 1; }
+.gr .checkbox { display: flex; gap: 8px; align-items: center; }
+.gr .out { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; min-height: 2.4em; background: var(--panel); white-space: pre-wrap; font-weight: 400; overflow: auto; }
+.gr .out-label { font-size: 14px; font-weight: 600; }
+.gr table { border-collapse: collapse; font-size: 14px; }
+.gr th, .gr td { border: 1px solid var(--line); padding: 3px 8px; text-align: left; }
+.gr .out-bar { display: grid; grid-template-columns: minmax(4em, max-content) 1fr; gap: 4px 8px; align-items: center; font-size: 14px; }
+.gr .bar-row { display: contents; }
+.gr .bar-fill { height: 16px; background: var(--accent); border-radius: 3px; min-width: 2px; }
+.gr .err { color: var(--bad); white-space: pre-wrap; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+
+.files { flex: 1; min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: 8px; }
+.files-note { margin: 0; color: var(--muted); font-size: 14px; }
+#file-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+#file-list li { display: flex; gap: 8px; align-items: center; }
+#file-list .fname { font: 14px ui-monospace, Menlo, Consolas, monospace; background: none; border: 0; color: var(--ink); cursor: pointer; text-decoration: underline; padding: 0; }
+#file-list .fsize { color: var(--muted); font-size: 13px; }
+#file-list .frm { margin-left: auto; font-size: 13px; padding: 2px 8px; }
+#file-list .empty { color: var(--muted); font-size: 14px; }
+#file-view { margin: 0; padding: 10px 12px; border-radius: 8px; background: var(--code-bg); color: var(--code-ink); font: 13px/1.5 ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* ?view=output: the buttons and the console, not the code (recorded clips that show what a program does). The
+   editor stays in the page, invisible, so the clip recorder can still find it. */
+body.output-only .pg { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); }
+body.output-only .editor-pane { border: 0; padding-bottom: 0; flex-direction: row; align-items: center; gap: 16px; }
+body.output-only .editor-pane .bar { flex: 1; }
+body.output-only #code { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+@media (max-width: 700px) {
+  .pg { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1.1fr) minmax(0, 1fr); }
+  .editor-pane { border-right: 0; border-bottom: 1px solid var(--line); }
+}
+.file-tools { display: flex; flex-wrap: wrap; gap: 8px; }
+.file-tools .btn { font-size: 14px; padding: 4px 12px; }
+.file-tools .btn[hidden] { display: none; }
+.gr .radios { display: flex; flex-wrap: wrap; gap: 4px 14px; font-weight: 400; }
+.gr .radios label { display: flex; align-items: center; gap: 4px; font-weight: 400; }

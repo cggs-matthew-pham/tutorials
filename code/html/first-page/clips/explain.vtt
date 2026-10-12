@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.600
+Tags label text, and the browser shows its best guess
+
+2
+00:00:04.530 --> 00:00:08.180
+A tag is a label. &lt;h1&gt; labels the main heading.
+
+3
+00:00:09.080 --> 00:00:12.630
+&lt;p&gt; opens a paragraph and &lt;/p&gt; closes it.
+
+4
+00:00:13.531 --> 00:00:17.056
+&lt;strong&gt; marks an important word, inside the paragraph.
+
+5
+00:00:17.831 --> 00:00:21.406
+The tags say what the text is. The browser picks the look.
+
+6
+00:00:22.131 --> 00:00:25.606
+Forget a closing tag and there is no error message...
+
+7
+00:00:29.750 --> 00:00:33.775
+...the bold just carries on. Check the page after every change.

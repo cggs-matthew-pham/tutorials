@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.975
+A quiz is a click, a check and some feedback
+
+2
+00:00:04.004 --> 00:00:07.754
+A question, two answer buttons, and a place for the result.
+
+3
+00:00:08.429 --> 00:00:12.254
+One function checks an answer: an if decides what to say.
+
+4
+00:00:13.004 --> 00:00:15.554
+Each button calls pick with its own answer.
+
+5
+00:00:22.823 --> 00:00:25.123
+The wrong answer says try again.
+
+6
+00:00:28.177 --> 00:00:31.852
+The right one says Correct. The challenge asks a whole list.

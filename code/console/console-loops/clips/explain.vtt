@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.100
+A while loop keeps repeating for as long as its question is true.
+
+2
+00:00:05.026 --> 00:00:08.601
+while asks its question before every lap of the loop.
+
+3
+00:00:09.710 --> 00:00:14.435
+Plus equals adds to total, so the answer to the question changes.
+
+4
+00:00:23.350 --> 00:00:26.725
+Twelve is not less than ten, so the loop stops.

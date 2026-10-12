@@ -1,0 +1,19 @@
+:root {
+  --bg: #fafaf7; --panel: #ffffff; --fg: #1d1d1b; --muted: #6b6b66; --line: #e2ded4; --accent: #2f5d8a; --ok: #1f7a3a;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #151513; --panel: #1d1d1a; --fg: #ecebe6; --muted: #a3a29b; --line: #34332e; --accent: #8db8e3; --ok: #6fcf8a; }
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { background: var(--bg); color: var(--fg); font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.pg { display: flex; flex-direction: column; height: 100%; }
+.bar { display: flex; align-items: center; gap: 10px; padding: 6px 10px; background: var(--panel); border-bottom: 1px solid var(--line); }
+.title { font-weight: 600; }
+#status { color: var(--muted); font-size: 13px; margin-right: auto; }
+#status[data-state="saved"] { color: var(--ok); }
+.btn { font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--accent); background: transparent; color: var(--accent); cursor: pointer; }
+.stage { position: relative; flex: 1; min-height: 0; }
+#editor { width: 100%; height: 100%; border: 0; display: block; }
+#debug { position: absolute; left: 8px; bottom: 8px; width: min(460px, 90%); max-height: 40%; overflow: auto; margin: 0; padding: 8px;
+  font: 11px/1.35 ui-monospace, monospace; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; opacity: .95; }

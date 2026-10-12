@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.725
+A program runs from the top down, and a loop repeats lines for you.
+
+2
+00:00:05.575 --> 00:00:09.825
+A for loop does the lines indented under it, here four times.
+
+3
+00:00:10.726 --> 00:00:16.051
+forward 100 draws a line, and right 90 turns a quarter of a full turn.
+
+4
+00:00:19.575 --> 00:00:25.100
+Four turns of 90 degrees add up to one full turn, 360 degrees.

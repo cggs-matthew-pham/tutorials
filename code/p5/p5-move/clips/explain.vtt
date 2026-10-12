@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.000
+draw runs again and again, so changing a number moves the shape
+
+2
+00:00:04.780 --> 00:00:08.680
+A variable made above setup keeps its value between frames.
+
+3
+00:00:09.705 --> 00:00:14.955
+draw runs about 60 times a second. Each time: clear, draw, move a little.
+
+4
+00:00:17.857 --> 00:00:22.507
+x grows by 2 each frame, so the circle slides right and off the edge.

@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.625
+If else chooses between two things.
+
+2
+00:00:03.553 --> 00:00:08.203
+If the question is true, the first part runs. Otherwise, the second.
+
+3
+00:00:09.057 --> 00:00:13.607
+else if adds more questions. The micro:bit asks them from the top.
+
+4
+00:00:16.107 --> 00:00:20.507
+The first true one runs, and the rest are skipped. So order matters.

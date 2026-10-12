@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.725
+A canvas is a grid of pixels, and shapes go where you say
+
+2
+00:00:04.754 --> 00:00:09.804
+create Canvas makes the drawing area: here 300 wide and 200 tall.
+
+3
+00:00:10.979 --> 00:00:16.329
+Zero, zero is the top left. Bigger x goes right, and bigger y goes down.
+
+4
+00:00:17.079 --> 00:00:19.979
+fill sets the colour of the shapes drawn after it.
+
+5
+00:00:24.962 --> 00:00:29.312
+The circle is white and the rectangle pink: the fill came between them.

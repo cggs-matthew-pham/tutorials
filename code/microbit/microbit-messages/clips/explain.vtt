@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:04.551
+If both micro:bits have the same list, a place number is enough.
+
+2
+00:00:05.452 --> 00:00:08.702
+So you send the place number, not the word itself.
+
+3
+00:00:09.506 --> 00:00:13.081
+The receiver shows the word at that place in its own list.
+
+4
+00:00:15.895 --> 00:00:19.895
+The code only works if both lists match, in the same order.

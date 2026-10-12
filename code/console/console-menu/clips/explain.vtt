@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.075
+A menu is a loop that keeps going until you choose to leave.
+
+2
+00:00:05.025 --> 00:00:08.525
+while True would repeat for ever. break is the way out.
+
+3
+00:00:16.446 --> 00:00:20.271
+Each choice runs one branch, then the menu asks again.
+
+4
+00:00:21.072 --> 00:00:24.597
+Choosing two prints the total, and break leaves the loop.

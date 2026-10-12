@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.950
+A rule picks elements with a selector, then sets how they look
+
+2
+00:00:04.703 --> 00:00:08.503
+A rule starts with a selector. p picks every paragraph.
+
+3
+00:00:09.279 --> 00:00:13.679
+Inside the braces: a property, a colon, a value, a semicolon.
+
+4
+00:00:14.505 --> 00:00:18.630
+Both paragraphs turn teal. The heading isn't a P, so it stays.
+
+5
+00:00:19.305 --> 00:00:23.880
+A dot means a class. Dot note picks only the elements with class note.
+
+6
+00:00:24.431 --> 00:00:29.531
+Rules pick elements by tag or by class. Everything else stays as it was.
