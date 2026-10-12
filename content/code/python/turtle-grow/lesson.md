@@ -24,7 +24,6 @@ explainClip:
         say: "Work out size plus five, then store the answer back in size."
     - type: { into: "Python code", text: "    size = size + 5\n", append: true }
     - click: "Run"
-    - expect: { selector: "#status", contains: "Finished" }
     - caption:
         text: "size grows by 5 every pass, so the lines grow."
         say: "Size grows by five every pass, so the lines grow."

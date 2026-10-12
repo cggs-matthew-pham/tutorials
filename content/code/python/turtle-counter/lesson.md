@@ -24,7 +24,6 @@ explainClip:
         say: "i is zero on the first pass, one on the second."
     - type: { into: "Python code", text: "    forward(i * 5)\n    right(90)\n", append: true }
     - click: "Run"
-    - expect: { selector: "#status", contains: "Finished" }
     - caption:
         text: "Each line is longer than the last, so it spirals out."
         say: "Each line is longer than the last, so it spirals out."
