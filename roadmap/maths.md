@@ -139,6 +139,40 @@ Angles and shapes gains three units and six lessons (10 to 15): Solids (Nets, 7S
 - Watch for: where students stall on the lesson page; which practice messages they hit (format slips, "Use the letter n", Show the answer); whether 3 in a row feels right; whether mixed practice helps or confuses.
 - Bring back: the questions or messages that confused them, and anything they typed that was right but marked wrong. Fix those, then decide Year 9's first strand.
 
+## Proposed: Year 9 (12 Oct 2026; waits for the Algebra pilot)
+23 descriptors, 70 nodes (`data/curriculum/maths.json`). About 45 lessons, built in five batches, each a push with a review, practice sets and the usual checks. Year 9 units go into the existing courses where the Year 8 work leads (progress is per lesson, so nothing moves); two new courses where nothing fits.
+
+**Before batch 1, from the pilot:** change the lesson shape or practice where students stalled; keep what worked. Questions to settle: is one lesson then its practice the right rhythm; do students use Show the answer or skip; is 3 in a row right.
+
+1. **Algebra core** (Algebra Foundations, new unit "Year 9: binomials"; Irrational numbers and index laws, new unit "Year 9"). Follows the pilot's lessons directly.
+   - A02 n1–n4: expanding binomials, the (x + a)(x + b) pattern, factorising monic quadratics, expand and factorise as inverses. Board: extend `tiles` to two brackets (x², x and unit tiles in an area). Practice: `form: expanded | factorised` already does this.
+   - A01 n1–n3: negative exponents, all the laws with numbers, then with letters. Board: `indexlaws` (add negative exponents as division).
+   - M02 n1–n3: scientific notation, calculating, contexts (science sizes). No new widget.
+   - N01 n1–n4: subsets of the reals, exact and approximate, the line and inequalities, problems. Board: `numberline` (add nested sets).
+2. **Coordinate geometry and functions** (Linear relations, new unit "Year 9: lines and curves"; possibly a new course "Quadratics").
+   - A03 n1–n5: gradient from two points, parallel and perpendicular, distance (Pythagoras on the grid), midpoint, contexts. Board: `graph` (points, segments; add a run/rise triangle between two points).
+   - A06 n1–n3: parameters in linear and quadratic families. Board: `graph` with sliders (already plots y = a(x − h)² + k).
+   - A04 n1–n4: spotting quadratics in tables, graphing and key features, solving by factorising, connecting the three. Board: `graph`; practice gains roots as two answers (a small engine change: "x = 2 or x = −5").
+   - A05 n1–n3: modelling change (linear or quadratic), solve, judge the model. Shares the model-checking shape of Number's Checking a model.
+3. **Trigonometry and space** (Area, volume, circles and Pythagoras, new unit "Year 9: trigonometry"; Angles and shapes for enlargement).
+   - SP01 n1–n3: naming sides from an angle, ratios constant by similarity, sin, cos, tan. New widget `trig`: a right triangle with an angle slider and a scale slider, the three ratios live (the similarity argument made visible).
+   - M03 n1–n4: unknown sides, unknown angles, similarity in triangles, multi-step problems. Board: `trig`, `similar`.
+   - SP02 n1–n2: enlargement keeps angles and shape; length × k, area × k², volume × k³. Board: `similar` (add area and volume readouts).
+   - M01 n1–n3: surface area from nets (prisms and cylinders), volume of prisms and cylinders, problems. Board: `net` (add cylinder), `prism`.
+   - M04 n1–n3: every measurement is an estimate, absolute and relative error, percentage error. Board: `numberline` as a ruler with an error interval.
+   - M05 n1–n3: proportion and rate models. Pairs with A05 (one shape for modelling lessons).
+4. **Chance and statistics** (Data and chance, new units "Year 9: chance" and "Year 9: statistics").
+   - P01 n1–n3: listing two- and three-step outcomes, with and without replacement, probabilities on trees. Board: `events` (add without replacement and three stages).
+   - P02 n1–n3: relative frequency, and / inclusive or / exclusive or, estimating from data. Board: `venn`, `events`.
+   - P03 n1–n3: design, run and evaluate a simulation. Board: `events` trials, `sample`.
+   - ST01–ST05 (12 nodes): reading survey reports and claims, how sampling and displays push a view, comparing distributions (back-to-back stem-and-leaf, side-by-side dot plots, histograms), choosing displays, an investigation. Board: `data` (add histograms and grouping), `sample`. Practice: mostly scenario banks (`cases` + `choices`), which exist now.
+5. **Geometric algorithms** (SP03 n1–n3; Angles and shapes, unit "algorithms"): write, test and refine an algorithm for a geometric process. Board: `key` for decision steps, plus a link to the code courses (a Python turtle version as a Wider step).
+
+**New widgets:** `trig` only. Extensions: `tiles` (binomials), `indexlaws` (negative), `graph` (rise/run between points), `similar` (area and volume), `net` (cylinder), `events` (without replacement, three stages), `data` (histogram), `numberline` (sets, error interval).
+**Engine:** practice answers with two roots ("x = 2 or x = −5"); everything else exists.
+**Teacher layer:** primers per new unit; curriculum map picks up Year 9 nodes automatically from `node:` tags.
+**Order rationale:** batch 1 extends the piloted Algebra lessons, so the pilot's lessons apply first; trig (batch 3) is the biggest new idea and gets the one new widget; statistics last because its practice is judgement banks, the newest engine part.
+
 ## Done: Practise this skill card (12 Oct 2026)
 - Every lesson with a practice file ends with a "Practise this skill" card (after Now you can, before Next lesson) opening `<course>/practice/?skill=<lesson>`. Show the answer also appears after a second try that only missed the form.
 
