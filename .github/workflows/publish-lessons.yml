@@ -1,6 +1,8 @@
-name: Publish changed lessons (manual)
+name: Publish changed lessons
 
-# Runs only when started by hand: Actions tab > Publish changed lessons (manual) > Run workflow.
+# Starts two ways: by hand (Actions tab > Publish changed lessons > Run workflow), or by pushing main's tip to the
+# publish-lessons branch (`git push origin main:publish-lessons`), which is how Claude publishes a finished batch.
+# publish-lessons-test does the same onto gh-pages-test. Pushes to main still run nothing. A push only publishes commits that are already on main.
 # For publishing a batch of lesson edits without the whole-site run. It works out which lessons changed on main
 # since they were last published (tools/changed-lessons.mjs), records only those lessons' clips (real voice; any
 # clip whose hash still matches is downloaded instead), builds, and copies onto the live gh-pages branch just:
@@ -11,6 +13,8 @@ name: Publish changed lessons (manual)
 # The live branch keeps published.json (lesson -> commit), so a lesson published here is not picked up again
 # until it changes. Leave "lessons" blank to publish whatever changed; tick "dry run" to see the list only.
 on:
+  push:
+    branches: [publish-lessons, publish-lessons-test]
   workflow_dispatch:
     inputs:
       lessons:
@@ -34,6 +38,8 @@ concurrency:
 
 env:
   SITE: https://cggs-matthew-pham.github.io/tutorials
+  # A push has no inputs: publish everything changed, to gh-pages (or gh-pages-test from publish-lessons-test).
+  TARGET: ${{ inputs.branch || (github.ref_name == 'publish-lessons-test' && 'gh-pages-test') || 'gh-pages' }}
 
 jobs:
   lessons:
@@ -44,10 +50,15 @@ jobs:
         with:
           fetch-depth: 0   # the comparison needs the commit the live site was built from
 
+      - name: Only publish what is on main
+        run: |
+          git fetch -q origin main
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main || { echo "::error::${GITHUB_SHA::7} is not on main. Push main's tip: git push origin main:publish-lessons"; exit 1; }
+
       - name: Take the live branch
         run: |
           URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
-          if git ls-remote --exit-code --heads "$URL" "${{ inputs.branch }}" >/dev/null; then SRC="${{ inputs.branch }}"; else SRC=gh-pages; fi
+          if git ls-remote --exit-code --heads "$URL" "$TARGET" >/dev/null; then SRC="$TARGET"; else SRC=gh-pages; fi
           git clone -q --depth 200 --branch "$SRC" "$URL" live
 
       - name: Find the changed lessons
@@ -142,7 +153,7 @@ jobs:
 
       # Copy the lessons and their courses' own pages onto the live branch. Other lessons' folders in the same course
       # are left as they are live, so an unpublished edit to a neighbour does not slip out.
-      - name: Publish to ${{ inputs.branch }}
+      - name: Publish to ${{ env.TARGET }}
         if: steps.changed.outputs.count != '0' && !inputs.dry_run
         run: |
           set -e
@@ -185,7 +196,7 @@ jobs:
           { echo "### Published"; echo "Added: $(git diff --cached --diff-filter=A --name-only | wc -l), changed: $(git diff --cached --diff-filter=M --name-only | wc -l), removed: $(git diff --cached --diff-filter=D --name-only | wc -l)"; } >> "$GITHUB_STEP_SUMMARY"
           git diff --cached --quiet && { echo "Nothing changed on the live site."; exit 0; }
           git commit -q -m "Lessons from ${GITHUB_SHA::7}: $(echo $LESSONS | wc -w) lesson(s)" -m "$LESSONS"
-          git push origin HEAD:refs/heads/${{ inputs.branch }}
+          git push origin "HEAD:refs/heads/$TARGET"
 
       - name: Note shared changes
         if: steps.changed.outputs.shared != ''
