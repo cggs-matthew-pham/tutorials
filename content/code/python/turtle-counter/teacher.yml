@@ -1,0 +1,38 @@
+summary: Students use the loop counter i to work out something different on every pass, and meet the fact that counting starts at 0.
+time: 30
+timing: "Predict and Run 10 min · Investigate 8 min · Modify 12 min"
+goals:
+  - I can say what i holds on each pass of a loop.
+  - I can use i in a calculation inside a loop.
+  - I can change a drawing by changing one number in that calculation.
+before: |
+  Run the spiral, then try pensize(i + 1) yourself. Notice the first line is invisible because i is 0.
+running:
+  - "Predict: show the loop with forward(i * 5) and ask what it draws. Take a vote before anyone runs it; the wrong options are a square (the counter does not change), a circle, and an error because i was never stored."
+  - "Run: students run it and compare. Ask: how long is the first line, and why?"
+  - "Investigate: trace the counter 0, 1, 2, 3 and say that counting starts at 0, because later lessons rely on it. The second task checks that a name still holds a value you can calculate with."
+  - "Modify: students change the multiplier, then use the counter for the pen. Let them try pensize(i) first: it starts at 0, so the first line is thin. That is a good moment to talk about starting at 0."
+stuck:
+  - see: The spiral is a square, with every line the same length.
+    ask: Is the length worked out from i, or typed as a number?
+    fix: The length must use i, for example forward(i * 5).
+  - see: A student expects the first line to be 5 long.
+    ask: What is i on the very first pass?
+    fix: i is 0 on the first pass, so i * 5 is 0. Counting starts at 0.
+  - see: An error says i is not defined.
+    ask: Is the line that uses i indented inside the for loop?
+    fix: i only exists inside the loop. Indent the line under the for line.
+stretch: Draw a spiral that turns 91 degrees instead of 90. What happens, and why?
+support: Give the first three values of i * 5 and ask the student to continue the pattern before running.
+leads: "Next lesson makes a value grow without the counter: a variable that adds to itself. Counters are used for scores, timers and animations. Class ideas: a spiral gallery with different multipliers."
+exit:
+  q: "In for i in range(5): forward(i * 10), what is the length of the third line?"
+  a: "20. The third pass has i = 2, and 2 * 10 = 20."
+explain: |
+  A loop made with `for i in range(30):` keeps a **counter** called `i`. It is 0 on the first pass, 1 on the second, 2 on the third, and so on up to 29.
+
+  Any line inside the loop can use `i`. `forward(i * 5)` draws a line that is 0, then 5, then 10 steps long, so each one is longer than the last and the path spirals outward.
+solutions:
+  step-4#t1: counter.py#sol-faster
+  step-4#t2: counter.py#sol-thick
+struggle: "Believing the counter is the same number every pass, or that it starts at 1. Ask what i is on the first pass."

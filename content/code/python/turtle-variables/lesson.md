@@ -1,10 +1,10 @@
 ---
 order: 2
 unit: drawing
-introduces: [variable, arithmetic, variable-update, print]
-recipes: [string]
-title: Variables and operations
-summary: Give a number a name, then calculate with it.
+introduces: [variable, arithmetic]
+recipes: [string, print]
+title: Name a value
+summary: Give a number a name, then let the program work out the rest.
 language: python
 hook: "Games keep score, maps keep scale and apps keep your settings. All of them store a value under a name and calculate with it."
 app:
@@ -39,7 +39,7 @@ explainClip:
     - wait: 1200
     - expect: { selector: "#status", contains: "Finished" }
 ---
-In the last lesson the numbers were typed straight into each command. Here you give a number a **name**, so you can change it in one place and calculate with it.
+In the last lesson the numbers were typed straight into each command. Here you give a number a **name**, so you can change it in one place and let the program work out the rest.
 
 ## Predict
 
@@ -61,11 +61,21 @@ check:
 stage: run
 code: variables.py#polygon
 try: { starter: "variables.py#polygon", height: 420 }
-check: { type: reflect, text: "I can explain what sides, size and angle store, and where angle comes from." }
-unlocks: [variable, print]
 ```
 
 Run it and compare it with your prediction.
+
+Here is what each line does.
+
+| Line | What it does | Why |
+|---|---|---|
+| `sides = 5` | Stores 5 under the name `sides` | Read `=` as "store": put 5 in a box called `sides` |
+| `size = 80` | Stores 80 under the name `size` | Change it here and every `size` below changes |
+| `angle = 360 / sides` | Works out the turn and stores it | A full turn is 360 degrees, split between the corners |
+| `range(sides)` | Repeats `sides` times | The name stands in for 5 |
+| `right(angle)` | Turns by whatever `angle` holds | 72 here, but you never typed 72 |
+
+Change `sides` and the turn updates by itself.
 
 ## Investigate
 
@@ -89,23 +99,23 @@ tasks:
       explain: "angle = 360 * sides is too big. To split one full turn between the corners it should be 360 / sides."
   - check:
       type: question
-      q: "A program has size = 20. Then it runs the line size = size + 5. What is stored in size afterwards?"
-      options: ["25", "5", "20 + 5", "Nothing: the line is an error"]
+      q: "The program stores size = 50 and draws a line. Later it stores size = 100 and draws another line. How long was the first line?"
+      options: ["50", "100", "150", "Storing size twice is an error"]
       answer: 0
-      explain: "Read the line from the right. Python works out size + 5, which is 25, then stores 25 back in size. The = means store, not 'is equal to'."
+      fault: logic
+      misconception: variable-copies-later
+      explain: "A line uses the value size holds at that moment. Storing a new value changes the lines drawn after it, not the ones already drawn."
   - check:
-      type: trace
-      text: "Fill in the size that forward(size) uses on each pass."
-      table: |
-        | pass | size used by forward(size) |
-        | 1 | 10 |
-        | 2 | [20] |
-        | 3 | [30] |
-        | 4 | [40] |
-      explain: "The last line of each pass stores size + 10 back in size, so the next pass starts with a bigger size. This is how a spiral grows."
+      type: bug
+      code: variables.py#bug-indent
+      text: "This should draw a hexagon, but the turtle draws one long line and turns once at the end. Click the wrong line."
+      answer: 9
+      fault: logic
+      misconception: loop-body-indent
+      explain: "right(angle) is not indented, so it is not part of the loop. Indent it under the for line so both lines repeat."
 ```
 
-`print(angle)` shows a value under the drawing. Change `sides` and watch what `angle` becomes.
+`print(angle)` shows a value under the drawing. Copy it whenever you want to see what a name holds; the console lessons explain how it works. Change `sides` and watch what `angle` becomes, then work through the checks.
 
 ### Calculate the angle
 
@@ -115,22 +125,20 @@ Work out `angle` yourself before you check.
 
 Here is a version where something is wrong.
 
-### Store it back
+### A name keeps its value
 
-A variable can change itself. The line `size = size + 5` works out `size + 5`, then stores the answer back in `size`. Read the equals sign as "store".
-
-### Watch it grow
-
-Follow `size` round this loop, which adds to it every pass.
+A name holds one value at a time. Lines that ran earlier keep what they used.
 
 ```python
-size = 10
-
-for i in range(4):
-    forward(size)
-    right(90)
-    size = size + 10
+size = 50
+forward(size)
+size = 100
+forward(size)
 ```
+
+### Spot the bug in the loop
+
+You have met this one before, now with names in it.
 
 ## Modify
 
@@ -138,22 +146,11 @@ for i in range(4):
 stage: modify
 insight: "Changing the program through a variable is safer than changing many numbers: one edit, whole shape updated."
 try: { starter: "variables.py#modify", height: 420 }
-tasks:
-  - hint: "You should only need to change one number. Which variable controls the number of sides?"
-    check: { type: reflect, text: "I changed one variable and the whole shape updated." }
-  - hint:
-      - "A variable can hold text as well as numbers, for example a colour in quotes."
-      - "Give the colour a name at the top, then use that name inside pencolor( )."
-    check: { type: code, text: "Store a colour in a variable and use it with pencolor.", rules: { uses: [pencolor] } }
+hint: "You should only need to change one number. Which variable controls the number of sides?"
+check: { type: reflect, text: "I changed one variable and the whole shape updated." }
 ```
 
-### Draw a hexagon, then a 12-sided shape
-
-Change one number at the top and run it each time.
-
-### Choose the colour with a variable
-
-Add a variable for the pen colour and use it.
+Change one number at the top to draw a hexagon, then a 12-sided shape. Run it each time.
 
 ## Make
 
@@ -161,11 +158,13 @@ Add a variable for the pen colour and use it.
 stage: make
 try: { starter: "variables.py#make", height: 420 }
 hint:
-  - "The line should get longer every time round the loop. What can change `size` inside the loop?"
-  - "Look back at 'Store it back' and 'Watch it grow'. Make the last line inside the loop store a bigger `size`."
+  - "Put three names at the top: sides, size and colour. Then use each name below."
+  - "A colour is text, so it goes in quotes: colour = \"purple\". Use it with pencolor(colour)."
+check: { type: code, text: "Use a variable for the pen colour and draw a shape with a loop.", rules: { uses: [pencolor], loops: 1 } }
+unlocks: [variable]
 ```
 
-Draw a **square spiral**: each time round the loop, the line should be a little longer than the last.
+Make your own shape generator. Put three names at the top (`sides`, `size` and `colour`) and use all three below. Then change each one and watch the shape change.
 
 ## Resize a room plan
 

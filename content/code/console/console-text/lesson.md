@@ -1,7 +1,7 @@
 ---
 order: 1
 unit: text
-introduces: [input, text-join, to-text, string]
+introduces: [print, input, text-join, to-text, string]
 title: Text in, text out
 summary: Ask a question with input(), answer with print(), join text with +, and turn a number into text with str().
 language: python

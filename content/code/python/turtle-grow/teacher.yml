@@ -1,0 +1,41 @@
+summary: Students meet a variable that changes itself, size = size + 5, and use it to grow a spiral without the loop counter.
+time: 35
+timing: "Predict and Run 10 min · Investigate 12 min · Modify 5 min · Make 8 min"
+goals:
+  - I can say what size = size + 5 does.
+  - I can use an update inside a loop to make a value grow.
+  - I can find an update that is in the wrong place.
+before: |
+  Run the spiral, then make the thickening spiral from the Make step. The key line is size = size + 5, which looks wrong to anyone used to maths: in Python it means "work out size + 5, then store it back in size". Be ready to say that out loud.
+running:
+  - "Predict: show the spiral and ask whether it looks different from last lesson's. The wrong options include an error, because many students think size cannot equal size + 5."
+  - "Say it aloud: read size = size + 5 right to left. Work out size + 5, then store the answer back in size. Say 'store' instead of 'equals'."
+  - "Investigate: settle what is stored, trace the value over four passes, then show the update outside the loop and ask what happens. The last question links back to the counter: two ways to get the same lengths."
+  - "Modify: one number changes. Let students predict before they run."
+  - "Make: a second variable that updates itself. Students who finish can try changing the amount added to the thickness."
+stuck:
+  - see: The spiral is a square, with every line the same length.
+    ask: Does anything change size while the loop runs?
+    fix: "Add size = size + 5 as the last line inside the loop (indented)."
+  - see: One small square is drawn over and over.
+    ask: Is the update line indented under the for line?
+    fix: The update must be inside the loop to run on every pass.
+  - see: A student thinks size = size + 5 is an error.
+    ask: Which side does Python work out first?
+    fix: Work out the right side, then store the answer in the name on the left.
+stretch: Make the spiral shrink instead, by subtracting each pass. What happens when size goes below 0?
+support: Give the trace table with the first two rows filled in and ask the student to continue it.
+leads: "Next, a street of houses reads a whole program that uses loops, names, the counter and updates together. Scores, timers and bank balances all update this way. Class ideas: a growing-colour spiral; a countdown."
+exit:
+  q: "What does size = size + 5 do if size is 20?"
+  a: "It works out 20 + 5 = 25 and stores 25 back in size."
+explain: |
+  `size = size + 5` looks odd, but read it right to left: work out `size + 5`, then store the answer back in `size`. That is how a value grows each time round a loop.
+
+  Put the update inside the loop and it happens on every pass. Put it after the loop and it happens once.
+
+  Last lesson the counter `i` made the lines grow. A variable that updates itself does the same job without the counter.
+solutions:
+  step-4: grow.py#sol-faster
+  step-5: grow.py#sol-make
+struggle: "Reading size = size + 5 as an equation. Have them trace the first three values on paper before running it."

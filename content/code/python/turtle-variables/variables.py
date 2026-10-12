@@ -37,17 +37,6 @@ for i in range(sides):
 # Change one number at the top to draw a hexagon, then a 12-sided shape.
 # endregion
 
-# region: make
-from turtle import *
-
-size = 5
-
-for i in range(50):
-    forward(size)
-    right(90)
-    # Make the line longer every time round the loop.
-# endregion
-
 # region: plan
 from turtle import *
 
@@ -100,17 +89,6 @@ for i in range(sides):
     right(angle)
 # endregion
 
-# region: sol-spiral
-from turtle import *
-
-size = 5
-
-for i in range(50):
-    forward(size)
-    right(90)
-    size = size + 5
-# endregion
-
 # region: sol-plan
 from turtle import *
 
@@ -131,4 +109,22 @@ for i in range(2):
     right(90)
     forward(depth * scale)
     right(90)
+# endregion
+
+# region: make
+from turtle import *
+
+# Name the sides, the size and the colour, then draw the shape.
+# endregion
+
+# region: bug-indent
+from turtle import *
+
+sides = 6
+size = 80
+angle = 360 / sides
+
+for i in range(sides):
+    forward(size)
+right(angle)
 # endregion
