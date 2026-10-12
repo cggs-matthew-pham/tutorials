@@ -18,7 +18,7 @@ on:
   workflow_dispatch:
     inputs:
       lessons:
-        description: "Blank = every lesson changed since it was last published. Or name them: code/python/turtle-intro, a course (code/python) or a folder name (turtle-intro), space separated"
+        description: "Blank = every lesson changed since it was last published. Or name them: code/python-foundations/turtle-intro, a course (code/python-foundations) or a folder name (turtle-intro), space separated"
         default: ""
       dry_run:
         description: "Only list what would be published"

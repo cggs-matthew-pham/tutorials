@@ -6,7 +6,7 @@ name: Quick publish, no recording (manual)
 # publishes to gh-pages. A clip whose lesson changed keeps its old live version (a new clip shows no video)
 # until the full "Build and publish (manual)" run records it. About 5 minutes instead of 20 or more.
 #
-# With "paths" (for example code/python) it is faster still: it builds main, takes the live gh-pages branch as it is
+# With "paths" (for example code/python-foundations) it is faster still: it builds main, takes the live gh-pages branch as it is
 # (every clip and picture already there) and copies over only those folders and their teach/ pages, leaving
 # the rest of the live site untouched. Shared pages outside the folders (pathway trails, the curriculum map)
 # and the playgrounds update only on a whole-site run.
@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
     inputs:
       paths:
-        description: "Folders to publish, space or comma separated, e.g. code/python (blank = the whole site)"
+        description: "Folders to publish, space or comma separated, e.g. code/python-foundations (blank = the whole site)"
         default: ""
 
 permissions:

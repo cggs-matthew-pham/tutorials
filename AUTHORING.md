@@ -149,7 +149,7 @@ npm run all        # validate, render, build
 
 ## 6. Nested paths, the playground and other options
 
-- **Path = URL.** `content/code/python/turtle-intro/` is served at `/code/python/turtle-intro/`.
+- **Path = URL.** `content/code/python-foundations/turtle-intro/` is served at `/code/python-foundations/turtle-intro/`.
   Add `index.md` (frontmatter `title`, `summary`) in a subject or collection folder to name its index page.
 - **`try`** (any step): embeds the playground so students can edit and run code on the page.
   `try: { starter: file#region, height: 420, extent: 500, speed: 6 }`. If omitted, `starter`
@@ -203,7 +203,7 @@ unlocks: [for-loop]
 ```
 
 - A snippet's id is its label in lowercase with dashes ("for loop" becomes `for-loop`); the generated reference
-  pages (`/code/python/reference/`, `/code/html/reference/`) show every id. `npm run validate` rejects unknown ids.
+  pages (`/code/python-foundations/reference/`, `/code/html/reference/`) show every id. `npm run validate` rejects unknown ids.
 - The playground a step's `unlocks` refer to is its `try.playground` (default `turtle`, or `html` for `language: html`).
 - Progress is stored in the student's browser only. Question answers are in the page source, so this suits
   practice, not assessment. Teachers can open any lesson or playground with `?unlock=all` to show everything
@@ -338,7 +338,7 @@ The box ticks when the student runs a program that meets every rule. Rules (all 
 ### Lesson navigation, playground pages and My progress
 
 - **Course bar:** every lesson page has a sticky bar with previous and next lessons (by `order`), a "3 of 6" menu with ticks for finished lessons, and links to the path, the playground and My progress. A "Next lesson" card ends each lesson. Nothing to configure: it follows `order`.
-- **Playground pages:** `/code/python/playground/` and `/code/html/playground/` are free play. They remember the student's last lesson ("Continue lesson"), respect unlock progress, and have an "Unlock all snippets" toggle that applies only to free play.
+- **Playground pages:** `/code/python-foundations/playground/` and `/code/html/playground/` are free play. They remember the student's last lesson ("Continue lesson"), respect unlock progress, and have an "Unlock all snippets" toggle that applies only to free play.
 - **My progress:** a dialog (course bar, playground page, path pages) comparing this browser's progress with `progress-manifest.json`, which the build writes. It is per browser and nothing is sent anywhere. `window.wpProgressSummary()` returns the same data for a future export.
 
 ## 10. Tasks (sub-pills) and more check types
@@ -398,7 +398,7 @@ challenge: challenge   # optional: the unit whose required lessons mark "Challen
 
 **Theory concepts** (`THEORY` in `tools/concepts-core.mjs`; any subject or language). Ideas from Digital systems, not syntax, so the scan never sees them: `text-as-numbers`, `rgb-colour`, `pixel-grid`, `sound-samples`, `binary`, `bit-patterns`, `logic-gates`, `run-length`, `lossy-lossless`, `packets`, `encryption-purpose`, `ip-dns`, `permissions`, `hashing`, `public-key`, `hardware-specs`, `fetch-execute`, `web-layers`, and Science ideas that Engineering puts to work: `force-arrows`, `balanced-forces`, `weight`, `force-pairs`, `free-body`, `energy-stores`, `energy-transfer`, `energy-conservation`, `efficiency`, `electric-current` (introduced by the physics lessons) and `turning-effect` (introduced by Engineering › Levers, since Science has no lesson on it). The Digital systems lesson that teaches one lists it in `introduces:`; a lesson anywhere that relies on it lists it in `assumes:` (for example the Caesar cipher assumes `text-as-numbers`, p5 Shapes assumes `rgb-colour`). Validate warns when nothing introduces an assumed theory concept; an introduction in another subject counts (there is no order across subjects), and within a subject the usual order applies. Both lesson pages show the link under the hook: "Builds on: Text as numbers (Digital systems › Data representation)" and "Put to work in: The Caesar cipher (Code › Secret messages)". In maths-language lessons `assumes:` also holds progression nodes; theory ids sit beside them.
 
-Each lesson then names its unit (`unit: functions`) and can be `optional: true` (shown with an Optional tag and not needed to finish the course). `npm run validate` checks the unit ids. `code/index.md` lists the pathways shown on `/code/`: each has `courses`, either `{ path: code/python, stage: foundations }` for a built course or `{ title, summary, tagline, stage: extensions }` for one coming later. A built course puts its `tagline:` (one line for students: what they will make) in its own `index.md`; the build warns when one is missing (BUILDING › Pathway).
+Each lesson then names its unit (`unit: functions`) and can be `optional: true` (shown with an Optional tag and not needed to finish the course). `npm run validate` checks the unit ids. `code/index.md` lists the pathways shown on `/code/`: each has `courses`, either `{ path: code/python-foundations, stage: foundations }` for a built course or `{ title, summary, tagline, stage: extensions }` for one coming later. A built course puts its `tagline:` (one line for students: what they will make) in its own `index.md`; the build warns when one is missing (BUILDING › Pathway).
 
 ### Check types
 

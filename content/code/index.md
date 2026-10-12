@@ -9,9 +9,9 @@ pathways:
     fit: "Start here to type real code: drawing first, then apps, games and data."
     about: "Start with **Python Foundations with Turtle**: commands, loops, variables, decisions and lists. **Python functions and events** follows: your own functions, modules and events, ending in a game you build in milestones. The **console bridge** then shows the same logic as text in and text out, and every extension starts from it: deeper Python in the console, web apps with Gradio (and machine learning after both), and games."
     courses:
-      - { path: code/python, stage: foundations }
-      - { path: code/functions, stage: foundations, after: [code/python] }
-      - { path: code/console, stage: foundations, after: [code/functions] }
+      - { path: code/python-foundations, stage: foundations }
+      - { path: code/python-functions, stage: foundations, after: [code/python-foundations] }
+      - { path: code/console, stage: foundations, after: [code/python-functions] }
       - { path: code/objects, stage: extensions, after: [code/console] }
       - { path: code/data, stage: extensions, after: [code/console] }
       - { path: code/deeper, stage: extensions, after: [code/console] }

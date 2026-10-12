@@ -8,8 +8,8 @@
 // Anything outside content/ that the build or clips depend on (tools, playgrounds, snippets, site, data …) is
 // listed as shared: those changes reach the live site only through a whole-site publish.
 //
-// --lessons skips the git comparison: each word is a lesson slug (code/python/turtle-intro), a course
-// (code/python: all its lessons) or a lesson folder name (turtle-intro).
+// --lessons skips the git comparison: each word is a lesson slug (code/python-foundations/turtle-intro), a course
+// (code/python-foundations: all its lessons) or a lesson folder name (turtle-intro).
 // Writes lessons=, courses=, shared= (space separated) and count= to $GITHUB_OUTPUT when set.
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';

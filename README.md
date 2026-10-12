@@ -4,7 +4,7 @@ Write a lesson as markdown. Get a GitHub Pages site with recorded walkthrough cl
 No LLM runs at build time: an LLM (or you) writes `lesson.md` once, and CI renders it.
 
 ```
-content/<subject>/<collection>/<lesson>/     e.g. content/code/python/turtle-intro/
+content/<subject>/<collection>/<lesson>/     e.g. content/code/python-foundations/turtle-intro/
   lesson.md          PRIMM steps + clip scripts (the only thing you author)
   *.py               the code being taught (shown on the page AND typed in the clips)
   requirements.txt   (optional)
@@ -19,7 +19,7 @@ tools/               validate / render / build
 2. `render`: starts the lesson's app, drives it with Playwright from the clip script,
    asserts the results (`expect`), encodes `step-N.mp4` + poster with ffmpeg.
    Unchanged clips are skipped.
-3. `build`: writes `dist/` (static HTML). A lesson's URL is its path under `content/`, e.g. `/code/python/turtle-intro/`; every folder above it gets an index page. The playground is copied to `/_playground/`. Steps whose clip is missing show a labelled
+3. `build`: writes `dist/` (static HTML). A lesson's URL is its path under `content/`, e.g. `/code/python-foundations/turtle-intro/`; every folder above it gets an index page. The playground is copied to `/_playground/`. Steps whose clip is missing show a labelled
    placeholder, so you can publish the written lesson before any clip exists.
 
 ## Quick start
@@ -48,7 +48,7 @@ from the code it teaches.
 
 ## Add a lesson
 
-Copy `content/code/gradio/intro/` (a web app) or `content/code/python/turtle-intro/` (the playground), then follow [AUTHORING.md](AUTHORING.md). For a whole new course, read [BUILDING.md](BUILDING.md) first. It documents the
+Copy `content/code/gradio/intro/` (a web app) or `content/code/python-foundations/turtle-intro/` (the playground), then follow [AUTHORING.md](AUTHORING.md). For a whole new course, read [BUILDING.md](BUILDING.md) first. It documents the
 whole format and doubles as a brief you can hand to an LLM ("write a lesson on X following
 AUTHORING.md").
 
@@ -78,7 +78,7 @@ A step picks one with `try: { playground: html }` (default `turtle`). To record 
 
 `snippets/turtle.json` and `snippets/html.json` are the single source for two things: the **Reference**
 drawer in each playground (it covers the canvas or preview; cards show real code with a Copy button and students
-paste it where it belongs; search, plus a This lesson / All filter; `‹text›` marks a value to change), and the generated cheat sheets at `/code/python/reference/` and `/code/html/reference/`.
+paste it where it belongs; search, plus a This lesson / All filter; `‹text›` marks a value to change), and the generated cheat sheets at `/code/python-foundations/reference/` and `/code/html/reference/`.
 Each snippet needs a `label`, `code` and `hint`; `npm run validate` checks them. Lesson steps can lock snippets
 until the student passes a check (a tick box or a short question); see AUTHORING.md section 7. Progress is per browser.
 

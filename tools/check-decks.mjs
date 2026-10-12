@@ -1,5 +1,5 @@
 // Render every generated deck with marp-cli and report slides whose content runs off the slide.
-// Run after `npm run build`: node tools/check-decks.mjs [path part, e.g. code/python/turtle-]   (needs npx and Chromium)
+// Run after `npm run build`: node tools/check-decks.mjs [path part, e.g. code/python-foundations/turtle-]   (needs npx and Chromium)
 import { chromium } from 'playwright-core';
 import { execSync } from 'node:child_process';
 import { mkdirSync, readdirSync, readFileSync, writeFileSync, existsSync, rmSync } from 'node:fs';

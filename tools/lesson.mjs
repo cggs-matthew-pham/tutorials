@@ -1,7 +1,7 @@
 // Node/fs side of lesson loading and validation. Pure logic lives in lesson-core.mjs.
 //
 // Content tree:  content/<subject>/<collection>/<lesson>/lesson.md
-// A lesson's slug is its path under content/ (e.g. "code/python/turtle-intro") and is also
+// A lesson's slug is its path under content/ (e.g. "code/python-foundations/turtle-intro") and is also
 // its URL path on the site. Optional content/<dir>/index.md (frontmatter: title, summary)
 // names the subject and collection pages.
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
