@@ -1,0 +1,38 @@
+summary: Students make folders, copy, move, rename and delete files (rm and rm -r) and save text with echo and >, learning that rm has no recycle bin (AC9TDI10K01 node 1).
+time: 40
+timing: "Predict and Try 7 min · Worked example 10 min · Vary 10 min · Practise and Make 13 min"
+goals:
+  - I can make folders and copy, move and rename files.
+  - I can delete files and folders, knowing it is for good.
+  - I can save text into a file.
+struggle: "The Make has more than one route; students who try one big mv and get pictures/photos inside should look at the tree and fix it, not start again."
+before: |
+  Try the boards yourself.
+
+  The one idea: these commands change the filesystem, and rm is permanent. Real servers have no bin; backups are how people recover.
+
+  The pretend mv and cp take one file and one destination.
+running:
+  - "Predict: students who said the bin will meet the empty ls in the Try."
+  - "Worked example: ask how many copies exist after cp, and after mv."
+  - "Vary: ask why rm refuses a folder without -r."
+  - "Make: compare routes: three commands or one?"
+stuck:
+  - see: "A student expects to undo rm (Sam's mistake)."
+    ask: "Where would the file have gone? Is there a bin folder?"
+    fix: "rm is final; copy first."
+  - see: "A student's > emptied a file."
+    ask: "What's the difference between > and >>?"
+    fix: "> replaces; >> adds to the end."
+stretch: "Make a folder called backups and copy every .txt file in your home folder into it, one cp at a time. How would a script do it?"
+support: "Add to the card: mkdir, cp a b, mv a b, rm a, rm -r folder, echo text > file."
+leads: |
+  Next: Pipes.
+exit:
+  q: "What is the difference between cp notes.txt old and mv notes.txt old? Which is safer before deleting?"
+  a: "cp leaves the original and makes a copy in old; mv moves it. cp is safer."
+explain: |
+  - `mkdir name` makes a folder.
+  - `cp a b` copies (the original stays); `mv a b` moves or renames.
+  - `rm file` deletes **for good** (no recycle bin); `rm -r folder` deletes a folder and everything in it.
+  - `echo text > file` saves text into a file (replacing it); `>>` adds to the end.

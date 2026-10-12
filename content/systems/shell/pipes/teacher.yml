@@ -1,0 +1,38 @@
+summary: Students join commands with pipes (grep, wc, sort, uniq, head), save output with >, and finish the treasure hunt by finding an exact line and counting with a pipe (AC9TDI10K01 node 1).
+time: 45
+timing: "Predict and Try 6 min · Worked example 12 min · Vary 12 min · Practise and Make 15 min"
+goals:
+  - I can join commands with a pipe.
+  - I can count, sort and remove repeats.
+  - I can save a command's output into a file.
+struggle: "Students try to do everything with one command. Ask them to say each stage aloud: \"find the lines, then count them\"."
+before: |
+  Try the boards yourself; the Make finishes the treasure hunt (office/codes.txt; the answer is 2468, the only line with GOLD in capitals).
+
+  The one idea: a pipe sends one command's output into the next, so small tools combine. This is how people answer questions about huge logs on servers.
+running:
+  - "Predict: students who said 6 hold Sam's misconception."
+  - "Worked example: run each stage on its own, then join them."
+  - "Vary: ask what head -n 2 would show without sort."
+  - "Make: ask why grep -i GOLD gives two lines."
+stuck:
+  - see: "A student thinks wc reads the file (Sam's mistake)."
+    ask: "Run just the part before the |. What does wc receive?"
+    fix: "Each command after a pipe reads the previous output."
+  - see: "uniq leaves repeats."
+    ask: "Are the repeats next to each other?"
+    fix: "sort first."
+stretch: "Which pet name is the longest? (No single command does it; think about what you'd need.)"
+support: "A pipe diagram: file → grep → wc → screen, with the data written on each arrow."
+leads: |
+  Next: Who can read what (permissions).
+exit:
+  q: "Write one line that counts how many lines of pets.txt contain the letter o."
+  a: "grep o pets.txt | wc -l (or grep -c o pets.txt)."
+explain: |
+  A **pipe** (`|`) sends the output of the command on its left into the command on its right, instead of to the screen.
+
+  - `grep cat pets.txt | wc -l`: find lines, then count them.
+  - `sort pets.txt | uniq`: put in order, then drop repeats next to each other.
+  - `sort pets.txt | head -n 2`: put in order, then keep the first two.
+  - `> file` saves the final output into a file.

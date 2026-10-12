@@ -29,4 +29,11 @@ pathways:
     courses:
       - { path: systems/hardware, id: hardware, stage: foundations, tagline: "Processor, memory and storage: what makes it fast." }
       - { path: systems/logic, id: logic, stage: extensions, after: [data-representation, hardware], tagline: "Build a calculator from switches." }
+  - id: cli
+    title: The command line
+    summary: Use a computer by typing, as on servers and Raspberry Pis.
+    fit: "Start here to run a computer the way servers are run: by typing."
+    about: "**The command line** (Years 8–10) supports AC9TDI10K01 (what the operating system does, and access control): folders and paths, reading and finding, changing files, pipes and permissions, on a pretend Linux computer in the browser. For the real thing: a Raspberry Pi, WebVM in a browser tab, or Mac Terminal (teacher notes)."
+    courses:
+      - { path: systems/shell, id: shell, stage: foundations, tagline: "Talk to the computer in its own words." }
 ---

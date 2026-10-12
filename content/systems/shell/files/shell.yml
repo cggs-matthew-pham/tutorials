@@ -1,0 +1,44 @@
+# Boards for "Where files live".
+
+# region: run
+widget: shell
+tree: on
+at: /home/sam/projects/game
+# endregion
+
+# region: explain
+widget: shell
+tree: on
+at: /home/sam/projects/game
+# endregion
+
+# region: explain-pic
+widget: shell
+tree: on
+run: ls; cd projects
+# endregion
+
+# region: etc
+widget: shell
+tree: on
+at: /etc
+# endregion
+
+# region: up
+widget: shell
+tree: on
+start: /home/sam/projects/game
+at: /home/sam/photos
+# endregion
+
+# region: home
+widget: shell
+tree: on
+start: /etc
+at: /home/sam
+# endregion
+
+# region: make
+widget: shell
+find: /home/sam/projects/game/level1.txt
+# endregion

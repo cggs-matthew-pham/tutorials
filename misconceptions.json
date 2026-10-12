@@ -279,5 +279,10 @@
   "lever-distance-from-end": {"home": "engineering/mechanisms/levers", "text": "Distances on a lever are measured from the end of the bar; turning effects use each force's distance from the pivot."},
   "pulley-count-pull-rope": {"home": "engineering/mechanisms/pulleys", "text": "The rope you pull is counted as holding the load; only the ropes holding up the moving block share it, so a rope that goes over the top block adds nothing."},
   "stroke-equals-radius": {"home": "engineering/linkages/crank", "text": "A crank's stroke is thought to equal its radius; the pin goes from one side of the centre to the other, so the stroke is twice the radius."},
-  "grashof-wrong-pair": {"home": "engineering/linkages/fourbar", "text": "To check whether a four-bar linkage's crank can turn fully, the wrong two bars are added; the rule adds the shortest and the longest and compares them with the other two."}
+  "grashof-wrong-pair": {"home": "engineering/linkages/fourbar", "text": "To check whether a four-bar linkage's crank can turn fully, the wrong two bars are added; the rule adds the shortest and the longest and compares them with the other two."},
+  "cd-moves-files": {"home": "systems/shell/files", "text": "cd is thought to move files along with you; it only changes the folder you are working in, and mv moves files."},
+  "ls-shows-everything": {"home": "systems/shell/reading", "text": "What plain ls shows is taken to be everything in a folder; names starting with a dot are hidden and need ls -a."},
+  "rm-recycle-bin": {"home": "systems/shell/changing", "text": "rm is thought to send files to a recycle bin; in a shell, deleted files are gone, so copy first."},
+  "pipe-reads-files": {"home": "systems/shell/pipes", "text": "A command after a pipe is thought to read the original file; it reads the previous command's output."},
+  "hidden-is-protected": {"home": "systems/shell/permissions", "text": "A hidden (dot) file is thought to be private; anyone allowed by its permissions can list and read it, so permissions (chmod 600) protect it."}
 }

@@ -1,0 +1,25 @@
+# Boards for "Pipes".
+
+# region: run
+widget: shell
+# endregion
+
+# region: explain
+widget: shell
+# endregion
+
+# region: explain-pic
+widget: shell
+run: grep cat pets.txt | wc -l
+# endregion
+
+# region: modify
+widget: shell
+exists: /home/sam/cats.txt
+# endregion
+
+# region: make
+widget: shell
+fs: hunt
+start: /home/sam/hunt/office
+# endregion

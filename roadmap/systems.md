@@ -51,12 +51,15 @@ Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 
 
 `systems/web` (Years 9–10, AC9TDI10K02, Data pathway extension after Data representation): Three layers (n1, n2: swap style sheets, show the structure, style off; change one layer at a time; Make a new look without touching the HTML) and Why keep them apart (n3: a screen reader on two look-alike pages, one rule restyles a three-page site, phone width; Make: fix a page whose headings and list were faked with looks). A Knowledge and understanding home for 10K02 with no coding prerequisite; the HTML & CSS course keeps its 10K02 tags as hands-on practice, and Rules and selectors `assumes: [web-layers]` (a new theory concept), so the pages link both ways. New `webdoc` widget. Misconceptions `looks-is-structure`, `same-look-same-page`.
 
+## Done (12 Oct 2026): The command line
+
+`systems/shell` (Years 8–10, its own pathway "The command line"; 10K01 n1 for lessons 1–4, n3 for permissions): Where files live (pwd, ls, cd, paths, .., ~; a folder tree on the board), Reading and finding (cat, grep -i/-c, hidden files with ls -a; treasure hunt part 1), Changing files (mkdir, cp, mv, rm, rm -r, echo >; rm has no bin), Pipes (grep | wc, sort | uniq, head, >; treasure hunt part 2), Who can read what (ls -l, rwx and digits, chmod, only the owner; hidden is not private). New `shell` widget. Misconceptions `cd-moves-files`, `ls-shows-everything`, `rm-recycle-bin`, `pipe-reads-files`, `hidden-is-protected`. Real computers (Raspberry Pi, WebVM, Mac Terminal) are in the primer and teacher notes; no lesson needs one.
+
 ## Next
 
 1. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
-2. Computers and the command line: five lessons on a browser `shell` board, then a teacher-led Raspberry Pi unit (environments and lessons in the Project doc digital-systems-plan).
-3. More security and CTF: Rules of the game, guessing passwords, encoding is not encryption, what a page gives away; cross-pathway flags and a capstone CTF; picoCTF (Carnegie Mellon) as the linked extension (check its account and age terms).
-4. Shapes as numbers (optional, 8K03): vector vs raster, meshes as lists of vertices; a later Digital Media / Design subject (3D and animation, parked) builds on it.
+2. More security and CTF: Rules of the game, guessing passwords, encoding is not encryption, what a page gives away; cross-pathway flags and a capstone CTF; picoCTF (Carnegie Mellon) as the linked extension (check its account and age terms).
+3. Shapes as numbers (optional, 8K03): vector vs raster, meshes as lists of vertices; a later Digital Media / Design subject (3D and animation, parked) builds on it.
 
 ## Open questions
 

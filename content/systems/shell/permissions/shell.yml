@@ -1,0 +1,35 @@
+# Boards for "Who can read what".
+
+# region: run
+widget: shell
+find: /home/lee/timetable.txt
+# endregion
+
+# region: explain
+widget: shell
+# endregion
+
+# region: explain-pic
+widget: shell
+run: ls -l /home/lee
+# endregion
+
+# region: plans
+widget: shell
+watch: /home/sam/.plans.txt
+# endregion
+
+# region: robot
+widget: shell
+watch: /home/sam/projects/robot.py
+# endregion
+
+# region: lee
+widget: shell
+watch: /home/lee/marks.txt
+# endregion
+
+# region: make
+widget: shell
+watch: /home/sam/.plans.txt
+# endregion

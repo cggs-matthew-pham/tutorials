@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam types ls in the gym folder.
+ls shows only notice.txt.
+So notice.txt is the only thing in the gym folder.
+So there is nowhere else to look for the clue.
+# endregion

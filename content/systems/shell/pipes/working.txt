@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam types grep cat pets.txt | wc -l.
+grep finds the lines with cat in them: cat, catfish, cat.
+wc -l counts the lines in pets.txt, which has 6 lines.
+So the answer is 6.
+# endregion

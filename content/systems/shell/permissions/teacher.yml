@@ -1,0 +1,40 @@
+summary: Students read permission strings with ls -l, are refused a file they may not read, turn permissions into digits, and set them with chmod on their own files but not someone else's (AC9TDI10K01 node 3, access control on a real kind of system).
+time: 45
+timing: "Predict and Try 7 min · Worked example 12 min · Vary 12 min · Practise and Make 14 min"
+goals:
+  - I can read a permission string such as rw-r--r--.
+  - I can turn permissions into digits and back.
+  - I can protect a file with chmod, and explain why hiding it doesn't.
+struggle: "The digits are the hard part. Keep the 4-2-1 card visible and add up one group at a time."
+before: |
+  Try the boards yourself.
+
+  The one idea: the operating system checks permissions before every request, and only the owner (or an administrator) can change them. This is Security and privacy's access control (authorisation) on a real kind of system.
+
+  Simplification: the pretend computer has no groups, so the middle group of letters is shown but only "owner" and "everyone else" are checked. sudo is refused on purpose.
+running:
+  - "Predict: students who said yes think reading gives control."
+  - "Try: ask what the operating system checked before refusing."
+  - "Worked example: build 640 on the board one group at a time."
+  - "Vary: after the refusal, ask why the system lets Lee but not Sam change it."
+  - "Make: ask why private keys and password files are usually 600."
+stuck:
+  - see: "A student thinks hidden means private (Sam's mistake)."
+    ask: "Can you cat .plans.txt? Could someone else?"
+    fix: "Only permissions protect it: chmod 600."
+  - see: "A student's chmod gives an error."
+    ask: "Whose file is it? (ls -l shows the owner.)"
+    fix: "You can only chmod your own files."
+stretch: "Find out what chmod 777 means and why people say never to use it."
+support: "A 4-2-1 card: r = 4, w = 2, x = 1, added for owner, group, everyone else."
+leads: |
+  Links: Security and privacy › Who are you, and what may you do? (authentication and permissions); Cyber security (planned).
+exit:
+  q: "What does rw-r----- mean, and how would you make it so only you can read it?"
+  a: "The owner can read and write, the group can read, everyone else nothing (640). chmod 600 file (or chmod g-r file)."
+explain: |
+  Every file has an **owner** and **permissions**: read (r), write (w) and run (x), for the owner, a group and everyone else.
+
+  - `ls -l` shows them: `-rw-r--r--` means the owner can read and change it; everyone else can only read it.
+  - As digits, r = 4, w = 2, x = 1 added per group: rw-r--r-- is 644, rw------- is 600.
+  - Only the owner can change them, with `chmod`. Hiding a file (a dot name) protects nothing.

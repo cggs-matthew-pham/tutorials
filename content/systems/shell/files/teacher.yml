@@ -1,0 +1,44 @@
+summary: Students move around a pretend Linux filesystem with pwd, ls and cd, reading full paths, short paths, .. and ~, with a folder tree beside the terminal (AC9TDI10K01 node 1, the operating system's file system).
+time: 40
+timing: "Predict and Try 8 min · Worked example 10 min · Vary 10 min · Practise and Make 12 min"
+goals:
+  - I can say where I am, list what is here, and move with cd.
+  - I can read a full path and a short path, including .. and ~.
+  - I can find a file by looking and moving.
+struggle: "The first minutes at a prompt feel like guessing. Let students type and get it wrong: the board is pretend, errors are friendly, and the tree shows where they are."
+before: |
+  Try the boards yourself. Everything runs in the browser on a pretend computer; nothing touches the school's machines.
+
+  The one idea: files live in a tree, and a path names a place in it. The folder tree is on for the Try and Vary and off for the Make, so students build the path themselves.
+
+  For the real thing (optional, after the course): a Raspberry Pi is best; WebVM runs Linux in a browser tab with no install (test it on the school network first); Mac Terminal works with the same commands; WSL or VirtualBox on Windows need admin rights.
+running:
+  - "Predict: students who said /projects think cd starts from the top."
+  - "Try: ask what the prompt shows after each cd."
+  - "Worked example: model reading a path aloud: \"from the top, home, sam, projects\"."
+  - "Vary: ask which way works from anywhere."
+  - "Make: no tree: ask how they knew where to go."
+stuck:
+  - see: "A student thinks cd moved their files (Sam's mistake)."
+    ask: "Go back with cd .. and ls. Is notes.txt still there?"
+    fix: "cd moves you; files stay put."
+  - see: "A student gets \"No such folder\"."
+    ask: "Is that folder inside the one you're in? Check with ls."
+    fix: "Use the right short path, or a full path from /."
+stretch: "Press Tab after typing the start of a folder name. What does it do? (It completes the name.)"
+support: "A card with four commands: pwd (where am I?), ls (what's here?), cd name (go in), cd .. (go up)."
+leads: |
+  Next: Reading and finding (cat, grep, hidden files).
+
+  Links: Security and privacy › What the operating system does.
+exit:
+  q: "You are in /home/sam/photos. Write the command to get to /home/sam/projects in one step."
+  a: "cd ../projects (or cd /home/sam/projects, or cd ~/projects)."
+explain: |
+  Files live in a tree of **folders**, and a **path** names a place in it.
+
+  - `pwd`: where am I?
+  - `ls`: what is here? (folders end with /)
+  - `cd name`: go into a folder. `cd ..` goes up one; `cd` on its own goes home.
+
+  A path starting with / starts at the top and works from anywhere; other paths start from where you are. ~ means your home folder.

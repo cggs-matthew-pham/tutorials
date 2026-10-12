@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam's plans are in a file called .plans.txt.
+The name starts with a dot, so ls does not show it.
+So nobody else on the computer can read it.
+Sam's plans are safe.
+# endregion

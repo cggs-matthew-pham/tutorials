@@ -1,0 +1,45 @@
+# Boards for "Changing files".
+
+# region: run
+widget: shell
+tree: on
+exists: /home/sam/old/notes.txt
+gone: /home/sam/notes.txt
+# endregion
+
+# region: explain
+widget: shell
+tree: on
+# endregion
+
+# region: explain-pic
+widget: shell
+tree: on
+run: mkdir old; cp notes.txt old; rm notes.txt
+# endregion
+
+# region: rename
+widget: shell
+tree: on
+exists: /home/sam/todo.txt
+gone: /home/sam/notes.txt
+# endregion
+
+# region: save
+widget: shell
+tree: on
+exists: /home/sam/hello.txt
+# endregion
+
+# region: folder
+widget: shell
+tree: on
+gone: /home/sam/photos
+# endregion
+
+# region: make
+widget: shell
+tree: on
+exists: /home/sam/projects/pictures/dog.jpg
+gone: /home/sam/photos
+# endregion

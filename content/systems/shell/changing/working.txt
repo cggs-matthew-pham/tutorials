@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam types rm notes.txt.
+ls no longer shows notes.txt.
+The file is in the recycle bin, like on a laptop.
+So Sam can get it back later if needed.
+# endregion

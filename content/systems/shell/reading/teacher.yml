@@ -1,0 +1,35 @@
+summary: Students print files with cat, find lines with grep (including -i, -c and paths to other folders), reveal hidden names with ls -a, and follow a clue trail to a hidden folder (AC9TDI10K01 node 1).
+time: 40
+timing: "Predict and Try 6 min · Worked example 10 min · Vary 12 min · Practise and Make 12 min"
+goals:
+  - I can print a file with cat.
+  - I can find the lines I want with grep.
+  - I can find hidden files with ls -a.
+struggle: "grep matching inside words (catfish) surprises students; let the count come out wrong once, then look at the lines."
+before: |
+  Try the boards yourself, including the treasure hunt (fs: hunt): start.txt → library/shelf2/book.txt → gym/.locker/clue.txt. The hunt finishes in Pipes.
+
+  The one idea: you can read and search files you can't see, and "hidden" only means ls skips the name.
+running:
+  - "Predict: students who said \"everything\" will meet .plans.txt in the Try."
+  - "Worked example: ask why catfish was printed."
+  - "Vary: ask why the third task didn't need cd."
+  - "Make: ask what made them try ls -a in the gym."
+stuck:
+  - see: "A student says there's nothing more in the gym (Sam's mistake)."
+    ask: "What did ls -a show in your home folder that ls didn't?"
+    fix: "Try ls -a in the gym too."
+  - see: "grep finds nothing."
+    ask: "Do the capitals match?"
+    fix: "grep is case sensitive; grep -i ignores capitals."
+stretch: "grep -n shows line numbers and grep -v shows the lines that don't match. When would each be useful?"
+support: "Add to the card: cat file (print it), grep word file (lines with word), ls -a (hidden too)."
+leads: |
+  Next: Changing files.
+exit:
+  q: "How would you print only the lines of notes.txt with the word maths in them, and how would you check for hidden files?"
+  a: "grep maths notes.txt; ls -a."
+explain: |
+  - `cat file` prints the whole file.
+  - `grep word file` prints only the lines containing the word (anywhere in the line; capitals matter, `-i` ignores them; `-c` counts instead).
+  - Names starting with a dot are **hidden**: `ls` skips them, `ls -a` shows them.

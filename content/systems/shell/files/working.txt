@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam is in /home/sam, where notes.txt is.
+Sam types cd photos.
+Now notes.txt has moved into the photos folder too.
+So ls in photos shows notes.txt.
+# endregion

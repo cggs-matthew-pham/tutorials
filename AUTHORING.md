@@ -870,6 +870,17 @@ Vary, Practise, Make).
     `e` (structure shown once), `p`, `y`, `n` styles tried, `c`/`t` CSS/HTML edits, `u` structure unchanged, `d` words
     unchanged, `w` looks different, `a` h1 colour changed, `f` h2 px, `g` background changed, `r`, `v`, `h` headings,
     `l` lists, `k` landmarks, `b` look-only tags, `x` (2+ headings, a list, no look-only tags), `j` pages heard.
+  - `widget: shell` (first used by `systems/shell/`): a pretend Linux terminal (input labelled "Command"; Enter runs, Up
+    and Down for history, Tab completes) over a pretend filesystem. `fs: school | hunt | empty`, `file: /path | text\nmore`,
+    `dir: /path`, `start: /home/sam`, `tree: on | all` (folder tree beside it), `run: ls; cd x` (run silently first).
+    Commands: help, pwd, ls [-a] [-l], cd, cat, grep [-i] [-c] [-v] [-n], wc [-l] [-w], sort, uniq, head [-n N], echo,
+    touch, mkdir, cp, mv, rm [-r], chmod (644 or u+x/o-r/a+w), whoami, history, clear; pipes and > or >>. The user is
+    sam; files have an owner and read/write/run for owner and everyone else (groups are shown but not checked); sudo
+    is refused. Values `w` (at the folder named by `at:`), `s` (the `find:` file's contents shown), `x` (`exists:`
+    path exists), `z` (`gone:` path deleted), `m` (`watch:` file's permissions as digits), `k` (others may read it),
+    `o` last output as a number, `l` its lines, `u` used a pipe, `p` used > or >>, `e` last command failed, `n`
+    commands, `h` different commands, `a` used ls -a, `g` used grep, `c` cd count, `d` folder depth. Clips type with
+    `type: { into: Command, text: ls }` then `press: Enter`.
   - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
     between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
     `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b

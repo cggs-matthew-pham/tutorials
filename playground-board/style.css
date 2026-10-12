@@ -757,3 +757,19 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .wdeds { display: flex; flex-wrap: wrap; gap: 10px; }
 .wded { flex: 1 1 280px; display: flex; flex-direction: column; gap: 4px; font: 600 12px/1.2 system-ui, sans-serif; color: var(--muted); }
 .wded textarea { font: 13px/1.4 ui-monospace, Menlo, Consolas, monospace; padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink); resize: vertical; }
+
+/* shell: a pretend Linux terminal */
+.shwrap { height: 100%; display: grid; grid-template-columns: 1fr; gap: 10px; padding: 10px 12px; box-sizing: border-box; }
+.shwrap.withtree { grid-template-columns: minmax(170px, 230px) 1fr; }
+@media (max-width: 560px) { .shwrap.withtree { grid-template-columns: 1fr; grid-template-rows: auto 1fr; } .shtree { max-height: 140px; } }
+.shtree { overflow: auto; padding: 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); font: 13px/1.5 ui-monospace, Menlo, Consolas, monospace; }
+.shhead { font: 700 12px/1.2 system-ui, sans-serif; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: 4px; }
+.shnode { white-space: nowrap; color: var(--ink); } .shnode.dir { font-weight: 700; } .shnode.hidden { color: var(--muted); font-style: italic; }
+.shnode.here { color: var(--accent); }
+.shterm { display: flex; flex-direction: column; min-height: 0; background: #0f172a; color: #e2e8f0; border-radius: 10px; padding: 10px 12px; font: 14px/1.45 ui-monospace, Menlo, Consolas, monospace; cursor: text; }
+.shout { flex: 1; overflow: auto; min-height: 0; }
+.shline { white-space: pre-wrap; word-break: break-word; } .shline.cmd { color: #93c5fd; } .shline.err { color: #fca5a5; } .shline.note { color: #94a3b8; }
+.shrow { display: flex; align-items: center; gap: 0; margin-top: 4px; }
+.shprompt { color: #86efac; white-space: pre; }
+.shin { flex: 1; min-width: 4em; background: transparent; border: 0; outline: none; color: #f8fafc; font: inherit; caret-color: #fbbf24; }
+.shin:focus-visible { outline: 1px dashed #475569; }

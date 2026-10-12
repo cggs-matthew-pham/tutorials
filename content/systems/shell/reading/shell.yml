@@ -1,0 +1,28 @@
+# Boards for "Reading and finding".
+
+# region: run
+widget: shell
+tree: on
+find: /home/sam/.plans.txt
+# endregion
+
+# region: explain
+widget: shell
+# endregion
+
+# region: explain-pic
+widget: shell
+run: ls -a; cat .plans.txt
+# endregion
+
+# region: modify
+widget: shell
+find: /home/sam/projects/game/level1.txt
+# endregion
+
+# region: make
+widget: shell
+fs: hunt
+start: /home/sam/hunt
+find: /home/sam/hunt/gym/.locker/clue.txt
+# endregion
