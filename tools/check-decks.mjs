@@ -1,5 +1,5 @@
 // Render every generated deck with marp-cli and report slides whose content runs off the slide.
-// Run after `npm run build`: node tools/check-decks.mjs   (needs npx and Chromium)
+// Run after `npm run build`: node tools/check-decks.mjs [path part, e.g. code/python/turtle-]   (needs npx and Chromium)
 import { chromium } from 'playwright-core';
 import { execSync } from 'node:child_process';
 import { mkdirSync, readdirSync, readFileSync, writeFileSync, existsSync, rmSync } from 'node:fs';
@@ -10,7 +10,8 @@ const out = resolve('.render-tmp/decks');
 rmSync(out, { recursive: true, force: true }); mkdirSync(out, { recursive: true });
 const walk = (d) => readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(join(d, e.name)) : e.name === 'deck.md' ? [join(d, e.name)] : []));
 // {{embed: URL}} is a live board in Waypoints Prepare (a 420px frame); marp-cli does not know it, so stand in a box of the same height.
-for (const f of walk(root)) writeFileSync(join(out, f.split('/').slice(-2, -1)[0] + '.md'), readFileSync(f, 'utf8').replace(/\{\{\s*embed:\s*\S+?\s*\}\}/g, '<div style="height:420px;border:2px dashed #999;border-radius:8px"></div>'));
+const only = process.argv[2] || '';
+for (const f of walk(root).filter((f) => !only || f.includes(only))) writeFileSync(join(out, f.split('/').slice(-2, -1)[0] + '.md'), readFileSync(f, 'utf8').replace(/\{\{\s*embed:\s*\S+?\s*\}\}/g, '<div style="height:420px;border:2px dashed #999;border-radius:8px"></div>'));
 execSync(`npx -y @marp-team/marp-cli@4 --html --input-dir ${out} -o ${out}`, { stdio: 'ignore', timeout: 180000 });
 
 const exe = existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined;

@@ -43,12 +43,14 @@ questions:
   - at: investigate
     title: Count the changes
     type: number
+    slideCode: square.py#loop
     q: "The loop version draws a 20-sided shape. How many numbers in it change?"
     answer: 2
     explain: "Only range(20) and the turn (360 / 20 = 18 degrees). The loop is the same 3 lines."
   - at: investigate
     title: Which way now?
     type: question
+    slideCode: square.py#loop
     q: "The turtle starts in the middle, facing right. After the square, which way is it facing?"
     options: ["Up", "Down", "Right", "Left"]
     answer: 2

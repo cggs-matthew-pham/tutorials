@@ -172,11 +172,26 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
     if (st && !runBy[st]) runBy[st] = m[2]; else runOther.push(String(r));
   }
   let extrasDone = false;
+  const liveRun = new Set();
   const note = (t) => (t ? `\n\n<!-- Speaker note: ${oneLine(t).replace(/-->/g, '- ->')} -->` : '');
   const srcNote = sourceList(T).length ? ` Sources: ${sourceList(T).map((x) => `${x.title}, ${x.url}${x.checked ? ` (checked ${x.checked})` : ''}`).join('; ')}.` : '';
   slides.push(`# ${pt(lesson.title)}\n\n${course}${unit ? ` · ${unit}` : ''}` + note(`${T.summary || lesson.summary}${T.time ? ` About ${T.time} minutes${T.timing ? ` (${T.timing})` : ''}.` : ''}${LANG === 'python' || LANG === 'html' ? ' The Run, Modify and Make slides have the live playground in them; the tutorial link under it is the backup.' : ''}${srcNote}`));
   slides.push(`## Today\n\n**We are learning to** ${lowerFirst(lesson.summary.replace(/\.$/, ''))}.\n\n${(T.goals || []).map((g) => `- ${pt(g)}`).join('\n')}` + note([T.before ? `Before class: ${T.before}` : '', ...runOther.map((r) => `Teacher: ${r}`)].filter(Boolean).join(' ')));
   if (lesson.hook) slides.push(`## Why it matters\n\n> ${lesson.hook}` + note(lesson.intro));
+  // A question about a program keeps the program on the slide: code in the left column, the question on the right.
+  // Only short programs (a column holds about 16 lines); a short runnable program becomes the live playground instead; a check can opt out with `slideCode: false` or name another region with `slideCode: file.py#region`.
+  const sideOk = (src) => src && src.split('\n').length <= 16 && !blocksDeck(src);
+  // Short runnable programs get the live playground in the right half (at 740px wide it keeps its editor and picture
+  // side by side, and it is 420px tall like every embed); display-only or longer code stays a static column.
+  const liveSrc = (src) => src && src.split('\n').length <= 14 && (LANG === 'html' || (LANG === 'python' && /from turtle import/.test(src)));
+  const colsStyle = (right) => `display:grid;grid-template-columns:1fr ${right};gap:1em`;
+  const sideBySide = (body, tail, src) => {
+    if (!src || (!sideOk(src) && !liveSrc(src))) return null;
+    const url = liveSrc(src) && measure(body + tail, true).text <= 330 ? playUrlFor(LANG === 'html' ? 'html' : 'turtle', src) : null;
+    if (url) return `<div class="side" style="${colsStyle('740px')}">\n<div>\n\n${body}${tail}\n\n</div>\n<div>\n\n{{embed: ${url}}}\n\n</div>\n</div>`;
+    return sideOk(src) ? `<div class="side" style="${colsStyle('1fr')}">\n<div>\n\n${fence(src)}\n\n</div>\n<div>\n\n${body}${tail}\n\n</div>\n</div>` : null;
+  };
+  const stepCode = (stage) => { const st = lesson.steps.find((x) => x.config.stage === stage && x.config.code); return st ? snip(st.config.code) : ''; };
   // Class plan (content/<course>/class/<lesson>.yml): activities and questions for the room, placed after the first
   // step of their stage (or at the start or end). The site stays self-paced; the deck carries the talk.
   const CP = lesson.classPlan || {}, placed = new Set();
@@ -192,7 +207,10 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
       if (p.options) body += '\n\n' + p.options.map((o) => `- ${o}`).join('\n');
       if (p.trace) body += '\n\n' + traceTable(p.trace, true);
       if (p.match) body += '\n\n' + `| | |\n|---|---|\n` + p.match.lefts.map((l, j) => `| \`${l}\` | ${letters[j]}. ${p.match.rights[j]} |`).join('\n');
-      slides.push(`${BADGE.check}\n\n## ${pt(q.title || 'Class question')}\n\n${body}\n\n* Answer: ${oneLine(p.answer)}` + note(`${p.explain || ''} Ask on mini whiteboards or by show of hands before the reveal.`));
+      const qsrc = typeof q.slideCode === 'string' ? snip(q.slideCode) : q.code ? snip(q.code) : stepCode(at);
+      const tail = `\n\n* Answer: ${oneLine(p.answer)}`;
+      const sided = q.slideCode !== false ? sideBySide(body, tail, qsrc) : null;
+      slides.push(`${BADGE.check}\n\n## ${pt(q.title || 'Class question')}\n\n${sided || body + tail}` + note(`${p.explain || ''} Ask on mini whiteboards or by show of hands before the reveal.`));
     });
   };
   if (CP.inquiry) {
@@ -216,13 +234,15 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
   const boardSlide = (step, heading) => `${BADGE.activity}\n\n## ${heading}\n\n{{embed: ${boardUrl(step)}}}\n\n[Open this step in the tutorial](${stepUrl(lesson, step)})`;
   // Turtle and HTML steps embed the live playground on the Run slide, loaded with the step's starter and no `id`, so
   // it opens fresh every time and keeps nothing. Very long starters fall back to the link (the address would be huge).
+  const playUrlFor = (kind, src) => {
+    const dir = { turtle: '_playground', html: '_playground-html' }[kind];
+    if (!dir || !src || (LANG !== 'python' && LANG !== 'html')) return null;
+    const url = `${SITE_URL}/${dir}/index.html?${new URLSearchParams({ code: src })}`;
+    return url.length <= 6000 ? url : null;
+  };
   const playUrl = (step) => {
     const t = step.config.try;
-    const kind = t?.playground || (LANG === 'html' ? 'html' : 'turtle');
-    const dir = { turtle: '_playground', html: '_playground-html' }[kind];
-    if (!dir || !t?.starter || (LANG !== 'python' && LANG !== 'html')) return null;
-    const url = `${SITE_URL}/${dir}/index.html?${new URLSearchParams({ code: snip(t.starter) })}`;
-    return url.length <= 6000 ? url : null;
+    return t?.starter ? playUrlFor(t.playground || (LANG === 'html' ? 'html' : 'turtle'), snip(t.starter)) : null;
   };
   const playSlide = (step, heading) => `${BADGE.activity}\n\n## ${heading}\n\n{{embed: ${playUrl(step)}}}\n\n_If it does not load:_ [open this step in the tutorial](${stepUrl(lesson, step)})`;
   const runIt = (step, label = LANG === 'maths' ? 'Try it' : E5 ? 'Explore it' : 'Run it') => boardUrl(step) ? boardSlide(step, label) : playUrl(step) ? playSlide(step, label) : `${BADGE.activity}\n\n## ${label}\n\nOpen the lesson at this step and try it together.\n\n[${stepUrl(lesson, step).replace(/^https:\/\//, '')}](${stepUrl(lesson, step)})`;
@@ -235,9 +255,18 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
       const k = c.check?.type === 'predict' ? checkPartsMd(c.check, snip, s.id) : null;
       slides.push(`${BADGE.discussion}\n\n## ${E5 ? 'Engage: predict' : 'Predict'}\n\n${code ? showCode(code, s) + '\n\n' : ''}${k ? `**${k.q}**${k.options ? '\n\n' + k.options.map((o) => `- ${o}`).join('\n') : ''}` : prose(s.body)}` + note(`${k?.answer ? `What happens: ${k.answer}` : ''} Take two or three predictions before anyone runs it.`));
       classSlides('predict');
+      // Run it live right after the vote, before the answer is shown: the next Run step's playground or board goes in
+      // here, and that step then adds no slide of its own (its note comes along).
+      const runStep = lesson.steps.slice(lesson.steps.indexOf(s) + 1).find((x) => x.config.stage === 'run');
+      if (runStep && (boardUrl(runStep) || playUrl(runStep))) {
+        const rc = runStep.config;
+        slides.push(runIt(runStep) + note(`${prose(runStep.body)} ${rc.check?.type === 'reflect' ? `Students should be able to say: ${rc.check.text}` : ''}`) + (runBy.run ? note(`Teacher: ${runBy.run}`) : ''));
+        runUsed.add('run');
+        liveRun.add(runStep.id);
+      }
       if (k?.answer) slides.push(`${BADGE.check}\n\n## What happened?\n\n* ${oneLine(k.answer)}` + note('Reveal after running. Ask who predicted it, and what made them think so.'));
     } else if (stage === 'run') {
-      slides.push(runIt(s) + note(`${prose(s.body)} ${c.check?.type === 'reflect' ? `Students should be able to say: ${c.check.text}` : ''}`));
+      if (!liveRun.has(s.id)) slides.push(runIt(s) + note(`${prose(s.body)} ${c.check?.type === 'reflect' ? `Students should be able to say: ${c.check.text}` : ''}`));
     } else if (stage === 'investigate' || stage === 'practise' || (E5 && stage === 'modify') || (DESIGN && stage === 'predict')) {
       if (DESIGN && stage === 'predict' && s.body.trim()) slides.push(`${BADGE.discussion}\n\n## ${title}\n\n${prose(s.body)}` + note('Read the brief together: who it is for, what it must do (criteria) and the limits (constraints).'));
       if (code) slides.push(`${BADGE.discussion}\n\n## ${DESIGN || title === 'Investigate' ? title : `Investigate: ${title.replace(/^Investigate:\s*/, '')}`}\n\n${showCode(code, s)}` + note(`${prose(s.body)} ${c.insight ? `What this step is for: ${c.insight}` : ''}`));
@@ -267,7 +296,12 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
           if (tooTall(together)) slides.push(`${BADGE.discussion}\n\n## ${t.title}\n\n${shown}`);
           else body = shown + '\n\n' + body;
         }
-        const reveal = p.parsons ? '' : `\n\n* Answer: ${oneLine(p.answer)}`;
+        const csrc = typeof k.slideCode === 'string' ? snip(k.slideCode) : code;
+        let reveal = p.parsons ? '' : `\n\n* Answer: ${oneLine(p.answer)}`;
+        if (k.slideCode !== false && !p.files && !p.parsons && !(t && /```/.test(t.body))) {
+          const sided = sideBySide(body, reveal, csrc);
+          if (sided) { body = sided; reveal = ''; }
+        }
         slides.push(`${BADGE.check}\n\n## ${t ? t.title : title}\n\n${body}${reveal}` + note(`${p.explain} ${p.parsons ? `Correct order: ${oneLine(p.solution)}` : ''} ${!t && c.insight ? `What this step is for: ${c.insight}` : ''}`));
       }
     } else if (stage === 'modify' || stage === 'make') {
@@ -305,24 +339,35 @@ const blocksDeck = (code) => {
 // (Reaction timer's Predict ran 5px over), and check-decks flags anything past 690px.
 const ROOM = 545;
 // Height estimate for a slide, as fitCode uses it: the text's height and the code's height at full size.
-function slideSize(slide) {
+function measure(slide, narrow = false) {
   const blocks = slide.match(/```[\s\S]*?```/g) || [];
-  const cols = /<div class="cols"/.test(slide) ? 2 : 1; // two columns: count half the code
+  const cols = /<div class="cols"/.test(slide) ? 2 : 1; // two code columns: count half the code
   const lines = blocks.reduce((n, b) => n + b.split('\n').length - 2, 0) / cols;
   const plain = (l) => l.replace(/<[^>]+>|\*\*|`|\[([^\]]*)\]\([^)]*\)/g, '$1').trim();
-  const wraps = (l, w) => Math.max(1, Math.ceil(plain(l).length / w));
+  const wraps = (l, w) => Math.max(1, Math.ceil(plain(l).length / (narrow ? w * 0.55 : w)));
   const rest = slide.replace(/```[\s\S]*?```/g, '').replace(/<!--[\s\S]*?-->|<style[\s\S]*?<\/style>/g, '').split('\n').filter((l) => l.trim());
   const text = rest.reduce((n, l) => {
     if (/^<span/.test(l)) return n + 60;
     if (/^#/.test(l)) return n + 75;
     if (/^\|[-| ]*\|$/.test(l)) return n + (/-/.test(l) ? 0 : 18);
     if (/^\|/.test(l)) return n + 25 + 44 * Math.max(...l.split('|').slice(1, -1).map((c) => wraps(c, 34)));
+    if (/^\{\{embed:/.test(l)) return n + 420; // a live frame is 420px tall
     if (/^<\/?div/.test(l)) return n;
     if (/^\*\*[^*]+\*\*$/.test(l) && /\.\w+\*\*$/.test(l)) return n + 60 / cols; // file name label
     if (/^[-*] /.test(l)) return n + 12 + 44 * wraps(l, 62);
     return n + 18 + 44 * wraps(l, 66);
   }, 0) + (35 * blocks.length) / cols;
   return { text, codeFull: lines * 29 * 1.25 };
+}
+// Height estimate for a slide, as fitCode uses it: the text's height and the code's height at full size. A side-by-side
+// slide (class "side": code or a live frame beside text) is the header plus the taller of its two columns.
+function slideSize(slide) {
+  const at = slide.indexOf('<div class="side"');
+  if (at < 0) return measure(slide);
+  const head = measure(slide.slice(0, at)), body = slide.slice(at).split(/<\/div>\s*<div>/);
+  const left = measure(body[0], true), right = measure(body.slice(1).join(''), true);
+  const col = (m) => m.text + m.codeFull;
+  return { text: head.text, codeFull: Math.max(col(left), col(right)) };
 }
 // True when a slide cannot fit even at fitCode's smallest sizes (code at half size, text at 16px).
 function tooTall(slide) {
@@ -334,6 +379,11 @@ function fitCode(slide) {
   const { text, codeFull } = slideSize(slide);
   const code = (s) => codeFull * s;
   if (text + code(1) <= ROOM) return slide;
+  // Side by side: one column is the code or a live frame, the other text; scale the whole slide to fit, not just the code.
+  if (/<div class="side"/.test(slide)) {
+    const k = ROOM / (text + codeFull);
+    return `${slide}\n\n<style scoped>section { font-size: ${Math.max(16, Math.floor(29 * k))}px; }</style>`;
+  }
   let c = Math.min(0.85, (ROOM - text) / code(1)), s = 1;
   if (c < 0.5) { c = 0.5; s = ROOM / (text + code(0.5)); }
   const css = [`pre, marp-pre { font-size: ${Math.floor(c * 100) / 100}em; line-height: 1.25; }`];

@@ -109,6 +109,7 @@ tasks:
       explain: "right(90) is not indented, so it is not part of the loop. The loop draws four sides in a straight line, and the turn runs once afterwards. Indent it under the for line so both lines repeat."
   - check:
       type: trace
+      slideCode: square.py#loop
       text: "for i in range(4): makes a counter called i. It starts at 0 and goes up by 1 each time round the loop. Fill in the table for the square."
       table: |
         | pass | i | turned so far |
