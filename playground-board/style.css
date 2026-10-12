@@ -496,6 +496,18 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .lvslide { display: inline-flex; align-items: center; gap: 6px; }
 .lvslide input[type=range] { width: 160px; }
 .lvslide output { min-width: 3.5em; font: 14px ui-monospace, Menlo, Consolas, monospace; }
+/* Cranks, cams and linkages (motion) */
+.gearsvg .mvgraph { fill: var(--card); stroke: var(--line); stroke-width: 1.5; }
+.gearsvg .mvtrace { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; }
+.gearsvg .mvsmall { font: 12px system-ui, sans-serif; fill: var(--muted); }
+.gearsvg .mvcrank { stroke: var(--left); stroke-width: 8; stroke-linecap: round; }
+.gearsvg .mvrod { stroke: var(--ink); stroke-width: 6; stroke-linecap: round; opacity: 0.75; }
+.gearsvg .mvrocker { stroke: var(--right); stroke-width: 8; stroke-linecap: round; }
+.gearsvg .mvground { stroke: var(--muted); stroke-width: 3; stroke-dasharray: 6 5; }
+.gearsvg .mvcam { fill: color-mix(in srgb, var(--right) 30%, var(--card)); stroke: var(--ink); stroke-width: 1.5; }
+.gearsvg .mvrodbox { fill: color-mix(in srgb, var(--left) 35%, var(--card)); stroke: var(--ink); stroke-width: 1.5; }
+.gearsvg .mvroller { fill: var(--card); stroke: var(--ink); stroke-width: 1.5; }
+.gearsvg .mvjam { font: 600 14px system-ui, sans-serif; fill: #b42318; text-anchor: middle; }
 .gfacts { margin: 2px 0 0; font: 15px/1.4 ui-monospace, Menlo, Consolas, monospace; }
 .oprow label { display: inline-flex; align-items: center; gap: 4px; }
 /* Security and privacy */

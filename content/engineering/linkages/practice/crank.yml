@@ -1,0 +1,21 @@
+# Practice for "Cranks and sliders": stroke = 2 × radius; one stroke a turn; volume = area × stroke.
+templates:
+  - q: "A crank of radius {r} mm. What is the stroke, in mm?"
+    vars: { r: "5..60 by 5" }
+    answer: "{2 * r}"
+    feedback:
+      - ["{r}", "The pin goes from one side of the centre to the other: twice the radius."]
+    explain: "2 × {r} = {2 * r} mm."
+  - q: "A slider must move {s} mm each stroke. What crank radius does it need, in mm?"
+    vars: { r: "5..50 by 5" }
+    let: { s: "2 * r" }
+    answer: "{r}"
+    feedback:
+      - ["{2 * s}", "Halve the stroke, don't double it."]
+    explain: "{s} ÷ 2 = {r} mm."
+  - q: "A pump has a {a} cm² piston and a crank of radius {r} cm. It turns {n} times a minute. How much water does it move a minute, in cm³?"
+    vars: { a: "2..8", r: [1, 1.5, 2, 2.5, 3], n: "10..60 by 10" }
+    answer: "{a * 2 * r * n}"
+    feedback:
+      - ["{a * r * n}", "The stroke is 2 × {r} cm, not {r} cm."]
+    explain: "Stroke 2 × {r} = {2 * r} cm; {a} × {2 * r} = {a * 2 * r} cm³ a stroke; × {n} = {a * 2 * r * n} cm³."

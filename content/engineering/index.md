@@ -5,12 +5,12 @@ summary: "Build it, test it, improve it. An elective layer on top of the core cu
 pathways:
   - id: mechanisms
     title: Mechanisms
-    summary: Gears, levers and pulleys, and the trade-off between speed and force.
+    summary: Gears, levers and pulleys trade speed or distance for force; cranks, cams and linkages change one motion into another.
     fit: "Start here: no kits needed, and every lesson works in the browser."
     about: "Design and Technologies (Engineering principles and systems) is the home; ratio from Maths, forces and simple machines from Science and loops from Code are applied, not taught. Each lesson is the maths shape (Predict, Try on a board, Worked example, Vary, Practise, Make) around a design brief with criteria and constraints. LEGO Technic or Meccano gears make a good hands-on start before the board."
     courses:
       - { path: engineering/mechanisms, id: mechanisms, stage: foundations, tagline: "Gears, levers and pulleys: trade speed or distance for strength." }
-      - { title: Linkages and cams, id: linkages, stage: extensions, after: [mechanisms], summary: "Turn one motion into another: rotating to back and forth, a cam's shape to a follower's path.", tagline: "Change how things move." }
+      - { path: engineering/linkages, id: linkages, stage: extensions, after: [mechanisms], tagline: "Change how things move." }
   - id: physical
     title: Physical computing
     summary: Circuits, sensors and motors, from the micro:bit in Tinkercad to Arduino C++ on real hardware.

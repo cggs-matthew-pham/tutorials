@@ -1,0 +1,8 @@
+# Ava's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: ava
+Ava's bars: crank 55, coupler 80, rocker 60, ground 70 (mm).
+Shortest + second shortest = 55 + 60 = 115.
+The other two = 80 + 70 = 150.
+115 is less than 150, so the crank turns all the way round.
+# endregion

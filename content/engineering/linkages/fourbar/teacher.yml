@@ -1,0 +1,44 @@
+summary: Students turn a four-bar linkage, find that a longer crank jams, learn the rule for whether the crank can turn fully (shortest + longest ≤ the other two, with the crank shortest), design a wiper with a swing of at least 100°, and search for a linkage whose swing falls in a range.
+time: 45
+timing: "Predict and Try 10 min · Worked example 10 min · Vary 10 min · Practise and Make 15 min"
+goals:
+  - I can name the four bars of a four-bar linkage and what each one does.
+  - I can use the rule to say whether a crank can turn all the way round.
+  - I can change bar lengths to meet a swing criterion.
+struggle: "Students add the wrong pair, or forget that the crank must be the shortest bar. Have them sort the four lengths before anything else."
+before: |
+  Card strips and split pins make linkages students can feel jam. Meccano strips work too.
+
+  Simplifications: rigid bars, no friction, pivots with no play, and the linkage is assembled one way up (the board keeps the coupler and rocker meeting above the frame). The rule (Grashof's condition) is about whether some bar can turn fully; which one depends on which bar is shortest.
+
+  Curriculum hooks: Design and Technologies, engineering principles and systems (primary); Maths, inequalities and measurement (Years 9–10).
+running:
+  - "Predict: most students choose a bigger swing. Keep their reason for after the jam."
+  - "Try: have students find the exact longest crank, then check it with the sum."
+  - "Worked example: write the four lengths sorted on the board every time."
+  - "Vary: the shortest-frame question opens double cranks; a picture of a locomotive's coupling rods helps."
+stuck:
+  - see: "A student adds the wrong two bars."
+    ask: "Which is the shortest and which is the longest?"
+    fix: "Sort first, then add the ends of the list."
+  - see: "A student expects a longer crank always to give a bigger swing."
+    ask: "Did it turn all the way?"
+    fix: "Only up to the limit the rule sets."
+  - see: "A student is lost after changing several bars."
+    ask: "Change one bar at a time. What did that one change do?"
+    fix: "One change, one test."
+stretch: "Find a linkage where the rule holds exactly (shortest + longest = the other two). What does it do at the moment it lines up, and why do engineers avoid it?"
+support: "Give a table: four lengths, sorted, shortest + longest, other two, turns fully? Fill the first row together."
+leads: |
+  Next: the Capstone projects (Physical computing) include a lift and a sorter where these mechanisms meet motors.
+
+  Real examples: windscreen wipers, bike and leg, oil pump jacks, excavator arms, folding chairs, Theo Jansen's Strandbeest.
+exit:
+  q: "Bars 25, 75, 55 and 60 mm, with the 25 mm bar as the crank. Can the crank turn all the way? Show the sums."
+  a: "25 + 75 = 100, 55 + 60 = 115; 100 ≤ 115 and the crank is shortest, so yes."
+explain: |
+  A **four-bar linkage** has a fixed **frame**, a **crank** that turns on one pivot, a **rocker** that swings on the other, and a **coupler** joining them. It turns rotation into rocking.
+
+  It only works if the lengths allow it. **Sort the four bars; if the shortest + the longest is no more than the other two**, one bar can turn all the way round, and if that is the crank, the crank turns and the rocker swings. A longer crank swings the rocker farther, until the rule fails and it jams.
+sources:
+  - { title: "TeachEngineering: K-12 engineering design challenges (benchmark; the briefs and wording are our own)", url: "https://www.teachengineering.org/", checked: 2026-10-12 }

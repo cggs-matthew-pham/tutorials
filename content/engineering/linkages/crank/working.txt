@@ -1,0 +1,8 @@
+# Noah's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: noah
+Noah's pump: a 30 mm crank and a piston 5 cm² in area.
+The piston moves as far as the crank is long: 30 mm = 3 cm.
+Water per stroke = 5 × 3 = 15 cm³.
+At 40 turns a minute: 15 × 40 = 600 cm³ a minute.
+# endregion

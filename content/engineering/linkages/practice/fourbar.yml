@@ -1,0 +1,14 @@
+# Practice for "Four-bar linkages": can the crank (the shortest bar) turn all the way?
+templates:
+  - q: "Crank {a} mm, coupler {b} mm, rocker {c} mm, ground {d} mm. Shortest + longest − (the other two) = ? (Zero or less means the crank turns all the way.)"
+    vars: { a: "10..40 by 5", b: "60..110 by 5", c: "45..80 by 5", d: "50..90 by 5" }
+    where: "b > c and b > d"
+    answer: "{a + b - c - d}"
+    explain: "{a} + {b} = {a + b}; {c} + {d} = {c + d}; {a + b} − {c + d} = {a + b - c - d}. Zero or less: the crank turns all the way; more than zero: it jams."
+  - q: "Coupler {b} mm, rocker {c} mm, ground {d} mm. What is the longest crank (still the shortest bar) that turns all the way, in mm?"
+    vars: { b: "80..120 by 10", c: "50..80 by 5", d: "50..80 by 5" }
+    where: "c + d - b < c and c + d - b < d and c + d - b > 5"
+    answer: "{c + d - b}"
+    feedback:
+      - ["{c + d}", "Take away the longest bar: crank + {b} ≤ {c} + {d}."]
+    explain: "crank + {b} ≤ {c} + {d} = {c + d}, so crank ≤ {c + d} − {b} = {c + d - b} mm."

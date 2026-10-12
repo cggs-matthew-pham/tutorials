@@ -1,0 +1,27 @@
+# Practice for "Cams and followers": eccentric lift = 2 × offset; steady rises are straight lines.
+templates:
+  - q: "An eccentric cam's axle is {e} mm off centre. What is the follower's lift, in mm?"
+    vars: { e: "3..15" }
+    answer: "{2 * e}"
+    feedback:
+      - ["{e}", "Closer by {e} mm on one side, farther by {e} mm on the other."]
+    explain: "2 × {e} = {2 * e} mm."
+  - q: "A heart cam with a {L} mm lift rises steadily for 180°, then falls steadily for 180°. How high is the follower at {a}°, in mm?"
+    vars: { k: [4, 6, 8, 10, 12], a: [30, 45, 60, 90, 120, 135, 150] }
+    let: { L: "k * 6" }
+    answer: "{L * a / 180}"
+    explain: "Rising: {a} ÷ 180 of {L} mm = {L * a / 180} mm."
+  - q: "A heart cam with a {L} mm lift rises steadily for 180°, then falls steadily for 180°. How high is the follower at {a}°, in mm?"
+    vars: { k: [4, 6, 8, 10, 12], a: [210, 225, 240, 270, 300, 315, 330] }
+    let: { L: "k * 6" }
+    answer: "{L * (360 - a) / 180}"
+    feedback:
+      - ["{L * (a - 180) / 180}", "Past 180° it is falling: count the degrees left until 360°."]
+    explain: "Falling: {360 - a}° left until 360°, so {360 - a} ÷ 180 of {L} mm = {L * (360 - a) / 180} mm."
+  - q: "A snail cam with a {L} mm lift rises steadily for a whole turn. How high is the follower at {a}°, in mm?"
+    vars: { k: [2, 3, 4, 5], a: [45, 90, 120, 180, 240, 270, 300] }
+    let: { L: "k * 12" }
+    answer: "{L * a / 360}"
+    feedback:
+      - ["{L * a / 180}", "A snail cam takes the whole 360° to rise."]
+    explain: "{a} ÷ 360 of {L} mm = {L * a / 360} mm."

@@ -1,0 +1,25 @@
+# Boards for "Cams and followers". Sizes in millimetres.
+
+# region: run
+widget: motion
+mode: cam
+cam: eccentric
+lift: 20
+choose: on
+numbers: off
+# endregion
+
+# region: explain
+widget: motion
+mode: cam
+cam: snail
+lift: 25
+# endregion
+
+# region: vary
+widget: motion
+mode: cam
+cam: eccentric
+lift: 20
+choose: on
+# endregion

@@ -758,6 +758,18 @@ Vary, Practise, Make).
     Values `n`, `e_n`, `m_a`, `load_n`, `push_n`, `pull_m`, `h_m`, `l`, `s`, `p`, `n_min` (fewest ropes in the options
     that lift it). Checks: `"s = 1 and f_m = 1"`, `"l = 1 and k = 2"`, `"load_n = 900 and l = 1 and n = 5"`,
     `"n = 4 and l = 1 and n_min = 4"`. Ready selector `.gearsvg`.
+  - `widget: motion` (first used by `engineering/linkages/`): changing one motion into another, rigid parts, no
+    friction. A trace graph on the right (crank and cam). `choose: on` adds sliders (and a cam menu); `numbers: off`
+    hides the measurements. Button Turn the crank (or cam) once; any change resets `turns`, so `t = 1` means turned since
+    the last change. `mode: crank`: `radius:` and `rod:` (mm; the rod must be longer), `rpm:`, `target:` (stroke in mm);
+    the graph is the slider's position. Values `r_mm`, `rod_mm`, `stroke_mm` (2 × radius), `rpm`, `spm`, `turns`, `t`,
+    `target_mm`, `p`. `mode: cam`: `cam: eccentric | pear | snail | heart`, `lift:` (mm, up to 30), `base:`; the graph is
+    the follower's height (a displacement graph). Values `c` (1 to 4 in that order), `lift_mm`, `dwell`, `drop`, `turns`,
+    `t`. `mode: linkage`: a four-bar linkage, `crank:`, `coupler:`, `rocker:`, `ground:` (mm), `swing:` (degrees, a
+    criterion); the coupler's path is traced; a crank that cannot turn fully stops with "Jammed". Values `a_mm`, `b_mm`,
+    `c_mm`, `d_mm`, `g` (shortest + longest ≤ the other two), `full` (the crank turns all the way, found by trying every
+    degree), `swing` (rocker degrees, 0 if not full), `jam`, `turns`, `t`, `p`. Checks: `"stroke_mm = 60 and t = 1"`,
+    `"c = 3 and t = 1"`, `"a_mm = 55 and jam = 1"`, `"full = 1 and swing >= 100 and t = 1"`. Ready selector `.gearsvg`.
   - `widget: circuit` (first used by `engineering/circuits/`): parts wired to a micro:bit's pins, from a simple stated
     model (pin 3.3 V, LED drops 2 V and is damaged above 20 mA, analog read 0–1023 for 0–3.3 V). `mode: led`: pin 0 →
     resistor → LED → GND; `resistor:` (ohms, 0 = none), `place: after`, `output: off`, `gnd: off`, `turned: on`, and

@@ -1,0 +1,44 @@
+summary: Students turn four cams (eccentric, pear, snail, heart) and read each follower's displacement graph, find that an eccentric cam lifts by twice its offset, calculate heights on straight-line rises, choose cams for toys, and design one.
+time: 40
+timing: "Predict and Try 10 min · Worked example 10 min · Vary 8 min · Practise and Make 12 min"
+goals:
+  - I can explain how a cam's shape decides its follower's path.
+  - "I can read a displacement graph: rise, fall and rest (dwell)."
+  - I can choose a cam for a motion I need.
+struggle: "Students read the graph as a picture of the cam. Keep asking: what does the follower do while the cam turns from here to here?"
+before: |
+  Cardboard cams on a pencil axle with a straw follower make this concrete in ten minutes. Automata (cam toys) are a good Make extension in class.
+
+  Simplifications: the follower is a roller that always touches the cam (real followers need a spring or gravity to keep contact), the cam turns slowly, and the profiles are idealised (a real snail cam's drop is a short curve, not a cliff).
+
+  Curriculum hooks: Design and Technologies, engineering principles and systems (primary); Maths, reading graphs, proportion.
+running:
+  - "Predict: draw a circle with an off-centre dot; ask where the edge is nearest and farthest from the dot."
+  - "Try: pause after the pear cam and ask what a flat line on the graph means."
+  - "Worked example: point out that steady rises are straight lines, so height is a fraction of the lift."
+  - "Make: invite students to sketch their own toy's graph before choosing the cam."
+stuck:
+  - see: "A student says a round cam can't move the follower."
+    ask: "Where is the axle? Is the edge always the same distance from it?"
+    fix: "Off centre, the edge's distance from the axle changes."
+  - see: "A student reads the graph as the cam's outline."
+    ask: "What is on the across axis?"
+    fix: "Angle turned; the up axis is the follower's height."
+  - see: "A student picks the heart cam for a sudden drop."
+    ask: "Is there a vertical line on the heart's graph?"
+    fix: "Only the snail cam drops suddenly."
+stretch: "Sketch the displacement graph for a cam that rests, rises, rests at the top, then falls. What shape is the cam?"
+support: "Print the four displacement graphs and four cam pictures to match before the board."
+leads: |
+  Next: Four-bar linkages, the third way of changing motion.
+
+  Real examples: engine valves (camshaft), sewing machines, music boxes, automata, toy pull-alongs.
+exit:
+  q: "A snail cam has a 36 mm lift. How high is the follower at 90°, and what happens at 360°?"
+  a: "90 ÷ 360 × 36 = 9 mm; at 360° it drops suddenly back to 0."
+explain: |
+  A **cam** is a shaped wheel; a **follower** rests on its edge and rises and falls as it turns. Where the edge gets farther from the axle, the follower rises; where it stays the same distance, the follower rests (a **dwell**).
+
+  A **displacement graph** shows the follower's height against how far the cam has turned. An eccentric (round, off centre) cam gives a smooth wave and lifts by twice its offset; a pear cam rests for half a turn; a snail cam rises slowly and drops suddenly; a heart cam rises and falls steadily.
+sources:
+  - { title: "TeachEngineering: K-12 engineering design challenges (benchmark; the briefs and wording are our own)", url: "https://www.teachengineering.org/", checked: 2026-10-12 }

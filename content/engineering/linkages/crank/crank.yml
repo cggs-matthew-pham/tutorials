@@ -1,0 +1,35 @@
+# Boards for "Cranks and sliders". Sizes in millimetres.
+
+# region: run
+widget: motion
+mode: crank
+radius: 20
+rod: 80
+choose: on
+numbers: off
+# endregion
+
+# region: explain
+widget: motion
+mode: crank
+radius: 25
+rod: 90
+# endregion
+
+# region: vary
+widget: motion
+mode: crank
+radius: 20
+rod: 80
+choose: on
+target: 60
+# endregion
+
+# region: make
+widget: motion
+mode: crank
+radius: 10
+rod: 80
+rpm: 30
+choose: on
+# endregion

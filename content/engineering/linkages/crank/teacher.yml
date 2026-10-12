@@ -1,0 +1,46 @@
+summary: Students turn a crank and read the slider's position on a graph, find that the stroke is twice the crank radius whatever the rod's length, work out a pump's flow from stroke, piston area and turns a minute, and size a crank for a pump brief.
+time: 40
+timing: "Predict and Try 8 min · Worked example 12 min · Vary 6 min · Practise and Make 14 min"
+goals:
+  - I can explain how a crank and slider turns rotation into back and forth.
+  - I can work out a crank's stroke from its radius, and the radius from a stroke.
+  - I can work out how much a crank-driven pump moves in a minute.
+struggle: "Students take the radius as the stroke, and mix up the rod and the crank. Keep pointing at the pin: where is it at each end of the stroke?"
+before: |
+  Do Mechanisms first if you can: this course assumes the idea of a brief and of a mechanism trading one thing for another.
+
+  A bicycle upside down makes a good start: the pedal is a crank, and a pencil taped to the pedal traces the circle. Sewing machines, toy steam engines and old pump jacks are good pictures.
+
+  Simplifications: rigid parts, no friction, and the crank turns slowly and steadily. Real pumps leak a little, so they move slightly less than the model says.
+
+  Curriculum hooks: Design and Technologies, engineering principles and systems (primary); Maths, measurement, volume and rates.
+running:
+  - "Predict: draw the crank at 0° and 180° on the board, and mark where the pin is."
+  - "Try: after a longer rod gives the same stroke, ask what the rod does change."
+  - "Worked example: keep the units in centimetres for the volume line."
+  - "Vary: the engine question flips the mechanism; ask who has seen a car engine diagram."
+stuck:
+  - see: "A student takes the radius as the stroke."
+    ask: "Where is the pin at each end of the stroke?"
+    fix: "From one side of the centre to the other: twice the radius."
+  - see: "A student changes the rod to change the stroke."
+    ask: "Turn it with a longer rod. Did the stroke change?"
+    fix: "Only the crank radius sets the stroke."
+  - see: "A student mixes millimetres and centimetres in a volume."
+    ask: "What units is the piston area in?"
+    fix: "Convert the stroke to cm before multiplying by cm²."
+stretch: "A pump has two pistons on one crank, half a turn apart. How does that change the flow, and why might it be smoother?"
+support: "Give a drawing of the crank at four positions (0°, 90°, 180°, 270°) with the slider; students measure the slider's position at each."
+leads: |
+  Next: Cams and followers, where the shape of a wheel sets the path.
+
+  Real examples: piston engines (backwards), pumps, sewing machines, jigsaws, steam locomotives.
+exit:
+  q: "A crank of radius 15 mm drives a piston 4 cm² in area at 50 turns a minute. What is the stroke, and how much water a minute?"
+  a: "Stroke 30 mm = 3 cm; 4 × 3 = 12 cm³ a stroke; 12 × 50 = 600 cm³ a minute."
+explain: |
+  A **crank** is an arm or pin on a turning wheel. A **connecting rod** joins it to a **slider** on a straight track, so one turn of the crank pushes the slider out and back once.
+
+  The **stroke** (how far the slider moves) is **twice the crank's radius**: the pin goes from one side of the centre to the other. The rod's length changes where the slider runs, not how far. A pump moves stroke × piston area each stroke, and makes one stroke for every turn.
+sources:
+  - { title: "TeachEngineering: K-12 engineering design challenges (benchmark; the briefs and wording are our own)", url: "https://www.teachengineering.org/", checked: 2026-10-12 }

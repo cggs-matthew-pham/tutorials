@@ -1,0 +1,42 @@
+# Boards for "Four-bar linkages". Bar lengths in millimetres: crank, coupler, rocker, ground (the frame between the pivots).
+
+# region: run
+widget: motion
+mode: linkage
+crank: 30
+coupler: 80
+rocker: 60
+ground: 70
+choose: on
+numbers: off
+# endregion
+
+# region: explain
+widget: motion
+mode: linkage
+crank: 30
+coupler: 80
+rocker: 60
+ground: 70
+# endregion
+
+# region: vary
+widget: motion
+mode: linkage
+crank: 30
+coupler: 80
+rocker: 60
+ground: 70
+choose: on
+swing: 100
+# endregion
+
+# region: make
+widget: motion
+mode: linkage
+crank: 20
+coupler: 80
+rocker: 60
+ground: 70
+choose: on
+# endregion
