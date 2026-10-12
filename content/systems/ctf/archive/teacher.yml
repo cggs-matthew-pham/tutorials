@@ -1,0 +1,46 @@
+summary: The course challenge. Students find five flags in the club's fictional old archive, each with a skill from Digital systems (layered decoding, page source, ls -a and grep, a tiny processor's output read as character codes, and a key word kept beside its data), name the weakness behind each, and fix the front page's leaks (AC9TDI8K02 node 4, AC9TDI10P14 node 3). Defensive throughout. A 5E mission lesson.
+time: 50
+timing: "Engage 3 min · Explore (flags) 30 min · Explain 5 min · Elaborate 7 min · Evaluate 5 min"
+goals:
+  - I can use decoding, page source, the command line and character codes to find what a system gives away.
+  - I can name the weakness behind each find.
+  - I can say how each one should be fixed.
+struggle: "Flags 3 and 5 depend on each other (the hidden folder's name is the key word). Students who skip flag 3 get stuck on 5: send them back."
+before: |
+  Try each flag yourself. Everything is made up and runs on the board; nothing touches a real system.
+
+  Flags (for you, not students): 1 WP{layers-of-encoding} (base64, then hex), 2 WP{view-the-source} (the hidden field), 3 WP{grep-finds-it} (ls -a, then .gears/minutes.txt), 4 WP{cpu} (outputs 99, 112, 117), 5 WP{keys-unlock-it} (key word gears).
+
+  Skills used: Encoding is not encryption and What your page gives away (this course); The command line lessons 1 and 2; A tiny processor (From gates to a processor) and Text as numbers. Students who haven't done the command line or processor courses can still get flags 3 and 4 with the hints, a code table and a few minutes' demo.
+
+  Rules of the game: only test what you own or have permission to test, as here. Every find is reported and fixed. For more practice beyond this site, picoCTF (Carnegie Mellon) is free for school students; check its account and age requirements, and your school's policy, first.
+
+  Optional: run it as a class event (pairs, first to five), keeping the hints available.
+running:
+  - "Engage: ask why a server that's about to be wiped still matters."
+  - "Explore: circulate; ask which skill each flag needs before giving a hint."
+  - "Explain: go through the five weaknesses and their fixes as a class."
+  - "Elaborate: ask what the club must do after the page is fixed (change every secret)."
+  - "Evaluate: discuss why finders report rather than keep."
+stuck:
+  - see: "A student can't decode flag 1 in one go."
+    ask: "What came out after the first decoder? Which rule could make that?"
+    fix: "Decode again: it's two layers."
+  - see: "A student is stuck on flag 5."
+    ask: "Did you find a name in the archive that could be a key word?"
+    fix: "The hidden folder from flag 3, without its dot."
+stretch: "Design a sixth flag for the archive using another Digital systems idea (binary, pixels, or packets), with three escalating hints."
+support: "A card listing the five skills and where each was taught."
+leads: |
+  End of the course. Security and privacy (Years 9–10) has its own capture the flag on a school portal.
+exit:
+  q: "Pick one flag: what gave it away, and how should the club fix it?"
+  a: "For example: the hidden field sent the backup value to every visitor; remove it and keep data on the server."
+explain: |
+  In a **capture the flag**, you look for what a system gives away (with permission) and each find is a flag. Then you **report and fix** it.
+
+  - Encoding (base64, hex) hides nothing.
+  - A page sends its hidden parts to every visitor.
+  - A hidden folder isn't private.
+  - Numbers can be read as text.
+  - A key kept next to its data protects nothing.

@@ -1,0 +1,44 @@
+summary: Students view a club web page as a visitor can, through its source and a photo's details, find what it gives away (a password in a comment, emails in a hidden field, a join code in a script, a photo's location), fix each leak, then check and fix a sign-up page (AC9TDI10P14 node 3). Defensive, on the students' own made-up pages. A 5E mission lesson.
+time: 45
+timing: "Engage and Explore 12 min · Explain 8 min · Elaborate 18 min · Evaluate 7 min"
+goals:
+  - I can find what a page sends to every visitor, shown or not.
+  - I can say why a check in the browser isn't enough.
+  - I can fix a page so private data and checks stay on the server.
+struggle: "Students pick fixes that hide (white text, rename, move). Keep asking the one question: does the browser still receive it?"
+before: |
+  Try the boards yourself. The pages, people and addresses are made up.
+
+  The one idea: the whole page is sent to every visitor, so anything in it can be read; secrets and real checks belong on the server, and photos should lose their location before upload.
+
+  This is about checking your own pages (the students' own sites in HTML & CSS or Your site). Real browsers show the source with View source (Ctrl+U or Cmd+Option+U) and the developer tools.
+
+  Simplifications: "the server" stands for any code the visitor doesn't receive. Photo details are EXIF data; many phones add the location unless it is turned off, and some sites remove it on upload, but not all.
+running:
+  - "Engage: ask what 'hidden' means on a web page."
+  - "Explore: ask which leak was hardest to find, and why."
+  - "Explain: run the browser test on each line of the source together."
+  - "Elaborate: ask why the unlisted drafts page isn't private."
+  - "Evaluate: have students check their own phone's camera location setting."
+stuck:
+  - see: "A student thinks hidden means private (Sam's mistake)."
+    ask: "Did the browser receive it?"
+    fix: "Then the visitor can read it."
+  - see: "A student fixes the password check by making it stricter in the script."
+    ask: "Who controls the browser that runs the script?"
+    fix: "The visitor: check on the server."
+stretch: "View the source of one of your own pages (from HTML & CSS) and list anything you wouldn't want a visitor to read."
+support: "The one question on a card: does the visitor's browser receive it?"
+leads: |
+  Next: Capture the flag, the old archive.
+exit:
+  q: "Name two things a page can give away without showing them, and the fix for one."
+  a: "Comments, hidden fields, scripts (codes, keys, checks), a photo's location. Fix: delete it or keep it on the server; remove photo details before uploading."
+explain: |
+  A web page is sent **whole** to every visitor's browser, so they can read all of it:
+
+  - **comments** and **hidden fields**, though they aren't shown
+  - **scripts**, including any codes or keys in them; a check in the browser can be skipped
+  - a **photo's details**, which can include where it was taken
+
+  Keep secrets and real checks on the **server**, and remove photo details before uploading.

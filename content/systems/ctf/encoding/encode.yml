@@ -1,0 +1,47 @@
+# Boards for "Encoding is not encryption".
+
+# region: explore
+widget: encode
+message: meet at the lab at 4
+shared: gears
+# endregion
+
+# region: explain
+widget: encode
+message: meet at the lab at 4
+shared: gears
+# endregion
+
+# region: explain-pic
+widget: encode
+message: meet at the lab at 4
+shared: gears
+# endregion
+
+# region: stored
+widget: encode
+mode: decode
+data: cm9ib3RzMjAyNg==
+plain: robots2026
+# endregion
+
+# region: hex
+widget: encode
+mode: decode
+data: 6d 65 65 74 20 69 6e 20 72 6f 6f 6d 20 31 32
+plain: meet in room 12
+# endregion
+
+# region: layers
+widget: encode
+mode: decode
+data: MDExMDAwMTAgMDExMTAwMTAgMDExMDEwMDEgMDExMDExMTAgMDExMDAxMTEgMDAxMDAwMDAgMDExMDAwMDEgMDAxMDAwMDAgMDExMTAwMTAgMDExMDExMTEgMDExMDAwMTAgMDExMDExMTEgMDExMTAxMDA=
+plain: bring a robot
+# endregion
+
+# region: key
+widget: encode
+mode: decode
+data: {mf2vvif2|z%5FD>
+plain: the code is 4417
+# endregion

@@ -1,0 +1,33 @@
+# Boards for "What your page gives away".
+
+# region: explore
+widget: source
+set: club
+# endregion
+
+# region: explain
+widget: source
+set: club
+# endregion
+
+# region: explain-pic
+widget: source
+set: club
+# endregion
+
+# region: fix
+widget: source
+set: club
+mode: fix
+# endregion
+
+# region: signup
+widget: source
+set: signup
+# endregion
+
+# region: make
+widget: source
+set: signup
+mode: fix
+# endregion

@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam's club page needs the members' emails for a script.
+Sam puts them in a hidden field.
+The page doesn't show the emails.
+So visitors can't get the emails.
+# endregion

@@ -4,6 +4,6 @@ summary: "Everything a computer stores is numbers: text as character codes, pict
 tagline: "Bits, binary numbers, and how many patterns a few bits can make."
 order: 1
 units:
-  - { id: numbers, title: Data as numbers, summary: "Text, pictures and sound are all stored as numbers, and the encoding decides what they mean: character codes, RGB pixels and sound samples." }
+  - { id: numbers, title: Data as numbers, summary: "Text, pictures and sound are all stored as numbers, and the encoding decides what they mean: character codes, RGB pixels, shapes and sound samples." }
   - { id: binary, title: Binary numbers, summary: "Read and write numbers in binary, work out how many numbers a set of bits can hold, see why computers are built on switches and logic gates, and trace any data down to its bytes." }
 ---

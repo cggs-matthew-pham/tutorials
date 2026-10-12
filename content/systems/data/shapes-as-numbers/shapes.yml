@@ -1,0 +1,54 @@
+# Boards for "Shapes as numbers".
+
+# region: explore
+widget: shapes
+grid: 32
+shape: rect 0 70 100 30 green
+shape: circle 70 35 20 gold
+# endregion
+
+# region: explain
+widget: shapes
+grid: 32
+shape: rect 0 70 100 30 green
+shape: circle 70 35 20 gold
+# endregion
+
+# region: explain-pic
+widget: shapes
+grid: 32
+shape: rect 0 70 100 30 green
+shape: circle 70 35 20 gold
+# endregion
+
+# region: bigger
+widget: shapes
+shape: rect 0 70 100 30 green
+shape: circle 70 35 20 gold
+edit: on
+target: rect 0 70 100 30 green; circle 70 35 30 gold
+# endregion
+
+# region: move
+widget: shapes
+shape: rect 0 70 100 30 green
+shape: circle 70 35 20 gold
+edit: on
+target: rect 0 70 100 30 green; circle 30 50 20 gold
+# endregion
+
+# region: mesh
+widget: shapes
+mode: mesh
+edit: on
+# endregion
+
+# region: make
+widget: shapes
+shape: circle 30 30 20 blue
+shape: circle 70 70 10 white
+shape: triangle 10 10 20 30 30 10 gold
+edit: on
+view: vector
+target: circle 50 50 40 blue; circle 50 50 30 white; triangle 50 28 30 66 70 66 gold
+# endregion

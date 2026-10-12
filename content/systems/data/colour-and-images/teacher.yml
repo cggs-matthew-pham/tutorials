@@ -30,7 +30,7 @@ stuck:
 stretch: "Find the RGB numbers for your favourite colour with the sliders. Then look at the colour picker in a drawing app: it shows the same three numbers."
 support: "Give the six main colours: red 255,0,0; green 0,255,0; blue 0,0,255; yellow 255,255,0; cyan 0,255,255; magenta 255,0,255."
 leads: |
-  Next: Sound as numbers.
+  Next: Shapes as numbers (vector pictures and 3D models).
 
   Code links: turtle's `color()` takes RGB amounts; the Teachable Machine lessons train on images, which the model sees as these numbers. Later: why each amount stops at 255 (How many patterns?), and compressing images (Years 9–10).
 exit:

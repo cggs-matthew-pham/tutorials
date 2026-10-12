@@ -921,6 +921,22 @@ Vary, Practise, Make).
     `privacy` (APP and meets or breaches, `fix: on` adds a change per breach; values a, b, n, c; `set: notice` writes
     the APP 5 notice, values g, n, a), `review` (Inspect, then three fixes per weakness, the wrong ones say why; a
     fully fixed section shows its flag; values x, n, s, w). Full value lists are in the widget's header comment.
+  - `widget: shapes` (first used by `systems/data/shapes-as-numbers`): `mode: vector` draws `shape:` lines (circle x y r,
+    rect x y width height, triangle x1 y1 x2 y2 x3 y3, then a colour) on a 100 by 100 page twice, as a vector and as a
+    bitmap (`grid: 8 | 16 | 32 | 64`, or `grid: 32 fixed`), with Zoom buttons ("Zoom 8×") and grid buttons ("Bitmap grid
+    64"); `edit: on` gives inputs labelled "Shape 2 r"; `target:` shapes split by `;` are drawn dashed (m = 1 on a
+    match); `view: both | vector | bitmap`. Values z, g, v (vector numbers), b (bitmap numbers), s, m, c. `mode: mesh`
+    (`shape: cube | pyramid | prism`): a 3D model as corners and faces, Turn left and Turn right, inputs "Corner 5 y";
+    values n, f, k (numbers stored), h, w, p (1 when the cube's top four corners meet), t, c.
+  - `widget: encode` (first used by `systems/ctf/`): `mode: send` writes `message:` as plain text, binary, hex, base64
+    and Encrypted (a key-word Vigenère; input "Key word"), Send buttons "Send as Hex", and Eve tries every public
+    decoder; `shared:` is Ava's key word. Values f (0 plain to 4 encrypted), e (Eve can read it), l, q (key matches
+    shared), s. `mode: decode` undoes `data:` one layer per button ("Decode as Base64", "Decode with the key word", Undo);
+    `plain:` gives d = 1 on a match (leave it out for flags). Values d, u, w, r. `#` can't appear in data (it starts a
+    comment).
+  - `widget: source` (first used by `systems/ctf/`): a made-up page and what it gives away. `set: club | signup |
+    archive`; `mode: find` (View source, Photo details, buttons "Line 4: mark as a leak") or `mode: fix` (three fixes per
+    leak, labelled "Line 2: <fix>", wrong ones say why). Values v, p, l (leaks marked), n, x (wrong lines marked), f, w.
   - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
     between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
     `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b

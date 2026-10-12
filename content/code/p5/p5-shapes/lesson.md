@@ -2,7 +2,7 @@
 order: 1
 unit: canvas
 introduces: [setup]
-assumes: [rgb-colour]
+assumes: [rgb-colour, vector-graphics]
 title: Shapes on a canvas
 summary: "Draw circles, rectangles, triangles and lines on a canvas with p5.js, and find out where the corner (0, 0) is."
 language: javascript

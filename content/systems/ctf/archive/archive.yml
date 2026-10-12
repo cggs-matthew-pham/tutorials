@@ -1,0 +1,53 @@
+# Boards for "Capture the flag: the old archive". Flags are in the teacher notes.
+
+# region: decode
+# The note on the archive's front page.
+widget: encode
+mode: decode
+data: NTcgNTAgN2IgNmMgNjEgNzkgNjUgNzIgNzMgMmQgNmYgNjYgMmQgNjUgNmUgNjMgNmYgNjQgNjkgNmUgNjcgN2Q=
+# endregion
+
+# region: page
+widget: source
+set: archive
+# endregion
+
+# region: files
+widget: shell
+fs: empty
+dir: /home/sam/archive
+dir: /home/sam/archive/.gears
+file: /home/sam/archive/readme.txt | The old Coding Club archive. It is wiped on Friday.\nOld minutes are kept somewhere out of sight.
+file: /home/sam/archive/photos.txt | showcase.jpg\nrobot-race.jpg\nbake-sale.jpg
+file: /home/sam/archive/.gears/minutes.txt | 3 Feb: Welcome back. Robot club on Fridays.\n10 Feb: Bought 4 new micro:bits.\n17 Feb: Line-following race. Ava won.\n24 Feb: Planned the showcase.\n3 Mar: Fixed the gripper.\n10 Mar: Showcase photos taken.\n17 Mar: Ben ran the bake sale.\n24 Mar: Raised 120 dollars.\n31 Mar: Started the club website.\n7 Apr: Flag: WP{grep-finds-it}\n14 Apr: Holidays.\n5 May: New members joined.\n12 May: Robot dance practice.\n19 May: Last meeting of term.
+start: /home/sam/archive
+# endregion
+
+# region: cpu
+# The archive's old program.
+widget: cpu
+program: LOAD 12; ADD 15; OUT; LOAD 13; ADD 15; OUT; LOAD 14; ADD 15; OUT; HALT
+data: 12=67, 13=80, 14=85, 15=32
+# endregion
+
+# region: locked
+widget: encode
+mode: decode
+data: ^U|}x!x.("std}@py~
+# endregion
+
+# region: explain
+widget: source
+set: archive
+# endregion
+
+# region: explain-pic
+widget: source
+set: archive
+# endregion
+
+# region: close
+widget: source
+set: archive
+mode: fix
+# endregion

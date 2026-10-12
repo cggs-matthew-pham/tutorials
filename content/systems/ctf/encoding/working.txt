@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The club app stores the admin password.
+Sam writes it in hex: 72 6f 62 6f 74 73.
+Hex looks like nonsense, so nobody can read it.
+So the password is safe in the database.
+# endregion

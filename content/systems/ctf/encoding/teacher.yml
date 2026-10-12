@@ -1,0 +1,44 @@
+summary: Students send a message past an eavesdropper and find that binary, hex and base64 hide nothing (public rules) while encryption with a shared key does, then decode stored and layered data and read an encrypted reply with the key word (AC9TDI8K02 node 4). A 5E mission lesson.
+time: 40
+timing: "Engage and Explore 10 min · Explain 8 min · Elaborate 16 min · Evaluate 6 min"
+goals:
+  - I can say why binary, hex and base64 don't keep anything secret.
+  - I can say what encryption needs that encoding doesn't.
+  - I can choose encoding, encryption or hashing for a job.
+struggle: "Layers: students expect one decoder to finish the job. Ask them to look at what came out and ask which rule could make that."
+before: |
+  Try the boards yourself. Every message and key word is made up.
+
+  The one idea: encoding is a public rule (no key), so it hides nothing; encryption needs a secret key; passwords are stored as hashes.
+
+  Simplifications: the board's cipher shifts each character by the letters of the key word (a Vigenère cipher). It stands in for real encryption, such as the AES behind HTTPS, whose keys are far too long to guess; a key word like gears could be guessed. Base64 is used everywhere to carry data safely through email and web pages, which is a good use of it: it was never meant to hide anything.
+
+  Links: Networks (Who can see your data?) shows what encryption is for; Secret messages (Code) builds and cracks ciphers; Security and privacy covers hashing.
+running:
+  - "Engage: ask what makes something look secret."
+  - "Explore: ask why Eve could read the base64."
+  - "Explain: sort encoding, encryption and hashing by the test: is there a key?"
+  - "Elaborate: ask how they knew which rule each layer used."
+  - "Evaluate: discuss the account page: what should it do instead?"
+stuck:
+  - see: "A student thinks hex is secret (Sam's mistake)."
+    ask: "Did decoding it need anything secret?"
+    fix: "No key, no secret: encoding hides nothing."
+  - see: "A student picks a decoder at random."
+    ask: "Which characters can each rule produce? Binary: 0 and 1. Hex: 0 to 9 and a to f. Base64: letters, digits, + and /, maybe = at the end."
+    fix: "Match the characters to the rule."
+stretch: "Find base64 in the wild: open an email's raw source (Show original) and spot an attachment written as base64."
+support: "A card with the three rules and their characters, and the test: is there a key?"
+leads: |
+  Next: What your page gives away.
+exit:
+  q: "Your friend says hex keeps a password safe. What do you tell them, and what should be used instead?"
+  a: "Hex is a public rule anyone can undo; store passwords as salted hashes, and encrypt (with a key) what must be read back."
+explain: |
+  **Encoding** (binary, hex, base64) writes data another way by a **public rule**: anyone can undo it, so it hides nothing.
+
+  **Encryption** needs a **secret key**: without it, the data can't be read.
+
+  **Hashing** is one-way, for checking passwords.
+
+  Test: is there a secret key? If not, it isn't secret.

@@ -292,5 +292,8 @@
   "https-solves-all": {"home": "systems/cyber/threats", "text": "HTTPS is thought to make an app secure; it protects data on the way, not data stored or who is allowed to see it."},
   "good-code-is-safe": {"home": "systems/cyber/weaknesses", "text": "An app with no bugs in its own code is thought to be safe; people (user weaknesses) and the code it relies on (supply chain) can still let someone in."},
   "policy-means-anything": {"home": "systems/cyber/privacy", "text": "Having a privacy policy is thought to allow any use of data; the Australian Privacy Principles limit what may be collected, used and shared, policy or not."},
-  "truss-count-add": {"home": "engineering/structures/triangles", "text": "The members a rigid frame needs are worked out as 2 × joints + 3; the rule is members + 3 = 2 × joints (for a pin and a roller), so members = 2 × joints − 3."}
+  "truss-count-add": {"home": "engineering/structures/triangles", "text": "The members a rigid frame needs are worked out as 2 × joints + 3; the rule is members + 3 = 2 × joints (for a pin and a roller), so members = 2 × joints − 3."},
+  "every-image-pixels": {"home": "systems/data/shapes-as-numbers", "text": "Every picture is thought to be made of pixels, so a blocky logo needs more pixels; a vector stores shapes as numbers and is drawn again sharp at any size."},
+  "encoding-is-encryption": {"home": "systems/ctf/encoding", "text": "Data written in binary, hex or base64 is thought to be secret because it looks scrambled; the rule is public, so anyone can decode it. Encryption needs a secret key."},
+  "hidden-on-page-is-private": {"home": "systems/ctf/page-source", "text": "Something not shown on a web page (a comment, a hidden field, a script) is thought to be private; the whole page is sent to every visitor, so anyone can read its source."}
 }

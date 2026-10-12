@@ -1,0 +1,44 @@
+summary: Students zoom a picture stored as shapes and as pixels, change a vector's numbers to redraw it, turn a 3D cube into a pyramid by moving its corners, and build a badge from numbers (AC9TDI8K03 node 3, vector images). A 5E mission lesson.
+time: 35
+timing: "Engage and Explore 8 min · Explain 8 min · Elaborate 14 min · Evaluate 5 min"
+goals:
+  - I can say how a vector picture is stored.
+  - I can explain why a vector stays sharp when it is enlarged.
+  - I can choose vector or bitmap for a picture.
+struggle: "The badge's triangle: students change one corner at a time and lose track. Ask them to find each corner on the outline and read its x and y first."
+before: |
+  Try the boards yourself. The page is 100 by 100: x goes right, y goes down (as on screens).
+
+  The one idea: a vector stores shapes as numbers and is drawn again at any size; a bitmap stores pixels. Photos suit bitmaps; logos, icons and fonts suit vectors.
+
+  Simplifications: real vector formats (SVG, PDF, fonts) also store curves, strokes and layers; the board's bitmap is made by sampling the middle of each pixel, with no smoothing. The 3D model counts 3 numbers per corner plus one per corner of each face.
+
+  Links: SVG is the vector format of the web, and the p5 Shapes lesson (Code) draws with the same kind of numbers.
+running:
+  - "Engage: ask where they have seen a blurry logo."
+  - "Explore: ask how many numbers the 64 by 64 bitmap needed."
+  - "Explain: count the badge's numbers together before the Make."
+  - "Elaborate: ask why moving four corners changed six faces."
+  - "Evaluate: ask which pictures on their phone are vectors (icons, text)."
+stuck:
+  - see: "A student thinks every image is pixels (Sam's mistake)."
+    ask: "What does the vector store for the sun?"
+    fix: "Shapes: centre, size and colour."
+  - see: "A student moves the sun the wrong way."
+    ask: "Which way does y go on this page?"
+    fix: "Down: bigger y is lower."
+stretch: "Open an SVG file (a logo) in a text editor: find a circle or path and its numbers."
+support: "A card with the three shapes and their numbers: circle x y r, rect x y width height, triangle x1 y1 x2 y2 x3 y3."
+leads: |
+  Next: Sound as numbers.
+exit:
+  q: "Why does a vector logo stay sharp on a banner when a bitmap logo doesn't?"
+  a: "The vector stores shapes as numbers and is drawn again at the new size; the bitmap only has its pixels, which get bigger."
+explain: |
+  A **vector** picture stores **shapes**, not pixels: a circle is its centre, its size and its colour.
+
+  - The computer draws it again at any size, so it stays **sharp**.
+  - It needs few numbers: the sun and hill are 13.
+  - **Photos** suit bitmaps; **logos, icons and fonts** suit vectors.
+
+  3D models are numbers too: a list of **corners** (x, y, z) and the **faces** that join them.

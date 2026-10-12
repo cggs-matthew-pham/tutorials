@@ -59,12 +59,16 @@ Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 
 
 `systems/cyber` (Networks and security pathway, foundations), the first course built as 5E missions (`shape: 5e`, after the Packets pilot): the student is security officer for a made-up Coding Club app. Unit Protect your accounts (Years 7–8): Passwords (8P13 n1: a leak, reuse, passphrases, a password manager), Second factors (n2: codes, a fake page, security keys), Spot the phish (n3: an inbox, link checking, fix the club's own newsletter), Your digital footprint (8P14 n1–n3: given or collected as used, the purpose test, private settings). Unit Secure the system (Years 9–10): Threat models (10P13 n1: a data-flow diagram, risk and defence per point, new features), Kinds of weakness (n2: software, user, supply chain, descriptive only), The Australian Privacy Principles (10P14 n1–n2: audit, fix the breaches, write an APP 5 notice). Challenge: Security review (10P13 n1, 10P14 n3: seven weaknesses with three fixes each, three flags, then launch day with no wrong fixes). New `cyber` widget. Misconceptions `symbols-make-strong`, `mfa-only-important`, `right-name-is-safe`, `more-data-better`, `https-solves-all`, `good-code-is-safe`, `policy-means-anything`. Defensive and conceptual throughout: no attack or exploit practice; 10P13 n3 (exploring a vulnerability in the student's own software) is a class task with the teacher. picoCTF is named as the extension in the pathway text and the finale's teacher notes.
 
+## Done (12 Oct 2026): Shapes as numbers, and Capture the flag
+
+- Data representation lesson 3.5, Shapes as numbers (8K03 n3, 5E mission): a picture as two shapes and as a bitmap, zoom to 8×, more pixels still step; change a vector's numbers; a cube turned into a pyramid by moving corners; build the club badge from numbers. New `shapes` widget, theory concept `vector-graphics` (p5 Shapes now assumes it), misconception `every-image-pixels`.
+- New course `systems/ctf`, Capture the flag (Years 8–10; Networks and security pathway, after Cyber safety, Networks and How a web page is made): Encoding is not encryption (8K02 n4: send a message past Eve, decode stored and layered data, read an encrypted reply with the shared key word), What your page gives away (10P14 n3: comments, hidden fields, scripts, a photo's location; checks belong on the server), and the challenge Capture the flag: the old archive (five flags: layered decoding, page source, ls -a and grep, the tiny processor's output as character codes, and a key word kept beside its data; then fix the page). New `encode` and `source` widgets, theory concept `encoding`, misconceptions `encoding-is-encryption`, `hidden-on-page-is-private`. Defensive throughout: the student's own made-up pages and files. Points and hints that cost points were not built: hints escalate and never give the flag.
+
 ## Next
 
 1. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
-2. More CTF, defensive: encoding is not encryption, what a page gives away (as a privacy check of one's own page); cross-pathway flags. Done in part by Cyber safety and privacy (passwords, phishing, review flags).
-3. Shapes as numbers (optional, 8K03): vector vs raster, meshes as lists of vertices; a later Digital Media / Design subject (3D and animation, parked) builds on it.
-4. Decide after classroom trials whether to retrofit other Digital systems courses to 5E missions.
+2. More CTF: a Networks mini-CTF (the packet Eve could read; the route round the busy router); a points and hints-cost scoreboard if classes want one.
+3. Decide after classroom trials whether to retrofit other Digital systems courses to 5E missions.
 
 ## Open questions
 

@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The club's logo looks blocky on the big banner.
+Every picture is made of pixels.
+So the only fix is more pixels.
+So Sam saves the logo at 10,000 by 10,000 pixels.
+# endregion

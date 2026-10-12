@@ -289,6 +289,8 @@ export const THEORY = [
   { id: 'hardware-specs', label: 'hardware specifications (processor, RAM, storage)' },
   { id: 'fetch-execute', label: 'fetch, decode, execute' },
   { id: 'web-layers', label: 'content, structure (HTML) and presentation (CSS) are separate layers' },
+  { id: 'vector-graphics', label: 'vector pictures and 3D models are stored as shapes and corners (numbers)' },
+  { id: 'encoding', label: 'encoding (binary, hex, base64) is a public rule, not encryption' },
 ];
 export const theoryIds = new Set(THEORY.map((c) => c.id));
 export const conceptIds = (language) => new Set((CONCEPTS[language] || []).map((c) => c.id));
