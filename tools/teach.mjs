@@ -268,7 +268,9 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
       if (!stuckDone && T.struggle) n += `The hard part, on purpose: ${T.struggle} `;
       if (!stuckDone && T.stuck?.length) { n += 'When students get stuck: ' + T.stuck.map((x) => `${x.see} Ask: ${x.ask} Fix: ${x.fix}`).join(' / '); stuckDone = true; }
       else if (T.struggle) stuckDone = true;
-      slides.push(`${BADGE.activity}\n\n## ${stage === 'make' && !DESIGN && !/make/i.test(title) ? `Make: ${bare(s.title)}` : title}\n\n${text}${tasks ? '\n\n' + tasks : ''}${c.try ? `\n\n[Open this step](${stepUrl(lesson, s)})` : ''}` + note(n));
+      slides.push(`${BADGE.activity}\n\n## ${stage === 'make' && !DESIGN && !/make/i.test(title) ? `Make: ${bare(s.title)}` : title}\n\n${text}${tasks ? '\n\n' + tasks : ''}${c.try && !playUrl(s) ? `\n\n[Open this step](${stepUrl(lesson, s)})` : ''}` + note(n));
+      // The playground gets its own slide (task text plus a 420px frame would not fit), so a teacher can work a task live.
+      if (playUrl(s)) slides.push(playSlide(s, `Live: ${stage === 'make' && !DESIGN && !/make/i.test(title) ? `Make: ${bare(s.title)}` : title}`) + note('Work the first task live, or let students start on their own screens and walk round.'));
     } else if (s.body.trim()) {
       slides.push(`## ${title}\n\n${prose(s.body)}`);
     }
