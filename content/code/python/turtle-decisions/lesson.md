@@ -1,9 +1,12 @@
 ---
-order: 3
+order: 7
 unit: choices
-introduces: [if, else, elif, compare, remainder]
-title: Decisions
-summary: Make a program choose between two things with if and else.
+moveId: if-else
+reviews: [loop-counter, value-update]
+introduces: [if, else, compare]
+assumes: [loop-index, variable]
+title: If and else
+summary: Make a program choose which lines to run, using if and else.
 language: python
 hook: "Traffic lights, game scores, login screens and thermostats all do the same thing: check a condition and pick what happens next."
 app:
@@ -18,99 +21,99 @@ explainClip:
   say: "An if lets your program choose which lines to run."
   pacing: { keyDelayMs: 22 }
   clip:
-    - type: { into: "Python code", text: "from turtle import *\n\npensize(5)\nfor i in range(6):\n", append: true }
+    - type: { into: "Python code", text: "from turtle import *\n\npensize(6)\nfor i in range(6):\n", append: true }
     - caption:
-        text: "if i % 2 == 0: asks a question. % is the remainder."
-        say: "The if asks a question: does i divide by two with nothing left over?"
-    - type: { into: "Python code", text: "    if i % 2 == 0:\n        pencolor(\"red\")\n", append: true }
+        text: "if i < 3: asks a question. Is i less than 3?"
+        say: "The if asks a question: is i less than three?"
+    - type: { into: "Python code", text: "    if i < 3:\n        pencolor(\"red\")\n", append: true }
     - caption:
         text: "Yes: the lines under if run. No: the lines under else run."
         say: "If yes, the lines under if run. If not, the lines under else run."
-    - type: { into: "Python code", text: "    else:\n        pencolor(\"blue\")\n    forward(80)\n    left(60)\n", append: true }
+    - type: { into: "Python code", text: "    else:\n        pencolor(\"blue\")\n    forward(60)\n    right(60)\n", append: true }
     - click: "Run"
     - expect: { selector: "#status", contains: "Finished" }
     - caption:
-        text: "Even sides red, odd sides blue. == asks, = stores."
-        say: "Even sides are red, odd sides blue. Two equals signs ask; one stores."
+        text: "The first three sides are red, the last three blue."
+        say: "The first three sides are red, and the last three are blue."
     - wait: 1200
     - expect: { selector: "#status", contains: "Finished" }
 ---
-So far every line of your program has run, in order, every time. Now the program will **choose**: run these lines if something is true, and those lines if it is not.
+So far every line of your program has run, every time. Now the program will **choose**: run some lines if something is true, and other lines if it is not.
 
 ## Predict
 
 ```step
 stage: predict
-code: decisions.py#checker
+code: decisions.py#halves
 check:
   type: predict
-  q: "What colour is the third square (when i is 2)?"
-  options: ["black", "white"]
-  actual: "Black. The squares alternate black, white, black, white, starting with black, because i % 2 is 0 for 0, 2, 4 and 6."
+  q: "What will the turtle draw?"
+  options:
+    - "A hexagon: three red sides, then three blue"
+    - "A hexagon with every side red, then every side blue (twelve lines)"
+    - "A hexagon with the sides taking turns, red then blue"
+    - "A blue hexagon, because else runs last and covers the red"
+  fault: logic
+  misconception: else-always-runs
+  actual: "Three red sides, then three blue. On each pass the program asks one question, i < 3, and runs only one of the two paths. i is 0, 1, 2 for the first three passes (red) and 3, 4, 5 for the last three (blue)."
 ```
 
-`i` is the loop counter you met two lessons ago, which counts 0, 1, 2, 3 and so on. `i % 2` is the **remainder** when `i` is divided by 2. It is 0 for even numbers and 1 for odd numbers. The `if` line runs its body only when that remainder is 0.
+`i` is the counter from the spiral. The new line is `if i < 3:`. Read the code. What will the turtle draw?
 
 ## Run
 
 ```step
 stage: run
-code: decisions.py#checker
-try: { starter: "decisions.py#checker", height: 440 }
-check: { type: reflect, text: "I can explain how the program chooses black or white for each square." }
-unlocks: [if-else]
+code: decisions.py#halves
+try: { starter: "decisions.py#halves", height: 420 }
 ```
 
 Run it and compare it with your prediction.
+
+| Line | What it does | Why |
+|---|---|---|
+| `if i < 3:` | Asks: is `i` less than 3? | The answer is `True` or `False` |
+| `    pencolor("red")` | Runs only when the answer is `True` | It is indented under the `if` |
+| `else:` | Means "otherwise" | Its lines run only when the answer is `False` |
+| `    pencolor("blue")` | Runs only when the answer is `False` | Only one of the two paths runs on each pass |
 
 ## Investigate
 
 ```step
 stage: investigate
-code: decisions.py#print
-insight: "A decision is a condition plus two paths. You can follow it by working out the condition for each value, and find the bug by checking the form of the condition."
+code: decisions.py#halves
+insight: "A decision is a condition plus two paths. You can follow it by working out the condition for each value, and find a bug by checking the form of the condition."
 tasks:
   - check:
       type: trace
-      text: "Fill in the gaps for each square: the remainder and the colour the program picks."
+      text: "Fill in the gaps for each pass: is i < 3, and which colour does the program pick?"
       table: |
-        | i | i % 2 | colour |
-        | 0 | 0 | black |
-        | 1 | [1] | [white] |
-        | 2 | [0] | [black] |
-        | 3 | [1] | [white] |
-      explain: "Even numbers leave a remainder of 0, so the condition is true and the square is black. Odd numbers leave 1, so the else path makes it white."
-  - check:
-      type: number
-      q: "If the row had 9 squares instead of 8, how many would be black?"
-      answer: 5
-      explain: "The black squares are i = 0, 2, 4, 6 and 8, so there are five."
+        | i | i < 3 | colour |
+        | 0 | True | red |
+        | 2 | [True] | [red] |
+        | 3 | [False] | [blue] |
+        | 5 | [False] | [blue] |
+      explain: "The condition is true for 0, 1 and 2, so the if path runs and the pen is red. From 3 on it is false, so the else path runs and the pen is blue."
   - check:
       type: bug
       code: decisions.py#bug
-      text: "This program should draw a row of circles that alternate colour, but it will not even start. Click the wrong line."
-      answer: 4
+      text: "This should colour only the fourth side red, but the program will not even start. Click the wrong line."
+      answer: 5
       fault: syntax
       misconception: assign-vs-compare
-      explain: "A single = stores a value. To ask whether two things are equal, the condition needs two: i % 2 == 0."
+      explain: "A single = stores a value. To ask whether two things are equal, the condition needs two: i == 3."
   - check:
       type: question
-      q: "A condition is worked out to a value, like a sum is. What would print(3 % 2 == 0) show?"
-      options: ["False", "True", "1", "0"]
+      q: "A condition works out to a value, like a sum does. What does 5 < 3 work out to?"
+      options: ["False", "True", "5", "3"]
       answer: 0
-      feedback: [null, "3 % 2 is 1, not 0, so the question 'is it equal to 0?' has the answer no.", "1 is the remainder, 3 % 2. The == then asks whether that remainder equals 0.", "0 would be the remainder for an even number. 3 is odd, and the whole line is a question, so the answer is True or False."]
-      explain: "3 % 2 is 1, and 1 == 0 is not true, so the condition is False. Every condition works out to True or False, and if runs its lines only when it is True."
+      feedback: [null, "5 is not less than 3, so the answer to the question is no.", "5 is one of the numbers in the question, not the answer to it.", "3 is one of the numbers in the question, not the answer to it."]
+      explain: "5 < 3 is a question, and the answer is False. Every condition works out to True or False, and if runs its lines only when it is True."
 ```
 
-`print(i, i % 2)` shows each remainder as it is worked out. Run it and watch the output.
+### Trace the passes
 
-### Trace the squares
-
-Work out the remainder and the colour for each square.
-
-### Count the black squares
-
-Use the pattern to answer without drawing.
+Work out the condition and the colour for each pass.
 
 ### Spot the bug
 
@@ -118,48 +121,47 @@ Here is a version where something is wrong.
 
 ### True or false
 
-`if` asks a question, and Python works out the answer before deciding. Predict the answer to one of those questions.
+`if` asks a question, and Python works out the answer before deciding.
 
 ## Modify
 
 ```step
 stage: modify
-insight: "Changing a condition changes the whole pattern, and an extra path (elif) adds a choice without rewriting the rest."
-try: { starter: "decisions.py#modify", height: 440 }
-tasks:
-  - hint: "The colours are the words in quotes inside fillcolor( )."
-    check: { type: reflect, text: "I changed the colours and ran the program to check." }
-  - hint:
-      - "Check the third-square case first, with an elif above the else."
-      - "The condition `i % 3 == 0` is true for 0, 3, 6 and 9."
-    check: { type: code, text: "Add an elif so one more colour appears.", rules: { uses: [elif] } }
+insight: "Changing a condition changes which passes take which path, and nothing else in the program."
+try: { starter: "decisions.py#modify", height: 420 }
+hint:
+  - "Which number sets where the red stops and the blue starts?"
+  - "i is 0, 1, 2, 3 for four passes. Which test is true for exactly those?"
+check: { type: code, text: "Make four sides red and two blue.", rules: { contains: ["i < 4"] } }
 ```
 
-### Change the colours
+Change the condition so **four** sides are red and two are blue. Run it to check.
 
-Swap black and white for two colours of your own.
+## Mix it up
 
-### Add a third colour
+```step
+stage: investigate
+code: decisions.py#make
+insight: "A decision can use any name, not only the counter. Follow the value that the condition reads."
+check:
+  type: number
+  q: "size starts at 10 and grows by 20 every pass. A line is red while size < 50, otherwise blue. How many of the first six lines are red?"
+  answer: 2
+  explain: "size is 10, 30, 50, 70, 90, 110. Only 10 and 30 are less than 50, so two lines are red."
+```
 
-Make every third square green. Place the new check before the others, and use `elif`.
+This mixes two lessons: a value that grows, and a decision that reads it. Work it out on paper first.
 
 ## Make
 
 ```step
 stage: make
-try: { starter: "decisions.py#make", height: 440 }
+try: { starter: "decisions.py#make", height: 420 }
 hint:
-  - "Inside the loop, use `if i % 2 == 0:` to pick between two different shapes."
-  - "One path could draw a circle, the other a square. Both paths finish by moving forward."
+  - "Put an if / else at the top of the loop, before the forward line."
+  - "The condition reads size: if size < 60, the pen is red; else it is blue."
+check: { type: code, text: "Colour the spiral with an if / else that reads size.", rules: { uses: [pencolor], loops: 1 } }
+unlocks: [if-else]
 ```
 
-Draw a row of **10 shapes**. Even-numbered shapes should be circles, odd-numbered shapes squares.
-
-## Set the traffic light
-
-```step
-stage: modify
-try: { starter: "decisions.py#light", height: 440 }
-```
-
-A traffic light is a decision: one variable says which light is on, and the program picks what to do. Change `light` to `"red"`, run it, then to `"orange"`. Then add a new state, `"flashing"`, that fills the circle yellow and prints `"Slow down"`.
+The spiral grows by 10 every pass. Make it **red while the lines are short and blue once they are long**. Then try a different cut-off, or a third colour of your own once you have seen `elif` next lesson.

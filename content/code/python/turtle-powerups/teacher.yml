@@ -11,7 +11,7 @@ running:
   - "Predict: each miss takes a life; at 0 lives the game stops. Point to the line that ends the game."
   - "Investigate: discuss the match before checking it. 'Both' (a button that costs points) is the interesting one."
   - "Status bar: one function, label(x, y, name, value), called three times. Ask what the alternative would be (copying six lines three times)."
-  - "Gold turtle: every third spot is gold, using % from the Decisions lesson. The gold circle is drawn under the turtle."
+  - "Gold turtle: every third spot is gold, using % from Every other. The gold circle is drawn under the turtle."
   - "Upgrade: the button only works if score >= 5. Ask what happens without that check (scores go negative)."
   - "Your own power-up: students write one sentence at the top explaining why its cost is fair. Share a few."
 stuck:

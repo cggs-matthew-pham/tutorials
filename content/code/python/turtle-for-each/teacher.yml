@@ -1,0 +1,39 @@
+summary: Students visit every item of a list with a for-each loop, and see that the loop name holds the item itself.
+time: 30
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 5 min · Mix it up 3 min · Make 6 min"
+goals:
+  - I can use a for loop to visit each item in a list.
+  - I can say what the loop name holds on each pass.
+  - I can draw one thing for each item in a list.
+before: |
+  Run the coloured squares and the bar chart. The idea to have ready: in `for c in colours`, `c` is the colour itself, not its place.
+running:
+  - "Predict: ask what c holds the first time round. The wrong options are the place number, the whole list, and nothing."
+  - "Run: read the loop aloud as 'for each colour c in the list colours'. Ask: how many times did it run, and how do you know without counting?"
+  - "Investigate: the trace shows c changing each pass. The bug task uses c as a place; ask what colours[c] would mean."
+  - "Mix it up: students work the count out on paper. Each score is tested as it is visited."
+  - "Make: the bar chart is the same loop with heights instead of colours. A bar is a rectangle whose tall side is the number."
+stuck:
+  - see: "An error on the pencolor line inside the loop."
+    ask: What does c hold? Is it a place or a colour?
+    fix: c is already the colour. Use pencolor(c), not pencolor(colours[c]).
+  - see: The bars all start in the same place and overlap.
+    ask: What does the turtle do after finishing one bar?
+    fix: Lift the pen and move forward past the bar before drawing the next one.
+  - see: A student prefers range(len(...)).
+    ask: Do you need the place in this loop?
+    fix: If only the item matters, use for-each. Use the place when you need it, for example to pick from two lists at once.
+stretch: Draw the bar chart with each bar a different colour, using a second list of colours alongside the heights.
+support: Give the loop with the first two passes traced, and ask the student to continue the table.
+leads: "Lists and loops return in Catch the turtle, where a list holds the path, and in the control panel. Course B starts by reading a longer program that uses everything from this course."
+exit:
+  q: "sizes = [10, 20, 30]. for s in sizes: forward(s). How far does the turtle go on the second pass?"
+  a: "20. On the second pass s holds the second item, 20."
+explain: |
+  `for c in colours:` takes the items of a list one at a time. Each time round the loop, `c` holds the next item itself, so the loop runs once for every item. You don't count places.
+
+  Use the place (`colours[i]`) when the position matters. Use for-each when only the item matters.
+solutions:
+  step-4: for_each.py#sol-add
+  step-6: for_each.py#sol-chart
+struggle: "Remembering that c is the item, not its place. Ask what c holds on the first pass before running."

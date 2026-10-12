@@ -1,6 +1,9 @@
 ---
-order: 6
+order: 14
 unit: functions
+moveId: function-inputs
+reviews: [name-steps, name-a-value]
+assumes: [function, variable, arithmetic]
 introduces: [param]
 title: Functions with parameters
 summary: Make one function draw many different shapes, and keep your best ones as tools.

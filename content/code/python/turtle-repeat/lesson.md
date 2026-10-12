@@ -1,5 +1,5 @@
 ---
-order: 1.5
+order: 2
 unit: drawing
 introduces: [repeat]
 title: Repeat with a loop

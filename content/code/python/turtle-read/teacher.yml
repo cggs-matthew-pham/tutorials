@@ -1,0 +1,33 @@
+summary: Students read a longer program that combines the counter, a list, an update and a decision, find the lines that do each job, and change one part without breaking the rest.
+time: 35
+timing: "Predict and Run 10 min · Investigate 12 min · Modify 13 min"
+goals:
+  - I can find the lines that do one job in a longer program.
+  - I can say what a part depends on before I change it.
+  - I can change one part and keep the rest working.
+before: |
+  Run the garden, then do the Modify tasks yourself. The program is a loop with a long body: that length is what the next lesson fixes.
+running:
+  - "Predict: read the code with the class, one comment at a time. The stem line uses the counter; ask what i is on the third pass."
+  - "Run: students run it and watch which part the turtle is drawing. Ask: which lines draw a stem? Which draw a flower head?"
+  - "Investigate: the match task names each part's job. The bug is a reset: a value set inside the loop is set again every pass."
+  - "Modify: students change one part at a time. If the extra flowers run off the screen, ask which line moves the start."
+stuck:
+  - see: The extra flowers run off the screen.
+    ask: Where does the first flower start, and how far apart are the flowers?
+    fix: Move the start further left with goto, for example goto(-200, -80).
+  - see: Changing one thing breaks another.
+    ask: Which other lines use the name you changed?
+    fix: Find every line that uses it before you change it. A name is used wherever it appears.
+stretch: Make every other flower head a different shape by adding a decision to the flower-head lines.
+support: Colour or underline the lines for each job on paper before changing anything.
+leads: "Next lesson names a group of lines (a function). The garden's long loop body is the first thing to name."
+exit:
+  q: "In the garden, which part would you change to make every flower head the same size?"
+  a: "The update head = head + 4. Remove it, or set head once and never add to it."
+explain: |
+  A longer program is made of parts that each do one job: a decision, a calculation with the counter, an update, a list item picked by its place. Read for the **job** first, not every symbol. Then change only the part that does the job you want to change.
+solutions:
+  step-4#t1: garden.py#sol-colours
+  step-4#t2: garden.py#sol-same
+struggle: "Knowing which lines to change. Ask what job the new feature is, then which lines do that job."

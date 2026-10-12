@@ -1,6 +1,8 @@
 ---
-order: 13
+order: 21
 unit: challenge
+reviews: [value-update, if-else, react-to-event]
+assumes: [callback, global, variable-update, if, list]
 title: Power-ups
 summary: Add lives, a status bar, a gold turtle and an upgrade you buy with points.
 language: python

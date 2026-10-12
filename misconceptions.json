@@ -304,5 +304,11 @@
   "every-image-pixels": {"home": "systems/data/shapes-as-numbers", "text": "Every picture is thought to be made of pixels, so a blocky logo needs more pixels; a vector stores shapes as numbers and is drawn again sharp at any size."},
   "encoding-is-encryption": {"home": "systems/ctf/encoding", "text": "Data written in binary, hex or base64 is thought to be secret because it looks scrambled; the rule is public, so anyone can decode it. Encryption needs a secret key."},
   "hidden-on-page-is-private": {"home": "systems/ctf/page-source", "text": "Something not shown on a web page (a comment, a hidden field, a script) is thought to be private; the whole page is sent to every visitor, so anyone can read its source."},
-  "wifi-password-is-https": {"home": "systems/networks/ctf", "text": "A Wi-Fi password is thought to make everything sent on the network private; everyone with the password is on the network too, and past the router data crosses the internet, so only HTTPS protects it end to end."}
+  "wifi-password-is-https": {"home": "systems/networks/ctf", "text": "A Wi-Fi password is thought to make everything sent on the network private; everyone with the password is on the network too, and past the router data crosses the internet, so only HTTPS protects it end to end."},
+  "else-always-runs": {"home": "code/python/turtle-decisions", "text": "Both paths of an if / else run, or else runs last and covers the if."},
+  "remainder-is-divide": {"home": "code/python/turtle-every-other", "text": "i % 2 means i divided by 2 (or a percentage), not the remainder left over."},
+  "elif-both-run": {"home": "code/python/turtle-every-other", "text": "When an if and its elif are both true, both paths run."},
+  "for-each-is-index": {"home": "code/python/turtle-for-each", "text": "In for c in colours, c is a place number (0, 1, 2), not the item itself."},
+  "index-starts-one": {"home": "code/python/turtle-lists", "text": "The first item of a list is in place 1, so the third item is colours[3]."},
+  "len-is-last-index": {"home": "code/python/turtle-lists", "text": "The last place of a list equals its length, so a list of 8 ends at place 8."}
 }

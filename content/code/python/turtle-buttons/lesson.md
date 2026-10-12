@@ -1,6 +1,8 @@
 ---
-order: 11
+order: 19
 unit: interaction
+moveId: build-a-button
+reviews: [react-to-event, if-else]
 introduces: [and-or]
 assumes: [callback, variable-update, global]
 title: Build a button

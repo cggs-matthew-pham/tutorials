@@ -1,6 +1,9 @@
 ---
-order: 7
+order: 15
 unit: functions
+moveId: function-answers
+reviews: [if-else, function-inputs]
+assumes: [function, param, arithmetic, if, compare, repeat]
 introduces: [return-value]
 title: Functions that give answers
 summary: Return a value, combine functions, and use them inside loops.

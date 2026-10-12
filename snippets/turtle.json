@@ -181,11 +181,39 @@
      "shows": "Red when x > 0, else blue"
     },
     {
+     "label": "every other",
+     "code": "for i in range(‹8›):\n    if i % ‹2› == 0:\n        ‹pass›\n    else:\n        ‹pass›\n",
+     "hint": "i % 2 == 0 is true on every second pass.",
+     "example": "for i in range(8):\n    if i % 2 == 0:\n        pencolor(\"red\")\n    else:\n        pencolor(\"blue\")\n    pensize(6)\n    forward(30)\n    right(45)\n",
+     "shows": "Red and blue sides, taking turns"
+    },
+    {
      "label": "variable",
      "code": "‹size› = ‹50›\n",
      "hint": "Give a value a name, so you can reuse and change it.",
      "example": "length = 120\nforward(length)\nleft(90)\nforward(length / 2)\n",
      "shows": "length = 120, then half of it"
+    },
+    {
+     "label": "named turn",
+     "code": "sides = ‹5›\nfor i in range(sides):\n    forward(‹60›)\n    right(360 / sides)\n",
+     "hint": "Name the number of sides once; the turn is worked out from it.",
+     "example": "sides = 6\nfor i in range(sides):\n    forward(60)\n    right(360 / sides)\n",
+     "shows": "A hexagon: change sides and the turn follows"
+    },
+    {
+     "label": "counter step",
+     "code": "for i in range(‹20›):\n    forward(i * ‹5›)\n    right(‹90›)\n",
+     "hint": "Use the counter i to make each pass different.",
+     "example": "for i in range(30):\n    forward(i * 5)\n    right(90)\n",
+     "shows": "A square spiral: each line longer than the last"
+    },
+    {
+     "label": "grow value",
+     "code": "‹size› = ‹5›\nfor i in range(‹20›):\n    forward(‹size›)\n    right(‹90›)\n    ‹size› = ‹size› + ‹5›\n",
+     "hint": "Change a value every pass: read the old one, store a new one.",
+     "example": "size = 5\nfor i in range(30):\n    forward(size)\n    right(90)\n    size = size + 5\n",
+     "shows": "The same spiral, grown by an update"
     },
     {
      "label": "list",

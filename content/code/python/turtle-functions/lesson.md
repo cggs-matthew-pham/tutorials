@@ -1,6 +1,9 @@
 ---
-order: 5
+order: 13
 unit: functions
+moveId: name-steps
+reviews: [loop-block, name-a-value]
+assumes: [repeat, variable, arithmetic]
 introduces: [function]
 title: Functions
 summary: Give a group of commands a name, then use that name again and again.

@@ -1,0 +1,38 @@
+summary: Students use the remainder, %, to make a decision repeat every second or third pass, and add a third choice with elif.
+time: 30
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 7 min · Mix it up 5 min"
+goals:
+  - I can say what i % 2 gives and when it is 0.
+  - I can pick every second or every third pass of a loop.
+  - I can add a third choice with elif and say which check wins.
+before: |
+  The new symbol is `%`, the **remainder** after dividing, not "percent". 7 % 2 is 1 (7 ÷ 2 is 3, remainder 1). Run the pattern and try `i % 3` yourself.
+running:
+  - "Predict: show the loop and take a vote. The wrong options are each a slip about what the condition picks: a half, everything, or only the first pass."
+  - "Run: run it live, then students run it. Say the if line as a question: is the remainder of i divided by 2 equal to 0?"
+  - "Investigate: students fill in the remainder table before running. Say that remainders repeat, and that the repeat is what makes a pattern."
+  - "Modify: elif is a second question, asked only if the first answer was no. The order matters, so ask what happens if the i % 3 check goes last."
+  - "Mix it up: the first question is about which check wins when two are true. The second joins a name, the counter and the remainder."
+stuck:
+  - see: "A student reads i % 2 as 'half' or 'percent'."
+    ask: What is left over when 7 is divided by 2?
+    fix: "% gives the remainder. 7 % 2 is 1, 8 % 2 is 0."
+  - see: The third colour never appears, or appears in the wrong places.
+    ask: Which question does Python ask first?
+    fix: Put the i % 3 == 0 check first. Python stops at the first true answer.
+  - see: A SyntaxError on the elif line.
+    ask: Does the elif line end in a colon, and is it lined up with the if?
+    fix: "elif i % 2 == 0: lines up with if and ends in a colon."
+stretch: Make a pattern that repeats every 4 sides with four colours, using % 4.
+support: Give the remainder table with the first rows done, and ask the student to say each condition aloud before filling in the colour.
+leads: "Next lesson keeps many values under one name, a list, so a pattern can pick from colours you choose. The remainder returns in Catch the turtle."
+exit:
+  q: "A loop colours pass i red if i % 2 == 0, else blue. What colour is pass 5, and why?"
+  a: "Blue. 5 % 2 is 1, so the condition is false and the else path runs."
+explain: |
+  `%` gives the **remainder** after dividing. Even numbers divided by 2 leave nothing over (remainder 0), so `i % 2 == 0` is true for 0, 2, 4, 6: every second pass. `i % 3 == 0` is true for 0, 3, 6, 9: every third pass.
+
+  **elif** adds another question, asked only when the earlier ones were no. Python asks the questions in order and stops at the first true one.
+solutions:
+  step-4: every_other.py#sol-third
+struggle: "Reading i % 2 as 'half' and the order of elif. Ask them to work out the remainder for i = 0, 1, 2, 3 before running."

@@ -1,6 +1,9 @@
 ---
-order: 2.5
+order: 6
 unit: drawing
+moveId: read-for-the-job
+reviews: [loop-block, name-a-value, loop-counter, value-update]
+assumes: [repeat, variable, arithmetic, loop-index, variable-update]
 title: A street of houses
 summary: Read a whole program that uses loops and variables together, then change it and add to it.
 language: python
@@ -13,7 +16,7 @@ pacing:
   keyDelayMs: 22
 hook: "Real programs are longer than a few lines. Programmers spend more time reading code than writing it: they find the part that does a job, then change just that part."
 ---
-This program uses only what you already know: loops, variables and a calculation. It is longer, so the skill now is **reading**: finding which part does which job, and how the parts depend on each other.
+This program uses only what you already know: loops, names, the counter and updates. It is longer, so the skill now is **reading**: finding which part does which job, and how the parts depend on each other.
 
 ## Watch it built
 
@@ -125,7 +128,7 @@ tasks:
     check: { type: code, text: "Draw 6 houses that all fit on the screen.", rules: { contains: ["houses = 6"] } }
   - hint:
       - "Which line runs once per house? A change there happens to every house."
-      - "Look back at size = size + 5 in lesson 2. Add a line at the end of the house loop."
+      - "Look back at size = size + 5 in A value that grows. Add a line at the end of the house loop."
     check: { type: code, text: "Make each house 10 wider than the one before.", rules: { contains: ["width = width + 10"] } }
   - check: { type: reflect, text: "After making the houses grow, I checked whether the printed length is still right, and said why." }
 ```

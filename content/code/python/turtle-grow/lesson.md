@@ -1,5 +1,5 @@
 ---
-order: 2.4
+order: 5
 unit: drawing
 introduces: [variable-update]
 title: A value that grows
@@ -158,6 +158,7 @@ hint:
   - "Give the thickness its own variable, like size, and set it before the loop."
   - "Use pensize(width) inside the loop, and add to width at the end of each pass."
 check: { type: code, text: "Make the pen thicker every pass using a variable.", rules: { uses: [pensize], loops: 1 } }
+unlocks: [grow-value]
 ```
 
 Make the spiral grow **and** get thicker on every pass. The thickness should be a variable that updates itself, like `size` does.

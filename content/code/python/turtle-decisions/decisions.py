@@ -1,198 +1,80 @@
-# region: checker
+# region: halves
 from turtle import *
 
-size = 40
-penup()
-goto(-160, 0)
-pendown()
-
-for i in range(8):
-    if i % 2 == 0:
-        fillcolor("black")
+pensize(6)
+for i in range(6):
+    if i < 3:
+        pencolor("red")
     else:
-        fillcolor("white")
-    begin_fill()
-    for side in range(4):
-        forward(size)
-        right(90)
-    end_fill()
-    forward(size)
-# endregion
-
-# region: print
-from turtle import *
-
-size = 40
-penup()
-goto(-160, 0)
-pendown()
-
-for i in range(8):
-    print(i, i % 2)
-    if i % 2 == 0:
-        fillcolor("black")
-    else:
-        fillcolor("white")
-    begin_fill()
-    for side in range(4):
-        forward(size)
-        right(90)
-    end_fill()
-    forward(size)
+        pencolor("blue")
+    forward(60)
+    right(60)
 # endregion
 
 # region: modify
 from turtle import *
 
-size = 40
-penup()
-goto(-160, 0)
-pendown()
-
-for i in range(8):
-    if i % 2 == 0:
-        fillcolor("black")
+pensize(6)
+for i in range(6):
+    if i < 3:
+        pencolor("red")
     else:
-        fillcolor("white")
-    begin_fill()
-    for side in range(4):
-        forward(size)
-        right(90)
-    end_fill()
-    forward(size)
+        pencolor("blue")
+    forward(60)
+    right(60)
 
-# Change the two colours, then add a third colour for every third square.
-# endregion
-
-# region: make
-from turtle import *
-
-penup()
-goto(-180, 0)
-pendown()
-
-for i in range(10):
-    # Draw a shape here. Use an if / else to decide which kind of shape it is.
-    pass
-    forward(40)
-# endregion
-
-# region: light
-from turtle import *
-
-light = "green"   # try "red" or "orange"
-
-if light == "red":
-    fillcolor("red")
-    print("Stop")
-elif light == "orange":
-    fillcolor("orange")
-    print("Get ready")
-else:
-    fillcolor("green")
-    print("Go")
-
-begin_fill()
-circle(50)
-end_fill()
+# Change the number so 4 sides are red and 2 are blue.
 # endregion
 
 # region: bug
 from turtle import *
 
-for i in range(8):
-    if i % 2 = 0:
-        fillcolor("black")
+pensize(6)
+for i in range(6):
+    if i = 3:
+        pencolor("red")
     else:
-        fillcolor("white")
-    begin_fill()
-    circle(20)
-    end_fill()
-    forward(50)
+        pencolor("blue")
+    forward(60)
+    right(60)
 # endregion
 
-# region: sol-colours
+# region: make
 from turtle import *
 
-size = 40
-penup()
-goto(-160, 0)
-pendown()
-
-for i in range(8):
-    if i % 2 == 0:
-        fillcolor("navy")
-    else:
-        fillcolor("gold")
-    begin_fill()
-    for side in range(4):
-        forward(size)
-        right(90)
-    end_fill()
+size = 10
+pensize(5)
+for i in range(12):
+    # Choose the colour here: red while size is small, blue once it is big.
     forward(size)
+    right(90)
+    size = size + 10
 # endregion
 
-# region: sol-third
+# region: sol-four
 from turtle import *
 
-size = 40
-penup()
-goto(-160, 0)
-pendown()
-
-for i in range(8):
-    if i % 3 == 0:
-        fillcolor("green")
-    elif i % 2 == 0:
-        fillcolor("navy")
+pensize(6)
+for i in range(6):
+    if i < 4:
+        pencolor("red")
     else:
-        fillcolor("gold")
-    begin_fill()
-    for side in range(4):
-        forward(size)
-        right(90)
-    end_fill()
-    forward(size)
+        pencolor("blue")
+    forward(60)
+    right(60)
 # endregion
 
 # region: sol-make
 from turtle import *
 
-penup()
-goto(-180, 0)
-pendown()
-
-for i in range(10):
-    if i % 2 == 0:
-        circle(15)
+size = 10
+pensize(5)
+for i in range(12):
+    if size < 60:
+        pencolor("red")
     else:
-        for side in range(4):
-            forward(30)
-            left(90)
-    penup()
-    forward(40)
-    pendown()
-# endregion
-
-# region: sol-light
-from turtle import *
-
-light = "flashing"
-
-if light == "red":
-    fillcolor("red")
-    print("Stop")
-elif light == "orange":
-    fillcolor("orange")
-    print("Get ready")
-elif light == "flashing":
-    fillcolor("yellow")
-    print("Slow down")
-else:
-    fillcolor("green")
-    print("Go")
-
-begin_fill()
-circle(50)
-end_fill()
+        pencolor("blue")
+    forward(size)
+    right(90)
+    size = size + 10
 # endregion

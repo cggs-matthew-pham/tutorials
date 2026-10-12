@@ -1,6 +1,9 @@
 ---
-order: 9
+order: 17
 unit: functions
+moveId: module-toolbox
+reviews: [name-steps, function-inputs]
+assumes: [function, param]
 introduces: [import-from, import-star]
 title: Modules
 summary: Keep related functions together in a file you can import, like a toolbox.

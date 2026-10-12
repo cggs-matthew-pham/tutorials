@@ -1,9 +1,12 @@
 ---
-order: 4
+order: 9
 unit: choices
-introduces: [list, list-index, length, for-of]
+moveId: list-position
+reviews: [loop-counter, name-a-value]
+introduces: [list, list-index, length]
+assumes: [variable, loop-index]
 title: Lists
-summary: Store many values under one name, then work through them one by one.
+summary: Keep many values under one name, pick one by its place, and count them with len.
 language: python
 hook: "A playlist, a shopping cart, a class roll and a leaderboard are all lists: many values kept in order under one name."
 app:
@@ -18,58 +21,64 @@ explainClip:
   say: "A list keeps many values in order, under one name."
   pacing: { keyDelayMs: 22 }
   clip:
-    - type: { into: "Python code", text: "from turtle import *\n\npensize(5)\n", append: true }
+    - type: { into: "Python code", text: "from turtle import *\n\npensize(8)\n", append: true }
     - caption:
         text: "colours = [\"red\", \"blue\", \"green\"] is a list of 3 items."
         say: "Here is a list of three colours, called colours."
     - type: { into: "Python code", text: "colours = [\"red\", \"blue\", \"green\"]\n\n", append: true }
     - caption:
-        text: "for c in colours: takes the items one at a time."
-        say: "The loop takes the items one at a time. Each time, c holds the next."
-    - type: { into: "Python code", text: "for c in colours:\n    pencolor(c)\n    forward(100)\n    left(120)\n", append: true }
+        text: "colours[0] is the first item. Places count from 0."
+        say: "Each item has a place, counted from zero. Place zero is red."
+    - type: { into: "Python code", text: "for i in range(len(colours)):\n    pencolor(colours[i])\n    forward(100)\n    left(120)\n", append: true }
+    - caption:
+        text: "len(colours) counts the items: 3."
+        say: "The len of colours counts the items, so the loop runs three times."
     - click: "Run"
     - expect: { selector: "#status", contains: "Finished" }
-    - caption:
-        text: "Places count from 0: colours[0] is \"red\", colours[2] is \"green\"."
-        say: "Each item has a place, counted from zero. Place zero is red."
     - wait: 1200
     - expect: { selector: "#status", contains: "Finished" }
 ---
-Variables hold one value. A **list** holds many, in order, under a single name.
+Names hold one value. A **list** holds many, in order, under a single name. You pick one by its place.
 
 ## Predict
 
 ```step
 stage: predict
-code: lists.py#colours
+code: lists.py#picks
 check:
   type: predict
-  q: "How many squares will the program draw?"
-  kind: number
-  actual: "Five squares, one for each colour in the list, drawn in order from left to right."
+  q: "What colour is the third side?"
+  options: ["red", "orange", "yellow", "green"]
+  fault: logic
+  misconception: index-starts-one
+  actual: "Yellow. The third pass has i = 2, and colours[2] is the item in place 2. Places count from 0, so place 0 is red, place 1 is orange and place 2 is yellow."
 ```
 
-`for c in colours` takes the colours **one at a time**. Each time round the loop, `c` holds the next one.
+`colours[i]` is the item in place `i`. The counter `i` goes 0, 1, 2 and so on. Read the code. What colour is the third side?
 
 ## Run
 
 ```step
 stage: run
-code: lists.py#colours
-try: { starter: "lists.py#colours", height: 440 }
-check: { type: reflect, text: "I can explain how the loop uses each colour in the list in turn." }
-unlocks: [list]
+code: lists.py#picks
+try: { starter: "lists.py#picks", height: 440 }
 ```
 
 Run it and compare it with your prediction.
+
+| Line | What it does | Why |
+|---|---|---|
+| `colours = ["red", ...]` | Keeps five colours under one name | Each one is in quotes, with commas between |
+| `colours[0]` | The item in place 0: `"red"` | The first place is 0, not 1 |
+| `len(colours)` | How many items: 5 | The loop runs once for each |
+| `pencolor(colours[i])` | Picks the colour for this pass | `i` is the place |
 
 ## Investigate
 
 ```step
 stage: investigate
-code: lists.py#index
-insight: "A list is numbered from 0, so you can pick one item by its place, count them, and spot a bug when the place does not exist."
-unlocks: [for-each-item]
+code: lists.py#picks
+insight: "A list is numbered from 0, so the last place is one less than the length, and asking for a place that does not exist stops the program."
 tasks:
   - check:
       type: trace
@@ -86,6 +95,8 @@ tasks:
       type: number
       q: "A list has 8 items. What is the place number of the last one?"
       answer: 7
+      fault: logic
+      misconception: len-is-last-index
       explain: "Places run from 0 to 7, so the last of eight is colours[7]. The length is always one more than the last place."
   - check:
       type: bug
@@ -94,10 +105,8 @@ tasks:
       answer: 6
       fault: runtime
       misconception: list-index-range
-      explain: "The loop runs four times, so on the last time it asks for colours[3]. The list has only places 0, 1 and 2."
+      explain: "The loop runs four times, so on the last time it asks for colours[3]. The list has only places 0, 1 and 2. range(len(colours)) would always match the list."
 ```
-
-`colours[2]` is the item in place 2. `len(colours)` counts the items. Run it and read the output.
 
 ### Find the place
 
@@ -115,43 +124,37 @@ Here is a version where something is wrong.
 
 ```step
 stage: modify
-insight: "Adding to a list changes the whole result with no change to the loop, which is why data and code are kept apart."
+insight: "Changing a list changes the whole result with no change to the loop, which is why the data and the instructions are kept apart."
 try: { starter: "lists.py#modify", height: 440 }
 tasks:
   - hint: "Each colour is a word in quotes, separated from the next by a comma."
-    check: { type: reflect, text: "I added colours to the list and the program drew more squares." }
+    check: { type: reflect, text: "I added colours to the list and the program drew more sides." }
   - hint:
-      - "Write the list on one line in square brackets, then use it in the loop."
-      - "You do not need to change the loop for a longer list."
-    check: { type: code, text: "Use a list in a for loop.", rules: { loops: 1, uses: [colours] } }
+      - "Replace the first word in the list. Nothing else changes."
+      - "The first item is colours[0]. The loop still uses it first."
+    check: { type: code, text: "Change the first colour in the list.", rules: { contains: ["colours", "pink"] } }
 ```
 
 ### Add two colours
 
-Put two more colours into the list and run it.
+Put two more colours into the list and run it. Does the loop need to change?
 
 ### Change the first colour
 
-Replace the first colour and notice what moves.
+Replace the first colour (place 0) with "pink".
 
-## Make
-
-```step
-stage: make
-try: { starter: "lists.py#make", height: 440 }
-hint:
-  - "One bar for each number in the list: a for loop over the list does that, and each time round h is the next height."
-  - "Use `for h in heights:` and draw one bar each time round."
-  - "A bar is a rectangle: forward(20), left(90), forward(h), left(90), forward(20), left(90), forward(h), left(90). Then move on before the next bar."
-```
-
-Draw a **bar chart**: one bar for each number in `heights`, the height of the bar equal to the number.
-
-## Colour a bar chart by pass mark
+## Mix it up
 
 ```step
-stage: modify
-try: { starter: "lists.py#scores", height: 440 }
+stage: investigate
+code: lists.py#review
+insight: "Names, the counter and a list work together: the list holds the values, the counter picks one, and len keeps the loop in step."
+check:
+  type: number
+  q: "sizes = [20, 40, 60] and the turn is 360 / len(sizes). How many degrees does the turtle turn on each pass?"
+  answer: 120
+  explain: "len(sizes) is 3, and 360 / 3 is 120. The turn is worked out from the list, so a longer list gives a smaller turn."
+unlocks: [list]
 ```
 
-A teacher's chart colours each score green or red by comparing it with a pass mark. This program holds the scores in a list and uses an `if` inside the loop. Change the scores to five of your own, then change `pass_mark` to 70 and see which bars change colour. Then add a third colour for scores above 85.
+This mixes three lessons: a name, the counter, and a list. Work it out on paper first.

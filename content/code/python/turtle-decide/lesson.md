@@ -1,6 +1,9 @@
 ---
-order: 8
+order: 16
 unit: functions
+moveId: function-decides
+reviews: [if-else, list-position, for-each, function-answers]
+assumes: [function, param, return-value, if, else, compare, list, for-of]
 title: Functions that decide
 summary: "Put an if inside a function so it chooses its answer, then call it for every item in a list: decisions, lists and functions working together."
 language: python

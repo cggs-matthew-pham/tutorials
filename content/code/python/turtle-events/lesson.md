@@ -1,6 +1,8 @@
 ---
-order: 10
+order: 18
 unit: interaction
+moveId: react-to-event
+reviews: [value-update, name-steps]
 introduces: [callback, global]
 recipes: [write]
 assumes: [variable-update]

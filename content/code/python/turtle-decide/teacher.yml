@@ -6,7 +6,7 @@ goals:
   - I can call a function for every item in a list.
   - I can count items in a list with a loop and an if inside a function.
 before: |
-  A revisit lesson: nothing in it is new. Decisions (lesson 3), lists (lesson 4) and functions that return (lesson 7) come together: an `if` inside a function, with `return` in each branch, so the function **chooses** its answer; then a loop over a list calls it for every item. Students who found `if` or lists shaky get them again in a new place, which is the point.
+  A revisit lesson: nothing in it is new. If and else, lists, for-each and functions that return come together: an `if` inside a function, with `return` in each branch, so the function **chooses** its answer; then a loop over a list calls it for every item. Students who found `if` or lists shaky get them again in a new place, which is the point.
 
   The planted bug is the classic counting slip: `count = 0` inside the loop resets the count every time round. The trace has one edge case on purpose: 50 is not more than 50.
 running:

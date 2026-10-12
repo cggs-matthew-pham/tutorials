@@ -1,43 +1,40 @@
-summary: Students make the program choose with if and else, using the remainder (%) to colour every other square, then add a third choice with elif.
-time: 50
-timing: "Predict and Run 10 min · Investigate 15 min · Modify 10 min · Make 10 min · Traffic light 5 min"
+summary: Students make a program choose between two paths with if and else, reading a condition that is true or false.
+time: 35
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 5 min · Mix it up 3 min · Make 7 min"
 goals:
   - I can write an if / else that chooses between two actions.
   - I can work out whether a condition is true for a given value.
-  - I can add another choice with elif.
+  - I can say that only one of the two paths runs on each pass.
 before: |
-  The new symbol is `%`, the **remainder** after dividing, not "percent". 7 % 2 is 1 (7 ÷ 2 is 3, remainder 1). Even numbers have remainder 0 when divided by 2. Run the checkerboard and try `print(7 % 2)` and `print(8 % 2)` before class.
+  Run the red and blue hexagon, then change `i < 3` to `i < 4`. Notice that only the number in the condition changed. `<` means "less than".
 running:
-  - "Predict: ask what colour the third square is. Walk through it together: the third square has i = 2, 2 % 2 is 0, so the if is true and it is black."
-  - "Say the if line out loud as a question: 'Is the remainder of i divided by 2 equal to 0?' Yes runs the indented lines under if; no runs the lines under else."
-  - "Investigate: students fill in the trace table before running. The bug task is the classic mistake: = stores, == asks. The last question shows that a condition is itself a value, True or False; Catch the turtle stores one in a variable later (showing = False)."
-  - "Modify: elif is a second question, asked only if the first answer was no. The order matters, so ask students what happens if they put the elif check last."
-  - "Make: let students choose their two shapes. Check that both paths still move the turtle forward."
+  - "Predict: show the loop and take a vote before anyone runs it. The wrong options are three slips: both paths run on every pass, the sides take turns, and the else covers everything."
+  - "Run: run it live, then students run it. Read the if line aloud as a question: is i less than 3? Yes runs the lines under if; no runs the lines under else."
+  - "Investigate: students fill in the trace table before running anything. The bug task is the classic slip: = stores, == asks. The last question shows that a condition works out to True or False, like a sum works out to a number."
+  - "Modify: one number changes. Ask: which passes are true now?"
+  - "Mix it up: students work the number out on paper. It joins a growing value to a decision, so the condition reads size, not i."
+  - "Make: the colour depends on the line length. Check that the if / else is inside the loop, so it is asked again on every pass."
 stuck:
   - see: "A SyntaxError on the if line."
-    ask: Does the condition ask a question (==) or store a value (=)? Is there a colon at the end?
-    fix: "Use == to compare and end the line with a colon: if i % 2 == 0:"
-  - see: Every square is the same colour.
-    ask: What does i % 2 give for i = 0, 1, 2, 3? Print it.
-    fix: The if must be inside the loop (indented), so it is asked again for every square.
-  - see: The third colour never appears, or appears in the wrong places.
-    ask: Which question does Python ask first?
-    fix: Put the i % 3 == 0 check first. Python stops at the first true answer.
-stretch: Make a pattern that repeats every 4 squares with four colours, using % 4.
-support: Give students the trace table with the first two rows done and ask them to say each condition aloud before filling the colour.
-leads: "Next lesson runs a decision on every item in a list. Decisions return later inside functions and in the game's hit test. Class ideas: a traffic light that runs through its states; predict the colour of tile 7 as a whole-class game."
+    ask: Does the condition ask a question (==, <) or store a value (=)? Is there a colon at the end?
+    fix: "Use == or < to compare, and end the line with a colon: if i < 3:"
+  - see: Every side is the same colour.
+    ask: Is the if / else inside the loop, so it is asked again every pass?
+    fix: Indent the if / else under the for line so it runs once per pass.
+  - see: The spiral is all red or all blue.
+    ask: What is size on the first pass and on the last? Is the cut-off between them?
+    fix: The cut-off must be a number size passes through, for example 60.
+stretch: Colour the first half of the lines red and the second half blue without typing the number 6 anywhere in the condition.
+support: Give the trace table with the first two rows done and ask the student to say each condition aloud before filling in the colour.
+leads: "Next lesson uses the remainder, %, to make a pattern that repeats every second or third pass, and adds a third choice with elif. Decisions return later inside functions and in the game's hit test."
 exit:
-  q: "A loop colours square i black if i % 2 == 0, else white. Is square 5 black or white? Explain using the remainder."
-  a: "White. 5 % 2 is 1, so the condition i % 2 == 0 is false and the else path runs."
+  q: "A loop colours pass i red if i < 2, else blue. For range(5), how many passes are blue?"
+  a: "Three. The red passes are i = 0 and 1, so 2, 3 and 4 are blue."
 explain: |
-  An **if** lets your program choose. `if i % 2 == 0:` asks a question. If the answer is yes, the indented lines under it run. If not, the lines under **else** run instead.
+  An **if** lets your program choose. `if i < 3:` asks a question. If the answer is yes (True), the indented lines under it run. If not (False), the lines under **else** run instead. Only one of the two paths runs on each pass.
 
-  `%` gives the **remainder** after dividing. Even numbers divided by 2 leave nothing over (remainder 0), so `i % 2 == 0` is true for 0, 2, 4, 6.
-
-  Careful: one `=` stores a value, two `==` ask whether two things are equal. **elif** adds another question, asked only when the earlier ones were no.
+  `<` means "less than". Careful: one `=` stores a value, two `==` ask whether two things are equal.
 solutions:
-  step-4#t1: decisions.py#sol-colours
-  step-4#t2: decisions.py#sol-third
-  step-5: decisions.py#sol-make
-  step-6: decisions.py#sol-light
-struggle: "Writing a condition: == to compare, the colon, and what i % 2 means. Ask them to work out the condition for i = 0, 1, 2 before running."
+  step-4: decisions.py#sol-four
+  step-6: decisions.py#sol-make
+struggle: "Writing a condition: the comparison sign, the colon, and the idea that only one path runs. Ask them to work out the condition for i = 0, 1, 2 before running."

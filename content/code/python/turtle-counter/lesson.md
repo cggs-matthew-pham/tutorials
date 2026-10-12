@@ -1,5 +1,5 @@
 ---
-order: 2.2
+order: 4
 unit: drawing
 introduces: [loop-index]
 title: Use the counter
@@ -116,6 +116,7 @@ tasks:
       - "pensize( ) sets how thick the line is. The pen needs a number that changes each pass."
       - "The counter changes each pass, so use it. pensize(i + 1) starts at 1."
     check: { type: code, text: "Use the counter to change the pen size.", rules: { uses: [pensize] } }
+    unlocks: [counter-step]
 ```
 
 ### Grow faster

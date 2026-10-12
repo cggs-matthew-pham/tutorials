@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 unit: drawing
 introduces: [variable, arithmetic]
 recipes: [string, print]
@@ -161,7 +161,7 @@ hint:
   - "Put three names at the top: sides, size and colour. Then use each name below."
   - "A colour is text, so it goes in quotes: colour = \"purple\". Use it with pencolor(colour)."
 check: { type: code, text: "Use a variable for the pen colour and draw a shape with a loop.", rules: { uses: [pencolor], loops: 1 } }
-unlocks: [variable]
+unlocks: [named-turn]
 ```
 
 Make your own shape generator. Put three names at the top (`sides`, `size` and `colour`) and use all three below. Then change each one and watch the shape change.

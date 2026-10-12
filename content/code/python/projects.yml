@@ -2,7 +2,7 @@ playground: turtle
 projects:
   - id: pattern-maker
     title: Pattern maker
-    after: turtle-decisions
+    after: turtle-every-other
     goal: |
       Make a **pattern** that changes as it goes: stripes, a checkerboard, a row of tiles that swap colour, or a spiral that switches every third turn. The rule for what changes is yours.
     example: pattern-maker.py
@@ -52,7 +52,7 @@ projects:
       - "Draw the bars sideways."
       - "Add a line for the average."
     teacher: |
-      Real data makes this stick: let students collect a small set first (five to eight numbers). write() is a recipe from lesson 10; students who reach for it early can copy it from the Reference.
+      Real data makes this stick: let students collect a small set first (five to eight numbers). write() is a recipe from Events; students who reach for it early can copy it from the Reference.
 
   - id: stamp-art
     title: Click-and-key art
@@ -87,6 +87,6 @@ projects:
     stretch:
       - "Levels: it gets faster after every five points."
       - "A start screen and a game-over screen."
-      - "Power-ups, as in lesson 13."
+      - "Power-ups, as in the Power-ups lesson."
     teacher: |
       Scope is the risk: ask for a one-sentence pitch before students code. The last milestone is the play test from the Power-ups lesson; it is worth a short lesson of its own.

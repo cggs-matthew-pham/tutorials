@@ -1,0 +1,38 @@
+summary: Students read a tile pattern that combines loops, names, a list and the remainder, change it, and make a tile of their own.
+time: 40
+timing: "Predict and Run 8 min · Investigate 8 min · Modify 8 min · Make 16 min"
+goals:
+  - I can read a pattern program and predict what it draws.
+  - I can change one part and say what will happen before I run it.
+  - I can make a tile using a loop in a loop, a list, a name and a decision.
+before: |
+  Run the tile, then make a checkerboard yourself. The tricky part is `backward(size * 4)` at the end of a row: it must match the number of columns.
+running:
+  - "Predict and Run: the count is rows times columns. Ask students to say which loop is which."
+  - "Investigate: students work out the colour of one square on paper. The remainder is what makes the pattern repeat."
+  - "Modify: insist on a prediction before each run. Ask students to say what they expect, then check."
+  - "Make: let students plan on paper first. Early finishers add a second decision, or a list of sizes."
+stuck:
+  - see: The rows do not line up, or each row starts further right.
+    ask: How far does the turtle move along a row, and how far does it come back?
+    fix: "Come back by size times the number of columns: backward(size * 5) for 5 columns."
+  - see: An IndexError on the colours line.
+    ask: Is the place always less than len(colours)?
+    fix: "Use the remainder with len(colours): (row + col) % len(colours)."
+  - see: The tile is one colour.
+    ask: What does the decision depend on? Does it change as row and col change?
+    fix: The condition must use row or col, or the remainder of them.
+stretch: "Make the tile grow: each square a little bigger than the one before, using an update."
+support: Give the working tile and ask the student to change only the list of colours, then only the size.
+leads: "Course B starts from a working program and builds up to a game: functions, modules and events. Class ideas: print the tiles and arrange them in a class wall."
+exit:
+  q: "A grid has 5 rows and 6 columns. How many squares is that, and which line would you change to get 8 columns?"
+  a: "30 squares. Change the number in the inner loop, range(6), and the backward(size * 6) line to match."
+explain: |
+  A **loop inside a loop** draws a grid: the outer loop makes the rows and the inner loop makes the squares in each row. The remainder of `row + col` divided by the length of the list gives a colour place that repeats in a pattern.
+
+  Predict first, then run. When the result differs from your prediction, work out which part you misread.
+solutions:
+  step-4: tile.py#sol-modify
+  step-5: tile.py#sol-make
+struggle: "Planning the pattern before coding. Ask them to colour a small grid on paper and say the rule in words first."
