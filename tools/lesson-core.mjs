@@ -295,11 +295,13 @@ export function parseLessonText(raw, slug = 'lesson') {
   let rest = raw.slice(fm[0].length);
   // Teacher notes can live in the lesson: a ```teacher block (the fields of teacher.yml) is cut out here, so it never
   // reaches the student page. The last such block wins; a teacher.yml beside the lesson is read only when there is none.
-  let teacher;
+  let teacher, classPlan;
   const tb = [...rest.matchAll(/^```teacher[ \t]*\n([\s\S]*?)\n```[ \t]*$/gm)].pop();
   if (tb) {
     try { teacher = YAML.parse(tb[1]) || {}; } catch (e) { throw new Error(`${slug}: the teacher block is not valid YAML (${String(e.message).split('\n')[0]})`); }
     rest = rest.replace(/^```teacher[ \t]*\n[\s\S]*?\n```[ \t]*$\n?/gm, '');
+    // `class:` inside the block holds the class plan (the fields of content/<course>/class/<lesson>.yml).
+    if (teacher && typeof teacher === 'object' && teacher.class !== undefined) { classPlan = teacher.class || {}; delete teacher.class; }
   }
   const parts = rest.split(/^## /m);
   const intro = parts.shift().trim();
@@ -330,6 +332,7 @@ export function parseLessonText(raw, slug = 'lesson') {
   });
   return {
     ...(teacher ? { teacher } : {}),
+    ...(classPlan ? { classPlan } : {}),
     slug,
     depth: slug.split('/').length,
     title: meta.title || slug,
@@ -766,7 +769,7 @@ export const CLASS_CHECKS = ['question', 'number', 'trace', 'match'];
 
 /** content/<course>/class/<lesson>.yml: { inquiry: { q, prompts?, notes? }, activities: [{ at, title, do, notes?, kind?, minutes? }], questions: [{ at, title?, type, ...check }] } */
 function validateClassPlan(lesson, err) {
-  const c = lesson.classPlan, w = `../class/${lesson.slug.split('/').pop()}.yml`;
+  const c = lesson.classPlan, w = "class plan";
   if (typeof c !== 'object' || Array.isArray(c)) return err(w, 'must be a mapping with activities and/or questions');
   for (const k of Object.keys(c)) if (!['inquiry', 'activities', 'questions'].includes(k)) err(w, `unknown field "${k}" (use inquiry, activities, questions)`);
   if (c.inquiry !== undefined) {
