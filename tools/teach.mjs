@@ -181,14 +181,14 @@ export function deckFor(lesson, { course, unit, snip, blocks = null }) {
   // A question about a program keeps the program on the slide: code in the left column, the question on the right.
   // Only short programs (a column holds about 16 lines); a short runnable program becomes the live playground instead; a check can opt out with `slideCode: false` or name another region with `slideCode: file.py#region`.
   const sideOk = (src) => src && src.split('\n').length <= 16 && !blocksDeck(src);
-  // Short runnable programs get the live playground in the right half (at 740px wide it keeps its editor and picture
+  // Short runnable programs get the live playground in the right half (75% of the slide, so it keeps its editor and picture
   // side by side, and it is 420px tall like every embed); display-only or longer code stays a static column.
   const liveSrc = (src) => src && src.split('\n').length <= 14 && (LANG === 'html' || (LANG === 'python' && /from turtle import/.test(src)));
   const colsStyle = (right) => `display:grid;grid-template-columns:1fr ${right};gap:1em`;
   const sideBySide = (body, tail, src) => {
     if (!src || (!sideOk(src) && !liveSrc(src))) return null;
-    const url = liveSrc(src) && measure(body + tail, true).text <= 330 ? playUrlFor(LANG === 'html' ? 'html' : 'turtle', src) : null;
-    if (url) return `<div class="side" style="${colsStyle('740px')}">\n<div>\n\n${body}${tail}\n\n</div>\n<div>\n\n{{embed: ${url}}}\n\n</div>\n</div>`;
+    const url = liveSrc(src) && measure(body + tail, 0.25).text <= 330 ? playUrlFor(LANG === 'html' ? 'html' : 'turtle', src) : null;
+    if (url) return `<div class="side" style="${colsStyle('3fr')}">\n<div>\n\n${body}${tail}\n\n</div>\n<div>\n\n{{embed: ${url}}}\n\n</div>\n</div>`;
     return sideOk(src) ? `<div class="side" style="${colsStyle('1fr')}">\n<div>\n\n${fence(src)}\n\n</div>\n<div>\n\n${body}${tail}\n\n</div>\n</div>` : null;
   };
   const stepCode = (stage) => { const st = lesson.steps.find((x) => x.config.stage === stage && x.config.code); return st ? snip(st.config.code) : ''; };
@@ -344,7 +344,7 @@ function measure(slide, narrow = false) {
   const cols = /<div class="cols"/.test(slide) ? 2 : 1; // two code columns: count half the code
   const lines = blocks.reduce((n, b) => n + b.split('\n').length - 2, 0) / cols;
   const plain = (l) => l.replace(/<[^>]+>|\*\*|`|\[([^\]]*)\]\([^)]*\)/g, '$1').trim();
-  const wraps = (l, w) => Math.max(1, Math.ceil(plain(l).length / (narrow ? w * 0.55 : w)));
+  const wraps = (l, w) => Math.max(1, Math.ceil(plain(l).length / (narrow === true ? w * 0.55 : narrow ? w * narrow : w)));
   const rest = slide.replace(/```[\s\S]*?```/g, '').replace(/<!--[\s\S]*?-->|<style[\s\S]*?<\/style>/g, '').split('\n').filter((l) => l.trim());
   const text = rest.reduce((n, l) => {
     if (/^<span/.test(l)) return n + 60;
@@ -365,7 +365,7 @@ function slideSize(slide) {
   const at = slide.indexOf('<div class="side"');
   if (at < 0) return measure(slide);
   const head = measure(slide.slice(0, at)), body = slide.slice(at).split(/<\/div>\s*<div>/);
-  const left = measure(body[0], true), right = measure(body.slice(1).join(''), true);
+  const left = measure(body[0], /1fr 3fr/.test(slide) ? 0.25 : true), right = measure(body.slice(1).join(''), true);
   const col = (m) => m.text + m.codeFull;
   return { text: head.text, codeFull: Math.max(col(left), col(right)) };
 }
