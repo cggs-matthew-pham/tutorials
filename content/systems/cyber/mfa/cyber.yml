@@ -1,0 +1,28 @@
+# Boards for "A second lock".
+
+# region: explore
+widget: cyber
+mode: mfa
+# endregion
+
+# region: explain
+widget: cyber
+mode: mfa
+# endregion
+
+# region: explain-pic
+widget: cyber
+mode: mfa
+# endregion
+
+# region: elaborate
+widget: cyber
+mode: mfa
+fake: on
+# endregion
+
+# region: make
+widget: cyber
+mode: mfa
+fake: on
+# endregion

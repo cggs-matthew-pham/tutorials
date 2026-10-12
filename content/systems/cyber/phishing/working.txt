@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The email says it is from Ms Lee.
+Ms Lee is Sam's teacher.
+So the email really is from Ms Lee.
+So Sam buys the gift cards she asked for.
+# endregion

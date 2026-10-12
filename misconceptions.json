@@ -284,5 +284,12 @@
   "ls-shows-everything": {"home": "systems/shell/reading", "text": "What plain ls shows is taken to be everything in a folder; names starting with a dot are hidden and need ls -a."},
   "rm-recycle-bin": {"home": "systems/shell/changing", "text": "rm is thought to send files to a recycle bin; in a shell, deleted files are gone, so copy first."},
   "pipe-reads-files": {"home": "systems/shell/pipes", "text": "A command after a pipe is thought to read the original file; it reads the previous command's output."},
-  "hidden-is-protected": {"home": "systems/shell/permissions", "text": "A hidden (dot) file is thought to be private; anyone allowed by its permissions can list and read it, so permissions (chmod 600) protect it."}
+  "hidden-is-protected": {"home": "systems/shell/permissions", "text": "A hidden (dot) file is thought to be private; anyone allowed by its permissions can list and read it, so permissions (chmod 600) protect it."},
+  "symbols-make-strong": {"home": "systems/cyber/passwords", "text": "Swapping letters for symbols (P@ssw0rd!) is thought to make a password strong; those swaps are on every guessing list. Length and randomness (four random words), used on one site only, make it strong."},
+  "mfa-only-important": {"home": "systems/cyber/mfa", "text": "A second factor is thought to be needed only on 'important' accounts; any account that can reset others or message friends is worth protecting, starting with email."},
+  "right-name-is-safe": {"home": "systems/cyber/phishing", "text": "A message showing a trusted name is thought to be from that person; display names can be anything, so check the address and what the message asks for."},
+  "more-data-better": {"home": "systems/cyber/footprint", "text": "Collecting extra data 'in case it's useful' is thought to be harmless; every item held can leak and adds to people's footprint, so collect only what the purpose needs."},
+  "https-solves-all": {"home": "systems/cyber/threats", "text": "HTTPS is thought to make an app secure; it protects data on the way, not data stored or who is allowed to see it."},
+  "good-code-is-safe": {"home": "systems/cyber/weaknesses", "text": "An app with no bugs in its own code is thought to be safe; people (user weaknesses) and the code it relies on (supply chain) can still let someone in."},
+  "policy-means-anything": {"home": "systems/cyber/privacy", "text": "Having a privacy policy is thought to allow any use of data; the Australian Privacy Principles limit what may be collected, used and shared, policy or not."}
 }

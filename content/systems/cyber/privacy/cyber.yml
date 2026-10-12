@@ -1,0 +1,28 @@
+# Boards for "The Australian Privacy Principles".
+
+# region: explore
+widget: cyber
+mode: privacy
+# endregion
+
+# region: explain
+widget: cyber
+mode: privacy
+# endregion
+
+# region: explain-pic
+widget: cyber
+mode: privacy
+# endregion
+
+# region: elaborate
+widget: cyber
+mode: privacy
+fix: on
+# endregion
+
+# region: make
+widget: cyber
+mode: privacy
+set: notice
+# endregion

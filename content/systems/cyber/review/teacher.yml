@@ -1,0 +1,46 @@
+summary: The course finale. Students review the fictional club app's accounts, data and system, choose the fix that really closes each of seven weaknesses (wrong fixes explain why they fall short), collect three flags, then repeat on the launch-day copy with every fix right first time (AC9TDI10P13 node 1, AC9TDI10P14 node 3). Defensive throughout. A 5E mission lesson.
+time: 40
+timing: "Engage and Explore 15 min · Explain 8 min · Elaborate 10 min · Evaluate 7 min"
+goals:
+  - I can review a system's accounts, data and setup for weaknesses.
+  - I can choose a fix that really closes a weakness, and say why others don't.
+  - I can protect stored passwords with hashing and collect only what's needed.
+struggle: "Students click fixes until one works. The launch-day copy needs every fix right first time, so the reasoning matters."
+before: |
+  Try the board yourself. The club app is made up.
+
+  Flags (for you, not students): Accounts WP{unique-and-mfa}, Data WP{only-what-we-need}, System WP{patched-and-encrypted}. Each appears on the board when its section is fully fixed, so the flags reward the fixing; they aren't puzzles.
+
+  The one idea: a review checks every part of a system and picks fixes by what they actually stop.
+
+  Years 7–8 classes can do this lesson after the first unit: the Data and System sections then lean on your explanation of hashing and HTTPS.
+
+  Extension: picoCTF (Carnegie Mellon) has free CTF practice for school students; check its account and age requirements, and your school's policy, before recommending it.
+running:
+  - "Engage: ask what a security team is for."
+  - "Explore: ask which wrong fix sounded most convincing, and why it falls short."
+  - "Explain: ask which lesson of the course each flag comes from."
+  - "Elaborate: ask students to say the reason for each fix aloud before clicking."
+  - "Evaluate: discuss what should happen each time the app gets a new feature."
+stuck:
+  - see: "A student picks 'Add a ! to the end of it'."
+    ask: "If the old password leaked, what would someone try first?"
+    fix: "Small changes to a leaked password are first on the list: use a unique passphrase."
+  - see: "A student picks hashing to fix the missing HTTPS."
+    ask: "Is the password travelling or stored at this point?"
+    fix: "HTTPS on the way, hashing in storage."
+stretch: "Add one new feature to the club app (events sign-up, say) and write its threat model and privacy notice."
+support: "The course's idea cards beside the board: passwords, MFA, footprint, threat model, kinds of weakness, APPs."
+leads: |
+  End of the course. The Security and privacy course (Years 9–10) goes deeper into how sign-in, hashing and keys work, and has its own capture the flag.
+exit:
+  q: "Pick one weakness from the review: what was it, what fixed it, and why did one of the wrong fixes fall short?"
+  a: "For example: passwords stored as typed; store salted hashes; renaming the column still leaves every password readable."
+explain: |
+  A **security review** checks a system before launch:
+
+  - **Accounts:** unique passphrases and MFA.
+  - **Data:** collect only what's needed, hash passwords, tell people what and why.
+  - **System:** HTTPS on the way, and updates from the real source.
+
+  Choose each fix by what it actually stops.

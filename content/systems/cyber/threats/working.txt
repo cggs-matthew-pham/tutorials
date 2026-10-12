@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The club app has three points where data is at risk.
+At sign-in, passwords travel from the browser to the app.
+Sam turns on HTTPS, which encrypts data on the way.
+So all three points are now safe.
+# endregion

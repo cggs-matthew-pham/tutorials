@@ -55,11 +55,16 @@ Matthew: hook first, plumbing after, which is also the kit's order (all of 8K03 
 
 `systems/shell` (Years 8–10, its own pathway "The command line"; 10K01 n1 for lessons 1–4, n3 for permissions): Where files live (pwd, ls, cd, paths, .., ~; a folder tree on the board), Reading and finding (cat, grep -i/-c, hidden files with ls -a; treasure hunt part 1), Changing files (mkdir, cp, mv, rm, rm -r, echo >; rm has no bin), Pipes (grep | wc, sort | uniq, head, >; treasure hunt part 2), Who can read what (ls -l, rwx and digits, chmod, only the owner; hidden is not private). New `shell` widget. Misconceptions `cd-moves-files`, `ls-shows-everything`, `rm-recycle-bin`, `pipe-reads-files`, `hidden-is-protected`. Real computers (Raspberry Pi, WebVM, Mac Terminal) are in the primer and teacher notes; no lesson needs one.
 
+## Done (12 Oct 2026): Cyber safety and privacy
+
+`systems/cyber` (Networks and security pathway, foundations), the first course built as 5E missions (`shape: 5e`, after the Packets pilot): the student is security officer for a made-up Coding Club app. Unit Protect your accounts (Years 7–8): Passwords (8P13 n1: a leak, reuse, passphrases, a password manager), Second factors (n2: codes, a fake page, security keys), Spot the phish (n3: an inbox, link checking, fix the club's own newsletter), Your digital footprint (8P14 n1–n3: given or collected as used, the purpose test, private settings). Unit Secure the system (Years 9–10): Threat models (10P13 n1: a data-flow diagram, risk and defence per point, new features), Kinds of weakness (n2: software, user, supply chain, descriptive only), The Australian Privacy Principles (10P14 n1–n2: audit, fix the breaches, write an APP 5 notice). Challenge: Security review (10P13 n1, 10P14 n3: seven weaknesses with three fixes each, three flags, then launch day with no wrong fixes). New `cyber` widget. Misconceptions `symbols-make-strong`, `mfa-only-important`, `right-name-is-safe`, `more-data-better`, `https-solves-all`, `good-code-is-safe`, `policy-means-anything`. Defensive and conceptual throughout: no attack or exploit practice; 10P13 n3 (exploring a vulnerability in the student's own software) is a class task with the teacher. picoCTF is named as the extension in the pathway text and the finale's teacher notes.
+
 ## Next
 
 1. Years 5–6 versions (AC9TDI6K03, 6K04): counting dots, no place-value notation.
-2. More security and CTF: Rules of the game, guessing passwords, encoding is not encryption, what a page gives away; cross-pathway flags and a capstone CTF; picoCTF (Carnegie Mellon) as the linked extension (check its account and age terms).
+2. More CTF, defensive: encoding is not encryption, what a page gives away (as a privacy check of one's own page); cross-pathway flags. Done in part by Cyber safety and privacy (passwords, phishing, review flags).
 3. Shapes as numbers (optional, 8K03): vector vs raster, meshes as lists of vertices; a later Digital Media / Design subject (3D and animation, parked) builds on it.
+4. Decide after classroom trials whether to retrofit other Digital systems courses to 5E missions.
 
 ## Open questions
 

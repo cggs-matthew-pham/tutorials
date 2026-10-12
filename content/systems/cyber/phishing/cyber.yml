@@ -1,0 +1,31 @@
+# Boards for "Spot the phish".
+
+# region: explore
+widget: cyber
+mode: inbox
+set: easy
+# endregion
+
+# region: explain
+widget: cyber
+mode: inbox
+set: easy
+# endregion
+
+# region: explain-pic
+widget: cyber
+mode: inbox
+set: easy
+# endregion
+
+# region: elaborate
+widget: cyber
+mode: inbox
+set: tricky
+# endregion
+
+# region: make
+widget: cyber
+mode: inbox
+set: newsletter
+# endregion

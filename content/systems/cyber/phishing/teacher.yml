@@ -1,0 +1,43 @@
+summary: Students sort an inbox into safe and phishing messages by checking senders, requests and where links really go, then fix the club's own newsletter so it can't be mistaken for a phish (AC9TDI8P13 node 3). A 5E mission lesson.
+time: 40
+timing: "Engage and Explore 12 min · Explain 8 min · Elaborate 14 min · Evaluate 6 min"
+goals:
+  - I can spot the signs of a phishing message.
+  - I can check where a link really goes.
+  - I can say what to do when I'm not sure.
+struggle: "Students mark everything Report to be safe. Ask them to justify each Safe too: real messages exist, and ignoring them has costs."
+before: |
+  Try the board yourself. All senders and addresses are made up (example domains).
+
+  The one idea: phishing pretends to be someone trusted; the request and the details give it away, not the look. On real devices, pressing and holding (or hovering over) a link shows where it goes.
+
+  Unplugged: read two messages aloud, one real, one phish, and vote before revealing the address.
+running:
+  - "Engage: ask who has seen a link that went somewhere unexpected."
+  - "Explore: ask which sign gave each phish away."
+  - "Explain: model checking one message aloud with the five questions."
+  - "Elaborate: ask why the parcel tracking email is safe but the fee one isn't."
+  - "Evaluate: discuss what 'go there yourself' means on a phone."
+stuck:
+  - see: "A student trusts the display name (Sam's mistake)."
+    ask: "What's the address in the angle brackets?"
+    fix: "Names can be faked; check the address and the request."
+  - see: "A student marks every message Report."
+    ask: "What would happen if Ava ignored the library or her parcel?"
+    fix: "Judge each one by the signs."
+stretch: "Find a real scam warning on the Scamwatch site (scamwatch.gov.au) and list which signs it shows."
+support: "The five questions on a card: who, pressure, wants what, where does the link go, go there yourself."
+leads: |
+  Next: Your digital footprint.
+exit:
+  q: "Give three signs that a message might be phishing, and what to do if you're not sure."
+  a: "A wrong or lookalike address, pressure or a deadline, asking for a password, code or money, a link that goes somewhere else. Go to the site or person yourself; report it."
+explain: |
+  **Phishing** messages pretend to be someone you trust to get a password, money or a click. Check:
+
+  - **Who sent it?** The address, not just the name.
+  - **Pressure?** Deadlines, threats and prizes.
+  - **What does it want?** Passwords, codes, money and gift cards are never asked for by message.
+  - **Where does the link go?** Check before clicking.
+
+  Unsure? Go to the site or person yourself, and report it.

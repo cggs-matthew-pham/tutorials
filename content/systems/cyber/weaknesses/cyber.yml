@@ -1,0 +1,29 @@
+# Boards for "Kinds of weakness".
+
+# region: explore
+widget: cyber
+mode: weakness
+set: kinds
+# endregion
+
+# region: explain
+widget: cyber
+mode: weakness
+set: kinds
+# endregion
+
+# region: explain-pic
+widget: cyber
+mode: weakness
+# endregion
+
+# region: elaborate
+widget: cyber
+mode: weakness
+# endregion
+
+# region: make
+widget: cyber
+mode: weakness
+set: club
+# endregion

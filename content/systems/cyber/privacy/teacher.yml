@@ -1,0 +1,46 @@
+summary: Students match the club app's practices to five Australian Privacy Principles, judge each as meeting or breaching it, propose changes for the breaches, and write a privacy notice that meets APP 5 (AC9TDI10P14 nodes 1 and 2). A 5E mission lesson.
+time: 50
+timing: "Engage and Explore 14 min · Explain 10 min · Elaborate 18 min · Evaluate 8 min"
+goals:
+  - I can say what five of the Australian Privacy Principles require.
+  - I can judge whether an app meets or breaches a principle, with evidence.
+  - I can propose a change that would meet it.
+struggle: "Students argue from feelings (it's creepy) rather than the principle. Use the scaffold: which principle, what does it require, what does the app do, verdict, change."
+before: |
+  Try the board yourself. The club app is made up.
+
+  The one idea: the principles limit collection, use, sharing and storage, and give people access; a policy doesn't override them.
+
+  Accuracy notes: the APPs are in Schedule 1 of the Privacy Act 1988 (Cth). They bind agencies and organisations with turnover over $3 million, plus some smaller ones; a school club wouldn't usually be bound itself; independent schools usually are (government schools come under their state's privacy law), and the principles are the standard to design against. The lesson uses five: APP 3, 5, 6, 11 and 12 (13 is correction). Check the OAIC's summary at oaic.gov.au for the current wording before teaching, and check where the Children's Online Privacy Code is up to (the OAIC released an exposure draft in 2026).
+running:
+  - "Engage: ask whether a policy can make anything allowed."
+  - "Explore: ask which practice was hardest to match to a principle."
+  - "Explain: model the five-step scaffold on the sports shop case."
+  - "Elaborate: ask why 'hide the field' still breaches APP 3."
+  - "Evaluate: discuss which principle protects the student in the homework app."
+stuck:
+  - see: "A student thinks the policy makes sharing allowed (Sam's mistake)."
+    ask: "Why did members give their emails?"
+    fix: "Use for another purpose needs agreement (APP 6)."
+  - see: "A student mixes up APP 3 and APP 6."
+    ask: "Is this about getting the data, or what's done with it after?"
+    fix: "Getting: collection (APP 3). After: use and disclosure (APP 6)."
+stretch: "Critique an app you use (its privacy page and settings) against two principles, with evidence and a proposed change."
+support: "A card with the five principles in one line each, and the scaffold."
+leads: |
+  Next: Security review, the challenge.
+exit:
+  q: "Name two Australian Privacy Principles and what each requires."
+  a: "Any two: APP 3 collect only what is needed; APP 5 tell people what and why; APP 6 use and share only for that purpose unless they agree; APP 11 keep it secure; APP 12 let people see it."
+sources:
+  - { title: "Australian Privacy Principles (OAIC)", url: "https://www.oaic.gov.au/privacy/australian-privacy-principles"}
+explain: |
+  The **Australian Privacy Principles** say what organisations must do with personal information:
+
+  - **APP 3:** collect only what you need.
+  - **APP 5:** tell people what, why and who to ask.
+  - **APP 6:** use and share it only for that purpose, unless they agree.
+  - **APP 11:** keep it secure.
+  - **APP 12:** let people see what you hold.
+
+  A privacy policy doesn't override them.

@@ -1,0 +1,44 @@
+summary: Students sort incidents at fictional club apps into software, user and supply-chain weaknesses with the fix for each, then review the Coding Club's own app (AC9TDI10P13 node 2). Descriptive and defensive throughout. A 5E mission lesson.
+time: 45
+timing: "Engage and Explore 10 min · Explain 10 min · Elaborate 18 min · Evaluate 7 min"
+goals:
+  - I can describe software, user and supply-chain weaknesses.
+  - I can match each kind to a fix.
+  - I can spot each kind in a system before it goes wrong.
+struggle: "Students call every incident software because it happened in an app. Ask: whose action, or whose code, was the weak part?"
+before: |
+  Try the board yourself. The clubs and incidents are made up.
+
+  The one idea: weaknesses come from the app's own code, from people, and from what the app relies on; each needs its own fix.
+
+  This lesson stays descriptive and defensive: what each kind is and how it is fixed. Node 3 (exploring a vulnerability in the student's own software) is left to class, with the teacher, on the students' own projects.
+
+  Wider: news reports of real breaches can be sorted into the three kinds. Choose the reports yourself.
+running:
+  - "Engage: ask who was at fault in each of the hook's three stories."
+  - "Explore: ask which incident was hardest to place, and why."
+  - "Explain: model naming the kind and the fix for one incident."
+  - "Elaborate: ask why the lookalike library name is supply chain and not user."
+  - "Evaluate: discuss what the school should do about the old maps library."
+stuck:
+  - see: "A student thinks bug-free code means safe (Sam's mistake)."
+    ask: "Could a shared password let someone in, even with perfect code?"
+    fix: "Code is one kind of weakness of three."
+  - see: "A student puts the lookalike library under User."
+    ask: "What did the app end up relying on?"
+    fix: "Something it relies on went bad: supply chain."
+stretch: "Find a news report of a real breach and sort its causes into the three kinds."
+support: "A card with the three kinds, an example and a fix for each."
+leads: |
+  Next: The Australian Privacy Principles.
+exit:
+  q: "Name the three kinds of weakness with one fix for each."
+  a: "Software (test and update the code), user (training, strong passwords, MFA), supply chain (check and update what you rely on)."
+explain: |
+  Systems have three kinds of **weakness**:
+
+  - **Software:** a flaw in the app's own code. Fix: test it and install updates.
+  - **User:** what people do (weak or shared passwords, being tricked). Fix: training, strong passwords, MFA.
+  - **Supply chain:** something the app relies on goes bad. Fix: check and update what you rely on.
+
+  Perfect code alone doesn't make a system safe.

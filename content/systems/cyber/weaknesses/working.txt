@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam's team tests every part of the club app's code.
+They find no mistakes in it.
+So nobody can get into the app.
+So they don't need MFA, or to update the add-ons.
+# endregion

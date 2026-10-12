@@ -896,6 +896,17 @@ Vary, Practise, Make).
     `o` last output as a number, `l` its lines, `u` used a pipe, `p` used > or >>, `e` last command failed, `n`
     commands, `h` different commands, `a` used ls -a, `g` used grep, `c` cd count, `d` folder depth. Clips type with
     `type: { into: Command, text: ls }` then `press: Enter`.
+  - `widget: cyber` (first used by `systems/cyber/`): defensive cyber safety and privacy on a made-up club app; every
+    choice button is labelled "<row>: <option>" (row is the account, field, point, or a card's first 30 characters).
+    `mode: breach` (`set: same | mixed`, `manager: on`; Leak!; values l, f, r, c, m), `mfa` (factors None, SMS code,
+    App code, Security key; `fake: on`; Attempt; values t, i, b, n, k, p, e), `inbox` (`set: easy | tricky`: Safe or
+    Report and Check link, values a, w, t, n, c; `set: newsletter`: Fix buttons, values g, n, a), `footprint` (`set:
+    club | excursion`: Needed or Not needed, values k, n, x, e, s; `set: collects`: given or collected as used, values
+    k, n, p, q; `set: settings`: values s, n, f), `threat` (`set: login | photos | messages`: risk and defence per
+    point, values d, r, n, w), `weakness` (`set: kinds` kind only, default six cards, `set: club`; values t, f, n),
+    `privacy` (APP and meets or breaches, `fix: on` adds a change per breach; values a, b, n, c; `set: notice` writes
+    the APP 5 notice, values g, n, a), `review` (Inspect, then three fixes per weakness, the wrong ones say why; a
+    fully fixed section shows its flag; values x, n, s, w). Full value lists are in the widget's header comment.
   - `widget: rounding` (first used by `maths/number/rounding` and `estimating`): `mode: round` (default) puts `x` on a number line
     between the two numbers with `d` decimal places (sliders or fixed; `d` 0 to 4), with the halfway mark; values `x`, `d`,
     `r` (rounded), `l`, `h` (the line's ends), `m` (halfway); checks `"d = 2 and r = 3.75"`. `mode: estimate` shows a op b

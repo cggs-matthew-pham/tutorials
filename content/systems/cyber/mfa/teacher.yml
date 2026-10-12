@@ -1,0 +1,44 @@
+summary: Students watch leaked passwords open every account, then add second factors (SMS, app code, security key), see codes tricked out by a fake sign-in page, and protect the most important account with a key (AC9TDI8P13 node 2). A 5E mission lesson.
+time: 40
+timing: "Engage and Explore 10 min · Explain 8 min · Elaborate 16 min · Evaluate 6 min"
+goals:
+  - I can explain what multi-factor authentication adds to a password.
+  - I can name the three kinds of factor.
+  - I can choose second factors for accounts, most important first.
+struggle: "The fake-page task makes codes look weak. Keep the balance: codes stop leaked passwords, which is most attacks; keys also stop fake pages."
+before: |
+  Try the board yourself.
+
+  The one idea: a second, different kind of proof means a leaked password alone isn't enough.
+
+  Simplifications: the board shows the outcome, not how a fake page works; real security keys and passkeys check the site's address, which is why they resist fake pages. SMS codes can also be lost to SIM swapping; mention it only if asked.
+
+  Unplugged: a locker with a combination lock and a key lock together.
+running:
+  - "Engage: ask what the attacker would still be missing."
+  - "Explore: ask why every account fell in the first attempt."
+  - "Explain: list know, have, are on the board with examples from students' lives."
+  - "Elaborate: ask what the key knows that Ava might not (which site is asking)."
+  - "Evaluate: discuss the phone call: what made it convincing?"
+stuck:
+  - see: "A student says MFA is only for important accounts (Sam's mistake)."
+    ask: "What could someone do with your game account?"
+    fix: "Message friends, spend money, reset other accounts: MFA wherever it's offered."
+  - see: "A student puts keys on everything in the Make."
+    ask: "How many keys does Ava have?"
+    fix: "One: the account that resets the others (email)."
+stretch: "Find out what a passkey is and how it differs from a password plus a code."
+support: "A card: know (password), have (phone, key), are (fingerprint). Two different kinds = MFA."
+leads: |
+  Next: Spot the phish.
+exit:
+  q: "Ava's password leaks but she has an app code turned on. Explain why her account is still safe, and one way it could still be lost."
+  a: "The attacker doesn't have her phone, so can't get the code. She could be tricked into typing the code into a fake page or reading it out."
+explain: |
+  **Multi-factor authentication** (MFA) asks for two different kinds of proof:
+
+  - something you **know** (a password),
+  - something you **have** (a phone code, a security key),
+  - something you **are** (a fingerprint or face).
+
+  With a second factor, a leaked password isn't enough. Codes can still be tricked out of you by a fake page or a phone call; a **security key** only answers the real site. Never share a code.

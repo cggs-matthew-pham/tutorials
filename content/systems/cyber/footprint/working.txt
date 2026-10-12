@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The club app sends members news about meetings.
+Sam builds its sign-up form: name, year level, school email.
+Sam adds date of birth and home address too, in case they are useful later.
+Sam stores everything the form collects.
+# endregion

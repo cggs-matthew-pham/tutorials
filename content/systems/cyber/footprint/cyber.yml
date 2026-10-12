@@ -1,0 +1,37 @@
+# Boards for "Your digital footprint".
+
+# region: explore
+widget: cyber
+mode: footprint
+set: collects
+# endregion
+
+# region: explain
+widget: cyber
+mode: footprint
+set: collects
+# endregion
+
+# region: explain-pic
+widget: cyber
+mode: footprint
+set: club
+# endregion
+
+# region: club
+widget: cyber
+mode: footprint
+set: club
+# endregion
+
+# region: excursion
+widget: cyber
+mode: footprint
+set: excursion
+# endregion
+
+# region: make
+widget: cyber
+mode: footprint
+set: settings
+# endregion

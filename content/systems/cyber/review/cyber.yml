@@ -1,0 +1,22 @@
+# Boards for "Security review". The launch copy is a separate region so it starts fresh.
+
+# region: explore
+widget: cyber
+mode: review
+# endregion
+
+# region: explain
+widget: cyber
+mode: review
+# endregion
+
+# region: explain-pic
+widget: cyber
+mode: review
+# endregion
+
+# region: launch
+# The launch-day copy of the club app.
+widget: cyber
+mode: review
+# endregion

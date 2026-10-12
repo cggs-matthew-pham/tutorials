@@ -1,0 +1,41 @@
+summary: Students sort what an app records into data given and data collected as it is used, judge each sign-up field against the app's purpose, and set an account to its most private while keeping its purpose (AC9TDI8P14 nodes 1 to 3). A 5E mission lesson.
+time: 40
+timing: "Engage and Explore 10 min · Explain 8 min · Elaborate 16 min · Evaluate 6 min"
+goals:
+  - I can name data an app collects without my typing it.
+  - I can judge whether data is needed for an app's purpose.
+  - I can set my own privacy settings and explain the trade-off.
+struggle: "Students mark everything Not needed. Ask what would stop working: an app needs some data to do its job."
+before: |
+  Try the board yourself. Ava and the club app are made up.
+
+  The one idea: collect only what the purpose needs, and check your own settings, because they often start open.
+
+  Typical width (node 1): have pairs open the privacy section of one app they use (or a printed privacy policy) and list three things it collects, at least one collected as they use it.
+running:
+  - "Engage: ask what an app might know that you never told it."
+  - "Explore: ask which collected-as-used items surprised them."
+  - "Explain: model the purpose test on one field aloud."
+  - "Elaborate: ask why the phone number changed from Not needed to Needed."
+  - "Evaluate: discuss which of their own settings they'd change."
+stuck:
+  - see: "A student keeps extra data just in case (Sam's mistake)."
+    ask: "Would the app still do its job without it?"
+    fix: "If yes, don't collect it."
+  - see: "A student turns meeting reminders off too."
+    ask: "Why did Ava join the app?"
+    fix: "Keep what the purpose needs; turn off the rest."
+stretch: "Compare what two apps you use collect (their privacy pages) and decide which collects more than its purpose needs."
+support: "The purpose test on a card: what is the app for? Would it still work without this?"
+leads: |
+  Next (Years 9–10): Threat models.
+exit:
+  q: "Name one piece of data an app collects without you typing it, and one sign-up field a club newsletter doesn't need."
+  a: "Location, pages opened, sign-in times or device. A home address or date of birth."
+explain: |
+  Your **digital footprint** is all the data systems record about you:
+
+  - what you **give** (your name, a photo, a poll answer)
+  - what they **collect as you use them** (where you are, what you open and when, your device)
+
+  A good app collects only what its purpose needs: ask *would it still work without this?* You manage your own footprint by checking your settings, which often start open.

@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam has a second factor on the bank app.
+Sam's game account just has a password.
+Nobody would bother breaking into a game account.
+So nothing bad can happen if someone gets into it.
+# endregion

@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+Sam's password used to be password.
+Sam changes it to P@ssw0rd! with symbols and capitals.
+Swapping letters for symbols makes it very hard to guess.
+So it is safe to use on every site.
+# endregion

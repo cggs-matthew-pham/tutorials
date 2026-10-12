@@ -1,0 +1,31 @@
+# Boards for "Threat models".
+
+# region: explore
+widget: cyber
+mode: threat
+set: login
+# endregion
+
+# region: explain
+widget: cyber
+mode: threat
+set: login
+# endregion
+
+# region: explain-pic
+widget: cyber
+mode: threat
+set: login
+# endregion
+
+# region: elaborate
+widget: cyber
+mode: threat
+set: photos
+# endregion
+
+# region: make
+widget: cyber
+mode: threat
+set: messages
+# endregion

@@ -1,0 +1,42 @@
+summary: Students use a data-flow diagram of the club app to name a risk and a defence at each point where data travels, is stored or is changed, then threat-model two new features (AC9TDI10P13 node 1). Defensive and conceptual. A 5E mission lesson.
+time: 45
+timing: "Engage and Explore 12 min · Explain 8 min · Elaborate 18 min · Evaluate 7 min"
+goals:
+  - I can follow data through a system on a data-flow diagram.
+  - I can name what could go wrong where data travels, is stored or is changed.
+  - I can match a defence to each point.
+struggle: "Students pick HTTPS for everything. Ask: is this data travelling right now, or sitting in the database?"
+before: |
+  Try the board yourself. The club app is made up.
+
+  The one idea: follow the data; each point (travelling, stored, who may act) has its own risk and its own defence.
+
+  Typical width: have students draw the data-flow diagram for an app they know (the school canteen, a game) on paper first, then mark the points.
+running:
+  - "Engage: ask what the padlock actually means."
+  - "Explore: ask which point they defended wrongly first, and why."
+  - "Explain: model the three questions on the admin page."
+  - "Elaborate: ask what the photos feature added to the diagram."
+  - "Evaluate: compare answers for the canteen app."
+stuck:
+  - see: "A student thinks HTTPS covers everything (Sam's mistake)."
+    ask: "Where is the data at this point: on the network, or in the database?"
+    fix: "Each place needs its own defence."
+  - see: "A student confuses hashing with HTTPS."
+    ask: "Is the password moving or stored?"
+    fix: "HTTPS on the way, hashing in storage."
+stretch: "Draw the diagram for the canteen app with three actors (parent, school, bank) and defend every arrow."
+support: "A card with the three questions: travelling? stored? who may act?"
+leads: |
+  Next: Kinds of weakness.
+exit:
+  q: "Name two points in a web app where data is at risk, and the defence for each."
+  a: "Travelling between browser and server (HTTPS); stored passwords (salted hashes); the admin page (access control and MFA)."
+explain: |
+  A **threat model** follows the data through a system on a **data-flow diagram**. At each point:
+
+  - **Travelling?** It could be read on the way: HTTPS.
+  - **Stored?** It could be copied: hash passwords, encrypt the rest.
+  - **Who may act?** The wrong person could use it: access control and MFA.
+
+  No single defence covers every point.

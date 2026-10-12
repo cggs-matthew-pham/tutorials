@@ -1,0 +1,30 @@
+# Boards for "When passwords fail".
+
+# region: explore
+widget: cyber
+mode: breach
+# endregion
+
+# region: explain
+widget: cyber
+mode: breach
+# endregion
+
+# region: explain-pic
+widget: cyber
+mode: breach
+set: mixed
+# endregion
+
+# region: elaborate
+widget: cyber
+mode: breach
+set: mixed
+# endregion
+
+# region: make
+widget: cyber
+mode: breach
+set: mixed
+manager: on
+# endregion

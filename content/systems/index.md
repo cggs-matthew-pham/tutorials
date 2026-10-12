@@ -15,11 +15,12 @@ pathways:
       - { path: systems/web, id: web-docs, stage: extensions, after: [data-representation], tagline: "Words, tags and style: three layers of every page." }
   - id: networks
     title: Networks and security
-    summary: How data moves between computers, and how it is kept safe on the way.
+    summary: How data moves between computers, how it is kept safe, and how to protect your accounts and privacy.
     fit: "Start here to follow a message across the internet and see what keeps it private."
-    about: "**Networks** follows AC9TDI8K02 (Years 7–8): wired and wireless links, packets and TCP, why data needs encrypting, and the whole journey of a message. The Code pathway's **Secret messages** course (MakeCode) builds, cracks and shares ciphers; these lessons show what encryption is for. **Security and privacy** (Years 9–10, AC9TDI10K01): the operating system, names and addresses, sign-in and permissions, hashes and keys, then a capture-the-flag finale."
+    about: "**Networks** follows AC9TDI8K02 (Years 7–8): wired and wireless links, packets and TCP, why data needs encrypting, and the whole journey of a message. The Code pathway's **Secret messages** course (MakeCode) builds, cracks and shares ciphers; these lessons show what encryption is for. **Security and privacy** (Years 9–10, AC9TDI10K01): the operating system, names and addresses, sign-in and permissions, hashes and keys, then a capture-the-flag finale. **Cyber safety and privacy** covers the Processes strand's privacy and security descriptors as missions on a made-up club app: Years 7–8 AC9TDI8P13 (passwords, second factors, phishing) and AC9TDI8P14 (digital footprint), Years 9–10 AC9TDI10P13 (threat models, kinds of weakness) and AC9TDI10P14 (the Australian Privacy Principles), then a security review that earns flags. It is defensive throughout. For more capture-the-flag practice beyond this site, picoCTF (Carnegie Mellon) is free for school students; check its account and age requirements first."
     courses:
       - { path: systems/networks, id: networks, stage: foundations, tagline: "Follow a packet across the internet." }
+      - { path: systems/cyber, id: cyber, stage: foundations, tagline: "Keep the club's app, and yourself, safe." }
       - { path: systems/security, id: security, stage: extensions, after: [networks], tagline: "What keeps your data safe, and what doesn't." }
   - id: hardware
     title: Hardware and logic

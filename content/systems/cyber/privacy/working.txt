@@ -1,0 +1,8 @@
+# Sam's working for the "find the mistake" task. Plain text: students click the wrong line, nothing runs.
+
+# region: sam
+The club app has a privacy policy.
+The policy says the club may share members' details with partners.
+So the club can give members' emails to a sports shop for advertising.
+So it doesn't need to ask members first.
+# endregion

@@ -790,3 +790,33 @@ table.vntable input { width: 3.2em; font: inherit; text-align: center; }
 .shprompt { color: #86efac; white-space: pre; }
 .shin { flex: 1; min-width: 4em; background: transparent; border: 0; outline: none; color: #f8fafc; font: inherit; caret-color: #fbbf24; }
 .shin:focus-visible { outline: 1px dashed #475569; }
+
+/* cyber: cyber safety and privacy (the Coding Club app) */
+.cywrap { height: 100%; overflow: auto; padding: 10px 12px; font: 14px/1.4 system-ui, sans-serif; display: flex; flex-direction: column; gap: 10px; }
+.cyintro { margin: 0; color: var(--muted); }
+.cygrid, .cymail { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; align-items: start; }
+.cycard { display: flex; flex-direction: column; gap: 6px; padding: 8px 10px; border: 2px solid var(--line); border-radius: 10px; background: var(--card); }
+.cycard.ok { border-color: var(--ok); } .cycard.bad { border-color: #b42318; }
+.cyname { font-weight: 700; }
+.cyopts { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.cylab { font: 600 12px/1.2 system-ui, sans-serif; color: var(--muted); margin-right: 2px; }
+.cyopts button, .cybtn { font: 600 12.5px/1.15 system-ui, sans-serif; padding: 5px 8px; border-radius: 7px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; text-align: left; }
+.cyopts button[aria-pressed=true] { background: var(--accent); border-color: transparent; color: #fff; }
+.cybtn.go { background: var(--accent); border-color: transparent; color: #fff; font-size: 14px; padding: 7px 14px; }
+.cybtn.small { font-size: 12px; padding: 4px 8px; }
+.cybar { display: flex; flex-wrap: wrap; gap: 8px; }
+.cypw { font: 600 13px ui-monospace, Menlo, Consolas, monospace; }
+.cynote { font-size: 12.5px; color: var(--muted); }
+.cyres { font-weight: 600; font-size: 13px; }
+.cycard.bad .cyres { color: #b42318; } .cycard.ok .cyres { color: var(--ok); }
+.cyhead { font-size: 13px; } .cyaddr { color: var(--muted); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; }
+.cysubj { font-weight: 700; } .cybody { font-size: 13.5px; }
+.cylink { color: var(--left); text-decoration: underline; margin-right: 6px; }
+.cyrow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.cyfield { font-weight: 600; } .cyok { color: var(--ok); font-weight: 600; } .cybadtxt { color: #b42318; }
+.cymeter { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-weight: 600; }
+.cymbar { width: 200px; height: 12px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); overflow: hidden; } .cymfill { display: block; height: 100%; background: #b42318; }
+.cyflow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.cynode { padding: 6px 10px; border: 2px solid var(--left); border-radius: 8px; font-weight: 700; background: var(--card); } .cynode.admin { border-color: var(--right); margin-left: 12px; }
+.cyarrow { font-size: 18px; color: var(--muted); }
+.cyflag { font: 700 14px ui-monospace, Menlo, Consolas, monospace; color: var(--ok); padding: 4px 8px; border: 1px dashed var(--ok); border-radius: 6px; align-self: flex-start; }

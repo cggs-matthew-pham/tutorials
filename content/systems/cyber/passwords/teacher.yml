@@ -1,0 +1,46 @@
+summary: Students watch one leaked password open all of Ava's accounts, then stop the spread with a different long passphrase for each account and a password manager (AC9TDI8P13 node 1). A 5E mission lesson.
+time: 40
+timing: "Engage and Explore 12 min · Explain 8 min · Elaborate 14 min · Evaluate 6 min"
+goals:
+  - I can explain how a password gets out, and why reusing one makes it worse.
+  - I can say what makes a password hard to guess.
+  - I can set up accounts so one leak stays at one site.
+struggle: "Students want a rule (\"8 characters with a symbol\"). Let the board show that a symbol swap still falls, and point at length and difference instead."
+before: |
+  Try the board yourself. Every name and address is made up.
+
+  The one idea: one leak spreads through reuse, and guessable passwords fall without any leak. Fixes: a different long passphrase for each site, kept in a password manager.
+
+  This is a 5E mission lesson: Explore has a goal and the first attempt fails on purpose. Model the Explain live: replay the leak on the board and name each part (breach, reuse, guessable). Avoid asking students about their own passwords; talk about Ava's.
+
+  Unplugged: hand out a key ring with one key that opens every door, then ask what happens when one copy is lost.
+running:
+  - "Engage: ask who picked \"just the game site\"; let Explore answer it."
+  - "Explore: ask what had to change for the leak to stop at one account."
+  - "Explain: replay the leak; name breach, reuse and guessable as each appears."
+  - "Elaborate: ask which of Ava's new passwords failed for which reason."
+  - "Evaluate: collect answers to the breach question; link to MFA next lesson."
+stuck:
+  - see: "A student thinks P@ssw0rd! is strong (Sam's mistake)."
+    ask: "Pick it on the board. What does it say about guessing it?"
+    fix: "Symbol swaps are on the lists; length and randomness count."
+  - see: "A student uses one strong passphrase for everything."
+    ask: "Press Leak! What happens to the others?"
+    fix: "Strong but reused still spreads; each account needs its own."
+stretch: "Look up whether passkeys could replace passwords. What would a leak of a passkey site expose?"
+support: "A card: long (four random words), different for every site, kept in a password manager."
+leads: |
+  Next: A second lock (MFA).
+
+  Teacher note: the eSafety Commissioner and the Australian Cyber Security Centre both publish student-friendly guidance on passphrases (check current pages before linking).
+exit:
+  q: "Ava's game site leaks. Name two things that would have kept her other accounts safe."
+  a: "A different password on each account; long, random passphrases (not on any common list); a password manager to make and remember them."
+explain: |
+  Passwords fail in three ways:
+
+  - A site is **breached** and its list of passwords leaks.
+  - **Reuse** spreads it: the leaked password is tried on every other site.
+  - **Guessable** passwords (common words, symbol swaps, names and birthdays) are tried first, leak or not.
+
+  The fix: a **long passphrase** (four random words) that is **different for every site**, kept in a **password manager**.
