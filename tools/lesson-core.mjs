@@ -292,7 +292,15 @@ export function parseLessonText(raw, slug = 'lesson') {
   const fm = raw.match(/^---\n([\s\S]*?)\n---\n?/);
   if (!fm) throw new Error(`${slug}: lesson.md must start with --- frontmatter ---`);
   const meta = YAML.parse(fm[1]) || {};
-  const rest = raw.slice(fm[0].length);
+  let rest = raw.slice(fm[0].length);
+  // Teacher notes can live in the lesson: a ```teacher block (the fields of teacher.yml) is cut out here, so it never
+  // reaches the student page. The last such block wins; a teacher.yml beside the lesson is read only when there is none.
+  let teacher;
+  const tb = [...rest.matchAll(/^```teacher[ \t]*\n([\s\S]*?)\n```[ \t]*$/gm)].pop();
+  if (tb) {
+    try { teacher = YAML.parse(tb[1]) || {}; } catch (e) { throw new Error(`${slug}: the teacher block is not valid YAML (${String(e.message).split('\n')[0]})`); }
+    rest = rest.replace(/^```teacher[ \t]*\n[\s\S]*?\n```[ \t]*$\n?/gm, '');
+  }
   const parts = rest.split(/^## /m);
   const intro = parts.shift().trim();
   const steps = parts.map((chunk, i) => {
@@ -321,6 +329,7 @@ export function parseLessonText(raw, slug = 'lesson') {
     return { index: i + 1, id: `step-${i + 1}`, title, body: body.trim(), config, tasks };
   });
   return {
+    ...(teacher ? { teacher } : {}),
     slug,
     depth: slug.split('/').length,
     title: meta.title || slug,
@@ -791,7 +800,7 @@ function validateClassPlan(lesson, err) {
 }
 
 function validateTeacher(lesson, snip, err) {
-  const t = lesson.teacher, w = 'teacher.yml';
+  const t = lesson.teacher, w = 'teacher notes';
   if (typeof t !== 'object' || Array.isArray(t)) return err(w, 'must be a mapping of fields');
   const allowed = [...TEACHER_TEXT, 'time', 'goals', 'running', 'stuck', 'exit', 'solutions', 'sources'];
   for (const k of Object.keys(t)) if (!allowed.includes(k)) err(w, `unknown field "${k}" (use ${allowed.join(', ')})`);

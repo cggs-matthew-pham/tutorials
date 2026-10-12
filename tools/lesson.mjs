@@ -45,7 +45,8 @@ export function loadLesson(dir) {
   const lesson = { ...parseLessonText(readFileSync(join(dir, 'lesson.md'), 'utf8'), slug), dir };
   // teacher.yml beside lesson.md: notes, goals, exit ticket, student explanation and solutions (see AUTHORING.md).
   const t = join(dir, 'teacher.yml');
-  if (existsSync(t)) lesson.teacher = YAML.parse(readFileSync(t, 'utf8')) || {};
+  // A ```teacher block inside lesson.md (parseLessonText) wins; teacher.yml is the fallback.
+  if (!lesson.teacher && existsSync(t)) lesson.teacher = YAML.parse(readFileSync(t, 'utf8')) || {};
   // Class activities (content/<course>/class/<lesson>.yml): kept outside the lesson folder so editing them never
   // re-records the lesson's clips. They become slides in the deck and a section of the teacher guide (AUTHORING › Class plan).
   const c = join(dir, '..', 'class', `${dir.split(sep).pop()}.yml`);

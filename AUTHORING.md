@@ -236,7 +236,7 @@ hook: "Loops are how a program draws 100 tiles without 100 lines of code."
 
 ### teacher.yml (teacher notes, solutions, "Explain it to me")
 
-Teacher notes live in `teacher.yml` beside `lesson.md`. Write for any teacher, not a specialist: plain words, jargon explained on first use. `npm run validate` warns when a lesson in a course with units has none, or a code-checked task has no solution.
+Teacher notes live in `teacher.yml` beside `lesson.md`, or inside `lesson.md` as a fenced ```` ```teacher ```` block at the end holding the same fields (13 Oct; the build and the Create page cut it out of the student page, validate checks it, and a block wins over a `teacher.yml`). Write for any teacher, not a specialist: plain words, jargon explained on first use. `npm run validate` warns when a lesson in a course with units has none, or a code-checked task has no solution.
 
 ```yaml
 summary: One sentence on what students do and see.
