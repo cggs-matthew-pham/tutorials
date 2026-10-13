@@ -7,7 +7,7 @@ import { createHash } from 'node:crypto';
 import { snippetPattern } from './snippet-pattern.mjs';
 import { CLASS_AT, snippetFrom, splitFiles, parseTrace, workItems, sourceList } from './lesson-core.mjs';
 
-export const SITE_URL = (process.env.SITE_URL || 'https://tutorials.learningwaypoints.com').replace(/\/$/, '');
+export const SITE_URL = (process.env.SITE_URL || 'https://studio.learningwaypoints.com/tutorials').replace(/\/$/, '');
 export const PREPARE_URL = 'https://prepare.learningwaypoints.com/';
 const STAGES = /^(Predict|Run|Investigate|Modify|Practise|Make|Info):\s*/i;
 const bare = (t) => String(t).replace(STAGES, '');
