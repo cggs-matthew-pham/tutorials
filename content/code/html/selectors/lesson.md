@@ -1,12 +1,14 @@
 ---
-order: 5
-unit: style
-node: [AC9TDI10K02 n1, AC9TDI10K02 n2]
-assumes: [web-layers]
+order: 3
+unit: text
+node: AC9TDI10K02 n1
+moveId: css-rule
+reviews: [nesting]
+introduces: [style-block, css-rule, text-colour, font]
+assumes: [heading, paragraph, emphasis]
 title: Rules and selectors
-summary: Style a page with CSS rules, pick elements by tag or by class, and find out why a rule does nothing.
+summary: Write a CSS rule that styles every tag of one kind, and find out that it changes how they look, not what they are.
 language: html
-introduces: [style-block, css-rule, class, class-selector, group-selector, text-colour, font]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8128
   url: http://127.0.0.1:8128/index.html
@@ -18,7 +20,7 @@ explainPicture: page.html#explain
 voice: { name: af_heart, speed: 1.1 }
 explainClip:
   query: { code: "@page.html#explain-start", zoom: 1.6 }
-  caption: "A rule picks elements with a selector, then sets how they look"
+  caption: "A rule names a tag, then sets how every one of them looks"
   clip:
     - caption: "A rule starts with a selector. p picks every paragraph."
     - type: { into: HTML code, text: "  p {\n", after: "<style>\n" }
@@ -27,29 +29,32 @@ explainClip:
     - caption:
         text: "Both paragraphs turn teal. The heading is not a p, so it stays as it was."
         say: "Both paragraphs turn teal. The heading isn't a P, so it stays."
-    - wait: 1800
-    - caption:
-        text: "A dot means a class: .note picks only class=\"note\"."
-        say: "A dot means a class. Dot note picks only the elements with class note."
-    - type: { into: HTML code, text: "  .note {\n    font-size: 28px;\n  }\n", after: "    color: teal;\n  }\n" }
     - expect: { selector: "#preview-text", contains: "Races start at 9 am." }
-    - caption: "Rules pick elements by tag or by class. Everything else stays as it was."
+    - wait: 1800
+    - caption: "Another rule styles the heading. The HTML does not change."
+    - type: { into: HTML code, text: "  h1 {\n    color: navy;\n    font-size: 40px;\n  }\n", after: "<style>\n" }
     - wait: 2000
 hook: "Every website you know uses the same HTML tags; CSS is what makes one look nothing like another."
 ---
-HTML says what each part of a page *is*. **CSS** says how it looks. CSS rules go in a `<style>` block at the top of the page.
+HTML says what each part of a page *is*. **CSS** says how it looks. CSS rules go in a `<style>` block, which sits at the top of the code for now; a later lesson shows where it goes in a whole page.
 
 ## Predict
 
 ```step
 stage: predict
 code: page.html#teal
-insight: "Many students expect the whole page to change colour; a selector picks only the elements that match."
+insight: "Many students expect a rule to style one element, the first it meets; a rule names a kind of tag and styles every one of them."
 check:
   type: predict
   q: "How many lines of text turn teal?"
-  kind: number
-  actual: "2: only the two paragraphs. The heading and the list items are not <p>, so the rule does not pick them."
+  options:
+    - "2: both paragraphs"
+    - "1: only the first paragraph"
+    - "4: every line of text on the page"
+    - "None: the rule does not say which paragraph to change"
+  fault: logic
+  misconception: rule-styles-one
+  actual: "2: both paragraphs. The rule names the tag p, not one paragraph, so every p changes. The heading is not a p, so it stays black."
 ```
 
 `p { color: teal; }` is a **rule**. Read the code. How many lines of text will turn teal?
@@ -59,119 +64,72 @@ check:
 ```step
 stage: run
 code: page.html#teal
-try: { playground: html, starter: "page.html#teal", height: 440 }
-insight: "The selector decides which elements a rule styles; change it and the style moves."
-check: { type: reflect, text: "I can explain what the selector in a rule does." }
-unlocks: [style-block, rule, color, font-size]
+try: { playground: html, starter: "page.html#teal", height: 400 }
+insight: "The selector names a kind of tag, and the rule styles every tag of that kind."
+check: { type: reflect, text: "I can explain which elements a rule with the selector p changes." }
+unlocks: [rule]
 ```
 
-Compare the page with your prediction. Then change `p` to `li` and watch the colour move to the list. Try `h1` too.
+Compare the page with your prediction. Then change `p` to `h2` and watch the colour move. Add `font-size: 28px;` on a new line under `color: teal;`.
+
+| Code | What it does | Why |
+|---|---|---|
+| `<style> … </style>` | Holds the rules | The browser reads the rules between these tags and does not show them. For now the block sits at the top |
+| `p {` | The **selector**: which tag the rule is for | It names a kind of tag, so every `<p>` changes, not just the first. The `{` opens the rule |
+| `color: teal;` | A **property**, a colon, a **value** and a semicolon | `color` is the text colour. Colours can be names such as `teal`, `navy` or `crimson`. The `;` ends the line |
+| `font-size: 28px;` | Sets how big the text is | `px` is the unit. Other properties: `font-family: sans-serif;`, `background-color: lightyellow;`, `text-align: center;` |
+| `}` | Closes the rule | A rule can hold as many property lines as you like |
+| the `<h1>` and `<h2>` lines | Stay as they were | The rule names `p` only, and the HTML did not change |
 
 ## Investigate
 
 ```step
 stage: investigate
-code: page.html#parts
-insight: "A rule is a selector plus declarations; a class (with a dot) picks only the elements you marked, and a selector that does not match is silently ignored. A page has three layers: the words (content), the tags (structure) and the CSS (presentation)."
-unlocks: [class-selector]
+code: page.html#third
+insight: "A rule names a kind of tag and changes every tag of that kind; it changes how it looks, never what it is."
 tasks:
   - check:
-      type: match
-      q: "Match each part of the h1 rule with its job."
-      pairs:
-        - ["h1", "the selector: which elements the rule styles"]
-        - ["color", "a property: what to change"]
-        - ["navy", "a value: what to change it to"]
-        - ["{ }", "hold the declarations of one rule"]
-        - [";", "ends each declaration"]
-      explain: "Selector, then braces. Inside: property, colon, value, semicolon, as many times as you like."
-  - check:
-      type: question
-      q: "Which paragraph does .note { color: crimson; } style?"
-      options: ["Both paragraphs", "Only the one with class=\"note\"", "None: there is no <note> tag", "The heading"]
-      answer: 1
-      explain: "A dot in CSS means a class. .note picks every element marked class=\"note\", and nothing else. The dot is only in the CSS, not in the HTML."
-  - check:
-      type: bug
-      code: page.html#typo
-      answer: 2
+      type: trace
+      text: "A third paragraph is added to the page. Fill in the colour of each line of text."
+      table: |
+        | text | tag | colour |
+        | Sports day | h1 | black |
+        | Sports day is on Friday. | p | teal |
+        | What to bring | h2 | [black] |
+        | Bring a hat and water. | p | [teal] |
+        | Races start at 9 am. | p | [teal] |
       fault: logic
-      misconception: selector-mismatch
-      text: "Bring a hat should be crimson, but it stays black, and there is no error. Click the line in the CSS that causes it."
-      explain: "Line 2 says .Notice, but the paragraph's class is notice. Class names must match exactly, capitals included. A selector that matches nothing is simply ignored."
-  - picture: page.html#combos
-    check:
-      type: question
-      q: "The last paragraph matches two rules: p (20px) and .note (crimson). What does it look like?"
-      options: ["Crimson and 20px: both rules apply", "Only crimson: the class rule replaces the p rule", "Only 20px: the first rule wins", "Black: the two rules cancel out"]
-      answer: 0
-      explain: "When rules set different properties, every matching rule applies. One rule can also pick several kinds of element at once: h1, h2 { } styles both."
+      misconception: rule-styles-one
+      explain: "The rule picks every p, including one added later, so all three paragraphs are teal. The h1 and h2 are different tags, so the rule leaves them alone."
   - check:
-      type: sort
-      q: "A web page has three layers. Sort each part of the Sports day page into its layer."
-      options: ["Content: the words and pictures", "Structure: the tags that say what each part is", "Presentation: how it looks"]
-      items:
-        - ["The words Sports day is on Friday.", "Content: the words and pictures"]
-        - ["The words Sprint and Relay", "Content: the words and pictures"]
-        - ["<h1> around the title", "Structure: the tags that say what each part is"]
-        - ["<ul> and <li> around the events", "Structure: the tags that say what each part is"]
-        - ["h1, h2 { color: navy; }", "Presentation: how it looks"]
-        - [".note { color: crimson; }", "Presentation: how it looks"]
-      explain: "The words are the content. The tags give it structure: this is a heading, this is a list. The CSS is the presentation. You can change the CSS and the heading is still a heading; you can change the words and the page still looks the same."
+      type: question
+      code: page.html#small
+      q: "The rule h1 { font-size: 14px; } makes the heading smaller than the paragraphs. Is it still a heading?"
+      options:
+        - "Yes: the <h1> tag still says it is the main heading; the rule changed only how it looks"
+        - "No: it is just small text now"
+        - "No: a heading has to be the biggest text on the page"
+        - "Yes, but only until the page is saved"
+      answer: 0
+      fault: logic
+      misconception: looks-is-structure
+      explain: "The tag says what a part is, and the rule says how it looks. Making an <h1> small does not turn it into a paragraph, and screen readers and search engines still treat it as the main heading."
 ```
 
-### Match the parts
+### Three paragraphs
 
-Look at the `h1` rule.
+A new paragraph appears at the end of the page. Which lines does the rule colour?
 
-### A class
+### Small but still a heading
 
-Look at `.note` in the CSS and `class="note"` in the HTML.
-
-### The rule that does nothing
-
-This rule should colour one paragraph.
-
-### Mix and match
-
-One rule for two kinds of element (`h1, h2`), a class on a list item, and a paragraph that matches two rules.
-
-```html
-<style>
-  h1, h2 {
-    color: navy;
-  }
-  p {
-    font-size: 20px;
-  }
-  .note {
-    color: crimson;
-  }
-  .done {
-    color: gray;
-  }
-</style>
-<h1>Sports day</h1>
-<h2>Events</h2>
-<ul>
-  <li class="done">Sprint</li>
-  <li>Relay</li>
-</ul>
-<p>Sports day is on Friday.</p>
-<p class="note">Bring a hat.</p>
-```
-
-### Three layers
-
-Words, tags and rules: which is which?
+Look at the rule for `h1`.
 
 ## Modify
 
 ```step
 stage: modify
-insight: "Writing rules one at a time: change a value, add a rule, mark an element with a class, and group selectors."
-try: { playground: html, starter: "page.html#modify", height: 460 }
-unlocks: [several-selectors, font-family, background-color]
+insight: "Writing rules one at a time: change a value, add a property, add a rule for another tag."
+try: { playground: html, starter: "page.html#modify", height: 440 }
 tasks:
   - hint: "Change only the value after color:, and keep the semicolon."
     check: { type: reflect, text: "I changed the heading's colour." }
@@ -182,14 +140,13 @@ tasks:
     check: { type: code, text: "Add a rule that makes the paragraphs 20px.", rules: { contains: ["p {", "font-size: 20px;"] } }
     expected: page.html#sol-size
   - hint:
-      - "A class needs two parts that match: a name on the paragraph in the HTML, and a rule for that name in the CSS."
-      - "In the HTML: `<p class=\"reminder\">`. In the CSS: .reminder { ... }."
-      - "The dot goes in the CSS only."
-    check: { type: code, text: "Give the second paragraph the class reminder and a lightyellow background.", rules: { contains: ["class=\"reminder\"", ".reminder {", "background-color:"] } }
-    expected: page.html#sol-class
-  - hint: "List both selectors with a comma: h1, p { ... }"
-    check: { type: code, text: "Use one rule to give the heading and the paragraphs a sans-serif font.", rules: { contains: ["h1, p {", "font-family: sans-serif;"] } }
-    expected: page.html#sol-group
+      - "A new rule needs a selector, braces and property lines: h2 { ... }"
+      - "Two property lines in one rule: background-color and text-align."
+    check: { type: code, text: "Add a rule that gives the h2 headings a lightyellow background and centred text.", rules: { contains: ["h2 {", "background-color: lightyellow;", "text-align: center;"] } }
+    expected: page.html#sol-h2
+  - hint: "Add a line inside the p rule, under font-size. Every property line ends with a semicolon."
+    check: { type: code, text: "Make the paragraphs use font-family: sans-serif.", rules: { contains: ["font-family: sans-serif;"] } }
+    expected: page.html#sol-font
 ```
 
 ### Change a colour
@@ -200,13 +157,29 @@ Give the heading a different colour.
 
 Add a rule that makes every paragraph `20px`.
 
-### Mark one paragraph
+### A rule for the h2
 
-Give the second paragraph `class="reminder"`, then add a `.reminder` rule with `background-color: lightyellow;`.
+Add a rule that gives every `h2` a `lightyellow` background and centred text.
 
-### One rule for two
+### Another font
 
-Write one rule, `h1, p`, that gives the heading and the paragraphs `font-family: sans-serif;`.
+Add a line to the `p` rule so the paragraphs use `font-family: sans-serif;`.
+
+## Mix it up
+
+```step
+stage: investigate
+code: page.html#review
+try: { playground: html, starter: "page.html#review", height: 400 }
+insight: "Crossed tags give a wrong page with no error, and one rule on a tag changes every tag of that kind."
+check:
+  type: code
+  text: "Fix the tags so they nest, then add one rule that colours all the important words."
+  rules: { contains: ["water</em></strong>", "strong {"] }
+expected: page.html#sol-review
+```
+
+Sam's notice should have important words in crimson, but the page looks wrong. Fix the tags, then write one rule so every `<strong>` is crimson.
 
 ## Make
 
@@ -214,24 +187,285 @@ Write one rule, `h1, p`, that gives the heading and the paragraphs `font-family:
 stage: make
 try: { playground: html, starter: "page.html#make", height: 460 }
 hint:
-  - "Start with a `<style>` block above the heading, then add one rule at a time."
-  - "Pick one element to stand out: give it a class, and write a rule for that class."
+  - "Start with the rule for `h1`, then add one rule at a time. Check the page after each."
+  - "Each rule is a selector, braces, and property lines ending in semicolons."
 check:
   type: code
-  text: "Style the concert notice with at least three rules, one of them for a class."
-  rules: { tags: [style], contains: ["class=\"", "{"] }
+  text: "Style the concert notice with a rule for h1, one for h2 and one for p."
+  rules: { tags: [style], contains: ["h1 {", "h2 {", "p {"] }
 expected: page.html#sol-make
 ```
 
-Style this concert notice your way: at least three rules (for example the heading, the section headings and the paragraphs), and one class that makes the most important line stand out.
+The `<style>` block is ready at the top of this concert notice, with no rules. Write three rules: one for `h1`, one for `h2` and one for `p`. Give each a colour, and change at least one font.
 
-## Restyle the club notice
+```teacher
+summary: Students write CSS rules in a style block, find out that a tag selector styles every tag of that kind, and that a rule changes how a part looks, not what it is.
+time: 50
+timing: "Predict and Run 10 min · Investigate 10 min · Modify 12 min · Mix it up 5 min · Make 13 min"
+goals:
+  - I can write a CSS rule with a selector, a property and a value.
+  - I can say which elements a tag selector styles, and which it leaves alone.
+  - I can explain that a rule changes how a part looks, not what it is.
+before: |
+  Read the unit primer "HTML structure in 5 minutes" (the CSS section) first, then do the Make task yourself.
 
-```step
-stage: modify
-try: { playground: html, starter: "page.html#notice", height: 460 }
-insight: "Real styling serves the reader: colours and sizes that are easy to read, and a class for what matters most."
-expected: page.html#sol-notice
+  New words: a **rule** is a selector followed by property lines in braces, `p { color: teal; }`. The **selector** (`p`) names a kind of tag; each line is a property, a colon, a value and a semicolon. Colours here are names such as `teal` and `crimson`. The `<style>` block sits at the top of the code for now; where it goes in a whole page comes later.
+
+  Link to the three layers idea from Digital systems: the words are content, the tags are structure, the rules are presentation.
+running:
+  - "Predict: some students think `p { }` styles only the first paragraph, or that it needs to say which one. A rule names a kind of tag and changes every one. Only the two paragraphs turn teal."
+  - "Run: changing the selector from `p` to `h2` moves the colour. That is the whole idea of a selector."
+  - "Investigate: the trace adds a third paragraph. No CSS changes, and the new line is teal. The second question separates look from meaning: a small `<h1>` is still a heading."
+  - "Modify: four small changes. Each property line ends with a semicolon; a missing one makes the rule do less than expected, with no error."
+  - "Mix it up: the crossed tags need fixing first, then one `strong` rule colours the important words."
+stuck:
+  - see: A rule changes nothing, and there is no error.
+    ask: Does the selector match a tag in the HTML, and is the rule inside the style block?
+    fix: "Write the selector as the tag name without angle brackets, as in p, and put every rule between <style> and </style>."
+  - see: Only the first property in a rule works.
+    ask: Does every property line end with a semicolon?
+    fix: "Add the missing ; after the value, as in color: teal;"
+  - see: The CSS shows on the page as text.
+    ask: Is the CSS inside <style> and </style>?
+    fix: Put every rule between <style> and </style> at the top of the page.
+stretch: "Try font-size: 12px on the h1 and 60px on the p. Then ask whether the h1 is still a heading, and how a screen reader would know."
+support: "Give students the Modify starter and do the second task together on the board: the selector, the braces, then one property line."
+leads: "Next lesson is lists: a rule for li styles every item at once. Later, classes let you pick only some tags of a kind. Class idea: restyle the same page three ways (calm, loud, sporty) without changing the HTML."
+exit:
+  q: "A rule h2 { color: purple; } is added to a page with four h2 headings. How many turn purple, and is any <h2> changed into something else?"
+  a: "All four turn purple, because the selector names the tag. None changes into something else: the tag is still h2, and the rule only changes how it looks."
+explain: |
+  The video and the picture show the same steps:
+
+  1. CSS rules go in a `<style>` block, at the top of the code for now.
+  2. A rule starts with a **selector**: `p` picks every paragraph, and nothing else.
+  3. Inside the braces: a property, a colon, a value, a semicolon, as in `color: teal;`.
+  4. Both paragraphs turn teal. The heading is not a `p`, so it stays as it was.
+  5. A second rule can style the heading. The HTML never changed.
+
+  Rules change how parts look. The tags still say what each part is.
+solutions:
+  step-4#t1: page.html#sol-colour
+  step-4#t2: page.html#sol-size
+  step-4#t3: page.html#sol-h2
+  step-4#t4: page.html#sol-font
+  step-6: page.html#sol-make
+struggle: "Believing a rule picks one element. Ask which tag the selector names, and how many of that tag are on the page, before you say."
+class:
+  activities:
+    - at: predict
+      kind: discussion
+      title: Vote, then argue
+      minutes: 3
+      do: |
+        Decide with your partner how many lines of text will turn teal.
+        Hold up 1, 2, 3 or 4 fingers for your answer.
+      notes: "Count the votes before anyone runs it. Ask a pair that said 1 what in the rule picks the first paragraph, and see if they can find it."
+    - at: end
+      kind: activity
+      title: Same page, three looks
+      minutes: 5
+      do: |
+        Without changing the HTML, restyle the notice three ways: calm, loud and sporty. Show your partner.
+      notes: "Point out that the HTML is the same each time. Ask what stayed the same and what changed."
 ```
 
-Someone styled this notice, and it is hard to read: a tiny yellow heading and pale grey text. Make it easy to read (a dark heading at least `40px`, dark paragraph text), then give the sign-up line a class and a background colour so it stands out.
+```code page.html#teal
+<style>
+  p {
+    color: teal;
+  }
+</style>
+<h1>Sports day</h1>
+<p>Sports day is on Friday.</p>
+<h2>What to bring</h2>
+<p>Bring a hat and water.</p>
+```
+
+```code page.html#third
+<style>
+  p {
+    color: teal;
+  }
+</style>
+<h1>Sports day</h1>
+<p>Sports day is on Friday.</p>
+<h2>What to bring</h2>
+<p>Bring a hat and water.</p>
+<p>Races start at 9 am.</p>
+```
+
+```code page.html#small
+<style>
+  h1 {
+    font-size: 14px;
+  }
+</style>
+<h1>Sports day</h1>
+<p>Sports day is on Friday.</p>
+<p>Bring a hat and water.</p>
+```
+
+```code page.html#modify
+<style>
+  h1 {
+    color: navy;
+  }
+</style>
+<h1>Swimming carnival</h1>
+<h2>When</h2>
+<p>The carnival is on Thursday.</p>
+<h2>What to bring</h2>
+<p>Bring a towel and a hat.</p>
+```
+
+```code page.html#sol-colour
+<style>
+  h1 {
+    color: darkgreen;
+  }
+</style>
+<h1>Swimming carnival</h1>
+<h2>When</h2>
+<p>The carnival is on Thursday.</p>
+<h2>What to bring</h2>
+<p>Bring a towel and a hat.</p>
+```
+
+```code page.html#sol-size
+<style>
+  h1 {
+    color: darkgreen;
+  }
+  p {
+    font-size: 20px;
+  }
+</style>
+<h1>Swimming carnival</h1>
+<h2>When</h2>
+<p>The carnival is on Thursday.</p>
+<h2>What to bring</h2>
+<p>Bring a towel and a hat.</p>
+```
+
+```code page.html#sol-h2
+<style>
+  h1 {
+    color: darkgreen;
+  }
+  p {
+    font-size: 20px;
+  }
+  h2 {
+    background-color: lightyellow;
+    text-align: center;
+  }
+</style>
+<h1>Swimming carnival</h1>
+<h2>When</h2>
+<p>The carnival is on Thursday.</p>
+<h2>What to bring</h2>
+<p>Bring a towel and a hat.</p>
+```
+
+```code page.html#sol-font
+<style>
+  h1 {
+    color: darkgreen;
+  }
+  p {
+    font-size: 20px;
+    font-family: sans-serif;
+  }
+  h2 {
+    background-color: lightyellow;
+    text-align: center;
+  }
+</style>
+<h1>Swimming carnival</h1>
+<h2>When</h2>
+<p>The carnival is on Thursday.</p>
+<h2>What to bring</h2>
+<p>Bring a towel and a hat.</p>
+```
+
+```code page.html#review
+<style>
+  h1 {
+    color: navy;
+  }
+</style>
+<h1>Sports day</h1>
+<p>Bring <strong>a hat and <em>water</strong></em> on Friday.</p>
+<p>Races start at <strong>9 am</strong>.</p>
+```
+
+```code page.html#sol-review
+<style>
+  h1 {
+    color: navy;
+  }
+  strong {
+    color: crimson;
+  }
+</style>
+<h1>Sports day</h1>
+<p>Bring <strong>a hat and <em>water</em></strong> on Friday.</p>
+<p>Races start at <strong>9 am</strong>.</p>
+```
+
+```code page.html#make
+<style>
+</style>
+<h1>Spring concert</h1>
+<h2>When and where</h2>
+<p>The concert is on Wednesday at 6 pm in the hall.</p>
+<h2>Who is playing</h2>
+<p>The Year 7 band, the choir and the string group.</p>
+<p>Tickets are free. Bring a friend!</p>
+```
+
+```code page.html#sol-make
+<style>
+  h1 {
+    color: purple;
+    font-size: 44px;
+  }
+  h2 {
+    color: teal;
+    background-color: lightyellow;
+  }
+  p {
+    font-family: sans-serif;
+  }
+</style>
+<h1>Spring concert</h1>
+<h2>When and where</h2>
+<p>The concert is on Wednesday at 6 pm in the hall.</p>
+<h2>Who is playing</h2>
+<p>The Year 7 band, the choir and the string group.</p>
+<p>Tickets are free. Bring a friend!</p>
+```
+
+```code page.html#explain-start
+<style>
+</style>
+<h1>Sports day</h1>
+<p>Bring a hat.</p>
+<p>Races start at 9 am.</p>
+```
+
+```code page.html#explain
+<style>
+  h1 {
+    color: navy;
+    font-size: 40px;
+  }
+  p {
+    color: teal;
+  }
+</style>
+<h1>Sports day</h1>
+<p>Bring a hat.</p>
+<p>Races start at 9 am.</p>
+```

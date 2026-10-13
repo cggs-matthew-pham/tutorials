@@ -158,6 +158,20 @@
      "hint": "The bottom part of a page: contact details, small print.",
      "example": "<p>Page content</p>\n<footer>\n  <p>Contact: chess@example.com</p>\n</footer>\n",
      "shows": "The bottom of the page"
+    },
+    {
+     "label": "page parts",
+     "code": "<header>\n  ‹<h1>Site name</h1>›\n  <nav>\n    <ul>\n      <li><a href=\"‹https://example.com›\">‹Home›</a></li>\n    </ul>\n  </nav>\n</header>\n<main>\n  <section>\n    ‹<h2>Section title</h2>›\n    ‹<p>Some text.</p>›\n  </section>\n</main>\n<footer>\n  ‹<p>Contact us</p>›\n</footer>\n",
+     "hint": "The parts of a page, named: header, nav, main with its sections, and footer. They look like plain blocks; the names are for screen readers and search engines.",
+     "example": "<header>\n  <h1>Chess club</h1>\n  <nav>\n    <ul>\n      <li><a href=\"https://example.com\">Home</a></li>\n      <li><a href=\"https://example.com/rules\">Rules</a></li>\n    </ul>\n  </nav>\n</header>\n<main>\n  <section>\n    <h2>When we meet</h2>\n    <p>Wednesdays at lunch.</p>\n  </section>\n</main>\n<footer>\n  <p>Contact the teacher in charge.</p>\n</footer>\n",
+     "shows": "Each part is a plain block: the tag names are the difference"
+    },
+    {
+     "label": "jump link",
+     "code": "<a href=\"#‹results›\">‹Link text›</a>\n\n<h2 id=\"‹results›\">‹Section title›</h2>\n",
+     "hint": "A link to a place on the same page. id names the place; href starts with # and the same name.",
+     "example": "<nav>\n  <ul>\n    <li><a href=\"#results\">Results</a></li>\n    <li><a href=\"#join\">Join</a></li>\n  </ul>\n</nav>\n<h2 id=\"results\">Results</h2>\n<p>The Owls won.</p>\n<h2 id=\"join\">Join</h2>\n<p>Come on Wednesday.</p>\n",
+     "shows": "Clicking a link scrolls the page to its heading"
     }
    ]
   },
@@ -332,6 +346,41 @@
      "hint": "A line around an element: thickness, style, colour.",
      "example": "<style>\n  p {\n    border: 2px solid black;\n  }\n</style>\n<p>Boxed</p>\n",
      "shows": "A line around the paragraph"
+    },
+    {
+     "label": "menu links",
+     "code": "nav a {\n  ‹color›: ‹white›;\n  ‹text-decoration›: ‹none›;\n}\n",
+     "hint": "Style only the links inside the nav. The space means inside: nav a is every a within a nav.",
+     "example": "<style>\n  nav a {\n    color: crimson;\n    text-decoration: none;\n  }\n</style>\n<nav>\n  <ul>\n    <li><a href=\"https://example.com\">Home</a></li>\n    <li><a href=\"https://example.com/rules\">Rules</a></li>\n  </ul>\n</nav>\n<p>A <a href=\"https://example.com\">link in the text</a> keeps its look.</p>\n",
+     "shows": "The menu links change; the link in the text does not"
+    },
+    {
+     "label": "card box",
+     "code": ".‹card› {\n  width: ‹200px›;\n  padding: ‹16px›;\n  border: ‹2px› solid ‹navy›;\n  margin: ‹12px›;\n}\n",
+     "hint": "A box with room inside (padding), a line around it (border) and space outside it (margin). Width sets the content only.",
+     "example": "<style>\n  .card {\n    width: 200px;\n    padding: 16px;\n    border: 2px solid navy;\n    margin: 12px;\n  }\n</style>\n<section class=\"card\">\n  <h2>Chess</h2>\n  <p>Wednesdays at lunch.</p>\n</section>\n",
+     "shows": "A card 200px wide inside, 244px with its padding and border"
+    },
+    {
+     "label": "flex row",
+     "code": ".‹row› {\n  display: flex;\n  gap: ‹16px›;\n  justify-content: ‹space-between›;\n  align-items: ‹center›;\n}\n",
+     "hint": "A row of items. gap is the space between them, justify-content places them along the row, align-items lines them up across it.",
+     "example": "<style>\n  .bar {\n    display: flex;\n    gap: 16px;\n    justify-content: space-between;\n    align-items: center;\n  }\n</style>\n<section class=\"bar\">\n  <h2>Chess club</h2>\n  <p>Join us</p>\n</section>\n",
+     "shows": "The title on the left and the text on the right, lined up across"
+    },
+    {
+     "label": "wrapping row",
+     "code": ".‹gallery› {\n  display: flex;\n  flex-wrap: wrap;\n  gap: ‹12px›;\n}\n.‹item› {\n  flex: 1;\n  min-width: ‹150px›;\n}\n",
+     "hint": "A row that moves items to a new line when there is no room. flex: 1 lets items share the space and min-width stops them getting too narrow.",
+     "example": "<style>\n  .gallery {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 12px;\n  }\n  .item {\n    flex: 1;\n    min-width: 150px;\n    background-color: lightyellow;\n  }\n</style>\n<section class=\"gallery\">\n  <p class=\"item\">One</p>\n  <p class=\"item\">Two</p>\n  <p class=\"item\">Three</p>\n  <p class=\"item\">Four</p>\n</section>\n",
+     "shows": "Items share the row, then wrap when the preview is narrow"
+    },
+    {
+     "label": "card component",
+     "code": "<style>\n  .‹card› {\n    padding: ‹16px›;\n    border: 1px solid gray;\n  }\n</style>\n<section class=\"‹card›\">\n  ‹<h2>Title</h2>›\n  ‹<p>Some text.</p>›\n</section>\n",
+     "hint": "A chunk of HTML with a class. Copy the section for each card; one rule styles every copy.",
+     "example": "<style>\n  .card {\n    padding: 16px;\n    border: 1px solid gray;\n  }\n</style>\n<section class=\"card\">\n  <h2>Chess</h2>\n  <p>Wednesdays.</p>\n</section>\n<section class=\"card\">\n  <h2>Art</h2>\n  <p>Thursdays.</p>\n</section>\n",
+     "shows": "Two cards, one rule"
     }
    ]
   },

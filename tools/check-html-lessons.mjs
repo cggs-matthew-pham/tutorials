@@ -6,8 +6,9 @@ import { spawn } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 const { loadLessons, getSnippet } = await import('./lesson.mjs');
+const { extractInlineCode } = await import('./lesson-core.mjs');
 // Courses on the HTML and DOM playgrounds: HTML & CSS, Bootstrap, the DOM course, Vue and Your site.
-const lessons = loadLessons().filter((l) => ['code/html/', 'code/bootstrap/', 'code/dom/', 'code/vue/', 'code/site/'].some((p) => l.slug.startsWith(p)));
+const lessons = loadLessons().filter((l) => ['code/html/', 'code/css/', 'code/bootstrap/', 'code/dom/', 'code/vue/', 'code/site/'].some((p) => l.slug.startsWith(p)));
 const srv = spawn('node', ['tools/serve.mjs', 'dist', '8261'], { stdio: 'ignore' });
 await new Promise((r) => setTimeout(r, 800));
 const U = 'http://127.0.0.1:8261/';
@@ -23,7 +24,9 @@ for (const l of lessons) {
   let region = null;
   p.on('pageerror', (e) => { if (!bugRegions.has(region)) errs.push(l.slug + (region ? ' ' + region : '') + ': ' + e.message); }); p.on('response', (r) => { if (r.status() >= 400 && !/trophey|medal\.png/.test(r.url())) bad.push(r.status() + ' ' + r.url()); });
   // 1. regions render
-  const src = readFileSync(join(l.dir, 'page.html'), 'utf8');
+  // Code lives in page.html, or inline in lesson.md as ```code page.html#region blocks (single-file lessons).
+  const src = existsSync(join(l.dir, 'page.html')) ? readFileSync(join(l.dir, 'page.html'), 'utf8')
+    : extractInlineCode(readFileSync(join(l.dir, 'lesson.md'), 'utf8').replace(/\r\n/g, '\n')).inline['page.html'] || '';
   const regions = [...src.matchAll(/<!-- region: ([\w-]+) -->\n([\s\S]*?)<!-- endregion -->/g)];
   for (const [, name, code] of regions) {
     region = name;
@@ -62,7 +65,7 @@ for (const l of lessons) {
         const chk = scope.locator('.pcheck'); if (await chk.count()) await chk.click();
       }
       else if (k.type === 'code') {
-        const ref = l.teacher?.solutions?.[id];
+        const ref = l.teacher?.solutions?.[id] || (t ? t.config.expected : s.config.expected); // a review (investigate) step carries expected: on itself, since solutions: takes only modify and make steps
         ok(ref, `${id}: no solution`); if (!ref) continue;
         await put(s.id, getSnippet(l.dir, ref));
       }
