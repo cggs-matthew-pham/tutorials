@@ -1,9 +1,14 @@
 ---
 title: "Console bridge: text in, text out"
-summary: "input(), print() and a text menu: the same logic as the turtle course, as text in and text out. Every Python extension starts here."
+summary: "input(), print() and a text menu: the same logic as the turtle courses, as text in and text out. Every Python extension starts here."
 tagline: "Make programs that ask questions and answer back."
 order: 2
+challenge: challenge
+recap: true
 units:
-  - { id: text, title: "Text in, text out", summary: "Ask a question with input(), answer with print(), and turn typed text into numbers safely." }
-  - { id: apps, title: Loops and menus, summary: "Keep asking with while, keep a running total, and build a small menu app tested against a table of cases." }
+  - { id: text, title: "Text in, text out", summary: "Show text, ask a question, store the answer and join numbers onto text." }
+  - { id: numbers, title: "Numbers from text", summary: "Turn typed text into numbers, and check it first so a typo does not crash the program." }
+  - { id: loops, title: "Keep asking", summary: "Repeat with while, keep a running total, and read a whole guessing game." }
+  - { id: apps, title: "Menus and testing", summary: "A menu that keeps showing, and test cases written as a table." }
+  - { id: challenge, title: "Console challenge", summary: "Build a console app with a menu, a checked number and a total." }
 ---

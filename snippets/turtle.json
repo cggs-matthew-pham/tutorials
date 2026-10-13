@@ -174,6 +174,34 @@
      "shows": "A circle each time, while r < 60"
     },
     {
+     "label": "ask and reply",
+     "code": "‹name› = input(\"‹What is your name? ›\")\nprint(\"‹Hello, ›\" + ‹name›)\n",
+     "hint": "Ask a question, store the typed answer, and use it in a reply.",
+     "example": "name = input(\"What is your name? \")\nprint(\"Hello, \" + name)\n",
+     "shows": "Asks for a name, then says hello"
+    },
+    {
+     "label": "check then convert",
+     "code": "‹text› = input(\"‹How many? ›\")\nif ‹text›.isdigit():\n    ‹number› = int(‹text›)\n    ‹pass›\nelse:\n    print(\"‹Please type a number.›\")\n",
+     "hint": "Check typed text with isdigit before turning it into a number.",
+     "example": "text = input(\"How many tickets? \")\nif text.isdigit():\n    print(\"That will be $\" + str(int(text) * 12) + \".\")\nelse:\n    print(\"Please type a number.\")\n",
+     "shows": "A checked ticket total"
+    },
+    {
+     "label": "running total",
+     "code": "‹total› = 0\nwhile ‹total› < ‹10›:\n    ‹total› += int(input(\"‹Add: ›\"))\n",
+     "hint": "Start the total at 0 once, then add to it on every pass.",
+     "example": "total = 0\nwhile total < 10:\n    total += int(input(\"Add: \"))\n    print(\"Total: \" + str(total))\nprint(\"Done\")\n",
+     "shows": "Adds typed numbers until the total reaches 10"
+    },
+    {
+     "label": "menu loop",
+     "code": "while True:\n    choice = input(\"‹1 add, 2 quit: ›\")\n    if choice == \"‹1›\":\n        ‹pass›\n    elif choice == \"‹2›\":\n        break\n    else:\n        print(\"‹Please choose 1 or 2.›\")\n",
+     "hint": "A menu that keeps showing until a break runs.",
+     "example": "total = 0\nwhile True:\n    choice = input(\"1 add $5, 2 pay: \")\n    if choice == \"1\":\n        total += 5\n    elif choice == \"2\":\n        break\n    else:\n        print(\"Please choose 1 or 2.\")\nprint(\"Pay $\" + str(total))\n",
+     "shows": "A till that adds $5 until you pay"
+    },
+    {
      "label": "if / else",
      "code": "if ‹x > 0›:\n    ‹pass›\nelse:\n    ‹pass›\n",
      "hint": "Do one thing or the other, depending on a condition.",

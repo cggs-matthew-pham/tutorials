@@ -1,35 +1,31 @@
 ---
-title: Loops and menus in 5 minutes
+title: Menus and testing in 5 minutes
 ---
 ## The idea in plain words
 
-A `while` loop repeats **for as long as a question is true**: `while guess != secret:` keeps asking until the guess is right. It asks the question before every lap, so something inside the loop must change the answer, or the loop runs for ever (the playground's **Stop** button ends it).
+A **menu** is `while True:`, a loop whose question is always yes, with `break` as the way out. Each lap shows the choices, asks for one, and runs one branch of an `if` / `elif`, with `else` for anything else. `break` leaves the whole loop, and the program carries on after it.
 
-`+=` adds to a variable: `total += 5` is short for `total = total + 5`. It keeps a count or a running total as the loop goes.
-
-A **menu** is `while True:`, a loop whose question is always yes, with `break` as the way out. Each lap shows the choices, asks for one, and runs one branch of an `if` / `elif`.
-
-A **test case** is an input and the output you expect, written down before running. A small table of them, including a wrong choice, is how programmers check a program does what it should.
+A **test case** is an input and the output you expect, written down before running. If the menu's replies come from a function, each test is one line: `print(reply("9") == "Please choose 1 or 2.")` shows `True` or `False`. A good list of tests includes the wrong inputs.
 
 ## Why programmers use them
 
-- **You often cannot know how many times.** A game, a PIN pad or a till keeps going until something happens.
 - **Menus are everywhere.** ATMs, settings screens and text adventures are a loop, a decision and a way out.
 - **Tests catch what you did not think of.** Writing the expected output first stops you from deciding a wrong answer looks fine.
+- **Functions make code testable.** A function can be called with any input, with no typing.
 
 ## An everyday picture, and where it breaks
 
-A `while` loop is "keep stirring while the sauce is lumpy". The cook checks before each stir, and stops when the answer changes.
+A café counter: ask what they want, add it to the order, ask again, until they say that is all.
 
-Where it breaks: if nothing changes the sauce (you forget to stir), the cook checks for ever. In code, `total + points` works out a sum but does not store it, so the total never changes and the loop never ends.
+Where it breaks: a person at the counter knows when to stop. A program only stops when a line says so, so a menu with no `break` is a menu that never ends.
 
 ## Try it yourself (5 minutes)
 
-1. Run the guess-the-number game in Lesson 3 and count how many guesses you need. Halving the range each time always wins in five for 1 to 20.
-2. In Lesson 4's till, type a few choices, then something silly, then pay. Watch which branch runs each time.
-3. Write three test cases for the till (what to type, what total it should print) and run them.
+1. In the till, type a few choices, then something silly, then pay. Watch which branch runs each time.
+2. Remove the `break` line, run it, and press Stop. What does that tell you?
+3. Write three test cases for the till (what to type, what it should reply) and run them.
 
 ## Questions students ask
 
 - **Is while True a mistake?** Not when there is a `break`. It reads as "keep going until I say stop".
-- **for or while?** `for` when you know how many times (four sides of a square); `while` when you are waiting for something to happen (the right guess, the quit choice).
+- **Why test with a function and not by typing?** Typing the same choices every time is slow and easy to get wrong. A test line runs in a blink.
