@@ -210,7 +210,7 @@ before: |
 
   Turn on **Boxes** in the playground: it shows each item inside its list.
 running:
-  - "Predict: some students expect the items to join into one line, as paragraphs did in the first lesson. The `<ul>` and `<li>` tags make the bullets, not the line breaks."
+  - "Predict: some students expect the items to join into one line, as paragraphs did in the first lesson. The `<ul>` and `<li>` tags make the bullets, not the line breaks. Ask the pair that voted for one line which lesson taught them that."
   - "Run: change `<ul>` to `<ol>` together, then add an item. The browser numbers the list itself, so students never type the numbers."
   - "Investigate: the parsons task has a spare line with `1.` typed by hand; the browser does the counting. The lost item is one `<li>` after `</ol>`: ask which tag closed the list."
   - "Mix it up: one rule picks every `li`, including the ones inside the inner list. Ask a student to point at each of the five."
@@ -249,14 +249,6 @@ solutions:
 struggle: "Keeping every li inside its list. Turn on Boxes and ask which box each item sits in, rather than moving the tag for them."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what the page shows under the heading.
-        Hold up 1, 2, 3 or 4 fingers for your answer.
-      notes: "Count the votes before anyone runs it. Ask the pair that voted for one line which lesson taught them that."
     - at: end
       kind: activity
       title: Toast, in order

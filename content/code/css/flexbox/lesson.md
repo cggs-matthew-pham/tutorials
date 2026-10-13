@@ -237,7 +237,7 @@ before: |
 
   The one idea of the lesson: `display: flex;` goes on the **parent** (the box that holds the items), and its **children** line up in a row. Only the direct children line up. Spacing, centring and wrapping are the next lessons, so here the space between items is a `margin` on each item. `list-style: none;` is not Flexbox: it removes a list's bullets, which every real menu does.
 running:
-  - "Predict: most students do not expect one line on the `ul` to rearrange its items. It does, because the items are its children."
+  - "Predict: most students do not expect one line on the `ul` to rearrange its items. It does, because the items are its children. Ask one pair from each answer to say why. Listen for who says bullets: list-style is not Flexbox."
   - "Run: delete and restore `display: flex;` to see the switch."
   - "Investigate: ask which box is the parent before every rule. The menu that will not line up has `display: flex` on each `li`: each item lines up its own insides, so nothing visible changes and there is no error."
   - "Mix it up: both rules are from earlier lessons. Ask which links `nav a` picks, and where padding goes."
@@ -276,14 +276,6 @@ solutions:
 struggle: "display: flex goes on the parent, not the items. When the row doesn't appear, ask which box holds the items before saying anything else."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner how the three menu items will be placed.
-        Point to your answer on the board.
-      notes: "Count the votes before anyone runs it. Ask one pair from each answer to say why. Listen for who says bullets: list-style is not Flexbox."
     - at: end
       kind: activity
       title: Parent or child?

@@ -213,7 +213,7 @@ before: |
 
   Link to the three layers idea from Digital systems: the words are content, the tags are structure, the rules are presentation.
 running:
-  - "Predict: some students think `p { }` styles only the first paragraph, or that it needs to say which one. A rule names a kind of tag and changes every one. Only the two paragraphs turn teal."
+  - "Predict: some students think `p { }` styles only the first paragraph, or that it needs to say which one. A rule names a kind of tag and changes every one. Only the two paragraphs turn teal. Ask a pair that said 1 what in the rule picks the first paragraph, and see if they can find it."
   - "Run: changing the selector from `p` to `h2` moves the colour. That is the whole idea of a selector."
   - "Investigate: the trace adds a third paragraph. No CSS changes, and the new line is teal. The second question separates look from meaning: a small `<h1>` is still a heading."
   - "Modify: four small changes. Each property line ends with a semicolon; a missing one makes the rule do less than expected, with no error."
@@ -253,14 +253,6 @@ solutions:
 struggle: "Believing a rule picks one element. Ask which tag the selector names, and how many of that tag are on the page, before you say."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner how many lines of text will turn teal.
-        Hold up 1, 2, 3 or 4 fingers for your answer.
-      notes: "Count the votes before anyone runs it. Ask a pair that said 1 what in the rule picks the first paragraph, and see if they can find it."
     - at: end
       kind: activity
       title: Same page, three looks

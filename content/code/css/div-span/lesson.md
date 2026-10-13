@@ -185,7 +185,7 @@ before: |
 
   A **block** box starts on a new line and takes the full width of its container. An **inline** box sits inside a line of text and is only as wide as its content. `<div>` (block) and `<span>` (inline) are plain boxes: they have no look until a rule styles them. `display: block;` and `display: inline;` swap the kind. This lesson uses background colour to show the width, because box properties such as padding and borders come next lesson.
 running:
-  - "Predict and Run: most students say the gold hugs the words in both places. The full-width band behind the div is the surprise. Turn on Boxes to show each box."
+  - "Predict and Run: most students say the gold hugs the words in both places. The full-width band behind the div is the surprise. Turn on Boxes to show each box. Ask someone who chose the words in both places what the page would look like if the div were only as wide as its words. The idea to land: block means the full width."
   - "Investigate: the first question is the misconception, that a div changes the page by itself. Ask what a rule would have to say to see the div."
   - "Modify: labels are inline, so they run on beside their boxes. `display: block` puts each on its own line."
   - "Mix it up: the class and the group rule both set the colour. The class wins wherever it is written, and the size comes only from the group rule."
@@ -222,14 +222,6 @@ solutions:
 struggle: "Believing a div adds a look. Ask what the div would have to be told before anything on the page looked different."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner how wide the gold is behind each marked part.
-        Hold up 1, 2, 3 or 4 fingers for the option you chose.
-      notes: "Count the votes before anyone runs it. Ask someone who chose the words in both places what the page would look like if the div were only as wide as its words. The idea to land: block means the full width."
     - at: end
       kind: activity
       title: Block or inline hunt

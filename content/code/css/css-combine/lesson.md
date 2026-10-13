@@ -191,7 +191,7 @@ before: |
 
   Students have written rules and classes in Course A, but always one at a time. The new idea is that an element can match several rules at once. The browser keeps every property from every matching rule. Only where two rules set the same property does it pick: a class beats a tag, and between rules equally exact the later one wins. A **group selector** is a comma list, `h1, p { }`, one rule for several kinds of element.
 running:
-  - "Predict and Run: the common answers are the last rule or the first rule alone. Let them move `.note` below the `p` rule and see that nothing changes. Then make the comma edit."
+  - "Predict and Run: the common answers are the last rule or the first rule alone. Let them move `.note` below the `p` rule and see that nothing changes. Then make the comma edit. Ask someone who chose the last rule to say what happens to the size. The idea to land: every matching rule applies."
   - "Investigate: the trace has three matching rules on the last line. Ask them to find each rule that matches before they write a value. The tie question separates a class from an equal tag rule."
   - "Modify and Make: the check ticks on the group rule and the class. Look at the page for the crimson sign-up line."
 stuck:
@@ -226,14 +226,6 @@ solutions:
 struggle: "Believing only one rule applies to an element. Ask the student to list every rule that matches the line before they say what it looks like."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what Bring a hat. looks like.
-        Hold up 1, 2, 3 or 4 fingers for the option you chose.
-      notes: "Count the votes before anyone runs it. Ask someone who chose the last rule to say what happens to the size. The idea to land: every matching rule applies."
     - at: end
       kind: activity
       title: List the rules

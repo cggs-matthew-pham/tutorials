@@ -183,7 +183,7 @@ before: |
 
   The surprise for students: pressing Enter in the code does not make a new line on the page. Only a new `<p>` does. A **tag** is a label in angle brackets, like `<p>`. Most tags come in pairs: an opening tag `<p>` and a closing tag `</p>` with a slash, wrapped around the text they label.
 running:
-  - "Predict and Run: most students say 4 lines. The page shows 2, because the browser joins the lines of one paragraph. Let them press Enter in the code and see that nothing changes, then add a `<p>`."
+  - "Predict and Run: most students say 4 lines. The page shows 2, because the browser joins the lines of one paragraph. Let them press Enter in the code and see that nothing changes, then add a `<p>`. Ask one pair from each answer to say why. Most will say 4: that is the idea the lesson turns around."
   - "Investigate: the match task is about meaning, not looks: `<h1>` means the main heading. The one-line question is the key idea, that the tags decide and not the lines of code."
   - "Modify and Make: one change at a time, check the page each time. The Make check ticks when the page uses `<h1>`, `<h2>` and `<p>`."
 stuck:
@@ -219,14 +219,6 @@ solutions:
 struggle: "Seeing that line breaks in the code do nothing. Let the Predict surprise land, and ask which tag starts a new line rather than fixing it."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner how many lines of normal text the page will show.
-        Hold up 1, 2, 3 or 4 fingers for your answer.
-      notes: "Count the votes before anyone runs it. Ask one pair from each answer to say why. Most will say 4: that is the idea the lesson turns around."
     - at: end
       kind: activity
       title: Be the browser

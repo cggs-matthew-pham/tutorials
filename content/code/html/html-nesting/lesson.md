@@ -175,7 +175,7 @@ before: |
 
   Unlike Python, HTML never stops with an error. A missing or crossed tag gives a page that looks wrong, and the browser says nothing.
 running:
-  - "Predict and Run: many students think only water changes, or that the inner tag cancels the outer one. Turn on Boxes and ask which boxes water sits in."
+  - "Predict and Run: many students think only water changes, or that the inner tag cancels the outer one. Turn on Boxes and ask which boxes water sits in. Ask the pairs who chose option 3 why they think the inner tag cancels the outer one."
   - "Investigate: the crossing is on one line. Ask which tag was opened last and whether it closed first. The missing `</strong>` trace is the surprise: the bold runs on into the next paragraphs and no message appears."
   - "Modify and Make: one change at a time, check the page each time. In Boxes, a correct page has every box fully inside another."
 stuck:
@@ -210,14 +210,6 @@ solutions:
 struggle: "Closing tags in the right order. Turn on Boxes and ask which box is inside which, rather than correcting the tags."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner which words will look both bold and slanted.
-        Hold up 1, 2, 3 or 4 fingers for your answer.
-      notes: "Count the votes before anyone runs it. Ask the pairs who chose option 3 why they think the inner tag cancels the outer one."
     - at: investigate
       kind: activity
       title: Box it on paper

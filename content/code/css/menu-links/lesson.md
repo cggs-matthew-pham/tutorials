@@ -192,7 +192,7 @@ before: |
 
   A **descendant selector** is two selectors with a space between: `nav a` picks every `a` anywhere inside a `nav`. A link keeps its own colour until a rule names it, which is why `nav { color: white; }` leaves the menu blue. `:hover` is shown as a line to copy for now, not taught: it means "while the pointer is over it".
 running:
-  - "Predict and Run: most students say white. Blue on navy is hard to read, which is the reason menus need their own rule. Add the nav a rule and let them see the link in the paragraph stay blue."
+  - "Predict and Run: most students say white. Blue on navy is hard to read, which is the reason menus need their own rule. Add the nav a rule and let them see the link in the paragraph stay blue. Ask someone who chose white why the header's colour would reach the links. The idea to land: a link has its own colour."
   - "Investigate: the trace has four links and one rule. The question about the comma is last lesson's group selector, read against the new one: comma means and, space means inside."
   - "Modify and Make: the same shape for the footer. The Make check ticks on a header rule, a background colour and the nav a rule. Look at the page for the paragraph link staying blue."
 stuck:
@@ -227,14 +227,6 @@ solutions:
 struggle: "Reading nav a as both. Ask which of the two words names the element that changes, and what the first word does."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what colour the menu links are.
-        Hold up 1, 2, 3 or 4 fingers for the option you chose.
-      notes: "Count the votes before anyone runs it. Ask someone who chose white why the header's colour would reach the links. The idea to land: a link has its own colour."
     - at: end
       kind: activity
       title: Which links change?

@@ -221,7 +221,7 @@ before: |
 
   The one idea: `width` sets the content only. The box on the page is the width plus the padding and border on both sides. Real sites often set `box-sizing: border-box` so that width includes padding and border; mention it once, after students are comfortable with the sums.
 running:
-  - "Predict: almost everyone says 200. The card is 250 wide: padding and border are added to the width on both sides. Let students check with Box model."
+  - "Predict: almost everyone says 200. The card is 250 wide: padding and border are added to the width on both sides. Let students check with Box model. Most will say 200. Ask what the 20 and the 5 in the rule are for, then let them point at the card with Box model."
   - "Run: change the padding and point again. Ask: which number in the label changed, and which part of the card grew?"
   - "Investigate: the number task is the sum on paper (180 + 30 + 8). The wrong answers are the real slips: content only, one side only, margin included. The last task is `padding: 20` with no unit; the browser ignores it without an error."
   - "Mix it up: padding works on an inline span but width does not. Ask who remembers what block and inline meant."
@@ -260,14 +260,6 @@ solutions:
 struggle: "Working out that padding and border add to the width. Ask for the sum on paper first (200 + 20 + 20 + 5 + 5), then check it with Box model."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then measure
-      minutes: 3
-      do: |
-        Decide with your partner how wide the whole card is.
-        Write your number on a mini whiteboard and hold it up.
-      notes: "Count the votes before anyone runs it. Most will say 200. Ask what the 20 and the 5 in the rule are for, then let them point at the card with Box model."
     - at: end
       kind: activity
       title: Measure a neighbour's card
