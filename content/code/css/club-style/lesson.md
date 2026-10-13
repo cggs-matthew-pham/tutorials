@@ -110,7 +110,6 @@ The name and the menu sit one above the other. Put them on one line. Replace the
     padding: 0;
   }
   nav a {
-    font-weight: bold;
     text-decoration: none;
   }
 </style>
@@ -239,7 +238,6 @@ class:
     padding: 0;
   }
   nav a {
-    font-weight: bold;
     text-decoration: none;
   }
   h1 {
@@ -447,7 +445,6 @@ class:
     padding: 0;
   }
   nav a {
-    font-weight: bold;
     text-decoration: none;
   }
   h1 {
@@ -534,7 +531,6 @@ class:
     padding: 0;
   }
   nav a {
-    font-weight: bold;
     text-decoration: none;
   }
   h1 {
@@ -626,7 +622,6 @@ class:
     padding: 0;
   }
   nav a {
-    font-weight: bold;
     text-decoration: none;
   }
   h1 {
@@ -749,7 +744,6 @@ class:
     padding: 0;
   }
   nav a {
-    font-weight: bold;
     text-decoration: none;
   }
   h1 {
@@ -873,7 +867,6 @@ class:
     padding: 0;
   }
   nav a {
-    font-weight: bold;
     text-decoration: none;
   }
   h1 {
@@ -1008,7 +1001,6 @@ class:
     padding: 0;
   }
   nav a {
-    font-weight: bold;
     text-decoration: none;
   }
   h1 {

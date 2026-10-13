@@ -130,25 +130,6 @@ Mia's cards look right.
 
 One rule, many pages.
 
-## Mix it up
-
-```step
-stage: investigate
-code: page.html#review
-try: { playground: html, starter: "page.html#review", height: 440 }
-insight: "Marking an element with the right class and letting a row wrap use two earlier moves together."
-check:
-  type: code
-  text: "Fix the cards so all four look the same, and the row wraps instead of squashing them."
-  rules: { contains: ["flex-wrap: wrap;", "min-width:", "class=\"card\"><h2>Drones"] }
-expected: page.html#sol-review
-hint:
-  - "Two things are wrong: one card is not marked, and the row cannot wrap."
-  - "Give the plain `<section>` the class `card`, and give the row `flex-wrap: wrap;` and the cards a `min-width`."
-```
-
-Two things are wrong on this page: one card looks different, and the cards are squashed.
-
 ## Modify
 
 ```step
@@ -175,6 +156,25 @@ Make the border of every card `2px solid navy` by changing the rule once.
 ### A copy
 
 Add a third card with the heading `Drones` by copying one of the others.
+
+## Mix it up
+
+```step
+stage: investigate
+code: page.html#review
+try: { playground: html, starter: "page.html#review", height: 440 }
+insight: "Marking an element with the right class and letting a row wrap use two earlier moves together."
+check:
+  type: code
+  text: "Fix the cards so all four look the same, and the row wraps instead of squashing them."
+  rules: { contains: ["flex-wrap: wrap;", "min-width:", "class=\"card\"><h2>Drones"] }
+expected: page.html#sol-review
+hint:
+  - "Two things are wrong: one card is not marked, and the row cannot wrap."
+  - "Give the plain `<section>` the class `card`, and give the row `flex-wrap: wrap;` and the cards a `min-width`."
+```
+
+Two things are wrong on this page: one card looks different, and the cards are squashed.
 
 ## Make
 
@@ -239,8 +239,8 @@ explain: |
 
   The hero works the same way: a section with a class and one rule.
 solutions:
-  step-5#t1: page.html#sol-colour
-  step-5#t2: page.html#sol-copy
+  step-4#t1: page.html#sol-colour
+  step-4#t2: page.html#sol-copy
   step-6: page.html#sol-make
 struggle: "Believing each copy needs its own rule. Ask what the new card has in common with the others before they write any CSS."
 class:

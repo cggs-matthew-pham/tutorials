@@ -118,9 +118,9 @@ tasks:
       explain: "A space means inside. nav a picks the links that sit inside the nav and no others."
   - check:
       type: question
-      q: "The three menu links sit side by side on one line, but the title above them and each article start on a new line. Why?"
+      q: "The three menu links sit side by side on one line, but the title above them and each section start on a new line. Why?"
       options:
-        - "Links are inline boxes, and the title and articles are block boxes"
+        - "Links are inline boxes, and the title and sections are block boxes"
         - "The nav tag puts its links in a row"
         - "Links have less text than headings"
         - "The header has display: flex"
@@ -132,7 +132,7 @@ tasks:
         - "The nav tag adds no layout of its own. It only names the part."
         - "The amount of text does not decide it. The kind of box does."
         - "There is no display: flex anywhere in this page."
-      explain: "Block boxes (h1, article, div) start a new line and take the full width. Inline boxes (a, strong, span) sit in the line of text, side by side."
+      explain: "Block boxes (h1, section, div) start a new line and take the full width. Inline boxes (a, strong, span) sit in the line of text, side by side."
   - hint:
       - "Write a new rule below the others in the `<style>` block. Its selector is two words."
       - "`nav a { text-decoration: none; }` removes the underline, and the `color` line chooses the link colour."
@@ -152,12 +152,12 @@ Look at how the menu sits on the page.
 
 Add a rule that removes the underline from the menu links and gives them the colour `navy`. The link in the story must keep its underline.
 
-## Turn the articles into cards
+## Turn the sections into cards
 
 ```step
 stage: modify
 try: { playground: html, starter: "page.html#cards", height: 500 }
-insight: "One class on both articles and one rule for it makes them cards; the width of a card is more than its width property."
+insight: "One class on both sections and one rule for it makes them cards; the width of a card is more than its width property."
 expected: page.html#sol-cards
 tasks:
   - check:
@@ -171,8 +171,8 @@ tasks:
         - [322, "That adds the padding (20 + 20) but not the border."]
         - [324, "That adds one side of the padding and one side of the border."]
       explain: "300 for the content, plus 20 + 20 of padding, plus 2 + 2 of border: 344."
-  - hint: "A class is an attribute, so it goes inside the opening tag of each `<article>`."
-    check: { type: code, text: "Mark both articles with the class card.", rules: { tags: [article], contains: ["class=\"card\""] } }
+  - hint: "A class is an attribute, so it goes inside the opening tag of each `<section>`."
+    check: { type: code, text: "Mark both sections with the class card.", rules: { tags: [section], contains: ["class=\"card\""] } }
     expected: page.html#sol-class
   - hint:
       - "A class rule starts with a dot. Write it in the `<style>` block."
@@ -187,7 +187,7 @@ Work out the width before you write any rule.
 
 ### Share a class
 
-Each article needs the same class, `card`.
+Each section needs the same class, `card`.
 
 ### One rule for the cards
 
@@ -228,7 +228,7 @@ running:
   - "Read the stylesheet: the match is about what each rule changes. For the heading colour, ask which rule comes last and what happens to the property both set."
   - "Change one rule: the check wants a separate `h2` rule changed. A student who changes the group rule to orange sees the headings stay teal, because the later rule still wins."
   - "Menu links: ask which links `nav a` picks before they write it. The link in the story must keep its underline."
-  - "Cards: the number is a sum on paper (300 + 40 + 4). Then one class on both articles and one `.card` rule."
+  - "Cards: the number is a sum on paper (300 + 40 + 4). Then one class on both sections and one `.card` rule."
   - "Fix the squashed card: it is the missing unit again, in a whole page."
 stuck:
   - see: The headings stay teal after changing a colour.
@@ -239,9 +239,9 @@ stuck:
     fix: Write nav a, with a space, so only links inside the nav change.
   - see: The cards do not change.
     ask: Does the class name in the tags match the name after the dot exactly?
-    fix: Use class="card" on each article, and .card in the CSS with a dot.
-stretch: "Add a second class, `.featured`, with a different border colour, and put it on the headline article as well as card. Which border wins, and why?"
-support: "Give students only the Change one rule and Turn the articles into cards steps, and a copy of the page with the class already on both articles."
+    fix: Use class="card" on each section, and .card in the CSS with a dot.
+stretch: "Add a second class, `.featured`, with a different border colour, and put it on the headline section as well as card. Which border wins, and why?"
+support: "Give students only the Change one rule and Turn the sections into cards steps, and a copy of the page with the class already on both sections."
 leads: "Next unit is Layout: Flexbox puts boxes in a row, such as a menu. Class idea: ask students to find three cards on a real website and sketch their padding, border and margin."
 exit:
   q: "A page has h1, h2 { color: navy; } and then h2 { color: teal; }. What colour is an h2, and what colour is the h1?"
@@ -296,14 +296,14 @@ class:
   <h1>Library news</h1>
 </header>
 <main>
-  <article>
+  <section>
     <h2>New books</h2>
     <p>The library has 200 new books this term.</p>
-  </article>
-  <article>
+  </section>
+  <section>
     <h2>Book fair</h2>
     <p class="note">The book fair starts on Monday in the library.</p>
-  </article>
+  </section>
 </main>
 </body>
 </html>
@@ -334,14 +334,14 @@ class:
   <h1>Library news</h1>
 </header>
 <main>
-  <article>
+  <section>
     <h2>New books</h2>
     <p>The library has 200 new books this term.</p>
-  </article>
-  <article>
+  </section>
+  <section>
     <h2>Book fair</h2>
     <p class="note">The book fair starts on Monday in the library.</p>
-  </article>
+  </section>
 </main>
 </body>
 </html>
@@ -372,14 +372,14 @@ class:
   <h1>Library news</h1>
 </header>
 <main>
-  <article>
+  <section>
     <h2>New books</h2>
     <p>The library has 200 new books this term.</p>
-  </article>
-  <article>
+  </section>
+  <section>
     <h2>Book fair</h2>
     <p class="note">The book fair starts on Monday in the library.</p>
-  </article>
+  </section>
 </main>
 </body>
 </html>
@@ -416,10 +416,10 @@ class:
   </nav>
 </header>
 <main>
-  <article>
+  <section>
     <h2>New books</h2>
     <p>The library has 200 new books this term. See the <a href="https://example.com/list">full list</a>.</p>
-  </article>
+  </section>
 </main>
 </body>
 </html>
@@ -460,10 +460,10 @@ class:
   </nav>
 </header>
 <main>
-  <article>
+  <section>
     <h2>New books</h2>
     <p>The library has 200 new books this term. See the <a href="https://example.com/list">full list</a>.</p>
-  </article>
+  </section>
 </main>
 </body>
 </html>
@@ -491,14 +491,14 @@ class:
   <h1>Library news</h1>
 </header>
 <main>
-  <article>
+  <section>
     <h2>New books</h2>
     <p>The library has 200 new books this term.</p>
-  </article>
-  <article>
+  </section>
+  <section>
     <h2>Book fair</h2>
     <p>The book fair starts on Monday in the library.</p>
-  </article>
+  </section>
 </main>
 </body>
 </html>
@@ -526,14 +526,14 @@ class:
   <h1>Library news</h1>
 </header>
 <main>
-  <article class="card">
+  <section class="card">
     <h2>New books</h2>
     <p>The library has 200 new books this term.</p>
-  </article>
-  <article class="card">
+  </section>
+  <section class="card">
     <h2>Book fair</h2>
     <p>The book fair starts on Monday in the library.</p>
-  </article>
+  </section>
 </main>
 </body>
 </html>
@@ -566,14 +566,14 @@ class:
   <h1>Library news</h1>
 </header>
 <main>
-  <article class="card">
+  <section class="card">
     <h2>New books</h2>
     <p>The library has 200 new books this term.</p>
-  </article>
-  <article class="card">
+  </section>
+  <section class="card">
     <h2>Book fair</h2>
     <p>The book fair starts on Monday in the library.</p>
-  </article>
+  </section>
 </main>
 </body>
 </html>
@@ -597,14 +597,14 @@ class:
 </head>
 <body>
 <main>
-  <article class="card">
+  <section class="card">
     <h2>New books</h2>
     <p>The library has 200 new books this term.</p>
-  </article>
-  <article class="card">
+  </section>
+  <section class="card">
     <h2>Book fair</h2>
     <p>The book fair starts on Monday in the library.</p>
-  </article>
+  </section>
 </main>
 </body>
 </html>

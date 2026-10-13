@@ -146,27 +146,6 @@ The items are at the top of the bar.
 
 The row is right this time.
 
-## Mix it up
-
-```step
-stage: investigate
-code: page.html#review
-insight: "Margin is space outside an item's border, gap is space between items in the row: using the box model and a flex row together shows the difference."
-check:
-  type: question
-  q: "The row gives each item margin: 10px. Another row gives its items no margin and uses gap: 10px. How do they differ?"
-  options:
-    - "The margin row also has 10px between the first item and the row's border; the gap row has none there"
-    - "The gap row has 10px between the first item and the row's border; the margin row has none there"
-    - "They look the same: margin and gap both add 10px outside every item"
-    - "The margin row puts 10px of space inside each item, like padding"
-  answer: 0
-  fault: logic
-  explain: "Margin is outside each item's border on every side, so it leaves space at the ends of the row as well. gap sits only between neighbouring items. Between two items, margin on both gives 20px."
-```
-
-Here is a row of three items with the margin version.
-
 ## Modify
 
 ```step
@@ -202,6 +181,27 @@ Move the group of links to the middle of the row.
 ### Line up the logo
 
 The star and the club name sit at the top of the bar. Centre them up and down.
+
+## Mix it up
+
+```step
+stage: investigate
+code: page.html#review
+insight: "Margin is space outside an item's border, gap is space between items in the row: using the box model and a flex row together shows the difference."
+check:
+  type: question
+  q: "The row gives each item margin: 10px. Another row gives its items no margin and uses gap: 10px. How do they differ?"
+  options:
+    - "The margin row also has 10px between the first item and the row's border; the gap row has none there"
+    - "The gap row has 10px between the first item and the row's border; the margin row has none there"
+    - "They look the same: margin and gap both add 10px outside every item"
+    - "The margin row puts 10px of space inside each item, like padding"
+  answer: 0
+  fault: logic
+  explain: "Margin is outside each item's border on every side, so it leaves space at the ends of the row as well. gap sits only between neighbouring items. Between two items, margin on both gives 20px."
+```
+
+Here is a row of three items with the margin version.
 
 ## Make
 
@@ -264,9 +264,9 @@ explain: |
 
   In the picture, the bar is 100px tall so you can see the items sit halfway down.
 solutions:
-  step-5#t1: page.html#sol-gap
-  step-5#t2: page.html#sol-centre
-  step-5#t3: page.html#sol-align
+  step-4#t1: page.html#sol-gap
+  step-4#t2: page.html#sol-centre
+  step-4#t3: page.html#sol-align
   step-6: page.html#sol-make
 struggle: "Telling along from across. Ask which way the row runs, and which property works in that direction, before telling them."
 class:

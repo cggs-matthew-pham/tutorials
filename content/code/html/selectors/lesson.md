@@ -5,7 +5,7 @@ node: AC9TDI10K02 n1
 moveId: css-rule
 reviews: [nesting]
 introduces: [style-block, css-rule, text-colour, font]
-assumes: [heading, paragraph, emphasis, web-layers]
+assumes: [heading, paragraph, emphasis]
 title: Rules and selectors
 summary: Write a CSS rule that styles every tag of one kind, and find out that it changes how they look, not what they are.
 language: html

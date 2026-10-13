@@ -140,28 +140,6 @@ A fixed width is the same everywhere.
 
 The cards stay in one line.
 
-## Mix it up
-
-```step
-stage: investigate
-code: page.html#review
-insight: "The wrapped cards need the space between them set on the row with gap, the same as a row that does not wrap."
-check:
-  type: question
-  q: "The cards wrap into lines, but they touch each other, across and down. Which change adds space between all of them?"
-  options:
-    - "Add gap: 12px; to the .gallery rule"
-    - "Add gap: 12px; to the .item rule"
-    - "Add justify-content: center; to the .gallery rule"
-    - "Add align-items: center; to the .gallery rule"
-  answer: 0
-  fault: logic
-  misconception: flex-on-items
-  explain: "gap goes on the row and spaces the items along each line and between the lines. justify-content moves a group of items, but flex: 1 has already filled every line, and align-items works across a line. gap on an item does nothing."
-```
-
-The cards wrap, but they touch.
-
 ## Modify
 
 ```step
@@ -188,6 +166,28 @@ The six cards share one line and get thin. Give each a minimum width of `120px`.
 ### Fewer per line
 
 Change the minimum width to `180px` and see how many cards fit on a line now.
+
+## Mix it up
+
+```step
+stage: investigate
+code: page.html#review
+insight: "The wrapped cards need the space between them set on the row with gap, the same as a row that does not wrap."
+check:
+  type: question
+  q: "The cards wrap into lines, but they touch each other, across and down. Which change adds space between all of them?"
+  options:
+    - "Add gap: 12px; to the .gallery rule"
+    - "Add gap: 12px; to the .item rule"
+    - "Add justify-content: center; to the .gallery rule"
+    - "Add align-items: center; to the .gallery rule"
+  answer: 0
+  fault: logic
+  misconception: flex-on-items
+  explain: "gap goes on the row and spaces the items along each line and between the lines. justify-content moves a group of items, but flex: 1 has already filled every line, and align-items works across a line. gap on an item does nothing."
+```
+
+The cards wrap, but they touch.
 
 ## Make
 
@@ -252,8 +252,8 @@ explain: |
 
   In the picture, the preview is narrow, so the cards sit in lines of two or three. A wider screen holds more on each line, with the same rules.
 solutions:
-  step-5#t1: page.html#sol-minwidth
-  step-5#t2: page.html#sol-wider
+  step-4#t1: page.html#sol-minwidth
+  step-4#t2: page.html#sol-wider
   step-6: page.html#sol-make
 struggle: "Believing the browser moves items down by itself. Ask what the row has been told about wrapping before saying."
 class:

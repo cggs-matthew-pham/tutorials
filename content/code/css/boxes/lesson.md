@@ -129,33 +129,6 @@ The words are squashed against the border.
 
 This card should have room inside its border.
 
-## Mix it up
-
-```step
-stage: investigate
-code: page.html#review
-insight: "A span is inline, so its width is ignored until display: block makes it a block box."
-check:
-  type: question
-  q: "Both tags should be boxes 120px wide, but each is only as wide as its word. The padding works, the width does not. What fixes the width?"
-  options:
-    - "Add display: block; to the .tag rule, because an inline box ignores its width"
-    - "Add more padding, because padding sets the width of an inline box"
-    - "Add a margin, because inline boxes need space around them"
-    - "Change span to p in the CSS, because width belongs to paragraphs"
-  answer: 0
-  shuffle: false
-  fault: logic
-  feedback:
-    - null
-    - "Padding adds room around the words, but it does not set the width. The width is the part being ignored."
-    - "A margin is space outside the box. It cannot give an inline box a width."
-    - "The CSS rule is for the class .tag, and the tag in the HTML is the span. The span is inline, and that is what ignores the width."
-  explain: "A span is an inline box: it sits in the line of text and ignores width. display: block makes it a block box, so the 120px applies (and each tag then starts a new line)."
-```
-
-Both tags are `span` elements in one line of text.
-
 ## Modify
 
 ```step
@@ -185,6 +158,33 @@ Space the cards apart with `16px` of margin.
 ### A set width
 
 Make each card's content `200px` wide. How wide is each card now? Point at it to check.
+
+## Mix it up
+
+```step
+stage: investigate
+code: page.html#review
+insight: "A span is inline, so its width is ignored until display: block makes it a block box."
+check:
+  type: question
+  q: "Both tags should be boxes 120px wide, but each is only as wide as its word. The padding works, the width does not. What fixes the width?"
+  options:
+    - "Add display: block; to the .tag rule, because an inline box ignores its width"
+    - "Add more padding, because padding sets the width of an inline box"
+    - "Add a margin, because inline boxes need space around them"
+    - "Change span to p in the CSS, because width belongs to paragraphs"
+  answer: 0
+  shuffle: false
+  fault: logic
+  feedback:
+    - null
+    - "Padding adds room around the words, but it does not set the width. The width is the part being ignored."
+    - "A margin is space outside the box. It cannot give an inline box a width."
+    - "The CSS rule is for the class .tag, and the tag in the HTML is the span. The span is inline, and that is what ignores the width."
+  explain: "A span is an inline box: it sits in the line of text and ignores width. display: block makes it a block box, so the 120px applies (and each tag then starts a new line)."
+```
+
+Both tags are `span` elements in one line of text.
 
 ## Make
 
@@ -252,9 +252,9 @@ explain: |
 
   Every size needs a unit, such as `20px`. Without one, the browser ignores it, with no error message.
 solutions:
-  step-5#t1: page.html#sol-padding
-  step-5#t2: page.html#sol-margin
-  step-5#t3: page.html#sol-width
+  step-4#t1: page.html#sol-padding
+  step-4#t2: page.html#sol-margin
+  step-4#t3: page.html#sol-width
   step-6: page.html#sol-make
 struggle: "Working out that padding and border add to the width. Ask for the sum on paper first (200 + 20 + 20 + 5 + 5), then check it with Box model."
 class:

@@ -63,7 +63,6 @@ code: page.html#menu
 try: { playground: html, starter: "page.html#menu", height: 360 }
 insight: "display: flex goes on the box that holds the items; its children line up in a row."
 check: { type: reflect, text: "I can say which box gets display: flex, and what happens to its children." }
-unlocks: [display-flex]
 ```
 
 Compare with your prediction. Then delete the `display: flex;` line to see the menu stack again, and put it back.
@@ -143,33 +142,6 @@ This should be a row.
 
 Think about how the boxes nest.
 
-## Mix it up
-
-```step
-stage: investigate
-code: page.html#review
-insight: "A selector with a space picks the links inside the menu, and padding gives the header room inside its edge."
-check:
-  type: question
-  q: "The menu links should lose their underline without changing the link in the story, and the header should have room between its edge and its words. Which two rules do both jobs?"
-  options:
-    - "nav a { text-decoration: none; } and header { padding: 16px; }"
-    - "a { text-decoration: none; } and header { padding: 16px; }"
-    - "nav a { text-decoration: none; } and header { margin: 16px; }"
-    - "nav { text-decoration: none; } and header { margin: 16px; }"
-  answer: 0
-  shuffle: false
-  fault: logic
-  feedback:
-    - null
-    - "a picks every link on the page, including the one in the story. A space and nav in front picks only the menu's links."
-    - "Margin is space outside the header's edge. Room inside the edge, around the words, is padding."
-    - "A rule on nav does not reach its links, which have their own underline, and margin is space outside the header."
-  explain: "nav a picks only the links inside the nav. Padding is the room inside the header's edge, around its words, and margin would put the space outside it."
-```
-
-The header holds the title and the menu row. The story below has a link of its own.
-
 ## Modify
 
 ```step
@@ -203,6 +175,33 @@ The three cards are stacked. Put them in a row.
 ### Tidy the list
 
 A list has space of its own around it. Remove it from the menu with `margin: 0;` and `padding: 0;`.
+
+## Mix it up
+
+```step
+stage: investigate
+code: page.html#review
+insight: "A selector with a space picks the links inside the menu, and padding gives the header room inside its edge."
+check:
+  type: question
+  q: "The menu links should lose their underline without changing the link in the story, and the header should have room between its edge and its words. Which two rules do both jobs?"
+  options:
+    - "nav a { text-decoration: none; } and header { padding: 16px; }"
+    - "a { text-decoration: none; } and header { padding: 16px; }"
+    - "nav a { text-decoration: none; } and header { margin: 16px; }"
+    - "nav { text-decoration: none; } and header { margin: 16px; }"
+  answer: 0
+  shuffle: false
+  fault: logic
+  feedback:
+    - null
+    - "a picks every link on the page, including the one in the story. A space and nav in front picks only the menu's links."
+    - "Margin is space outside the header's edge. Room inside the edge, around the words, is padding."
+    - "A rule on nav does not reach its links, which have their own underline, and margin is space outside the header."
+  explain: "nav a picks only the links inside the nav. Padding is the room inside the header's edge, around its words, and margin would put the space outside it."
+```
+
+The header holds the title and the menu row. The story below has a link of its own.
 
 ## Make
 
@@ -267,9 +266,9 @@ explain: |
 
   The rule to remember: Flexbox goes on the parent, and the children line up.
 solutions:
-  step-5#t1: page.html#sol-row
-  step-5#t2: page.html#sol-cards
-  step-5#t3: page.html#sol-tidy
+  step-4#t1: page.html#sol-row
+  step-4#t2: page.html#sol-cards
+  step-4#t3: page.html#sol-tidy
   step-6: page.html#sol-make
 struggle: "display: flex goes on the parent, not the items. When the row doesn't appear, ask which box holds the items before saying anything else."
 class:
