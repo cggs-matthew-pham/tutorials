@@ -40,3 +40,11 @@ templates:
       - { m: "August", k: "February", a: "November", b: "September" }
     choices: ["{k}", ["{a}", "That is only three months later. Eclipse seasons are about six months apart."], ["{b}", "That is only one month later. The moon's tilted orbit lines up with the sun about every six months, not every month."]]
     explain: "Eclipse seasons come about six months apart, when the line where the moon's orbit crosses Earth's orbit plane points at the sun. {m} plus six months is {k}."
+  - q: "Putting two ideas together: {o}"
+    cases:
+      - { o: "A total solar eclipse is happening today. What is the moon's phase?", k: "New moon", w1: "Full moon", f1: "A solar eclipse needs the moon between the sun and the Earth, so the near side of the moon is dark: a new moon.", w2: "First quarter", f2: "At a quarter moon the moon is at right angles to the sun, so it cannot block it." }
+      - { o: "A lunar eclipse is happening tonight. What is the moon's phase?", k: "Full moon", w1: "New moon", f1: "A lunar eclipse needs the Earth between the sun and the moon, so the moon is full.", w2: "Last quarter", f2: "At a quarter moon the moon is at right angles to the sun, so it cannot be in Earth's shadow." }
+      - { o: "The moon is at first quarter tonight. Could there be an eclipse tonight?", k: "No: eclipses need the sun, Earth and moon in a line, at new or full moon", w1: "Yes, a lunar eclipse", f1: "A lunar eclipse needs a full moon, with the Earth between the sun and the moon.", w2: "Yes, a solar eclipse", f2: "A solar eclipse needs a new moon, with the moon between the sun and the Earth." }
+      - { o: "There was a total solar eclipse today. About when is the next full moon, when a lunar eclipse could happen?", k: "About two weeks later, though the tilted orbit means there might not be an eclipse", w1: "About a week later", f1: "A week later is first quarter. Full moon is half a cycle, about two weeks, after new moon.", w2: "Tomorrow, so there will be a lunar eclipse", f2: "Full moon is about two weeks after new moon, and the moon's 5° tilt means most full moons have no eclipse." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "Connect the line-up to the phase: a solar eclipse is at new moon, a lunar eclipse at full moon, and the moon's tilted orbit decides whether the line-up is exact enough."

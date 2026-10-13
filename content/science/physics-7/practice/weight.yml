@@ -42,3 +42,8 @@ templates:
     vars: { m: "40..100 by 5" }
     choices: ["Her mass stays {m} kg; her weight gets smaller", ["Her mass gets smaller; her weight stays the same", "Her mass is the amount of matter in her body, and that does not change."], ["Both get smaller", "Her mass does not change. Only her weight does, because the Moon's g is smaller."], ["Her mass becomes 0 kg because there is no gravity", "There is gravity on the Moon (g = 1.6 N/kg). And mass does not depend on gravity."]]
     explain: "Mass is how much matter she has, so it stays {m} kg. Weight is the pull of gravity, and the Moon's g is smaller, so her weight is smaller."
+  - q: "Putting two ideas together: a {m} kg box on the Moon (g = 1.6 N/kg) is pulled straight up by a rope with a force of {m * 8 / 5 + d} N. What is the overall force on the box, in N?"
+    vars: { m: [5, 10, 15, 20, 25], d: "2..9" }
+    answer: "d"
+    feedback: [["m * 8 / 5 + d", "That is the pull of the rope only. The box's weight pulls down too, so work out the weight (mass × g) and subtract it."], ["m * 8 / 5", "That is the box's weight. The overall force is the rope's pull minus the weight."]]
+    explain: "Weight = {m} × 1.6 = {m * 8 / 5} N downwards. The rope pulls {m * 8 / 5 + d} N upwards, so the overall force is {m * 8 / 5 + d} − {m * 8 / 5} = {d} N upwards, and the box speeds up."

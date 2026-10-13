@@ -225,3 +225,27 @@ Plan: `claude/science-review-plan.md` in the project. Year 7 first (23 lessons),
 - **Beyond the plan:** a few extra numeric templates (force-mass patterns, phases days into the cycle, tides hours, spin-orbit spins).
 - **Not done:** teacher timings not updated; progress ticks may shift by one step in lessons that gained a Mix it up step.
 - **Checked:** validate, build, `check-practice` (198 board setups), headless browser: key board, sky quiz (right and wrong), forces tug board, numeric and choices questions, lesson page shows Mix it up and the "Practise this skill" card.
+
+### Combining questions ("Putting two ideas together"), 13 Oct 2026
+
+Matthew's point: science lessons are a sequence (each idea builds on the last), so review should combine ideas the way maths and code do, not only look back at one. Mix it up stays one look-back question per lesson. Combining questions are a template in the later lesson's practice file, starting "Putting two ideas together:", that needs this lesson's idea and the earlier one the plan already names. They also show in the mixed course practice, with no lesson or clip change.
+
+**Year 7 (done):** tides ← phases (what the tides will be a week after a given phase), eclipses ← phases and tides (phase for each eclipse, can there be one at a quarter moon), seasons ← spin and orbit (which way each hemisphere leans in June and December), heating-curve ← states (steam burns, puddles drying, ice in a drink, boiling with the heat up), weight ← balanced forces (a box on the Moon pulled up by a rope: overall force), cascades ← energy flow (why fewer dingoes, why short food chains, a removal that reaches a second predator). Others in Year 7 have no combining template yet: separating and distillation ← heating curve, keys ← kingdoms, force-mass ← unbalanced.
+
+**Years 8–10 plan** (build with the practice pages, one chain per lesson, 3 to 4 situations each; the earlier idea is the lesson the Mix it up table names):
+
+| Course | Combining question joins |
+|---|---|
+| Chemistry 8 | atoms in a formula with brackets ← element or compound; mixture or compound ← separation methods; physical or chemical ← same particles, new look (does the heating curve's flat part count as a new substance?) |
+| Chemistry 9–10 | alpha and beta decay ← inside the atom (new proton and neutron counts); half-life ← isotopes; balancing ← atoms in a formula; mass lost as gas ← atoms before and after; outer electrons ← group behaviour; heat speeds reactions ← particle motion in gases |
+| Biology 8 | tissue, organ, system ← cell shape and job (which cell makes which tissue); plant cell ← energy flow (chloroplast as the start of a food chain) |
+| Biology 9 | pathway parts ← organ systems; nerve or hormone ← stimulus and response; sex cell ← cell shape and job |
+| Biology 10 | DNA, chromosome, gene ← what every cell has; cross ← sex cell chromosome counts; natural selection ← variation and the cross |
+| Physics 8 | transfer or transformation ← moving or stored; useful and wasted ← the energy chain |
+| Physics 9 | heat transfer ← moving particles; sound speed ← squash air or water; efficiency ← energy chain; Sankey ← where the energy goes |
+| Physics 10 | net force ← balanced and unbalanced (Y7); acceleration ← net force; F = ma ← same push, different mass; weight on the Moon ← forces on it; two-step force problems ← acceleration |
+| Earth 8 | crystal size ← heat transfer and the heating curve; layers ← states of matter; plates ← layers |
+| Earth 9 | carbon stores ← compounds; tree carbon ← energy flow; fossil fuels ← carbon stores |
+| Earth 10 | sunlight ← seasons and tilt; temperature balance ← energy conservation; greenhouse ← sunlight and the spectrum; universe ← inside the atom |
+
+Order: Year 8, then 9, then 10, each a push and a review stop.
