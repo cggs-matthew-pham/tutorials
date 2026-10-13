@@ -5,13 +5,6 @@ activities:
     do: |
       Here is the finished program running. By the end of the lesson you will write one like it.
     notes: "Run the finished example on the projector before anything else."
-  - at: predict
-    kind: discussion
-    title: "Vote on the colours"
-    minutes: 3
-    do: |
-      Decide with your partner. Hold up 1, 2, 3 or 4 fingers for the option you chose.
-    notes: "Wrong options: halves, everything, only the first."
   - at: investigate
     title: "Stand on the remainder"
     minutes: 5
@@ -19,7 +12,7 @@ activities:
       Number students 0 to 7. Ask those with i % 2 == 0 to stand, then i % 3 == 0. Which students stand for both?
     notes: "Make the idea physical before it goes back to the screen."
   - at: end
-    title: Show a friend
+    title: Guess the rule
     minutes: 3
     do: |
-      Turn to the next pair. Show a stripe pattern of your own and say its rule.
+      Leave your stripe pattern on screen. The next pair guesses its rule from the picture, then reads your if line to check.

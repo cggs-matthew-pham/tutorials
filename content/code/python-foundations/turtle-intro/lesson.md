@@ -208,14 +208,6 @@ class:
       do: |
         Here is a digital 2 made from five lines of commands. By the end of the lesson you will write commands that draw a 4.
       notes: "Show the finished 2 on the projector before anything else."
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner: what will the turtle draw?
-        Hold up 1, 2 or 3 fingers for the option you chose.
-      notes: "Count the votes before anyone runs it. Ask one pair from each option to say why. The wrong options are two different slips: turns that draw, and right mixed up with left."
     - at: investigate
       title: Play turtle
       minutes: 5
@@ -223,11 +215,6 @@ class:
         One volunteer is the turtle, standing in the middle facing the window.
         The class reads the commands aloud, one at a time. The turtle obeys: 3 steps for each forward, a quarter turn for right(90) or left(90).
       notes: "Papert designed the turtle so learners could play it. Walking the commands makes it concrete that a turn changes which way forward goes."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Turn to the next pair. Show your 4 and point to the line that turns the turtle round for the long stroke.
 ```
 
 ```code lesson.py#digital2

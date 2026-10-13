@@ -186,11 +186,6 @@ class:
       do: |
         Read the program with your partner. One of you says each line aloud; the other keeps the value of tries on paper.
       notes: "Count before anyone runs it. The common slip is forgetting tries starts at 1."
-    - at: end
-      title: Play your partner's game
-      minutes: 3
-      do: |
-        Swap seats and play your partner's dice or guessing game. Does it do what they said?
 ```
 
 ```code lesson.py#fixed

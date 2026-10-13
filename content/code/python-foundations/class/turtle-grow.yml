@@ -5,21 +5,9 @@ activities:
     do: |
       Here is the finished program running. By the end of the lesson you will write one like it.
     notes: "Run the finished example on the projector before anything else."
-  - at: predict
-    kind: discussion
-    title: "Same picture or different?"
-    minutes: 3
-    do: |
-      Decide with your partner. Hold up 1, 2, 3 or 4 fingers for the option you chose.
-    notes: "The counter spiral and the update spiral look the same. Ask why before running."
   - at: investigate
     title: "Trace size"
     minutes: 5
     do: |
       The class calls out size after each pass while one student updates a number on the board.
     notes: "Make the idea physical before it goes back to the screen."
-  - at: end
-    title: Show a friend
-    minutes: 3
-    do: |
-      Turn to the next pair. Show your thick-and-growing spiral and point to the update line.

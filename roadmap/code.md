@@ -29,6 +29,7 @@ Lesson counts include optional lessons. "Pictures" are drawn by `render-pictures
 - **Python Foundations with Turtle** (`code/python`, 15 lessons): built.
   - Lessons, in order: intro, variables, decisions, lists, functions, parameters, returns, functions that decide (12 Oct: the lists and `if` revisit, an `if` inside a function called for every item of a list), modules, events, build a button, then the challenge (Catch the turtle and Power-ups, plus optional Control panel and Game levels).
   - Has teacher layer, voice and concept tags.
+  - Class plans (13 Oct): as for MakeCode, the generic finger votes and "Show a friend" endings were removed from Python Foundations, Python functions (Read a program) and Console; prompts not already in the Predict line of `running:` moved there. Kept end activities test the lesson's idea on a partner's program and do not repeat the exit ticket: Change one number, Guess the rule, Tile gallery, the street gallery walk, and in Console Read it like a computer, Spot the number, Break my machine, Add it up together, Order from my menu, Break my function and the app showcase. Console's two real predict activities stay (Read it like a computer in Guess, Work it out by hand in the app).
 - **Console bridge** (`code/console`, 4 lessons): built 11 Oct.
   - Console mode in the turtle playground with inline `input()`; Playground and Reference pages.
   - The last foundations course: every extension comes after it.

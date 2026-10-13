@@ -163,7 +163,7 @@ goals:
   - I can say why the total starts at 0 before the loop.
   - I can write a loop that adds up what the person types.
 running:
-  - "Predict: take a vote. The wrong options are two real beliefs: that += replaces the total, and that the loop stops at 9."
+  - "Predict: take a vote. The wrong options are two real beliefs: that += replaces the total, and that the loop stops at 9. Ask the 'replaces' voters what += does."
   - "Run: run with 4, 5, 3 and then with 20. Ask how many times the loop ran for 20, and why."
   - "Investigate: the bug is the counter reset. Ask students where the total is set to zero and how often that line runs."
   - "Make: students choose their own scoring theme. Early finishers print an average."
@@ -190,13 +190,6 @@ solutions:
 struggle: "Putting total = 0 inside the loop. Ask when each line runs, and how often."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what the program shows. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the 'replaces' voters what += does. Then ask why the loop does not stop at 9."
     - at: end
       title: Add it up together
       minutes: 4

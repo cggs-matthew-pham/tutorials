@@ -163,14 +163,6 @@ solutions:
 struggle: "Telling apart a name and text in quotes. Ask what print would show for the name without quotes."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what the screen will show.
-        Hold up 1, 2, 3 or 4 fingers for the option you chose.
-      notes: "Count the votes before anyone runs it. Ask one pair from each option to say why. The wrong options are different slips: one line, a literal plus, and no space."
     - at: end
       title: Read it like a computer
       minutes: 3

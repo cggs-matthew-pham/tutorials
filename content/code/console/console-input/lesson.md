@@ -131,7 +131,7 @@ goals:
   - I can use the stored answer in what the program prints.
   - I can say that what is typed comes back as text.
 running:
-  - "Predict: take a vote before running. Wrong options: the name as a word, the prompt stored in the name, no answer at all."
+  - "Predict: take a vote before running. Wrong options: the name as a word, the prompt stored in the name, no answer at all. Ask one pair from each option to explain: the question is shown, not stored."
   - "Run: students run it several times with different answers. Ask: what changed each time, and what stayed the same?"
   - "Investigate: the bug is a very common first slip. Ask what happened to the typed text."
   - "Make: students choose their own two questions. Circulate and ask each to read the program aloud, line by line."
@@ -157,19 +157,6 @@ solutions:
 struggle: "Remembering that input needs a name to catch the answer. Ask where the typed text went."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what the last line shows when Ada is typed.
-        Hold up 1, 2, 3 or 4 fingers for your choice.
-      notes: "Ask one pair from each option to explain. The prompt-stored option is the mistake to draw out: the question is shown, not stored."
-    - at: end
-      title: Interview a partner
-      minutes: 4
-      do: |
-        Run your program and let your partner answer. Swap. Does the sentence make sense with their answers?
 ```
 
 ```code lesson.py#ask

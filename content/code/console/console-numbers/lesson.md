@@ -165,7 +165,7 @@ goals:
   - I can turn typed digits into a number with int.
   - I can calculate with a typed number and print the result.
 running:
-  - "Predict: the 55 answer surprises many students. Let them argue before running."
+  - "Predict: the 55 answer surprises many students. Let them argue before running. Ask the 55 voters to explain, then run it."
   - "Run: run it with 5 and 5, then fix it with int. Ask what changed in the output and why."
   - "Investigate: the trace shows the same two answers giving 53 and 8. Ask students to say which lines work with text and which with numbers."
   - "Make: students use their own price. Ask them to test with a few quantities."
@@ -192,18 +192,6 @@ solutions:
 struggle: "Believing the typed 5 is already a number. Ask whether quotes are around it."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        What will the program print when you type 5 and 5? Hold up 1, 2, 3 or 4 fingers.
-      notes: "Count first. Ask the 55 voters to explain; then run it. The surprise is the lesson."
-    - at: end
-      title: Test it on a friend
-      minutes: 3
-      do: |
-        Ask a partner for a quantity and type it in. Does the total match what you expected?
 ```
 
 ```code lesson.py#add

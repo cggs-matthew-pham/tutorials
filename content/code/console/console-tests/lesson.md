@@ -162,7 +162,7 @@ goals:
   - I can include a wrong choice in my tests.
   - I can fix code until all my tests show True.
 running:
-  - "Predict: the common slip is trusting the first two tests. Let students argue before running."
+  - "Predict: the common slip is trusting the first two tests. Let students argue before running. Ask the all-True voters what would convince them the function works for every input."
   - "Run: ask which test found the bug and why the first two did not."
   - "Investigate: the last trace line has a wrong expectation. A False test does not always mean the function is wrong: it can be the test."
   - "Modify: students add the missing test, watch it show False, and fix the function."
@@ -191,13 +191,6 @@ solutions:
 struggle: "Believing the program works because the easy tests pass. Ask which input has not been tried."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what the three lines show. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the all-True voters what would convince them the function works for every input."
     - at: end
       title: Break my function
       minutes: 4

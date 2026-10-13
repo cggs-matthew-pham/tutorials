@@ -170,7 +170,7 @@ goals:
   - I can say what makes a loop stop.
   - I can write a loop that keeps asking until the answer is right.
 running:
-  - "Predict: take a vote. The wrong options are two real beliefs: that quit is shown too, and that the loop runs once."
+  - "Predict: take a vote. The wrong options are two real beliefs: that quit is shown too, and that the loop runs once. Ask what the program checks before showing anything."
   - "Run: run it with a few words then quit. Ask: when is the condition checked?"
   - "Investigate: the zero-times question is the idea students miss. The bug is a very common slip: the update dedented."
   - "Make: students choose their own secret. Early finishers add a count of the tries (next lesson)."
@@ -197,13 +197,6 @@ solutions:
 struggle: "Seeing that the check happens before every pass. Ask students to say what it asks after the second answer."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what the program shows. Hold up 1, 2, 3 or 4 fingers.
-      notes: "The option that shows 'You typed quit' is the common one. Ask what the program checks before showing anything."
     - at: investigate
       title: Be the loop
       minutes: 4

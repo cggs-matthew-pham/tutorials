@@ -8,7 +8,7 @@ goals:
 before: |
   Run the spiral, then make the thickening spiral from the Make step. The key line is size = size + 5, which looks wrong to anyone used to maths: in Python it means "work out size + 5, then store it back in size". Be ready to say that out loud.
 running:
-  - "Predict: show the spiral and ask whether it looks different from last lesson's. The wrong options include an error, because many students think size cannot equal size + 5."
+  - "Predict: show the spiral and ask whether it looks different from last lesson's. The wrong options include an error, because many students think size cannot equal size + 5. The counter spiral and the update spiral look the same: ask why before running."
   - "Say it aloud: read size = size + 5 right to left. Work out size + 5, then store the answer back in size. Say 'store' instead of 'equals'."
   - "Investigate: settle what is stored, trace the value over four passes, then show the update outside the loop and ask what happens. The last question links back to the counter: two ways to get the same lengths."
   - "Modify: one number changes. Let students predict before they run."

@@ -13,14 +13,6 @@ activities:
       Today's program is 30 lines long. It uses only loops and variables, which you already know.
       The skill today is reading: which part does which job?
     notes: "Play the Watch it built clip on the projector, pausing after each caption: what will the next lines do?"
-  - at: predict
-    kind: discussion
-    title: Vote, then argue
-    minutes: 3
-    do: |
-      With your partner: change houses to 5. What number prints?
-      Write it on a mini whiteboard and hold it up.
-    notes: "The common wrong answer is 400 (5 gaps instead of 4). Ask a 400 pair and a 380 pair to count the gaps on the 4-house picture."
   - at: investigate
     title: Jigsaw the program
     minutes: 8

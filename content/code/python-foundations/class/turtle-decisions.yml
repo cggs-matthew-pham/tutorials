@@ -5,21 +5,9 @@ activities:
     do: |
       Here is the finished program running. By the end of the lesson you will write one like it.
     notes: "Run the finished example on the projector before anything else."
-  - at: predict
-    kind: discussion
-    title: "Vote, then argue"
-    minutes: 3
-    do: |
-      Decide with your partner. Hold up 1, 2, 3 or 4 fingers for the option you chose.
-    notes: "Count votes before anyone runs it. The wrong options are both paths running, taking turns and else covering everything."
   - at: investigate
     title: "Be the condition"
     minutes: 5
     do: |
       Students stand when the condition is true for their pass number. i < 3: who stands? Then change the number.
     notes: "Make the idea physical before it goes back to the screen."
-  - at: end
-    title: Show a friend
-    minutes: 3
-    do: |
-      Turn to the next pair. Show your coloured spiral and say which line chooses the colour.

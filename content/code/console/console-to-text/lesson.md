@@ -160,7 +160,7 @@ goals:
   - I can use str to join a number onto text.
   - I can build a line from text, a name and a calculated number.
 running:
-  - "Predict: show the failing program and vote. Many students expect it to work, and that is the point."
+  - "Predict: show the failing program and vote. Many students expect it to work, and that is the point. Then ask what + was designed to join."
   - "Run: read the friendly error together, then fix it with str."
   - "Investigate: score + score and str(score) + str(score) look alike but give 10 and 55. This prepares for typed numbers next lesson."
   - "Make: students choose their own receipt. Ask each to point to every str in their program."
@@ -187,13 +187,6 @@ solutions:
 struggle: "Remembering which pieces are numbers. Ask which piece has no quotes and works out to a number."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what happens. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Most students expect Score: 5. Let them be surprised, then ask what + was designed to join."
     - at: end
       title: Spot the number
       minutes: 3

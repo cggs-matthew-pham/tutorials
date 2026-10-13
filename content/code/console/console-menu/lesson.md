@@ -200,13 +200,6 @@ solutions:
 struggle: "Forgetting a way out. Ask what makes a while True stop."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what the program shows. Hold up 1, 2, 3 or 4 fingers.
-      notes: "The 'asks again' option is the common slip: students think break leaves only the if."
     - at: end
       title: Order from my menu
       minutes: 4

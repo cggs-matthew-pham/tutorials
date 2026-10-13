@@ -165,7 +165,7 @@ goals:
   - I can say why the check goes before the conversion.
   - I can write a program that replies politely to a typo.
 running:
-  - "Predict: take a vote before running. The wrong options are three real beliefs: int reads words, the crash happens anyway, and nothing happens."
+  - "Predict: take a vote before running. The wrong options are three real beliefs: int reads words, the crash happens anyway, and nothing happens. Ask the 'error' voters what they think isdigit does, and the '13' voters whether Python can read words."
   - "Run: run with 12, twelve and -3. Ask which path each took."
   - "Investigate: the bug is about order. Ask a student to say what the program does first."
   - "Make: students test with a number, zero and a word. Ask them to try something to break it (the empty answer, a space)."
@@ -192,13 +192,6 @@ solutions:
 struggle: "Putting the conversion before the check. Ask which line runs first."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what happens when twelve is typed. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the 'error' voters what they think isdigit does, and the '13' voters whether Python can read words."
     - at: end
       title: Break my machine
       minutes: 4
