@@ -100,6 +100,7 @@ tasks:
       options: ["2 cards", "3 cards", "4 cards", "All 6 cards"]
       answer: 1
       fault: logic
+      misconception: min-width-squeezes
       explain: "Three cards need 3 x 140 + 2 x 12 = 444px, which fits in 450px. Four would need 4 x 140 + 3 x 12 = 596px. On a wider screen, more fit on a line, with the same CSS."
   - check:
       type: question

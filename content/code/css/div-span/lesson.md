@@ -52,6 +52,7 @@ check:
     - "The full width of the page, in both places"
     - "Behind 9 am, the full width. Behind the hat line, only its words"
   fault: logic
+  misconception: block-full-width
   actual: "Only the words behind 9 am, and the full width behind the hat line. A span sits inside the line of text. A div is a block: it starts on a new line and takes the full width."
 ```
 
@@ -99,6 +100,7 @@ tasks:
       options: ["<strong>, <a> and <span>", "<p>, <h1> and <div>", "<h2>, <strong> and <ul>", "<span>, <div> and <a>"]
       answer: 0
       fault: logic
+      misconception: block-full-width
       explain: "Inline: strong, em, a, img and span. Block: p, h1 to h6, ul, ol, table and div. A block starts on a new line and takes the full width."
 ```
 
@@ -123,7 +125,7 @@ tasks:
     check: { type: code, text: "Put each label on its own line, above its box.", rules: { contains: ["display: block;"] } }
     expected: page.html#sol-label
   - hint:
-      - "Wrap both paragraphs in one `<div class=\"packing\">`. The div needs a closing tag after the second paragraph."
+      - "Wrap both paragraphs in one div that has the class. The div needs a closing tag after the second paragraph."
       - "Then write a `.packing` rule with a `background-color`."
     check: { type: code, text: "Group the two paragraphs in a div with the class packing, and give it a background colour.", rules: { tags: [div], contains: ["class=\"packing\"", ".packing {", "background-color:"] } }
     expected: page.html#sol-div
@@ -159,7 +161,7 @@ The words in the div and in the span should both be crimson and 20px. Right now 
 stage: make
 try: { playground: html, starter: "page.html#make", height: 460 }
 hint:
-  - "A span goes around only the words you want to mark: `<span class=\"highlight\">Wednesday at 6 pm</span>`."
+  - "A span goes around only the words you want to mark, and it takes the class you will style."
   - "Then a `<style>` block with a `.highlight` rule and a `background-color`."
 check:
   type: code

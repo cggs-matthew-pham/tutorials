@@ -70,7 +70,7 @@ check: { type: reflect, text: "I can explain what alt is for." }
 unlocks: [img-image]
 ```
 
-Compare the page with your prediction. Then fix the file name to `trophy.svg` and watch the picture appear. Change `100` in `width="100"` to `200` and see the picture grow.
+Compare the page with your prediction. The alt words show because the browser cannot find a file called `trophey.svg`. The table says what each part does.
 
 | Code | What it does | Why |
 |---|---|---|
@@ -132,6 +132,40 @@ Imagine describing the picture to someone on the phone.
 
 One picture does not show.
 
+## Modify
+
+```step
+stage: modify
+insight: "src picks the file, alt describes it, width sizes it: each is its own attribute, changed on its own."
+try: { playground: html, starter: "page.html#modify", height: 420 }
+tasks:
+  - hint:
+      - "The file name is the part inside the quotes after `src=`."
+      - "The picture to show is `medal.svg`. Match the name exactly."
+    check: { type: code, text: "Show the medal picture instead of the trophy.", rules: { contains: ["src=\"medal.svg\""] } }
+    expected: page.html#sol-src
+  - hint:
+      - "`alt` is the attribute with the words in quotes."
+      - "Describe the medal as you would to someone on the phone: A silver medal."
+    check: { type: code, text: "Change the alt words to A silver medal.", rules: { contains: ["alt=\"A silver medal\""] } }
+    expected: page.html#sol-alt
+  - hint: "Change the number inside the quotes after `width=`."
+    check: { type: code, text: "Make the picture 200 wide.", rules: { contains: ["width=\"200\""] } }
+    expected: page.html#sol-width
+```
+
+### Change the picture
+
+Show `medal.svg` instead of the trophy. Only the file name changes.
+
+### Change the alt words
+
+The alt words still describe a trophy. Change them to `A silver medal`.
+
+### Change the size
+
+Make the picture `200` wide.
+
 ## Mix it up
 
 ```step
@@ -167,7 +201,7 @@ Make a page for a school club: a title, a picture, and a paragraph about when it
 ```teacher
 summary: Students show a picture with img, and learn that src must match the file name exactly and that alt describes the picture for people who cannot see it.
 time: 40
-timing: "Predict and Run 10 min · Investigate 10 min · Mix it up 5 min · Make 15 min"
+timing: "Predict and Run 10 min · Investigate 8 min · Modify 8 min · Mix it up 4 min · Make 10 min"
 goals:
   - I can show a picture with <img src="..." alt="...">.
   - I can say why the file name in src must match exactly.
@@ -177,8 +211,9 @@ before: |
 
   An `<img>` tag has no closing tag, and the picture is a separate file. `src` names the file and `alt` describes it. The pictures students can use without uploading are `trophy.svg`, `medal.svg`, `book.svg`, `ball.svg`, `star.svg` and `music.svg`. Two ideas to land: a file name that is nearly right still fails, and alt is not a caption.
 running:
-  - "Predict and Run: many students pick the first option, that the close name still works. Let them run it, see the alt words, then fix the name."
+  - "Predict and Run: many students pick the first option, that the close name still works. Let them run it and see the alt words. Fixing the name comes in Modify."
   - "Investigate: the first question is the one for alt-is-caption. Ask who actually reads alt. Then they apply it to the relay photo and the missing medal."
+  - "Modify: three single changes: the file, the alt words, then the size. Misspell the name once on purpose and ask what shows."
   - "Mix it up: the picture inside a link needs the attribute lesson. Ask where the href goes."
   - "Make: the check ticks when the page has a heading, a picture with alt and a paragraph; read their alt words as a class."
 stuck:
@@ -192,7 +227,7 @@ stuck:
     ask: Does the img tag end with > and have no closing tag?
     fix: End the tag with > straight after the last attribute and start the next element after it.
 stretch: "Add a second picture with its own alt, and make one of the pictures a link to a page."
-support: "Give students the Run page and ask them only to fix the file name, then change the alt words and the width."
+support: "Give students the Modify starter and do the first task together, then change the alt words and the width."
 leads: "Next lesson names some of the elements with a class so that a CSS rule can style only those. Class idea: ask what a person using a screen reader hears when the alt says image."
 exit:
   q: "A student's picture does not show, only a few words. What do they check first, and what are the words?"
@@ -204,7 +239,10 @@ explain: |
   2. `src` names the picture file, and the name must match exactly.
   3. `alt` says what the picture shows. With a wrong `src`, people see the alt words instead.
 solutions:
-  step-5: page.html#sol-make
+  step-4#t1: page.html#sol-src
+  step-4#t2: page.html#sol-alt
+  step-4#t3: page.html#sol-width
+  step-6: page.html#sol-make
 struggle: "Believing that a nearly right file name will do. Let them see the alt words, then ask what the browser can compare the name to."
 class:
   activities:
@@ -228,6 +266,30 @@ class:
 ```code page.html#misspelt
 <h2>Winners</h2>
 <img src="trophey.svg" alt="A gold trophy" width="100">
+<p>Well done, Owls!</p>
+```
+
+```code page.html#modify
+<h2>Winners</h2>
+<img src="trophy.svg" alt="A gold trophy" width="100">
+<p>Well done, Owls!</p>
+```
+
+```code page.html#sol-src
+<h2>Winners</h2>
+<img src="medal.svg" alt="A gold trophy" width="100">
+<p>Well done, Owls!</p>
+```
+
+```code page.html#sol-alt
+<h2>Winners</h2>
+<img src="medal.svg" alt="A silver medal" width="100">
+<p>Well done, Owls!</p>
+```
+
+```code page.html#sol-width
+<h2>Winners</h2>
+<img src="medal.svg" alt="A silver medal" width="200">
 <p>Well done, Owls!</p>
 ```
 

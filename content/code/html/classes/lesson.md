@@ -52,6 +52,7 @@ check:
     - "Only Bring a hat., the first one marked"
     - "None of them, because there is no tag called note"
   fault: logic
+  misconception: class-picks-wrong
   actual: "Bring a hat. and Bring water. The rule .note picks every element marked class=\"note\", however many there are, and leaves the other paragraphs alone."
 ```
 
@@ -68,7 +69,7 @@ check: { type: reflect, text: "I can explain how a class and a dot rule work tog
 unlocks: [class-selector]
 ```
 
-Compare the page with your prediction. Then add `class="note"` to the last paragraph, and watch it join the others. Take the class off `Bring a hat.` and watch it go back.
+Compare the page with your prediction. Find the two paragraphs with `class="note"` and the rule that matches them. The table says what each part does.
 
 | Code | What it does | Why |
 |---|---|---|
@@ -111,6 +112,42 @@ This rule should colour one paragraph.
 
 The rule is right this time.
 
+## Modify
+
+```step
+stage: modify
+insight: "The HTML marks and the CSS styles what is marked: change either side, or add a new pair."
+try: { playground: html, starter: "page.html#modify", height: 440 }
+tasks:
+  - hint:
+      - "Copy `class=\"note\"` from another paragraph into the opening tag of the last one."
+      - "A tag with an attribute looks like `<p class=\"note\">`."
+    check: { type: code, text: "Mark the last paragraph with class note, so it turns crimson too.", rules: { contains: ["class=\"note\">Races start at 9 am."] } }
+    expected: page.html#sol-mark
+  - hint:
+      - "The colour is in the `.note` rule, after `color:`."
+      - "Change the word to `navy`. All the marked paragraphs follow."
+    check: { type: code, text: "Change the colour in the .note rule to navy.", rules: { contains: ["color:navy"] } }
+    expected: page.html#sol-colour
+  - hint:
+      - "Write a second rule in the style block: a dot, the name `big`, then a bigger `font-size` in braces."
+      - "Then add `class=\"big\"` to the opening tag of the first paragraph."
+    check: { type: code, text: "Add a second class, big, with its own rule, and use it on the first paragraph.", rules: { contains: [".big{", "class=\"big\""] } }
+    expected: page.html#sol-big
+```
+
+### Mark one more
+
+Add `class="note"` to the last paragraph, so it joins the others.
+
+### Change the colour
+
+Change `crimson` to `navy` in the rule. Every marked paragraph changes together.
+
+### A second class
+
+Add a class named `big` with `font-size: 24px;`, and use it on the first paragraph.
+
 ## Mix it up
 
 ```step
@@ -122,6 +159,7 @@ check:
   code: page.html#review
   answer: [3, 8]
   fault: syntax
+  misconception: declaration-no-semicolon
   text: "The heading stays plain, and a screen reader has nothing to say about the picture. Click the two lines to fix."
   explain: "Line 3 needs a ; at its end: without it the browser drops both declarations, and the h2 rule does nothing. Line 8 needs alt, to say what the picture shows."
 ```
@@ -148,7 +186,7 @@ This is a results page. Use a class named `winner` for the first-place paragraph
 ```teacher
 summary: Students mark chosen elements with a class and style only those with a dot rule, and find out that the names must match and the dot stays in the CSS.
 time: 40
-timing: "Predict and Run 10 min · Investigate 10 min · Mix it up 5 min · Make 15 min"
+timing: "Predict and Run 10 min · Investigate 8 min · Modify 8 min · Mix it up 4 min · Make 10 min"
 goals:
   - I can mark an element with class="name" and style it with .name in the CSS.
   - I can use one class on several elements.
@@ -158,8 +196,9 @@ before: |
 
   A **class** is a name you choose and put on elements with `class="name"`. In the CSS a rule starting with a dot, `.name { }`, styles every element with that class. The dot is only in the CSS. Students already know that `p { }` styles all paragraphs; the new idea is choosing which ones.
 running:
-  - "Predict and Run: the usual guess is all four paragraphs, or only the first. Let them add and remove the class and watch the colour follow it."
+  - "Predict and Run: the usual guess is all four paragraphs, or only the first. In Modify they add the class and watch the colour follow it."
   - "Investigate: both bugs are silent. Ask what the browser does with a rule that matches nothing: it ignores it."
+  - "Modify: mark one more, change the colour in one place, then add a second class. Ask how many rules changed when the colour changed."
   - "Mix it up: the missing semicolon and the missing alt are both from earlier lessons."
   - "Make: the check ticks when both classes and both rules are there with the names winner and runner. Look at the page for two different colours."
 stuck:
@@ -173,7 +212,7 @@ stuck:
     ask: Where does the dot go?
     fix: The dot is only in the CSS. In the tag write class="winner".
 stretch: "Give one paragraph a third class, `late`, in a third colour. Then give a list item the class `winner` and see that any tag can have one."
-support: "Give students the Run page and ask them only to add the class to one more paragraph and change the colour in the rule."
+support: "Give students the Modify starter and do the first task together, then change the colour in the rule."
 leads: "Next lesson is a whole newsletter page that uses everything so far. Class idea: ask which parts of a school's real page might share a class."
 exit:
   q: "A rule .sale { color: red; } does nothing. Name two things that could be wrong."
@@ -187,7 +226,10 @@ explain: |
 
   In the picture, the two marked paragraphs are crimson and the others are not.
 solutions:
-  step-5: page.html#sol-make
+  step-4#t1: page.html#sol-mark
+  step-4#t2: page.html#sol-colour
+  step-4#t3: page.html#sol-big
+  step-6: page.html#sol-make
 struggle: "Believing the dot belongs in both places. Ask where each of the two names is written, and which one is the CSS."
 class:
   activities:
@@ -219,6 +261,61 @@ class:
 <p class="note">Bring a hat.</p>
 <p class="note">Bring water.</p>
 <p>Races start at 9 am.</p>
+```
+
+```code page.html#modify
+<style>
+  .note {
+    color: crimson;
+  }
+</style>
+<h1>Sports day</h1>
+<p>Sports day is on Friday.</p>
+<p class="note">Bring a hat.</p>
+<p class="note">Bring water.</p>
+<p>Races start at 9 am.</p>
+```
+
+```code page.html#sol-mark
+<style>
+  .note {
+    color: crimson;
+  }
+</style>
+<h1>Sports day</h1>
+<p>Sports day is on Friday.</p>
+<p class="note">Bring a hat.</p>
+<p class="note">Bring water.</p>
+<p class="note">Races start at 9 am.</p>
+```
+
+```code page.html#sol-colour
+<style>
+  .note {
+    color: navy;
+  }
+</style>
+<h1>Sports day</h1>
+<p>Sports day is on Friday.</p>
+<p class="note">Bring a hat.</p>
+<p class="note">Bring water.</p>
+<p class="note">Races start at 9 am.</p>
+```
+
+```code page.html#sol-big
+<style>
+  .note {
+    color: navy;
+  }
+  .big {
+    font-size: 24px;
+  }
+</style>
+<h1>Sports day</h1>
+<p class="big">Sports day is on Friday.</p>
+<p class="note">Bring a hat.</p>
+<p class="note">Bring water.</p>
+<p class="note">Races start at 9 am.</p>
 ```
 
 ```code page.html#typo

@@ -3,10 +3,11 @@ order: 1
 unit: rules
 moveId: rules-combine
 reviews: []
-introduces: [group-selector]
+introduces: []
+recipes: [group-selector]
 assumes: [class, class-selector, css-rule]
 title: Which rule wins
-summary: Find out that an element takes every rule that matches it, that a class beats a tag, and that one comma gives two tags one rule.
+summary: Find out that an element takes every rule that matches it, and that a class beats a tag. A comma list shares one rule, as a handy extra.
 language: html
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8140
@@ -69,7 +70,6 @@ code: page.html#combine
 try: { playground: html, starter: "page.html#combine", height: 400 }
 insight: "Every matching rule applies; a class beats a tag, and a comma gives several selectors one rule."
 check: { type: reflect, text: "I can say what an element does when two rules match it." }
-unlocks: [several-selectors]
 ```
 
 Compare the page with your prediction. Then move the `.note` rule below the `p` rule: nothing changes. Last, change `p {` to `h1, p {` and watch the heading turn teal too.

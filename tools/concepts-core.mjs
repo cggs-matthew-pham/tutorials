@@ -196,7 +196,7 @@ export const CONCEPTS = {
     { id: 'hex-colour', label: 'colours as hex (#1e90ff)', raw: true, re: /:[^;{}]*#[0-9a-fA-F]{3,8}\b/ },
     { id: 'colour-function', label: 'colours as rgb() or hsl()', raw: true, re: /\b(rgba?|hsla?)\(/ },
     { id: 'font', label: 'text styles (font-size, font-family, font-weight, text-align)', raw: true, re: prop('font|font-size|font-family|font-weight|font-style|text-align|text-decoration|line-height') },
-    { id: 'box', label: 'the box (padding, border, margin, width, height)', raw: true, re: prop('padding(-\\w+)?|border(-(top|right|bottom|left|width|style|color))?|margin(-\\w+)?|width|height|max-width|min-height') },
+    { id: 'box', label: 'the box (padding, border, margin, width, height)', raw: true, re: prop('padding(-\\w+)?|border(-(top|right|bottom|left|width|style|color))?|margin(-\\w+)?|width|height|max-width|min-width|min-height') },
     { id: 'rounded', label: 'rounded corners and shadows (border-radius, box-shadow)', raw: true, re: prop('border-radius|box-shadow') },
     { id: 'display', label: 'block or inline (display: block, inline, inline-block, none)', raw: true, re: /display\s*:\s*(block|inline|inline-block|none)\b/ },
     { id: 'flex', label: 'Flexbox (display: flex)', raw: true, re: /display\s*:\s*(inline-)?flex\b/ },

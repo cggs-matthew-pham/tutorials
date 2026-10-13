@@ -198,6 +198,7 @@ check:
     - "The margin row puts 10px of space inside each item, like padding"
   answer: 0
   fault: logic
+  misconception: margin-gap-same
   explain: "Margin is outside each item's border on every side, so it leaves space at the ends of the row as well. gap sits only between neighbouring items. Between two items, margin on both gives 20px."
 ```
 

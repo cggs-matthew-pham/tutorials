@@ -45,6 +45,7 @@ tasks:
       options: ["class=\"winner\" on those two rows, and a .winner rule", "A tr rule with background-color: gold;", "An id=\"winner\" on both rows", "A different <table> for the winners"]
       answer: 0
       fault: logic
+      misconception: tag-rule-some
       explain: "A tag rule such as tr colours every row. A class picks some rows, and one .winner rule colours all of them. An id may name only one element."
 ```
 

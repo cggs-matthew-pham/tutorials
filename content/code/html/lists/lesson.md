@@ -53,6 +53,7 @@ check:
     - "Three items numbered 1, 2 and 3"
     - "Three paragraphs with a gap between them"
   fault: logic
+  misconception: list-tag-decides
   actual: "Three items, each on its own line with a bullet. The <ul> makes the list, and each <li> is one item. The browser adds the bullets."
 ```
 
@@ -108,6 +109,7 @@ tasks:
       options: ["Inside the Relay item", "After the whole list", "Inside the Sprint item", "Before the heading"]
       answer: 0
       fault: logic
+      misconception: nested-list-beside
       explain: "The <ul> is inside the Relay <li>, so it belongs to Relay and is indented under it. An item can hold any tag you have met, including a whole list."
 ```
 

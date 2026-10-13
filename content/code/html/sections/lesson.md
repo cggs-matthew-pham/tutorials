@@ -124,6 +124,42 @@ A whole page, named part by part.
 
 They look the same as no tag at all.
 
+## Modify
+
+```step
+stage: modify
+insight: "Wrap the right words in the right named tag: the page looks the same, but its parts now have names."
+try: { playground: html, starter: "page.html#modify", height: 460, boxes: true }
+tasks:
+  - hint:
+      - "The contact line is at the bottom of the page. Which tag names the bottom?"
+      - "Put `<footer>` before the contact paragraph and `</footer>` after it."
+    check: { type: code, text: "Name the bottom of the page: put the contact line in a footer.", rules: { tags: [footer] } }
+    expected: page.html#sol-footer
+  - hint:
+      - "The list of links is the menu. Which tag names the main menu?"
+      - "Put `<nav>` before the `<ul>` and `</nav>` after its closing `</ul>`."
+    check: { type: code, text: "Name the menu: put the list of links in a nav.", rules: { tags: [footer, nav] } }
+    expected: page.html#sol-nav
+  - hint:
+      - "`<main>` goes around the content, and `<section>` goes around one part of it, inside the main."
+      - "Put the `<h2>` and its paragraph inside a section, and the section inside a main."
+    check: { type: code, text: "Name the content: put the heading and its paragraph in a section inside a main.", rules: { tags: [footer, nav, main, section] } }
+    expected: page.html#sol-main
+```
+
+### Name the bottom
+
+Put the contact line in a `<footer>`.
+
+### Name the menu
+
+Put the list of links in a `<nav>`. Turn Boxes on and off: the page looks the same.
+
+### Name the content
+
+Put the heading `When we meet` and its paragraph in a `<section>`, and the section in a `<main>`.
+
 ## Mix it up
 
 ```step
@@ -171,7 +207,7 @@ This club homepage is all plain text. Name its parts with `<header>`, `<nav>` (a
 ```teacher
 summary: Students name the parts of a page with header, nav, main, section and footer, and learn that the names change nothing you can see but help screen readers and search engines.
 time: 40
-timing: "Predict and Run 10 min · Investigate 10 min · Mix it up 5 min · Make 15 min"
+timing: "Predict and Run 10 min · Investigate 8 min · Modify 8 min · Mix it up 4 min · Make 10 min"
 goals:
   - I can name the top, menu, content and bottom of a page with header, nav, main, section and footer.
   - I can explain why these tags change nothing you can see, and why they still matter.
@@ -183,6 +219,7 @@ before: |
 running:
   - "Predict: most students expect something to change. Compare the two files, then run it with **Boxes** on to see the named parts, and off to see nothing."
   - "Investigate: the match task names each part. For why it matters, ask a student to imagine using a page only by listening to it."
+  - "Modify: footer first, then nav, then main with a section inside. With Boxes on, ask which box each part sits in."
   - "Mix it up: two slips on one page, one in a rule and one in the menu. Ask which line each would change before they click."
   - "Make: several answers are fine as long as the parts nest sensibly. A link list goes inside `<nav>`, and the `<nav>` inside the `<header>`."
 stuck:
@@ -209,7 +246,10 @@ explain: |
   3. `<footer>` is the bottom: contact details and small print.
   4. They look like plain text. Their names tell browsers and screen readers what each part is.
 solutions:
-  step-5: page.html#sol-make
+  step-4#t1: page.html#sol-footer
+  step-4#t2: page.html#sol-nav
+  step-4#t3: page.html#sol-main
+  step-6: page.html#sol-make
 struggle: "Section tags change nothing you can see, which feels like a mistake. Ask what header and footer are for if not looks; Boxes shows the named parts."
 class:
   activities:
@@ -270,6 +310,64 @@ class:
     </ul>
   </nav>
 </header>
+<main>
+  <section>
+    <h2>When we meet</h2>
+    <p>Wednesdays at lunch.</p>
+  </section>
+</main>
+<footer>
+  <p>Contact the teacher in charge.</p>
+</footer>
+```
+
+```code page.html#modify
+<h1>Chess club</h1>
+<ul>
+  <li><a href="https://example.com/home">Home</a></li>
+  <li><a href="https://example.com/rules">Rules</a></li>
+</ul>
+<h2>When we meet</h2>
+<p>Wednesdays at lunch.</p>
+<p>Contact the teacher in charge.</p>
+```
+
+```code page.html#sol-footer
+<h1>Chess club</h1>
+<ul>
+  <li><a href="https://example.com/home">Home</a></li>
+  <li><a href="https://example.com/rules">Rules</a></li>
+</ul>
+<h2>When we meet</h2>
+<p>Wednesdays at lunch.</p>
+<footer>
+  <p>Contact the teacher in charge.</p>
+</footer>
+```
+
+```code page.html#sol-nav
+<h1>Chess club</h1>
+<nav>
+  <ul>
+    <li><a href="https://example.com/home">Home</a></li>
+    <li><a href="https://example.com/rules">Rules</a></li>
+  </ul>
+</nav>
+<h2>When we meet</h2>
+<p>Wednesdays at lunch.</p>
+<footer>
+  <p>Contact the teacher in charge.</p>
+</footer>
+```
+
+```code page.html#sol-main
+<h1>Chess club</h1>
+<nav>
+  <ul>
+    <li><a href="https://example.com/home">Home</a></li>
+    <li><a href="https://example.com/rules">Rules</a></li>
+  </ul>
+</nav>
 <main>
   <section>
     <h2>When we meet</h2>

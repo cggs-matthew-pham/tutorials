@@ -176,6 +176,7 @@ check:
   answer: 0
   shuffle: false
   fault: logic
+  misconception: inline-ignores-width
   feedback:
     - null
     - "Padding adds room around the words, but it does not set the width. The width is the part being ignored."

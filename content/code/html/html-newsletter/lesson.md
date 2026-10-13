@@ -49,6 +49,7 @@ tasks:
         - "The words inside the <body>"
       answer: 0
       fault: logic
+      misconception: rule-styles-one
       explain: "The h2 rule says how every h2 looks, so changing its colour changes them all at once. The title, the first line and the words do not set colours."
 ```
 

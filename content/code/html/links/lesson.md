@@ -64,7 +64,7 @@ check: { type: reflect, text: "I can say which part of a link people see, and wh
 unlocks: [a-link]
 ```
 
-Compare the page with your prediction, then click a link (it opens in a new tab). Change the address inside the quotes of the first link to `https://example.com/timetable`: the words stay the same. Now change the words only: the address stays the same.
+Compare the page with your prediction, then click a link (it opens in a new tab). Look for the two parts: the words that show, and the address that does not.
 
 | Code | What it does | Why |
 |---|---|---|
@@ -110,6 +110,42 @@ Think about which part names the attribute, and where it goes.
 
 Two of these three links work.
 
+## Modify
+
+```step
+stage: modify
+insight: "The words and the address are separate parts of a link: change one and the other stays."
+try: { playground: html, starter: "page.html#modify", height: 420 }
+tasks:
+  - hint:
+      - "The address is the part inside the quotes after `href=`."
+      - "Change only what is between the quotes. Leave the words alone."
+    check: { type: code, text: "Change the link's address to https://example.com/join.", rules: { contains: ["href=\"https://example.com/join\""] } }
+    expected: page.html#sol-address
+  - hint:
+      - "The words people click sit between `<a ...>` and `</a>`."
+      - "Change only those words. Leave the address alone."
+    check: { type: code, text: "Change the words of the link to rulebook.", rules: { contains: [">rulebook</a>"] } }
+    expected: page.html#sol-words
+  - hint:
+      - "Put `<a href=\"...\">` just before the word timetable and `</a>` just after it."
+      - "The address is `https://example.com/timetable`."
+    check: { type: code, text: "Make the word timetable a link.", rules: { contains: ["href=\"https://example.com/timetable\""] } }
+    expected: page.html#sol-timetable
+```
+
+### Change the address
+
+Make the link go to `https://example.com/join`. The words stay the same.
+
+### Change the words
+
+Change the link's words to `rulebook`. The address stays the same.
+
+### Add a link
+
+The last line has a word that should click. Make `timetable` a link to `https://example.com/timetable`.
+
 ## Mix it up
 
 ```step
@@ -147,7 +183,7 @@ Here is a top 5 list. Change the title and the items to your own favourites (boo
 ```teacher
 summary: Students find out that a link is words plus an address in an href attribute, and that only the words show on the page.
 time: 40
-timing: "Predict and Run 12 min · Investigate 10 min · Mix it up 5 min · Make 13 min"
+timing: "Predict and Run 10 min · Investigate 8 min · Modify 8 min · Mix it up 4 min · Make 10 min"
 goals:
   - I can write a link with <a href="..."> and </a>.
   - I can say which part of a link people see and which part says where it goes.
@@ -157,8 +193,9 @@ before: |
 
   An **attribute** is extra information about a tag, written inside the opening tag as `name="value"`. `href` is the attribute that holds a link's address. The surprise for students is that the address does not show: only the words between `<a>` and `</a>` do. Links to `example.com` open a real placeholder page, so students can test a click.
 running:
-  - "Predict and Run: many students pick the option where the address shows. Let them run it and click, then change only the address and only the words so they see the two parts are separate."
+  - "Predict and Run: many students pick the option where the address shows. Let them run it and click, then use Modify to change only the address and only the words, so they see the two parts are separate."
   - "Investigate: the question is about where the attribute goes. In the bug, read line 4 aloud: the text after the > is just text."
+  - "Modify: three small changes: the address only, the words only, then a new link. Ask which part of the tag each change touched."
   - "Mix it up: the list bug is from last lesson. Ask what closed the list before the third item."
   - "Make: the check ticks when the page has a list with a link in it; look at the page to see that two items are links."
 stuck:
@@ -172,7 +209,7 @@ stuck:
     ask: Where does the link end?
     fix: Add </a> straight after the words that should click.
 stretch: "Make a link to one of your own other pages in the playground, or a whole sentence into a link, and test where it ends."
-support: "Give students the Run page and ask them only to change the address and the words of one link, then link one item in the Make list."
+support: "Give students the Modify starter and do the first task together, then link one item in the Make list."
 leads: "Next lesson adds pictures, which are another tag with attributes: a name for the file and words for people who cannot see it. Class idea: show a real school page and hover over links to see the address in the browser's status bar."
 exit:
   q: "In <a href=\"https://example.com/rules\">club rules</a>, which part do people see on the page, and which part says where the link goes?"
@@ -186,7 +223,10 @@ explain: |
 
   In the picture, Boxes is on: the link is one box, with its words inside.
 solutions:
-  step-5: page.html#sol-make
+  step-4#t1: page.html#sol-address
+  step-4#t2: page.html#sol-words
+  step-4#t3: page.html#sol-timetable
+  step-6: page.html#sol-make
 struggle: "Putting the attribute in the right place. Ask which part of the tag is the opening one, rather than fixing the line."
 class:
   activities:
@@ -214,6 +254,30 @@ class:
 ```code page.html#run
 <h1>Sports day</h1>
 <p>Read the <a href="https://example.com/rules">club rules</a> before you join.</p>
+<p>Ask your house captain for the <a href="https://example.com/timetable">timetable</a>.</p>
+```
+
+```code page.html#modify
+<h1>Sports day</h1>
+<p>Read the <a href="https://example.com/rules">club rules</a> before you join.</p>
+<p>Ask your house captain for the timetable.</p>
+```
+
+```code page.html#sol-address
+<h1>Sports day</h1>
+<p>Read the <a href="https://example.com/join">club rules</a> before you join.</p>
+<p>Ask your house captain for the timetable.</p>
+```
+
+```code page.html#sol-words
+<h1>Sports day</h1>
+<p>Read the <a href="https://example.com/join">rulebook</a> before you join.</p>
+<p>Ask your house captain for the timetable.</p>
+```
+
+```code page.html#sol-timetable
+<h1>Sports day</h1>
+<p>Read the <a href="https://example.com/join">rulebook</a> before you join.</p>
 <p>Ask your house captain for the <a href="https://example.com/timetable">timetable</a>.</p>
 ```
 

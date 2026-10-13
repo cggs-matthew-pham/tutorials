@@ -64,7 +64,7 @@ check: { type: reflect, text: "I can say what has to match for a link to jump to
 unlocks: [jump-link]
 ```
 
-Compare the page with your prediction. Click each link in the menu, then scroll back up. Then change `id="results"` to `id="result"` and click Results again.
+Compare the page with your prediction. Click each link in the menu, then scroll back up. Find the name that appears in both a link and a heading.
 
 | Code | What it does | Why |
 |---|---|---|
@@ -125,6 +125,42 @@ Two parts share one name.
 
 One link in the menu does not jump.
 
+## Modify
+
+```step
+stage: modify
+insight: "A jump needs a name on the place and a link with a # and the same name: add them one at a time."
+try: { playground: html, starter: "page.html#modify", height: 440 }
+tasks:
+  - hint:
+      - "`id` is an attribute, so it goes inside the opening tag of the heading."
+      - "Write `<h2 id=\"meet\">` for the When we meet heading."
+    check: { type: code, text: "Give the When we meet heading the id meet.", rules: { contains: ["id=\"meet\""] } }
+    expected: page.html#sol-id
+  - hint:
+      - "Copy one of the menu items and change its words to When we meet."
+      - "The address is the id with a # in front: `href=\"#meet\"`."
+    check: { type: code, text: "Add a menu link to the meet heading.", rules: { contains: ["id=\"meet\"", "href=\"#meet\""] } }
+    expected: page.html#sol-link
+  - hint:
+      - "Give the `<h1>` the id `top`, then add a paragraph at the bottom with a link to `#top`."
+      - "Write `<a href=\"#top\">Back to the top</a>` inside a `<p>`."
+    check: { type: code, text: "Add a link at the bottom that jumps back to the top.", rules: { contains: ["id=\"top\"", "href=\"#top\""] } }
+    expected: page.html#sol-top
+```
+
+### Name a place
+
+Give the `When we meet` heading the id `meet`. Nothing changes on the page yet.
+
+### Link to it
+
+Add a menu item that jumps to `meet`. Click it to test.
+
+### Back to the top
+
+Name the title `top`, and add a link at the bottom of the page that jumps back to it.
+
 ## Mix it up
 
 ```step
@@ -146,7 +182,7 @@ This mixes the last lessons: the parts of a page, and a list of links.
 stage: make
 try: { playground: html, starter: "page.html#make", height: 440 }
 hint:
-  - "Give each heading an id: `<h2 id=\"rules\">`. Then add the `<nav>` with a list of links under the title."
+  - "Give each heading an id of its own. Then add the `<nav>` with a list of links under the title."
   - "Each link is `<a href=\"#rules\">`, with the same name as the id, and the `#` in front."
   - "Click each link to test it. A link that does nothing has a name that does not match."
 check:
@@ -169,7 +205,7 @@ This page has three parts but no menu. Add a `<nav>` with a list of three links 
 ```teacher
 summary: Students name a place on a page with id and link to it with href="#name", so a menu can jump to each part of a long page.
 time: 40
-timing: "Predict and Run 10 min · Investigate 10 min · Mix it up 4 min · Make 16 min"
+timing: "Predict and Run 10 min · Investigate 8 min · Modify 8 min · Mix it up 4 min · Make 12 min"
 goals:
   - I can give a heading a name with id.
   - I can link to it with href starting with #.
@@ -180,7 +216,8 @@ before: |
   An **id** is an attribute that gives one element a name. A link whose `href` starts with `#` goes to the element with that name on the same page. The # is the whole difference between "this page" and "another page". Pages need to be long enough to scroll, or the jump is invisible: make the preview small or add a paragraph.
 running:
   - "Predict: most students pick the first option, but some think the link opens a new page, because every link they have written so far did. Run it and click each link."
-  - "Run: the id change to `result` is the key moment. The link stops working and nothing says why; matching names are all the browser has."
+  - "Run: ask which name appears in both a link and a heading. Then try changing id=\"results\" to id=\"result\": the link stops working and nothing says why. Matching names are all the browser has."
+  - "Modify: name a place, link to it, then link back to the top. After each step, click the new link to test it."
   - "Investigate: the shared id has no visible symptom except the second part never being reached. Ask them to find it by clicking."
   - "Make: the check needs the six exact fragments. If it does not tick, compare each href with its id letter by letter."
 stuck:
@@ -208,7 +245,10 @@ explain: |
 
   Each name belongs to one element, so no two elements share an id.
 solutions:
-  step-5: page.html#sol-make
+  step-4#t1: page.html#sol-id
+  step-4#t2: page.html#sol-link
+  step-4#t3: page.html#sol-top
+  step-6: page.html#sol-make
 struggle: "Matching the name in the href and the id exactly, and remembering the # in the href only. Have them click every link to test it."
 class:
   activities:
@@ -252,6 +292,113 @@ class:
     <p>Come to room 4 on Wednesday and ask for a game.</p>
   </section>
 </main>
+```
+
+```code page.html#modify
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <ul>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>When we meet</h2>
+    <p>Wednesdays at lunch in room 4. Bring a board if you have one.</p>
+  </section>
+  <section>
+    <h2 id="results">Results</h2>
+    <p>The Owls won the autumn ladder. The Hawks came second.</p>
+  </section>
+  <section>
+    <h2 id="join">Join</h2>
+    <p>Come to room 4 on Wednesday and ask for a game.</p>
+  </section>
+</main>
+```
+
+```code page.html#sol-id
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <ul>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2 id="meet">When we meet</h2>
+    <p>Wednesdays at lunch in room 4. Bring a board if you have one.</p>
+  </section>
+  <section>
+    <h2 id="results">Results</h2>
+    <p>The Owls won the autumn ladder. The Hawks came second.</p>
+  </section>
+  <section>
+    <h2 id="join">Join</h2>
+    <p>Come to room 4 on Wednesday and ask for a game.</p>
+  </section>
+</main>
+```
+
+```code page.html#sol-link
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <ul>
+      <li><a href="#meet">When we meet</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2 id="meet">When we meet</h2>
+    <p>Wednesdays at lunch in room 4. Bring a board if you have one.</p>
+  </section>
+  <section>
+    <h2 id="results">Results</h2>
+    <p>The Owls won the autumn ladder. The Hawks came second.</p>
+  </section>
+  <section>
+    <h2 id="join">Join</h2>
+    <p>Come to room 4 on Wednesday and ask for a game.</p>
+  </section>
+</main>
+```
+
+```code page.html#sol-top
+<header>
+  <h1 id="top">Chess club</h1>
+  <nav>
+    <ul>
+      <li><a href="#meet">When we meet</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#join">Join</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2 id="meet">When we meet</h2>
+    <p>Wednesdays at lunch in room 4. Bring a board if you have one.</p>
+  </section>
+  <section>
+    <h2 id="results">Results</h2>
+    <p>The Owls won the autumn ladder. The Hawks came second.</p>
+  </section>
+  <section>
+    <h2 id="join">Join</h2>
+    <p>Come to room 4 on Wednesday and ask for a game.</p>
+  </section>
+</main>
+<p><a href="#top">Back to the top</a></p>
 ```
 
 ```code page.html#nohash

@@ -50,6 +50,7 @@ check:
     - "Only the bullets go; the items stay stacked"
     - "Two on the first line and one on the next"
   fault: logic
+  misconception: flex-parent-no-effect
   actual: "Side by side in a row. display: flex on the ul lines up its children, the li items. (list-style: none removes the bullets, as on real menus, and the margin on each li keeps the words apart.)"
 ```
 
@@ -120,6 +121,7 @@ tasks:
       answer: 0
       shuffle: false
       fault: logic
+      misconception: flex-reaches-descendants
       feedback:
         - null
         - "The links are inside the li items, one level further down. They stay inside their li."
@@ -159,7 +161,7 @@ tasks:
       - "Write a new `.cards` rule and put `display: flex;` first in it."
     check: { type: code, text: "Put the cards in a row.", rules: { contains: [".cards{display:flex;"] } }
     expected: page.html#sol-cards
-  - hint: "The list has its own space around it. Set `margin: 0;` and `padding: 0;` in the `.menu` rule."
+  - hint: "The list has its own space around it. Which two box properties would remove it? Set them in the `.menu` rule."
     check: { type: code, text: "Remove the menu's own spacing.", rules: { contains: ["margin:0;", "padding:0;"] } }
     expected: page.html#sol-tidy
 ```
@@ -193,6 +195,7 @@ check:
   answer: 0
   shuffle: false
   fault: logic
+  misconception: space-means-both
   feedback:
     - null
     - "a picks every link on the page, including the one in the story. A space and nav in front picks only the menu's links."

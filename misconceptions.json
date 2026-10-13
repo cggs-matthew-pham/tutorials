@@ -366,5 +366,18 @@
   "justify-align-swapped": {"home": "code/css/flex-space", "text": "justify-content and align-items do the same job; in fact justify-content works along the row and align-items works across it."},
   "wrap-shrinks": {"home": "code/css/flex-wrap", "text": "Items in a flex row move down to a new line by themselves when there is no room; in fact without flex-wrap: wrap they squash or run off the edge."},
   "fixed-width-fits": {"home": "code/css/flex-wrap", "text": "A fixed width such as 400px fits any screen; in fact it is the same size on a phone, so cards that fit a laptop overflow."},
-  "class-per-copy": {"home": "code/css/components", "text": "Each copy of a card needs its own class and its own rule (.card1, .card2); in fact copies share one class, and one rule styles them all."}
+  "class-per-copy": {"home": "code/css/components", "text": "Each copy of a card needs its own class and its own rule (.card1, .card2); in fact copies share one class, and one rule styles them all."},
+  "class-picks-wrong": {"home": "code/html/classes", "text": "A class rule such as .note styles every paragraph, or only the first one; in fact it styles exactly the elements marked with that class, however many."},
+  "declaration-no-semicolon": {"home": "code/html/selectors", "text": "A declaration in a rule can run into the next one without a semicolon; in fact the missing ; makes the browser drop both."},
+  "inline-ignores-width": {"home": "code/css/div-span", "text": "An inline box such as a span can be given a width like any other box; in fact an inline box ignores width until display: block makes it a block box."},
+  "block-full-width": {"home": "code/css/div-span", "text": "Every box is only as wide as its words, and a div or p sits in the line like a span; in fact a block box starts a new line and takes the full width, and only an inline box stays as wide as its words."},
+  "tag-name-sets-layout": {"home": "code/css/div-span", "text": "A tag such as nav or header decides how its contents are laid out (links in a row, sections in a column); in fact the kind of box, block or inline, decides, and a tag only names the part."},
+  "margin-gap-same": {"home": "code/css/flex-space", "text": "margin and gap do the same job, adding space outside every item; in fact margin surrounds each item, ends of the row included, and gap sits only between neighbours."},
+  "min-width-squeezes": {"home": "code/css/flex-wrap", "text": "Every card fits on one line however big its min-width is, or the gaps do not count; in fact min-width is a floor, so only as many cards fit as the line has room for, gaps included."},
+  "flex-parent-no-effect": {"home": "code/css/flexbox", "text": "display: flex on a list only changes the list itself, so the items stay stacked; in fact it lines up all of its children in a row."},
+  "flex-reaches-descendants": {"home": "code/css/flexbox", "text": "display: flex lines up every box inside the parent, grandchildren too; in fact only its direct children line up, and their own contents stay inside them."},
+  "tag-rule-some": {"home": "code/html/classes", "text": "A tag rule such as tr { } colours only the rows I want; in fact it styles every tr, and a class is what picks some of them."},
+  "inner-tag-replaces": {"home": "code/html/html-nesting", "text": "A tag inside another tag replaces the outer one, or cannot be there at all; in fact the inner tag adds its look to the outer one, so the words get both."},
+  "list-tag-decides": {"home": "code/html/lists", "text": "The items of a list run together on one line, or become paragraphs, whatever the tag; in fact ul gives bullets, ol gives numbers, and each li starts its own line."},
+  "nested-list-beside": {"home": "code/html/lists", "text": "A list for one item goes after the whole list, or inside the wrong item; in fact it sits inside its own li, and shows indented under it."}
 }

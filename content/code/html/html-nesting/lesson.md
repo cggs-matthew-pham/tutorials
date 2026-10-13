@@ -46,6 +46,7 @@ check:
     - "Only water, and it loses its bold: the inner tag replaces the outer one"
     - "None: a tag cannot go inside another tag"
   fault: logic
+  misconception: inner-tag-replaces
   actual: "Only water. The <em> is inside the <strong>, so water gets both looks. a hat and sunscreen are only inside <strong>, so they are bold but not slanted."
 ```
 
@@ -127,7 +128,7 @@ tasks:
     check: { type: code, text: "Close the tags in the right order.", rules: { contains: ["water</em></strong>"] } }
     expected: page.html#sol-fix
   - hint:
-      - "Put `<strong>` outside and `<em>` inside: `<strong><em>Friday</em></strong>`."
+      - "Put one tag outside and the other inside, and close them in the reverse order."
       - "Close them in reverse order."
     check: { type: code, text: "Make Friday both important and stressed.", rules: { contains: ["<strong><em>Friday</em></strong>"] } }
     expected: page.html#sol-both

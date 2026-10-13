@@ -115,6 +115,7 @@ tasks:
         - "Rewrite all 40 pages"
       answer: 0
       fault: logic
+      misconception: class-per-copy
       explain: "The looks live in the rule, not in the cards. Change the rule once and every copy of the component, on every page that loads the file, follows."
 ```
 
@@ -182,7 +183,7 @@ Two things are wrong on this page: one card looks different, and the cards are s
 stage: make
 try: { playground: html, starter: "page.html#make", height: 480, boxes: true }
 hint:
-  - "Start with the hero: a `<section class=\"hero\">` with an `h1`, a `p` and a link. Then the `.hero` rule."
+  - "Start with the hero: one section with a heading, a line and a link, given a class. Then write the rule for that class."
   - "Write one card as `<section class=\"card\">` with an `h2` and a `p`, inside a `<div class=\"cards\">`. Then the `.cards` rule (a wrapping flex row) and the `.card` rule."
   - "When three cards work, copy one and change its words. A fourth card needs no new CSS."
 check:
