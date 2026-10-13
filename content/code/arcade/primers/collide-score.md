@@ -36,4 +36,4 @@ Where it breaks: an overlap is not a single tap. It runs **every frame** (about 
 
 ## How it connects
 
-The Decide unit adds `if` inside **on game update**, checked every frame (wrap-around, safe zones, chasers). Projectiles bring a fourth kind, and the final challenge, Space dodger, is this unit's dodge game grown up.
+The Decide unit adds `if` inside **on game update**, checked every frame (wrap-around, safe zones, chasers). Projectiles bring another kind, and the final challenge, Space dodger, is this unit's dodge game grown up.

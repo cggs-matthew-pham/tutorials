@@ -1,11 +1,14 @@
 ---
 order: 2
 unit: show-move
+moveId: move-with-buttons
+reviews: []
+assumes: [variable]
 title: Move with the controller
-summary: Fly a sprite with the arrow keys, and set a speed so the engine keeps another sprite moving by itself.
+summary: Hand a sprite to the arrow keys with move with buttons, and choose how fast it goes across and down.
 language: makecode
-explainPicture: moving.ts#drift
-hook: "A car in a racing game, a cloud drifting past, a ball in pong: none of them is pushed by hand every frame. The game is told a speed, and keeps them moving."
+explainPicture: lesson.ts#fly
+hook: "In every game you have played, a button press becomes movement on the screen. One block makes that link."
 app:
   command: "node \"$REPO_ROOT/tools/serve.mjs\" \"$OUT_DIR\" 8131"
   url: "http://127.0.0.1:8131/_playground-explain/index.html"
@@ -13,30 +16,27 @@ app:
   layout: full
 voice: true
 explainClip:
-  query: { code: "@moving.ts#drift", lesson: "code/arcade/arcade-moving", target: "arcade" }
-  caption: "A sprite has a position and a velocity"
-  say: "A sprite has a position and a velocity."
+  query: { code: "@lesson.ts#fly", lesson: "code/arcade/arcade-moving", target: "arcade" }
+  caption: "move with buttons hands a sprite to the arrow keys"
+  say: "move with buttons hands a sprite to the arrow keys."
   pacing: { keyDelayMs: 22 }
   clip:
     - wait: 600
     - caption:
-        text: "Position (x, y) is where it is now. Setting it moves it once."
-        say: "Position is where it is now. Setting it moves the sprite once."
+        text: "It moves while a key is held, and stops when you let go."
+        say: "It moves while a key is held, and stops when you let go."
     - caption:
-        text: "Velocity (vx, vy) is a speed, in pixels per second."
-        say: "Velocity is a speed. The engine moves the sprite a little every frame."
+        text: "The two numbers are speeds: across, then down."
+        say: "The two numbers are speeds. The first is across, the second is up and down."
     - click: "Run"
     - wait: 600
     - caption:
-        text: "It keeps moving until something changes it."
-        say: "So it keeps moving until something changes it, like a wall or a new speed."
+        text: "A speed of 0 means no movement that way."
+        say: "A speed of zero means no movement that way at all."
     - wait: 1200
     - expect: { selector: "#out h2", contains: "Running" }
 ---
-Last lesson every sprite stood still. Now they move, in two ways:
-
-- **with the controller**: the player steers with the arrow keys (or W, A, S, D).
-- **with a speed**, called a **velocity**: the game engine moves the sprite by itself, a little every frame. A **frame** is one redraw of the screen, about 30 times a second.
+Last lesson every sprite stood still. Now the player steers one. **move with buttons** (in **Controller**) hands a sprite to the arrow keys (or W, A, S, D). Click the **+** on the block to show its two numbers: the **speed across** and the **speed up and down**, in pixels per second.
 
 Click the simulator first, so it hears the keyboard. The **A** button is space (or Z) on the keyboard.
 
@@ -44,85 +44,75 @@ Click the simulator first, so it hears the keyboard. The **A** button is space (
 
 ```step
 stage: predict
-code: moving.ts#predict
+code: lesson.ts#predict
 check:
   type: predict
-  q: "The ball's velocity is set to 50 across and 0 down. What does the ball do?"
-  options: ["Moves 50 pixels right, then stops", "Keeps moving right, off the edge of the screen", "Jumps to x 50 and stays there", "Moves 50 pixels down, then stops"]
-  actual: "It keeps moving right and leaves the screen. A velocity is a speed (50 pixels every second), not a distance, so the engine keeps moving the ball until something changes the speed."
+  q: "The plane has move with buttons with speeds 100 and 0. You hold the up arrow. What happens?"
+  options: ["Nothing: the plane can only move left and right", "The plane flies up", "The plane jumps to x 100, y 0", "The plane flies up and to the right"]
+  fault: logic
+  misconception: moves-to-numbers
+  actual: "Nothing. The second number is the speed up and down, and it is 0, so up and down do nothing. The numbers are speeds, not a place."
 ```
 
-There is no loop here: the blocks in **on start** run once. Lock in what you think the ball will do.
+Lock in your prediction, then try it.
 
 ## Run
 
 ```step
 stage: run
-code: moving.ts#predict
-try: { playground: arcade, starter: "moving.ts#predict" }
-check: { type: reflect, text: "I watched the ball and compared it with my prediction." }
+code: lesson.ts#predict
+try: { playground: arcade, starter: "lesson.ts#predict" }
+check: { type: reflect, text: "I pressed all four arrow keys and compared what happened with my prediction." }
 ```
 
-Watch the ball. Press the restart button under the simulator to see it again.
+Click the game screen, then press each arrow key.
 
 ## Investigate
 
 ```step
 stage: investigate
-code: moving.ts#drift
-insight: "A position is where a sprite is now; setting it moves the sprite once. A velocity is a speed in pixels per second: the engine moves the sprite a little every frame, so it keeps moving until something changes the velocity."
-try: { playground: arcade, starter: "moving.ts#drift" }
+code: lesson.ts#fly
+insight: "move with buttons links the arrow keys to one sprite, and its two numbers are its speeds across and down: a speed of 0 means it cannot move that way."
+try: { playground: arcade, starter: "lesson.ts#fly" }
 tasks:
   - check:
       type: match
       q: "Match each block with what it does to a sprite."
       pairs:
-        - ["set position", "puts it at one place, once"]
-        - ["set velocity", "keeps it moving by itself, a little every frame"]
-        - ["move with buttons", "lets the arrow keys steer it"]
+        - ["move with buttons", "lets the arrow keys steer it, while a key is held"]
         - ["set stay in screen", "stops it at the edge of the screen"]
-        - ["set bounce on wall", "turns it back when it hits an edge"]
-  - check:
-      type: number
-      q: "The cloud starts at x 80 with a velocity of 30 across. After 2 seconds, how many pixels has it moved?"
-      answer: 60
-      explain: "A velocity of 30 means 30 pixels every second. In 2 seconds the engine moves it 30 + 30 = 60 pixels, a tiny step each frame."
+        - ["set position", "puts it at one place, once"]
+        - ["on A button pressed", "runs its blocks each time A is pressed"]
   - check:
       type: question
-      q: "Leo wants A to make his rocket hop 30 pixels to the right. He presses A once. What happens?"
-      options: ["The rocket hops 30 pixels and stops", "The rocket keeps sliding right, off the edge of the screen", "Nothing: vx only works in on start", "The rocket moves 30 pixels up"]
-      answer: 1
+      q: "A sprite has move with buttons with speeds 50 and 100. Which way does it move faster?"
+      options: ["Up and down", "Left and right", "The same both ways", "Neither: it jumps to (50, 100)"]
+      answer: 0
+      explain: "The first number (50) is the speed across, the second (100) the speed up and down. 100 is faster."
+  - check:
+      type: question
+      q: "Kim's arrow keys move the cloud, not her plane. What did she do?"
+      options: ["Her move with buttons block names the cloud", "The plane needs a velocity", "The cloud was made first", "The plane is the wrong kind"]
+      answer: 0
       fault: logic
-      misconception: position-vs-velocity
-      explain: "vx is a speed, not a distance. Setting it to 30 starts the rocket moving 30 pixels every second, and nothing ever sets it back to 0. A hop of 30 pixels changes the position: change x by 30."
+      misconception: controller-any-sprite
+      explain: "move with buttons steers only the sprite it names. Click the sprite's name in the block and choose plane."
 ```
 
-Fly the plane with the arrow keys. Press **A** (space) and see what that event does. Watch the cloud.
+Fly the plane with the arrow keys. Press **A** (space) and see what that event does.
 
 ### What does it do?
 
-Match each block with what it does.
+### Which way is faster?
 
-### How far?
-
-Work out a distance from a speed.
-
-### Leo's rocket
-
-Leo's rocket is not moved by the controller. He added this event:
-
-```makecode
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    rocket.vx = 30
-})
-```
+### Kim's cloud
 
 ## Modify
 
 ```step
 stage: modify
-insight: "The two numbers in move with buttons are speeds across and down. Changing a position in an event moves a sprite once, each time the event happens."
-try: { playground: arcade, starter: "moving.ts#modify" }
+insight: "The two numbers set which way the player can move, and how fast. A position change in an event moves a sprite once per press."
+try: { playground: arcade, starter: "lesson.ts#modify" }
 tasks:
   - hint: ["Click the + on the move plane with buttons block to show two speeds.", "The second number is the speed up and down. 0 means no up and down at all."]
     check: { type: code, text: "Make the plane fly only left and right, not up and down.", rules: { contains: ["controller.moveSprite(plane,", ",0)"] } }
@@ -136,33 +126,209 @@ Make the plane fly left and right only, like a ship along the bottom of the scre
 
 ### Dash
 
-Add an event: each press of **A** dashes the plane 30 pixels to the right. Press it a few times. Does it stop after each dash?
+Add an event: each press of **A** dashes the plane 30 pixels to the right. Press it a few times.
 
 ## Make
 
 ```step
 stage: make
-try: { playground: arcade, starter: "moving.ts#make" }
+try: { playground: arcade, starter: "lesson.ts#make" }
 hint:
-  - "Plane: move with buttons (Controller) and set stay in screen (Sprites)."
-  - "Cloud: a new sprite with its own name, then set velocity and set bounce on wall (both in Sprites)."
-  - "Give the cloud a velocity down as well as across, so it drifts at a slant and bounces off every wall."
-check: { type: code, text: "A plane the player flies that stays on the screen, and a cloud with a velocity that bounces off the walls.", rules: { contains: ["controller.moveSprite(plane", "plane.setStayInScreen(true)", ".setVelocity(", ".setBounceOnWall(true)"], count: { "sprites.create(": 2 } } }
+  - "move with buttons is in Controller. Click + to show the two speeds."
+  - "Across only: the second speed is 0. set stay in screen is in Sprites."
+check: { type: code, text: "A ship along the bottom of the screen that moves only left and right, and cannot leave the screen.", rules: { contains: ["controller.moveSprite(ship,", ",0)", "ship.setStayInScreen(true)"] } }
+unlocks: [move-with-buttons]
 ```
 
-Make a **sky game**:
+Make a **ship** for a space game:
 
-- the player flies the **plane** with the arrow keys
-- the plane **cannot leave** the screen
-- a **cloud** drifts by itself and **bounces** off the walls
+- it sits near the **bottom** of the screen
+- the arrow keys move it **left and right only**
+- it **cannot leave** the screen
 
-Try to fly through the cloud. (Nothing happens yet: next lesson sprites notice when they touch.)
-
-## Change a conveyor belt
+## Change a goalkeeper
 
 ```step
 stage: modify
-try: { playground: arcade, starter: "moving.ts#conveyor" }
+try: { playground: arcade, starter: "lesson.ts#keeper" }
 ```
 
-This factory belt carries boxes to the right, and the worker moves along the floor. Make the belt run twice as fast, add a third box, then make **A** stop the belt by setting each box's vx to 0.
+This goalkeeper guards a goal on the left. Make it move **up and down only**, a bit slower, and keep it on the screen.
+
+```teacher
+summary: "Students hand a sprite to the arrow keys with move with buttons, and see that its two numbers are speeds across and down, not a place."
+time: 40
+timing: "Predict and Run 7 min · Investigate 10 min · Modify 10 min · Make 8 min · Goalkeeper 5 min"
+goals:
+  - I can let the player steer a sprite with the arrow keys.
+  - I can choose which way a sprite can move, and how fast.
+  - I can keep a sprite on the screen.
+before: |
+  **move with buttons** (Controller) hands a sprite to the arrow keys: it moves while a key is held. Its two numbers (click + to show them) are the **speeds** across and up and down, in pixels per second; 0 stops movement that way. They are not a position. **on A button pressed** is an event: it runs each time A (space or Z) is pressed. Students must click the simulator before it hears keys.
+running:
+  - "Predict: some students read the numbers as a place (100, 0). Ask what happens while a key is held."
+  - "Run: all four arrows. Up and down do nothing."
+  - "Investigate: Kim's cloud shows that the block steers only the sprite it names."
+  - "Modify: the dash changes x by 30: a position change, once per press."
+  - "Make: speeds 100 and 0, plus stay in screen."
+stuck:
+  - see: "The arrow keys do nothing."
+    ask: "Did you click the simulator? Is there a move with buttons block?"
+    fix: "Click once on the game screen so it hears the keyboard, and check move with buttons names the right sprite."
+  - see: "The sprite flies off the edge."
+    ask: "What stops it at the edge?"
+    fix: "Add set stay in screen for that sprite."
+  - see: "The sprite moves up and down when it should not."
+    ask: "Which number is the speed up and down?"
+    fix: "Click + on move with buttons; set the second number to 0."
+stretch: "Make A dash right and B dash left, and make the ship faster across than the plane was."
+support: "Give students the ship with move with buttons already in, and ask them only to set the two speeds and keep it on the screen."
+leads: "Next lesson: a speed the engine applies by itself, so a sprite keeps moving with nobody pressing anything."
+exit:
+  q: "move with buttons has speeds 0 and 80. Which arrow keys do something?"
+  a: "Only up and down. The first number, the speed across, is 0."
+explain: |
+  **move with buttons** hands a sprite to the arrow keys. It moves while a key is held, and stops when you let go.
+
+  Its two numbers are **speeds**: the first across, the second up and down, in pixels per second. A speed of **0** means it cannot move that way.
+
+  **set stay in screen** stops it at the edge.
+solutions:
+  step-4#t1: lesson.ts#sol-across
+  step-4#t2: lesson.ts#sol-dash
+  step-5: lesson.ts#sol-make
+struggle: "Reading the two numbers as speeds, not a place. Ask what each number does while a key is held."
+class:
+  activities:
+    - at: predict
+      kind: discussion
+      title: Vote, then argue
+      minutes: 3
+      do: |
+        Decide with your partner what holding up does. Hold up 1, 2, 3 or 4 fingers.
+      notes: "Ask the 'jumps to (100, 0)' group what the block does while a key is held."
+    - at: investigate
+      title: Remote control
+      minutes: 4
+      do: |
+        One student is the sprite. The class holds up cards: across speed and up-down speed. The 'remote' presses arrows; the sprite moves only the ways its speeds allow.
+      notes: "A speed card of 0 means that direction is locked."
+    - at: end
+      title: Show a friend
+      minutes: 3
+      do: |
+        Swap ships with the next pair. Can theirs leave the screen?
+```
+
+```code lesson.ts#predict
+scene.setBackgroundColor(9)
+let plane = sprites.create(img`
+    . . . . 2 . . .
+    2 . . . 2 2 . .
+    2 2 1 1 1 1 1 2
+    2 . . . 2 2 . .
+    . . . . 2 . . .
+    `, SpriteKind.Player)
+plane.setPosition(80, 60)
+controller.moveSprite(plane, 100, 0)
+```
+
+```code lesson.ts#fly
+scene.setBackgroundColor(9)
+let plane = sprites.create(img`
+    . . . . 2 . . .
+    2 . . . 2 2 . .
+    2 2 1 1 1 1 1 2
+    2 . . . 2 2 . .
+    . . . . 2 . . .
+    `, SpriteKind.Player)
+controller.moveSprite(plane)
+plane.setStayInScreen(true)
+let cloud = sprites.create(img`
+    . . . 1 1 . . . . .
+    . 1 1 1 1 1 . . . .
+    1 1 1 1 1 1 1 1 1 .
+    1 1 1 1 1 1 1 1 1 1
+    . 1 1 1 1 1 1 1 1 .
+    `, SpriteKind.Player)
+cloud.setPosition(80, 20)
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    plane.setPosition(20, 60)
+})
+```
+
+```code lesson.ts#modify
+scene.setBackgroundColor(9)
+let plane = sprites.create(img`
+    . . . . 2 . . .
+    2 . . . 2 2 . .
+    2 2 1 1 1 1 1 2
+    2 . . . 2 2 . .
+    . . . . 2 . . .
+    `, SpriteKind.Player)
+plane.setPosition(20, 60)
+controller.moveSprite(plane)
+```
+
+```code lesson.ts#sol-across
+scene.setBackgroundColor(9)
+let plane = sprites.create(img`
+    . . . . 2 . . .
+    2 . . . 2 2 . .
+    2 2 1 1 1 1 1 2
+    2 . . . 2 2 . .
+    . . . . 2 . . .
+    `, SpriteKind.Player)
+plane.setPosition(20, 60)
+controller.moveSprite(plane, 100, 0)
+```
+
+```code lesson.ts#sol-dash
+scene.setBackgroundColor(9)
+let plane = sprites.create(img`
+    . . . . 2 . . .
+    2 . . . 2 2 . .
+    2 2 1 1 1 1 1 2
+    2 . . . 2 2 . .
+    . . . . 2 . . .
+    `, SpriteKind.Player)
+plane.setPosition(20, 60)
+controller.moveSprite(plane, 100, 0)
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    plane.x += 30
+})
+```
+
+```code lesson.ts#make
+scene.setBackgroundColor(15)
+let ship = sprites.create(img`
+    . . 1 . .
+    . 1 1 1 .
+    1 1 1 1 1
+    `, SpriteKind.Player)
+ship.setPosition(80, 105)
+```
+
+```code lesson.ts#sol-make
+scene.setBackgroundColor(15)
+let ship = sprites.create(img`
+    . . 1 . .
+    . 1 1 1 .
+    1 1 1 1 1
+    `, SpriteKind.Player)
+ship.setPosition(80, 105)
+controller.moveSprite(ship, 100, 0)
+ship.setStayInScreen(true)
+```
+
+```code lesson.ts#keeper
+scene.setBackgroundColor(7)
+let keeper = sprites.create(img`
+    . 4 4 .
+    4 4 4 4
+    . 8 8 .
+    . 8 8 .
+    `, SpriteKind.Player)
+keeper.setPosition(15, 60)
+controller.moveSprite(keeper)
+```

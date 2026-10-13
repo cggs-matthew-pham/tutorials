@@ -1,0 +1,36 @@
+playground: arcade
+projects:
+  - id: defender
+    title: Defender
+    after: arcade-every-one
+    goal: |
+      Make a **shooting game** with a twist of your own: waves of enemies arrive, the player fires at them, and a button or event does something to all of them at once (freeze them, slow them, clear the screen).
+    example: defender.ts
+    uses: [for-of, if, random]
+    milestones:
+      - "Enemies keep arriving from random places, and the player can shoot them."
+      - "Something happens to every enemy at once, with a for element loop over all of them."
+      - "There is a way to lose, checked with if."
+    stretch:
+      - "A shield that lasts a few seconds."
+      - "Bigger enemies that take two hits."
+      - "A boss after 20 points."
+
+  - id: my-arcade-game
+    title: Your own Arcade game
+    after: arcade-level-list
+    goal: |
+      Make a game with **levels**: each level is a little harder (faster, more enemies, a different map), the levels come from a list, and a function sets each one up. The kind of game is yours.
+    example: my-game.ts
+    uses: [list, list-index, function]
+    milestones:
+      - "My levels come from a list (speeds, counts or colours), read by level number."
+      - "A function sets up a level, and I call it at the start and when a level is done."
+      - "There are at least three levels, and each one is harder."
+      - "Someone else played it and I changed one thing because of what they did."
+    stretch:
+      - "A different background or tilemap for each level."
+      - "A title screen and a win screen."
+      - "Power-ups, as in the Power-ups challenge."
+    teacher: |
+      Will it work in Arcade? is worth doing first: it steers students away from physics games Arcade cannot do well. Ask for a one-sentence pitch before coding.

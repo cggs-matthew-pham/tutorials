@@ -90,9 +90,10 @@ Lesson counts include optional lessons. "Pictures" are drawn by `render-pictures
   - Single-file lessons; a review step ("Mix it up") from lesson 3; each move lesson's Make unlocks its block (new blocks: animation, counter, pick from list, which message, shared code, time it). MakeCode snippets still have no `example`.
   - Playground in controller mode, blocks pictures and "what it makes" pictures, Reference.
   - Not yet tried against the live editor; tested headless by sending each solution as a playground report.
-- **MakeCode Arcade** (`code/arcade`, 14): written.
-  - Lesson 13 teaches which games suit Arcade (table in the archive, "Arcade Foundations sequence").
-  - Not yet tried against the live editor. Tilemaps are outside the core.
+- **Arcade Foundations** (`code/arcade`, 11) and **Arcade advanced skills** (`code/arcade-advanced`, 12, 1 optional): redone 13 Oct as one move per lesson (plan and status in the Project doc arcade-sequence). Foundations: sprites, controller, speed, overlaps, score and lives, timers, if every frame, else and chasing, projectiles, Read a game (a review lesson), then Space dodger. Advanced: every one of a kind, functions, parameters, gravity, jump from the ground, level up, a list per level, true or false, run out, then the Power-ups challenge, Will it work in Arcade? and optional Your own game. Each advanced unit's teacher notes point to a MakeCode skillmap (Jungle Jump, Monster Truck Racer, Save the Galaxy, Game Maker Guide).
+  - Single-file lessons; "Mix it up" from lesson 3; new blocks: hit costs a life, check every frame, jump from ground, level up, count down. Projects split: Treasure hunt and Escape in Foundations, Defender (after every one of a kind) and Your own Arcade game (after a list per level) in advanced.
+  - Not yet tried against the live editor; tested headless by sending each solution as a playground report. Tilemaps are outside the core.
+  - Later: Arcade multiplayer over radio as a third course (arcade-sequence › Later; check hardware and the simulator first).
 - **Robotics challenges** (`code/robotics`, 12): built 10 Oct.
   - Uses `microbit-robot` v2.7.4 with the Cutebot. Units: Drive, Sense, Modes, Talk, then the challenge (Showcase, Patrol and alert, optional Tripwire).
   - Rule: radio handlers only set a mode; forever drives the motors.
@@ -190,7 +191,7 @@ A brief that needs two courses belongs to the later one. Why not a pathway page 
 - HTML & CSS: A page about something you love, A recipe card, An event page, An order form.
 - micro:bit and the computer: A live dashboard (crossover: MakeCode and a DOM page with `microbit.js`).
 - micro:bit Foundations: Plant monitor, The answer machine. micro:bit: talk and play: Quiz buzzer, Your own micro:bit game. (Pocket pet became Foundations' final challenge.)
-- Arcade Foundations: Treasure hunt, Escape, Defender, Your own Arcade game.
+- Arcade Foundations: Treasure hunt, Escape. Arcade advanced skills: Defender, Your own Arcade game.
 - Recap on for Python, HTML & CSS, micro:bit and Arcade.
 
 **Next:**

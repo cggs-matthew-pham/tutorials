@@ -1,6 +1,6 @@
 {
  "title": "Arcade blocks reference",
- "summary": "The blocks from Arcade Foundations, each with what it does. Find them in the MakeCode toolbox; the picture shows the block, the code is the same block as MakeCode JavaScript.",
+ "summary": "The blocks from Arcade Foundations and Arcade advanced skills, each with what it does. Find them in the MakeCode toolbox; the picture shows the block, the code is the same block as MakeCode JavaScript.",
  "language": "makecode",
  "target": "arcade",
  "groups": [
@@ -108,6 +108,11 @@
      "hint": "Adds or takes away lives. Info."
     },
     {
+     "label": "hit costs a life",
+     "code": "sprites.onOverlap(SpriteKind.‹Player›, SpriteKind.‹Enemy›, function (sprite, otherSprite) {\n    otherSprite.destroy()\n    info.changeLifeBy(-1)\n})",
+     "hint": "A hit destroys what hit you and costs a life, so one touch counts once. At 0 lives the game ends by itself."
+    },
+    {
      "label": "on game update every",
      "code": "game.onUpdateInterval(‹1000›, function () {\n    ‹blocks›\n})",
      "hint": "A timer: runs its blocks every so many milliseconds (1000 ms is one second). Game.",
@@ -140,6 +145,11 @@
      "code": "if (‹condition›) {\n    ‹blocks›\n}",
      "hint": "Runs the blocks inside only when the condition is true. Logic.",
      "matches": "(?<!else )\\bif\\s*\\("
+    },
+    {
+     "label": "check every frame",
+     "code": "game.onUpdate(function () {\n    if (‹car›.x > ‹160›) {\n        ‹car›.x = ‹0›\n    }\n})",
+     "hint": "An if inside on game update is asked every frame, so it acts the moment its question becomes true."
     },
     {
      "label": "if else",
@@ -215,7 +225,7 @@
    ]
   },
   {
-   "name": "Gravity and levels",
+   "name": "Gravity, jumping and levels",
    "items": [
     {
      "label": "set variable",
@@ -242,6 +252,11 @@
      "matches": "\\.vy\\s*=\\s*-"
     },
     {
+     "label": "jump from ground",
+     "code": "controller.A.onEvent(ControllerButtonEvent.Pressed, function () {\n    if (‹player›.bottom >= ‹100›) {\n        ‹player›.vy = ‹-150›\n    }\n})",
+     "hint": "The jump goes inside an if that asks whether the player is on the floor, so it only works from the ground."
+    },
+    {
      "label": "sprite bottom",
      "code": "‹mySprite›.bottom",
      "hint": "The y of the bottom edge of a sprite. Sprites; choose bottom in the x dropdown.",
@@ -254,6 +269,11 @@
      "matches": "game\\.splash\\("
     },
     {
+     "label": "level up",
+     "code": "if (info.score() >= ‹goal›) {\n    ‹level› += 1\n    ‹goal› += ‹5›\n    game.splash(\"Level \" + ‹level›)\n}",
+     "hint": "Goes in the event where the score changes, not in on game update. goal moves up, so the next level is further away."
+    },
+    {
      "label": "destroy all of kind",
      "code": "sprites.destroyAllSpritesOfKind(SpriteKind.‹Enemy›)",
      "hint": "Removes every sprite of a kind at once. Sprites.",
@@ -262,7 +282,7 @@
    ]
   },
   {
-   "name": "Challenge",
+   "name": "Power-ups and challenge",
    "items": [
     {
      "label": "auto destroy",
@@ -275,6 +295,11 @@
      "code": "let ‹shield› = ‹false›",
      "hint": "A variable can hold true or false, to remember what is happening now. Logic.",
      "matches": "=\\s*(true|false)\\b"
+    },
+    {
+     "label": "count down",
+     "code": "if (‹ammo› > 0) {\n    ‹blocks›\n    ‹ammo› += -1\n}",
+     "hint": "Check there is some left first, then use one up, so the count never goes below zero."
     },
     {
      "label": "on life zero",

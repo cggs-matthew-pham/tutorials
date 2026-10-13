@@ -36,4 +36,4 @@ Where it breaks: a lifeguard blows her whistle once. An if in on game update act
 
 ## How it connects
 
-The same idea gives a floor for jumping (*if the player's bottom is below the ground, stop falling*) and a level-up (*if the score reaches 10*). Lesson 10 shows the trap from the other side: an if that stays true in on game update fires every frame.
+Next unit fires projectiles, steered by the same if and else. In Arcade advanced skills the same idea gives a floor for jumping (*if the player's bottom is below the ground, stop falling*), and the Level up lesson shows the trap from the other side: an if that stays true in on game update fires every frame.
