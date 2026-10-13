@@ -1,7 +1,9 @@
 ---
-order: 11
+order: 12
 unit: challenge
 optional: true
+reviews: [id-target]
+assumes: [id, button]
 title: Make it react
 summary: Add a few lines of JavaScript, as a recipe, so a button changes the page and a form greets people by name.
 language: html

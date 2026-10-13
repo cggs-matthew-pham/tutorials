@@ -1,7 +1,10 @@
 ---
-order: 12
+order: 11
 unit: challenge
 optional: true
+moveId: grid-columns
+reviews: [flex-row]
+assumes: [flex, flex-options, semantic]
 title: Page layout with Grid
 summary: Arrange a page and a gallery in rows and columns with CSS Grid, and choose between Grid and Flexbox.
 language: html

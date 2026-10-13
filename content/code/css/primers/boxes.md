@@ -1,49 +1,38 @@
 ---
-title: CSS in 5 minutes
+title: Boxes in 5 minutes
 ---
 ## The idea in plain words
 
-HTML says what each part of a page *is*. **CSS** says how it should *look*. CSS is a list of **rules**, and every rule has two halves:
+The browser draws every element as a **box**. Some boxes are **block**: `<p>`, `<h1>` and `<div>` start a new line and stretch across the page, so they stack. Others are **inline**: `<strong>`, `<a>` and `<span>` sit inside the line of text, side by side. `<div>` and `<span>` do nothing by themselves; they are plain boxes (block and inline) you wrap around things to style them. `display: block` or `display: inline` switches a box from one kind to the other.
 
-```css
-p {
-  color: teal;
-  font-size: 20px;
-}
-```
+A box has layers. **Content** is the text or picture. **Padding** is room inside, between the content and the border. The **border** is the line around it. **Margin** is space outside the border, pushing other boxes away. `width` sets only the content, so the width on the page is the width plus padding and border on both sides.
 
-The **selector** (`p`) picks which elements the rule styles: here, every paragraph and nothing else. Inside the braces, each **declaration** is a property, a colon, a value and a semicolon: `color: teal;`. In the playground, rules go in a `<style>` block at the top of the page.
+## Why it matters
 
-A **class** lets you style some elements and not others. In the HTML, mark them: `<p class="note">`. In the CSS, a dot means "class": `.note { ... }`. The dot is only in the CSS.
-
-Every element is a **box**. From the inside out: the **content**, then **padding** (space inside the border), then the **border**, then **margin** (space outside, between boxes). `width` sets the content's width, so padding and border are added on top of it.
-
-## Why programmers use it
-
-- **One change, everywhere.** Change one rule and every matching element updates, on every page that uses it.
-- **Content and looks stay separate.** The same HTML can be restyled completely without touching it.
-- **Classes name intentions.** `.warning` or `.card` says what something is for, not just what colour it is.
+- **Layout is boxes.** Every layout idea after this one, rows, cards and gaps, is boxes placed next to each other.
+- **Surprises explained.** A `width` that does nothing on a `<span>`, or a card wider than you set, both come from the box rules.
+- **Grouping.** A `<div>` with a class lets you style a group of things as one.
 
 ## An everyday picture, and where it breaks
 
-A selector is like an instruction to a class of students: "everyone wearing a green hat, stand up". Everyone who matches does it; everyone else does not. A class is a name badge you give out on purpose.
-
-Where it breaks: a person would ask "did you mean the blue-green hats?". The browser never asks. A selector with a typo (`.Note` for `class="note"`, capitals count) or a value without its unit (`padding: 20` instead of `20px`) is silently ignored, so nothing changes and there is no error message. When a rule "does nothing", check the selector and the units first.
+A framed picture on a wall: the picture is the content, the mat around it is the padding, the frame is the border, and the gap to the next frame is the margin. Where it breaks: a frame's size usually includes its mat, but in CSS `width` is the picture only, so the padding and border add to it.
 
 ## Try it yourself (5 minutes)
 
-1. In the HTML playground, type a heading and two paragraphs. Add `<style> p { color: teal; } </style>` above them: only the paragraphs change.
-2. Give one paragraph `class="note"` and add `.note { font-size: 24px; }`. Only that one grows.
-3. Add `padding: 20px; border: 3px solid teal;` to `.note`, then click **Box model** and point at it: orange is margin, yellow border, green padding, blue content.
-4. Change `20px` to `20` and watch the padding vanish without any error.
+1. Put two paragraphs and a sentence with `<strong>` and `<a>` in a page. Which items stack, and which sit in the line?
+2. Wrap two paragraphs in a `<div class="box">`. What changes? (Nothing, until a rule styles `.box`.)
+3. Give `.box` a `border: 2px solid navy;`. Then add `padding: 16px;`. Watch the text move away from the line.
+4. Add `margin: 24px;`. Which way does the whole box move?
+5. Set `width: 200px;` then add `padding: 20px`. Measure the box: 240px, not 200px, plus the border.
+6. Give a `<span>` a `width`. Nothing happens. Add `display: block`.
 
 ## Questions students ask
 
-- **"Why did nothing change?"** The selector does not match (check spelling, capitals and the dot for a class), or a value is missing its unit, or a semicolon is missing before it.
-- **"What is the difference between padding and margin?"** Padding is inside the border (it takes the background colour); margin is outside (it pushes other boxes away).
-- **"Why is my 200px box wider than 200?"** `width` is the content only; padding and border are added on each side.
-- **"Can I put CSS in another file?"** Yes, real sites usually do (`<link rel="stylesheet" href="style.css">`). In the playground we keep it in a `<style>` block so everything is in one place.
+- **"Why does my width not work?"** Inline boxes ignore `width`. Make it block.
+- **"Padding or margin?"** Padding is inside the border, margin is outside it. If the background colour fills it, it is padding.
+- **"Why is my card wider than 300px?"** Padding and border add to `width`.
+- **"Why did my `<div>` not change anything?"** A `<div>` has no look of its own; it needs a rule.
 
 ## How it connects
 
-The Components unit builds on boxes: Flexbox lines boxes up in rows (a menu, a gallery), and cards are boxes with padding, a border and a heading. Later, JavaScript finds elements with the same selectors (`document.querySelector('.note')`), so selectors are worth getting right now.
+Block and inline come before the box model. A box with padding, a border and a width becomes a **card**, which the layout unit copies and puts in rows.

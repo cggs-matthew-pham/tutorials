@@ -1,40 +1,39 @@
 ---
-title: Layout and components in 5 minutes
+title: Layout in 5 minutes
 ---
 ## The idea in plain words
 
-So far every box has stacked down the page. **Flexbox** lines boxes up in a row: put `display: flex;` on the box that *holds* the items (the parent), and its children sit side by side. `gap` spaces them, `flex-wrap: wrap` lets them move to the next line when the row is full (a gallery), and `justify-content` says where they sit along the row.
+Normally boxes stack down the page. **Flexbox** puts them in a row. Put `display: flex;` on the box that *holds* the items (the parent), and its children sit side by side. It goes on the holder, never on the items.
 
-Real pages are built from named parts. **Section tags** (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`) look exactly like `<div>`, but their names tell browsers, search engines and screen readers what each part is. Inside those parts sit **components**: patterns made from tags you already know, such as a **hero** (a big opening section with a heading, a line of text and a link) or a **card** (a box with padding, a border, a heading and a picture). Build one once, then reuse it.
+Three more properties tidy the row. `gap` sets the space between items. `justify-content` says where the items sit *along* the row (`flex-start`, `center`, `space-between`). `align-items` says how they line up *across* it (`center` lines up different heights). `flex-wrap: wrap` lets items drop to a new line when the row runs out of room, and `flex: 1` with a `min-width` lets items share the row without squashing.
 
-A **form** collects what people type: a `<label>` says what to type, an `<input>` is the box, a `<select>` is a drop-down, and a `<button>` sends it. On its own, a form sends nowhere: code behind it does the work.
+A **component** is a chunk of HTML with a class that you copy. One set of rules styles every copy, so adding a card means copying HTML, not writing CSS.
 
-## Why programmers use them
+## Why it matters
 
-- **Flexbox** replaced years of layout tricks; most menus, toolbars and galleries on the web use it.
-- **Section tags** make a page usable for everyone: screen-reader users jump straight to `<nav>` or `<main>`.
-- **Components** are how real sites are built and how design teams work: one card design, used everywhere.
-- **Forms** are where a website meets its users: sign-ups, searches, orders.
+- **Menus, headers and card rows** all use Flexbox. Nearly every site does.
+- **One page, any screen.** A wrapping row fits a phone and a laptop without extra rules.
+- **Change once.** If every card shares a class, a colour change is one edit.
 
 ## An everyday picture, and where it breaks
 
-`display: flex` is like a teacher saying "line up side by side" to a group: the instruction goes to the group, not to each student. Section tags are the signs on a building's doors: "Office", "Hall". A form is a paper form with nobody to collect it.
-
-Where it breaks: tell one student to "line up" and nothing happens. `display: flex` on the items instead of their parent changes nothing, with no error. A label whose `for` does not match its input's `id` looks fine, but clicking it does nothing, and screen readers cannot connect the two.
+A shelf: the shelf is the parent, the books are the items, and you decide how they sit along it and how they are spaced. Where it breaks: a real shelf has a fixed length. A wrapping row starts a new shelf when the first is full.
 
 ## Try it yourself (5 minutes)
 
-1. In the HTML playground, make a `<ul>` of three links. Add `ul { display: flex; gap: 20px; }`: a menu.
-2. Move `display: flex` to `li` instead: nothing changes. Move it back.
-3. Wrap the menu in `<nav>` and the page title in `<header>`: nothing changes on the page; switch on **Boxes** to see the named parts.
-4. Add `<label for="name">Name</label> <input id="name">` and click the label: the cursor jumps into the box. Change the `id` and try again.
+1. Make a `<ul>` of three links in a `<nav>`. Add `nav ul { display: flex; }`. The list becomes a row.
+2. Add `gap: 16px;`, then try `justify-content: space-between;` and `center`.
+3. Make a header with `<h1>` and the nav. Put `display: flex; justify-content: space-between;` on the header.
+4. Make three `<div class="card">` in a `<section class="cards">`. Add `display: flex; flex-wrap: wrap; gap: 16px;` to `.cards`.
+5. Give `.card` `flex: 1; min-width: 200px;`. Make the window narrow. Copy a card: a fourth appears with no new CSS.
 
 ## Questions students ask
 
-- **"Why didn't display: flex work?"** It is probably on the items. It goes on the box that holds them.
-- **"If header looks like div, why bother?"** People using screen readers, and search engines, rely on those names. It also makes your own code easier to read.
-- **"Where does the form send its data?"** Nowhere yet. A form needs code behind it: JavaScript in the page (the Make it react lesson, then the DOM course) or a program on a server (later, Gradio).
+- **"I wrote `display: flex` and nothing moved."** It is on the items. Move it to the box that holds them.
+- **"What is the difference between `justify-content` and `align-items`?"** Along the row, and across it.
+- **"Why do my cards squash?"** Without `flex-wrap: wrap` and a `min-width`, a row shrinks its items.
+- **"Do I write `.card1`, `.card2`?"** No. One class on every card.
 
 ## How it connects
 
-The final challenge builds a club page from these components: header and menu, a hero, a row of cards, a results table and a sign-up form. The optional lessons go further: Make it react adds a few lines of JavaScript to the form, and Page layout with Grid arranges whole pages.
+Flexbox follows the box model: a row is boxes with padding, border and gap. The final challenge puts the club page's header, hero and cards in rows. An optional lesson adds Grid for rows and columns at once.

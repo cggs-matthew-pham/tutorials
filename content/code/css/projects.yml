@@ -18,7 +18,7 @@ projects:
 
   - id: event-page
     title: An event page
-    after: flexbox
+    after: components
     goal: |
       Make a page for a real or made-up **event** (a sports day, a concert, a games club): a header, a menu of sections, three cards side by side with what is on, and a footer.
     example: event-page.html

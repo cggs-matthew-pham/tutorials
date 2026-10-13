@@ -3,33 +3,38 @@ title: Running the final challenge
 ---
 ## The idea in plain words
 
-The challenge is one page built from everything in the course: a **header** with a Flexbox menu, a **hero**, a row of **cards**, a **results table**, a **sign-up form** with linked labels, and a **footer**. There is nothing new to learn in it. Students build it in three **milestones**, and the support fades: the first gives most of the code, the second gives an outline as comments, the third gives only the goals.
+The Course B challenge lays out the club page from Course A. There is nothing new in it. Students work in three **milestones**, and the support fades: the first gives the exact code, the second an outline as comments, the third only the goals. Then they make it their own.
 
-Finishing the core lesson marks **Challenge complete** on the course page. Two optional lessons go further, in two directions:
+1. **Header and menu:** the club name on the left and the menu on the right (Flexbox on the header and on `nav ul`), links styled with `nav a`.
+2. **Hero and cards:** a hero section and three cards in a row that wraps, all cards sharing one class.
+3. **Table, form and footer:** padded table cells, the sign-up form as a card, each label on its own line, and a padded footer.
 
-- **Make it react** adds a few lines of JavaScript as a recipe: a button changes the page, and the form greets you by name. It leads to the DOM course.
-- **Page layout with Grid** arranges whole pages in rows and columns. It leads to more design work.
+The starter is the finished Course A club page, so a student who skipped Course A can still begin. Finishing the core lesson marks **Challenge complete** on the course page. Two optional lessons go further: **Grid** lays out rows and columns together, and **Make it react** adds JavaScript as a recipe.
 
-## Why it works
+## Why it matters
 
-- **Low floor, high ceiling.** Everyone can finish milestone 1; strong students make the page their own and take an optional lesson.
-- **Recall, not new content.** Each milestone mixes ideas from different lessons, which is what makes them stick.
-- **A real product.** A club page is something students recognise, can show, and can improve.
+- **Putting it together.** Rules, boxes and rows have each been taught alone. Here they meet on a real page.
+- **Reading the picture.** Planning the page as named parts is the habit that makes big tasks small.
+- **Nothing hidden.** Because the page is theirs, students can show it and name the lesson behind each part.
 
 ## An everyday picture, and where it breaks
 
-It is like assembling flat-pack furniture you have already built the parts of: the instructions get shorter as you go. Where it breaks: some students try to build everything at once. Insist on one milestone at a time, checking the page (and **Boxes** or **Box model**) after every change.
+Decorating a room you have already built: the walls are up, and now you arrange the furniture. Where it breaks: you cannot see a room from the plans, but with CSS, every change shows up straight away. Use that, and check after every change.
 
 ## Try it yourself (5 minutes)
 
-Open the challenge and do milestone 1. Then look at milestone 3's goals and plan, on paper, which tags and rules you would use. That plan is the conversation to have with students.
+1. Do milestone 1 yourself in the playground, so you know where students get stuck.
+2. Make the preview narrow. Do the cards drop onto new lines and not squash?
+3. Copy a card to make a fourth. Does it need any new CSS?
+4. Plan milestone 3 on paper: which earlier rule does each goal reuse?
 
 ## Questions students ask
 
-- **"Can I change the club?"** Yes, from milestone 2 on. Any club or event works.
-- **"Why doesn't my form send?"** It is not connected to anything yet: that is what Make it react starts on.
-- **"Can I use colours and pictures?"** Yes: the pictures are `trophy.svg`, `medal.svg`, `book.svg`, `ball.svg`, `star.svg` and `music.svg`.
+- **"Where does `display: flex` go?"** On the box that holds the items. In the header that is the `header`, and for the links it is the `nav ul`.
+- **"Why is my menu still in a column?"** The list holds the links, so the list needs `display: flex`.
+- **"My cards are squashed."** The row needs `flex-wrap: wrap`, and the card needs a `min-width`.
+- **"Can I start milestone 2 without finishing 1?"** Yes: Reset to this task's start loads a working earlier milestone.
 
 ## How it connects
 
-The page is a portfolio piece. Make it react is the bridge to the DOM course (JavaScript that changes a page); Grid leads to page design. The same building blocks appear in every website students will meet.
+The challenge reviews every move in both courses. Ask students to name three parts of the page and the rule behind each. After it, the optional Grid lesson, and then Bootstrap, the DOM course and a site of their own, build on this page.

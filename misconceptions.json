@@ -345,5 +345,15 @@
   "table-by-column": {"home": "code/html/tables", "text": "A table is written a column at a time; in fact it is written a row at a time, one <tr> after another."},
   "id-repeats": {"home": "code/html/jump-links", "text": "Two elements can share an id; in fact each id names one element, and a link to a repeated id goes to the first."},
   "hash-missing": {"home": "code/html/jump-links", "text": "href=\"results\" jumps to the element with id results; in fact the # is needed (href=\"#results\"), or the browser looks for a page called results."},
-  "form-sends-itself": {"home": "code/html/forms", "text": "Pressing a form's button saves or sends the answers by itself; in fact it needs code behind the form to do anything with them."}
+  "form-sends-itself": {"home": "code/html/forms", "text": "Pressing a form's button saves or sends the answers by itself; in fact it needs code behind the form to do anything with them."},
+  "one-rule-only": {"home": "code/css/css-combine", "text": "An element follows only one rule, the first or the last that names it; in fact it takes the properties of every rule that matches, and a class rule beats a tag rule when they set the same property."},
+  "color-reaches-links": {"home": "code/css/menu-links", "text": "nav { color: white; } turns the links in the nav white; in fact a link keeps its own colour until a rule names the link, as in nav a { }."},
+  "space-means-both": {"home": "code/css/menu-links", "text": "nav a styles the nav and also every a; in fact the space means inside, so only links inside the nav change."},
+  "div-adds-look": {"home": "code/css/div-span", "text": "A <div> changes how the page looks by itself; in fact it is a plain box with no look until a rule styles it."},
+  "width-includes-padding": {"home": "code/css/boxes", "text": "width: 200px makes the whole box 200px wide, padding and border included; in fact width sets only the content, and padding and border add to it on both sides."},
+  "justify-aligns-text": {"home": "code/css/flex-space", "text": "justify-content lines up the text inside each item; in fact it places the items themselves along the row."},
+  "justify-align-swapped": {"home": "code/css/flex-space", "text": "justify-content and align-items do the same job; in fact justify-content works along the row and align-items works across it."},
+  "wrap-shrinks": {"home": "code/css/flex-wrap", "text": "Items in a flex row move down to a new line by themselves when there is no room; in fact without flex-wrap: wrap they squash or run off the edge."},
+  "fixed-width-fits": {"home": "code/css/flex-wrap", "text": "A fixed width such as 400px fits any screen; in fact it is the same size on a phone, so cards that fit a laptop overflow."},
+  "class-per-copy": {"home": "code/css/components", "text": "Each copy of a card needs its own class and its own rule (.card1, .card2); in fact copies share one class, and one rule styles them all."}
 }
