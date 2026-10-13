@@ -181,7 +181,7 @@ goals:
 before: |
   Click the **+** at the bottom of an if block to add **else** (otherwise). If the question is true, the first part runs; if false, the else part runs. Exactly one of the two runs each time, so if … else has no gap (like two ifs that miss a value) and no overlap. **else if** (more questions in a row) is the next lesson.
 running:
-  - "Predict: some students think both parts run, one after the other. Ask: what does 'otherwise' mean?"
+  - "Predict: some students think both parts run, one after the other. Ask: what does 'otherwise' mean? Ask the 'both' group to read the block aloud with 'otherwise' in place of else."
   - "Run: dark then bright. The lights go off now, because the else part clears them."
   - "Investigate: the trace pins down the edge: 50 is not less than 50. Kim's flicker is the belief that else always runs too."
   - "Modify: rebuilding the night light shows what else replaces: the opposite question."
@@ -217,13 +217,6 @@ solutions:
 struggle: "Believing both parts run. Ask them to say the block aloud with 'otherwise' in place of else."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner which parts run in the dark. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the 'both' group to read the block aloud with 'otherwise' in place of else."
     - at: investigate
       title: Two doors
       minutes: 3
@@ -231,7 +224,7 @@ class:
         Two signs on two doors: 'true' and 'else'. The teacher reads a question about each student in turn; they walk through exactly one door.
       notes: "Nobody can go through both doors, and nobody stays behind."
     - at: end
-      title: Show a friend
+      title: Test the edge
       minutes: 3
       do: |
         Show your bike light to the next pair. Drag the light slider through 50.

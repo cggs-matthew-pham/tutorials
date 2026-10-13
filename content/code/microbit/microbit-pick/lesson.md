@@ -217,11 +217,10 @@ struggle: "Why it is length − 1. Ask them to count the places of a 3-item list
 class:
   activities:
     - at: predict
-      kind: discussion
-      title: Vote, then argue
+      title: Roll a dice
       minutes: 3
       do: |
-        Decide with your partner: can it give the same answer twice in a row? Hold up 1, 2, 3 or 4 fingers.
+        Roll a real dice twice. Can it give the same number both times?
       notes: "Roll a real dice twice to settle it: random has no memory."
     - at: investigate
       title: Draw a card

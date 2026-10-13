@@ -200,13 +200,6 @@ solutions:
 struggle: "Reading the two numbers as speeds, not a place. Ask what each number does while a key is held."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what holding up does. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the 'jumps to (100, 0)' group what the block does while a key is held."
     - at: investigate
       title: Remote control
       minutes: 4
@@ -214,7 +207,7 @@ class:
         One student is the sprite. The class holds up cards: across speed and up-down speed. The 'remote' presses arrows; the sprite moves only the ways its speeds allow.
       notes: "A speed card of 0 means that direction is locked."
     - at: end
-      title: Show a friend
+      title: Escape test
       minutes: 3
       do: |
         Swap ships with the next pair. Can theirs leave the screen?

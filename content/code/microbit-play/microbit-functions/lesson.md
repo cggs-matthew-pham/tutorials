@@ -241,13 +241,6 @@ solutions:
 struggle: "Making a function does nothing until it is called. When a press does nothing, ask which block calls the function."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner how many flashes one press gives. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the 'once' group to count the call blocks."
     - at: investigate
       title: Call the move
       minutes: 4

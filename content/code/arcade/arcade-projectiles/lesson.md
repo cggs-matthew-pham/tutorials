@@ -218,24 +218,12 @@ solutions:
 struggle: "The overlap must name Projectile. Ask which two kinds touch when a shot hits."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 2
-      do: |
-        Decide with your partner what happens when you fire at the alien.
-      notes: "Ask: which kind is the shot?"
     - at: investigate
       title: Whose kind?
       minutes: 3
       do: |
         A student is the ship and throws a paper ball (the shot) at another (the alien). The class says which two kinds touched.
       notes: "The ball touched the alien, not the ship: Projectile and Enemy."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Play the next pair's shooter for one minute. Who scores more?
 ```
 
 ```code lesson.ts#predict

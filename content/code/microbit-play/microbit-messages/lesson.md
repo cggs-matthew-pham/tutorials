@@ -223,13 +223,6 @@ solutions:
 struggle: "Both sides must share the same list in the same order. When the wrong word shows, ask them to compare the two lists item by item."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner which word shows. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the '2' group what get value at does with the number."
     - at: investigate
       title: Codebooks
       minutes: 4

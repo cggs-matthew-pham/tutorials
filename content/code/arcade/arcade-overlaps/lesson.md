@@ -227,13 +227,6 @@ solutions:
 struggle: "Kinds decide which overlap runs, and sprite versus otherSprite. When a touch does nothing, ask them to read out the kinds of both sprites and the kinds the event names."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what happens when the player reaches the coin. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask: which two kinds does the event name? That is why it runs."
     - at: investigate
       title: Name tags
       minutes: 4
@@ -241,7 +234,7 @@ class:
         Students wear kind cards (Player, Food, Enemy). The teacher reads an event ("Player meets Food: cheer"). Pairs that meet act only if their cards match the event.
       notes: "A Player meeting a Player does nothing: that is Ava's star."
     - at: end
-      title: Show a friend
+      title: Kinds first
       minutes: 3
       do: |
         Swap collectors with the next pair. Read out each sprite's kind before you play.

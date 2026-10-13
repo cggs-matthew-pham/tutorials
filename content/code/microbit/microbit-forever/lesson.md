@@ -195,24 +195,12 @@ solutions:
 struggle: "on start runs once and forever repeats. When the heart doesn't beat, ask which block the pictures are inside."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what Ada will see. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Count the votes before anyone runs it. Ask the 'beating' group which block the hearts are in."
     - at: investigate
       title: Be the loop
       minutes: 4
       do: |
         Three students hold picture cards in a row. A fourth walks along them, showing each card in turn, and goes back to the start after the last one.
       notes: "Add a pause: the walker stops at one card and counts to three. The loop carries on afterwards."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Show your animation to the next pair. Point to the pause that sets its speed.
 ```
 
 ```code lesson.ts#predict

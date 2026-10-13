@@ -221,12 +221,6 @@ solutions:
 struggle: "Setting it back. When a power-up never ends, ask which block sets it to false."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 2
-      do: |
-        Decide with your partner how long the shield lasts.
     - at: investigate
       title: Hands up
       minutes: 3

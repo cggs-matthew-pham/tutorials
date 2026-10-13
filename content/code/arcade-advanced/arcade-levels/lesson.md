@@ -227,13 +227,6 @@ solutions:
 struggle: "Where the level-up goes. When levels race up, ask how often that block runs."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 2
-      do: |
-        Decide with your partner what happens at 5 coins, and at 6.
-      notes: "The 6 is the point: goal has moved."
     - at: investigate
       title: Ring the bell
       minutes: 3

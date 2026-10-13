@@ -191,7 +191,7 @@ before: |
 
   Remember y counts **down** the screen, so "near the top" is a **small** y. The comparison block is in **Logic**; the car x block is in **Sprites**. Try the Make task yourself first.
 running:
-  - "Predict: most students expect the car to vanish, or to bounce. Wrap-around is a surprise."
+  - "Predict: most students expect the car to vanish, or to bounce. Wrap-around is a surprise. Ask how often the question is asked."
   - "Run: ask 'who moves the car back?' Point at the if: the game asks this 30 times a second."
   - "Investigate: the number task is 150 pixels at 50 a second. Then Sam's version: let them run it, see the car disappear, and drag the if into on game update. Say: on start is once, on game update is always."
   - "Modify: the left edge is a second if with < 0. Laps: change score goes inside the first if, so it happens only when the car wraps."
@@ -227,24 +227,12 @@ solutions:
 struggle: "An if in on start is asked once; in on game update it's asked every frame. When the if never acts, ask which block it is inside."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what happens at the right edge. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask how often the question is asked."
     - at: investigate
       title: Are we there yet?
       minutes: 3
       do: |
         One student walks across the room. Another asks "past the door yet?" every second, and calls "back to start!" the moment the answer is yes.
       notes: "Asking once at the start would never catch it: that is Sam's if in on start."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Show your safe zone to the next pair. Fly in and out of it.
 ```
 
 ```code lesson.ts#predict

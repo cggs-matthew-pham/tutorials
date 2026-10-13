@@ -183,7 +183,7 @@ goals:
 before: |
   A **list** (MakeCode calls it an **array**, in **Advanced › Arrays**) holds many values in order under one name. Each item has a **place** (an **index**), counted from **0**: in Yes, No, Maybe, Yes is at place 0. So a list of 3 has places 0, 1 and 2, and the last place is one less than the number of items. **get value at** takes out the item at a place. Picking at random is next lesson.
 running:
-  - "Predict: most students say Yes. Ask: which place does the micro:bit start counting from?"
+  - "Predict: most students say Yes. Ask: which place does the micro:bit start counting from? Or: where does a ruler start?"
   - "Run: No. Say it plainly: lists count from 0, like a ruler starts at 0."
   - "Investigate: the last-place question is where counting from 0 bites."
   - "Modify: adding Later and asking for place 3 makes students count."
@@ -218,13 +218,6 @@ solutions:
 struggle: "Counting places from 0. Ask them to point at each item and count aloud from zero."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner which word shows. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Most say Yes. Ask: where does a ruler start?"
     - at: investigate
       title: Line up from 0
       minutes: 3
@@ -232,7 +225,7 @@ class:
         Five students stand in a row holding cards 0 to 4. The class calls a place; that student steps forward.
       notes: "Ask for place 5. Nobody steps forward: five items stop at place 4."
     - at: end
-      title: Show a friend
+      title: Round the list
       minutes: 3
       do: |
         Swap mood choosers with the next pair. Press A until it goes round.

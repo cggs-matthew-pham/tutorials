@@ -192,7 +192,7 @@ goals:
 before: |
   **Radio** sends short messages between micro:bits. **radio set group** chooses a channel (0 to 255); only micro:bits in the same group hear each other. **send number** sends to every other micro:bit in the group (never to itself). **on radio received** is an event: it runs each time a message arrives. In the simulator, a second micro:bit appears once the program uses radio; both run the same program. Using the number that arrived (**receivedNumber**) is next lesson. With real micro:bits in a classroom, pairs must choose their own group number or they will hear everyone.
 running:
-  - "Predict: many students say 'on both'. Ask: who is listening, and who is talking?"
+  - "Predict: many students say 'on both'. Ask: who is listening, and who is talking? Or: does a walkie-talkie play your own voice back to you?"
   - "Run: press A on each micro:bit in turn. The heart always shows on the other one."
   - "Investigate: Ella's groups are the most common real-classroom problem. The Python peek shows radio received as one more function the micro:bit calls."
   - "Modify: any event can send. Then each pair picks a group."
@@ -226,13 +226,6 @@ solutions:
 struggle: "Two micro:bits, one group, and a micro:bit never hears itself. When nothing arrives, ask which one is sending and which group each is in."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner where the heart shows. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the 'both' group whether a walkie-talkie plays your own voice back to you."
     - at: investigate
       title: Channels
       minutes: 4

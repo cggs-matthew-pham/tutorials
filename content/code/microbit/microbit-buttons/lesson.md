@@ -229,24 +229,12 @@ solutions:
 struggle: "An event block runs only when its event happens. When a press does nothing, ask which block the picture is inside."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what shows at the start and after B. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Count the votes before anyone runs it. The 'straight away' option is the belief that event blocks run at the start."
     - at: investigate
       title: Human micro:bit
       minutes: 4
       do: |
         One student is the micro:bit with a face card for each event. The class calls out "A", "B" or "shake"; the micro:bit shows only the card for that event.
       notes: "When nobody calls anything, nothing happens. That is what waiting means."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Show your signal board to the next pair. They press the buttons and say what each one means.
 ```
 
 ```code lesson.ts#predict

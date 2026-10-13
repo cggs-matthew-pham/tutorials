@@ -190,7 +190,7 @@ goals:
 before: |
   **Info** blocks keep a **score** and **lives** (hearts) at the top of the screen. When the lives reach **0**, Arcade ends the game by itself. One important fact: an **overlap event runs every frame** (about 30 times a second) **while the two sprites still touch**. If the enemy is not destroyed, one touch takes life after life, and the game ends at once. Timers (a new enemy every second) are next lesson; here the rocks are made at the start and flown in with a velocity.
 running:
-  - "Predict: many students expect lives to go below 0, or that a game over block is needed. The engine does it."
+  - "Predict: many students expect lives to go below 0, or that a game over block is needed. The engine does it. Ask the 'no game over block' group to run it and watch."
   - "Run: count the hearts aloud as they go."
   - "Investigate: Sam's dodger is the lesson's key bug: an overlap runs every frame while sprites touch."
   - "Mix it up: kinds and velocity, from earlier lessons."
@@ -224,13 +224,6 @@ solutions:
 struggle: "An overlap runs every frame while sprites touch, so one hit takes every life. Ask what happens to the enemy after it touches the player."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what happens after three hits. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the 'no game over block' group to run it and watch."
     - at: investigate
       title: Tag, every frame
       minutes: 3
@@ -238,7 +231,7 @@ class:
         A student who is tagged loses a 'life' card for every second the tagger keeps touching them.
       notes: "Ten seconds of touching takes ten cards. The tagger must let go: that is destroy."
     - at: end
-      title: Show a friend
+      title: One hit, one heart
       minutes: 3
       do: |
         Swap dodge games with the next pair. Does one hit cost exactly one heart?

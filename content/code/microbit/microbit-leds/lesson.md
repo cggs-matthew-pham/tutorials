@@ -190,24 +190,12 @@ solutions:
 struggle: "Seeing that the blocks run one at a time. Ask which block ran last, instead of telling them."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what you will see. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Count the votes before anyone runs it. Ask one pair from each option why."
     - at: investigate
       title: Be the micro:bit
       minutes: 4
       do: |
         One student is the micro:bit and holds up one picture card at a time. The class reads the blocks aloud, top to bottom.
       notes: "Holding up one card at a time makes it concrete that each picture replaces the last, and the last card stays up."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Show your name badge to the next pair. Point to the block that runs last.
 ```
 
 ```code lesson.ts#predict

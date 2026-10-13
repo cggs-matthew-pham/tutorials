@@ -207,13 +207,6 @@ solutions:
 struggle: "Seeing why the subtraction is needed. Ask what running time was when the micro:bit started, and what it is now."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what B shows. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the 7500 group: what does B take away from the running time?"
     - at: investigate
       title: The clock on the wall
       minutes: 3

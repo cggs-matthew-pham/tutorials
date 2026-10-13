@@ -242,24 +242,12 @@ solutions:
 struggle: "An if does nothing when false, so turning something off needs its own question. Ask them to read the question aloud for a dark room and a bright one."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what happens when it gets bright again. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Most choose 'go off'. Don't settle it: run it and let the lights stay on."
     - at: investigate
       title: Stand up if
       minutes: 3
       do: |
         The teacher reads a question ("if you are wearing blue"). Students for whom it is true stand up. Then the teacher reads a question that is false for everyone.
       notes: "When the question is false, nobody does anything: nobody sits down unless a question tells them to."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Show your weather warning to the next pair. Drag the slider to cold, middle and hot.
 ```
 
 ```code lesson.ts#predict

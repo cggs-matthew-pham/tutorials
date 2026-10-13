@@ -230,13 +230,6 @@ solutions:
 struggle: "Knowing where to set it and where to ask. Ask: when does this fact become true, and when does it stop being true?"
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 2
-      do: |
-        Decide with your partner what an early press shows.
-      notes: "Then let students try to cheat. Most find it in seconds."
     - at: investigate
       title: Hold the flag
       minutes: 4

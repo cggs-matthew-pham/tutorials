@@ -187,7 +187,7 @@ before: |
 
   The Make is the biggest program so far (about 25 blocks): try it yourself first.
 running:
-  - "Predict: students who answer 70 count from 1. Kai's question returns to it."
+  - "Predict: students who answer 70 count from 1. Kai's question returns to it. Let the 40 and 70 camps argue; the Run settles it."
   - "Investigate: the trace practises places from 0; the match names each block's job."
   - "Modify: a second list works exactly like speeds. A fourth level needs a fourth item and the win moved."
   - "Mix it up: the moving goal from last lesson."
@@ -221,13 +221,6 @@ solutions:
 struggle: "Places start at 0. When a level is off by one, ask which place the list starts at."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 2
-      do: |
-        Decide with your partner which speed the first level gets.
-      notes: "Let the 40 and 70 camps argue; the Run settles it."
     - at: investigate
       title: Lockers
       minutes: 3

@@ -199,7 +199,7 @@ goals:
 before: |
   **on game update every 1000 ms** (Game) is a **timer event**: it runs its blocks again every so many milliseconds (1000 ms = 1 second) for as long as the game lasts. Here it makes a new enemy each time, at x 160 (the right edge), with a **negative vx** so it flies left. **pick random** (Math) gives a new whole number each time it runs, so inside the timer each rock gets its own height. **start countdown** (Info) ends the game after so many seconds. Try the Make yourself: about 15 blocks.
 running:
-  - "Predict: some students expect one rock, because the create block appears once. It runs once per timer run."
+  - "Predict: some students expect one rock, because the create block appears once. It runs once per timer run. Ask the '1' group how often the timer runs."
   - "Investigate: Ava's rocks are the random-once mistake: a random number picked once is just a number."
   - "Modify: a smaller timer number means more often."
   - "Mix it up: lives, from last lesson."
@@ -233,24 +233,12 @@ solutions:
 struggle: "Seeing that the blocks inside a timer run again and again. Ask how many times the create block has run after five seconds."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner how many rocks appear in 5 seconds. Hold up fingers.
-      notes: "Ask the '1' group how often the timer runs."
     - at: investigate
       title: Clap the timer
       minutes: 3
       do: |
         The class claps once a second. On each clap, one student rolls a dice and calls out a height.
       notes: "A new roll every clap: that is pick random inside the timer. Rolling once at the start is Ava's bug."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Play the next pair's dodge game. Can you survive 30 seconds?
 ```
 
 ```code lesson.ts#predict

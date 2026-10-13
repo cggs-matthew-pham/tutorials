@@ -194,7 +194,7 @@ goals:
 before: |
   A **list** (an **array** in MakeCode) is many values in order under one name. **array of sprites of kind Enemy** (Sprites) is a list of every enemy in the game right now. A **for element** loop (Loops; MakeCode calls it "for element value of list") runs its blocks once for each item, with **value** standing for that item each time. That is how one button press can reach sprites that have no names. Blocks inside the loop run once per sprite; blocks after it run once.
 running:
-  - "Predict: some students expect only one alien to stop, or none, because the aliens have no names."
+  - "Predict: some students expect only one alien to stop, or none, because the aliens have no names. Ask the 'no names' group how a teacher could tell every student to sit without naming them."
   - "Investigate: Mia's smart bomb is the inside-or-after slip: the score goes up once."
   - "Modify: anything you can do to one sprite goes inside the loop."
   - "Mix it up: projectiles, from the last course."
@@ -228,24 +228,12 @@ solutions:
 struggle: "Which blocks go inside the loop. Ask: should this happen once, or once for each alien?"
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what B does to 6 aliens. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the 'no names' group how a teacher could tell every student to sit without naming them."
     - at: investigate
       title: Everyone wearing blue
       minutes: 3
       do: |
         The teacher says "for each student wearing blue: stand up and clap". Then "for each student wearing blue: stand up. Then clap once."
       notes: "The first claps once per student; the second claps once in all. Inside the loop, and after it."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Show your smart bomb to the next pair. Count the aliens, press B, and check the score.
 ```
 
 ```code lesson.ts#freeze

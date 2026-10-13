@@ -213,7 +213,7 @@ before: |
 
   After students have built the chaser, they meet **follow** (Sprites), which does the steering in one block. This is "build it yourself, then meet the real tool": they now know what the block does inside. The Make (a patrolling guard) uses **else if** with no else, so the guard keeps walking in the middle.
 running:
-  - "Predict: most say the cat walks right. Ask what happens when it reaches the mouse (it wobbles: at equal x, else runs)."
+  - "Predict: most say the cat walks right. Ask what happens when it reaches the mouse (it wobbles: at equal x, else runs). Ask: which way is the mouse from the cat? Which way is vx set?"
   - "Run: let students run around. The cat only follows left and right: it ignores up and down. That is the first Modify."
   - "Investigate: the trace has one trap (80 and 80: not less than, so else). Zoe's cat: load it, run it, then fix it by swapping the two speeds."
   - "Modify: up and down is a copy of the first if … else with y and vy. Then the overlap ends the game. Then follow: one block replaces both ifs, and it moves diagonally."
@@ -250,13 +250,6 @@ solutions:
 struggle: "Choosing the sign of vx from two positions. Ask them to say in words which side the player is on before choosing positive or negative."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what the cat does. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask: which way is the mouse from the cat? Which way is vx set?"
     - at: investigate
       title: Hot and cold
       minutes: 4
@@ -264,7 +257,7 @@ class:
         One student is the cat with eyes closed. The class calls "left" or "right" every second, depending on which side the mouse is.
       notes: "Exactly one word each time: that is if … else."
     - at: end
-      title: Show a friend
+      title: Test the guard
       minutes: 3
       do: |
         Show your patrolling guard to the next pair. Does it turn at both ends?

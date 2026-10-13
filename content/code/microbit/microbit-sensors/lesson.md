@@ -189,7 +189,7 @@ goals:
 before: |
   A **sensor** gives the program a number that the world keeps changing. In the simulator the controls appear only once a program uses a sensor: the light slider (sun), the temperature slider (thermometer), and tilt by moving the mouse over the micro:bit. The key idea is the forever loop from lesson 2: a sensor read in forever is read again and again; in on start, once.
 running:
-  - "Predict: ask whether the number will follow the light. The key is that forever reads it again each time."
+  - "Predict: ask whether the number will follow the light. The key is that forever reads it again each time. Ask the 'same number over and over' group what forever does each time round."
   - "Run: drag the light slider from dark to bright. The number lags a little because it scrolls."
   - "Investigate: Sam's thermometer is lesson 2's on start mistake again, in a new place. Ask the class which lesson it reminds them of."
   - "Modify: Read on request shows that an event decides when a sensor is read."
@@ -226,24 +226,12 @@ solutions:
 struggle: "A sensor is read once in on start and many times in forever. When the number never changes, ask where the sensor block is."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what the micro:bit will show. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the 'same number over and over' group what forever does each time round."
     - at: investigate
       title: Read the room
       minutes: 4
       do: |
         One student reads a thermometer (or looks out of the window) and calls out what they see, again and again. A second student calls out only once, at the start.
       notes: "Who still knows what the room is like after five minutes? That is forever against on start."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Show your thermometer to the next pair. Drag the slider and read it together.
 ```
 
 ```code lesson.ts#predict

@@ -210,12 +210,6 @@ solutions:
 struggle: "Checking before using. When the count goes below zero, ask what the event asks first."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 2
-      do: |
-        Decide with your partner what five presses do with three shots.
     - at: investigate
       title: Three sweets
       minutes: 3

@@ -210,7 +210,7 @@ goals:
 before: |
   A **function** is a named job: some blocks with a name, made once in **Functions** (under Advanced in the toolbox). Making it does **not** run it. It runs when a **call** block calls it, once per call. One copy serves every call, so a change to the function changes every place that calls it. The **Python** button at the top of the editor shows the same program as text: every event block (*on game update every*, *on overlap*, *on A pressed*) becomes a `def`, handed to the game, which calls it. MakeCode adds a `global bug` line inside the function: it means "use the bug variable from outside". Parameters (inputs) are next lesson.
 running:
-  - "Predict: some students expect nothing, because the function is not an event. Each call runs it."
+  - "Predict: some students expect nothing, because the function is not an event. Each call runs it. Count the call blocks together."
   - "Investigate: Ava's empty timer is this lesson's misconception. Then switch the editor to Python together before the match."
   - "Modify: the score goes inside the function, so every call scores, wherever it is called from."
   - "Mix it up: the for element loop, from last lesson."
@@ -244,13 +244,6 @@ solutions:
 struggle: "Making a function does nothing until it is called. When nothing appears, ask which block calls the function."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner how many bugs on start makes.
-      notes: "Count the call blocks together."
     - at: investigate
       title: Recipe cards
       minutes: 3
@@ -258,7 +251,7 @@ class:
         One student holds a recipe card ("make a bug: stand at the door, walk across"). Nothing happens until the teacher calls "make a bug!", and then it happens each time.
       notes: "Writing the card is making the function; calling its name runs it."
     - at: end
-      title: Show a friend
+      title: Coin test
       minutes: 3
       do: |
         Show your coin collector to the next pair. Collect a coin: does a new one appear?

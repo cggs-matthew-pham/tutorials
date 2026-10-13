@@ -222,24 +222,12 @@ solutions:
 struggle: "Position versus velocity: one sets where a sprite is, the other how it keeps moving. Ask which one the engine changes every frame."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what the ball does. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Most choose 'moves 50 and stops'. Run it."
     - at: investigate
       title: Walk at a speed
       minutes: 4
       do: |
         One student walks across the room at 'one step a second' and keeps going until someone calls a new speed.
       notes: "Nobody pushes them each step. That is what the engine does with a velocity."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Show your sky game to the next pair. Try to fly through the cloud.
 ```
 
 ```code lesson.ts#predict

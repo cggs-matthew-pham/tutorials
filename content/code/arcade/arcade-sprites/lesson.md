@@ -207,13 +207,6 @@ solutions:
 struggle: "y counts down from the top on a game screen, the opposite of maths graphs. Ask them to predict where a sprite will go before placing it."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Point to where you think the duck will appear: top or bottom, left or right.
-      notes: "Students who know graphs point up. Don't settle it: run it."
     - at: investigate
       title: Human screen
       minutes: 4
@@ -221,7 +214,7 @@ class:
         The classroom floor is the screen: the front left corner is (0, 0). The teacher calls a position; a student walks there.
       notes: "Call (80, 110): the student walks to the back. y counts down from the front."
     - at: end
-      title: Show a friend
+      title: Guess the coordinates
       minutes: 3
       do: |
         Show your scene to the next pair. They guess each sprite's x and y before you show the blocks.

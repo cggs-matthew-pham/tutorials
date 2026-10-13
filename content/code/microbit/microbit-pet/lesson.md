@@ -170,7 +170,7 @@ goals:
 before: |
   This challenge uses every lesson in the course and adds nothing new. The pet is a variable, `hunger`, that **forever** makes go up (pause, then change by 1); **A** brings it down (with an **if** so it never goes below 0); **if … else if … else** turns the number into a face; and a **shake** picks a trick from a **list** at random. The milestones fade the help: Milestone 1 gives nearly all the code, Milestone 2 an outline, Milestone 3 only a goal. Build it yourself first; it takes about ten minutes.
 running:
-  - "Predict and Run: the pause sets the pet's speed of life. Ask what would make it get hungry faster."
+  - "Predict and Run: the pause sets the pet's speed of life. Ask what would make it get hungry faster. Count it out together: 3, 6, 9 seconds."
   - "Investigate: three looks back: an if that guards a number, ranges, and a list with its length."
   - "Milestone 1: if hunger never changes, the change block is outside forever."
   - "Milestone 2: the order of the questions matters, as in The first true question wins."
@@ -206,13 +206,6 @@ solutions:
 struggle: "Putting it all in the right blocks. Ask which block each job belongs in: time, button, face or shake."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 2
-      do: |
-        Decide with your partner what number shows after 10 seconds.
-      notes: "Count it out together: 3, 6, 9 seconds."
     - at: investigate
       title: Whose job is it?
       minutes: 4

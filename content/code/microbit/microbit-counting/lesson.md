@@ -204,7 +204,7 @@ goals:
 before: |
   A **variable** is a named box that holds a value, such as `count`. Make one in **Variables › Make a Variable**. Two blocks matter: **set** puts a new value in the box (throwing the old one away) and **change** adds to what is already there. Where the set block goes matters: in **on start** it runs once; in **forever** it runs again and again and wipes the count. Numbers above 9 scroll across the screen, so ask students to wait before pressing again.
 running:
-  - "Predict: most students say 3. Some say 1 (change sets it to 1). Ask what count is before the second press."
+  - "Predict: most students say 3. Some say 1 (change sets it to 1). Ask what count is before the second press. Ask the students who chose 1 what change count by 1 does to a count that is already 1."
   - "Run: press slowly. Point out that the number is remembered between presses: that is the variable."
   - "Investigate: the trace shows set (B) throwing the value away. Mia's counter is the most common mistake this lesson: set inside forever."
   - "Modify: change by -1 counts down. Negative numbers show with a minus sign."
@@ -241,13 +241,6 @@ solutions:
 struggle: "Telling set from change. Ask what count was before the press, and what it is after."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what number shows after three presses. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the students who chose 1 what change count by 1 does to a count that is already 1."
     - at: investigate
       title: The box on the desk
       minutes: 4
@@ -255,7 +248,7 @@ class:
         A student holds a box with a number card in it. The class calls "A" (add one: swap for the next card) or "B" (set to 0: swap for the 0 card).
       notes: "The box keeps its card between calls. That is what remembering means."
     - at: end
-      title: Show a friend
+      title: Count check
       minutes: 3
       do: |
         Swap step counters with the next pair. Shake five times, then check with A.

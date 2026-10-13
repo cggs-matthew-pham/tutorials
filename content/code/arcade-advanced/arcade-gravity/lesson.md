@@ -217,11 +217,10 @@ struggle: "Gravity as acceleration, not a speed. Ask what vy is after one second
 class:
   activities:
     - at: predict
-      kind: discussion
-      title: Vote, then argue
+      title: Drop a ball
       minutes: 3
       do: |
-        Decide with your partner how the ball falls. Hold up 1, 2, 3 or 4 fingers.
+        Drop a ball from head height while everyone watches. Does it fall at a steady speed?
       notes: "Drop a real ball: it speeds up. That is ay."
     - at: investigate
       title: Throw and catch
@@ -229,11 +228,6 @@ class:
       do: |
         Throw a soft ball straight up and watch: fast, slower, stop, faster down.
       notes: "That is vy = -150 with gravity adding to it every moment."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Play the next pair's apple drop. Which apples are hard to catch, and why?
 ```
 
 ```code lesson.ts#fall

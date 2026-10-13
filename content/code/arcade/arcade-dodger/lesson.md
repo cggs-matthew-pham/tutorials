@@ -253,13 +253,6 @@ solutions:
 struggle: "Combining a timer, velocity and overlaps in one game. Point them to the milestone they're on and ask them to get that part playing first."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 2
-      do: |
-        Decide with your partner where the rocks fly.
-      notes: "All through the middle. Ask what one change would make it a real game."
     - at: investigate
       title: Plan the milestones
       minutes: 4

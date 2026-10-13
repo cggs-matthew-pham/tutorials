@@ -185,7 +185,7 @@ goals:
 before: |
   A **parameter** is an input to a function, such as `speed` in *spawnEnemy(speed)*: the call hands in a number (*spawnEnemy(50)*), and inside the function `speed` is that number. So one function can make a slow bug and a fast bug. In the block editor, click **Add a parameter** when making the function; drag `speed` out of the function's header to use it inside. The common slip is typing a number inside the function, which ignores every call's value.
 running:
-  - "Predict: some students expect three bugs at the same speed. Point at the three numbers in the calls."
+  - "Predict: some students expect three bugs at the same speed. Point at the three numbers in the calls. Ask: where does speed get its value?"
   - "Investigate: the trace pins down where speed comes from; Leo's bugs is the number fixed inside."
   - "Modify: random speeds change the call; the height parameter changes the function and every call."
   - "Mix it up: counting calls from a timer."
@@ -217,24 +217,12 @@ solutions:
 struggle: "Where the value comes from. Ask them to point at the call, then at where speed is used inside."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what three calls with 20, 50 and 100 show.
-      notes: "Ask: where does speed get its value?"
     - at: investigate
       title: Fill in the blank
       minutes: 3
       do: |
         One student has a card: "walk across at ___ steps a second". The class calls a number; the student walks at that speed.
       notes: "The card is the function; the number called out is the parameter."
-    - at: end
-      title: Show a friend
-      minutes: 3
-      do: |
-        Show your two kinds of bug to the next pair. Which call makes the fast one?
 ```
 
 ```code lesson.ts#predict

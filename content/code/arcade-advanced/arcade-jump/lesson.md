@@ -208,13 +208,6 @@ solutions:
 struggle: "Where the check belongs: around the jump, in the A event. Ask where the player must be for a jump to make sense."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 2
-      do: |
-        Decide with your partner what three quick presses do.
-      notes: "Let them find the flying in the Run."
     - at: investigate
       title: Feet on the floor
       minutes: 3

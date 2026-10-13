@@ -226,13 +226,6 @@ solutions:
 struggle: "One receiver for every message. Ask what receivedNumber holds when B is pressed."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what the second micro:bit shows after B. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Ask the 'number 2' group which block shows the number."
     - at: investigate
       title: Agree a code
       minutes: 4

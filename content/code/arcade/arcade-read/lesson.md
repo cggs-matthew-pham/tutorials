@@ -146,7 +146,7 @@ goals:
 before: |
   This lesson adds nothing new. Garden defender uses every idea in the course: sprites and positions, the controller, velocity, kinds and overlaps, lives, a timer with pick random, an if in on game update, and projectiles. The skill is reading: find the blocks that do one job, then change only those. It prepares students for Space dodger, where they build a game in milestones.
 running:
-  - "Predict: the if in on game update, from lesson 7."
+  - "Predict: the if in on game update, from lesson 7. Ask which block answers it."
   - "Investigate: the match is the map of the game. Keep it on the board for the rest of the lesson."
   - "The 'faster bugs' question separates how often (the timer) from how fast (vy): a common confusion."
   - "Modify: each rule is one number in one block."
@@ -178,13 +178,6 @@ solutions:
 struggle: "Finding the right block in a longer program. Ask them to name the job first, then point to its block."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what happens at a score of 10.
-      notes: "Ask which block answers it."
     - at: investigate
       title: Map the game
       minutes: 5

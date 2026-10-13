@@ -227,13 +227,6 @@ solutions:
 struggle: "Seeing that only the first true question counts. Ask them to read the questions from the top with one value and stop at the first yes."
 class:
   activities:
-    - at: predict
-      kind: discussion
-      title: Vote, then argue
-      minutes: 3
-      do: |
-        Decide with your partner what shows at -100. Hold up 1, 2, 3 or 4 fingers.
-      notes: "Many pick the left arrow because -100 is negative. Ask: is -100 less than -300?"
     - at: investigate
       title: Sorting hat
       minutes: 4
@@ -241,7 +234,7 @@ class:
         The teacher reads three questions in order ("born in summer?", "in autumn?", else). Each student stands at the first sign that is true for them and stops there.
       notes: "Then swap the order of two questions. Does anyone change sign? Why?"
     - at: end
-      title: Show a friend
+      title: Call the range
       minutes: 3
       do: |
         Show your comfort meter to the next pair. They drag the slider and call out the range before it shows.
