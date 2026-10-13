@@ -1,11 +1,13 @@
 ---
-order: 5
+order: 6
 unit: decide
+moveId: if-true
+reviews: [read-a-sensor]
+introduces: [if]
 title: If
 summary: Make the micro:bit decide what to do, using a sensor and an if block.
 language: makecode
-introduces: [if]
-explainPicture: if.ts#predict
+explainPicture: lesson.ts#predict
 hook: "Street lights switch on when it gets dark, and a fridge beeps when its door is left open. Each one asks a yes-or-no question about a number, again and again."
 app:
   command: "node \"$REPO_ROOT/tools/serve.mjs\" \"$OUT_DIR\" 8131"
@@ -14,7 +16,7 @@ app:
   layout: full
 voice: true
 explainClip:
-  query: { code: "@if.ts#predict", lesson: "code/microbit/microbit-if", target: "microbit" }
+  query: { code: "@lesson.ts#predict", lesson: "code/microbit/microbit-if", target: "microbit" }
   caption: "An if asks a yes-or-no question"
   say: "An if asks a yes or no question, like: is the light level under 50?"
   pacing: { keyDelayMs: 22 }
@@ -40,11 +42,13 @@ Last lesson the micro:bit read sensors and showed numbers. Now it will **decide*
 
 ```step
 stage: predict
-code: if.ts#predict
+code: lesson.ts#predict
 check:
   type: predict
   q: "The light level starts high. You drag it down to 20, then back up to 200. What happens?"
   options: ["The lights come on in the dark, then go off when it is bright", "The lights come on in the dark, and stay on when it is bright again", "Nothing ever lights up", "The lights flash on and off"]
+  fault: logic
+  misconception: if-false-undoes
   actual: "The lights come on in the dark and stay on. The if only does something when it is dark; when it is bright again, it does nothing, so nothing turns the lights off."
 ```
 
@@ -54,8 +58,8 @@ This is a **night light**. `<` means "less than".
 
 ```step
 stage: run
-code: if.ts#predict
-try: { playground: microbit, starter: "if.ts#predict" }
+code: lesson.ts#predict
+try: { playground: microbit, starter: "lesson.ts#predict" }
 check: { type: reflect, text: "I dragged the light down and back up, and compared what happened with my prediction." }
 ```
 
@@ -65,17 +69,19 @@ Drag the light slider down to dark, then back up to bright.
 
 ```step
 stage: investigate
-code: if.ts#predict
-insight: "An if runs its blocks only when its question is true. When it is false, nothing happens, so turning something off needs its own question."
-try: { playground: microbit, starter: "if.ts#predict" }
+code: lesson.ts#predict
+insight: "An if runs its blocks only while its question is true. When it is false, nothing happens, so turning something off needs its own question."
+try: { playground: microbit, starter: "lesson.ts#predict" }
 tasks:
   - check:
       type: question
       q: "Why do the lights stay on when it gets bright again?"
       options: ["The light sensor stops working", "When the question is false, the if does nothing, so nothing turns the lights off", "The lights need a pause to go off", "forever only runs once"]
       answer: 1
+      fault: logic
+      misconception: if-false-undoes
       explain: "When it is bright, 'light level < 50' is false, so the if skips its blocks. Nothing in the program turns the lights off."
-  - hint: ["Drag in a second if block, under the first, inside forever.", "Ask 'light level ≥ 50' and put clear screen inside it."]
+  - hint: ["clear screen is in Basic (click more...).", "The second question is the opposite one: light level ≥ 50."]
     check: { type: code, text: "Add a second if that clears the screen when it is bright.", rules: { count: { "if(": 2 }, inside: { "basic.forever": ["basic.clearScreen()"] } } }
   - check:
       type: question
@@ -121,11 +127,11 @@ basic.forever(function () {
 ```step
 stage: modify
 insight: "The number in the question decides where the switch happens, and any sensor can be asked about."
-try: { playground: microbit, starter: "if.ts#modify" }
+try: { playground: microbit, starter: "lesson.ts#modify" }
 tasks:
-  - hint: "Change 50 in both questions, so they still meet in the middle."
+  - hint: "Click 50 in each question and type 100."
     check: { type: code, text: "Make the night light come on earlier: switch at 100 instead of 50.", rules: { contains: ["input.lightLevel()<100"] } }
-  - hint: ["Add a third if, inside forever.", "Ask 'temperature > 30', and show a face inside."]
+  - hint: ["Drag in a third if from Logic.", "temperature is in Input. Use > and 30."]
     check: { type: code, text: "Add a warning: show a sad face when the temperature is above 30.", rules: { inside: { "basic.forever": ["input.temperature()>"] } } }
 ```
 
@@ -137,15 +143,38 @@ Make the night light come on when the light level is below **100**. Change both 
 
 Add a third **if**: when the temperature is above 30, show a sad face.
 
+## Mix it up
+
+```step
+stage: investigate
+code: lesson.ts#review
+insight: "A sensor read once gives one moment; a sensor read in forever follows the world."
+check:
+  type: question
+  q: "Thermometer 1 (above) reads the temperature in on start. Thermometer 2 (below) reads it in forever. You drag the temperature slider. Which one follows it?"
+  options: ["Thermometer 2, in forever", "Thermometer 1, in on start", "Both", "Neither: sensors only change on a real micro:bit"]
+  answer: 0
+  explain: "on start reads the temperature once, at the start. forever reads it again each time round, so its number follows the slider."
+```
+
+Thermometer 1 is above. Thermometer 2:
+
+```makecode
+basic.forever(function () {
+    basic.showNumber(input.temperature())
+})
+```
+
 ## Make
 
 ```step
 stage: make
-try: { playground: microbit, starter: "if.ts#make" }
+try: { playground: microbit, starter: "lesson.ts#make" }
 hint:
-  - "Two if blocks inside forever: one asks about cold, one about hot."
-  - "temperature < 10 for cold, temperature > 30 for hot. Draw a picture with show leds for each."
+  - "You need two if blocks inside forever, one for cold and one for hot."
+  - "Cold: temperature < 10. Hot: temperature > 30."
 check: { type: code, text: "Two ifs: a picture when it is cold (below 10) and a different one when it is hot (above 30).", rules: { count: { "if(": 2 }, contains: ["input.temperature()<", "input.temperature()>"] } }
+unlocks: [if]
 ```
 
 Make a **weather warning**. Draw your own pictures:
@@ -159,7 +188,188 @@ Test it by dragging the temperature slider.
 
 ```step
 stage: modify
-try: { playground: microbit, starter: "if.ts#fridge" }
+try: { playground: microbit, starter: "lesson.ts#fridge" }
 ```
 
 A fridge should stay at 5 degrees or less. This alarm flashes a cross when it gets warmer. Make it also flash when the fridge is **too cold** (below 0), with a different picture.
+
+```teacher
+summary: "Students use an if block to make the micro:bit decide, and see that a false if does nothing, so turning something off needs its own question."
+time: 45
+timing: "Predict and Run 8 min · Investigate 12 min · Modify 8 min · Mix it up 3 min · Make 10 min · Fridge alarm 4 min"
+goals:
+  - I can use an if block to make the micro:bit decide.
+  - I can say what an if does when its question is false.
+  - I can choose < or > so the question is true when I want it to be.
+before: |
+  An **if** block asks a yes-or-no question (a **condition**), such as *light level < 50*. When the answer is yes (**true**), it runs the blocks inside; when no (**false**), it skips them and does nothing. That second half surprises students: in the Predict, the lights come on in the dark and **stay on**, because nothing tells them to go off. The fix is a second if with the opposite question. The comparison block is in **Logic**: `<` less than, `>` greater than, `≥` greater than or equal to. Next lesson, **else** does the same job more neatly.
+running:
+  - "Predict: most students expect the lights to go off when it is bright. Let them be surprised."
+  - "Run: drag dark, then bright. Ask: which block would turn the lights off? (None.)"
+  - "Investigate: the fix is a second if asking the opposite question. Zoe's night light is the classic mix-up of < and >: read it aloud as 'if the light is less than 50'."
+  - "Modify: changing the switch point means changing both questions, or there is a gap where neither is true."
+  - "Mix it up: sensors in on start against forever, from last lesson."
+  - "Make: two ifs, two drawings. Leave the middle (10 to 30) showing whatever was last: that is fine for now."
+stuck:
+  - see: "The lights never come on."
+    ask: "Read your question aloud: is it true when it is dark?"
+    fix: "Check the < and >: a night light needs light level < 50."
+  - see: "The lights flicker when the slider is near 50."
+    ask: "Which questions are true at exactly 50?"
+    fix: "Use < 50 for one and ≥ 50 for the other, so exactly one is true."
+  - see: "The if block will not snap in."
+    ask: "Is it inside forever, and is the comparison inside the if's slot?"
+    fix: "Drag the comparison from Logic into the hexagon slot of the if."
+stretch: "Make the night light dim gradually: one row lit when it is a bit dark, three rows darker, all five in the dark (three ifs)."
+support: "Give students the second if already in place with an empty question, and ask them to choose the comparison."
+leads: "Next lesson: else, which turns two ifs into one block with no gap. Class ideas: a classroom 'too noisy' light with the sound level (micro:bit V2); a plant monitor on a windowsill with a real micro:bit."
+exit:
+  q: "A night light uses only 'if light level < 50, show lights'. Why do the lights stay on in the morning?"
+  a: "When it is bright the question is false, so the if does nothing. Nothing in the program turns the lights off."
+explain: |
+  An **if** asks a yes-or-no question, such as *light level < 50*.
+
+  - **True** (yes): it runs the blocks inside.
+  - **False** (no): it skips them and does **nothing**.
+
+  So an if can turn the lights on, but it cannot turn them off by itself. That needs another question: *light level ≥ 50*.
+
+  `<` means less than, `>` means greater than.
+solutions:
+  step-4#t1: lesson.ts#sol-threshold
+  step-4#t2: lesson.ts#sol-hot
+  step-6: lesson.ts#sol-make
+struggle: "An if does nothing when false, so turning something off needs its own question. Ask them to read the question aloud for a dark room and a bright one."
+class:
+  activities:
+    - at: predict
+      kind: discussion
+      title: Vote, then argue
+      minutes: 3
+      do: |
+        Decide with your partner what happens when it gets bright again. Hold up 1, 2, 3 or 4 fingers.
+      notes: "Most choose 'go off'. Don't settle it: run it and let the lights stay on."
+    - at: investigate
+      title: Stand up if
+      minutes: 3
+      do: |
+        The teacher reads a question ("if you are wearing blue"). Students for whom it is true stand up. Then the teacher reads a question that is false for everyone.
+      notes: "When the question is false, nobody does anything: nobody sits down unless a question tells them to."
+    - at: end
+      title: Show a friend
+      minutes: 3
+      do: |
+        Show your weather warning to the next pair. Drag the slider to cold, middle and hot.
+```
+
+```code lesson.ts#predict
+basic.forever(function () {
+    if (input.lightLevel() < 50) {
+        basic.showLeds(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            `)
+    }
+})
+```
+
+```code lesson.ts#modify
+basic.forever(function () {
+    if (input.lightLevel() < 50) {
+        basic.showLeds(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            `)
+    }
+    if (input.lightLevel() >= 50) {
+        basic.clearScreen()
+    }
+})
+```
+
+```code lesson.ts#sol-threshold
+basic.forever(function () {
+    if (input.lightLevel() < 100) {
+        basic.showLeds(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            `)
+    }
+    if (input.lightLevel() >= 100) {
+        basic.clearScreen()
+    }
+})
+```
+
+```code lesson.ts#sol-hot
+basic.forever(function () {
+    if (input.lightLevel() < 100) {
+        basic.showLeds(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            `)
+    }
+    if (input.lightLevel() >= 100) {
+        basic.clearScreen()
+    }
+    if (input.temperature() > 30) {
+        basic.showIcon(IconNames.Sad)
+    }
+})
+```
+
+```code lesson.ts#review
+basic.showNumber(input.temperature())
+```
+
+```code lesson.ts#make
+basic.forever(function () {
+
+})
+```
+
+```code lesson.ts#sol-make
+basic.forever(function () {
+    if (input.temperature() < 10) {
+        basic.showLeds(`
+            # . # . #
+            . # # # .
+            # # # # #
+            . # # # .
+            # . # . #
+            `)
+    }
+    if (input.temperature() > 30) {
+        basic.showLeds(`
+            # . # . #
+            . # # # .
+            # # . # #
+            . # # # .
+            # . # . #
+            `)
+    }
+})
+```
+
+```code lesson.ts#fridge
+basic.forever(function () {
+    if (input.temperature() > 5) {
+        basic.showIcon(IconNames.No)
+        basic.pause(500)
+        basic.clearScreen()
+        basic.pause(500)
+    }
+})
+```

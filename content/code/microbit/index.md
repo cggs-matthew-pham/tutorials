@@ -1,15 +1,14 @@
 ---
 title: micro:bit Foundations
-summary: Program a micro:bit with blocks in the simulator. Pictures, buttons, sensors, decisions, lists, functions and radio, ending in a reaction game.
-tagline: "Make a micro:bit show pictures, sense the world and play a reaction game."
+summary: Program a micro:bit with blocks in the simulator. Pictures, loops, buttons, variables, sensors, decisions and lists, ending in a pocket pet you build yourself.
+tagline: "Make a micro:bit show pictures, sense the world and look after a pocket pet."
 order: 1
 challenge: challenge
 recap: true
 units:
-  - { id: show-react, title: Show and react, summary: "Pictures on the LEDs, loops, and code that waits for a button." }
-  - { id: remember-sense, title: Remember and sense, summary: "Variables that count, and sensors that give numbers." }
-  - { id: decide, title: Decide, summary: "If, else and ranges: the micro:bit chooses what to do." }
-  - { id: tools, title: Collections and tools, summary: "Lists of choices, and functions that name a job." }
-  - { id: talk, title: Talk, summary: "Radio messages between micro:bits." }
-  - { id: challenge, title: "Final challenge: Reaction timer", summary: "Build a reaction game in milestones, then race a friend over radio. Two optional lessons go further." }
+  - { id: show-react, title: Show and react, summary: "Pictures in order, loops that repeat, and code that waits for a button." }
+  - { id: remember-sense, title: Remember and sense, summary: "A variable that counts, and sensors that give numbers." }
+  - { id: decide, title: Decide, summary: "If, else and else if: the micro:bit chooses what to do." }
+  - { id: lists, title: Lists, summary: "Many values under one name: pick one by its place, or at random." }
+  - { id: challenge, title: "Final challenge: Pocket pet", summary: "Build a pet that gets hungry, eats and does tricks, in three milestones." }
 ---

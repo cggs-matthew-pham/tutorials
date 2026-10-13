@@ -23,7 +23,8 @@ Where it breaks: if the first question is too wide ("Are you a person?"), everyo
 
 1. In the If lesson, run the night light. Drag the light down, then back up: the lights stay on.
 2. Add a second if: *light level ≥ 50*, with clear screen inside. Try again.
-3. In the Else lesson, tilt the micro:bit a little and a lot. A small tilt shows the else picture.
+3. In If and else, rebuild the night light with one if … else.
+4. In The first true question wins, tilt the micro:bit a little and a lot. A small tilt shows the else picture.
 
 ## Questions students ask
 
@@ -33,4 +34,4 @@ Where it breaks: if the first question is too wide ("Are you a person?"), everyo
 
 ## How it connects
 
-The challenge uses decisions to check whether a press came too early, and to keep the best score: *if this time < best, set best to this time*.
+The Pocket pet challenge turns its hunger number into a face with if … else if … else. In the next course, decisions check which radio message arrived and whether a press came too early.

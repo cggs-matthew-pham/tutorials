@@ -22,7 +22,7 @@ Where it breaks: wiping the board inside **forever** happens many times a second
 
 ## Try it yourself (5 minutes)
 
-1. In the Counting lesson, run the counter and press A a few times.
+1. In the Count with a variable lesson, run the counter and press A a few times.
 2. Move *set count to 0* into forever and press A again: it stays at 0.
 3. In the Sensors lesson, drag the light slider and watch the number follow it.
 

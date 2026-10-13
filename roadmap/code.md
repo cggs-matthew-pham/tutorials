@@ -86,10 +86,10 @@ Lesson counts include optional lessons. "Pictures" are drawn by `render-pictures
 
 ### MakeCode pathway
 
-- **micro:bit Foundations** (`code/microbit`, 14): built 9 Oct.
-  - Events come at lesson 2; a Python peek from lesson 8.
+- **micro:bit Foundations** (`code/microbit`, 11) and **micro:bit: talk and play** (`code/microbit-play`, 10, 2 optional): redone 13 Oct as one move per lesson (plan and status in the Project doc microbit-sequence). Foundations: pictures in order, forever, button events, counting, sensors, if, else, else if, lists, pick from a list, then the Pocket pet challenge. Talk and play: functions, radio, which message, a shared code, time between, true or false, then Reaction timer and Radio duel (Fake-outs and levels, Tournament optional). Robotics, micro:bit and the computer and Secret messages now follow talk and play.
+  - Single-file lessons; a review step ("Mix it up") from lesson 3; each move lesson's Make unlocks its block (new blocks: animation, counter, pick from list, which message, shared code, time it). MakeCode snippets still have no `example`.
   - Playground in controller mode, blocks pictures and "what it makes" pictures, Reference.
-  - Not yet tried against the live editor.
+  - Not yet tried against the live editor; tested headless by sending each solution as a playground report.
 - **MakeCode Arcade** (`code/arcade`, 14): written.
   - Lesson 13 teaches which games suit Arcade (table in the archive, "Arcade Foundations sequence").
   - Not yet tried against the live editor. Tilemaps are outside the core.
@@ -189,7 +189,7 @@ A brief that needs two courses belongs to the later one. Why not a pathway page 
 - Python Foundations: Pattern maker, A street of your own, Chart your data, Click-and-key art, Your own game.
 - HTML & CSS: A page about something you love, A recipe card, An event page, An order form.
 - micro:bit and the computer: A live dashboard (crossover: MakeCode and a DOM page with `microbit.js`).
-- micro:bit Foundations: Pocket pet, The answer machine, Quiz buzzer, Your own micro:bit game.
+- micro:bit Foundations: Plant monitor, The answer machine. micro:bit: talk and play: Quiz buzzer, Your own micro:bit game. (Pocket pet became Foundations' final challenge.)
 - Arcade Foundations: Treasure hunt, Escape, Defender, Your own Arcade game.
 - Recap on for Python, HTML & CSS, micro:bit and Arcade.
 

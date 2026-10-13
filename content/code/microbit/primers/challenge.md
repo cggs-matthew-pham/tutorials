@@ -1,40 +1,39 @@
 ---
-title: The final challenge in 5 minutes
+title: The Pocket pet challenge in 5 minutes
 ---
 ## The idea in plain words
 
-The challenge builds a **reaction game**: press B, wait a random time, then press A as fast as you can when the heart appears. It uses every idea from the course, with only two new blocks:
+The challenge builds a **pocket pet**: a pet that lives on the micro:bit. It uses every lesson in the course and adds nothing new.
 
-- **running time** (in Input › more): milliseconds since the micro:bit switched on. Store it when the heart appears (`start`); at the press, *running time − start* is the reaction time.
-- **true/false** values (in Logic): a variable such as `waiting` is true only while the heart is showing, so an early press can be caught.
+- **forever** with a **pause** makes a variable, `hunger`, go up by itself as time passes.
+- **on button A pressed** feeds it: hunger goes down, with an **if** so it never goes below 0.
+- **if … else if … else** turns the number into a face: happy, tired or sad.
+- **on shake** picks a trick from a **list** with *pick random 0 to length − 1*.
 
-The **Radio duel** turns it into a two-player race: both micro:bits run the same program and agree a code (0 get ready, 1 go, 2 I pressed first, 3 I won). Each lesson is built in **three milestones** with less help each time: most of the code, then an outline, then goals only.
-
-**Reaction timer** and **Radio duel** mark the course **Challenge complete**. Two optional lessons go further for students who want more: **Fake-outs and levels** (decoys, a list of targets, lives) and **Tournament** (a scoreboard list and rounds that start themselves).
+It is built in **three milestones** with less help each time: most of the steps, then an outline, then a goal only. **Pocket pet** marks the course **Challenge complete**.
 
 ## Why programmers use it
 
-Real programs are combinations: state (variables), events, decisions, data (lists) and named jobs (functions) working together. A game makes the combination visible, and students can test it by playing.
+Real programs are combinations: state (variables), time (loops), events, decisions and data (lists) working together. A pet makes the combination visible, and students can test it by looking after it.
 
 ## An everyday picture, and where it breaks
 
-A reaction timer is a starting pistol and a stopwatch: the pistol fires at an unpredictable moment, the stopwatch starts, and stops when you move.
+A pet is a fuel gauge with a face: time drains it, you top it up, and the face shows how full it is.
 
-Where it breaks: a stopwatch that starts when you press go (not when the pistol fires) times the wrong thing. In code, that is setting `start` at the wrong moment, which makes every time huge.
+Where it breaks: a gauge that never drains by itself is not a pet. In code, that is a change block outside forever: hunger never moves unless someone presses a button.
 
 ## Try it yourself (5 minutes)
 
-1. In the Reaction timer, press B, wait for the heart, then press A. Good times are 200 to 400 ms.
-2. Press A before the heart: in the early version it still shows a number. That is the cheat Milestone 2 fixes.
-3. In the Radio duel, press B on one simulated micro:bit and race yourself with A on either.
+1. In Pocket pet, run the first program and wait 10 seconds: hunger counts up by itself.
+2. Swap the number for faces with if … else if … else, and press A to feed it.
+3. Add a trick of your own to the list and shake.
 
 ## Questions students ask
 
-- **"Why is my time 15000?"** `start` was never set, or was set before the wait. Set it straight after the heart.
-- **"Why does every press show a cross?"** `waiting` is never set to true. Set it after the heart appears.
-- **"Why do both players win?"** Check `racing` before counting a press, and set it to false straight away.
-- **"Is the simulator fair?"** Close enough for practice; real micro:bits make the duel far more exciting.
+- **"Why does hunger never change?"** The change block is not inside forever.
+- **"Why is my pet always sad?"** Check the order of the questions: < 3 first, then < 6.
+- **"Why does hunger go below 0?"** Only take 1 away if hunger > 0.
 
 ## How it connects
 
-Robotics challenges comes next: the same ideas (events, sensors, decisions, functions, radio) driving a two-wheeled robot, first in the robot simulator, then on a real robot.
+The next course, **micro:bit: talk and play**, names jobs as functions, connects micro:bits by radio and measures time, ending with a reaction game and a radio duel.

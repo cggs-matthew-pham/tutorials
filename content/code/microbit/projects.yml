@@ -1,26 +1,26 @@
 playground: microbit
 projects:
-  - id: pocket-pet
-    title: Pocket pet
-    after: microbit-else
+  - id: plant-monitor
+    title: Plant monitor
+    after: microbit-ranges
     goal: |
-      Make a **pet that lives on your micro:bit**. It gets hungry or bored as time passes, you look after it with the buttons (or a shake), and its face shows how it feels. What kind of pet, and what it needs, is up to you.
-    example: pocket-pet.ts
-    uses: [variable-update, if, else]
+      Make a **plant monitor** for a windowsill: it reads the light and the temperature, and its face tells you whether the plant is happy, too dark or too hot. What counts as too dark or too hot is up to you (look up what your plant likes).
+    example: plant-monitor.ts
+    uses: [if, else, variable-update]
     milestones:
-      - "A number for how the pet feels changes by itself as time passes."
-      - "Buttons or a shake change that number (feeding, playing)."
-      - "The face changes with the number, decided by if and else."
+      - "The face changes with the light level, decided by if and else."
+      - "A third face for too hot, in one if … else if … else, with the questions in an order that works."
+      - "A button shows how many times it has checked, counted in a variable."
     stretch:
-      - "A second need (food and sleep), each with its own number."
-      - "The pet sleeps when it is dark, using the light level."
-      - "A sound when it is very hungry."
+      - "A bar graph of the light on B."
+      - "A warning that flashes, not just a face."
+      - "Different limits for day and night."
     teacher: |
-      The common gap is a number that never changes by itself: ask "what happens if nobody presses anything for a minute?". The pause inside forever sets the pet's speed of life.
+      The common gap is question order: a wide question asked first ("light level < 200") hides the narrower ones after it. Ask "which face shows when it is dark and hot at the same time, and is that the one you want?".
 
   - id: answer-machine
     title: The answer machine
-    after: microbit-lists
+    after: microbit-pick
     goal: |
       Make a micro:bit that **answers questions**: shake it and it picks an answer from a list (a Magic 8-ball, a dinner chooser, a "who goes first" picker, a dice for a board game). The answers are yours.
     example: answer-machine.ts
@@ -35,40 +35,3 @@ projects:
       - "An animation before the answer appears."
     teacher: |
       "Every one can come up" is the list-length check in disguise: a random place from 0 to the length minus 1. Students who type a fixed number there miss the last answer when the list grows.
-
-  - id: quiz-buzzer
-    title: Quiz buzzer
-    after: microbit-duel
-    goal: |
-      Make **buzzers for a class quiz**: each team has a micro:bit, the first team to press its button wins the turn, and every other buzzer knows it lost. A quizmaster micro:bit can reset the round.
-    example: quiz-buzzer.ts
-    uses: [radio-number, if, bool-value]
-    milestones:
-      - "Pressing a buzzer sends its team's number by radio."
-      - "Only the first press counts: later presses are ignored until the round is reset."
-      - "Every buzzer shows who won, and a reset starts a new round."
-    stretch:
-      - "A different sound for each team."
-      - "The quizmaster's micro:bit keeps the score."
-      - "A time limit: no buzz in 10 seconds shows a clock."
-    teacher: |
-      Needs two or more micro:bits on the same radio group (or two simulators in the editor). The "only the first press" milestone is a true or false variable, as in the Reaction lesson; pairs who skip it get two winners.
-
-  - id: my-microbit-game
-    title: Your own micro:bit game
-    after: microbit-duel
-    goal: |
-      Make a small **game** for one or two players that is not one from the lessons: catch a falling dot, keep a balance, a memory game, a race. It keeps score, gets harder, and has a way to win or lose.
-    example: my-game.ts
-    uses: [function, variable-update, random, if]
-    milestones:
-      - "It runs, and the player does something with buttons, tilt or shake."
-      - "It keeps a score and shows it at the end."
-      - "It gets harder or ends, checked with if."
-      - "Someone else played it and I changed one thing because of what they did."
-    stretch:
-      - "Levels from a list, as in Levels (lesson 13)."
-      - "A two-player version over radio."
-      - "A high score that the micro:bit remembers until it is switched off."
-    teacher: |
-      Ask for a one-sentence pitch before coding. A function for "new round" or "show score" keeps forever short; students who skip functions usually end up with a forever block too long to read.

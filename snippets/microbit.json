@@ -47,6 +47,11 @@
      "hint": "Runs the blocks inside again and again. Blocks in on start run only once."
     },
     {
+     "label": "animation",
+     "code": "basic.forever(function () {\n    basic.showIcon(IconNames.‹Heart›)\n    basic.pause(‹500›)\n    basic.showIcon(IconNames.‹SmallHeart›)\n    basic.pause(‹500›)\n})",
+     "hint": "Pictures inside forever repeat, in order. Each pause holds the picture before it."
+    },
+    {
      "label": "on button pressed",
      "code": "input.onButtonPressed(Button.‹A›, function () {\n    ‹blocks›\n})",
      "hint": "Runs the blocks inside every time the button is pressed. Choose A, B or A+B. Input."
@@ -72,6 +77,11 @@
      "code": "‹count› += ‹1›",
      "hint": "Adds to a variable's value. Change by -1 counts down. Variables.",
      "matches": "\\w\\s*\\+=\\s*"
+    },
+    {
+     "label": "counter",
+     "code": "let ‹count› = 0\ninput.onButtonPressed(Button.‹A›, function () {\n    ‹count› += 1\n    basic.showNumber(‹count›)\n})",
+     "hint": "Set the start value once, in on start. change adds to whatever the variable holds now."
     },
     {
      "label": "light level",
@@ -120,7 +130,7 @@
    ]
   },
   {
-   "name": "Collections and tools",
+   "name": "Lists and functions",
    "items": [
     {
      "label": "list",
@@ -144,6 +154,11 @@
      "label": "pick random",
      "code": "randint(‹0›, ‹10›)",
      "hint": "A random whole number from the first to the second, both included. Math."
+    },
+    {
+     "label": "pick from list",
+     "code": "basic.showString(‹list›[randint(0, ‹list›.length - 1)])",
+     "hint": "A random place from 0 to length − 1 reaches every item, however long the list grows."
     },
     {
      "label": "function",
@@ -178,6 +193,16 @@
      "hint": "Runs each time a number arrives; receivedNumber holds it. Radio."
     },
     {
+     "label": "which message",
+     "code": "radio.onReceivedNumber(function (receivedNumber) {\n    if (receivedNumber == ‹1›) {\n        ‹blocks›\n    } else if (receivedNumber == ‹2›) {\n        ‹blocks›\n    }\n})",
+     "hint": "One on radio received gets every message; receivedNumber says which one arrived."
+    },
+    {
+     "label": "shared code",
+     "code": "let ‹words› = [‹\"Hi\", \"Yes\", \"No\"›]\nradio.onReceivedNumber(function (receivedNumber) {\n    basic.showString(‹words›[receivedNumber])\n})",
+     "hint": "Send a place number; both micro:bits must hold the same list in the same order."
+    },
+    {
      "label": "radio send string",
      "code": "radio.sendString(\"‹hi›\")",
      "hint": "Sends a word to every other micro:bit in the group. Radio."
@@ -190,12 +215,17 @@
    ]
   },
   {
-   "name": "Challenge",
+   "name": "Time",
    "items": [
     {
      "label": "running time",
      "code": "input.runningTime()",
      "hint": "Milliseconds since the micro:bit switched on. Take one from a later one to time something. Input › more."
+    },
+    {
+     "label": "time it",
+     "code": "‹start› = input.runningTime()\nbasic.showNumber(input.runningTime() - ‹start›)",
+     "hint": "Store running time at the start; later, running time − start is how long it took (ms)."
     },
     {
      "label": "true or false",

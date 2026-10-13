@@ -23,9 +23,9 @@ Where it breaks: a doorbell checked only during the morning announcement would n
 
 ## Try it yourself (5 minutes)
 
-1. Open the first lesson. Put two **show icon** blocks in **on start** and watch: the second picture stays.
-2. Drag both into **forever**. The pictures now repeat.
-3. In the second lesson, add *on button A pressed* (from Input) with a picture inside. Click **A** in the simulator.
+1. In Pictures in order, put two **show icon** blocks in **on start** and watch: the second picture stays.
+2. In Again and again, drag both into **forever**. The pictures now repeat.
+3. In Wait for a press, add *on button A pressed* (from Input) with a picture inside. Click **A** in the simulator.
 
 ## Questions students ask
 
@@ -36,4 +36,4 @@ Where it breaks: a doorbell checked only during the morning announcement would n
 
 ## How it connects
 
-Every later unit builds on these three holders: a button changes a variable, forever checks a sensor and decides, and radio adds a new event, *on radio received*.
+Every later unit builds on these three holders: a button changes a variable, forever checks a sensor and decides, and in the next course radio adds a new event, *on radio received*.

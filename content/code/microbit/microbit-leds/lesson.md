@@ -1,11 +1,13 @@
 ---
 order: 1
 unit: show-react
-title: Pictures on the LEDs
-summary: Show pictures on the micro:bit, then make them move with a loop.
+moveId: blocks-in-order
+reviews: []
+title: Pictures in order
+summary: Show words and pictures on the micro:bit, and see that blocks run once, from top to bottom.
 language: makecode
-explainPicture: leds.ts#sign
-hook: "Scrolling signs at train stations and the lights on a pedestrian crossing run the same simple loop: show a picture, wait, show the next one."
+explainPicture: lesson.ts#sign
+hook: "A shop sign scrolls its name, then shows a picture. It is a short list of instructions, done in order."
 app:
   command: "node \"$REPO_ROOT/tools/serve.mjs\" \"$OUT_DIR\" 8131"
   url: "http://127.0.0.1:8131/_playground-explain/index.html"
@@ -13,21 +15,23 @@ app:
   layout: full
 voice: true
 explainClip:
-  query: { code: "@leds.ts#sign", lesson: "code/microbit/microbit-leds", target: "microbit" }
+  query: { code: "@lesson.ts#sign", lesson: "code/microbit/microbit-leds", target: "microbit" }
   caption: "The micro:bit runs blocks in order, top to bottom"
   say: "The micro:bit runs blocks in order, from top to bottom."
   pacing: { keyDelayMs: 22 }
   clip:
     - wait: 600
-    - caption: "Blocks in on start run once, so the last picture stays on."
     - caption:
-        text: "Blocks in forever run again and again: a loop."
-        say: "Blocks in forever run again and again. That loop makes an animation."
+        text: "on start runs its blocks once, when the micro:bit switches on."
+        say: "on start runs its blocks once, when the micro:bit switches on."
     - click: "Run"
     - wait: 600
     - caption:
-        text: "pause keeps a picture on longer: 1000 ms is one second."
-        say: "pause keeps a picture on for longer. A thousand milliseconds is one second."
+        text: "First the word scrolls. Then the face. Then the tick."
+        say: "First the word scrolls, then the face, then the tick."
+    - caption:
+        text: "The last picture stays on, because nothing comes after it."
+        say: "The last picture stays on, because nothing comes after it."
     - wait: 1200
     - expect: { selector: "#out h2", contains: "Running" }
 ---
@@ -37,22 +41,24 @@ The micro:bit has 25 small lights (LEDs) in a 5 by 5 grid. You program it with *
 
 ```step
 stage: predict
-code: leds.ts#predict
+code: lesson.ts#predict
 check:
   type: predict
   q: "What will you see on the micro:bit?"
-  options: ["Only the big heart", "Only the small heart", "The big heart, then the small heart, which stays", "The hearts flashing over and over"]
+  options: ["The big heart, then the small heart, which stays", "Both hearts at the same time", "Only the big heart", "The hearts flashing over and over"]
+  fault: logic
+  misconception: blocks-show-together
   actual: "The big heart shows, then the small heart, and the small heart stays. The blocks run once, top to bottom, and the last picture stays on."
 ```
 
-These two blocks sit inside **on start**. Read them carefully, then lock in your prediction.
+These two blocks sit inside **on start**. Read them from the top, then lock in your prediction.
 
 ## Run
 
 ```step
 stage: run
-code: leds.ts#predict
-try: { playground: microbit, starter: "leds.ts#predict" }
+code: lesson.ts#predict
+try: { playground: microbit, starter: "lesson.ts#predict" }
 check: { type: reflect, text: "I watched it run and compared it with my prediction." }
 ```
 
@@ -62,83 +68,205 @@ The simulator runs the program by itself. Missed it? Press the restart button un
 
 ```step
 stage: investigate
-code: leds.ts#bug
-insight: "Blocks in on start run once. Blocks inside forever run again and again, so two pictures become an animation."
-try: { playground: microbit, starter: "leds.ts#investigate" }
+code: lesson.ts#sign
+insight: "Blocks in on start run once, one after another from the top, so the order of the blocks is the order you see, and the last picture stays."
+try: { playground: microbit, starter: "lesson.ts#sign" }
 tasks:
   - check:
       type: question
-      q: "Ada wants the hearts to keep beating. Her hearts show once, then the small heart just stays. Why?"
-      options: ["The micro:bit needs a pause to repeat", "The hearts are in on start, and forever is empty", "Hearts can only be shown once", "The small heart is the wrong block"]
-      answer: 1
+      q: "Lily's sign has three blocks in on start: show string HI, show icon happy face, show icon tick. What do you see?"
+      options: ["HI scrolls, then the happy face, then the tick, which stays", "HI, the face and the tick all at once", "Only the tick", "Only HI"]
+      answer: 0
       fault: logic
-      misconception: run-once-vs-forever
-      explain: "on start runs its blocks once. Only blocks inside forever repeat, and Ada's forever has nothing in it."
-  - check:
-      type: code
-      text: "Move both hearts inside forever, big heart first."
-      rules: { contains: ["basic.forever(function(){basic.showIcon(IconNames.Heart)basic.showIcon(IconNames.SmallHeart)"] }
+      misconception: blocks-show-together
+      explain: "The micro:bit does one block at a time, from the top. Each picture replaces the one before, and the tick is last, so it stays."
   - check:
       type: question
-      q: "How many times does forever run the blocks inside it?"
-      options: ["Once", "Twice", "Again and again, until the micro:bit is switched off"]
-      answer: 2
-      explain: "forever starts again from its first block as soon as it reaches the last one. That is a loop."
+      q: "Ten seconds after the program starts, which picture is on the screen?"
+      options: ["The tick: the last block", "HI: the first block", "Nothing: the program has finished", "All three, taking turns"]
+      answer: 0
+      explain: "When the last block has run, the program is finished, and the last picture is still on the LEDs."
+  - check:
+      type: code
+      text: "Change the order: the tick first, then the happy face, then HI."
+      rules: { contains: ["basic.showIcon(IconNames.Yes)basic.showIcon(IconNames.Happy)basic.showString(\"HI\")"] }
 ```
 
-### Spot the problem
+### Lily's sign
 
-Here is Ada's program. It is also in the editor.
+Lily's sign is in the editor. Read it, then answer.
 
-### Fix it
+### Ten seconds later
 
-Drag both **show icon** blocks out of **on start** and into **forever**. Keep them in the same order. The checks tick by themselves as you build.
+### Change the order
 
-### How often?
-
-Watch the simulator for a few seconds.
+Drag the blocks so the tick comes first and **HI** scrolls last. The check ticks by itself as you build.
 
 ## Modify
 
 ```step
 stage: modify
-insight: "Every frame of an animation is a block you choose, and pause sets how long each frame stays."
-try: { playground: microbit, starter: "leds.ts#modify" }
+insight: "show leds is a picture you draw yourself. It is one more block in the list, run in its turn."
+try: { playground: microbit, starter: "lesson.ts#modify" }
 tasks:
-  - hint: ["show leds is in Basic. Drag it into forever.", "Click squares in the grid to light them. Then delete the small heart."]
-    check: { type: code, text: "Swap the small heart for a picture you draw with show leds.", rules: { inside: { "basic.forever": ["basic.showLeds(", "#"] } } }
-  - hint: "pause is in Basic. 1000 ms is one second."
-    check: { type: code, text: "Add a pause inside forever so the beat slows down.", rules: { inside: { "basic.forever": ["basic.pause("] } } }
+  - hint: ["show leds is in Basic. Drag it under the last block.", "Click squares in the grid to light them."]
+    check: { type: code, text: "Add a picture you draw with show leds at the end.", rules: { contains: ["basic.showLeds(", "#"] } }
+  - hint: "show number is in Basic. Drag it to the top and type a number."
+    check: { type: code, text: "Add a show number block at the very start.", rules: { contains: ["basic.showNumber("] } }
 ```
 
 ### Draw your own picture
 
-Swap the small heart for a **show leds** block and draw your own picture.
+Add a **show leds** block at the end and draw a picture. Which picture stays on now?
 
-### Slow the beat
+### A number first
 
-Add a **pause** between the pictures. Try `500`, then try other numbers.
+Add **show number** at the very top. Type your favourite number.
 
 ## Make
 
 ```step
 stage: make
-try: { playground: microbit, starter: "leds.ts#make" }
+try: { playground: microbit, starter: "lesson.ts#make" }
 hint:
-  - "Each picture is one block inside forever. Start with two, then add a third."
-  - "Draw small changes from picture to picture. That is what makes it look like movement."
-check: { type: code, text: "Make an animation of three or more pictures in forever, with at least one drawn with show leds.", rules: { count: { "basic.show": 3 }, inside: { "basic.forever": ["basic.showLeds(", "#"] } } }
+  - "show string is in Basic. Type your name into it."
+  - "Put show leds under show string, so the picture comes last and stays on."
+check: { type: code, text: "A name badge: your name scrolls, then a picture you draw stays on.", rules: { contains: ["basic.showString(", "basic.showLeds(", "#"] } }
 ```
 
-Make an animation of **three or more pictures** that plays forever. Draw at least one yourself.
+Make a **name badge**. Your name scrolls across, then a picture you drew stays on the screen.
 
-Ideas: a blinking eye, rain falling, a ball bouncing, a waving stick figure.
-
-## Run a shop sign
+## Change a door sign
 
 ```step
 stage: modify
-try: { playground: microbit, starter: "leds.ts#sign" }
+try: { playground: microbit, starter: "lesson.ts#door" }
 ```
 
-This sign scrolls a word, shows a face, then waits. Make it your own sign: change the word, swap the face, and add a frame.
+This door sign scrolls a word, then shows a face. Make it the sign for your classroom door: your room number, then a picture that says what happens inside.
+
+```teacher
+summary: "Students see that blocks in on start run once, from the top, so the order of the blocks is the order of the pictures, and the last one stays."
+time: 35
+timing: "Predict and Run 8 min · Investigate 10 min · Modify 7 min · Make 7 min · Door sign 3 min"
+goals:
+  - I can say what the micro:bit will show, in order.
+  - I can say why the last picture stays on.
+  - I can make a name badge from words and a picture I draw.
+before: |
+  No micro:bits needed: the **simulator** (the micro:bit picture beside the blocks) runs every program. Blocks in **on start** run once, when the micro:bit switches on, one after another from the top. This lesson is only about that order; the next one adds **forever**. Try the Make yourself: your name in **show string**, then a **show leds** picture (click the squares to light them).
+running:
+  - "Predict: take a vote. 'Both hearts at once' is the common wrong answer. Ask: how many blocks does the micro:bit do at a time?"
+  - "Run: the small heart stays. Say it plainly: blocks run top to bottom, once, and the last picture stays on."
+  - "Investigate: students change the order of Lily's sign in the editor; the check ticks when it is right."
+  - "Modify: show leds is the first time students draw. Ask which picture stays on after they add it."
+  - "Make: the name badge. Let students show each other."
+stuck:
+  - see: "Only the last picture seems to show."
+    ask: "Press restart and watch the very start. What scrolls first?"
+    fix: "Every block runs, one after another. The last one stays, so it is easy to miss the others."
+  - see: "A show leds block shows nothing."
+    ask: "Which squares did you light?"
+    fix: "Click squares in the grid to turn them on."
+  - see: "The blocks sit outside on start and are greyed out."
+    ask: "Which block are they inside?"
+    fix: "Drag them inside on start until the block hugs them."
+stretch: Make a badge that shows three things in a row, ending with the picture that should stay on all day.
+support: Give students the show string block already in on start, and ask them only to add and draw the show leds picture.
+leads: "Next lesson: forever, so the pictures repeat instead of stopping on the last one. With real micro:bits, press Download and drag the file onto the micro:bit to run it for real."
+exit:
+  q: "on start has: show icon heart, show icon sad face, show icon tick. What is on the screen at the end?"
+  a: "The tick. The blocks run once, top to bottom, and the last picture stays."
+explain: |
+  The micro:bit runs blocks **in order**, from top to bottom, one at a time.
+
+  Blocks in **on start** run **once**, when the micro:bit switches on. Each picture replaces the one before, so the **last** picture is the one that stays on.
+
+  So the order of the blocks is the order you see.
+solutions:
+  step-4#t1: lesson.ts#sol-picture
+  step-4#t2: lesson.ts#sol-number
+  step-5: lesson.ts#sol-make
+struggle: "Seeing that the blocks run one at a time. Ask which block ran last, instead of telling them."
+class:
+  activities:
+    - at: predict
+      kind: discussion
+      title: Vote, then argue
+      minutes: 3
+      do: |
+        Decide with your partner what you will see. Hold up 1, 2, 3 or 4 fingers.
+      notes: "Count the votes before anyone runs it. Ask one pair from each option why."
+    - at: investigate
+      title: Be the micro:bit
+      minutes: 4
+      do: |
+        One student is the micro:bit and holds up one picture card at a time. The class reads the blocks aloud, top to bottom.
+      notes: "Holding up one card at a time makes it concrete that each picture replaces the last, and the last card stays up."
+    - at: end
+      title: Show a friend
+      minutes: 3
+      do: |
+        Show your name badge to the next pair. Point to the block that runs last.
+```
+
+```code lesson.ts#predict
+basic.showIcon(IconNames.Heart)
+basic.showIcon(IconNames.SmallHeart)
+```
+
+```code lesson.ts#sign
+basic.showString("HI")
+basic.showIcon(IconNames.Happy)
+basic.showIcon(IconNames.Yes)
+```
+
+```code lesson.ts#modify
+basic.showString("HI")
+basic.showIcon(IconNames.Happy)
+```
+
+```code lesson.ts#sol-picture
+basic.showString("HI")
+basic.showIcon(IconNames.Happy)
+basic.showLeds(`
+    . . . . .
+    . # . # .
+    . . . . .
+    # . . . #
+    . # # # .
+    `)
+```
+
+```code lesson.ts#sol-number
+basic.showNumber(7)
+basic.showString("HI")
+basic.showIcon(IconNames.Happy)
+basic.showLeds(`
+    . . . . .
+    . # . # .
+    . . . . .
+    # . . . #
+    . # # # .
+    `)
+```
+
+```code lesson.ts#make
+basic.showIcon(IconNames.Happy)
+```
+
+```code lesson.ts#sol-make
+basic.showString("ANA")
+basic.showLeds(`
+    . # . # .
+    # # # # #
+    # # # # #
+    . # # # .
+    . . # . .
+    `)
+```
+
+```code lesson.ts#door
+basic.showString("OPEN")
+basic.showIcon(IconNames.Happy)
+```

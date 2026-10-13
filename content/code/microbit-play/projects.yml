@@ -1,0 +1,38 @@
+playground: microbit
+projects:
+  - id: quiz-buzzer
+    title: Quiz buzzer
+    after: microbit-duel
+    goal: |
+      Make **buzzers for a class quiz**: each team has a micro:bit, the first team to press its button wins the turn, and every other buzzer knows it lost. A quizmaster micro:bit can reset the round.
+    example: quiz-buzzer.ts
+    uses: [radio-number, if, bool-value]
+    milestones:
+      - "Pressing a buzzer sends its team's number by radio."
+      - "Only the first press counts: later presses are ignored until the round is reset."
+      - "Every buzzer shows who won, and a reset starts a new round."
+    stretch:
+      - "A different sound for each team."
+      - "The quizmaster's micro:bit keeps the score."
+      - "A time limit: no buzz in 10 seconds shows a clock."
+    teacher: |
+      Needs two or more micro:bits on the same radio group (or two simulators in the editor). The "only the first press" milestone is a true or false variable, as in the Reaction lesson; pairs who skip it get two winners.
+
+  - id: my-microbit-game
+    title: Your own micro:bit game
+    after: microbit-duel
+    goal: |
+      Make a small **game** for one or two players that is not one from the lessons: catch a falling dot, keep a balance, a memory game, a race. It keeps score, gets harder, and has a way to win or lose.
+    example: my-game.ts
+    uses: [function, variable-update, random, if]
+    milestones:
+      - "It runs, and the player does something with buttons, tilt or shake."
+      - "It keeps a score and shows it at the end."
+      - "It gets harder or ends, checked with if."
+      - "Someone else played it and I changed one thing because of what they did."
+    stretch:
+      - "Levels from a list, as in Fake-outs and levels."
+      - "A two-player version over radio."
+      - "A high score that the micro:bit remembers until it is switched off."
+    teacher: |
+      Ask for a one-sentence pitch before coding. A function for "new round" or "show score" keeps forever short; students who skip functions usually end up with a forever block too long to read.
