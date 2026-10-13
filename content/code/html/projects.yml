@@ -18,38 +18,6 @@ projects:
     teacher: |
       The pictures students can use without uploading are the course ones (`star.svg`, `trophy.svg`, `music.svg`, `ball.svg`, `book.svg`, `medal.svg`). A picture from the web needs its full address in `src`.
 
-  - id: recipe-card
-    title: A recipe card
-    after: boxes
-    goal: |
-      Make a **recipe card** for something you can cook or make: the ingredients in a table with amounts, the steps as a numbered list, and CSS that makes it look like a card (a border, padding, a background).
-    example: recipe-card.html
-    uses: [table, class-selector, box]
-    milestones:
-      - "The ingredients are in a table with a heading row."
-      - "The steps are a numbered list."
-      - "A class selector gives the card a border, padding and a width, so it looks like a card."
-    stretch:
-      - "A second card, with the same class, for another recipe."
-      - "Rounded corners and a shadow."
-      - "Different colours for the heading row."
-
-  - id: event-page
-    title: An event page
-    after: sections
-    goal: |
-      Make a page for a real or made-up **event** (a sports day, a concert, a games club): a header, a menu of sections, three cards side by side with what is on, and a footer.
-    example: event-page.html
-    uses: [semantic, flex, flex-options, class-selector]
-    milestones:
-      - "It uses page sections: header, nav, main and footer."
-      - "Three or more cards sit side by side with Flexbox, with space between them."
-      - "When the preview is narrow, the cards still fit (they wrap or shrink)."
-    stretch:
-      - "Menu links that jump to each section."
-      - "A different colour for each card."
-      - "A hover style for the menu links."
-
   - id: order-form
     title: An order form
     after: forms

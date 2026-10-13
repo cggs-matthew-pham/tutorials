@@ -158,6 +158,20 @@
      "hint": "The bottom part of a page: contact details, small print.",
      "example": "<p>Page content</p>\n<footer>\n  <p>Contact: chess@example.com</p>\n</footer>\n",
      "shows": "The bottom of the page"
+    },
+    {
+     "label": "page parts",
+     "code": "<header>\n  ‹<h1>Site name</h1>›\n  <nav>\n    <ul>\n      <li><a href=\"‹https://example.com›\">‹Home›</a></li>\n    </ul>\n  </nav>\n</header>\n<main>\n  <section>\n    ‹<h2>Section title</h2>›\n    ‹<p>Some text.</p>›\n  </section>\n</main>\n<footer>\n  ‹<p>Contact us</p>›\n</footer>\n",
+     "hint": "The parts of a page, named: header, nav, main with its sections, and footer. They look like plain blocks; the names are for screen readers and search engines.",
+     "example": "<header>\n  <h1>Chess club</h1>\n  <nav>\n    <ul>\n      <li><a href=\"https://example.com\">Home</a></li>\n      <li><a href=\"https://example.com/rules\">Rules</a></li>\n    </ul>\n  </nav>\n</header>\n<main>\n  <section>\n    <h2>When we meet</h2>\n    <p>Wednesdays at lunch.</p>\n  </section>\n</main>\n<footer>\n  <p>Contact the teacher in charge.</p>\n</footer>\n",
+     "shows": "Each part is a plain block: the tag names are the difference"
+    },
+    {
+     "label": "jump link",
+     "code": "<a href=\"#‹results›\">‹Link text›</a>\n\n<h2 id=\"‹results›\">‹Section title›</h2>\n",
+     "hint": "A link to a place on the same page. id names the place; href starts with # and the same name.",
+     "example": "<nav>\n  <ul>\n    <li><a href=\"#results\">Results</a></li>\n    <li><a href=\"#join\">Join</a></li>\n  </ul>\n</nav>\n<h2 id=\"results\">Results</h2>\n<p>The Owls won.</p>\n<h2 id=\"join\">Join</h2>\n<p>Come on Wednesday.</p>\n",
+     "shows": "Clicking a link scrolls the page to its heading"
     }
    ]
   },

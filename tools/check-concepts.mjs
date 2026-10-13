@@ -76,9 +76,9 @@ expect('taking import-module out of Catch recipes warns again', noImportRecipe, 
 expect('introducing random in Catch is checked against its code', run((ls) => lesson(ls, 'turtle-catch').introduces.push('while')), /turtle-catch › introduces: while, but no code/);
 const baseH = run(() => {}).filter((w) => /code\/html\//.test(w));
 console.log(baseH.length === 0 ? 'ok   HTML course: no warnings' : (fail('HTML baseline changed: ' + baseH.join(' | ')), ''));
-expect('dropping link from Lists and links warns Images (it uses a link)', run((ls) => drop(lesson(ls, 'lists-links'), 'introduces', 'link')), /code\/html\/(lists-links|images) .*uses link/);
-expect('dropping display from Forms warns Forms', run((ls) => drop(lesson(ls, 'forms'), 'introduces', 'display')), /code\/html\/forms .*uses display/);
-expect('the optional Grid lesson does not count for the required club page', run((ls) => { drop(lesson(ls, 'flexbox'), 'introduces', 'flex-options'); lesson(ls, 'grid').introduces.push('flex-options'); }), /code\/html\/(flexbox|sections|club-page) .*uses flex-options/);
+expect('dropping link from Attributes and links warns Pictures (it uses a link)', run((ls) => drop(lesson(ls, 'links'), 'introduces', 'link')), /code\/html\/(links|images) .*uses link/);
+expect('dropping button from Forms warns Forms', run((ls) => drop(lesson(ls, 'forms'), 'introduces', 'button')), /code\/html\/forms .*uses button/);
+expect('the optional Grid lesson does not count for the required club page', run((ls) => { drop(lesson(ls, 'flexbox'), 'introduces', 'flex-options'); lesson(ls, 'grid').introduces.push('flex-options'); }), /code\/css\/flexbox .*uses flex-options/);
 // theory concepts (Digital systems): introduced in a systems lesson, assumed by lessons in any subject
 const baseT = run(() => {}).filter((w) => /systems\/|microbit-security\/caesar|p5-shapes/.test(w));
 console.log(baseT.length === 0 ? 'ok   theory links: no warnings' : (fail('theory baseline changed: ' + baseT.join(' | ')), ''));

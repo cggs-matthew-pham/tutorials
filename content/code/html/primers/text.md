@@ -33,8 +33,13 @@ Where it breaks: a filing clerk would refuse a badly labelled folder, but a brow
 - **"Why didn't my new line show up?"** The browser ignores line breaks in the code. Start a new paragraph with `<p>`.
 - **"Why is everything bold?"** A `</strong>` is missing. Find where the bold should stop.
 - **"Why is there no error message?"** Browsers are built to show something rather than nothing, so they guess. Checking the page is our error message.
-- **"Do I need `<!DOCTYPE html>` and `<head>`?"** A real page has them as a standard wrapper. In the playground they are optional, and students copy them as they are for now.
+- **"Do I need `<!DOCTYPE html>` and `<head>`?"** A real page has them as a standard wrapper. In the playground they are optional, and students copy them as they are for now (the newsletter lesson shows the wrapper).
+- **"Why did my `<style>` rule change every paragraph?"** A rule names a kind of tag, so it styles every tag of that kind. Picking only some of them needs a class, a few lessons on.
+
+## Your first CSS rules
+
+Once the page has structure, a **CSS rule** changes how a kind of tag looks: `p { color: teal; }` makes every paragraph teal. The rule names a tag, then lists `property: value;` pairs inside braces. It lives in a `<style>` block, and it does not change what anything *is*: an `<h1>` styled small is still the main heading. That is the three-layers idea from Digital systems: content, structure and style are separate jobs.
 
 ## How it connects
 
-The Structure unit builds the tree: headings and paragraphs, then lists and links, images, and tables. The Style unit then uses that tree: CSS rules pick out tags by name or class. Later, JavaScript finds and changes the same tags, which is why the DOM course calls the page a tree.
+This unit builds the tree (headings, paragraphs, tags inside tags) and then styles it with rules on tags. The next unit adds lists, links and pictures, and classes to style only some of them. Later, JavaScript finds and changes the same tags, which is why the DOM course calls the page a tree.

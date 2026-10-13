@@ -1,12 +1,12 @@
 ---
 order: 1
-unit: structure
+unit: text
 node: AC9TDI10K02 n1
-title: Tags and nesting
-summary: Label text with tags, put tags inside tags, and see what the browser does with a mistake.
+moveId: tag-pairs
+introduces: [heading, paragraph]
+title: Tags label text
+summary: Label text with tags, and find out that the browser ignores line breaks in your code.
 language: html
-introduces: [heading, paragraph, emphasis]
-recipes: [page-wrapper]
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8124
   url: http://127.0.0.1:8124/index.html
@@ -18,24 +18,22 @@ explainPicture: { ref: page.html#explain, boxes: true }
 voice: { name: af_heart, speed: 1.1 }
 explainClip:
   query: { code: "", zoom: 1.7 }
-  caption: "Tags label text, and the browser shows its best guess"
+  caption: "Tags label text, and line breaks in the code do not show"
   clip:
     - caption: "A tag is a label. <h1> labels the main heading."
     - type: { into: HTML code, text: "<h1>Sports day</h1>\n" }
     - caption: "<p> opens a paragraph and </p> closes it."
-    - type: { into: HTML code, text: "<p>Bring a hat.</p>\n", append: true }
-    - caption: "<strong> marks an important word, inside the paragraph."
-    - type: { into: HTML code, text: "<p>\n  Bring\n  <strong>water</strong>\n</p>", append: true }
-    - caption: "The tags say what the text is. The browser picks the look."
+    - type: { into: HTML code, text: "<p>Bring a hat\nand water.</p>\n", append: true }
+    - expect: { selector: "#preview-text", contains: "Bring a hat" }
+    - caption: "Two lines in the code, but one line on the page."
     - wait: 1500
-    - caption: "Forget a closing tag and there is no error message..."
-    - type: { into: HTML code, text: "<h1>Sports day</h1>\n<p>Bring a hat.</p>\n<p>\n  Bring\n  <strong>water\n</p>\n<p>Races at 9 am.</p>" }
-    - expect: { selector: "#preview-text", contains: "Races at 9 am." }
-    - caption: "...the bold just carries on. Check the page after every change."
-    - wait: 2000
+    - caption: "A new paragraph needs its own <p>."
+    - type: { into: HTML code, text: "<h1>Sports day</h1>\n<p>Bring a hat</p>\n<p>and water.</p>" }
+    - expect: { selector: "#preview-text", contains: "and water." }
+    - wait: 1500
 hook: "Every website you have visited, from your school page to a shop, starts as text with tags like these."
 ---
-Every web page is text with **tags** in it. A tag like `<h1>` tells the browser what the text *is*, and the browser decides how it looks.
+Every web page is text with **tags** in it. A tag is a label: `<h1>` labels the main heading and `<p>` labels a paragraph. Most tags come in pairs, an opening tag `<p>` and a closing tag `</p>` with a slash, wrapped around the text they label.
 
 ## Predict
 
@@ -46,8 +44,14 @@ insight: "Students expect the page to copy the code's line breaks; committing to
 check:
   type: predict
   q: "How many lines of normal text (not counting the heading) will the page show?"
-  kind: number
-  actual: "2 lines. The browser joins the three lines of the first paragraph into one."
+  options:
+    - "4 lines, one for each line of text in the code"
+    - "3 lines"
+    - "2 lines"
+    - "1 line"
+  fault: logic
+  misconception: code-lines-show
+  actual: "2 lines. The browser ignores line breaks in the code, so the three lines of the first paragraph join into one. Each <p> starts a new paragraph."
 ```
 
 Read the code. Each `<p>` starts a paragraph and `</p>` ends it. How many lines of normal text will the page show?
@@ -60,35 +64,23 @@ code: page.html#sports
 try: { playground: html, starter: "page.html#sports", height: 360 }
 insight: "Tags, not line breaks, shape the page: a new paragraph needs its own <p>."
 check: { type: reflect, text: "I can explain why the line breaks in my code did not show on the page." }
-unlocks: [h1-heading, p-paragraph, strong-bold]
 ```
 
 Compare the page with your prediction. Then put the cursor after `Bring a hat` and press Enter a few times: the page does not change. Now give `Bring a hat and water.` its own `<p>` and `</p>`, and watch it move to a new line.
+
+| Code | What it does | Why |
+|---|---|---|
+| `<h1>Sports day</h1>` | Makes the main heading | `<h1>` opens it and `</h1>` closes it. The tag says what the text is; the browser picks the big, bold look |
+| `<h2>When</h2>` | Makes a smaller heading for one section | `<h1>` to `<h6>` are all headings: the number is the level, and 1 is the biggest |
+| `<p>Races start at 9 am.</p>` | Makes one paragraph | Each `<p>` starts a new paragraph, with a gap above it |
+| the three lines inside the first `<p>` | Show as one line | The browser ignores line breaks in the code. Only a new `<p>` starts a new line |
 
 ## Investigate
 
 ```step
 stage: investigate
 code: page.html#parts
-insight: "Tags open and close around their content, and a tag inside another tag closes first, like boxes inside boxes."
-unlocks: [h2-subheading, em-emphasis]
-app: true
-query: { code: "", boxes: 1, zoom: 1.7 }
-caption: "Tags are boxes: the inner one closes first"
-clip:
-  - caption: "Boxes view: every tag draws a box around its content."
-  - type: { into: HTML code, text: "<h1>Sports day</h1>\n" }
-  - caption: "<p> opens a box for a paragraph..."
-  - type: { into: HTML code, text: "<p>\n  On\n", append: true }
-  - caption: "...and <strong> opens a smaller box inside it."
-  - type: { into: HTML code, text: "  <strong>\n    Friday\n", append: true }
-  - caption: "</strong> closes the inner box first..."
-  - type: { into: HTML code, text: "  </strong>\n", append: true }
-  - caption: "...then </p> closes the outer box."
-  - type: { into: HTML code, text: "</p>", append: true }
-  - expect: { selector: "#preview-text", contains: "On Friday" }
-  - caption: "Inner box first, then the outer one: that is nesting."
-  - wait: 1500
+insight: "Tags, not line breaks in the code, decide what the page shows."
 tasks:
   - check:
       type: match
@@ -97,74 +89,36 @@ tasks:
         - ["<h1>Sports day</h1>", "the main heading of the page"]
         - ["<h2>What to bring</h2>", "a heading for one section"]
         - ["<p> … </p>", "a paragraph"]
-        - ["<strong>Friday</strong>", "an important word"]
-        - ["<em>lots</em>", "a word said with emphasis"]
-      explain: "Each tag says what its text is. The browser chooses the look: big and bold for headings, bold for strong, italic for em."
+      explain: "Each tag says what its text is. The browser chooses the look: big and bold for headings, plain text with a gap for paragraphs."
   - check:
       type: question
-      q: "In <p>Sports day is on <strong>Friday</strong>.</p>, which closing tag comes first?"
-      options: ["</p>", "</strong>", "They close at the same time", "The order does not matter"]
+      q: "A page has <p>Bring a hat.</p><p>Bring water.</p> all on one line of code. How many paragraphs does the page show?"
+      options: ["1, because it is one line of code", "2, because there are two <p> tags", "1, because there is no gap in the code", "It shows an error"]
       answer: 1
-      explain: "<strong> opens inside the paragraph, so it closes first. Tags nest like boxes: the inner box closes before the outer one."
+      fault: logic
+      misconception: code-lines-show
+      explain: "Tags decide, not lines. Two <p> tags make two paragraphs, even when they are on one line of code."
   - check:
       type: bug
-      code: page.html#overlap
-      answer: 3
-      fault: syntax
-      misconception: tag-overlap
-      text: "This page looks right in the browser, but one line breaks the nesting rule. Click it."
-      explain: "On line 3, <em> opens inside <strong>, so </em> must come before </strong>: <strong><em>9 am</em></strong>. The browser quietly repairs it, which is why the page looks fine. Do not rely on that: other tools may read it differently."
-  - check:
-      type: question
-      q: "This code forgets one closing tag. What does the browser do?"
-      options: ["It shows an error message and stops", "It shows the page, but the second paragraph is bold too", "It shows a blank page", "It shows the page exactly as intended"]
-      answer: 1
-      fault: syntax
-      misconception: html-error-message
-      explain: "Browsers never stop on a mistake: they show their best guess. The <strong> is never closed, so the bold carries on into the next paragraph. That is why you check the page after every change."
-  - picture: { ref: page.html#combos, boxes: true }
-    check:
-      type: question
-      q: "Which of these is nested correctly?"
-      options:
-        - "<p>Wear <strong><em>colours</em></strong></p>"
-        - "<p>Wear <strong><em>colours</strong></em></p>"
-        - "<p>Wear <strong>colours</p></strong>"
-        - "<h2>Bring <em>water</h2></em>"
-      answer: 0
-      explain: "Any of these tags can go inside the others, in any order you choose. The one rule: whatever opened last closes first."
+      code: page.html#enter
+      answer: 4
+      fault: logic
+      misconception: code-lines-show
+      text: "Sam wants Bring a towel. and Races start at 9 am. on separate lines, but the page shows them on one line. Click the line that causes it."
+      explain: "Line 4 starts a new sentence inside the same paragraph, and the browser ignores the break in the code. End the paragraph with </p> and start the next with <p>."
 ```
-
-`<h2>` is a smaller heading for a section, and `<em>` marks a word you would say with emphasis.
 
 ### Match the parts
 
 What does each tag in this page do?
 
-### Which closes first?
+### One line of code
 
-Look at the `<p>` line with `<strong>` inside it.
+Tags, not lines of code, make paragraphs.
 
-### Spot the broken nesting
+### Sam's notice
 
-This page shows correctly, but it breaks a rule.
-
-### A missing tag
-
-```html
-<p>Races start at <strong>9 am.</p>
-<p>Bring a hat.</p>
-```
-
-### Mix and match
-
-Tags can go inside each other in many ways: an `<em>` inside a heading, a `<strong>` inside a paragraph, even `<em>` inside `<strong>`.
-
-```html
-<h2>Bring <em>lots</em> of water</h2>
-<p><strong>Races</strong> start at <em>9 am</em>.</p>
-<p>Wear your <strong><em>house colours</em></strong>.</p>
-```
+Sam pressed Enter and expected a new line.
 
 ## Modify
 
@@ -176,26 +130,28 @@ tasks:
   - hint: "Change only the words between the tags. Leave the tags as they are."
     check: { type: reflect, text: "I changed the event and the day, and the page still looks right." }
   - hint:
+      - "End the first paragraph with `</p>` after `Friday.`"
+      - "Then start the second with `<p>` before `Bring`."
+    check: { type: code, text: "Split the one paragraph into two.", rules: { contains: ["</p><p>"] } }
+    expected: page.html#sol-split
+  - hint:
       - "A section heading uses `<h2>`, just like `<h1>` but smaller."
       - "Put each `<h2>` on its own line, just above the paragraph it describes."
-    check: { type: code, text: "Add an <h2> heading for each section.", rules: { tags: [h2] } }
+    check: { type: code, text: "Add an <h2> heading above each paragraph.", rules: { tags: [h2] } }
     expected: page.html#sol-sections
-  - hint: "Put `<em>` before the word and `</em>` after it, inside the paragraph's `<p>` and `</p>`."
-    check: { type: code, text: "Mark one word with <em>.", rules: { tags: [em] } }
-    expected: page.html#sol-em
 ```
 
 ### Change the event
 
 Make this a notice for a different event on a different day.
 
+### Two paragraphs
+
+Split the long paragraph so the date and what to bring are separate.
+
 ### Add two sections
 
 Add an `<h2>` heading above each paragraph: `When` above the first, `What to bring` above the second.
-
-### Emphasise a word
-
-Give one word in the last paragraph emphasis with `<em>`.
 
 ## Make
 
@@ -204,28 +160,142 @@ stage: make
 try: { playground: html, starter: "page.html#make", height: 400 }
 hint:
   - "Start with the `<h1>` title, then add one section at a time: an `<h2>`, then its `<p>`."
-  - "Check the page after each tag you add. If everything turns bold, look for a missing `</strong>`."
+  - "Check the page after each tag you add. If the page looks wrong, look for a tag with a missing `<` or `>`, or a closing tag without its slash."
 check:
   type: code
-  text: "Write a notice with a title, sections, paragraphs and one important word."
-  rules: { tags: [h1, h2, p, strong] }
-unlocks: [comment]
+  text: "Write a notice with a title, two headings and a paragraph under each."
+  rules: { tags: [h1, h2, p] }
 expected: page.html#sol-make
 ```
 
-Write a notice for an event at your school (a concert, a fair, a match): an `<h1>` title, two sections with `<h2>` headings, a paragraph in each, and one important word in `<strong>`.
+Write a notice for an event at your school (a concert, a fair, a match): an `<h1>` title, two sections with `<h2>` headings, and a paragraph in each.
 
-The grey line in the editor is a **comment**: `<!--` and `-->` wrap a note that the browser ignores. Delete it or keep it.
+```teacher
+summary: Students label text with headings and paragraphs, and find out that the browser ignores line breaks in the code.
+time: 40
+timing: "Predict and Run 10 min · Investigate 12 min · Modify 10 min · Make 8 min"
+goals:
+  - I can use <h1>, <h2> and <p> to say what each piece of text is.
+  - I can explain why line breaks in my code do not show on the page.
+  - I can start a new paragraph with its own <p> and </p>.
+before: |
+  Read the unit primer "HTML structure in 5 minutes" first, then do the Make task yourself in the playground (about 5 minutes).
 
-## Tidy up a newsletter article
+  The surprise for students: pressing Enter in the code does not make a new line on the page. Only a new `<p>` does. A **tag** is a label in angle brackets, like `<p>`. Most tags come in pairs: an opening tag `<p>` and a closing tag `</p>` with a slash, wrapped around the text they label.
+running:
+  - "Predict and Run: most students say 4 lines. The page shows 2, because the browser joins the lines of one paragraph. Let them press Enter in the code and see that nothing changes, then add a `<p>`."
+  - "Investigate: the match task is about meaning, not looks: `<h1>` means the main heading. The one-line question is the key idea, that the tags decide and not the lines of code."
+  - "Modify and Make: one change at a time, check the page each time. The Make check ticks when the page uses `<h1>`, `<h2>` and `<p>`."
+stuck:
+  - see: Text the student typed on a new line runs on from the line before.
+    ask: Which tag starts a new paragraph?
+    fix: Wrap each paragraph in its own <p> and </p>. Pressing Enter in the code does not change the page.
+  - see: "A tag shows on the page as text, such as <h2 or h2>."
+    ask: Does every tag have both of its angle brackets?
+    fix: Every tag needs < and >, and a closing tag needs the slash, as in </h2>.
+  - see: Everything after a heading is big and bold.
+    ask: Where does the heading end?
+    fix: Add the missing closing tag, such as </h2>, straight after the heading words.
+stretch: "Add a third section with an <h2> heading, and try <h3> and <h4> to see what the heading numbers do."
+support: "Give students the Modify starter and ask them only to change the words between the tags, then add one <h2>. Point to the Reference drawer for each tag."
+leads: "Next lesson puts tags inside other tags, so a word can be important inside a paragraph, and finds out what the browser does when a tag is missing. Class idea: show a news website and ask students to spot the headings and paragraphs."
+exit:
+  q: "A student presses Enter in the middle of a paragraph in their code, but the page does not change. Why, and how do they start a new line?"
+  a: "The browser ignores line breaks in the code. To start a new paragraph, end the first with </p> and start the next with <p>."
+explain: |
+  The video and the picture show the same steps:
 
-```step
-stage: modify
-try: { playground: html, starter: "page.html#newsletter", height: 440 }
-expected: page.html#sol-newsletter
-insight: "A real page is the same tags inside a standard wrapper; only what is in <body> shows on the page."
+  1. A **tag** is a label. `<h1>` labels the main heading.
+  2. `<p>` opens a paragraph and `</p>` closes it.
+  3. Two lines of text in the code show as one line on the page: the browser ignores line breaks in the code.
+  4. A new paragraph needs its own `<p>`.
+
+  In the picture, Boxes is on: each box is a tag, and the paragraphs are separate boxes.
+solutions:
+  step-4#t1: page.html#sol-change
+  step-4#t2: page.html#sol-split
+  step-4#t3: page.html#sol-sections
+  step-5: page.html#sol-make
+struggle: "Seeing that line breaks in the code do nothing. Let the Predict surprise land, and ask which tag starts a new line rather than fixing it."
+class:
+  activities:
+    - at: predict
+      kind: discussion
+      title: Vote, then argue
+      minutes: 3
+      do: |
+        Decide with your partner how many lines of normal text the page will show.
+        Hold up 1, 2, 3 or 4 fingers for your answer.
+      notes: "Count the votes before anyone runs it. Ask one pair from each answer to say why. Most will say 4: that is the idea the lesson turns around."
+    - at: end
+      kind: activity
+      title: Be the browser
+      minutes: 4
+      do: |
+        Swap notices with a partner. Without running them, point to each paragraph and say where one ends and the next begins.
+      notes: "Listen for students who point at lines of code instead of at the tags. Ask which tag told them where the paragraph ended."
 ```
 
-This is a whole page, as a website would store it. The first few lines are the same on every page: `<!DOCTYPE html>`, `<html>`, `<head>` (information about the page, such as the title on the browser tab) and `<body>`. Copy them as they are for now; only what is inside `<body>` shows on the page.
+```code page.html#sports
+<h1>Sports day</h1>
+<p>Sports day is on Friday.
+Bring a hat
+and water.</p>
+<p>Races start at 9 am.</p>
+```
 
-The article came out as one long paragraph. Split it into paragraphs, add an `<h2>` heading for the book fair, and make the most important words `<strong>`.
+```code page.html#parts
+<h1>Sports day</h1>
+<h2>When</h2>
+<p>Sports day is on Friday.</p>
+<h2>What to bring</h2>
+<p>Bring a hat and water.</p>
+```
+
+```code page.html#enter
+<h1>Swimming carnival</h1>
+<p>The carnival is on Thursday.</p>
+<p>Bring a towel.
+Races start at 9 am.</p>
+```
+
+```code page.html#modify
+<h1>Sports day</h1>
+<p>Sports day is on Friday. Bring a hat and water.</p>
+```
+
+```code page.html#sol-change
+<h1>Swimming carnival</h1>
+<p>The swimming carnival is on Thursday. Bring a towel.</p>
+```
+
+```code page.html#sol-split
+<h1>Swimming carnival</h1>
+<p>The swimming carnival is on Thursday.</p><p>Bring a towel.</p>
+```
+
+```code page.html#sol-sections
+<h1>Swimming carnival</h1>
+<h2>When</h2>
+<p>The swimming carnival is on Thursday.</p>
+<h2>What to bring</h2>
+<p>Bring a towel.</p>
+```
+
+```code page.html#make
+<h1>My event</h1>
+```
+
+```code page.html#sol-make
+<h1>Spring concert</h1>
+<h2>When and where</h2>
+<p>The concert is on Wednesday at 6 pm in the hall.</p>
+<h2>Who is playing</h2>
+<p>The Year 7 band, the choir and the string group.</p>
+```
+
+```code page.html#explain
+<h1>Sports day</h1>
+<p>Bring a hat.</p>
+<p>Bring water.</p>
+```

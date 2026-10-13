@@ -1,6 +1,6 @@
 ---
 order: 6
-unit: style
+unit: boxes
 title: Boxes
 summary: See every element as a box of content, padding, border and margin, and size and space boxes with CSS.
 language: html

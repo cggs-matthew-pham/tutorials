@@ -1,78 +1,91 @@
 ---
-order: 8
-unit: components
+order: 10
+unit: parts
 node: AC9TDI10K02 n2
-title: Page sections and components
-summary: Name the parts of a page with header, nav, main, section and footer, and build components such as a hero and a row of cards.
-language: html
+moveId: page-sections
+reviews: [list-items, attribute-link, css-rule]
 introduces: [semantic]
+assumes: [list, link, css-rule]
+title: Name the parts of a page
+summary: Name the top, menu, content and bottom of a page with header, nav, main, section and footer, and find out why they change nothing you can see.
+language: html
 app:
   command: node "$REPO_ROOT/tools/serve.mjs" "$REPO_ROOT/dist/_playground-html" 8131
   url: http://127.0.0.1:8131/index.html
   ready: HTML code
   layout: full
 pacing:
-  keyDelayMs: 40
+  keyDelayMs: 45
 explainPicture: { ref: page.html#explain, boxes: true }
-voice: true
+voice: { name: af_heart, speed: 1.1 }
 explainClip:
   query: { code: "", boxes: 1, zoom: 1.6 }
   caption: "Section tags name the parts of a page"
   clip:
     - caption: "<header> is the top of the page: the title, and often the menu."
-    - type: { into: HTML code, text: "<header>\n  <h1>Chess club</h1>\n</header>\n", append: true }
+    - type: { into: HTML code, text: "<header>\n  <h1>Chess club</h1>\n  <nav>\n    <ul>\n      <li><a href=\"https://example.com/rules\">Rules</a></li>\n    </ul>\n  </nav>\n</header>\n", append: true }
     - caption: "<main> holds the page's main content."
     - type: { into: HTML code, text: "<main>\n  <p>We meet on Wednesdays.</p>\n</main>\n", append: true }
     - caption: "<footer> is the bottom: contact details and small print."
     - type: { into: HTML code, text: "<footer>\n  <p>Contact us</p>\n</footer>", append: true }
     - expect: { selector: "#preview-text", contains: "Contact us" }
     - caption:
-        text: "They look like plain boxes. Their names tell browsers and screen readers what each part is."
-        say: "They look like plain boxes, but their names tell screen readers what each part is."
+        text: "They look like plain text. Their names tell screen readers what each part is."
+        say: "They look like plain text, but their names tell screen readers what each part is."
     - wait: 2500
 hook: "Every website has the same parts: a top bar, a menu, the content, a footer. Screen readers let people jump straight to each one."
 ---
-Real pages are built from named parts, and the parts are built from **components**: patterns made of tags you already know.
+Most pages are built from the same parts: a top, a menu, the content and a bottom. Five tags give those parts their names, and the tags you already know go inside them.
 
 ## Predict
 
 ```step
 stage: predict
 code: page.html#swap
-insight: "Students expect header and footer to change the look or position; they only name the parts."
+insight: "Students expect header, nav and footer to change the look or position; they only name the parts."
 check:
   type: predict
-  q: "after.html swaps the two divs for <header> and <footer>. What changes on the page?"
+  q: "after.html wraps the same words in header, nav, main, section and footer tags. What changes on the page?"
   options:
     - "Nothing you can see"
-    - "The header becomes big and bold"
+    - "The header and footer get coloured bars"
     - "The footer moves to the bottom of the screen"
-    - "A menu bar appears"
-  actual: "Nothing you can see. <header> and <footer> look exactly like <div>; their names say what each part is."
+    - "The list of links turns into a row menu"
+  fault: logic
+  misconception: semantic-tags-look
+  actual: "Nothing you can see. These tags look like no tag at all; their names say what each part is."
 ```
 
-Compare the two files. `<header>` and `<footer>` are new. What changes on the page?
+Compare the two files. They hold the same words, but `after.html` has five new tags. What changes on the page?
 
 ## Run
 
 ```step
 stage: run
 code: page.html#after
-try: { playground: html, starter: "page.html#after", height: 380, boxes: true }
+try: { playground: html, starter: "page.html#after", height: 460, boxes: true }
 insight: "Section tags change nothing on screen; Boxes shows the named parts."
-check: { type: reflect, text: "I can explain why header and footer change nothing you can see." }
-unlocks: [header, footer]
+check: { type: reflect, text: "I can explain why these tags change nothing you can see." }
+unlocks: [page-parts]
 ```
 
-Compare with your prediction. **Boxes** is on, so you can see the named parts. Switch it off: the page looks like plain boxes.
+Compare with your prediction. **Boxes** is on, so you can see the named parts. Switch it off: the page looks like plain text.
+
+| Code | What it does | Why |
+|---|---|---|
+| `<header> … </header>` | Names the top of the page | Usually the site name and the menu. It looks like plain text; the name is the point |
+| `<nav> … </nav>` | Names the main menu of links | The links inside are an ordinary list. `nav` does not turn them into a bar |
+| `<main> … </main>` | Names the main content | One per page. A screen reader can jump straight past the menu to it |
+| `<section> … </section>` | Names one part of the content | Usually starts with its own heading |
+| `<footer> … </footer>` | Names the bottom of the page | Contact details and small print |
+| nothing looks different | The names are not for the eye | Screen readers and search engines use them to find each part. Looks come from rules, as for any other tag |
 
 ## Investigate
 
 ```step
 stage: investigate
-code: page.html#page
-insight: "Each section tag names one part of a page; components such as a hero and cards are built from tags and rules students already know. Keeping structure in tags and looks in CSS means screen readers can follow the page and one style sheet can restyle a whole site."
-unlocks: [nav, main, section]
+code: page.html#after
+insight: "Each tag names one part of a page, and naming is for screen readers and search engines, not for looks."
 tasks:
   - check:
       type: match
@@ -83,35 +96,24 @@ tasks:
         - ["<main>", "the main content (one per page)"]
         - ["<section>", "one part of the content, with its own heading"]
         - ["<footer>", "the bottom: contact details and small print"]
-      explain: "These tags name the parts of a page. They look like div; CSS decides how they look."
+      explain: "These tags name the parts of a page. They add no look of their own; rules decide how each part looks."
   - check:
       type: question
-      q: "If <header> looks the same as <div>, why use it?"
-      options: ["Screen readers and search engines can tell what each part is", "It makes the text bigger", "It moves the part to the top by itself", "div is no longer allowed"]
+      q: "If <header> looks the same as no tag at all, why use it?"
+      options:
+        - "Screen readers and search engines can tell what each part is"
+        - "It makes the text bigger"
+        - "It moves the part to the top of the page by itself"
+        - "The page will not load without it"
       answer: 0
-      explain: "A screen reader can jump straight to the nav or the main content, and search engines know which part is which. Your code is easier to read too."
-  - picture: { ref: page.html#combos, boxes: true }
-    check:
-      type: question
-      q: "This page has a hero and a row of cards. Which rule puts the cards side by side?"
-      options: [".cards { display: flex; }", ".card { padding: 12px; }", "The section tag does it", ".hero { text-align: center; }"]
-      answer: 0
-      explain: "Components are made of what you know: a hero is a section with padding, a background and centred text; the cards are boxes in a Flexbox row."
-  - check:
-      type: bug
-      code: page.html#badcards
-      answer: 3
       fault: logic
-      misconception: flex-on-items
-      text: "The two cards should sit side by side, but they stack, with no error. Click the line in the wrong place."
-      explain: "Line 3 gives display: flex to each card. It belongs on the box that holds the cards: .cards { display: flex; }."
-  - check:
-      type: question
-      q: "A school website has 40 pages. Every page uses the same tags for its parts and links to one style sheet, style.css. The school changes its colours. What is the best way to update the site?"
-      options: ["Change the colours once in style.css: every page follows", "Edit the style on every tag of all 40 pages", "Change the tags to different ones", "Make 40 new pages"]
-      answer: 0
-      explain: "Because the looks live in CSS, not in the tags or the words, one change to the style sheet restyles all 40 pages. The same split helps screen readers: they read the structure (header, nav, main), whatever it looks like."
-      feedback: [null, "That works, but it means 40 pages of edits, and some will be missed. Where do the colours live if every page links to style.css?", "The tags say what each part is; colours belong to the CSS. Changing tags would change the meaning, not the colours.", "New pages would still need their colours. Where do the looks live?"]
+      misconception: semantic-tags-look
+      feedback:
+        - null
+        - "Look at the page you ran: did any text get bigger? What did the names add?"
+        - "A header written lower in the code stays where it is written. The name does not move it."
+        - "The first page in this course had no header, and it loaded fine."
+      explain: "A screen reader can jump straight to the menu or the main content, and a search engine knows which part is which. Your code is easier to read too."
 ```
 
 ### Match the parts
@@ -120,97 +122,235 @@ A whole page, named part by part.
 
 ### Why name the parts?
 
-They look the same as `<div>`.
+They look the same as no tag at all.
 
-### A hero and cards
-
-A **hero** is a big opening section: a heading, a line of text and a link. **Cards** are boxes in a row.
-
-```html
-<section class="hero">
-  <h1>Chess club</h1>
-  <p>Think ahead. Every Wednesday.</p>
-  <a href="https://example.com/join">Join us</a>
-</section>
-<section class="cards">
-  <div class="card">...</div>
-  <div class="card">...</div>
-</section>
-```
-
-### Cards that will not line up
-
-Two cards that should sit side by side.
-
-### One style sheet, many pages
-
-Why keep the looks out of the tags?
-
-## Modify
+## Mix it up
 
 ```step
-stage: modify
-insight: "Turning a page of plain divs into named sections, then laying out the cards."
-try: { playground: html, starter: "page.html#modify", height: 480, boxes: true }
-tasks:
-  - hint: "Change the first `<div>` and its `</div>` to `<header>` and `</header>`."
-    check: { type: code, text: "Make the top part a header.", rules: { tags: [header] } }
-    expected: page.html#sol-header
-  - hint:
-      - "Inside the header, under the heading: `<nav>`, then two links, then `</nav>`."
-      - "Links: `<a href=\"https://example.com/home\">Home</a>`"
-    check: { type: code, text: "Add a nav with two links inside the header.", rules: { tags: [nav], contains: ["<nav>", "<a href="] } }
-    expected: page.html#sol-nav
-  - hint: "The middle part becomes `<main>`, the last part `<footer>`."
-    check: { type: code, text: "Name the main content and the footer.", rules: { tags: [main, footer] } }
-    expected: page.html#sol-main
-  - hint:
-      - "Which box holds the cards? Flexbox goes on that one, the parent, not on each card."
-      - "Which box holds the cards? Give it `display: flex;` and a `gap`."
-    check: { type: code, text: "Put the cards in a row.", rules: { contains: [".cards {", "display: flex;"] } }
-    expected: page.html#sol-cards
+stage: investigate
+code: page.html#review
+insight: "A page's parts hold lists and links, and rules colour them: a slip in any one shows."
+check:
+  type: question
+  q: "The header should be navy with white text, but its words have vanished. Also, Rules should be a link, but nothing happens when you click it. Which two changes fix both?"
+  options:
+    - "Write background-color in the header rule, and put the word Rules between <a> and </a>"
+    - "Write header as .header in the rule, and put the word Rules between <a> and </a>"
+    - "Write background-color in the header rule, and put an href on the <li> tag"
+    - "Add a semicolon after navy, and put the address between <a> and </a>"
+  answer: 0
+  shuffle: false
+  feedback:
+    - null
+    - ".header would pick elements with class=\"header\". The tag is <header>, so the selector is just header."
+    - "The href belongs in the <a> tag, and the words people click go between <a> and </a>."
+    - "Navy already has its semicolon. Look at the property name: is background-colour one the browser knows? And the address goes in href, not between the tags."
+  explain: "The browser ignores a property it does not know, so the header stays white and the white words vanish. The words people click go between <a> and </a>; here they sit outside an empty link."
 ```
 
-### Name the top
-
-Make the first part a `<header>`.
-
-### Add a menu
-
-Add a `<nav>` with two links inside the header, under the heading.
-
-### Name the rest
-
-Make the middle part `<main>` and the last part `<footer>`.
-
-### Cards in a row
-
-Put the three cards side by side, with a gap.
+Two slips, one in the CSS and one in the menu.
 
 ## Make
 
 ```step
 stage: make
-try: { playground: html, starter: "page.html#make", height: 440 }
+try: { playground: html, starter: "page.html#make", height: 480, boxes: true }
 hint:
-  - "Start with `<section class=\"hero\">` holding an `<h1>`, a `<p>` and an `<a>`."
-  - "Then a `.hero` rule: padding, a background colour and `text-align: center;`."
+  - "The title and the list of links go in `<header>`, with the list inside a `<nav>`."
+  - "The heading and the paragraph about Tuesdays go in `<main>`, inside a `<section>`. The contact line goes in `<footer>`."
+  - "Every opening tag needs its closing tag. Boxes shows whether your parts nest the way you meant."
 check:
   type: code
-  text: "Make a hero section with a heading, a line of text and a link, styled with padding."
-  rules: { tags: [section, h1, p, a], contains: ["class=\"hero\"", ".hero {", "padding:"] }
+  text: "Name the parts: a header, a nav holding a list of links, a main with a section, and a footer."
+  rules: { tags: [header, nav, ul, li, a, main, section, footer] }
 expected: page.html#sol-make
 ```
 
-Make a hero for a school event: a big heading, one line of text and a link to sign up or get tickets, in a section with padding, a background colour and centred text.
+This club homepage is all plain text. Name its parts with `<header>`, `<nav>` (around the list of links), `<main>` with one `<section>`, and `<footer>`. Then change the words to a club of your own.
 
-## Rebuild the club homepage
+```teacher
+summary: Students name the parts of a page with header, nav, main, section and footer, and learn that the names change nothing you can see but help screen readers and search engines.
+time: 40
+timing: "Predict and Run 10 min · Investigate 10 min · Mix it up 5 min · Make 15 min"
+goals:
+  - I can name the top, menu, content and bottom of a page with header, nav, main, section and footer.
+  - I can explain why these tags change nothing you can see, and why they still matter.
+  - I can put a list of links inside a nav.
+before: |
+  Do the Make task yourself (about 5 minutes).
 
-```step
-stage: modify
-try: { playground: html, starter: "page.html#club", height: 520, boxes: true }
-insight: "A real homepage, rebuilt from plain divs into named sections with a hero and a card row."
-expected: page.html#sol-club
+  **Section tags** (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`) add no look of their own. Their value is meaning: screen readers let people jump straight to the menu or the main content, and search engines know which part is which. Students expect a header to look like a header; **Boxes** shows the named parts and the plain page side by side.
+running:
+  - "Predict: most students expect something to change. Compare the two files, then run it with **Boxes** on to see the named parts, and off to see nothing."
+  - "Investigate: the match task names each part. For why it matters, ask a student to imagine using a page only by listening to it."
+  - "Mix it up: two slips on one page, one in a rule and one in the menu. Ask which line each would change before they click."
+  - "Make: several answers are fine as long as the parts nest sensibly. A link list goes inside `<nav>`, and the `<nav>` inside the `<header>`."
+stuck:
+  - see: The page looks the same after adding header or footer.
+    ask: Should it look different?
+    fix: No. Section tags name parts; rules change how they look.
+  - see: A closing tag such as </header> does not match its opening tag.
+    ask: Did you close the part you opened last?
+    fix: Close tags in the reverse order you opened them, so each part sits whole inside the next.
+  - see: The links are not in a list, or sit outside the nav.
+    ask: Is the <ul> inside the <nav>?
+    fix: Put the whole <ul> between <nav> and </nav>.
+stretch: "Add a second section with its own heading, and a rule that gives the header and the footer different background colours."
+support: "Give students the Make starter with Boxes on and do the first part together: find the title and the list of links, and put them in a header."
+leads: "Next lesson uses these parts: a menu in the nav that jumps to each section of a long page. Accessibility: these tags are called landmarks, and they are part of web accessibility guidelines. Class idea: compare a page built from these parts with one built from plain text, using a screen reader or the browser's accessibility view."
+exit:
+  q: "A student wraps a menu in <nav> and nothing changes on screen. Did it work? Why?"
+  a: "Yes. nav looks like no tag at all, but it tells browsers and screen readers that the part is the main menu, so people can jump to it."
+explain: |
+  The video and the picture show the same steps (Boxes is on, so each named part shows as a box):
+
+  1. `<header>` is the top of the page: the title, and often the menu (`<nav>`).
+  2. `<main>` holds the page's main content. `<section>` is one part of it, with its own heading.
+  3. `<footer>` is the bottom: contact details and small print.
+  4. They look like plain text. Their names tell browsers and screen readers what each part is.
+solutions:
+  step-5: page.html#sol-make
+struggle: "Section tags change nothing you can see, which feels like a mistake. Ask what header and footer are for if not looks; Boxes shows the named parts."
+class:
+  activities:
+    - at: predict
+      kind: discussion
+      title: What will change?
+      minutes: 3
+      do: |
+        Compare the two files with your partner. Decide what changes on the page, then vote.
+      notes: "Most will pick a coloured bar or a row menu. Run it and keep the vote on the board: the surprise is the lesson."
+    - at: end
+      kind: activity
+      title: Label a real page
+      minutes: 5
+      do: |
+        Open a school or club website. Sketch it as boxes and write which of header, nav, main, section and footer each box would be.
+      notes: "Look for the menu inside the top part, and for pages where the footer holds the contact details."
 ```
 
-This club homepage is all plain `<div>` boxes. Rebuild it with a `<header>` (put the links in a `<nav>`), a `<main>`, and a `<footer>`. Turn the opening part into a hero section, and put the three cards in a row.
+```code page.html#swap
+<!-- file: before.html -->
+<h1>Chess club</h1>
+<ul>
+  <li><a href="https://example.com/home">Home</a></li>
+  <li><a href="https://example.com/rules">Rules</a></li>
+</ul>
+<h2>When we meet</h2>
+<p>Wednesdays at lunch.</p>
+<p>Contact the teacher in charge.</p>
+<!-- file: after.html -->
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <ul>
+      <li><a href="https://example.com/home">Home</a></li>
+      <li><a href="https://example.com/rules">Rules</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>When we meet</h2>
+    <p>Wednesdays at lunch.</p>
+  </section>
+</main>
+<footer>
+  <p>Contact the teacher in charge.</p>
+</footer>
+```
+
+```code page.html#after
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <ul>
+      <li><a href="https://example.com/home">Home</a></li>
+      <li><a href="https://example.com/rules">Rules</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>When we meet</h2>
+    <p>Wednesdays at lunch.</p>
+  </section>
+</main>
+<footer>
+  <p>Contact the teacher in charge.</p>
+</footer>
+```
+
+```code page.html#review
+<style>
+  header {
+    background-colour: navy;
+    color: white;
+  }
+  footer {
+    background-color: lightgray;
+  }
+</style>
+<header>
+  <h1>Chess club</h1>
+  <nav>
+    <ul>
+      <li><a href="https://example.com/home">Home</a></li>
+      <li>Rules<a href="https://example.com/rules"></a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>When we meet</h2>
+    <p>Wednesdays at lunch.</p>
+  </section>
+</main>
+<footer>
+  <p>Contact the teacher in charge.</p>
+</footer>
+```
+
+```code page.html#make
+<h1>Robotics Club</h1>
+<ul>
+  <li><a href="https://example.com/home">Home</a></li>
+  <li><a href="https://example.com/join">Join</a></li>
+</ul>
+<h2>Build robots every Tuesday</h2>
+<p>No experience needed.</p>
+<p>Contact: robots@example.com</p>
+```
+
+```code page.html#sol-make
+<header>
+  <h1>Robotics Club</h1>
+  <nav>
+    <ul>
+      <li><a href="https://example.com/home">Home</a></li>
+      <li><a href="https://example.com/join">Join</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>Build robots every Tuesday</h2>
+    <p>No experience needed.</p>
+  </section>
+</main>
+<footer>
+  <p>Contact: robots@example.com</p>
+</footer>
+```
+
+```code page.html#explain
+<header>
+  <h1>Chess club</h1>
+</header>
+<main>
+  <p>We meet on Wednesdays.</p>
+</main>
+<footer>
+  <p>Contact us</p>
+</footer>
+```

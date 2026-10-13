@@ -1,6 +1,6 @@
 ---
 order: 7
-unit: components
+unit: layout
 title: Flexbox
 summary: Line boxes up in a row with Flexbox, space and centre them, and let a gallery wrap onto new lines.
 language: html

@@ -3,12 +3,9 @@ title: Running the final challenge
 ---
 ## The idea in plain words
 
-The challenge is one page built from everything in the course: a **header** with a Flexbox menu, a **hero**, a row of **cards**, a **results table**, a **sign-up form** with linked labels, and a **footer**. There is nothing new to learn in it. Students build it in three **milestones**, and the support fades: the first gives most of the code, the second gives an outline as comments, the third gives only the goals.
+The challenge is one page built from everything in the course: a **header** with a menu of jump links, sections with a **list**, a **picture** and a **results table** (the winners marked with a class), a **sign-up form** with linked labels, and a **footer**. It is coloured with tag and class rules. How it is laid out comes in the next course. There is nothing new to learn in it. Students build it in three **milestones**, and the support fades: the first gives most of the code, the second gives an outline as comments, the third gives only the goals.
 
-Finishing the core lesson marks **Challenge complete** on the course page. Two optional lessons go further, in two directions:
-
-- **Make it react** adds a few lines of JavaScript as a recipe: a button changes the page, and the form greets you by name. It leads to the DOM course.
-- **Page layout with Grid** arranges whole pages in rows and columns. It leads to more design work.
+Finishing the lesson marks **Challenge complete** on the course page. The next course, **Layout and components**, takes this same page and lays it out in rows and cards.
 
 ## Why it works
 
@@ -18,7 +15,7 @@ Finishing the core lesson marks **Challenge complete** on the course page. Two o
 
 ## An everyday picture, and where it breaks
 
-It is like assembling flat-pack furniture you have already built the parts of: the instructions get shorter as you go. Where it breaks: some students try to build everything at once. Insist on one milestone at a time, checking the page (and **Boxes** or **Box model**) after every change.
+It is like assembling flat-pack furniture you have already built the parts of: the instructions get shorter as you go. Where it breaks: some students try to build everything at once. Insist on one milestone at a time, checking the page (and **Boxes** view) after every change.
 
 ## Try it yourself (5 minutes)
 
@@ -27,9 +24,9 @@ Open the challenge and do milestone 1. Then look at milestone 3's goals and plan
 ## Questions students ask
 
 - **"Can I change the club?"** Yes, from milestone 2 on. Any club or event works.
-- **"Why doesn't my form send?"** It is not connected to anything yet: that is what Make it react starts on.
+- **"Why doesn't my form send?"** It is not connected to anything yet; that is code behind the form, which comes in later courses.
 - **"Can I use colours and pictures?"** Yes: the pictures are `trophy.svg`, `medal.svg`, `book.svg`, `ball.svg`, `star.svg` and `music.svg`.
 
 ## How it connects
 
-The page is a portfolio piece. Make it react is the bridge to the DOM course (JavaScript that changes a page); Grid leads to page design. The same building blocks appear in every website students will meet.
+The page is a portfolio piece, and the next course lays it out. The same building blocks appear in every website students will meet.
