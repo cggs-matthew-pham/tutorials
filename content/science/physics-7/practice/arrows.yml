@@ -1,0 +1,39 @@
+# Practice for "How big, which way?". Board: set the arrows to match the forces. Choices: which diagram fits, name the force, which way its arrow points.
+templates:
+  - q: "Two teams pull on a rope. Team A pulls {a} N to the left and Team B pulls {b} N to the right. Set the two sliders so the arrows show this."
+    vars: { a: "50..500 by 50", b: "50..500 by 50" }
+    where: "not (a = 300 and b = 100)"
+    board: |
+      widget: forces
+      object: Rope
+      mass: 1
+      force L: left, 300, Team A, adjust 0-500 by 50
+      force R: right, 100, Team B, adjust 0-500 by 50
+    height: 360
+    when: "L = {a} and R = {b}"
+    explain: "The length of an arrow shows the size of the force. Team A's arrow points left, {a} N long; Team B's points right, {b} N long."
+  - q: "{s}. Which force diagram fits? (Forward is the way the object moves.)"
+    cases:
+      - { s: "A cyclist is speeding up", k: "The forward arrow is longer than the backward arrow", w1: "The two arrows are equal", f1: "Equal arrows mean balanced forces, so the speed would stay the same.", w2: "The backward arrow is longer than the forward arrow", f2: "A longer backward arrow means a net force backward, which slows her down." }
+      - { s: "A car drives at a steady 60 km/h", k: "The forward and backward arrows are equal", w1: "The forward arrow is longer than the backward arrow", f1: "A longer forward arrow would make the car speed up.", w2: "The backward arrow is longer than the forward arrow", f2: "A longer backward arrow would make the car slow down." }
+      - { s: "A sled slows down on flat snow", k: "The backward arrow is longer than the forward arrow", w1: "The forward arrow is longer than the backward arrow", f1: "A longer forward arrow would make the sled speed up.", w2: "The two arrows are equal", f2: "Equal arrows mean a steady speed, not slowing down." }
+      - { s: "A box is pushed but does not move", k: "The forward and backward arrows are equal", w1: "The forward arrow is longer than the backward arrow", f1: "Then the box would speed up. Friction matches the push.", w2: "There is no backward arrow", f2: "Friction acts against the push and matches it, so there is a backward arrow." }
+      - { s: "A runner speeds up out of the blocks", k: "The forward arrow is longer than the backward arrow", w1: "The forward and backward arrows are equal", f1: "Equal arrows would mean a steady speed.", w2: "The backward arrow is longer than the forward arrow", f2: "That would slow her down." }
+      - { s: "A bike freewheels down a hill and slows to a stop on flat ground", k: "The backward arrow is longer than the forward arrow", w1: "The forward arrow is longer than the backward arrow", f1: "Nothing pushes it forward on flat ground, so it slows down.", w2: "The two arrows are equal", f2: "Equal arrows mean a steady speed." }
+      - { s: "A plane flies at a steady speed in a straight line", k: "The forward and backward arrows are equal", w1: "The forward arrow is longer than the backward arrow", f1: "That would make it speed up.", w2: "The backward arrow is longer than the forward arrow", f2: "That would make it slow down." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "A longer arrow is a bigger force. {k}."
+  - q: "Which force is this? {d}"
+    cases:
+      - { d: "The Earth pulls a book down.", k: "Weight", w1: "Support", f1: "Support is the upward push of a surface. Weight is the downward pull of gravity.", w2: "Friction", f2: "Friction acts along a surface, against sliding." }
+      - { d: "A table pushes up on the book resting on it.", k: "Support", w1: "Weight", f1: "Weight pulls down. The table pushes up.", w2: "Air resistance", f2: "Air resistance acts against motion through the air." }
+      - { d: "A box slides along the floor and the rubbing between box and floor slows it.", k: "Friction", w1: "Weight", f1: "Weight acts down, not along the floor.", w2: "Support", f2: "Support pushes up from the floor, not along it." }
+      - { d: "Air pushes against a cyclist riding along.", k: "Air resistance", w1: "Friction", f1: "Friction is between two surfaces rubbing. Here it is air pushing against the cyclist.", w2: "Support", f2: "Support is from a surface pushing up." }
+      - { d: "A parachutist hangs from the parachute, and the air pushes up on the open canopy.", k: "Air resistance", w1: "Weight", f1: "Weight acts down. The air pushes up on the canopy.", w2: "Support", f2: "Support is a surface pushing up. This is air pushing against falling." }
+      - { d: "You pull a wagon along by its handle.", k: "A pull", w1: "Weight", f1: "Weight is the pull of gravity, not your pull.", w2: "Friction", f2: "Friction acts against sliding. Your pull is a force from something in contact." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "{d} That is {k}."
+  - q: "A trolley rests on the ground. Its weight is {w} N. How should the arrows for its weight and the support from the ground look?"
+    vars: { w: "10..80 by 10" }
+    choices: ["The same length, pointing in opposite directions", ["The weight arrow longer, because weight is the force of gravity", "Equal forces get equal arrows. The support is {w} N too."], ["Both pointing down", "The ground pushes up. Support always points away from the surface."]]
+    explain: "The support is {w} N, the same as the weight, so the arrows are equal in length. Weight points down and support points up."

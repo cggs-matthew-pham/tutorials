@@ -94,6 +94,20 @@ tasks:
 
 In your book: draw a torch shining straight down and at a slant onto paper. Use it to explain why a high sun heats the ground more.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "The tilt that causes the seasons only works because the axis keeps pointing the same way as the Earth goes round the sun."
+check:
+  type: question
+  q: "Looking back at the Earth's spin and orbit: as the Earth goes round the sun, what does its tilted axis do?"
+  options: ["It keeps pointing the same way in space", "It always leans towards the sun", "It flips over halfway through the year", "It stands straight up"]
+  answer: 0
+  feedback: [null, "Because it keeps pointing the same way, the north end leans towards the sun for half the year and away for the other half.", "It never flips over.", "It is tilted about 23.4°."]
+  explain: "The axis keeps pointing the same way in space. That is why each hemisphere leans towards the sun for half the year."
+```
+
 ## Practise: the other hemisphere
 
 ```step

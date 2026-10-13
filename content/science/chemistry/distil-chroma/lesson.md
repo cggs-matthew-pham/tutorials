@@ -120,6 +120,20 @@ tasks:
 
 In your book: explain the principle of each technique and name a mixture each one suits.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "The flat part of a heating curve explains why boiling water holds a steady temperature, which is what the flask in a distillation is doing."
+check:
+  type: question
+  q: "Looking back at heating curves: water in a flask is boiling and the heat stays on full. What does a thermometer in the water show over the next few minutes?"
+  options: ["It stays at about 100 °C", "It keeps rising", "It drops, because the water is turning to steam", "It goes up and down"]
+  answer: 0
+  feedback: [null, "While the water boils, the energy goes into separating the particles, not speeding them up.", "The heat is still on. The water stays at its boiling point until it has all boiled away.", "The reading is steady while the water boils."]
+  explain: "During a change of state the temperature stays the same: the energy goes into pulling the particles apart into steam."
+```
+
 ## Elaborate: distillation or evaporation?
 
 ```step

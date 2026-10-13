@@ -1,0 +1,31 @@
+# Practice for "What does an unbalanced force do?". Numbers: the net force. Choices: what the object does; is the motion changing.
+templates:
+  - q: "A box is pushed {p} N to the right. Friction on it is {f} N to the left. What is the size of the net force, in N?"
+    vars: { p: "2..20", f: "2..20" }
+    where: "p != f"
+    answer: "{abs(p - f)}"
+    feedback: [["{p + f}", "The two forces point in opposite directions, so they partly cancel. Subtract the smaller from the larger."], ["0", "The forces are different sizes, so they do not cancel completely. The net force is the difference."]]
+    explain: "The forces act in opposite directions, so subtract: {max(p, f)} N − {min(p, f)} N = {abs(p - f)} N, towards the {p > f ? 'right' : 'left'}."
+  - q: "A box is pushed {p} N to the right. Friction on it is {f} N to the left. Which way does the net force point, and what is it?"
+    vars: { p: "2..20", f: "2..20" }
+    where: "p != f"
+    choices: ["{abs(p - f)} N to the {p > f ? 'right' : 'left'}", ["{abs(p - f)} N to the {p > f ? 'left' : 'right'}", "The net force points the way the bigger force points."], ["{p + f} N to the {p > f ? 'right' : 'left'}", "Opposite forces subtract. They do not add."]]
+    explain: "The bigger force is {max(p, f)} N, to the {p > f ? 'right' : 'left'}. {max(p, f)} − {min(p, f)} = {abs(p - f)} N, pointing the same way as the bigger force."
+  - q: "A box is moving to the right. The push to the right is {p} N and friction to the left is {f} N. What does the box do?"
+    vars: { p: "2..12", f: "2..12" }
+    let: { s: "p > f ? 1 : p < f ? -1 : 0" }
+    choices: ["{s = 1 ? 'Speeds up' : s = -1 ? 'Slows down' : 'Keeps a steady speed'}", ["{s = 1 ? 'Slows down' : 'Speeds up'}", "{s = 1 ? 'The net force points right, the same way as the motion, so it speeds up.' : s = -1 ? 'The net force points left, against the motion, so it slows down.' : 'The forces are balanced, so the motion does not change.'}"], ["{s = 0 ? 'Slows down' : 'Keeps a steady speed'}", "{s = 0 ? 'Balanced forces do not slow it down. The motion stays the same.' : 'A steady speed needs balanced forces. These are not balanced.'}"]]
+    explain: "{s = 1 ? 'The push (' + p + ' N) is bigger than friction (' + f + ' N), so there is a net force to the right and the box speeds up.' : s = -1 ? 'Friction (' + f + ' N) is bigger than the push (' + p + ' N), so there is a net force to the left, against the motion, and the box slows down.' : 'The push and friction are equal, so the forces are balanced and the box keeps a steady speed.'}"
+  - q: "Is the motion changing? {o}"
+    cases:
+      - { o: "A cyclist brakes at the lights.", k: "Changing: there is an unbalanced force", w: "Not changing: the forces are balanced", fb: "Slowing down is a change in motion, so the forces cannot be balanced.", e: "Slowing down is a change in motion, so there is an unbalanced force." }
+      - { o: "A car goes round a roundabout at a steady 30 km/h.", k: "Changing: there is an unbalanced force", w: "Not changing: the forces are balanced", fb: "The speed is steady but the direction keeps changing. A change of direction is a change in motion.", e: "Its direction keeps changing, so there is an unbalanced force." }
+      - { o: "A lift rises at a steady speed.", k: "Not changing: the forces are balanced", w: "Changing: there is an unbalanced force", fb: "Steady speed in a straight line means the motion is not changing.", e: "Steady speed in a straight line: balanced forces." }
+      - { o: "A ball thrown upwards slows as it rises.", k: "Changing: there is an unbalanced force", w: "Not changing: the forces are balanced", fb: "Weight pulls it down the whole time, so it slows, stops at the top and falls.", e: "It slows down, so there is an unbalanced force: weight." }
+      - { o: "A book rests on a desk.", k: "Not changing: the forces are balanced", w: "Changing: there is an unbalanced force", fb: "It is not speeding up, slowing down or turning. Weight and support are equal.", e: "It stays still: balanced forces." }
+      - { o: "A netball bounces off the backboard.", k: "Changing: there is an unbalanced force", w: "Not changing: the forces are balanced", fb: "It changes direction, so something pushed it.", e: "It changes direction, so there is an unbalanced force." }
+      - { o: "A train sits at a platform.", k: "Not changing: the forces are balanced", w: "Changing: there is an unbalanced force", fb: "It stays still, so the forces on it are balanced.", e: "It stays still: balanced forces." }
+      - { o: "A rocket lifts off the ground and speeds up.", k: "Changing: there is an unbalanced force", w: "Not changing: the forces are balanced", fb: "Speeding up is a change in motion.", e: "It speeds up, so the thrust is bigger than the weight." }
+      - { o: "A skydiver falls at a steady speed.", k: "Not changing: the forces are balanced", w: "Changing: there is an unbalanced force", fb: "A steady speed in a straight line is not a change in motion. Air resistance equals weight.", e: "Steady speed in a straight line: balanced forces." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "{e}"

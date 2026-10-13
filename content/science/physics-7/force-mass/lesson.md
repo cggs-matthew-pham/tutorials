@@ -92,6 +92,20 @@ tasks:
 
 In your book: draw two bar graphs from the data above: acceleration against force, and acceleration against mass. Under each, write the pattern in one sentence.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "Acceleration needs an unbalanced force, so the effect of a net force on motion comes back before force and mass are compared."
+check:
+  type: question
+  q: "Looking back at unbalanced forces: a box slides to the right. Friction pulls it left with 6 N and nothing pushes it. What does the box do?"
+  options: ["It slows down", "It keeps sliding at a steady speed", "It speeds up to the right", "It stops straight away"]
+  answer: 0
+  feedback: [null, "A steady speed needs balanced forces. Here friction is not balanced by anything.", "The net force points left, against the motion, so it cannot speed up to the right.", "The net force changes the speed gradually. The box slows down first."]
+  explain: "The net force is 6 N to the left, against the motion, so the box slows down."
+```
+
 ## Elaborate: hit a target
 
 ```step

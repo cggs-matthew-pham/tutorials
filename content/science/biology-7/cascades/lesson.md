@@ -98,6 +98,20 @@ tasks:
 
 In your book: explain why removing dingoes can lead to fewer bandicoots, one link at a time.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "A cascade is followed along the arrows, so the rule for which way an arrow points has to be secure."
+check:
+  type: question
+  q: "Looking back at food webs: a fox eats a rabbit. Which arrow is drawn correctly?"
+  options: ["From the rabbit to the fox", "From the fox to the rabbit", "Either way, as long as it is labelled"]
+  answer: 0
+  feedback: [null, "Arrows show the way energy flows: from the food into the eater.", "Arrows in a food web all follow the same rule: from the food to the eater."]
+  explain: "Arrows point from the food to the eater, the way energy flows. Tracing a cascade follows them one link at a time."
+```
+
 ## Elaborate: wolves in Yellowstone
 
 ```step

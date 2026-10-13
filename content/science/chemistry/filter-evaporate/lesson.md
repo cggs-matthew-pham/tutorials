@@ -104,6 +104,20 @@ tasks:
 
 ### Why each works
 
+## Mix it up
+
+```step
+stage: practise
+insight: "Counting kinds of particle is what tells a mixture from a pure substance, and it decides which technique to use on sandy salt water."
+check:
+  type: question
+  q: "Looking back at pure substances and mixtures: before it is filtered, is sandy salt water a pure substance?"
+  options: ["No: it has three kinds of particle (water, salt and sand), so it is a mixture", "Yes, because it is all water", "Yes, because the salt has dissolved", "No, because it looks cloudy"]
+  answer: 0
+  feedback: [null, "Salt and sand are in it too. Count the kinds of particle.", "Dissolved salt is still there as a separate kind of particle. You can taste it, and it comes back when the water evaporates.", "Looks cannot tell you. Count the kinds of particle."]
+  explain: "Count the kinds of particle, not how it looks: water, salt and sand make three, so it is a mixture."
+```
+
 ## Practise: which technique?
 
 ```step

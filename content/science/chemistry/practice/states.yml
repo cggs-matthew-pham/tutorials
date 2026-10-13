@@ -1,0 +1,38 @@
+# Practice for "Why does a gas fill its container?". Choices: explain a behaviour with arrangement, motion and attraction; name the state from what you see; where does released gas go.
+templates:
+  - q: "Why does {p}?"
+    cases:
+      - { p: "a gas spread to fill its whole container", k: "Its particles move fast in every direction and barely attract each other", w1: "Its particles are light, so they float and spread", f1: "A gas spreads downwards and sideways too, not just up.", w2: "Its particles expand to fill the space", f2: "Particles never change size. The spaces between them grow.", e: "Nothing holds gas particles together, so they spread in every direction until they fill the space." }
+      - { p: "a solid keep its shape", k: "Strong attraction holds its particles in fixed positions, where they vibrate", w1: "Its particles do not move at all", f1: "Solid particles vibrate. They stay in place because attraction holds them there.", w2: "Its particles are bigger than liquid particles", f2: "Particles of a substance are the same size in every state.", e: "Each particle vibrates but stays in its place, so the whole shape stays." }
+      - { p: "a liquid spread across the bottom of its container", k: "Its particles stay close together but slide past each other", w1: "Its particles are held in a fixed pattern", f1: "A fixed pattern would make it a solid. Liquid particles slide past each other.", w2: "Its particles fly off in every direction", f2: "Liquid particles stay close together because they still attract each other.", e: "Particles that slide past each other make a liquid flow, but attraction keeps them close, so it stays at the bottom." }
+      - { p: "the smell of perfume reach the far side of a room", k: "Perfume particles move fast in every direction and spread out through the air", w1: "Perfume particles are lighter than air, so they float up and spread", f1: "Smells spread downwards and sideways too, not only up.", w2: "Perfume particles get bigger until they fill the room", f2: "Particles never change size. They spread out; they do not grow.", e: "Particles are always moving, so perfume particles spread out between the air particles." }
+      - { p: "steam take up far more space than the same mass of liquid water", k: "Its particles are much further apart", w1: "Steam particles are bigger than water particles", f1: "Particles are the same size in every state.", w2: "There are many more particles in the steam", f2: "It is the same number of particles. They are just spread much further apart.", e: "The same water particles, with far more empty space between them." }
+      - { p: "a liquid pour out when you tip its container", k: "Its particles can slide past each other", w1: "Its particles are far apart", f1: "Liquid particles are close together. It is the sliding that lets it pour.", w2: "Its particles are held in fixed places", f2: "Particles in fixed places would make a solid, which cannot pour.", e: "Particles that slide past each other let a liquid flow." }
+      - { p: "an ice cube stay a cube on a plate", k: "Strong attraction holds its particles in fixed positions", w1: "Its particles have stopped moving", f1: "Ice particles vibrate in place. They never stop moving.", w2: "Ice is heavier than water", f2: "Weight does not decide shape. Ice is lighter than the same volume of water and still keeps its shape.", e: "Strong attraction holds each particle in its place, so the cube keeps its shape." }
+      - { p: "a gas spread out in a sealed box even when it is released at the bottom", k: "Its particles move fast in every direction, including up", w1: "Gas particles rise because gas is lighter than everything else", f1: "The gas spread sideways and up from the bottom because its particles move in every direction, not because it floats.", w2: "Air in the box pushes the gas around", f2: "A gas spreads out in an empty box with no air in it as well.", e: "Fast particles moving in all directions fill the whole box." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "{e}"
+  - q: "{o}. Which state is it?"
+    cases:
+      - { o: "It keeps its shape and its volume", k: "Solid", w1: "Liquid", w2: "Gas" }
+      - { o: "It fills any container it is put in", k: "Gas", w1: "Liquid", w2: "Solid" }
+      - { o: "It can be poured, but it cannot be squashed into a smaller space", k: "Liquid", w1: "Gas", w2: "Solid" }
+      - { o: "It can be squashed into a much smaller space", k: "Gas", w1: "Liquid", w2: "Solid" }
+      - { o: "It takes the shape of the bottom of its container but keeps its volume", k: "Liquid", w1: "Solid", w2: "Gas" }
+      - { o: "It cannot flow and cannot be squashed", k: "Solid", w1: "Liquid", w2: "Gas" }
+      - { o: "Its particles are very far apart and moving fast", k: "Gas", w1: "Solid", w2: "Liquid" }
+      - { o: "Its particles are touching and sliding past each other", k: "Liquid", w1: "Gas", w2: "Solid" }
+    choices: ["{k}", "{w1}", "{w2}"]
+    explain: "{k} fits. Shape, volume and squashing all come from the arrangement, motion and attraction of the particles."
+  - q: "A small jar of {g} is opened in the {w} of a large, sealed, empty box. A few minutes later, where are the {g} particles?"
+    cases:
+      - { g: "helium", w: "top corner" }
+      - { g: "oxygen", w: "bottom corner" }
+      - { g: "carbon dioxide", w: "middle" }
+      - { g: "nitrogen", w: "left side" }
+      - { g: "carbon dioxide", w: "top corner" }
+      - { g: "helium", w: "bottom corner" }
+      - { g: "nitrogen", w: "middle" }
+      - { g: "oxygen", w: "left side" }
+    choices: ["Spread through the whole box", ["Mostly still near the {w}", "Fast-moving particles do not stay put. They keep moving in every direction."], ["Mostly floating at the top", "Gas particles do not float up. They move in every direction, so they spread down and sideways as well."]]
+    explain: "Gas particles move fast in every direction and barely attract each other, so they spread until they fill the whole box."

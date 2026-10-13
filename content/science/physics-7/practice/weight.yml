@@ -1,0 +1,44 @@
+# Practice for "Would you weigh less on the Moon?". Numbers: weight = mass × g. Choices: mass or weight; what changes when an object moves from Earth.
+templates:
+  - q: "A {o} has a mass of {m} kg. What is its weight on {pl}, where g is {g} N/kg? Give your answer in N."
+    cases:
+      - { o: "bag", pl: "Earth", g: 9.8 }
+      - { o: "backpack", pl: "the Moon", g: 1.6 }
+      - { o: "rock sample", pl: "Mars", g: 3.7 }
+      - { o: "toolbox", pl: "Jupiter", g: 24.8 }
+      - { o: "box", pl: "Earth", g: 9.8 }
+      - { o: "astronaut's kit", pl: "the Moon", g: 1.6 }
+      - { o: "rover part", pl: "Mars", g: 3.7 }
+      - { o: "satellite part", pl: "Jupiter", g: 24.8 }
+    vars: { m: "2..40" }
+    answer: "{m * g}"
+    tolerance: 0.05
+    feedback: [["{m}", "That is the mass in kg. Weight is a force in newtons: weight = mass × g."], ["{m / g}", "Multiply, don't divide: weight = mass × g."]]
+    explain: "Weight = mass × g = {m} × {g} = {m * g} N."
+  - q: "An object has a weight of {w} N on {pl}, where g is {g} N/kg. What is its mass, in kg?"
+    cases:
+      - { pl: "Earth", g: 9.8 }
+      - { pl: "the Moon", g: 1.6 }
+      - { pl: "Mars", g: 3.7 }
+      - { pl: "Jupiter", g: 24.8 }
+    vars: { m: "2..30" }
+    let: { w: "m * g" }
+    answer: "{m}"
+    feedback: [["{w}", "That is the weight in N. Mass is in kg: divide the weight by g."], ["{w * g}", "Divide, don't multiply: mass = weight ÷ g."]]
+    explain: "Mass = weight ÷ g = {w} ÷ {g} = {m} kg."
+  - q: "{d}. Is this mass or weight?"
+    cases:
+      - { d: "It is measured in kilograms (kg)", k: "Mass", w: "Weight", fb: "Kilograms measure mass. Weight is a force, measured in newtons.", e: "Mass is measured in kilograms." }
+      - { d: "It is measured in newtons (N)", k: "Weight", w: "Mass", fb: "Newtons measure forces. Mass is measured in kilograms.", e: "Weight is a force, measured in newtons." }
+      - { d: "It is the same on Earth and on the Moon", k: "Mass", w: "Weight", fb: "Weight changes with g. Mass is the amount of matter, which stays the same.", e: "Mass does not change, because the amount of matter does not change." }
+      - { d: "It is the pull of gravity on an object", k: "Weight", w: "Mass", fb: "Mass is how much matter there is. The pull of gravity is weight.", e: "Weight is the force of gravity on an object." }
+      - { d: "It tells you how much matter an object has", k: "Mass", w: "Weight", fb: "Weight is a force. It depends on where you are.", e: "Mass is how much matter there is." }
+      - { d: "It gets smaller if you go to a planet with a smaller g", k: "Weight", w: "Mass", fb: "Mass stays the same wherever you go.", e: "Weight depends on g, so it changes from place to place." }
+      - { d: "An astronaut's value is about 96 N on the Moon and about 588 N on Earth", k: "Weight", w: "Mass", fb: "The numbers are in newtons, and they change. Mass would not.", e: "Newtons, and different in different places: weight." }
+      - { d: "It is 60 kg on Earth, on the Moon and on Mars", k: "Mass", w: "Weight", fb: "A value that stays the same everywhere is mass.", e: "A value that does not change from place to place, and is in kilograms: mass." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "{e}"
+  - q: "A {m} kg astronaut flies from Earth to the Moon. What happens to her mass and her weight?"
+    vars: { m: "40..100 by 5" }
+    choices: ["Her mass stays {m} kg; her weight gets smaller", ["Her mass gets smaller; her weight stays the same", "Her mass is the amount of matter in her body, and that does not change."], ["Both get smaller", "Her mass does not change. Only her weight does, because the Moon's g is smaller."], ["Her mass becomes 0 kg because there is no gravity", "There is gravity on the Moon (g = 1.6 N/kg). And mass does not depend on gravity."]]
+    explain: "Mass is how much matter she has, so it stays {m} kg. Weight is the pull of gravity, and the Moon's g is smaller, so her weight is smaller."

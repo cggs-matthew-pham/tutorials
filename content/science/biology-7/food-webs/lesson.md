@@ -96,6 +96,20 @@ tasks:
 
 In your book: copy the bush web, with every arrow, and label each organism's role.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "Where organisms get their food decides their role in a web. Fungi absorb food from dead material, which makes them decomposers."
+check:
+  type: question
+  q: "Looking back at the kingdoms: a mushroom grows on a dead log. How does it get its food?"
+  options: ["It absorbs food from the dead log: it is a fungus, so it is a decomposer", "It makes food from sunlight, like a plant", "It hunts and eats small animals", "It makes food from the soil, like a plant"]
+  answer: 0
+  feedback: [null, "A mushroom is not green and cannot make food from sunlight.", "Mushrooms do not catch food. Fungi absorb it from dead material.", "Plants make food from sunlight. Fungi absorb food from other material."]
+  explain: "Fungi absorb food from dead material. In a food web that makes them decomposers."
+```
+
 ## Elaborate: chain or web?
 
 ```step

@@ -97,6 +97,20 @@ tasks:
 
 In your book: explain the difference between a pure substance and a mixture using particles. Use salt water as one example.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "A pure substance is defined by its particles, so the particle picture of one substance comes back before the idea of mixtures."
+check:
+  type: question
+  q: "Looking back at the particle model: if you could zoom into a drop of pure water, what would you see?"
+  options: ["Only water particles, with empty space between them, always moving", "Water particles with a little air between them", "Smooth water, all the way down", "Water particles and salt particles evenly mixed"]
+  answer: 0
+  feedback: [null, "There is nothing between particles, not even air.", "Water is made of particles, far too small to see.", "Pure water has only one kind of particle."]
+  explain: "Pure means one kind of particle. Those particles still have empty space between them and never stop moving."
+```
+
 ## Elaborate: even and uneven mixtures
 
 ```step

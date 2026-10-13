@@ -112,6 +112,20 @@ Watch the board while you sort. Every description fits exactly one state.
 
 In your book: explain why juice spreads across a table when a sugar cube keeps its shape. Use arrangement, motion and attraction, not just "because it's a liquid".
 
+## Mix it up
+
+```step
+stage: practise
+insight: "Bringing back the four key ideas of the particle model, which this lesson uses to explain solids, liquids and gases."
+check:
+  type: question
+  q: "Looking back at the particle model: which statement about particles is true?"
+  options: ["Particles are always moving, even in a solid", "The particles in a solid have stopped moving", "There is air between the particles of water", "Particles get bigger when they are heated"]
+  answer: 0
+  feedback: [null, "Solid particles vibrate in place. They never stop moving.", "Air is made of particles too. Between particles there is nothing at all.", "Particles never change size. Heated particles move faster and spread out."]
+  explain: "Key idea 3: particles are always moving. In a solid they vibrate in place, held there by strong attraction."
+```
+
 ## Elaborate: six substances
 
 ```step

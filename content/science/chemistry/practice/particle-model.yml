@@ -1,0 +1,36 @@
+# Practice for "What is everything made of?". Choices: which state fits the particles, which ideas belong to particle theory, what is between the particles.
+templates:
+  - q: "A sample's particles are described like this: {d}. Which state is it?"
+    cases:
+      - { d: "close together in a fixed pattern, vibrating in place", k: "Solid", w1: "Liquid", f1: "Liquid particles are close together too, but they have no fixed pattern: they slide past each other.", w2: "Gas", f2: "Gas particles are far apart, not close together.", e: "A fixed pattern and vibrating in place means a solid." }
+      - { d: "close together with no pattern, sliding past each other", k: "Liquid", w1: "Solid", f1: "Solid particles stay in a fixed pattern. They only vibrate in place.", w2: "Gas", f2: "Gas particles are far apart. These are close together.", e: "Close together but free to slide past each other means a liquid." }
+      - { d: "far apart, moving fast in all directions", k: "Gas", w1: "Liquid", f1: "Liquid particles stay close together. These are far apart.", w2: "Solid", f2: "Solid particles are close together, in a fixed pattern.", e: "Far apart and moving fast in all directions means a gas." }
+      - { d: "strong attraction between them holds each particle in its place", k: "Solid", w1: "Liquid", f1: "In a liquid the attraction is weaker, so particles can slide past each other.", w2: "Gas", f2: "In a gas the attraction is very weak.", e: "Strong attraction holds particles in fixed places: a solid." }
+      - { d: "almost no attraction between them, so nothing holds them together", k: "Gas", w1: "Liquid", f1: "Liquid particles still attract each other enough to stay close together.", w2: "Solid", f2: "Solid particles attract each other strongly.", e: "Very weak attraction lets particles spread out: a gas." }
+      - { d: "touching, but free to slide past each other", k: "Liquid", w1: "Solid", f1: "Solid particles are held in fixed places. They cannot slide past each other.", w2: "Gas", f2: "Gas particles are not touching. They are far apart.", e: "Close together and sliding past each other: a liquid." }
+      - { d: "lots of empty space between them", k: "Gas", w1: "Solid", f1: "Solid particles are packed close together, with very little space between them.", w2: "Liquid", f2: "Liquid particles are close together too, with very little space between them.", e: "Lots of empty space between particles is the mark of a gas." }
+      - { d: "they only vibrate, and never leave their places", k: "Solid", w1: "Liquid", f1: "Liquid particles move from place to place, sliding past each other.", w2: "Gas", f2: "Gas particles move fast in all directions.", e: "Particles that only vibrate in place make a solid." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "{e}"
+  - q: "Is this statement part of particle theory? \"{s}\""
+    cases:
+      - { s: "All matter is made of tiny particles.", k: "Part of particle theory", w: "Not true", fb: "This is key idea 1: everything is made of particles.", e: "Key idea 1: all matter is made of particles." }
+      - { s: "There is empty space between the particles.", k: "Part of particle theory", w: "Not true", fb: "This is key idea 2: between particles there is nothing at all.", e: "Key idea 2: there is empty space between particles." }
+      - { s: "Particles are always moving.", k: "Part of particle theory", w: "Not true", fb: "This is key idea 3. Even in a solid, particles vibrate.", e: "Key idea 3: particles are always moving, even in a solid." }
+      - { s: "Particles attract each other.", k: "Part of particle theory", w: "Not true", fb: "This is key idea 4: strongest in a solid, weakest in a gas.", e: "Key idea 4: particles attract each other." }
+      - { s: "Particles get bigger when they are heated.", k: "Not true", w: "Part of particle theory", fb: "Particles never change size. Heated particles move faster and spread out.", e: "Particles never change size. They move faster and spread further apart." }
+      - { s: "There is air between the particles.", k: "Not true", w: "Part of particle theory", fb: "Air is made of particles too. Between particles there is nothing at all.", e: "Air is made of particles too. Between particles there is empty space." }
+      - { s: "Particles in a solid do not move.", k: "Not true", w: "Part of particle theory", fb: "Particles never stop moving. In a solid they vibrate in place.", e: "Solid particles vibrate in place. They never stop moving." }
+      - { s: "Steam particles are smaller than ice particles.", k: "Not true", w: "Part of particle theory", fb: "Ice, water and steam are the same particles. Only the arrangement and motion change.", e: "The particles are the same size in every state." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "{e}"
+  - q: "What is between the particles in {m}?"
+    cases:
+      - { m: "a drop of water" }
+      - { m: "a block of ice" }
+      - { m: "a puff of steam" }
+      - { m: "a balloon of helium" }
+      - { m: "a bar of iron" }
+      - { m: "a jar of oxygen" }
+    choices: ["Nothing: empty space", ["Air", "Air is made of particles too. Between particles there is nothing at all."], ["More of the same stuff", "The particles are the substance. There is nothing between them, not even more of it."]]
+    explain: "There is nothing between particles: not air, not water, not more of the substance. Between the particles in {m} there is empty space."

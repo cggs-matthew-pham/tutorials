@@ -1,0 +1,42 @@
+# Practice for "Why isn't there an eclipse every month?". Choices: solar or lunar; why not every month; umbra or penumbra; when the next eclipse season comes.
+templates:
+  - q: "Solar eclipse or lunar eclipse? {o}"
+    cases:
+      - { o: "It happens at new moon.", k: "Solar eclipse", w: "Lunar eclipse", fb: "A lunar eclipse needs a full moon, with the Earth between the sun and the moon.", e: "At new moon the moon is between the Sun and the Earth: a solar eclipse." }
+      - { o: "It happens at full moon.", k: "Lunar eclipse", w: "Solar eclipse", fb: "A solar eclipse needs a new moon, with the moon between the sun and the Earth.", e: "At full moon the Earth is between the sun and the moon: a lunar eclipse." }
+      - { o: "The moon is between the sun and the Earth.", k: "Solar eclipse", w: "Lunar eclipse", fb: "In a lunar eclipse the Earth is between the sun and the moon.", e: "The moon blocks the sun: a solar eclipse." }
+      - { o: "The Earth is between the sun and the moon.", k: "Lunar eclipse", w: "Solar eclipse", fb: "In a solar eclipse the moon is between the sun and the Earth.", e: "The moon passes into Earth's shadow: a lunar eclipse." }
+      - { o: "The moon's shadow falls on part of the Earth.", k: "Solar eclipse", w: "Lunar eclipse", fb: "In a lunar eclipse it is the Earth's shadow that falls on the moon.", e: "The moon's shadow on Earth: a solar eclipse." }
+      - { o: "The moon turns a dark red.", k: "Lunar eclipse", w: "Solar eclipse", fb: "In a solar eclipse the sun is blocked. The red moon is the moon in Earth's shadow, lit by sunlight bent through Earth's air.", e: "Sunlight bent through Earth's air reaches the moon and is reddened, like a sunset: a lunar eclipse." }
+      - { o: "It can be seen only from a narrow strip of the Earth.", k: "Solar eclipse", w: "Lunar eclipse", fb: "A lunar eclipse can be seen from anywhere on the night side of the Earth.", e: "The moon's shadow on Earth is small, so only part of the Earth sees the eclipse: a solar eclipse." }
+      - { o: "Anyone on the night side of the Earth can see it.", k: "Lunar eclipse", w: "Solar eclipse", fb: "A solar eclipse is seen only from the part of the Earth the moon's shadow crosses.", e: "The moon is in Earth's shadow for everyone facing it: a lunar eclipse." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "{e}"
+  - q: "{q}"
+    cases:
+      - { q: "Why is there not a solar eclipse at every new moon?", k: "The moon's orbit is tilted about 5° to the Earth's, so the moon usually passes above or below the line from the sun to the Earth", w1: "The moon is too small to block the sun", f1: "The moon is just big enough to cover the sun when it is exactly in line.", w2: "The moon moves too fast", f2: "Speed does not matter. The line-up does." }
+      - { q: "Why is there not a lunar eclipse at every full moon?", k: "The moon's orbit is tilted about 5°, so at most full moons the moon passes above or below Earth's shadow", w1: "Earth's shadow is too small", f1: "Earth's shadow is much wider than the moon. The tilt makes the moon miss it most months.", w2: "The moon only goes round the Earth a few times a year", f2: "It goes round every 29.5 days. The tilt is what makes most months miss." }
+      - { q: "When there are eclipses, why do they come in seasons about six months apart?", k: "The line where the moon's orbit crosses Earth's orbit plane points at the sun about twice a year", w1: "The Earth is closest to the sun twice a year", f1: "The Earth is closest to the sun once a year. Eclipse seasons are about the crossing line.", w2: "The moon is full twice a year", f2: "The moon is full every month. What matters is whether the moon is on the crossing line." }
+      - { q: "If the moon's orbit were flat, in the same plane as the Earth's orbit, how often would there be eclipses?", k: "At every new moon and every full moon", w1: "About twice a year, as there are now", f1: "That is the real, tilted orbit. A flat orbit would line up the sun, Earth and moon every time.", w2: "Never", f2: "Every line-up of the sun, Earth and moon would give an eclipse." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "The moon's orbit is tilted about 5°, so most new and full moons miss the line-up. Eclipses come in eclipse seasons about every six months."
+  - q: "You are inside {o}. What do you see?"
+    cases:
+      - { o: "the umbra (the dark centre of a shadow)", k: "The light source is completely blocked: a total eclipse", w: "The light source is partly blocked: a partial eclipse", fb: "A partial eclipse is the penumbra, the lighter outer part of the shadow." }
+      - { o: "the penumbra (the outer part of a shadow)", k: "The light source is partly blocked: a partial eclipse", w: "The light source is completely blocked: a total eclipse", fb: "A total eclipse is the umbra, the dark centre." }
+      - { o: "the moon's umbra on Earth during a solar eclipse", k: "The sun is completely blocked: a total solar eclipse", w: "The sun is partly blocked: a partial solar eclipse", fb: "A partial eclipse is seen from the penumbra, the outer part of the shadow." }
+      - { o: "the moon's penumbra on Earth during a solar eclipse", k: "The sun is partly blocked: a partial solar eclipse", w: "The sun is completely blocked: a total solar eclipse", fb: "A total eclipse is seen only from the umbra." }
+      - { o: "Earth's umbra during a lunar eclipse (you are on the moon)", k: "The sun is completely blocked by the Earth", w: "The sun is partly blocked by the Earth", fb: "Partly blocked is the penumbra." }
+      - { o: "Earth's penumbra during a lunar eclipse (you are on the moon)", k: "The sun is partly blocked by the Earth", w: "The sun is completely blocked by the Earth", fb: "Completely blocked is the umbra." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "The umbra is the full shadow, where the light is completely blocked (total eclipse). The penumbra is the partial shadow (partial eclipse)."
+  - q: "An eclipse season begins in {m}. In which month does the next eclipse season begin?"
+    cases:
+      - { m: "March", k: "September", a: "June", b: "April" }
+      - { m: "April", k: "October", a: "July", b: "May" }
+      - { m: "May", k: "November", a: "August", b: "June" }
+      - { m: "June", k: "December", a: "September", b: "July" }
+      - { m: "July", k: "January", a: "October", b: "August" }
+      - { m: "August", k: "February", a: "November", b: "September" }
+    choices: ["{k}", ["{a}", "That is only three months later. Eclipse seasons are about six months apart."], ["{b}", "That is only one month later. The moon's tilted orbit lines up with the sun about every six months, not every month."]]
+    explain: "Eclipse seasons come about six months apart, when the line where the moon's orbit crosses Earth's orbit plane points at the sun. {m} plus six months is {k}."

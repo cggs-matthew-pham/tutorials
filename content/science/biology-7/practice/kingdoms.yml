@@ -1,0 +1,38 @@
+# Practice for "Plant, animal or something else?". Choices: which kingdom, from its features; which feature separates two kingdoms.
+templates:
+  - q: "Which kingdom does {o} belong to?"
+    cases:
+      - { o: "a kookaburra", k: "Animals", w1: "Plants", f1: "A kookaburra cannot make its own food. It eats other living things.", w2: "Fungi", f2: "Fungi absorb food from dead material. A kookaburra hunts and eats.", e: "It eats other living things: an animal." }
+      - { o: "a wattle tree", k: "Plants", w1: "Fungi", f1: "Fungi cannot make food from sunlight. A wattle is green and does.", w2: "Animals", f2: "Animals eat other living things. A wattle makes its own food.", e: "It makes its own food from sunlight: a plant." }
+      - { o: "yeast, used to make bread rise", k: "Fungi", w1: "Bacteria", f1: "Yeast is one cell, but it has a nucleus, so it is not a bacterium.", w2: "Plants", f2: "Yeast is not green and cannot make food from sunlight. It absorbs sugar.", e: "Not green, absorbs sugar: a fungus, even though it is only one cell." }
+      - { o: "a paramecium, one cell with a nucleus living in pond water", k: "Protists", w1: "Bacteria", f1: "Bacteria have no nucleus. A paramecium has one.", w2: "Animals", f2: "A paramecium is a single cell, not a many-celled animal.", e: "A single cell with a nucleus: a protist." }
+      - { o: "a huntsman spider", k: "Animals", w1: "Plants", f1: "A spider cannot make food from sunlight. It catches and eats other animals.", w2: "Fungi", f2: "Fungi absorb food from dead material. A spider hunts.", e: "It eats other living things: an animal." }
+      - { o: "the bacteria that cause tooth decay", k: "Bacteria", w1: "Protists", f1: "Protists have a nucleus. Bacteria are tiny cells with no nucleus.", w2: "Fungi", f2: "Fungi have a nucleus. Bacteria do not.", e: "A single tiny cell with no nucleus: bacteria." }
+      - { o: "the mould growing on an orange", k: "Fungi", w1: "Plants", f1: "Mould is not green and cannot make food from sunlight. It absorbs food from the orange.", w2: "Protists", f2: "Mould is made of many threads of cells, not a single cell.", e: "It absorbs food from the orange it grows on: a fungus." }
+      - { o: "a mushroom", k: "Fungi", w1: "Plants", f1: "A mushroom grows in the ground and stays still, but it cannot make food from sunlight. It absorbs food from dead material.", w2: "Animals", f2: "A mushroom does not eat. It absorbs food from dead material.", e: "It absorbs food from dead material: a fungus, not a plant." }
+      - { o: "coral", k: "Animals", w1: "Plants", f1: "Coral looks like a plant, but the polyps are tiny animals that catch food.", w2: "Fungi", f2: "Coral polyps catch their food. Fungi absorb it from dead material.", e: "Coral polyps are tiny animals that catch food." }
+      - { o: "grass", k: "Plants", w1: "Fungi", f1: "Grass makes its own food from sunlight. Fungi cannot.", w2: "Protists", f2: "Grass is many-celled and rooted in the soil.", e: "Green, makes its own food from sunlight: a plant." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "{e}"
+  - q: "{c}. Which feature best separates them?"
+    cases:
+      - { c: "Plants and fungi", k: "Plants make their own food using sunlight; fungi absorb food from other material", w1: "Plants grow in soil; fungi do not", f1: "Many fungi grow in soil, and some plants do not.", w2: "Fungi are smaller than plants", f2: "Some fungi are huge underground and some plants are tiny." }
+      - { c: "Plants and animals", k: "Plants make their own food using sunlight; animals eat other living things", w1: "Plants stay still; animals always move", f1: "Some animals, such as coral and sponges, stay in one place.", w2: "Plants are green; animals are never green", f2: "Some animals, such as green tree frogs, are green. What matters is how they get food." }
+      - { c: "Animals and fungi", k: "Animals eat other living things; fungi absorb food from dead material", w1: "Animals have a backbone; fungi do not", f1: "Many animals, such as spiders and snails, have no backbone.", w2: "Fungi live underground; animals do not", f2: "Many fungi, such as mushrooms and mould, grow above ground." }
+      - { c: "Protists and bacteria", k: "Protists have a nucleus; bacteria have no nucleus", w1: "Protists are many-celled; bacteria are one cell", f1: "Protists are mostly single cells too.", w2: "Bacteria are bigger than protists", f2: "Bacteria are tiny cells, usually smaller than protists." }
+      - { c: "Fungi and bacteria", k: "Fungi have a nucleus in their cells; bacteria have no nucleus", w1: "Fungi make their own food; bacteria do not", f1: "Fungi cannot make food from sunlight. They absorb it.", w2: "Fungi are always bigger", f2: "Yeast is a fungus and it is only one cell, about the size of a large bacterium." }
+      - { c: "Plants and bacteria", k: "Plants have many cells with nuclei and make food from sunlight; bacteria are single tiny cells with no nucleus", w1: "Plants live on land; bacteria live in water", f1: "Bacteria live almost everywhere, on land and in water, and some plants live in water.", w2: "Bacteria are always green", f2: "Most bacteria are not green. What matters is the cell: no nucleus, and a single tiny cell." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "Scientists sort with features that anyone can check. For {c}: {k}."
+  - q: "An organism is described: {d}. Which kingdom is it?"
+    cases:
+      - { d: "green, makes its own food from sunlight, and stays in one place", k: "Plants", w: "Fungi", w2: "Animals" }
+      - { d: "not green, cannot make food, and absorbs nutrients from dead material", k: "Fungi", w: "Plants", w2: "Animals" }
+      - { d: "hunts, chases and eats other living things", k: "Animals", w: "Fungi", w2: "Plants" }
+      - { d: "a single tiny cell with no nucleus", k: "Bacteria", w: "Protists", w2: "Fungi" }
+      - { d: "mostly a single cell, with a nucleus, living in pond water", k: "Protists", w: "Bacteria", w2: "Animals" }
+      - { d: "many cells; makes food from sunlight; has roots, stems and leaves", k: "Plants", w: "Protists", w2: "Animals" }
+      - { d: "many cells; grazes on grass and moves about", k: "Animals", w: "Plants", w2: "Fungi" }
+      - { d: "grows as a mass of threads through rotting wood", k: "Fungi", w: "Animals", w2: "Plants" }
+    choices: ["{k}", "{w}", "{w2}"]
+    explain: "Look at how it gets its food and whether it has a nucleus. {k} fits: {d}."

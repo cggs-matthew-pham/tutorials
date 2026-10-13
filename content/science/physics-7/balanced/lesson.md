@@ -99,6 +99,20 @@ tasks:
 
 In your book: explain why "balanced forces" doesn't mean "no forces", using the box on the board as your example.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "Balanced forces are equal and opposite, which only makes sense once arrow length is read as the size of the force."
+check:
+  type: question
+  q: "Looking back at force arrows: a diagram shows a 30 N push to the right and 10 N of friction to the left. How do the arrows look?"
+  options: ["The push arrow is three times as long as the friction arrow, and they point opposite ways", "The two arrows are the same length", "Both arrows point to the right", "The friction arrow is longer, because friction is stronger"]
+  answer: 0
+  feedback: [null, "The forces are different sizes, so the arrows are different lengths.", "Friction acts against the push, so its arrow points the other way.", "The push is the bigger force (30 N against 10 N), so its arrow is longer."]
+  explain: "The length of an arrow shows the size of the force, and it points the way the force acts. 30 N is three times 10 N."
+```
+
 ## Elaborate: the falling skydiver
 
 ```step

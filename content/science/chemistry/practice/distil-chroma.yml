@@ -1,0 +1,38 @@
+# Practice for "Distillation and chromatography". Choices: which technique for the job, evaporation or distillation. Numbers: Rf values.
+templates:
+  - q: "{j}. Which technique should you use?"
+    cases:
+      - { j: "You want drinking water from seawater", k: "Distillation", w1: "Evaporation", f1: "Evaporation lets the water escape into the air, and it is the water you want.", w2: "Filtration", f2: "The salt is dissolved, so it would pass through filter paper.", e: "Boil the seawater and cool the steam to collect the water. The salt stays behind." }
+      - { j: "You want to find out which dyes are mixed in a black felt pen", k: "Chromatography", w1: "Distillation", f1: "Distillation separates a liquid from what is dissolved in it. It does not spread the dyes out.", w2: "Filtration", f2: "The dyes are dissolved, so they pass straight through filter paper.", e: "Each dye is carried a different distance up the paper, so the colours separate." }
+      - { j: "You want sand out of a bucket of sandy water", k: "Filtration", w1: "Distillation", f1: "That would be a lot of work. The sand does not dissolve and is too big for filter paper.", w2: "Chromatography", f2: "Chromatography is for dissolved substances such as dyes.", e: "The sand is too big for the holes in filter paper, so filtering holds it back." }
+      - { j: "You want the salt from salt water and do not need the water", k: "Evaporation", w1: "Chromatography", f1: "Chromatography separates dissolved substances such as dyes, not salt from water.", w2: "Filtration", f2: "The salt is dissolved. It would go through the paper with the water.", e: "The water evaporates and the salt stays behind. If the water is not wanted, there is no need to collect it." }
+      - { j: "A lab needs very pure water with nothing dissolved in it", k: "Distillation", w1: "Filtration", f1: "Filtering cannot remove dissolved substances.", w2: "Chromatography", f2: "Chromatography is for separating dissolved substances such as dyes.", e: "Distillation collects only the water vapour as a liquid and leaves everything dissolved behind." }
+      - { j: "You want to know whether green food colouring is one dye or a mix of two", k: "Chromatography", w1: "Evaporation", f1: "Evaporating would leave the dyes mixed together in the dish.", w2: "Distillation", f2: "Distillation collects the liquid. It does not show how many dyes there are.", e: "Chromatography shows how many dyes there are as separate spots." }
+      - { j: "You want to separate the pigments in spinach leaves", k: "Chromatography", w1: "Filtration", f1: "Pigments dissolved in a solvent pass through filter paper together.", w2: "Evaporation", f2: "Evaporating would just leave the pigments mixed together.", e: "Each pigment dissolves and sticks to the paper differently, so each travels a different distance." }
+      - { j: "A ship at sea needs fresh water from seawater", k: "Distillation", w1: "Evaporation", f1: "Evaporation would let the fresh water escape into the air.", w2: "Filtration", f2: "Dissolved salt passes through a filter.", e: "Distillation collects the water vapour and cools it back into liquid water." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "{e}"
+  - q: "Both evaporation and distillation use the difference in boiling point. {s} Which would you choose?"
+    cases:
+      - { s: "A salt farm wants salt from seawater.", k: "Evaporation", w: "Distillation", fb: "Only the salt is wanted, and the sun and wind evaporate the water for free." }
+      - { s: "A town by the sea wants drinking water from seawater.", k: "Distillation", w: "Evaporation", fb: "The water is what is wanted, so the vapour must be collected." }
+      - { s: "You want sugar crystals from sugar syrup.", k: "Evaporation", w: "Distillation", fb: "Only the sugar is wanted. You do not need to collect the water." }
+      - { s: "A lab needs pure water with every dissolved substance removed.", k: "Distillation", w: "Evaporation", fb: "Evaporating would lose the water. Distillation collects it." }
+      - { s: "You want to keep both the water and the salt from a salt solution.", k: "Distillation", w: "Evaporation", fb: "Evaporation lets the water escape. Distillation collects the water and leaves the salt." }
+      - { s: "A school wants to dry out a dish of salt solution and weigh the salt.", k: "Evaporation", w: "Distillation", fb: "Only the salt is needed, so nothing has to be collected as a liquid." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "Ask: do I need the liquid? If yes, distil. If you only want the dissolved solid, evaporate."
+  - q: "On a chromatogram, the solvent moved {s} cm up the paper and a dye spot moved {d} cm. What is the dye's Rf value?"
+    vars: { s: [8, 10, 12.5, 15], k: "2..8" }
+    let: { d: "s * k / 10" }
+    answer: "{k / 10}"
+    tolerance: 0.02
+    feedback: [["{s / d}", "You divided the wrong way round. Rf is the distance the spot moved divided by the distance the solvent moved."], ["{s - d}", "Rf is a division, not a subtraction: distance moved by the spot ÷ distance moved by the solvent."]]
+    explain: "Rf = distance moved by the spot ÷ distance moved by the solvent = {d} ÷ {s} = {k / 10}."
+  - q: "In the same setup, the solvent moved {s} cm. A dye with an Rf of {rf} should have moved how far up the paper (in cm)?"
+    vars: { s: [8, 10, 12, 15], k: "2..8" }
+    let: { rf: "k / 10" }
+    answer: "{s * rf}"
+    tolerance: 0.05
+    feedback: [["{s / rf}", "Multiply: the spot's distance = Rf × the solvent's distance."]]
+    explain: "Rf × distance moved by the solvent = {rf} × {s} = {s * rf} cm."

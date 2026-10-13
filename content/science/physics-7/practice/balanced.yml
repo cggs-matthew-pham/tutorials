@@ -1,0 +1,56 @@
+# Practice for "Does balanced mean no forces?". Numbers: the force that balances. Board: set a force to balance another. Choices: how the forces compare when the motion is not changing.
+templates:
+  - q: "{s} {p} N. The motion is not changing. What is the size of {t}, in N?"
+    cases:
+      - { s: "A crate slides at a steady speed. The push forward is", t: "the friction backward" }
+      - { s: "A car drives at a steady speed. The engine pushes forward with", t: "the air resistance and friction backward, added together" }
+      - { s: "A skydiver falls at a steady speed. Her weight is", t: "the air resistance upward" }
+      - { s: "A book rests on a desk. Its weight is", t: "the support from the desk" }
+      - { s: "A lift rises at a steady speed. The cable pulls up with", t: "the weight of the lift" }
+      - { s: "A boat moves at a steady speed. The motor pushes it forward with", t: "the water's drag backward" }
+    vars: { p: "2..20" }
+    answer: "{p}"
+    feedback: [["0", "Balanced forces cancel out, but both are still there. The two forces are equal in size."], ["{p * 2}", "Balanced means equal, not double. The two forces are the same size."]]
+    explain: "The motion is not changing, so the forces are balanced: equal in size and opposite in direction. {t} is {p} N."
+  - q: "A cyclist rides at a steady speed. Her pedalling pushes her forward with {p} N. Friction on the bike is {f} N backward. How big is the air resistance, in N?"
+    vars: { p: "20..60 by 5", f: "5..15 by 5" }
+    where: "f < p"
+    answer: "{p - f}"
+    feedback: [["{p + f}", "The backward forces together must equal the forward force, so subtract friction from {p} N."], ["{p}", "That is all the backward force added up. Friction is part of it, so subtract."]]
+    explain: "Balanced forces: the backward forces together equal the forward force. {p} N − {f} N friction = {p - f} N air resistance."
+  - q: "A skydiver of mass {m} kg falls at a steady speed. (Use g = 10 N/kg.) Set the air resistance so that her forces are balanced."
+    vars: { m: "40..110 by 10" }
+    let: { wt: "m * 10" }
+    where: "wt != 300"
+    board: |
+      widget: forces
+      object: Skydiver
+      mass: {m}
+      g: 10
+      force W: down, weight, Weight
+      force A: up, 300, Air resistance, adjust 0-1200 by 10
+    height: 400
+    when: "A = W"
+    explain: "At a steady speed the forces are balanced. Her weight is {m} × 10 = {wt} N, so the air resistance must be {wt} N."
+  - q: "Team A pulls the rope with {a} N to the left. Set Team B's slider so the forces on the rope are balanced."
+    vars: { a: "50..450 by 50" }
+    where: "a != 100"
+    board: |
+      widget: forces
+      object: Rope
+      mass: 1
+      force L: left, {a}, Team A
+      force R: right, 100, Team B, adjust 0-500 by 50
+    height: 360
+    when: "R = L"
+    explain: "Balanced forces are equal and opposite, so Team B must pull with {a} N to the right. Neither team is winning, but both are still pulling."
+  - q: "{s}. How do the forces on it compare?"
+    cases:
+      - { s: "A car cruises along a straight road at a steady 100 km/h, with its engine running", k: "The forward force equals the backward forces: they are balanced", w1: "The forward force is bigger, or the car would stop", f1: "A bigger forward force would make the car speed up. Steady speed needs balanced forces.", w2: "There are no forces on it while it cruises", f2: "Both are there: the engine pushes forward and air resistance and friction push back." }
+      - { s: "A book rests on a desk", k: "Weight down equals the support up: balanced", w1: "The weight is bigger, because gravity is stronger than the desk", f1: "Then the book would sink into the desk. The desk pushes up with the same force as the weight.", w2: "There are no forces on it because it is not moving", f2: "Weight pulls it down and the desk pushes it up. Both forces are still there." }
+      - { s: "A skydiver falls at a steady speed with the parachute open", k: "Air resistance up equals weight down: balanced", w1: "Weight is bigger, or she would stop falling", f1: "If weight were bigger she would speed up. A steady speed needs balanced forces.", w2: "There are no forces on her because her speed is steady", f2: "Weight and air resistance are both acting. They cancel out." }
+      - { s: "A box is pushed gently but does not move", k: "Friction equals the push: balanced", w1: "The push is bigger, but the box is too heavy to move", f1: "If the push were bigger than friction, the box would speed up.", w2: "There is no friction because nothing is moving", f2: "Friction matches your push so the box stays still." }
+      - { s: "A plane flies in a straight line at a steady speed", k: "Thrust forward equals drag backward: balanced", w1: "Thrust is bigger, or the plane would slow down", f1: "A bigger thrust would make the plane speed up.", w2: "No forces act on it at high altitude", f2: "Thrust and drag still act, and so do weight and lift." }
+      - { s: "A lift rises at a steady speed", k: "The cable's pull up equals the weight down: balanced", w1: "The cable pulls harder than the weight, or it would not rise", f1: "A bigger pull would make the lift speed up. A steady speed needs balanced forces.", w2: "Only the cable acts on it", f2: "The weight pulls it down all the time." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "Balanced forces are equal and opposite. They do not disappear: they cancel out, so the motion does not change."

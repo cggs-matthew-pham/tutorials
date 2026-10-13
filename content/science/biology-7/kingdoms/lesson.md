@@ -118,6 +118,20 @@ tasks:
 
 In your book: choose five organisms, one from each kingdom, and write the observable feature that places each one.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "The reasons for classifying are what the kingdoms are built for, and they come back before the kingdoms are sorted by features."
+check:
+  type: question
+  q: "Looking back at why scientists classify: which is a reason to group living things?"
+  options: ["To use names every scientist understands, and to show how organisms are related", "To decide which organisms are better than others", "To put them in alphabetical order", "To make the living world look tidy"]
+  answer: 0
+  feedback: [null, "Groups describe features and relationships, not worth.", "Alphabetical order tells you nothing about the organisms themselves.", "Classification is for identifying, communicating and showing relationships, not for neatness."]
+  explain: "Scientists classify to identify organisms, to communicate clearly with one name, and to show how organisms are related."
+```
+
 ## Elaborate: a hard one
 
 ```step

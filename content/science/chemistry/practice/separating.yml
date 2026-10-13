@@ -1,0 +1,39 @@
+# Practice for "How do you separate a mixture?". Choices: pick the technique from the property that differs, name the property, and choose the first step.
+templates:
+  - q: "{m}. Which technique separates them?"
+    cases:
+      - { m: "Iron filings are mixed with dry sand", k: "Use a magnet", w1: "Filter the mixture through paper", f1: "Nothing is dissolved, and both iron and sand grains are far too big for filter paper's holes.", w2: "Evaporate the mixture", f2: "Nothing needs to boil away. Iron is magnetic and sand is not.", e: "Magnetism: iron is attracted to a magnet and sand is not." }
+      - { m: "Chalk dust is mixed through water, and the chalk does not dissolve", k: "Filter the mixture through paper", w1: "Use a magnet", f1: "Chalk is not magnetic.", w2: "Use a kitchen sieve", f2: "Chalk dust is far smaller than the holes in a sieve.", e: "Particle size: chalk particles are too big for filter paper's holes, water passes through." }
+      - { m: "Salt is dissolved in water and you want the salt back", k: "Evaporate the water", w1: "Filter the mixture through paper", f1: "Dissolved salt particles are tiny, so they pass straight through the paper with the water.", w2: "Use a magnet", f2: "Salt is not magnetic.", e: "Boiling point: water boils far below salt, so evaporating leaves the salt behind." }
+      - { m: "Steel cans and aluminium cans are mixed on a conveyor belt", k: "Use a magnet", w1: "Use a sieve", f1: "The cans are about the same size, so a sieve cannot sort them.", w2: "Filter the mixture", f2: "Filter paper is for separating solids from a liquid.", e: "Magnetism: steel is attracted to magnets and aluminium is not." }
+      - { m: "Pebbles are mixed with rice grains", k: "Use a sieve", w1: "Use a magnet", f1: "Neither pebbles nor rice are magnetic.", w2: "Evaporate the mixture", f2: "Nothing is dissolved, and nothing needs to boil.", e: "Particle size: pebbles are much bigger than rice, so a sieve with the right holes lets the rice through." }
+      - { m: "Cooking oil floats on top of water", k: "Let it settle, then pour off the oil", w1: "Filter the mixture through paper", f1: "Oil and water would both soak through the paper. They differ in density, not particle size.", w2: "Use a magnet", f2: "Neither oil nor water is magnetic.", e: "Density: oil is less dense than water, so it floats on top and can be poured off." }
+      - { m: "Sand and iron filings are mixed in water", k: "Use a magnet first, then filter", w1: "Filter first, then use a magnet", f1: "Iron and sand are both too big for the paper, so filtering first would trap them together.", w2: "Evaporate first", f2: "That would leave the sand and iron mixed in the dish.", e: "Order matters: the magnet picks out just the iron, then the filter only has to catch sand." }
+      - { m: "A coffee machine must keep the grounds out of the cup", k: "Use filter paper", w1: "Use a magnet", f1: "Coffee grounds are not magnetic.", w2: "Boil the coffee until it is dry", f2: "That would leave the grounds and everything dissolved in the coffee behind.", e: "Particle size: grounds do not dissolve and are too big for the paper's holes." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "{e}"
+  - q: "Which property difference does this use? {o}"
+    cases:
+      - { o: "Panning for gold: swirling water washes the gravel out of the pan and leaves the gold flakes.", p: 1 }
+      - { o: "Making fresh water from seawater by boiling it and cooling the steam.", p: 2 }
+      - { o: "Sifting flour to remove lumps.", p: 0 }
+      - { o: "Leaving fresh milk to stand so the cream rises to the top.", p: 1 }
+      - { o: "A tea bag keeps the leaves out of your cup.", p: 0 }
+      - { o: "Overhead magnets pull steel cans off a recycling conveyor belt.", p: 3 }
+      - { o: "Air jets blow light paper and plastic film off heavier glass and metal.", p: 1 }
+      - { o: "Salt is left behind when a dish of salt water is heated until dry.", p: 2 }
+      - { o: "Muddy water is left in a big tank so the mud sinks to the bottom.", p: 1 }
+      - { o: "A sieve separates sand from small stones.", p: 0 }
+    let: { b: "(p + 1) % 4", c: "(p + 2) % 4" }
+    choices: ["{p = 0 ? 'Particle size' : p = 1 ? 'Density' : p = 2 ? 'Boiling point' : 'Magnetism'}", "{b = 0 ? 'Particle size' : b = 1 ? 'Density' : b = 2 ? 'Boiling point' : 'Magnetism'}", "{c = 0 ? 'Particle size' : c = 1 ? 'Density' : c = 2 ? 'Boiling point' : 'Magnetism'}"]
+    explain: "{p = 0 ? 'Particle size: one part is too big for the holes and the other fits through.' : p = 1 ? 'Density: the denser part sinks or stays, the less dense part floats or is carried away.' : p = 2 ? 'Boiling point: one part turns to gas at a much lower temperature than the other.' : 'Magnetism: one part is attracted to a magnet and the other is not.'}"
+  - q: "Every separation technique uses a difference in a property between the parts of a mixture. A student says: \"{c}\" What is wrong with this?"
+    cases:
+      - { c: "Filter paper catches sand because sand is heavier than salt.", k: "Filter paper sorts by particle size, not weight: the sand grains are too big for the holes", w1: "Nothing is wrong with it", f1: "Weight is not what a filter tests. The holes test size.", w2: "Filter paper catches the salt, not the sand", f2: "The sand is held back. Dissolved salt passes through with the water." }
+      - { c: "The salt disappeared when it dissolved, so evaporating cannot get it back.", k: "The salt is still there as tiny particles in the water, and evaporation leaves it behind", w1: "Nothing is wrong with it", f1: "The salt did not disappear. You can taste it, and it comes back when the water evaporates.", w2: "Evaporation destroys the water but not the salt", f2: "The water is not destroyed. It escapes into the air as water vapour." }
+      - { c: "A magnet can separate any metal from sand.", k: "Only magnetic metals such as iron and steel are attracted, and aluminium and copper are not", w1: "Nothing is wrong with it", f1: "Magnets only attract some metals.", w2: "A magnet cannot separate anything from sand", f2: "It can separate iron or steel from sand." }
+      - { c: "Separating a mixture turns it into new substances.", k: "The particles do not change: you get back the same substances you mixed", w1: "Nothing is wrong with it", f1: "Separating only sorts the parts. The particles stay the same.", w2: "Separating destroys one of the substances", f2: "Nothing is destroyed. You get back the same substances." }
+      - { c: "Salt can be removed from seawater by filtering it through paper.", k: "Dissolved salt particles are tiny, so they pass through the paper with the water", w1: "Nothing is wrong with it", f1: "Filter paper stops only particles too big for its holes. Dissolved salt gets through.", w2: "Filtering works, but only if the paper is very fine", f2: "Even very fine paper lets dissolved particles through. You need evaporation or distillation." }
+      - { c: "Density is the only property you can use to separate a mixture.", k: "Several properties work: particle size, magnetism, boiling point and density", w1: "Nothing is wrong with it", f1: "The magnet used magnetism and the filter used particle size. Density is only one possibility.", w2: "Density cannot separate anything", f2: "It can: oil floats on water, and gold stays in the pan." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "Every technique uses a difference in a physical property between the parts. The particles do not change; you get the same substances back."

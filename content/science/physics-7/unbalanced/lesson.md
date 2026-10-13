@@ -108,6 +108,20 @@ tasks:
 
 In your book: draw force diagrams for two changes in motion, one where the speed changes and one where only the direction changes. Under each, name the unbalanced force.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "Whether forces are unbalanced is read off the arrows, so the force diagram of a resting object comes back first."
+check:
+  type: question
+  q: "Looking back at force arrows: a box rests on a table. Which arrows go in its force diagram?"
+  options: ["Weight down and support up, the same length", "Only weight, pointing down", "Weight down, longer than the support up", "Weight and support, both pointing down"]
+  answer: 0
+  feedback: [null, "The table pushes back up. Support is a force too.", "If the weight arrow were longer, the box would sink into the table. The two are equal.", "The table pushes up. Support always points away from the surface."]
+  explain: "Equal forces get equal arrows. Weight points down and support points up, so the arrows balance."
+```
+
 ## Elaborate: from standing still
 
 ```step

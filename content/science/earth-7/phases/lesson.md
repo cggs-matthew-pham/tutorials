@@ -96,6 +96,20 @@ tasks:
 
 In your book: draw the Earth, the sun's direction and the moon at four positions. Shade the lit half of each moon and draw what we see from Earth.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "The moon's month is easier to picture next to the Earth's own spin and year, which this question brings back."
+check:
+  type: question
+  q: "Looking back at spinning and orbiting: about how many times does the Earth spin during one trip round the sun?"
+  options: ["About 365", "Once", "About 12", "About 24"]
+  answer: 0
+  feedback: [null, "The Earth spins once a day, and a trip round the sun takes a year.", "12 is about the number of months, not the number of spins.", "24 is the number of hours in one spin."]
+  explain: "One spin is a day and a trip round the sun is about 365¼ days, so the Earth spins about 365 times each year."
+```
+
 ## Practise: name the phase
 
 ```step

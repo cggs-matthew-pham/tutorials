@@ -93,6 +93,20 @@ tasks:
 
 In your book: explain why energy flows but matter cycles in an ecosystem.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "Energy flows along the arrows between producers and consumers, so the roles in a web come back before counting the energy at each step."
+check:
+  type: question
+  q: "Looking back at food webs: in the chain grass → grasshopper → lizard → kookaburra, which is the secondary consumer?"
+  options: ["The lizard", "The grasshopper", "The kookaburra", "The grass"]
+  answer: 0
+  feedback: [null, "The grasshopper eats a producer, so it is a primary consumer.", "The kookaburra eats a secondary consumer, so it is a tertiary consumer.", "Grass makes its own food: it is the producer."]
+  explain: "A secondary consumer eats a primary consumer. The lizard eats the grasshopper, which eats the grass."
+```
+
 ## Elaborate: why so few eagles?
 
 ```step

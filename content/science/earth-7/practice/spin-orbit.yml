@@ -1,0 +1,36 @@
+# Practice for "Spinning and orbiting". Choices: rotation or revolution; what the tilted axis does. Numbers: spins and years.
+templates:
+  - q: "Rotation (spinning) or revolution (going round the sun)? {o}"
+    cases:
+      - { o: "It takes about 24 hours.", k: "Rotation", w: "Revolution", fb: "A day is one spin. Going round the sun takes a year.", e: "One spin takes about 24 hours." }
+      - { o: "It takes about 365¼ days.", k: "Revolution", w: "Rotation", fb: "Spinning takes a day. A trip round the sun takes a year.", e: "One trip round the sun takes about 365¼ days." }
+      - { o: "It causes day and night.", k: "Rotation", w: "Revolution", fb: "The sun does not go round the Earth, and the Earth does not go round the sun once a day. The Earth spins once a day.", e: "As the Earth spins, places turn towards and away from the sun." }
+      - { o: "The sun seems to rise in the east and set in the west.", k: "Rotation", w: "Revolution", fb: "This happens every day, so it comes from the spin.", e: "The spin makes the sun seem to cross the sky each day." }
+      - { o: "The Earth goes through all four seasons once.", k: "Revolution", w: "Rotation", fb: "Seasons repeat once a year, which is one trip round the sun.", e: "One trip round the sun brings one full cycle of seasons." }
+      - { o: "Different stars are in the night sky in June and December.", k: "Revolution", w: "Rotation", fb: "Spinning changes which stars you see during one night. Over the year, going round the sun changes which way night faces.", e: "Night faces a different part of space as the Earth goes round the sun." }
+      - { o: "The Earth makes one complete turn on its axis.", k: "Rotation", w: "Revolution", fb: "Turning on its axis is rotation. Revolution is the trip round the sun.", e: "Turning on its axis is rotation." }
+      - { o: "The Earth travels once all the way round the sun.", k: "Revolution", w: "Rotation", fb: "Rotation is the spin on its axis. Going round the sun is revolution.", e: "Going round the sun is revolution." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "{e}"
+  - q: "The Earth spins about 365 times in one trip round the sun. About how many times does it spin in {n} years?"
+    vars: { n: "2..10" }
+    answer: "{365 * n}"
+    tolerance: 5
+    feedback: [["{n}", "That is the number of trips round the sun. Each trip takes about 365 spins."], ["{24 * n}", "24 is the number of hours in one spin. Each year has about 365 spins."]]
+    explain: "{n} years × 365 spins each year = {365 * n} spins. (Every spin is a day, so this is also the number of days.)"
+  - q: "It has been {d} days since 1 January. About how many full spins has the Earth made in that time?"
+    vars: { d: "30..360 by 30" }
+    answer: "{d}"
+    tolerance: 2
+    feedback: [["{d / 365}", "That is the fraction of a year. One spin takes one day, so the number of spins equals the number of days."], ["{d * 24}", "That is the number of hours. One spin takes 24 hours, so the number of spins equals the number of days."]]
+    explain: "The Earth spins once a day, so {d} days is {d} spins. It has also gone about {rd(d / 365 * 100, 0)}% of the way round the sun."
+  - q: "{s}. True or false?"
+    cases:
+      - { s: "The Earth's axis always points the same way in space as the Earth goes round the sun", k: "True", w: "False", fb: "The axis keeps pointing the same way. That is why each hemisphere leans towards the sun at different times of year.", e: "The axis stays pointed the same way all year." }
+      - { s: "The Earth's axis is tilted about 23.4°", k: "True", w: "False", fb: "The axis is tilted about 23.4° from straight up relative to its orbit.", e: "The tilt is about 23.4°." }
+      - { s: "The Earth's axis flips over in the middle of the year", k: "False", w: "True", fb: "The axis never flips. It keeps pointing the same way while the Earth moves round the sun.", e: "The axis keeps pointing the same way. It does not flip." }
+      - { s: "The north end of the axis always leans towards the sun", k: "False", w: "True", fb: "Because the axis keeps pointing the same way, the north end leans towards the sun for half the year and away for the other half.", e: "It leans towards the sun for half the year and away for the other half." }
+      - { s: "The Earth's axis stands straight up compared with its orbit", k: "False", w: "True", fb: "It is tilted about 23.4°.", e: "It is tilted, not straight up." }
+      - { s: "Each hemisphere leans towards the sun for half the year because the axis keeps pointing the same way", k: "True", w: "False", fb: "That is exactly what happens: the axis points the same way while the Earth moves to the other side of the sun.", e: "A fixed axis and a trip round the sun means each hemisphere leans towards the sun for half the year." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "{e}"

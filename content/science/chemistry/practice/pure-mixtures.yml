@@ -1,0 +1,34 @@
+# Practice for "Pure substance or mixture?". Choices: count the kinds of particle, not the look or the label.
+templates:
+  - q: "Is {s} a pure substance or a mixture?"
+    cases:
+      - { s: "distilled water", k: "Pure substance", w: "Mixture", fb: "Distilled water has had everything else removed. It has only one kind of particle.", e: "Only water particles: a pure substance." }
+      - { s: "salt water", k: "Mixture", w: "Pure substance", fb: "It looks the same all the way through, but it has two kinds of particle: water and salt.", e: "Two kinds of particle, water and salt, so it is a mixture however even it looks." }
+      - { s: "air", k: "Mixture", w: "Pure substance", fb: "Air looks like one thing, but it is mostly nitrogen and oxygen particles.", e: "Air is mostly nitrogen and oxygen: a mixture of different kinds of particle." }
+      - { s: "a copper wire", k: "Pure substance", w: "Mixture", fb: "A copper wire has only copper particles.", e: "Only copper particles: a pure substance." }
+      - { s: "\"100% pure\" orange juice from a carton", k: "Mixture", w: "Pure substance", fb: "On a label, \"pure\" means nothing was added. Juice still has water, sugars, acids and many other particles.", e: "Water, sugars, acids and more: a mixture. \"Pure\" on a label does not mean one kind of particle." }
+      - { s: "table sugar from the packet", k: "Pure substance", w: "Mixture", fb: "Table sugar is one substance, sucrose, so it has one kind of particle.", e: "One kind of particle, sucrose: a pure substance." }
+      - { s: "milk", k: "Mixture", w: "Pure substance", fb: "Milk is water with fats, proteins, sugars and more.", e: "Many kinds of particle: a mixture." }
+      - { s: "a diamond", k: "Pure substance", w: "Mixture", fb: "A diamond is only carbon particles, however fancy it looks.", e: "Only carbon: a pure substance." }
+      - { s: "tap water", k: "Mixture", w: "Pure substance", fb: "Tap water is clean to drink, but it has small amounts of dissolved minerals and chlorine in it.", e: "Water plus dissolved minerals and chlorine: clean, but not pure." }
+      - { s: "stainless steel", k: "Mixture", w: "Pure substance", fb: "It looks like one metal, but it is iron with chromium and nickel mixed through it.", e: "An alloy is a mixture, even though it looks like one metal." }
+      - { s: "a cup of tea", k: "Mixture", w: "Pure substance", fb: "Tea is water with many substances dissolved from the leaves.", e: "Water plus many dissolved substances: a mixture." }
+      - { s: "carbon dioxide gas", k: "Pure substance", w: "Mixture", fb: "A sample of carbon dioxide has only one kind of particle.", e: "One kind of particle: a pure substance." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "{e}"
+  - q: "{n = 1 ? 'A sample has only one kind of particle.' : 'A sample has ' + n + ' kinds of particle, ' + (e = 1 ? 'spread evenly through each other.' : 'unevenly spread, with clumps of each kind.')} What is it?"
+    vars: { n: "1..4", e: [0, 1] }
+    let: { s: "n = 1 ? 0 : e = 1 ? 1 : 2" }
+    choices: ["{s = 0 ? 'A pure substance' : s = 1 ? 'A homogeneous mixture' : 'A heterogeneous mixture'}", ["{s = 0 ? 'A homogeneous mixture' : 'A pure substance'}", "{s = 0 ? 'Only one kind of particle, so nothing is mixed.' : 'Two or more kinds of particle always make a mixture, however evenly they are spread.'}"], ["{s = 2 ? 'A homogeneous mixture' : 'A heterogeneous mixture'}", "{s = 2 ? 'Evenly mixed means homogeneous. These are in clumps, so the mixture is uneven.' : 'Check the spread: homogeneous means every part is the same, heterogeneous means you can find different parts.'}"]]
+    explain: "{s = 0 ? 'One kind of particle: a pure substance.' : s = 1 ? 'More than one kind of particle makes a mixture. Evenly spread means every part is the same: homogeneous.' : 'More than one kind of particle makes a mixture. Unevenly spread means you can find different parts: heterogeneous.'}"
+  - q: "In {mix}, which substance is the {r = 0 ? 'solvent' : 'solute'}?"
+    cases:
+      - { mix: "salt water", a: "water", b: "salt", A: "Water", B: "Salt" }
+      - { mix: "sugar dissolved in water", a: "water", b: "sugar", A: "Water", B: "Sugar" }
+      - { mix: "instant coffee dissolved in hot water", a: "water", b: "coffee", A: "Water", B: "Coffee" }
+      - { mix: "seawater", a: "water", b: "salt", A: "Water", B: "Salt" }
+      - { mix: "a fizzy drink", a: "water", b: "carbon dioxide gas", A: "Water", B: "Carbon dioxide gas" }
+      - { mix: "cordial mixed with water", a: "water", b: "cordial", A: "Water", B: "Cordial" }
+    vars: { r: [0, 1] }
+    choices: ["{r = 0 ? A : B}", ["{r = 0 ? B : A}", "{r = 0 ? 'The solvent does the dissolving. The ' + b + ' is what dissolves, so it is the solute.' : 'The solute is what dissolves. The solvent does the dissolving: here, ' + a + '.'}"]]
+    explain: "The solvent does the dissolving and the solute is what dissolves. In {mix}, the solvent is {a} and the solute is {b}."

@@ -1,0 +1,56 @@
+# Practice for "Who is it? Using a key". Board: walk a random specimen through the animal key. Choices: follow a short key, choose a good question, judge a question.
+templates:
+  - q: "Use the key to identify this animal."
+    cases:
+      - { sp: "Red kangaroo | A backbone, fur, and its young grow in a pouch." }
+      - { sp: "Bull ant | No backbone; a hard outer skeleton and six legs." }
+      - { sp: "Saltwater crocodile | A backbone, dry scaly skin and four legs; lays eggs." }
+      - { sp: "Platypus | A backbone, fur and a flat bill; lays eggs." }
+      - { sp: "Garden snail | No backbone, a soft body and a shell; no legs." }
+      - { sp: "Kookaburra | A backbone, feathers and a strong beak; lays eggs." }
+      - { sp: "Green tree frog | A backbone, smooth moist skin and four legs; lays eggs in water." }
+      - { sp: "Huntsman spider | No backbone; eight legs and two body parts." }
+    board: |
+      widget: key
+      step A: Does it have a backbone? | B | F
+      step B: Does it have feathers? | Kookaburra | C
+      step C: Does it have fur? | D | E
+      step D: Does it lay eggs? | Platypus | Red kangaroo
+      step E: Does it have dry, scaly skin? | Saltwater crocodile | Green tree frog
+      step F: Does it have six legs? | Bull ant | G
+      step G: Does it have eight legs? | Huntsman spider | Garden snail
+      specimen: {sp}
+      need: 1
+    height: 380
+    when: "n >= 1"
+    explain: "Answer one question at a time about what you can see in the description. Each answer sends you to the next question until the key names the animal."
+  - q: "This key has three questions. (1) Does it have fur? Yes: go to (2). No: go to (3). (2) Does it lay eggs? Yes: Platypus. No: Red kangaroo. (3) Does it have feathers? Yes: Kookaburra. No: Saltwater crocodile. Which animal does the key name for this specimen? {d}"
+    cases:
+      - { d: "A backbone, fur and a flat bill; lays eggs.", k: "Platypus", w1: "Red kangaroo", f1: "Question (2) asks whether it lays eggs. This one does, so the answer is not the kangaroo.", w2: "Saltwater crocodile", f2: "It has fur, so question (1) sends you to (2), not (3)." }
+      - { d: "Fur, and its young grow in a pouch; it does not lay eggs.", k: "Red kangaroo", w1: "Platypus", f1: "Question (2): does it lay eggs? This one does not.", w2: "Kookaburra", f2: "It has fur, so question (1) sends you to (2), not (3)." }
+      - { d: "Feathers and a strong beak; lays eggs.", k: "Kookaburra", w1: "Platypus", f1: "It has no fur, so question (1) sends you to (3), not (2).", w2: "Saltwater crocodile", f2: "Question (3): does it have feathers? This one does." }
+      - { d: "Dry, scaly skin and four legs; no fur and no feathers.", k: "Saltwater crocodile", w1: "Red kangaroo", f1: "It has no fur, so question (1) sends you to (3).", w2: "Kookaburra", f2: "Question (3): does it have feathers? This one does not." }
+      - { d: "Fur and a flat bill; its eggs hatch after a few weeks.", k: "Platypus", w1: "Red kangaroo", f1: "Question (2) asks whether it lays eggs. This one does.", w2: "Kookaburra", f2: "It has fur, not feathers, so you never reach the feathers question." }
+      - { d: "Feathers, wings and a long tail; it lays eggs.", k: "Kookaburra", w1: "Saltwater crocodile", f1: "Question (3): does it have feathers? Yes, so it is not the crocodile.", w2: "Red kangaroo", f2: "No fur, so question (1) sends you to (3)." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "Follow the key one question at a time: {k}."
+  - q: "Which is the best question to use in a dichotomous key?"
+    cases:
+      - { k: "Does it have six legs?", w1: "Is it scary?", f1: "People disagree about what is scary. A key question must be about a feature everyone can check.", w2: "Is it a bull ant?", f2: "Asking for the name skips the point of the key." }
+      - { k: "Does it have feathers?", w1: "Is it big?", f1: "Big compared with what? A key question needs a clear yes or no.", w2: "Is it pretty?", f2: "People disagree about what is pretty. Use a feature everyone can check." }
+      - { k: "Does it have a backbone?", w1: "Is it a good pet?", f1: "That is an opinion. A key question is about a feature you can observe.", w2: "Is it brown?", f2: "Colour can vary within a species, so it is not reliable." }
+      - { k: "Does it have dry, scaly skin?", w1: "Is it dangerous?", f1: "Dangerous to whom? A key question must be about something you can see.", w2: "Is it a crocodile?", f2: "Asking for the name skips the point of the key." }
+      - { k: "Does it have eight legs?", w1: "Is it small?", f1: "Small compared with what? Use a feature with a clear yes or no.", w2: "Is it grey?", f2: "Animals of the same kind can differ in colour." }
+      - { k: "Do its young grow in a pouch?", w1: "Does it look friendly?", f1: "People disagree about what looks friendly. A key question must be about a feature everyone can check.", w2: "Is it a kangaroo?", f2: "Asking for the name skips the point of the key." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "A good question is about an observable feature with a clear yes or no: {k}"
+  - q: "A key's first question is \"{c}\" What is the problem with it?"
+    cases:
+      - { c: "Is it brown?", k: "Colour varies within a species, so animals of the same kind could go different ways", w1: "Nothing: colour is observable", f1: "Observable, yes, but unreliable: animals of the same kind can differ in colour.", w2: "It should ask about size instead", f2: "Size is even less clear-cut." }
+      - { c: "Is it big?", k: "Big is not clear: it depends what you compare it with, so people will answer differently", w1: "Nothing: size is easy to see", f1: "Whether something counts as big is a matter of opinion. A key needs a clear yes or no.", w2: "It should ask about colour instead", f2: "Colour varies within a species, so it is not reliable." }
+      - { c: "Is it scary?", k: "People will disagree, so the answer is an opinion, not something everyone can check", w1: "Nothing: everyone knows what scary means", f1: "What is scary is different for different people.", w2: "It is too hard to answer", f2: "It is easy to answer, but different people will give different answers." }
+      - { c: "Is it a kangaroo?", k: "It asks for the name, so the key cannot help someone who does not know it", w1: "Nothing: it has a clear yes or no", f1: "A key should lead you to the name by observable features, not ask for it.", w2: "It should ask about colour instead", f2: "Colour varies, so it would not be a reliable feature." }
+      - { c: "Is it young?", k: "Animals of the same kind are young or old at different times, so the answer changes", w1: "Nothing: age is easy to see", f1: "Age is not the same for every animal of a kind, so it cannot sort kinds.", w2: "It should ask about the name instead", f2: "Asking for the name skips the point of the key." }
+      - { c: "Is it pretty?", k: "Whether something is pretty is an opinion, not a feature everyone can check", w1: "Nothing: it has a clear yes or no", f1: "People disagree about what is pretty, so the answers will not match.", w2: "It should ask about size instead", f2: "Size is not clear-cut either." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "Good keys use features that do not vary within a kind of organism and that everyone can check, such as legs, body covering and backbone."

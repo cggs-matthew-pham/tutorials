@@ -1,0 +1,41 @@
+# Practice for "Why can you squash air but not water?". Choices: which particle feature explains an observation; float or sink from density; what happens in a sealed syringe.
+templates:
+  - q: "Which particle feature best explains this? {o}"
+    cases:
+      - { o: "Honey pours much more slowly than water.", f: 2 }
+      - { o: "Air can be squashed but water cannot.", f: 0 }
+      - { o: "Water is about 800 times denser than air.", f: 0 }
+      - { o: "The smell of honey spreads through a whole room.", f: 1 }
+      - { o: "Warm honey pours faster than cold honey.", f: 1 }
+      - { o: "A gas fills a large box far faster than a liquid spreads through water.", f: 1 }
+      - { o: "A thick syrup holds together in a tall, slow stream.", f: 2 }
+      - { o: "A solid plug of wax cannot be pushed into a smaller space.", f: 0 }
+    let: { b: "(f + 1) % 3", c: "(f + 2) % 3" }
+    choices: ["{f = 0 ? 'Arrangement: how close and ordered the particles are' : f = 1 ? 'Motion: how fast the particles move' : 'Attraction: how strongly the particles pull on each other'}", "{b = 0 ? 'Arrangement: how close and ordered the particles are' : b = 1 ? 'Motion: how fast the particles move' : 'Attraction: how strongly the particles pull on each other'}", "{c = 0 ? 'Arrangement: how close and ordered the particles are' : c = 1 ? 'Motion: how fast the particles move' : 'Attraction: how strongly the particles pull on each other'}"]
+    explain: "{f = 0 ? 'Arrangement: how much empty space there is between the particles decides this.' : f = 1 ? 'Motion: faster-moving particles spread out and slip past each other more easily.' : 'Attraction: the harder the particles pull on each other, the less easily they slide past each other.'}"
+  - q: "A block of {m} has a density of {d} g/cm³. Water's density is 1.00 g/cm³. Will the block float or sink in water?"
+    cases:
+      - { m: "foam", d: 0.05 }
+      - { m: "cork", d: 0.24 }
+      - { m: "pine wood", d: 0.55 }
+      - { m: "ice", d: 0.92 }
+      - { m: "candle wax", d: 0.90 }
+      - { m: "aluminium", d: 2.70 }
+      - { m: "iron", d: 7.87 }
+      - { m: "glass", d: 2.50 }
+      - { m: "copper", d: 8.96 }
+      - { m: "brick", d: 1.90 }
+    choices: ["{d < 1 ? 'Floats' : 'Sinks'}", ["{d < 1 ? 'Sinks' : 'Floats'}", "{d < 1 ? 'Each cm³ of it holds less mass than a cm³ of water, so it floats.' : 'Each cm³ of it holds more mass than a cm³ of water, so it sinks.'}"]]
+    explain: "{d < 1 ? 'Its density is less than water. Fewer particles (or lighter ones) in each cm³ means less mass in each cm³, so it floats.' : 'Its density is more than water. More mass in each cm³ than water means it sinks.'}"
+  - q: "A sealed syringe holds {m}. You push the plunger in as far as it will go. What happens, and why?"
+    cases:
+      - { m: "air", g: 1 }
+      - { m: "oxygen", g: 1 }
+      - { m: "carbon dioxide", g: 1 }
+      - { m: "helium", g: 1 }
+      - { m: "water", g: 0 }
+      - { m: "cooking oil", g: 0 }
+      - { m: "a solid plug of wax", g: 0 }
+      - { m: "melted wax", g: 0 }
+    choices: ["{g = 1 ? 'It squashes a lot, because there is plenty of empty space between its particles' : 'It hardly moves, because its particles are already close together'}", ["{g = 1 ? 'It hardly moves, because its particles are already close together' : 'It squashes a lot, because there is plenty of empty space between its particles'}", "{g = 1 ? 'Look at the spacing: gas particles are far apart, with space to move into.' : 'Look at the spacing: these particles are already close together, with no space to move into.'}"], ["{g = 1 ? 'It squashes, because the particles themselves get smaller' : 'It hardly moves, because the particles are too hard to squash'}", "Particles never squash or shrink in any state. What changes is the space between them."]]
+    explain: "{g = 1 ? 'Gas particles are far apart. Pushing the plunger moves them closer; the particles themselves stay the same size.' : 'Solid and liquid particles are already close together, so there is almost no space left to push them into. The particles themselves never squash.'}"

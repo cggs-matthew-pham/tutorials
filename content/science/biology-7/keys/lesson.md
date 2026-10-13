@@ -92,6 +92,20 @@ tasks:
 
 In your book: write the path you took to identify the platypus, naming the feature you checked at each step.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "A key is a classification tool for a purpose, and the purpose it serves is identification."
+check:
+  type: question
+  q: "Looking back at why we classify: what job is a dichotomous key for?"
+  options: ["Identifying an organism you do not know", "Deciding which organism is better", "Showing exactly how organisms are related", "Giving a new organism its name"]
+  answer: 0
+  feedback: [null, "Groups describe features and relationships, not worth.", "A key sorts by features that are easy to check, one step at a time. It does not show ancestry.", "The name is chosen by scientists. A key leads you to a name that already exists."]
+  explain: "A key identifies an organism by asking about features you can observe. Different classifications suit different purposes."
+```
+
 ## Elaborate: a different key
 
 ```step

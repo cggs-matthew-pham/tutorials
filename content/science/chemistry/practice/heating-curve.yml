@@ -1,0 +1,42 @@
+# Practice for "Where does the heat go?". Choices: reading a heating or cooling curve; energy in or out. Numbers: energy to melt or boil water; the state at a given temperature.
+templates:
+  - q: "{d}. What is happening to the water?"
+    cases:
+      - { d: "On a heating curve, the line rises from −10 °C to 0 °C", k: "Solid ice is warming: its particles vibrate faster", w1: "The ice is melting", f1: "While ice melts, the temperature stays at 0 °C. This part of the line is rising.", w2: "The water is boiling", f2: "Boiling happens at 100 °C, much later on the curve.", e: "A rising line means the particles are speeding up. Below 0 °C that is solid ice warming." }
+      - { d: "On a heating curve, the line is flat at 0 °C", k: "The ice is melting: the energy goes into freeing the particles, not speeding them up", w1: "Nothing is happening because the heat is off", f1: "The heat was on the whole time. The energy is going into freeing the particles.", w2: "The liquid water is warming up", f2: "If the particles were speeding up, the temperature would be rising.", e: "During a change of state the temperature stays the same, because the energy goes into separating the particles." }
+      - { d: "On a heating curve, the line rises from 0 °C to 100 °C", k: "Liquid water is warming: its particles move faster", w1: "The water is melting", f1: "Melting is the flat part at 0 °C. This part of the line is rising.", w2: "The water is boiling", f2: "Boiling is the flat part at 100 °C.", e: "Energy in makes the particles move faster, so the temperature rises." }
+      - { d: "On a heating curve, the line is flat at 100 °C", k: "The water is boiling: the energy goes into pulling the particles far apart", w1: "The water has stopped taking in energy", f1: "The heat is still on. The energy is going into separating the particles.", w2: "The steam is getting hotter", f2: "If the steam were getting hotter, the temperature would be rising.", e: "Boiling pulls the particles apart against their attraction, so the temperature stays at 100 °C until all the water has boiled." }
+      - { d: "On a heating curve, the line rises above 100 °C", k: "Steam is warming: its particles move faster", w1: "The water is still boiling", f1: "Boiling is the flat part at 100 °C. Once it is all steam, the temperature can rise again.", w2: "The steam is condensing", f2: "Condensing happens when a gas gives out energy and cools.", e: "All the water has become steam, so extra energy makes the particles move faster again." }
+      - { d: "On a cooling curve, the line is flat at 0 °C", k: "The water is freezing: particles settle into fixed places and give out energy", w1: "The water has stopped losing energy", f1: "It is still losing energy. The energy given out as the particles settle keeps the temperature steady.", w2: "The ice is melting", f2: "Melting takes energy in. On a cooling curve the substance is losing energy.", e: "Freezing gives energy out, which holds the temperature at 0 °C until all the water is ice." }
+      - { d: "On a cooling curve, the line is flat at 100 °C", k: "Steam is condensing: particles are pulled together into a liquid and give out energy", w1: "Water is boiling", f1: "Boiling takes energy in. On a cooling curve the substance is giving energy out.", w2: "The steam has stopped cooling because it has no energy left", f2: "A flat part means energy is still going out, but it is coming from the particles settling together.", e: "Condensing gives energy out, which holds the temperature at 100 °C until all the steam is liquid." }
+      - { d: "A pot of water boils on a stove that stays on full, and the thermometer reads 100 °C for five minutes", k: "The energy from the stove is going into separating the particles, not speeding them up", w1: "The stove has stopped heating the water", f1: "The stove is still on full. The energy is being used to turn water into steam.", w2: "The thermometer is broken, because heating should always raise the temperature", f2: "It is working. During a change of state the temperature stays the same.", e: "While the water boils, all the energy goes into separating the particles, so the temperature does not rise." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "{e}"
+  - q: "{c}. Does the substance take energy in, or give energy out?"
+    cases:
+      - { c: "Ice melts into water", k: "Takes energy in", w: "Gives energy out", fb: "Particles need energy to break free of their fixed places.", e: "Melting takes energy in: the particles are freed from their fixed places." }
+      - { c: "Water boils into steam", k: "Takes energy in", w: "Gives energy out", fb: "Pulling particles apart against their attraction needs energy.", e: "Boiling takes energy in, to separate the particles." }
+      - { c: "Sweat dries on your skin", k: "Takes energy in", w: "Gives energy out", fb: "Evaporating takes energy from your skin, which is why you cool down.", e: "Evaporating takes energy in, and it takes it from your skin." }
+      - { c: "Water freezes in a freezer", k: "Gives energy out", w: "Takes energy in", fb: "Particles settle into fixed places and give out energy as they do.", e: "Freezing gives energy out as the particles settle." }
+      - { c: "Steam turns into water drops on a cold mirror", k: "Gives energy out", w: "Takes energy in", fb: "Condensing gives energy out. That is why steam burns badly.", e: "Condensing gives energy out as the particles come together." }
+      - { c: "A puddle of water dries up on a warm day", k: "Takes energy in", w: "Gives energy out", fb: "Changing liquid to gas always needs energy in.", e: "Evaporating takes energy in." }
+      - { c: "Wax turns from liquid to solid as a candle goes out", k: "Gives energy out", w: "Takes energy in", fb: "Liquid to solid is freezing, and freezing gives energy out.", e: "Freezing gives energy out." }
+      - { c: "Frost forms from water vapour on a cold window", k: "Gives energy out", w: "Takes energy in", fb: "Gas to solid: the particles slow down and settle, giving out energy.", e: "The particles slow down and settle into fixed places, giving out energy." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "{e}"
+  - q: "It takes 334 kJ of energy to melt each kilogram of ice at 0 °C. How much energy (in kJ) does it take to melt {m} kg of ice?"
+    vars: { m: "0.5..4 by 0.5" }
+    answer: "{m * 334}"
+    feedback: [["{m * 2260}", "That is the energy to boil {m} kg of water. Melting needs only 334 kJ for each kilogram."], ["334", "That is for 1 kg. Multiply by the number of kilograms."]]
+    explain: "{m} kg × 334 kJ for each kilogram = {m * 334} kJ. The energy goes into freeing the particles from their fixed places."
+  - q: "It takes 2260 kJ of energy to boil each kilogram of water at 100 °C. How much energy (in kJ) does it take to boil {m} kg of water that is already at 100 °C?"
+    vars: { m: "0.5..4 by 0.5" }
+    answer: "{m * 2260}"
+    feedback: [["{m * 334}", "That is the energy to melt {m} kg of ice. Boiling needs 2260 kJ for each kilogram, about seven times as much."], ["2260", "That is for 1 kg. Multiply by the number of kilograms."]]
+    explain: "{m} kg × 2260 kJ for each kilogram = {m * 2260} kJ. Boiling needs far more energy than melting, because the particles must be pulled completely apart."
+  - q: "A substance melts at {mp} °C and boils at {bp} °C. What state is it in at {t} °C?"
+    vars: { mp: "10..90 by 10", d1: "30..150 by 20", t: "-10..260 by 10" }
+    let: { bp: "mp + d1", s: "t < mp ? 0 : t < bp ? 1 : 2" }
+    where: "t != mp and t != bp"
+    choices: ["{s = 0 ? 'Solid' : s = 1 ? 'Liquid' : 'Gas'}", ["{s = 0 ? 'Liquid' : 'Solid'}", "{s = 0 ? 'Below its melting point it is still solid.' : s = 1 ? 'It has passed its melting point, so it is no longer solid.' : 'It is above its boiling point, so it is no longer solid.'}"], ["{s = 2 ? 'Liquid' : 'Gas'}", "{s = 2 ? 'Above its boiling point it is a gas, not a liquid.' : 'It has not reached its boiling point, so it is not a gas.'}"]]
+    explain: "{s = 0 ? t + ' °C is below the melting point (' + mp + ' °C), so it is a solid.' : s = 1 ? t + ' °C is above the melting point (' + mp + ' °C) but below the boiling point (' + bp + ' °C), so it is a liquid.' : t + ' °C is above the boiling point (' + bp + ' °C), so it is a gas.'}"

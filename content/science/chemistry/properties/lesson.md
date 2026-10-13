@@ -90,6 +90,20 @@ tasks:
 
 In your book: explain **two** properties, why air can be squashed and why air is less dense than water. Check: did you name the arrangement, motion or attraction behind each one?
 
+## Mix it up
+
+```step
+stage: practise
+insight: "Particles never change size: the same particles in a different arrangement explain the three states, and this lesson depends on it."
+check:
+  type: question
+  q: "Looking back at the particle model: a drop of water is heated until it becomes steam. What happens to the water particles?"
+  options: ["They stay the same size, but move faster and spread far apart", "They get bigger", "They break into smaller pieces", "They disappear"]
+  answer: 0
+  feedback: [null, "Particles never change size. The spaces between them grow.", "Steam is still water: the same particles, now far apart.", "Nothing is lost. The same particles are still there, just spread out."]
+  explain: "Ice, water and steam are the same particles. Only their arrangement and motion change, so any squashing comes from the space between them."
+```
+
 ## Elaborate: three substances
 
 ```step

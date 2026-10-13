@@ -1,0 +1,33 @@
+# Practice for "Same push, different mass". Choices: which one speeds up more. Numbers: the pattern between force, mass and acceleration.
+templates:
+  - q: "The same steady push is used on a trolley of mass {a} kg and on one of mass {b} kg. Which one speeds up more?"
+    vars: { a: "1..8", b: "1..8" }
+    where: "a != b"
+    choices: ["The {min(a, b)} kg trolley", ["The {max(a, b)} kg trolley", "More mass means more resistance to a change in motion, so it speeds up less for the same push."], ["Both speed up the same", "The push is the same, but the masses are not. A bigger mass accelerates less."]]
+    explain: "For the same unbalanced force, the smaller mass accelerates more. The {min(a, b)} kg trolley speeds up more than the {max(a, b)} kg trolley."
+  - q: "A {m} kg trolley is pushed with {a} N one time and with {b} N another time. Which push makes it speed up more?"
+    vars: { m: "1..6", a: "2..20 by 2", b: "2..20 by 2" }
+    where: "a != b"
+    choices: ["The {max(a, b)} N push", ["The {min(a, b)} N push", "A bigger unbalanced force gives a bigger acceleration."], ["Both make it speed up the same", "The mass is the same, but the pushes are different. The bigger push gives the bigger acceleration."]]
+    explain: "For the same mass, a bigger unbalanced force gives a bigger acceleration. The {max(a, b)} N push beats the {min(a, b)} N push."
+  - q: "A push gives a trolley of mass {m} kg an acceleration of {a} m/s². The same push is used on a trolley with {k} times the mass ({m * k} kg). What acceleration does it get, in m/s²?"
+    vars: { m: "1..4", k: [2, 3, 4], a: [12, 24, 36, 48] }
+    answer: "{a / k}"
+    feedback: [["{a * k}", "A bigger mass gives a smaller acceleration, not a bigger one. Divide by {k}."], ["{a}", "The mass changed, so the acceleration changes too. {k} times the mass gives 1/{k} of the acceleration."]]
+    explain: "For the same push, {k} times the mass gives 1/{k} of the acceleration: {a} ÷ {k} = {a / k} m/s²."
+  - q: "A {m} kg trolley is pushed with {f} N and speeds up at {a} m/s². The push is made {k} times as big, with the same trolley. What acceleration does it get, in m/s²?"
+    vars: { m: [1, 2, 4], a: [1, 2, 3, 4], k: [2, 3, 4] }
+    let: { f: "m * a" }
+    answer: "{a * k}"
+    feedback: [["{a / k}", "A bigger force gives a bigger acceleration, not a smaller one. Multiply by {k}."], ["{a}", "The force changed, so the acceleration changes too."]]
+    explain: "For the same mass, {k} times the force gives {k} times the acceleration: {a} × {k} = {a * k} m/s²."
+  - q: "{s} What happens to the acceleration?"
+    cases:
+      - { s: "A rocket burns fuel, so its mass falls while the thrust stays the same.", k: "It increases", w1: "It decreases", f1: "Less mass with the same force gives more acceleration.", w2: "It stays the same", f2: "The mass changes, so the acceleration does too." }
+      - { s: "A shopping trolley is filled with groceries, and you push with the same force.", k: "It decreases", w1: "It increases", f1: "More mass with the same push gives less acceleration.", w2: "It stays the same", f2: "The mass is bigger now, so the same push speeds it up less." }
+      - { s: "A car carries four passengers and luggage instead of just the driver, and the engine gives the same force.", k: "It decreases", w1: "It increases", f1: "More mass means more resistance to a change in motion.", w2: "It stays the same", f2: "The force is the same but the mass is bigger, so the acceleration is smaller." }
+      - { s: "You push a bike harder, with the same rider.", k: "It increases", w1: "It decreases", f1: "A bigger unbalanced force gives a bigger acceleration.", w2: "It stays the same", f2: "The force changed, so the acceleration changes too." }
+      - { s: "A cyclist drops a heavy backpack and pedals with the same force.", k: "It increases", w1: "It decreases", f1: "Less mass with the same force gives more acceleration.", w2: "It stays the same", f2: "The mass changed, so the acceleration does too." }
+      - { s: "A trolley is pushed by two people instead of one, with the same load.", k: "It increases", w1: "It decreases", f1: "A bigger force gives a bigger acceleration.", w2: "It stays the same", f2: "The force doubled, so the acceleration does too." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "For the same force, less mass means more acceleration. For the same mass, more force means more acceleration."

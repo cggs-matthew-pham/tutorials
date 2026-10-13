@@ -1,0 +1,30 @@
+# Practice for "Filtration and evaporation". Choices: what is in the residue, filtrate and dish; which technique. Numbers: mass recovered.
+templates:
+  - q: "{U} and {d} are stirred into water. The {u} does not dissolve; the {d} does. The mixture is poured through filter paper. {r = 0 ? 'What stays in the paper (the residue)?' : r = 1 ? 'What passes through the paper (the filtrate)?' : 'The filtrate is heated until the dish is dry. What is left in the dish?'}"
+    cases:
+      - { U: "Sand", u: "sand", d: "salt", D: "Salt" }
+      - { U: "Chalk dust", u: "chalk dust", d: "sugar", D: "Sugar" }
+      - { U: "Mud", u: "mud", d: "salt", D: "Salt" }
+      - { U: "Sawdust", u: "sawdust", d: "sugar", D: "Sugar" }
+      - { U: "Ground pepper", u: "ground pepper", d: "salt", D: "Salt" }
+    vars: { r: [0, 1, 2] }
+    choices: ["{r = 0 ? U + ' only' : r = 1 ? 'Water with ' + d + ' dissolved in it' : d + ' crystals'}", ["{r = 0 ? U + ' and ' + d : r = 1 ? 'Water only' : 'Water'}", "{r = 0 ? 'Dissolved ' + d + ' particles are small enough to go through the paper with the water.' : r = 1 ? 'Dissolved particles are so small that they pass through the paper with the water.' : 'The water is what leaves. The dissolved solid stays behind.'}"], ["{r = 0 ? D + ' only' : r = 1 ? U + ' and water' : U}", "{r = 0 ? 'The ' + d + ' dissolved, so it goes through. It is the ' + u + ' that is too big for the holes.' : r = 1 ? 'The ' + u + ' grains are too big for the holes, so they stay in the paper.' : 'The ' + u + ' was caught in the filter paper, so it is not in the filtrate.'}"]]
+    explain: "{r = 0 ? 'The ' + u + ' does not dissolve and is too big for the holes, so it stays in the paper as the residue.' : r = 1 ? 'The filtrate is the liquid that passes through: water with the dissolved ' + d + ' in it.' : 'Only the water evaporates. The ' + d + ' stays behind as crystals.'}"
+  - q: "Filtration or evaporation? {o}"
+    cases:
+      - { o: "A coffee machine holds the grounds in a paper cone while the coffee runs through.", k: "Filtration", w: "Evaporation", fb: "Nothing evaporates. The grounds do not dissolve and are too big for the paper." }
+      - { o: "Salt is collected from shallow ponds of seawater left in the sun for weeks.", k: "Evaporation", w: "Filtration", fb: "The salt is dissolved. It would pass through a filter. The sun evaporates the water." }
+      - { o: "A pool pump pushes water through a filter to trap leaves and hair.", k: "Filtration", w: "Evaporation", fb: "The leaves and hair are solid and do not dissolve. The filter holds them back." }
+      - { o: "Wet clothes on a washing line dry out.", k: "Evaporation", w: "Filtration", fb: "Water particles escape into the air. Nothing is being filtered." }
+      - { o: "Sugar crystals are recovered by heating sugar syrup until almost dry.", k: "Evaporation", w: "Filtration", fb: "The sugar is dissolved, so it passes through filter paper. The water must be evaporated." }
+      - { o: "A pasta pot is tipped into a colander to remove the water.", k: "Filtration", w: "Evaporation", fb: "The pasta is solid and too big for the holes. Nothing needs to boil away." }
+      - { o: "A puddle on a warm road disappears.", k: "Evaporation", w: "Filtration", fb: "The water particles escape into the air as a gas." }
+      - { o: "Grit is caught in a jug filter as tap water pours through.", k: "Filtration", w: "Evaporation", fb: "The grit is too big for the filter's holes, so it is held back." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "Filtration separates an undissolved solid from a liquid by particle size. Evaporation recovers a dissolved solid by letting the liquid escape."
+  - q: "A mixture of sand and salt has a mass of {t} g. It is added to water, stirred, filtered, and the sand is rinsed and dried. The dry sand has a mass of {u} g. The filtrate is evaporated to dryness. What mass of salt crystals is recovered?"
+    vars: { t: "10..30", u: "3..9" }
+    where: "u < t"
+    answer: "{t - u}"
+    feedback: [["{t}", "That is the mass of the whole mixture. The sand has been separated out first."], ["{u}", "That is the mass of the sand. The salt is the rest of the mixture."]]
+    explain: "The particles do not change when they are separated, so the masses add up: {t} g − {u} g of sand = {t - u} g of salt."

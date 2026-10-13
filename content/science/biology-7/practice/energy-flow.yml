@@ -1,0 +1,44 @@
+# Practice for "Where does the energy go?". Numbers: about 10% of the energy is passed on at each step. Choices: where the rest goes; energy flows, matter cycles.
+templates:
+  - q: "Grass captures {e|n} kJ of energy from sunlight. A grasshopper eats the grass{n = 1 ? '' : n = 2 ? ', and a lizard eats grasshoppers' : ', a lizard eats grasshoppers, and a kookaburra eats lizards'}. About how much of the grass's energy reaches {n = 1 ? 'the grasshopper' : n = 2 ? 'the lizard' : 'the kookaburra'}, in kJ?"
+    vars: { e: [1000, 2000, 5000, 10000, 20000, 50000], n: "1..3" }
+    answer: "{e / pow(10, n)}"
+    feedback: [["{e}", "That is all of it. Only about 10% passes on at each step."], ["{e * 0.9}", "That is the 90% that is used or lost as heat. About 10% passes on."], ["{e / pow(10, n - 1)}", "That is one step too early. Take 10% once for each step up the chain."]]
+    explain: "About 10% passes on at each step. {n} step{n = 1 ? '' : 's'} up: {e|n} ÷ 10{n = 1 ? '' : n = 2 ? ' ÷ 10' : ' ÷ 10 ÷ 10'} = {e / pow(10, n)} kJ."
+  - q: "A {o} gets {x} kJ of energy from the food it eats. About how much energy reaches the animal that eats it, in kJ?"
+    cases:
+      - { o: "grasshopper" }
+      - { o: "lizard" }
+      - { o: "krill" }
+      - { o: "small fish" }
+      - { o: "rabbit" }
+      - { o: "kangaroo" }
+    vars: { x: [50, 80, 100, 200, 300, 500, 800, 1000, 2000] }
+    answer: "{x / 10}"
+    feedback: [["{x}", "That is all of it. Only about 10% passes to the next level."], ["{x * 0.9}", "That is the 90% that is used or lost as heat. About 10% passes on."], ["{x / 2}", "Not half. About a tenth passes on at each step."]]
+    explain: "About 10% passes on: {x} × 0.1 = {x / 10} kJ."
+  - q: "In a food chain, grass captures energy from sunlight, a grasshopper eats the grass, and a lizard eats the grasshopper. The lizard gets {l} kJ. About how much energy did the grass capture, in kJ?"
+    vars: { l: [2, 5, 8, 10, 15, 20, 30, 50, 100] }
+    answer: "{l * 100}"
+    feedback: [["{l * 10}", "That is the energy the grasshopper had. The grass captured ten times more again."], ["{l / 100}", "Work backwards: each step up passes on only about 10%, so each step down has ten times more."]]
+    explain: "Each step up passes on about 10%, so each step down has about ten times more. Grasshopper: {l} × 10 = {l * 10} kJ. Grass: {l * 10} × 10 = {l * 100} kJ."
+  - q: "Does this energy pass to the next level of the food chain? {o}"
+    cases:
+      - { o: "Heat given off by the animal's body.", k: "No: it is lost", w: "Yes: it is passed on", fb: "Body heat leaves into the surroundings. It is not eaten.", e: "Heat is lost to the surroundings." }
+      - { o: "Energy used for moving, breathing and keeping warm.", k: "No: it is used for living", w: "Yes: it is passed on", fb: "The animal uses this energy to stay alive. Only energy stored in its body can be eaten.", e: "This energy is used up in living." }
+      - { o: "Energy stored in the body of the animal that gets eaten.", k: "Yes: it is passed on", w: "No: it is lost", fb: "This is the energy the eater takes in when it eats the animal.", e: "Energy stored in the body is what the next animal gets." }
+      - { o: "Bones, fur and roots that are not eaten.", k: "No: it goes to decomposers", w: "Yes: it is passed on", fb: "Parts that are not eaten do not move up the chain. Decomposers use them.", e: "Parts not eaten go to decomposers, not up the chain." }
+      - { o: "Energy in the droppings the animal leaves behind.", k: "No: it goes to decomposers", w: "Yes: it is passed on", fb: "Droppings are not eaten by the next animal in the chain. Decomposers feed on them.", e: "Droppings go to decomposers." }
+      - { o: "Energy stored in the muscle of a lizard that a kookaburra swallows.", k: "Yes: it is passed on", w: "No: it is lost", fb: "The kookaburra eats the lizard's body, so this energy moves up a level.", e: "The kookaburra eats it, so it is passed on." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "{e}"
+  - q: "Which statement is true about {x}?"
+    cases:
+      - { x: "energy and matter in a food web", k: "Energy flows one way and leaves as heat; matter (atoms) is recycled by decomposers", w1: "Energy and matter are both recycled", f1: "Energy is not recycled. It leaves as heat and sunlight must keep coming in.", w2: "Energy is recycled by decomposers; matter is lost", f2: "That is swapped. Decomposers return atoms to the soil. Energy is lost as heat." }
+      - { x: "the carbon atoms in a dead kangaroo", k: "Decomposers return them to the soil and air, where producers can use them again", w1: "They are lost from the food web for ever", f1: "Atoms are not used up. Decomposers recycle them.", w2: "They pass up to the dingo as energy", f2: "Atoms are matter, not energy. Energy leaves a food web as heat." }
+      - { x: "the sunlight energy captured by grass", k: "It flows along the arrows and is lost as heat; it never comes back", w1: "It is recycled by decomposers and used again", f1: "Decomposers recycle atoms, not energy. Energy leaves as heat.", w2: "It cycles round the food web for ever", f2: "Energy does not cycle. Producers need new sunlight all the time." }
+      - { x: "why a food web needs constant sunlight", k: "Energy is lost as heat at every step, and new energy must come in", w1: "Plants cannot grow without light, but the energy already in the web is reused", f1: "The energy already in the web is not reused. It is lost as heat at each step.", w2: "Atoms are used up and sunlight replaces them", f2: "Atoms are not used up. They are recycled by decomposers." }
+      - { x: "nitrogen atoms in fallen leaves", k: "Decomposers release them into the soil so plants can take them up again", w1: "They are lost as heat", f1: "Heat is energy. Atoms are matter, and they are recycled.", w2: "They stay in the leaves for ever", f2: "Decomposers break the leaves down and return the atoms to the soil." }
+      - { x: "the heat an animal gives off", k: "It is energy leaving the food web, and plants cannot use it", w1: "It is passed on to the next animal in the chain", f1: "Heat spreads into the surroundings. It is not eaten.", w2: "Decomposers collect it and return it to the plants", f2: "Decomposers recycle atoms, not heat." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "Energy flows one way through a web and is lost as heat. Matter, the atoms, is recycled by decomposers."

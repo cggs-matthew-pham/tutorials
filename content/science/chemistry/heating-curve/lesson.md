@@ -130,6 +130,20 @@ Move **R** with its slider or by clicking the graph. The curve is to scale: the 
 
 In your book: sketch water's heating curve, label the solid, liquid and gas parts and the two flat parts. Beside each flat part, write what the particles are doing and why the temperature doesn't change.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "Gas particles moving fast in every direction is what the heating curve builds on: energy in makes particles move faster and spread."
+check:
+  type: question
+  q: "Looking back at states of matter: a small jar of gas is opened in the middle of a large, sealed room. A few minutes later, where are its particles?"
+  options: ["Spread through the whole room", "Mostly at the top of the room", "Still in a clump where the jar was", "Mostly on the floor"]
+  answer: 0
+  feedback: [null, "Gas particles do not float up. They move in every direction.", "Fast-moving particles do not stay in a clump.", "Gas particles move in every direction, not just down."]
+  explain: "Gas particles move fast in every direction and barely attract each other, so they spread to fill the room."
+```
+
 ## Elaborate: a cooling curve
 
 ```step

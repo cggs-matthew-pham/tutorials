@@ -103,6 +103,20 @@ tasks:
 
 In your book: write one thing the particle model explains well and one thing it can't. For each, give the reason, starting "Because the model says particles…".
 
+## Mix it up
+
+```step
+stage: practise
+insight: "The model is judged by what it explains well. Squashing is a clear case of it working, to set against the cases where it cannot."
+check:
+  type: question
+  q: "Looking back at squashing: a syringe of air can be squashed, but a syringe of water cannot. What does the particle model say is different?"
+  options: ["Air particles are far apart, with space to move into; water particles are already close together", "Air particles are smaller than water particles", "Water particles are harder than air particles", "Air has no mass, so nothing pushes back"]
+  answer: 0
+  feedback: [null, "Particles of a substance are the same size in every state. The difference is the spacing.", "Particles never squash, in any state.", "Air does have mass: about 1.2 g in every litre."]
+  explain: "The spacing explains it. This is the kind of job the particle model does well: explaining how substances behave from the arrangement and motion of their particles."
+```
+
 ## Elaborate: a better model
 
 ```step

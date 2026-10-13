@@ -112,6 +112,20 @@ tasks:
 
 In your book: explain how you separated the iron, sand and salt. For each step, name the property difference you used.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "Density is one of the property differences that separation uses, and the particle explanation of density comes from the squashing lesson."
+check:
+  type: question
+  q: "Looking back at density: air is much less dense than water. Why?"
+  options: ["Air particles are far apart, so there are far fewer in each cm³", "Each air particle is lighter than a water particle", "Air particles are smaller", "Air has no mass"]
+  answer: 0
+  feedback: [null, "Surprisingly, an average air particle is heavier than a water particle. The difference is spacing.", "Particles do not change size between states.", "Air does have mass, about 1.2 g in every litre."]
+  explain: "Fewer particles in each cm³ means less mass in each cm³: lower density. Density is one of the property differences a separation can use."
+```
+
 ## Elaborate: choose, and rule out
 
 ```step

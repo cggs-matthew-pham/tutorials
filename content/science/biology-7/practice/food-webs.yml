@@ -1,0 +1,37 @@
+# Practice for "Who eats whom?". Choices: the role of an organism in a web; which way the arrow points; decomposers and webs.
+templates:
+  - q: "In a bush food web, {o}. What is its role?"
+    cases:
+      - { o: "grass makes its own food using sunlight", k: "Producer", w1: "Primary consumer", f1: "A primary consumer eats a producer. Grass makes its own food.", w2: "Decomposer", f2: "Decomposers feed on dead matter. Grass makes its own food from sunlight." }
+      - { o: "a grasshopper eats grass", k: "Primary consumer", w1: "Producer", f1: "A producer makes its own food. A grasshopper eats grass.", w2: "Secondary consumer", f2: "A secondary consumer eats a primary consumer. Grass is a producer." }
+      - { o: "a kangaroo eats grass", k: "Primary consumer", w1: "Secondary consumer", f1: "Grass is a producer, so an animal that eats it is a primary consumer.", w2: "Producer", f2: "A producer makes its own food. A kangaroo eats grass." }
+      - { o: "a lizard eats grasshoppers", k: "Secondary consumer", w1: "Primary consumer", f1: "A primary consumer eats a producer. Grasshoppers are consumers.", w2: "Producer", f2: "A lizard cannot make its own food." }
+      - { o: "a dingo eats kangaroos", k: "Secondary consumer", w1: "Primary consumer", f1: "A primary consumer eats a producer. Kangaroos are consumers.", w2: "Decomposer", f2: "A dingo hunts living animals. Decomposers feed on dead matter." }
+      - { o: "a kookaburra eats lizards, which eat grasshoppers, which eat grass", k: "Tertiary consumer", w1: "Secondary consumer", f1: "Count the links from the producer: grass, grasshopper, lizard, kookaburra. That makes the kookaburra a tertiary consumer.", w2: "Primary consumer", f2: "A primary consumer eats a producer. The kookaburra eats a lizard." }
+      - { o: "fungi and bacteria break down dead grass, dead dingoes and droppings", k: "Decomposer", w1: "Producer", f1: "Decomposers cannot make food from sunlight. They feed on dead matter and wastes.", w2: "Secondary consumer", f2: "Consumers eat living organisms. Decomposers feed on dead matter and wastes." }
+      - { o: "phytoplankton use sunlight to make their own food in the sea", k: "Producer", w1: "Primary consumer", f1: "A primary consumer eats a producer. Phytoplankton make their own food.", w2: "Decomposer", f2: "Decomposers break down dead matter. Phytoplankton make their own food from sunlight." }
+      - { o: "krill eat phytoplankton", k: "Primary consumer", w1: "Producer", f1: "A producer makes its own food. Krill eat phytoplankton.", w2: "Secondary consumer", f2: "Phytoplankton are producers, so krill are primary consumers." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "Producers make their own food, consumers eat other organisms (primary eat producers, secondary eat primary consumers, and so on), and decomposers break down dead matter. Here: {k}."
+  - q: "In a food web, {a} is eaten by {b}. Which way should the arrow point?"
+    cases:
+      - { a: "grass", b: "a grasshopper", A: "Grass", B: "A grasshopper" }
+      - { a: "a grasshopper", b: "a lizard", A: "A grasshopper", B: "A lizard" }
+      - { a: "a lizard", b: "a kookaburra", A: "A lizard", B: "A kookaburra" }
+      - { a: "phytoplankton", b: "krill", A: "Phytoplankton", B: "Krill" }
+      - { a: "krill", b: "a small fish", A: "Krill", B: "A small fish" }
+      - { a: "a rabbit", b: "a fox", A: "A rabbit", B: "A fox" }
+      - { a: "a kangaroo", b: "a dingo", A: "A kangaroo", B: "A dingo" }
+      - { a: "dead leaves", b: "a fungus", A: "Dead leaves", B: "A fungus" }
+    choices: ["From {a} to {b}", ["From {b} to {a}", "The arrow shows the way energy flows: from the food into the eater, not from the eater to the food."], ["Either way, as long as it is labelled", "Arrows in a food web all follow one rule: they point from the food to the eater."]]
+    explain: "Arrows show the way energy flows, from the food into the eater. {A} is the food, so the arrow points to {b}."
+  - q: "Which statement about {x} is true?"
+    cases:
+      - { x: "decomposers", k: "They feed on dead organisms and wastes from every level, and return nutrients to the soil", w1: "They are left out of food webs because they do not hunt", f1: "Without decomposers, dead matter would pile up and plants would run out of nutrients.", w2: "They make food from sunlight", f2: "That is what producers do. Decomposers feed on dead matter and wastes." }
+      - { x: "a food chain compared with a food web", k: "A chain shows one path; a web shows every path", w1: "A chain and a web show exactly the same thing", f1: "A web shows other foods each animal eats and other animals that eat the same food. A chain leaves them out.", w2: "A chain has no arrows", f2: "Chains have arrows too, from food to eater." }
+      - { x: "a kookaburra that eats both lizards and grasshoppers", k: "It feeds at more than one level in the web", w1: "It must be a producer", f1: "It cannot make its own food, so it is a consumer.", w2: "It is a decomposer", f2: "It eats living animals. Decomposers feed on dead matter." }
+      - { x: "producers", k: "They make their own food, and every food web starts with them", w1: "They eat consumers", f1: "Producers do not eat other organisms. They make their own food.", w2: "They break down dead matter", f2: "That is what decomposers do. Producers make food from sunlight." }
+      - { x: "the arrows in a food web", k: "They point from the food to the eater, showing the way energy flows", w1: "They point from the eater to the food, showing who does the eating", f1: "The arrow shows the way energy flows, which is into the eater.", w2: "They can point either way", f2: "Arrows in a food web follow one rule: from the food to the eater." }
+      - { x: "fungi and bacteria in a food web", k: "They are decomposers, and microorganisms belong in the web", w1: "They are left out because they are too small to count", f1: "Microorganisms are decomposers. They break down dead matter in every level of the web.", w2: "They are producers because they grow on dead plants", f2: "They cannot make food from sunlight. They absorb it from dead matter." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "{k}."

@@ -1,0 +1,52 @@
+# Practice for "Why does the moon change shape?". Board: name the phase the moon is in. Choices: where the moon is and which phase; why half the moon is dark. Numbers: days into the cycle.
+templates:
+  - q: "The board puts the moon somewhere in its orbit. Looking from the {hm} Hemisphere, name its phase{n == 1 ? '' : ', ' + n + ' times in a row'}."
+    vars: { n: [1, 2, 3] }
+    cases:
+      - { hm: "Southern", vw: "south" }
+      - { hm: "Northern", vw: "north" }
+    board: |
+      widget: sky
+      mode: moon
+      view: {vw}
+      quiz: on
+      need: {n}
+    height: 480
+    when: "c >= {n}"
+    explain: "The sun always lights half of the moon. The phase is how much of that lit half you can see from Earth, which depends on where the moon is in its orbit."
+  - q: "The moon is {w}. Which phase do we see from Earth?"
+    cases:
+      - { w: "between the Earth and the sun", k: "New moon", w1: "Full moon", f1: "At full moon the Earth is between the sun and the moon. This moon is on the sun's side.", w2: "First quarter", f2: "At first quarter the moon is a quarter of the way round its orbit, at a right angle to the sun.", e: "The lit half faces away from us, so we see only the dark half." }
+      - { w: "on the far side of the Earth from the sun", k: "Full moon", w1: "New moon", f1: "At new moon the moon is between the Earth and the sun, and we see only its dark half.", w2: "Last quarter", f2: "At last quarter the moon is at a right angle to the sun, not on the far side of Earth.", e: "We look at the whole lit half." }
+      - { w: "a quarter of the way round its orbit after new moon, at a right angle to the sun", k: "First quarter", w1: "Full moon", f1: "At full moon the moon is on the far side of the Earth from the sun.", w2: "New moon", f2: "At new moon the moon is between the Earth and the sun.", e: "We see half of the lit half: it looks like a half circle." }
+      - { w: "three quarters of the way round its orbit after new moon, at a right angle to the sun", k: "Last quarter", w1: "First quarter", f1: "First quarter is a quarter of the way round. This moon has gone three quarters of the way.", w2: "Full moon", f2: "At full moon the moon is on the far side of the Earth from the sun.", e: "We see half of the lit half again, this time the other side." }
+      - { w: "between new moon and first quarter, so we see a thin slice of the lit half growing each night", k: "Waxing crescent", w1: "Waning crescent", f1: "Waning means shrinking. This slice is growing.", w2: "Waxing gibbous", f2: "A gibbous moon is more than half lit. This is a thin slice.", e: "Waxing means growing, and a crescent is less than half lit." }
+      - { w: "between first quarter and full moon, so more than half the lit side is showing and growing", k: "Waxing gibbous", w1: "Waxing crescent", f1: "A crescent is less than half lit. This is more than half.", w2: "Waning gibbous", f2: "Waning means shrinking. This is growing.", e: "Waxing means growing, and gibbous is more than half lit." }
+      - { w: "between full moon and last quarter, so more than half is lit and the lit part is shrinking", k: "Waning gibbous", w1: "Waxing gibbous", f1: "Waxing means growing. This is shrinking.", w2: "Waning crescent", f2: "A crescent is less than half lit. This is more than half.", e: "Waning means shrinking, and gibbous is more than half lit." }
+      - { w: "between last quarter and new moon, so only a thin slice is lit and it is shrinking", k: "Waning crescent", w1: "Waxing crescent", f1: "Waxing means growing. This is shrinking.", w2: "Waning gibbous", f2: "Gibbous is more than half lit. This is a thin slice.", e: "Waning means shrinking, and a crescent is less than half lit." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "{e}"
+  - q: "{s} Why?"
+    cases:
+      - { s: "At first quarter, half the moon looks dark.", k: "We see only half of the moon's lit side; the other half is dark because it faces away from the sun", w1: "The Earth's shadow covers half the moon", f1: "At first quarter, Earth's shadow points away from the sun and is nowhere near the moon.", w2: "A cloud is covering half the moon", f2: "The phases are the same everywhere, even on a clear night. They do not come from clouds." }
+      - { s: "At new moon, we cannot see the moon.", k: "The lit half faces away from us, so we see only the dark half", w1: "The Earth's shadow covers the whole moon", f1: "That is a lunar eclipse, and it happens only at full moon.", w2: "The moon has switched off", f2: "The sun still lights half the moon. We just look at its dark side." }
+      - { s: "At full moon, the whole face of the moon is bright.", k: "The moon is on the far side of the Earth from the sun, so we see its whole lit half", w1: "The moon is closest to the sun", f1: "At full moon the moon is as far from the sun as it gets.", w2: "The moon produces its own light then", f2: "The moon never makes its own light. It reflects sunlight." }
+      - { s: "The moon changes from a thin crescent to a full circle over about two weeks.", k: "As it goes round the Earth, we see more of its lit half", w1: "The moon changes shape", f1: "The moon is always a ball. Only how much of the lit half we see changes.", w2: "The Earth's shadow slowly moves off the moon", f2: "The phases are not caused by Earth's shadow." }
+      - { s: "The moon's phases repeat every month.", k: "The moon goes round the Earth once in about 29.5 days from one new moon to the next", w1: "The Earth goes round the sun once a month", f1: "The Earth takes a year to go round the sun. It is the moon that goes round the Earth in a month.", w2: "The Earth's shadow reaches the moon once a month", f2: "The shadow causes eclipses, which are rare. Phases come every month." }
+      - { s: "A lunar eclipse turns a full moon dark and red for an hour or two. How is that different from a phase?", k: "An eclipse is Earth's shadow falling on the moon, which happens only at some full moons; phases come from how much of the lit half we see, every month", w1: "There is no difference: a lunar eclipse is a very dark phase", f1: "Phases need no shadow, and happen every month. An eclipse needs Earth's shadow to fall on the moon.", w2: "A lunar eclipse happens at new moon", f2: "At new moon the moon is between the Earth and the sun. A lunar eclipse needs the Earth between the sun and the moon: a full moon." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "The sun always lights half the moon. The phase is how much of that lit half we see from Earth. Earth's shadow causes only eclipses."
+  - q: "About how many days after a new moon is the moon's {ph}?"
+    cases:
+      - { ph: "waxing crescent (halfway between new moon and first quarter)", n: 3.7 }
+      - { ph: "first quarter", n: 7.4 }
+      - { ph: "waxing gibbous (halfway between first quarter and full moon)", n: 11.1 }
+      - { ph: "full moon", n: 14.8 }
+      - { ph: "waning gibbous (halfway between full moon and last quarter)", n: 18.4 }
+      - { ph: "last quarter", n: 22.1 }
+      - { ph: "waning crescent (halfway between last quarter and new moon)", n: 25.8 }
+      - { ph: "next new moon", n: 29.5 }
+    answer: "{n}"
+    tolerance: 0.6
+    feedback: [["29.5", "That is the whole cycle, from new moon to the next new moon. This phase is earlier in the cycle."], ["7", "That is the first quarter, a quarter of the way through the 29.5-day cycle."]]
+    explain: "A new moon to the next new moon is 29.5 days. The {ph} is {n} days in: {n == 29.5 ? 'the whole cycle' : 'a fraction of the cycle'}."

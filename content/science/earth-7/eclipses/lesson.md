@@ -100,6 +100,20 @@ tasks:
 
 In your book: draw a side view of the sun, Earth and moon for a lunar eclipse, and for a full moon without one. Shade the umbra and penumbra.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "An eclipse needs a particular line-up of the sun, Earth and moon, so the phase positions come back first."
+check:
+  type: question
+  q: "Looking back at the moon's phases: at which phase is the moon between the Earth and the sun?"
+  options: ["New moon", "Full moon", "First quarter", "Last quarter"]
+  answer: 0
+  feedback: [null, "At full moon the Earth is between the sun and the moon.", "At a quarter moon the moon is at a right angle to the sun.", "At a quarter moon the moon is at a right angle to the sun."]
+  explain: "At new moon the moon is between the Earth and the sun, so we see its dark half. A solar eclipse can only happen at new moon."
+```
+
 ## Elaborate: a flat orbit
 
 ```step

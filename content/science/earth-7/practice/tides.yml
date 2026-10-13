@@ -1,0 +1,37 @@
+# Practice for "Why are there two high tides a day?". Choices: spring or neap; how many high tides; when the next high tide is. Numbers: hours between high tides.
+templates:
+  - q: "Spring tides or neap tides? {o}"
+    cases:
+      - { o: "It happens at new moon.", k: "Spring tides", w: "Neap tides", fb: "New moon is a spring tide: the sun and moon pull in line.", e: "At new moon the sun and moon pull in line, giving spring tides." }
+      - { o: "It happens at full moon.", k: "Spring tides", w: "Neap tides", fb: "Full moon is also a spring tide: the sun and moon are in line.", e: "At full moon the sun and moon pull in line, giving spring tides." }
+      - { o: "It happens at first quarter.", k: "Neap tides", w: "Spring tides", fb: "At a quarter moon the sun pulls at right angles to the moon, so the tides are neaps.", e: "At first quarter the sun and moon pull at right angles, giving neap tides." }
+      - { o: "It happens at last quarter.", k: "Neap tides", w: "Spring tides", fb: "At a quarter moon the sun pulls at right angles to the moon, so the tides are neaps.", e: "At last quarter the sun and moon pull at right angles, giving neap tides." }
+      - { o: "The sun and moon pull in line.", k: "Spring tides", w: "Neap tides", fb: "When the pulls add together the range is biggest: spring tides.", e: "Pulls in line add together: spring tides." }
+      - { o: "The sun pulls at right angles to the moon.", k: "Neap tides", w: "Spring tides", fb: "Pulls at right angles partly cancel, so the range is smallest: neap tides.", e: "Pulls at right angles partly cancel: neap tides." }
+      - { o: "It has the smallest difference between high tide and low tide.", k: "Neap tides", w: "Spring tides", fb: "The biggest range is spring tides. The smallest is neap tides.", e: "The smallest range is neap tides." }
+      - { o: "It has the highest high tides and the lowest low tides.", k: "Spring tides", w: "Neap tides", fb: "Neap tides have the smallest range.", e: "The biggest range is spring tides." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "{e}"
+  - q: "{q}"
+    cases:
+      - { q: "On most coasts, about how many high tides are there each day?", k: "Two", w1: "One, when the moon is overhead", f1: "The moon also pulls a bulge on the far side of the Earth, so there are two bulges and the Earth spins through both.", w2: "Four", f2: "There are two bulges, so two high tides in a day on most coasts." }
+      - { q: "What mainly causes the tides?", k: "The moon's gravity pulling on the oceans", w1: "The wind", f1: "Wind makes waves, not tides.", w2: "The moon's light", f2: "Light has nothing to do with it. It is the moon's gravity." }
+      - { q: "Do spring tides happen only in spring?", k: "No: they happen about every two weeks all year, at new moon and full moon", w1: "Yes, only in spring", f1: "'Spring' here means springing up, not the season. They come twice a month all year.", w2: "Yes, only once a year", f2: "Spring tides come at every new moon and full moon, twice a month." }
+      - { q: "Why are there two bulges of ocean?", k: "The moon pulls the water on its side towards it, and the Earth is pulled away from the water on the far side", w1: "One bulge is made by the sun and one by the moon", f1: "The sun makes smaller bulges. The moon alone makes two bulges, one on each side of the Earth.", w2: "The Earth spins and throws water to two sides", f2: "The spin carries the coast through the bulges, but the moon's pull makes them." }
+      - { q: "When is the best time to gather shellfish on a reef at the lowest low tide?", k: "At low tide near a new or full moon, when spring tides give the lowest lows", w1: "At a quarter moon", f1: "Quarter moons give neap tides, with the smallest range, so the lows are not very low.", w2: "Any day: low tides are always the same", f2: "The range changes through the month: spring tides have the lowest lows." }
+      - { q: "How often do spring tides come?", k: "About every two weeks", w1: "About every day", f1: "There are two high tides a day, but spring tides, the biggest, come twice a month.", w2: "About once a year", f2: "They come at every new moon and every full moon." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "The moon's gravity pulls the oceans into two bulges and the Earth spins through both: two high tides a day on most coasts. Spring tides (biggest range) come at new and full moon, and neap tides (smallest) at the quarter moons."
+  - q: "High tide is at {h}:00 {a}. At about what time is the next high tide?"
+    cases:
+      - { a: "am", b: "pm", c: "" }
+      - { a: "pm", b: "am", c: " the next day" }
+    vars: { h: "1..5" }
+    choices: ["Just after {h}:00 {b}{c}, about 12½ hours later", ["At about {h + 6}:00 {a}, about 6 hours later", "Six hours later the water is at low tide. High tides come about 12½ hours apart."], ["At about {h}:00 {a} the next day", "That would be only one high tide a day. There are two, about 12½ hours apart."]]
+    explain: "High tides are about 12½ hours apart. {h}:00 {a} plus 12½ hours is just after {h}:00 {b}{c}."
+  - q: "High tide was at {h}:00 am. About how many hours later will the next high tide be?"
+    vars: { h: "1..11" }
+    answer: "12.5"
+    tolerance: 0.6
+    feedback: [["6", "Six hours later the water is at low tide. The next high tide is about 12½ hours later."], ["24", "That would be one high tide a day. There are two, so about half a day apart."]]
+    explain: "The Earth spins through two bulges in a day (a little over 24 hours, because the moon moves on), so high tides are about 12½ hours apart."

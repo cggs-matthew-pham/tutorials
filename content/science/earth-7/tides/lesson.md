@@ -97,6 +97,20 @@ tasks:
 
 In your book: draw the Earth with its two bulges and the moon, then the sun in line (spring) and at right angles (neap).
 
+## Mix it up
+
+```step
+stage: practise
+insight: "Spring and neap tides depend on where the moon is in its orbit, which the phases lesson laid out."
+check:
+  type: question
+  q: "Looking back at the moon's phases: at new moon, where is the moon?"
+  options: ["Between the Earth and the sun, so the sun, moon and Earth are in a line", "On the far side of the Earth from the sun", "At a right angle to the sun", "Behind the sun"]
+  answer: 0
+  feedback: [null, "That is full moon.", "That is a quarter moon.", "The moon always goes round the Earth, never round the sun."]
+  explain: "At new moon the moon is between the Earth and the sun. The sun and moon pull in line, which gives a spring tide."
+```
+
 ## Elaborate: reading a tide chart
 
 ```step

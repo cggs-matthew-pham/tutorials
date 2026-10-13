@@ -106,6 +106,20 @@ tasks:
 
 In your book: explain to a friend who says "I weigh 50 kilograms" what is wrong with that, and what they should say.
 
+## Mix it up
+
+```step
+stage: practise
+insight: "Weight is a force, so it follows the same rule as any other force: if nothing is changing, something else balances it."
+check:
+  type: question
+  q: "Looking back at balanced forces: a 2 kg bag hangs still from a spring balance. Its weight is about 20 N. What force does the spring pull up with?"
+  options: ["About 20 N: the forces are balanced", "0 N, because the bag is not moving", "About 40 N, so that it can lift the bag", "About 2 N"]
+  answer: 0
+  feedback: [null, "The bag is not moving because the spring pulls up as hard as gravity pulls down.", "If the pull were bigger than the weight, the bag would speed up upwards.", "2 kg is the mass. The spring has to balance the weight, which is about 20 N."]
+  explain: "The bag is still, so the forces are balanced: the spring pulls up with a force equal to the weight, about 20 N."
+```
+
 ## Elaborate: a rover on Jupiter
 
 ```step

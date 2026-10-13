@@ -1,0 +1,45 @@
+# Practice for "Why is summer hot?". Choices: which season in which hemisphere; why (tilt, not distance); what goes with summer or winter.
+templates:
+  - q: "It is {m}. What season is it in {p}?"
+    cases:
+      - { m: "December", p: "Canberra", k: "Summer", w: "Winter", fb: "Canberra is in the Southern Hemisphere, which leans towards the sun in December." }
+      - { m: "June", p: "Canberra", k: "Winter", w: "Summer", fb: "In June the Southern Hemisphere leans away from the sun." }
+      - { m: "December", p: "London", k: "Winter", w: "Summer", fb: "London is in the Northern Hemisphere, which leans away from the sun in December." }
+      - { m: "June", p: "London", k: "Summer", w: "Winter", fb: "In June the Northern Hemisphere leans towards the sun." }
+      - { m: "January", p: "Hobart", k: "Summer", w: "Winter", fb: "Hobart is in the Southern Hemisphere. January is in its summer." }
+      - { m: "July", p: "Tokyo", k: "Summer", w: "Winter", fb: "Tokyo is in the Northern Hemisphere. July is in its summer." }
+      - { m: "July", p: "Sydney", k: "Winter", w: "Summer", fb: "Sydney is in the Southern Hemisphere. July is in its winter." }
+      - { m: "January", p: "Toronto", k: "Winter", w: "Summer", fb: "Toronto is in the Northern Hemisphere. January is in its winter." }
+      - { m: "December", p: "Perth", k: "Summer", w: "Winter", fb: "Perth is in the Southern Hemisphere, which leans towards the sun in December." }
+      - { m: "June", p: "Paris", k: "Summer", w: "Winter", fb: "Paris is in the Northern Hemisphere, which leans towards the sun in June." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "The two hemispheres have opposite seasons. {p} is {k == 'Summer' ? 'leaning towards' : 'leaning away from'} the sun in {m}, so it is {k == 'Summer' ? 'summer' : 'winter'} there."
+  - q: "Why is it summer in {p} in {m}?"
+    cases:
+      - { p: "Canberra", m: "December", h: "Southern" }
+      - { p: "Hobart", m: "January", h: "Southern" }
+      - { p: "Perth", m: "December", h: "Southern" }
+      - { p: "London", m: "June", h: "Northern" }
+      - { p: "Tokyo", m: "July", h: "Northern" }
+      - { p: "Toronto", m: "July", h: "Northern" }
+    choices: ["The {h} Hemisphere leans towards the sun, so the noon sun is higher and the days are longer", ["The Earth is closer to the sun", "The Earth is closest to the sun in early January. If distance caused summer, both hemispheres would have summer together."], ["The sun gives out more heat at that time of year", "The sun's output hardly changes. It is the Earth's tilt that changes how the sunlight arrives."], ["There are fewer clouds at that time of year", "Clouds don't explain why the seasons are opposite in the two hemispheres."]]
+    explain: "Seasons come from the tilt, not the distance. In {m} the {h} Hemisphere leans towards the sun, so {p} gets high noon sun and long days."
+  - q: "Which season goes with this in {p}? {o}"
+    cases:
+      - { p: "Canberra", o: "The noon sun is high in the sky.", k: "Summer", w: "Winter", fb: "A high noon sun is a summer pattern." }
+      - { p: "Canberra", o: "There are about 9½ hours of daylight.", k: "Winter", w: "Summer", fb: "Short days are a winter pattern. In summer Canberra has about 14½ hours." }
+      - { p: "Canberra", o: "There are about 14½ hours of daylight.", k: "Summer", w: "Winter", fb: "Long days are a summer pattern. In winter Canberra has about 9½ hours." }
+      - { p: "Canberra", o: "Sunlight hits the ground at a low angle and is spread over a larger area.", k: "Winter", w: "Summer", fb: "Spread-out sunlight heats the ground less. In summer the sun is higher and the light is concentrated." }
+      - { p: "Canberra", o: "The Southern Hemisphere leans away from the sun.", k: "Winter", w: "Summer", fb: "Leaning away means winter." }
+      - { p: "London", o: "There are about 16½ hours of daylight.", k: "Summer", w: "Winter", fb: "Long days are a summer pattern. In winter London has fewer than 8 hours." }
+      - { p: "London", o: "The noon sun is low in the sky and the days are short.", k: "Winter", w: "Summer", fb: "A low noon sun and short days are a winter pattern." }
+      - { p: "Hobart", o: "The noon sun is as high as it gets all year.", k: "Summer", w: "Winter", fb: "The highest noon sun of the year comes in summer." }
+    choices: ["{k}", ["{w}", "{fb}"]]
+    explain: "Leaning towards the sun gives a higher noon sun and longer days: summer. Leaning away gives a lower sun and shorter days: winter."
+  - q: "{q}"
+    cases:
+      - { q: "London has winter while Canberra has summer. Why can distance from the sun not be the cause of seasons?", k: "Both are about the same distance from the sun at the same time, yet their seasons are opposite", w1: "London is always closer to the sun than Canberra", f1: "Both cities are the same distance from the sun at any moment, give or take a few thousand kilometres.", w2: "Distance changes only affect the Northern Hemisphere", f2: "A change in the Earth's distance from the sun affects the whole Earth together." }
+      - { q: "The Earth is closest to the sun in early January. Why is January winter in London?", k: "Seasons come from the tilt: in January the Northern Hemisphere leans away from the sun", w1: "London is further from the sun than Canberra", f1: "Both cities are about the same distance from the sun. The tilt makes the difference.", w2: "The sun gives out less heat in January", f2: "The sun's output hardly changes through the year. The tilt is what changes how the sunlight arrives." }
+      - { q: "In late December the Earth is about 5 million km closer to the sun than in late June. What does this show about the seasons?", k: "Distance is not the cause: it is winter in the Northern Hemisphere in December even though the Earth is closer", w1: "Distance is the cause: closer means hotter everywhere", f1: "If closer meant hotter everywhere, London would be warm in December. It is winter there.", w2: "The tilt makes the Earth move closer to the sun", f2: "The tilt does not change the Earth's distance. It changes how sunlight hits each hemisphere." }
+    choices: ["{k}", ["{w1}", "{f1}"], ["{w2}", "{f2}"]]
+    explain: "Seasons are caused by the tilt of the axis, not by the Earth's distance from the sun. Leaning towards the sun gives a higher noon sun and longer days: summer."
