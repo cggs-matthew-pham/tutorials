@@ -261,6 +261,7 @@ footer{margin-top:50px;color:var(--muted);font-size:14px}
  * here: 'lesson' | 'course' | 'playground' | 'reference' | 'home'
  */
 export const MAIN_SITE = 'https://learningwaypoints.com/';
+export const STUDIO_SITE = 'https://studio.learningwaypoints.com/';
 export function siteNav({ root = '', subjects = [], current = null, here = 'home', homeOn = false }) {
   const link = (href, text, on, cls = '') => `<a${cls ? ` class="${cls}"` : ''} href="${esc(root + href)}"${on ? ' aria-current="page"' : ''}>${esc(text)}</a>`;
   const menus = subjects.map((sub, i) => `<div class="sn-dd${sub.on ? ' on' : ''}">${link(sub.href, sub.title, sub.on && !sub.items.some((x) => x.on), 'sn-top')}` +
@@ -272,7 +273,7 @@ export function siteNav({ root = '', subjects = [], current = null, here = 'home
   return `<nav class="sitenav" data-here="${esc(here)}" aria-label="Site"><div class="sn-in">` +
     `<a class="sn-brand" href="${MAIN_SITE}" title="Learning Waypoints: the main site">Learning Waypoints <span aria-hidden="true">↗</span></a>` +
     `<button type="button" class="sn-menu" aria-expanded="false" aria-controls="sn-main">Menu ▾</button>` +
-    `<div class="sn-main" id="sn-main">${link('', 'Tutorials', homeOn)}${menus}</div>` +
+    `<div class="sn-main" id="sn-main">${link('', 'Tutorials', homeOn)}${menus}<a href="${STUDIO_SITE}" title="Waypoints Studio: slide decks and print resources for teachers">Studio <span aria-hidden="true">↗</span></a></div>` +
     `<span class="sn-grow"></span><a class="sn-back" href="#" hidden></a><div class="sn-tools">${tools}</div></div></nav>`;
 }
 export const NAV_CSS = `.sitenav{background:var(--card);border-bottom:1px solid var(--line);font-size:14px;position:sticky;top:0;z-index:20}
