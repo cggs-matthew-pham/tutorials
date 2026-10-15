@@ -1,0 +1,612 @@
+{
+ "title": "Python turtle reference",
+ "summary": "Commands you can click to insert, with what each one does.",
+ "language": "python",
+ "groups": [
+  {
+   "name": "Move",
+   "items": [
+    {
+     "label": "forward",
+     "code": "forward(‹100›)\n",
+     "hint": "Move the turtle forward. The number is how many steps.",
+     "example": "forward(100)\n"
+    },
+    {
+     "label": "backward",
+     "code": "backward(‹100›)\n",
+     "hint": "Move the turtle backward without turning.",
+     "example": "backward(100)\n"
+    },
+    {
+     "label": "right",
+     "code": "right(‹90›)\n",
+     "hint": "Turn clockwise by this many degrees.",
+     "example": "forward(60)\nright(90)\nforward(60)\n"
+    },
+    {
+     "label": "left",
+     "code": "left(‹90›)\n",
+     "hint": "Turn anticlockwise by this many degrees.",
+     "example": "forward(60)\nleft(90)\nforward(60)\n"
+    },
+    {
+     "label": "goto",
+     "code": "goto(‹0›, ‹0›)\n",
+     "hint": "Jump to a position. (0, 0) is the centre; x goes right, y goes up.",
+     "example": "goto(80, 60)\n",
+     "shows": "From the centre to (80, 60)"
+    },
+    {
+     "label": "setheading",
+     "code": "setheading(‹0›)\n",
+     "hint": "Face a direction. 0 is right, 90 is up, 180 is left.",
+     "example": "setheading(90)\nforward(60)\n",
+     "shows": "setheading(90): facing up"
+    },
+    {
+     "label": "home",
+     "code": "home()\n",
+     "hint": "Go back to the centre, facing right.",
+     "example": "forward(80)\nleft(90)\nforward(40)\nhome()\n",
+     "shows": "Back to the centre, facing right"
+    }
+   ]
+  },
+  {
+   "name": "Pen",
+   "items": [
+    {
+     "label": "penup",
+     "code": "penup()\n",
+     "hint": "Lift the pen so moving does not draw.",
+     "example": "forward(40)\npenup()\nforward(40)\npendown()\nforward(40)\n",
+     "shows": "Pen up for the middle part"
+    },
+    {
+     "label": "pendown",
+     "code": "pendown()\n",
+     "hint": "Put the pen down so moving draws again.",
+     "example": "forward(40)\npenup()\nforward(40)\npendown()\nforward(40)\n",
+     "shows": "Pen down again for the last part"
+    },
+    {
+     "label": "pensize",
+     "code": "pensize(‹5›)\n",
+     "hint": "Set how thick the line is.",
+     "example": "pensize(1)\nforward(50)\npensize(8)\nforward(50)\n",
+     "shows": "pensize(1), then pensize(8)"
+    },
+    {
+     "label": "pencolor",
+     "code": "pencolor(\"‹red›\")\n",
+     "hint": "Set the line colour, using a colour name.",
+     "example": "pencolor(\"red\")\nforward(100)\n"
+    },
+    {
+     "label": "dot",
+     "code": "dot(‹20›)\n",
+     "hint": "Draw a filled dot of this size.",
+     "example": "dot(30)\nhideturtle()\n"
+    },
+    {
+     "label": "write",
+     "code": "write(\"‹Hello›\")\n",
+     "hint": "Write text at the turtle's position.",
+     "example": "write(\"Hello\", False, \"left\", (\"Arial\", 20, \"normal\"))\nhideturtle()\n"
+    }
+   ]
+  },
+  {
+   "name": "Fill and look",
+   "items": [
+    {
+     "label": "fillcolor",
+     "code": "fillcolor(\"‹blue›\")\n",
+     "hint": "Choose the colour to fill shapes with.",
+     "example": "fillcolor(\"blue\")\nbegin_fill()\ncircle(40)\nend_fill()\n"
+    },
+    {
+     "label": "begin_fill / end_fill",
+     "matches": "\\b(begin|end)_fill\\(",
+     "code": "begin_fill()\n‹›\nend_fill()\n",
+     "hint": "Everything drawn between these two lines is filled in.",
+     "example": "fillcolor(\"orange\")\nbegin_fill()\nfor i in range(4):\n    forward(60)\n    right(90)\nend_fill()\n"
+    },
+    {
+     "label": "bgcolor",
+     "code": "bgcolor(\"‹lightblue›\")\n",
+     "hint": "Set the background colour.",
+     "example": "bgcolor(\"lightblue\")\nforward(80)\n"
+    },
+    {
+     "label": "hideturtle",
+     "code": "hideturtle()\n",
+     "hint": "Hide the turtle so only the drawing shows.",
+     "example": "forward(80)\nhideturtle()\n",
+     "shows": "The line stays; the turtle is hidden"
+    },
+    {
+     "label": "speed",
+     "code": "speed(‹10›)\n",
+     "hint": "How fast the turtle moves, from 1 (slow) to 10 (fast)."
+    },
+    {
+     "label": "clear",
+     "code": "clear()\n",
+     "hint": "Wipe the drawing."
+    }
+   ]
+  },
+  {
+   "name": "Shapes",
+   "items": [
+    {
+     "label": "circle",
+     "code": "circle(‹50›)\n",
+     "hint": "Draw a circle with this radius.",
+     "example": "circle(50)\n",
+     "shows": "circle(50) starts at the turtle and curves left"
+    },
+    {
+     "label": "square (loop)",
+     "code": "for i in range(‹4›):\n    forward(100)\n    right(90)\n",
+     "hint": "Draw a square by repeating forward and right four times.",
+     "example": "for i in range(4):\n    forward(100)\n    right(90)\n"
+    }
+   ]
+  },
+  {
+   "name": "Code structure",
+   "items": [
+    {
+     "label": "for loop",
+     "code": "for i in range(‹4›):\n    ‹pass›\n",
+     "hint": "Repeat the indented lines this many times.",
+     "example": "for i in range(5):\n    forward(15)\n    penup()\n    forward(10)\n    pendown()\n",
+     "shows": "range(5): five dashes"
+    },
+    {
+     "label": "while loop",
+     "code": "while ‹True›:\n    ‹pass›\n",
+     "hint": "Repeat the indented lines for as long as the condition is true.",
+     "example": "r = 10\nwhile r < 60:\n    circle(r)\n    r = r + 15\n",
+     "shows": "A circle each time, while r < 60"
+    },
+    {
+     "label": "ask and reply",
+     "code": "‹name› = input(\"‹What is your name? ›\")\nprint(\"‹Hello, ›\" + ‹name›)\n",
+     "hint": "Ask a question, store the typed answer, and use it in a reply.",
+     "example": "name = input(\"What is your name? \")\nprint(\"Hello, \" + name)\n",
+     "shows": "Asks for a name, then says hello"
+    },
+    {
+     "label": "check then convert",
+     "code": "‹text› = input(\"‹How many? ›\")\nif ‹text›.isdigit():\n    ‹number› = int(‹text›)\n    ‹pass›\nelse:\n    print(\"‹Please type a number.›\")\n",
+     "hint": "Check typed text with isdigit before turning it into a number.",
+     "example": "text = input(\"How many tickets? \")\nif text.isdigit():\n    print(\"That will be $\" + str(int(text) * 12) + \".\")\nelse:\n    print(\"Please type a number.\")\n",
+     "shows": "A checked ticket total"
+    },
+    {
+     "label": "running total",
+     "code": "‹total› = 0\nwhile ‹total› < ‹10›:\n    ‹total› += int(input(\"‹Add: ›\"))\n",
+     "hint": "Start the total at 0 once, then add to it on every pass.",
+     "example": "total = 0\nwhile total < 10:\n    total += int(input(\"Add: \"))\n    print(\"Total: \" + str(total))\nprint(\"Done\")\n",
+     "shows": "Adds typed numbers until the total reaches 10"
+    },
+    {
+     "label": "menu loop",
+     "code": "while True:\n    choice = input(\"‹1 add, 2 quit: ›\")\n    if choice == \"‹1›\":\n        ‹pass›\n    elif choice == \"‹2›\":\n        break\n    else:\n        print(\"‹Please choose 1 or 2.›\")\n",
+     "hint": "A menu that keeps showing until a break runs.",
+     "example": "total = 0\nwhile True:\n    choice = input(\"1 add $5, 2 pay: \")\n    if choice == \"1\":\n        total += 5\n    elif choice == \"2\":\n        break\n    else:\n        print(\"Please choose 1 or 2.\")\nprint(\"Pay $\" + str(total))\n",
+     "shows": "A till that adds $5 until you pay"
+    },
+    {
+     "label": "if / else",
+     "code": "if ‹x > 0›:\n    ‹pass›\nelse:\n    ‹pass›\n",
+     "hint": "Do one thing or the other, depending on a condition.",
+     "example": "for x in [-90, -30, 30, 90]:\n    penup()\n    goto(x, 0)\n    if x > 0:\n        dot(30, \"red\")\n    else:\n        dot(30, \"blue\")\nhideturtle()\n",
+     "shows": "Red when x > 0, else blue"
+    },
+    {
+     "label": "every other",
+     "code": "for i in range(‹8›):\n    if i % ‹2› == 0:\n        ‹pass›\n    else:\n        ‹pass›\n",
+     "hint": "i % 2 == 0 is true on every second pass.",
+     "example": "for i in range(8):\n    if i % 2 == 0:\n        pencolor(\"red\")\n    else:\n        pencolor(\"blue\")\n    pensize(6)\n    forward(30)\n    right(45)\n",
+     "shows": "Red and blue sides, taking turns"
+    },
+    {
+     "label": "variable",
+     "code": "‹size› = ‹50›\n",
+     "hint": "Give a value a name, so you can reuse and change it.",
+     "example": "length = 120\nforward(length)\nleft(90)\nforward(length / 2)\n",
+     "shows": "length = 120, then half of it"
+    },
+    {
+     "label": "named turn",
+     "code": "sides = ‹5›\nfor i in range(sides):\n    forward(‹60›)\n    right(360 / sides)\n",
+     "hint": "Name the number of sides once; the turn is worked out from it.",
+     "example": "sides = 6\nfor i in range(sides):\n    forward(60)\n    right(360 / sides)\n",
+     "shows": "A hexagon: change sides and the turn follows"
+    },
+    {
+     "label": "counter step",
+     "code": "for i in range(‹20›):\n    forward(i * ‹5›)\n    right(‹90›)\n",
+     "hint": "Use the counter i to make each pass different.",
+     "example": "for i in range(30):\n    forward(i * 5)\n    right(90)\n",
+     "shows": "A square spiral: each line longer than the last"
+    },
+    {
+     "label": "grow value",
+     "code": "‹size› = ‹5›\nfor i in range(‹20›):\n    forward(‹size›)\n    right(‹90›)\n    ‹size› = ‹size› + ‹5›\n",
+     "hint": "Change a value every pass: read the old one, store a new one.",
+     "example": "size = 5\nfor i in range(30):\n    forward(size)\n    right(90)\n    size = size + 5\n",
+     "shows": "The same spiral, grown by an update"
+    },
+    {
+     "label": "list",
+     "matches": "=\\s*\\[",
+     "code": "‹colours› = [‹\"red\"›, ‹\"blue\"›, ‹\"green\"›]\n",
+     "hint": "Keep many values in order under one name. The first item is place 0."
+    },
+    {
+     "label": "for each item",
+     "code": "for ‹c› in ‹colours›:\n    ‹pass›\n",
+     "hint": "Work through a list, one item at a time.",
+     "example": "pensize(6)\nfor c in [\"red\", \"blue\", \"green\"]:\n    pencolor(c)\n    forward(40)\n",
+     "shows": "One line per colour in the list"
+    },
+    {
+     "label": "def (function)",
+     "matches": "^\\s*def\\s",
+     "code": "def ‹shape›():\n    ‹pass›\n\n‹shape›()\n",
+     "hint": "Name a group of steps, then run it by calling its name.",
+     "example": "def zigzag():\n    left(45)\n    forward(30)\n    right(90)\n    forward(30)\n    left(45)\n\nzigzag()\nzigzag()\nzigzag()\n",
+     "shows": "Defined once, called three times"
+    },
+    {
+     "label": "print",
+     "code": "print(‹\"Hello\"›)\n",
+     "hint": "Show text or a value in the output box."
+    },
+    {
+     "label": "random number",
+     "matches": "\\brandom\\b",
+     "code": "import random\n\n‹n› = random.randint(‹1›, ‹10›)\n",
+     "hint": "Pick a random whole number between two values."
+    }
+   ]
+  },
+  {
+   "name": "Events and input",
+   "items": [
+    {
+     "label": "onscreenclick",
+     "matches": "\\bonscreenclick\\(",
+     "code": "def ‹stamp›(x, y):\n    goto(x, y)\n    dot(‹20›)\n\nonscreenclick(‹stamp›)\nlisten()\nmainloop()\n",
+     "hint": "Run a function every time the picture is clicked. It receives the click position.",
+     "example": "def stamp(x, y):\n    goto(x, y)\n    dot(20)\n\npenup()\nstamp(-60, 30)\nstamp(50, -20)\nhideturtle()\n",
+     "shows": "After two clicks"
+    },
+    {
+     "label": "onkey",
+     "matches": "\\bonkey(press)?\\(",
+     "code": "def ‹go_up›():\n    forward(‹20›)\n\nonkey(‹go_up›, \"‹Up›\")\nlisten()\nmainloop()\n",
+     "hint": "Run a function every time a key is pressed. Click the picture first so it receives keys.",
+     "example": "def go_up():\n    forward(20)\n\ngo_up()\ngo_up()\ngo_up()\n",
+     "shows": "After pressing Up three times"
+    },
+    {
+     "label": "ontimer",
+     "matches": "\\bontimer\\(",
+     "code": "def ‹tick›():\n    forward(‹5›)\n    ontimer(‹tick›, ‹50›)\n\n‹tick›()\nmainloop()\n",
+     "hint": "Run a function again after a number of milliseconds. A function can start its own timer."
+    },
+    {
+     "label": "numinput",
+     "code": "‹n› = numinput(\"‹Title›\", \"‹How many?›\")\n",
+     "hint": "Ask for a number in a pop-up. The answer is None if the pop-up is cancelled."
+    },
+    {
+     "label": "textinput",
+     "code": "‹name› = textinput(\"‹Title›\", \"‹Your name?›\")\n",
+     "hint": "Ask for text in a pop-up."
+    }
+   ]
+  },
+  {
+   "name": "Text in and out",
+   "items": [
+    {
+     "label": "input",
+     "code": "‹name› = input(\"‹What is your name? ›\")\n",
+     "hint": "Show a question in the console, wait for an answer, and store what was typed. It is always text."
+    },
+    {
+     "label": "join text",
+     "matches": "\\\"[^\\\"\\n]*\\\"\\s*\\+|\\+\\s*\\\"[^\\\"\\n]*\\\"",
+     "code": "\"‹Hello, ›\" + ‹name›\n",
+     "hint": "Join pieces of text into one with +. Spaces only appear where they are inside the quotes."
+    },
+    {
+     "label": "str",
+     "code": "str(‹score›)\n",
+     "hint": "Turn a number into text, so it can be joined: \"Score: \" + str(score)."
+    },
+    {
+     "label": "int",
+     "code": "int(‹text›)\n",
+     "hint": "Turn text made of digits, such as \"12\", into a whole number you can calculate with."
+    },
+    {
+     "label": "isdigit",
+     "code": "‹text›.isdigit()\n",
+     "hint": "True if the text is all digits (0 to 9) and not empty, so int() will work on it."
+    },
+    {
+     "label": "add to (+=)",
+     "matches": "\\w\\s*\\+=",
+     "code": "‹total› += ‹1›\n",
+     "hint": "Add to a variable: total += 5 is short for total = total + 5."
+    },
+    {
+     "label": "break",
+     "code": "break\n",
+     "hint": "Leave the loop straight away; the program carries on after it."
+    }
+   ]
+  },
+  {
+   "name": "Objects",
+   "items": [
+    {
+     "label": "new turtle",
+     "matches": "=\\s*Turtle\\(\\)",
+     "code": "‹star› = Turtle()\n‹star›.shape(\"‹circle›\")\n‹star›.forward(‹50›)\n",
+     "hint": "Make another turtle with its own name. Put the name and a dot in front of a command to give it to that turtle."
+    },
+    {
+     "label": "dictionary",
+     "matches": "=\\s*\\{",
+     "code": "‹star› = {\"‹speed›\": ‹5›, \"‹points›\": ‹1›}\n",
+     "hint": "Values stored under names (keys). One dictionary can hold everything about one thing."
+    },
+    {
+     "label": "dictionary value",
+     "matches": "\\w\\[\\\"\\w+\\\"\\]",
+     "code": "‹star›[\"‹speed›\"]\n",
+     "hint": "The value stored under that key. The key goes in quotes. Assign to it to change it: star[\"speed\"] = 8."
+    },
+    {
+     "label": "class",
+     "matches": "^\\s*class\\s+\\w+",
+     "code": "class ‹Star›:\n    def __init__(self, ‹x›):\n        self.‹speed› = ‹5›\n\n‹s› = ‹Star›(‹100›)\n",
+     "hint": "A new kind of object. __init__ runs when one is made; self.name = value stores a value in that object."
+    },
+    {
+     "label": "method",
+     "matches": "^\\s+def\\s+(?!__init__)\\w+\\(\\s*self",
+     "code": "    def ‹move›(self):\n        self.‹turtle›.forward(self.‹speed›)\n",
+     "hint": "A function inside a class. Call it on one object: star.move(). self is that object."
+    }
+   ]
+  },
+  {
+   "name": "Text and collections",
+   "items": [
+    {
+     "label": "strip and lower",
+     "matches": "\\.(strip|lower|upper)\\(\\)",
+     "code": "‹command› = ‹command›.strip().lower()\n",
+     "hint": "strip() removes spaces at the ends; lower() and upper() change the capitals. Each gives back new text."
+    },
+    {
+     "label": "split",
+     "matches": "\\.split\\(",
+     "code": "‹words› = ‹command›.split()\n",
+     "hint": "Cut text into a list of words at the spaces: \"go north\".split() is [\"go\", \"north\"]."
+    },
+    {
+     "label": "in",
+     "matches": "\\bin\\s+\\w+\\s*:|\\bin\\s+\\[|\\\"\\s+in\\s+\\w",
+     "code": "if ‹item› in ‹bag›:\n    ‹pass›\n",
+     "hint": "True if the item is in the list (or the key is in the dictionary, or the letters are in the text)."
+    },
+    {
+     "label": "join",
+     "matches": "\\\"[^\\\"]*\\\"\\.join\\(",
+     "code": "\", \".join(‹bag›)\n",
+     "hint": "Join a list of texts into one, with the text in quotes between each: \"lamp, key\"."
+    },
+    {
+     "label": "remove from a list",
+     "matches": "\\.remove\\(",
+     "code": "‹bag›.remove(‹\"lamp\"›)\n",
+     "hint": "Take an item out of a list. It stops with a ValueError if the item is not there, so check with in first."
+    },
+    {
+     "label": "sort",
+     "matches": "\\.sort\\(\\)",
+     "code": "‹items›.sort()\n",
+     "hint": "Put a list in order (A to Z, or smallest first). It changes the list itself."
+    },
+    {
+     "label": "try and except",
+     "matches": "^\\s*try\\s*:",
+     "code": "try:\n    ‹n› = int(‹text›)\nexcept ‹ValueError›:\n    print(\"‹That is not a number.›\")\n",
+     "hint": "Run lines that might fail. If the named error happens, the except lines run instead of the program stopping."
+    }
+   ]
+  },
+  {
+   "name": "Files",
+   "items": [
+    {
+     "label": "write a file",
+     "matches": "open\\([^)]*[\"']w[\"']",
+     "code": "with open(\"‹save.txt›\", \"w\") as f:\n    f.write(‹text›)\n",
+     "hint": "\"w\" makes the file, or empties it first if it is already there, then writes. with closes the file at the end."
+    },
+    {
+     "label": "read a file",
+     "matches": "^\\s*with\\s+open\\([^,)]*\\)\\s+as",
+     "code": "with open(\"‹save.txt›\") as f:\n    ‹text› = f.read()\n",
+     "hint": "Opens the file to read and gives you all of it as one piece of text."
+    },
+    {
+     "label": "save with json",
+     "matches": "json\\.dump\\(",
+     "code": "import json\n\nwith open(\"‹game.json›\", \"w\") as f:\n    json.dump(‹game›, f)\n",
+     "hint": "Writes a dictionary or list to a file as JSON text."
+    },
+    {
+     "label": "load with json",
+     "matches": "json\\.load\\(",
+     "code": "import json\n\nwith open(\"‹game.json›\") as f:\n    ‹game› = json.load(f)\n",
+     "hint": "Reads JSON text back into the dictionary or list that was saved."
+    },
+    {
+     "label": "a missing file",
+     "matches": "except\\s+FileNotFoundError",
+     "code": "try:\n    with open(\"‹save.txt›\") as f:\n        ‹text› = f.read()\nexcept FileNotFoundError:\n    print(\"‹There is no save yet.›\")\n",
+     "hint": "The first time, there is no file: catch FileNotFoundError instead of stopping."
+    }
+   ]
+  },
+  {
+   "name": "Data",
+   "items": [
+    {
+     "label": "read a CSV",
+     "matches": "csv\\.DictReader\\(",
+     "code": "import csv\n\nwith open(\"‹music.csv›\") as f:\n    ‹rows› = list(csv.DictReader(f))\n",
+     "hint": "Each row of the file becomes a dictionary, keyed by the column names in the first line. Every value is text."
+    },
+    {
+     "label": "count with a dictionary",
+     "matches": "^\\s*\\w+\\s*=\\s*\\{\\}\\s*$",
+     "code": "counts = {}\nfor ‹row› in ‹rows›:\n    ‹key› = ‹row›[\"‹genre›\"]\n    if ‹key› in counts:\n        counts[‹key›] = counts[‹key›] + 1\n    else:\n        counts[‹key›] = 1\n",
+     "hint": "One count for each different value: add 1 if the key is there already, or start it at 1."
+    },
+    {
+     "label": "a text bar",
+     "matches": "\"#\"\\s*\\*",
+     "code": "print(‹label›.ljust(‹12›) + \"#\" * ‹n›)\n",
+     "hint": "\"#\" * 5 is #####. ljust pads the label to the same width, so the bars line up."
+    },
+    {
+     "label": "test with assert",
+     "matches": "^\\s*assert\\b",
+     "code": "assert ‹clean_hours(\"5\")› == ‹5›\n",
+     "hint": "A test case: nothing happens if it is true; the program stops with AssertionError if it is not."
+    },
+    {
+     "label": "read a CSV with pandas",
+     "matches": "pd\\.read_csv\\(",
+     "code": "import pandas as pd\n\n‹songs› = pd.read_csv(\"‹music.csv›\")\n",
+     "hint": "Reads the whole file into a table (a DataFrame). Numbers stay numbers."
+    },
+    {
+     "label": "filter a table",
+     "matches": "\\w+\\[\\w+\\[\"\\w+\"\\]\\s*(==|>=|<=|>|<)",
+     "code": "‹rows› = ‹songs›[‹songs›[\"‹genre›\"] == ‹genre›]\n",
+     "hint": "Keeps the rows where the test is true, as a smaller table."
+    },
+    {
+     "label": "an app with Gradio",
+     "matches": "gr\\.Interface\\(",
+     "code": "import gradio as gr\n\ndef ‹answer›(‹choice›):\n    return ‹\"You chose \" + choice›\n\ngr.Interface(fn=‹answer›, inputs=gr.Dropdown(‹[\"pop\", \"rock\"]›), outputs=\"text\").launch()\n",
+     "hint": "Gradio calls your function with what was chosen, and shows what it returns."
+    },
+    {
+     "label": "a quiz question",
+     "matches": "gr\\.Radio\\(",
+     "code": "{\"q\": \"‹What is 7 x 8?›\", \"choices\": [‹\"54\", \"56\", \"64\"›], \"answer\": \"‹56›\"}\n\ninputs.append(gr.Radio(‹q[\"choices\"]›, label=‹q[\"q\"]›))\n",
+     "hint": "A question as a dictionary, and a Radio input made from it: the student picks one of the choices, and the function gets that text."
+    },
+    {
+     "label": "ask an API",
+     "matches": "requests\\.get\\(",
+     "code": "import requests\n\ntry:\n    ‹reply› = requests.get(\"‹https://api.open-meteo.com/v1/forecast›\", params=‹{\"latitude\": -35.28, \"longitude\": 149.13, \"daily\": \"temperature_2m_max\"}›, timeout=10).json()\nexcept requests.RequestException:\n    print(\"‹No connection›\")\n",
+     "hint": "Asks an API at that address (params become the ?query string) and turns the JSON reply into dictionaries and lists. Plan for no connection."
+    }
+   ]
+  },
+  {
+   "name": "Web apps",
+   "items": [
+    {
+     "label": "a Flask route",
+     "matches": "@app\\.route\\(",
+     "code": "@app.route(\"‹/about›\")\ndef ‹about›():\n    return \"‹<h1>About</h1>›\"\n",
+     "hint": "Joins an address to a function. What the function returns is the page."
+    },
+    {
+     "label": "a page from a template",
+     "matches": "render_template_string\\(",
+     "code": "PAGE = \"\"\"<ul>\n{% for ‹m› in ‹members› %}\n  <li>{{ ‹m[\"name\"]› }}</li>\n{% endfor %}\n</ul>\"\"\"\n\nreturn render_template_string(PAGE, ‹members›=‹members›)\n",
+     "hint": "A template is HTML with gaps: {{ }} shows a value, {% for %} repeats a part for each item."
+    },
+    {
+     "label": "an address with a part that changes",
+     "matches": "@app\\.route\\(\"[^\"]*<",
+     "code": "@app.route(\"/‹group›/<‹name›>\")\ndef ‹group›(‹name›):\n    return \"‹You asked for › + ‹name›\n",
+     "hint": "<name> matches any word in that place of the address, and is passed to the function."
+    },
+    {
+     "label": "read a form",
+     "matches": "request\\.form",
+     "code": "@app.route(\"‹/join›\", methods=[\"POST\"])\ndef ‹join›():\n    ‹name› = request.form[\"‹name›\"].strip()\n",
+     "hint": "A form with method='post' sends each box that has a name='...' attribute. request.form looks them up by that name."
+    },
+    {
+     "label": "go to another page",
+     "matches": "redirect\\(",
+     "code": "return redirect(\"‹/›\")\n",
+     "hint": "Sends the browser on to another address, such as back home after a form."
+    },
+    {
+     "label": "add a row to a CSV",
+     "matches": "csv\\.writer\\(",
+     "code": "with open(\"‹members.csv›\", \"a\", newline=\"\") as f:\n    csv.writer(f).writerow([‹name›, ‹group›])\n",
+     "hint": "\"a\" adds to the end of the file instead of emptying it. Each list becomes one row."
+    },
+    {
+     "label": "send JSON",
+     "matches": "return\\s+(\\{|jsonify\\()",
+     "code": "@app.route(\"/api/‹members›\")\ndef ‹api_members›():\n    return {\"‹members›\": ‹members›}\n",
+     "hint": "Return a dictionary and Flask sends it as JSON, for other programs to read."
+    },
+    {
+     "label": "a FastAPI route",
+     "matches": "@api\\.get\\(",
+     "code": "@api.get(\"/‹year›\")\ndef ‹year›(‹y›: int):\n    return {\"‹next›\": ‹y› + 1}\n",
+     "hint": "The type after each parameter (int, str, float) is checked: a wrong value gets an error reply (422) before your code runs."
+    }
+   ]
+  },
+  {
+   "name": "Machine learning",
+   "items": [
+    {
+     "label": "test a model",
+     "matches": "random\\.shuffle\\(",
+     "code": "random.seed(‹1›)\nrandom.shuffle(‹penguins›)\n‹train› = ‹penguins›[:‹250›]\n‹test› = ‹penguins›[‹250›:]\n",
+     "hint": "Shuffle, then keep some examples back. Train on one part; test only on the other."
+    },
+    {
+     "label": "train and score a model",
+     "matches": "\\.fit\\(",
+     "code": "from sklearn.model_selection import train_test_split\nfrom sklearn.neighbors import KNeighborsClassifier\n\n‹X_train›, ‹X_test›, ‹y_train›, ‹y_test› = train_test_split(‹X›, ‹y›, test_size=‹0.25›, random_state=‹1›)\n‹model› = KNeighborsClassifier(n_neighbors=‹1›)\n‹model›.fit(‹X_train›, ‹y_train›)\nprint(‹model›.score(‹X_test›, ‹y_test›))\n",
+     "hint": "fit learns from the training examples; score tests on the held-back ones (1.0 is 100%)."
+    },
+    {
+     "label": "predict with a model",
+     "matches": "\\.predict(_proba)?\\(",
+     "code": "‹mystery› = pd.DataFrame([[‹47.0›, ‹215.0›]], columns=‹X›.columns)\nprint(‹model›.predict(‹mystery›)[0])\n",
+     "hint": "The new example needs the same columns, in the same order, as the training data."
+    }
+   ]
+  }
+ ]
+}

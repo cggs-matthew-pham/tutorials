@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robot signs to print</title>
+<style>
+  :root { --ink: #1d2430; --muted: #5d6675; --bg: #fbfaf8; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ink: #e6edf3; --muted: #9aa5b4; --bg: #14181f; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { max-width: 760px; margin: 0 auto; padding: 16px; }
+  header p { color: var(--muted); margin: .3em 0; }
+  button { font: 600 15px/1 system-ui, sans-serif; padding: 10px 14px; border-radius: 8px; border: 0; background: #c2570a; color: #fff; cursor: pointer; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; max-width: 760px; margin: 0 auto; padding: 0 16px 24px; }
+  .card { background: #fff; border: 2px dashed #bbb; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .card svg { width: 100%; max-width: 300px; height: auto; }
+  .card b { font: 700 28px/1 system-ui, sans-serif; color: #1d2430; letter-spacing: .04em; }
+  @media print {
+    header { display: none; }
+    body { background: #fff; }
+    .cards { display: block; max-width: none; padding: 0; }
+    .card { width: 170mm; height: 125mm; margin: 6mm auto; break-inside: avoid; border-color: #999; justify-content: center; }
+    .card svg { max-width: 105mm; }
+    .card b { font-size: 26pt; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Robot signs to print</h1>
+  <p>Four signs for the AI robots lessons: two to an A4 page. Print in colour if you can, or colour them in.</p>
+  <p>Train each class with the sign held at different distances and angles, in different light, and on different backgrounds.</p>
+  <button type="button" onclick="print()">Print the signs</button>
+</header>
+<main class="cards">
+  <div class="card">
+    <svg viewBox="0 0 200 200" role="img" aria-label="Go: a green circle with an arrow pointing up">
+      <circle cx="100" cy="100" r="92" fill="#1a8a3a"/>
+      <path d="M100 30 L150 90 H118 V168 H82 V90 H50 Z" fill="#fff"/>
+    </svg>
+    <b>GO</b>
+  </div>
+  <div class="card">
+    <svg viewBox="0 0 200 200" role="img" aria-label="Left: a blue square with an arrow pointing left">
+      <rect x="8" y="8" width="184" height="184" rx="24" fill="#1f5fae"/>
+      <path d="M30 100 L92 46 V80 H170 V120 H92 V154 Z" fill="#fff"/>
+    </svg>
+    <b>LEFT</b>
+  </div>
+  <div class="card">
+    <svg viewBox="0 0 200 200" role="img" aria-label="Right: a blue square with an arrow pointing right">
+      <rect x="8" y="8" width="184" height="184" rx="24" fill="#1f5fae"/>
+      <path d="M170 100 L108 46 V80 H30 V120 H108 V154 Z" fill="#fff"/>
+    </svg>
+    <b>RIGHT</b>
+  </div>
+  <div class="card">
+    <svg viewBox="0 0 200 200" role="img" aria-label="Stop: a red octagon with the word STOP">
+      <polygon points="62,8 138,8 192,62 192,138 138,192 62,192 8,138 8,62" fill="#c8202a"/>
+      <polygon points="66,18 134,18 182,66 182,134 134,182 66,182 18,134 18,66" fill="none" stroke="#fff" stroke-width="6"/>
+      <text x="100" y="118" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="54" fill="#fff">STOP</text>
+    </svg>
+    <b>STOP</b>
+  </div>
+</main>
+</body>
+</html>

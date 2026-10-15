@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.700
+A tag can go inside another tag, and the last one opened closes first
+
+2
+00:00:05.851 --> 00:00:09.801
+&lt;strong&gt; marks important words. It goes inside the paragraph.
+
+3
+00:00:10.677 --> 00:00:14.152
+Another tag can go inside it. &lt;em&gt; stresses a word.
+
+4
+00:00:17.216 --> 00:00:22.841
+Close the last tag you opened first: &lt;/em&gt;, then &lt;/strong&gt;, then &lt;/p&gt;.

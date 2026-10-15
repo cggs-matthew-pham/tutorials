@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.000
+Plus equals adds to the total on every pass of the loop.
+
+2
+00:00:05.175 --> 00:00:08.275
+Start the total at zero, once, before the loop.
+
+3
+00:00:09.275 --> 00:00:13.500
+Plus equals adds to what is already in total, on every pass.

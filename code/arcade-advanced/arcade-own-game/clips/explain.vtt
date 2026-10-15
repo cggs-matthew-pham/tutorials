@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.975
+Build your game in milestones, and play it after each one.
+
+2
+00:00:04.752 --> 00:00:09.177
+First the core loop: a player, something to collect, a danger, a score.
+
+3
+00:00:10.030 --> 00:00:13.780
+Then a way to win and lose. Then one piece of polish.
+
+4
+00:00:16.288 --> 00:00:19.638
+Then watch someone else play it, and change one thing.

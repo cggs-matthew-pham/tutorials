@@ -1,0 +1,217 @@
+{
+ "title": "Recycling: paper or plastic",
+ "classes": [
+  "Paper",
+  "Plastic"
+ ],
+ "groups": {
+  "plain": "Plain background",
+  "messy": "Messy bench",
+  "dim": "Low light",
+  "squashed": "Crumpled, odd angles",
+  "neither": "Not paper or plastic"
+ },
+ "credit": "Photos from TrashNet (Gary Thung and Mindy Yang, MIT licence); messy benches, low light and crops made from them.",
+ "images": [
+  {
+   "label": "Paper",
+   "group": "plain",
+   "src": "test/plain-paper-1.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "plain",
+   "src": "test/plain-paper-2.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "plain",
+   "src": "test/plain-paper-3.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "plain",
+   "src": "test/plain-paper-4.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "messy",
+   "src": "test/messy-paper-1.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "messy",
+   "src": "test/messy-paper-2.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "messy",
+   "src": "test/messy-paper-3.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "messy",
+   "src": "test/messy-paper-4.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "dim",
+   "src": "test/dim-paper-1.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "dim",
+   "src": "test/dim-paper-2.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "dim",
+   "src": "test/dim-paper-3.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "dim",
+   "src": "test/dim-paper-4.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "squashed",
+   "src": "test/squashed-paper-1.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "squashed",
+   "src": "test/squashed-paper-2.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "squashed",
+   "src": "test/squashed-paper-3.jpg"
+  },
+  {
+   "label": "Paper",
+   "group": "squashed",
+   "src": "test/squashed-paper-4.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "plain",
+   "src": "test/plain-plastic-1.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "plain",
+   "src": "test/plain-plastic-2.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "plain",
+   "src": "test/plain-plastic-3.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "plain",
+   "src": "test/plain-plastic-4.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "messy",
+   "src": "test/messy-plastic-1.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "messy",
+   "src": "test/messy-plastic-2.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "messy",
+   "src": "test/messy-plastic-3.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "messy",
+   "src": "test/messy-plastic-4.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "dim",
+   "src": "test/dim-plastic-1.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "dim",
+   "src": "test/dim-plastic-2.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "dim",
+   "src": "test/dim-plastic-3.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "dim",
+   "src": "test/dim-plastic-4.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "squashed",
+   "src": "test/squashed-plastic-1.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "squashed",
+   "src": "test/squashed-plastic-2.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "squashed",
+   "src": "test/squashed-plastic-3.jpg"
+  },
+  {
+   "label": "Plastic",
+   "group": "squashed",
+   "src": "test/squashed-plastic-4.jpg"
+  },
+  {
+   "label": "Neither",
+   "group": "neither",
+   "src": "test/neither-glass-1.jpg"
+  },
+  {
+   "label": "Neither",
+   "group": "neither",
+   "src": "test/neither-glass-2.jpg"
+  },
+  {
+   "label": "Neither",
+   "group": "neither",
+   "src": "test/neither-glass-3.jpg"
+  },
+  {
+   "label": "Neither",
+   "group": "neither",
+   "src": "test/neither-glass-4.jpg"
+  },
+  {
+   "label": "Neither",
+   "group": "neither",
+   "src": "test/neither-metal-5.jpg"
+  },
+  {
+   "label": "Neither",
+   "group": "neither",
+   "src": "test/neither-metal-6.jpg"
+  },
+  {
+   "label": "Neither",
+   "group": "neither",
+   "src": "test/neither-metal-7.jpg"
+  },
+  {
+   "label": "Neither",
+   "group": "neither",
+   "src": "test/neither-metal-8.jpg"
+  }
+ ]
+}

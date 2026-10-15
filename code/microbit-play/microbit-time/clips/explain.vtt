@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.650
+Running time counts the milliseconds since the micro:bit switched on.
+
+2
+00:00:05.527 --> 00:00:09.027
+A stores it in start, the moment the timing begins.
+
+3
+00:00:11.837 --> 00:00:16.162
+B shows running time minus start. That is how long since A.
+
+4
+00:00:16.914 --> 00:00:19.889
+A thousand milliseconds is one second.

@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.325
+v-for makes a tag for each item, and keeps it in step with the list
+
+2
+00:00:05.175 --> 00:00:08.975
+The data is a list of three players. The page is empty.
+
+3
+00:00:09.728 --> 00:00:13.628
+v-for on the li: one li for each name in the list.
+
+4
+00:00:14.304 --> 00:00:16.454
+A button adds Kai to the list.
+
+5
+00:00:20.494 --> 00:00:22.894
+Three names, three li tags.
+
+6
+00:00:25.801 --> 00:00:28.876
+Change the list, and Vue adds the li for you.

@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.025
+A function is a named job. Making it does not run it.
+
+2
+00:00:04.801 --> 00:00:07.851
+A call block runs it, once for each call.
+
+3
+00:00:08.527 --> 00:00:12.327
+A calls flash heart twice, so the heart flashes twice.
+
+4
+00:00:15.022 --> 00:00:19.572
+Every event block is a function too. The micro:bit calls it for you.

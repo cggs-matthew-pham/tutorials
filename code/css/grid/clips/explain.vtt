@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.400
+display: grid on the parent, then list the columns
+
+2
+00:00:04.403 --> 00:00:08.003
+A menu and the main content, one under the other.
+
+3
+00:00:08.906 --> 00:00:13.181
+display: grid goes on the box that holds them, like Flexbox.
+
+4
+00:00:13.857 --> 00:00:19.782
+Grid template columns lists them: 150 pixels, then one fraction, the rest.
+
+5
+00:00:20.933 --> 00:00:23.433
+gap puts space between the columns.
+
+6
+00:00:25.163 --> 00:00:30.213
+Grid lines things up in columns and rows. Flexbox is for one row.

@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:04.326
+flex-wrap lets a row drop items onto new lines when it runs out of room
+
+2
+00:00:05.727 --> 00:00:09.027
+Six cards in one row. There is not room for them.
+
+3
+00:00:09.680 --> 00:00:12.930
+flex-wrap: wrap lets items move to a new line.
+
+4
+00:00:13.581 --> 00:00:16.231
+Now the cards that do not fit drop down.
+
+5
+00:00:17.181 --> 00:00:20.156
+flex: 1 shares the spare room on each line.
+
+6
+00:00:21.299 --> 00:00:25.099
+min-width is the narrowest a card may get before it wraps.

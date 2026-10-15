@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+html, body { margin: 0; padding: 0; background: #000; overflow: hidden; height: 100%; font-family: system-ui, sans-serif; }
+.noselect { user-select: none; -webkit-user-select: none; }
+#canvaswrapper { text-align: center; height: 100%; }
+#hint { position: fixed; left: 0; right: 0; bottom: 6px; text-align: center; color: #9aa7b6; font-size: 12px; pointer-events: none; }
+#log { position: fixed; left: 8px; bottom: 22px; color: #c8e6c9; font: 12px/1.4 ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap; display: none; background: rgba(0,0,0,.6); padding: 4px 8px; border-radius: 6px; pointer-events: none; }
+#err { position: fixed; left: 8px; right: 8px; top: 8px; color: #ff8a80; font: 13px/1.4 ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap; display: none; background: rgba(0,0,0,.8); padding: 8px; border-radius: 6px; }
+</style>
+<style>@font-face { font-family: "BitCell"; src: url("vendor/fonts/BitCell.ttf") format("truetype"); }</style>
+<script>window.fonts = ["BitCell"]</script>
+</head>
+<body class="noselect" oncontextmenu="return false;">
+<div id="canvaswrapper"></div>
+<div id="hint">Click the game, then use the arrow keys</div>
+<pre id="err"></pre>
+<pre id="log"></pre>
+<script>
+// A microStudio game, play only (the same engine as microstudio.dev's HTML5 export). ?code=<the game's Python>
+// &hint=0 hides the "click the game" line. Students write their own games on microstudio.dev.
+var resources = { images: [], assets: [], maps: {}, sounds: [], music: [] };
+var graphics = "M1";
+var orientation = "any";
+var aspect = "free";
+var ms_libs = [];
+window.skip_service_worker = true;
+window.exported_project = true;
+window.ms_use_server = false;
+(function () {
+  var q = new URLSearchParams(location.search);
+  var s = document.createElement("script");
+  s.id = "code"; s.type = "text/x-microscript"; s.textContent = q.get("code") || "";
+  document.body.appendChild(s);
+  if (q.get("hint") === "0") document.getElementById("hint").style.display = "none";
+  // Python errors and print() from the game: shown over the game, as microStudio's console would (the engine
+  // reports both to the page that embeds it; here there is none, so Player.reportError and log are replaced below).
+  var errs = [], logs = [];
+  window.__showError = function (err, player) {
+    var t = typeof err === "string" ? err : (err && (err.error || err.message)) || String(err);
+    var line = null;
+    try { var loc = player.runtime.vm.context.location; if (loc && loc.token) line = loc.token.line; } catch (e) {}
+    if (err && err.line) line = err.line;
+    t = String(t).replace(/\n+$/, "");
+    var msg = (line ? "Line " + line + ": " : "") + t;
+    if (errs.indexOf(msg) >= 0) return;
+    errs.push(msg);
+    var e = document.getElementById("err"); e.style.display = "block"; e.textContent = errs.slice(-3).join("\n");
+    window.__gameError = errs.join("\n");
+  };
+  window.__showLog = function (text) {
+    if (!String(text).trim()) return;
+    logs.push(String(text)); if (logs.length > 6) logs.shift();
+    var l = document.getElementById("log"); l.style.display = "block"; l.textContent = logs.join("\n");
+    window.__gameLog = logs.join("\n");
+  };
+  document.addEventListener("mousedown", function () { document.getElementById("hint").style.display = "none"; });
+})();
+</script>
+<script>
+// Brython stops at load when the browser reports a locale Intl cannot read (en-US@posix, from a machine with no LANG set).
+try { Intl.getCanonicalLocales(navigator.language); } catch (e) { try { Object.defineProperty(Navigator.prototype, "language", { get: function () { return "en-US"; } }); Object.defineProperty(Navigator.prototype, "languages", { get: function () { return ["en-US"]; } }); } catch (e2) {} }
+</script>
+<script src="vendor/runner.js?v=c5b3ccc3d3"></script><script src="vendor/brython.js?v=c5b3ccc3d3"></script><script src="vendor/brython_stdlib.js?v=c5b3ccc3d3"></script><script src="vendor/microengine.js?v=c5b3ccc3d3"></script>
+<script type="text/python">from browser import window
+import traceback
+import sys
+
+def execute(str, filename):
+  try:
+    code = compile(str, filename, "exec")
+    return exec(code, globals())
+  except BaseException as err:
+    exp = traceback.format_exception(err)
+    sys.stderr.write(exp)
+
+window.python = execute
+window.glob = globals()
+window.pythonLoaded()
+</script>
+<script>
+// The engine starts the game when its last picture has loaded; a game with no pictures has nothing to wait for.
+window.pythonLoaded = function () {
+  Player.prototype.reportError = function (err) { window.__showError(err, this); };
+  Player.prototype.log = function (text) { window.__showLog(text); };
+  window.player = new Player();
+  var rt = window.player.runtime;
+  if (rt && !rt.started) rt.checkStartReady();
+  document.body.focus();
+};
+// No indexedDB cache: in a frame whose top page has another origin (the clip stage) the cache never opens and Brython waits.
+window.addEventListener("load", function () { brython({ indexedDB: false }); });
+</script>
+</body></html>

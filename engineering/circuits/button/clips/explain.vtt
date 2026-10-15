@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.900
+Pin 0 reads the voltage on it.
+
+2
+00:00:03.576 --> 00:00:06.476
+Button up: pin zero reads zero.
+
+3
+00:00:08.053 --> 00:00:10.903
+Without the pull-down, the pin floats.
+
+4
+00:00:12.522 --> 00:00:14.997
+The pull-down keeps it steady.

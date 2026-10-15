@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.375
+Turtle makes another turtle, and you give it a name.
+
+2
+00:00:04.178 --> 00:00:08.228
+Turtle makes a new turtle. Its name is how you talk to it.
+
+3
+00:00:08.954 --> 00:00:13.379
+a dot forward moves only a. b dot left turns only b.
+
+4
+00:00:15.814 --> 00:00:20.414
+Each turtle keeps its own position, its own heading and its own colour.

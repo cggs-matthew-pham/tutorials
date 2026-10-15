@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:04.076
+An if inside a function lets the function choose its answer.
+
+2
+00:00:05.127 --> 00:00:08.627
+Sizes over fifty get red. The rest get blue.
+
+3
+00:00:09.452 --> 00:00:13.102
+The loop asks the function about every size in the list.
+
+4
+00:00:16.522 --> 00:00:21.522
+A small blue dot, then a big red one. The function decided each time.

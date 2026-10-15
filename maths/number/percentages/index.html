@@ -1,0 +1,881 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Percentages of amounts</title><style>
+:root{--bg:#fbfaf8;--ink:#1d2430;--muted:#5d6978;--card:#fff;--line:#e4e1da;--accent:#c2570a;--code:#141a22;--codeink:#e6edf3;
+--kw:#ff7b72;--str:#a5d6ff;--fn:#d2a8ff;--com:#7f8fa1;--num:#79c0ff;
+--predict:#8a5cf6;--run:#16a05d;--investigate:#2b7de9;--modify:#c2570a;--practise:#0e7f86;--make:#d63384;--info:#5d6978}
+@media(prefers-color-scheme:dark){:root{--bg:#0f141a;--ink:#e6edf3;--muted:#9aa7b6;--card:#161d26;--line:#26303c;--accent:#ff9d3d;--code:#0b0f14;
+--predict:#b794ff;--run:#4ade80;--investigate:#6cb6ff;--modify:#ff9d3d;--practise:#4fd1c5;--make:#ff8fc0}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px 80px}
+header.top{padding:44px 0 18px}header.top .crumb{font-size:14px;color:var(--muted);text-decoration:none}
+h1{font-size:2.1rem;line-height:1.2;margin:.3em 0 .2em}.by{margin:-.6em 0 1em;color:var(--muted);font-size:14px}.lede{color:var(--muted);font-size:1.1rem;margin:0 0 1em}
+nav.steps{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:18px 0 8px;position:sticky;top:calc(var(--nav,0px) + var(--cb,0px));z-index:9;padding:10px 0;background:var(--bg);border-bottom:1px solid var(--line);scrollbar-width:thin}
+nav.steps a{flex:none;white-space:nowrap}
+nav.steps a.here{border-color:var(--c);box-shadow:inset 0 0 0 1px var(--c)}
+section.step{scroll-margin-top:calc(var(--nav,0px) + var(--cb,0px) + 64px)}
+.coursebar{position:sticky;top:var(--nav,0px);z-index:11;display:flex;align-items:center;justify-content:space-between;gap:8px;height:46px;background:var(--bg);border-bottom:1px solid var(--line)}
+.coursebar a,.cb-toggle{font:inherit;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;background:none;border:0;cursor:pointer;padding:6px 8px;border-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:34vw}
+.coursebar a:hover,.cb-toggle:hover{background:var(--card)}
+.cb-prev,.cb-next{flex:0 1 auto;min-width:34px}.cb-next{text-align:right}
+.cb-mid{position:relative;flex:1;min-width:0;text-align:center}.cb-toggle{max-width:100%}
+.cb-menu{position:absolute;left:50%;transform:translateX(-50%);top:42px;width:min(92vw,440px);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 8px 28px rgba(0,0,0,.18);text-align:left}
+.cb-menu[hidden]{display:none}.cb-menu ul{list-style:none;margin:0;padding:0}
+.cb-menu li a{display:flex;gap:8px;align-items:center;max-width:none;white-space:normal;font-weight:500}.cb-menu li a[aria-current]{font-weight:700;background:var(--bg)}
+.cb-menu .tick{flex:none;width:18px;height:18px;border-radius:50%;border:2px solid var(--line);display:inline-block}.cb-menu .tick.on{background:var(--run);border-color:var(--run)}
+.cb-menu .cb-tools{display:flex;flex-wrap:wrap;gap:4px;border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+@media(max-width:560px){.cb-prev span,.cb-next span{display:none}}
+.nextcard{display:block;margin:34px 0 0;padding:18px 22px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none}
+.nextcard small{display:block;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.nextcard b{display:block;font-size:1.15rem}.nextcard span{color:var(--muted);font-size:15px}
+.nextcard:hover{border-color:var(--accent)}
+.nowcan{margin:34px 0 0;padding:16px 22px;border-left:4px solid var(--accent);background:var(--card);border-radius:0 14px 14px 0}.nowcan small{display:block;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.nowcan ul{margin:6px 0 0;padding-left:20px}.nowcan+.nextcard{margin-top:14px}.practicecard+.nextcard{margin-top:14px}.practicecard{border-left:4px solid var(--accent)}
+.rules{list-style:none;margin:6px 0 0;padding:0}.rules li{display:flex;gap:8px;align-items:center;margin:3px 0}.rules li::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid var(--line);flex:none}.rules li.ok::before{background:var(--run);border-color:var(--run)}
+
+nav.steps a{font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--card);padding:5px 11px;border-radius:99px}
+nav.steps a i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;background:var(--c)}
+section.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin:26px 0;border-top:4px solid var(--c)}
+section.step h2{font-size:1.4rem;line-height:1.3;margin:.15em 0 .5em}
+.chip{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.chip small{font-weight:500;letter-spacing:0;text-transform:none;color:var(--muted);margin-left:8px;font-size:13px}
+.code{margin:16px 0;border-radius:10px;overflow:hidden;background:var(--code)}
+.code-head{display:flex;justify-content:space-between;align-items:center;padding:7px 14px;font:12px ui-monospace,Menlo,Consolas,monospace;color:#8b98a8;border-bottom:1px solid #26303c}
+.code-head button{font:inherit;background:none;border:1px solid #3a4756;color:#c3cdd9;border-radius:6px;padding:2px 9px;cursor:pointer}
+.code pre{margin:0;padding:14px 16px;overflow-x:auto;color:var(--codeink);font:14px/1.55 ui-monospace,Menlo,Consolas,monospace}
+.kw{color:var(--kw)}.str{color:var(--str)}.fn{color:var(--fn)}.com{color:var(--com)}.num{color:var(--num)}
+p code,li code{background:color-mix(in srgb,var(--ink) 9%,transparent);padding:1px 6px;border-radius:5px;font-size:.9em}
+figure.clip{margin:18px 0}figure.clip video{width:100%;border-radius:10px;border:1px solid var(--line);display:block;background:#0b0f14}
+figure.clip figcaption{font-size:14px;color:var(--muted);margin-top:6px}
+figure.clip .voiced-note{white-space:nowrap}
+figure.clip .vpick{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;margin-left:6px;white-space:nowrap}figure.clip .vpick button{font:inherit;font-size:13px;padding:2px 9px;border-radius:99px;border:1px solid var(--line);background:transparent;color:inherit;cursor:pointer}figure.clip .vpick button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;aspect-ratio:16/9;border:2px dashed var(--line);border-radius:10px;color:var(--muted);text-align:center;font-size:15px;padding:12px}
+.placeholder b{color:var(--ink)}
+.try{margin:20px 0 6px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.try-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:9px 14px;font-size:14px;background:color-mix(in srgb,var(--c) 10%,transparent);border-bottom:1px solid var(--line)}
+.try-head span{color:var(--muted);flex:1}
+.try-full{font:inherit;font-size:13px;padding:2px 10px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink);cursor:pointer}.try-full:hover{border-color:var(--c,var(--accent))}
+.try.full{position:fixed;inset:0;z-index:50;margin:0;border:0;border-radius:0;display:flex;flex-direction:column;background:var(--bg)}
+.try-task,.tt-toggle{display:none}.try.full .try-task{display:block;max-height:38vh;overflow:auto;padding:6px 14px 8px;border-bottom:1px solid var(--line);background:var(--card);font-size:15px}
+.try.full .tt-toggle{display:inline-block;margin-left:auto;margin-right:8px;font:inherit;font-size:13px;padding:2px 10px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink);cursor:pointer}
+.tt-title{font-weight:700;margin:.2em 0 .3em}.tt-body p,.tt-body ul,.tt-body ol{margin:.3em 0}.tt-body img{max-height:24vh;width:auto}.tt-body .hints{margin:.3em 0;padding-top:4px;padding-bottom:4px}
+.try-task.closed .tt-body{display:none}.try-checks{display:flex;flex-wrap:wrap;gap:4px 16px;padding:6px 0 2px;margin-top:4px;position:sticky;bottom:-8px;background:var(--card);border-top:1px dashed var(--line);font-size:14px;color:var(--muted)}.try-task.closed .try-checks{border-top:0;margin-top:0}.try-checks .ok{color:var(--run);font-weight:600}.try.full iframe{flex:1;height:auto!important}
+body.try-open{overflow:hidden}
+.try iframe{display:block;width:100%;border:0;background:var(--card)}
+.try iframe[hidden]{display:none}.mkload{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:var(--card);color:var(--muted);font-size:14px;text-align:center;padding:16px}.try.full .mkload{height:calc(100% - 40px)!important}
+.mkopen{font:inherit;font-size:16px;font-weight:600;padding:10px 18px;border-radius:10px;border:0;background:var(--c,var(--accent));color:#fff;cursor:pointer}@media(prefers-color-scheme:dark){.mkopen{color:#0f141a}}
+figure.shown{margin:10px 0 16px}figure.shown img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff;display:block}figure.shown figcaption{font-size:13px;color:var(--muted);margin-top:4px}
+details.expected figure{margin:8px 0 14px}details.expected img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff;display:block}details.expected figcaption{font-size:13px;color:var(--muted);margin-top:4px}
+details.reveal{margin:16px 0;border:1px solid var(--line);border-radius:10px;padding:0 16px}
+details.hints{margin:12px 0;border:1px solid var(--line);border-radius:10px;padding:0 16px}
+details.hints summary{cursor:pointer;font-weight:600;padding:10px 0}
+details.hints[open] summary{border-bottom:1px solid var(--line);margin-bottom:6px}
+.tasks{margin:14px 0}
+.taskpills{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+.taskpills .tp{font:inherit;font-size:14px;font-weight:600;padding:5px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.taskpills .tp i{width:10px;height:10px;border-radius:50%;border:2px solid var(--c)}.taskpills .tp.done i{background:var(--c)}
+.taskpills .tp.active{border-color:var(--c);box-shadow:inset 0 0 0 1px var(--c)}
+.tpanel{display:none}.tpanel.active{display:block}
+.tmsg{margin:8px 0 0;font-size:14px;font-weight:600;color:var(--run)}
+.resetstart{font:inherit;font-size:13px;margin:6px 0;padding:4px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+nav.steps a .cnt{font-weight:500;color:var(--muted);margin-left:5px}
+.buglines{margin:6px 0;padding:0 0 0 2.2em;background:var(--code);border-radius:10px;font:14px/1.7 ui-monospace,Menlo,Consolas,monospace;list-style:decimal;color:var(--com)}
+.buglines li{padding-right:6px}.check .buglines button{display:block;width:100%;margin:0;padding:0 8px;border:0;border-radius:6px;background:none;text-align:left;color:var(--codeink);cursor:pointer}
+.check .buglines button:hover{background:rgba(255,255,255,.1)}.check .buglines button.no{background:rgba(255,100,100,.25)}.check .buglines button.yes{background:rgba(74,222,128,.28)}
+.buglines code{white-space:pre;font:inherit}
+.bugfile{margin:8px 0}.bugfile-name,.files .code-head span{font:600 13px ui-monospace,Menlo,Consolas,monospace}.bugfile-name{margin:0 0 2px;color:var(--ink)}.files{display:grid;gap:8px}
+.mrow{display:flex;gap:10px;align-items:center;margin:6px 0;flex-wrap:wrap}.mrow span{flex:1 1 180px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px}.mrow select{font:inherit;font-size:14px;padding:4px 6px;border-radius:6px;max-width:100%}
+.mrow select.ok{outline:2px solid var(--run)}.mrow select.no{outline:2px solid var(--make)}
+.tscroll{overflow-x:auto}.trace{border-collapse:collapse;margin:8px 0;font:14px ui-monospace,Menlo,Consolas,monospace}.trace th,.trace td{border:1px solid var(--line);padding:4px 10px;text-align:center}.trace th{background:var(--card)}
+.trace input{width:5em;font:inherit;text-align:center;padding:3px;border-radius:4px;border:1px solid var(--line)}.trace input.ok{outline:2px solid var(--run)}.trace input.no{outline:2px solid var(--make)}
+.numrow input{font:inherit;padding:5px 8px;border-radius:6px;border:1px solid var(--line);width:9em}
+.parsons{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}@media(max-width:620px){.parsons{grid-template-columns:1fr}}
+.pcol b{font-size:13px;color:var(--muted)}.pcol ul,.pcol ol{margin:4px 0;padding:0;list-style:none;min-height:3em;border:1px dashed var(--line);border-radius:10px;padding:6px}
+.pcol li{display:flex;align-items:center;gap:6px;margin:3px 0;background:var(--code);border-radius:6px;padding:2px 6px}.pcol code{flex:1;white-space:pre;color:var(--codeink);font:13px ui-monospace,Menlo,Consolas,monospace;overflow-x:auto}
+.check .pcol button{margin:0;padding:1px 8px;border-radius:6px;font-size:13px}.check .pcol button.piece{flex:1;text-align:left;background:none;border:0;padding:0}.pprog li[draggable=true]{cursor:grab}
+details.insights{margin:10px 0}
+details.teachers{margin:28px 0 0;border:1px solid var(--line);border-radius:8px;padding:0 16px}
+details.teachers summary{cursor:pointer;font-weight:600;padding:12px 0}
+details.teachers h3{font-size:1rem;margin:16px 0 4px}.tguide{background:color-mix(in srgb,var(--accent) 8%,transparent);border-radius:8px;padding:8px 12px}
+.xbtn{flex:none;display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:13px;font-weight:600;color:var(--investigate);border:1px solid var(--investigate);background:var(--card);padding:4px 11px 4px 5px;border-radius:99px;cursor:pointer}.xbtn b{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--investigate);color:#fff;font-size:12px}.xbtn[aria-expanded=true]{box-shadow:inset 0 0 0 1px var(--investigate)}.xdrawer{position:fixed;z-index:40;right:0;top:var(--nav,0px);bottom:0;width:min(520px,100vw);overflow:auto;background:var(--card);border-left:1px solid var(--line);box-shadow:-8px 0 24px rgba(0,0,0,.12);padding:0 20px 24px}.xd-head{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);padding:14px 0 10px;border-bottom:1px solid var(--line);margin-bottom:12px}.xd-head h2{margin:0;font-size:1.1rem;color:var(--investigate)}.xd-close{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:4px 10px;cursor:pointer}.xpop{position:fixed;z-index:41;max-width:min(300px,calc(100vw - 32px));margin:0;padding:9px 13px;font-size:14px;line-height:1.4;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--predict,#7c3aed);border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.14)}.xd-body video{max-width:100%}details.explain{margin:12px 0 4px;border:1px solid var(--line);border-left:4px solid var(--investigate);border-radius:8px;padding:0 16px;background:var(--card)}details.explain summary{cursor:pointer;font-weight:600;padding:10px 0;color:var(--investigate)}
+.clinks{margin:-6px 0 14px;font-size:14px;color:var(--muted,#5d6675)}.clinks p{margin:2px 0}.clinks .clw{opacity:.8}
+.hook{margin:0 0 16px;padding:8px 14px;border-left:4px solid var(--c,#2563eb);background:rgba(37,99,235,.07);border-radius:4px}
+details.reveal summary{cursor:pointer;font-weight:600;padding:12px 0;color:var(--c)}
+details.reveal[open] summary{border-bottom:1px solid var(--line);margin-bottom:6px}
+.legend{display:grid;gap:6px;margin:10px 0 0;padding:0;list-style:none;font-size:15px;color:var(--muted)}
+.legend b{color:var(--c)}
+.widthbar{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px 14px;margin:14px 0 0}
+.widthbar .wnote{display:block;font-size:14px;color:var(--muted)}.wseg{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:99px;padding:3px;background:var(--bg)}
+.wseg button{font:inherit;font-size:14px;font-weight:600;border:0;background:transparent;color:var(--ink);border-radius:99px;padding:5px 12px;cursor:pointer}.wseg button[aria-pressed=true]{background:var(--accent);color:#fff}
+@media(prefers-color-scheme:dark){.wseg button[aria-pressed=true]{color:#0f141a}}.wseg button:disabled{opacity:.4;cursor:not-allowed}
+.tierchip{font-size:11px;letter-spacing:.06em;padding:1px 7px;border-radius:99px;border:1px solid currentColor;margin-left:6px}
+[data-tier][hidden]{display:none!important}footer code{overflow-wrap:anywhere}.srow{flex-wrap:wrap}.srow span{font-family:inherit;font-size:15px}.srow .swhy{flex-basis:100%;color:var(--muted)}
+ul.lessons{list-style:none;padding:0;display:grid;gap:14px}ul.lessons a{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;text-decoration:none;color:inherit}
+.ctop{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.ctop h1{margin-bottom:0}
+.chips{display:flex;gap:8px}.chip{font-size:14px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--card);padding:6px 14px;border-radius:99px;text-transform:none;letter-spacing:normal}.chip:hover{border-color:var(--accent)}
+.continue{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:center;margin:22px 0 18px;padding:16px 20px;border-radius:14px;text-decoration:none;color:#fff;background:var(--accent)}
+.continue .ck{grid-row:span 2;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.2)}
+.continue b{font-size:1.15rem}.continue .cstep{font-size:14px;opacity:.9}.continue .cstep:empty{display:none}.continue:hover{filter:brightness(1.06)}
+@media(prefers-color-scheme:dark){.continue{color:#1a1006}.continue .ck{background:rgba(0,0,0,.15)}}
+.pathway{margin:30px 0 8px}.pathway h2{margin:0;font-size:1.4rem}.pathway h2 a{color:inherit;text-decoration:none}.pathway h2 a:hover{color:var(--accent)}.pathway h2 a::after{content:' ›';color:var(--muted)}.pabout{max-width:680px}.home-about h2,.approach h2{font-size:1.2rem;margin:28px 0 8px}.home-about p,.approach p,.approach li{line-height:1.6}.home-subjects{font-size:1.2rem;margin:34px 0 12px}.home-about a,.approach a{color:var(--accent)}.pnote{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:12px 16px;color:var(--muted)}.psum{margin:2px 0 10px;color:var(--muted)}
+.pstage h3{margin:14px 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.pcard{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:inherit}.pcard:hover{border-color:var(--accent)}
+.pcard b{display:block;font-size:1.05rem}.pcard .ptag{color:var(--ink);font-size:15px;margin-top:4px}.pcard.pmap{margin:6px 0 4px;border-color:var(--accent)}.pcard.pmap b::after{content:' →';color:var(--accent)}.pafter{display:block;font-size:12.5px;color:var(--muted);margin-top:6px}.pcard span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.pcard.soon{background:transparent;border-style:dashed}.pcard.soon b{color:var(--muted)}.pcard em{display:inline-block;margin-top:8px;font-style:normal;font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:1px 9px}
+.pcard .cprog{display:block;font-style:normal;font-weight:400;font-size:13px;color:var(--muted);margin-top:8px;border:0;padding:0;border-radius:0}.pcard .cbar{display:block;height:6px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:4px}.pcard .cbar i{display:block;height:100%;background:var(--run)}
+.ptools{margin:34px 0 0;color:var(--muted);font-size:14px}
+.course{display:grid;gap:22px}.unit .uhead{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:0 12px;margin:0 2px 8px}
+.unit .uhead h2{margin:0;font-size:1.05rem}.unit .uhead p{grid-column:1/-1;margin:2px 0 0;color:var(--muted);font-size:14px}.ustat{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.urows{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}
+.crow{border-top:1px solid var(--line)}.crow:first-child{border-top:0}
+.crow summary{display:grid;grid-template-columns:30px 1fr auto auto;gap:12px;align-items:center;padding:11px 16px;cursor:pointer;list-style:none}.crow summary::-webkit-details-marker{display:none}
+.crow summary:hover{background:color-mix(in srgb,var(--accent) 4%,transparent)}.crow summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.crow summary::after{content:'▸';color:var(--muted);font-size:12px;transition:transform .15s}.crow[open] summary::after{transform:rotate(90deg)}
+.crow summary .cstat{grid-column:3}.crow summary::after{grid-column:4}
+.cnum{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-weight:700;font-size:14px;border:2px solid var(--line);color:var(--muted)}
+.crow.started .cnum{border-color:var(--accent);color:var(--accent)}.crow.done .cnum{background:var(--run);border-color:var(--run);color:#fff;font-size:0}.crow.done .cnum::after{content:'✓';font-size:15px}
+.crow.next>summary{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.ctitle{font-weight:650;color:var(--ink);min-width:0}.opt{font-style:normal;font-weight:600;font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:1px 8px;margin-left:6px;vertical-align:2px}
+.crow summary .segs{grid-column:2;grid-row:2;display:flex;gap:3px;max-width:340px;margin-top:-4px}.seg{flex:1;height:6px;border-radius:3px;background:color-mix(in srgb,var(--c) 16%,var(--line))}.seg.on{background:var(--c)}
+.cstat{font-size:13px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}.crow.done .cstat{color:var(--run);font-weight:600}
+.cbody{padding:2px 16px 14px 58px}.csum{margin:0 0 8px;color:var(--muted);font-size:15px}
+.csteps{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:2px}.csteps a{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--ink);text-decoration:none;padding:3px 0}.csteps a:hover{text-decoration:underline}
+.sdot{flex:none;width:12px;height:12px;border-radius:50%;border:2px solid var(--c)}.sdot.on{background:var(--c)}
+.cgo{display:inline-block;font-size:14px;font-weight:600;text-decoration:none;color:#fff;background:var(--accent);padding:6px 14px;border-radius:8px}@media(prefers-color-scheme:dark){.cgo{color:#1a1006}}
+.badge{display:inline-block;margin-top:10px;font-size:14px;font-weight:700;color:#7a4b00;background:#ffe9a8;border-radius:99px;padding:4px 12px}.badge[hidden]{display:none}
+.cfoot{margin:14px 2px;color:var(--muted);font-size:14px}.cfoot b{color:var(--ink);font-weight:600}
+@media(max-width:560px){.crow summary{grid-template-columns:30px 1fr auto;padding:10px 12px}.crow summary::after{display:none}.cbody{padding:2px 12px 12px 54px}.crow summary .segs{max-width:none}}
+ul.lessons a:hover{border-color:var(--accent)}ul.lessons .cprog{display:block;font-style:normal;font-size:13px;color:var(--muted);margin-top:8px}ul.lessons .cbar{display:block;height:6px;max-width:260px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:4px}ul.lessons .cbar i{display:block;height:100%;background:var(--run)}ul.lessons b{display:block;font-size:1.15rem}ul.lessons span{color:var(--muted);font-size:15px}
+.compare{margin:14px 0;padding:12px 16px;border-left:4px solid var(--predict);background:color-mix(in srgb,var(--predict) 8%,transparent);border-radius:0 8px 8px 0}.compare p{margin:2px 0}
+.check{margin:20px 0 4px;padding:14px 16px;border:1px dashed var(--c);border-radius:10px;background:color-mix(in srgb,var(--c) 6%,transparent)}
+.check legend,.check .check-q{font-weight:600;margin:0 0 8px;padding:0}.check fieldset{border:0;margin:0;padding:0}
+.check label{display:flex;gap:10px;align-items:flex-start;margin:6px 0;cursor:pointer}.check input{margin-top:.35em;accent-color:var(--c)}
+.check button{font:inherit;font-size:14px;margin-top:6px;padding:5px 14px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.check .msg{margin:8px 0 0;font-size:14px;color:var(--muted)}.check .msg.ok{color:var(--run);font-weight:600}.check .msg.no{color:var(--make)}
+.check.done{border-style:solid}
+.ref-group{margin:28px 0 8px;font-size:1.15rem}.ref-item{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr);gap:6px 18px;align-items:start;padding:10px 0;border-top:1px solid var(--line)}
+.ref-item .code{margin:0}.ref-item .ref-id{font-size:12px;margin-top:2px}
+.ref-ex{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:10px 0 4px}.ref-pic{margin:8px 0 0}.ref-pic img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:#fff;display:block}.ref-pic figcaption{font-size:12px;color:var(--muted);margin-top:3px}.ref-print{margin:14px 0 0}.ref-item p{margin:0;color:var(--muted);font-size:15px}.ref-item b{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
+.ref-search{width:100%;box-sizing:border-box;margin:18px 0 0;padding:10px 14px;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}.ref-search:focus{outline:2px solid var(--accent);outline-offset:1px}.ref-item[hidden],.ref-section[hidden]{display:none}
+@media(max-width:640px){.ref-item{grid-template-columns:1fr}}
+@media print{.ref-search{display:none}}
+@media print{body{background:#fff;color:#000}.ref-item{break-inside:avoid}}
+footer{margin-top:50px;color:var(--muted);font-size:14px}
+.sitenav{background:var(--card);border-bottom:1px solid var(--line);font-size:14px;position:sticky;top:0;z-index:20}
+html{scroll-padding-top:var(--nav,0px)}
+.sn-in{max-width:1080px;margin:0 auto;padding:0 16px;display:flex;align-items:center;gap:4px;min-height:48px;flex-wrap:wrap}
+.sitenav a{color:var(--ink);text-decoration:none;font-weight:600;padding:6px 10px;border-radius:8px;white-space:nowrap}
+.sitenav a:hover{background:var(--bg)}.sitenav a[aria-current]{color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent);border-radius:0}
+.sitenav .sn-brand{font-weight:800;letter-spacing:-.01em;margin-right:4px;color:var(--muted)}.sn-brand span{font-weight:400}
+.sn-main,.sn-tools{display:flex;gap:2px;align-items:center}.sn-grow{flex:1}
+.sn-dd{position:relative;display:flex;align-items:center}.sn-dd.on>.sn-top{color:var(--accent)}
+.sn-caret{font:inherit;background:none;border:0;color:var(--muted);cursor:pointer;padding:6px 4px;margin-left:-8px;border-radius:6px}.sn-caret:hover{color:var(--ink)}
+.sn-sub{display:none;position:absolute;top:100%;left:0;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);padding:6px;flex-direction:column}
+.sn-sub a{display:block}.sn-sub a[aria-current]{box-shadow:inset 3px 0 0 var(--accent);border-radius:4px}
+.sn-dd:hover .sn-sub,.sn-dd:focus-within .sn-sub,.sn-dd.open .sn-sub{display:flex}
+.sn-menu{display:none;font:inherit;font-weight:600;color:var(--ink);background:none;border:1px solid var(--line);border-radius:8px;padding:4px 10px;cursor:pointer}
+.sitenav .sn-back{color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:99px;margin-right:6px;max-width:42vw;overflow:hidden;text-overflow:ellipsis}
+.sitenav .sn-back[hidden]{display:none}
+@media(max-width:700px){.sn-menu{display:inline-block;margin-left:auto}.sn-main{display:none;order:9;flex-basis:100%;flex-direction:column;align-items:stretch;padding:4px 0 8px}.sitenav.open .sn-main{display:flex;max-height:calc(100vh - 120px);overflow-y:auto}
+.sn-dd{flex-direction:column;align-items:stretch}.sn-caret{display:none}.sn-sub{display:flex;position:static;border:0;box-shadow:none;padding:0 0 0 16px;min-width:0;background:none}
+.sitenav a[aria-current]{box-shadow:none}.sn-tools{order:8;flex-basis:100%;justify-content:flex-start;padding-bottom:6px;overflow-x:auto}.sitenav .sn-back{order:7;flex-basis:100%;max-width:none;margin:2px 0 6px;text-align:center}}
+@media print{.sitenav{display:none}}</style></head><body><nav class="sitenav" data-here="lesson" aria-label="Site"><div class="sn-in"><a class="sn-brand" href="https://learningwaypoints.com/" title="Learning Waypoints: the main site">Learning Waypoints <span aria-hidden="true">↗</span></a><button type="button" class="sn-menu" aria-expanded="false" aria-controls="sn-main">Menu ▾</button><div class="sn-main" id="sn-main"><a href="../../../">Tutorials</a><div class="sn-dd"><a class="sn-top" href="../../../code/">Code</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-0" aria-label="Code pathways">▾</button><div class="sn-sub" id="sn-sub-0"><a href="../../../code/paths/python/">Python</a><a href="../../../code/paths/web/">Web</a><a href="../../../code/paths/makecode/">MakeCode</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../systems/">Digital systems</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-1" aria-label="Digital systems pathways">▾</button><div class="sn-sub" id="sn-sub-1"><a href="../../../systems/paths/data/">Data representation</a><a href="../../../systems/paths/networks/">Networks and security</a><a href="../../../systems/paths/hardware/">Hardware and logic</a><a href="../../../systems/paths/cli/">The command line</a><a href="../../../systems/map/">Curriculum map</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../engineering/">Engineering</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-2" aria-label="Engineering pathways">▾</button><div class="sn-sub" id="sn-sub-2"><a href="../../../engineering/paths/mechanisms/">Mechanisms</a><a href="../../../engineering/paths/structures/">Structures</a><a href="../../../engineering/paths/physical/">Physical computing</a><a href="../../../engineering/paths/cad/">CAD and fabrication</a><a href="../../../engineering/paths/boards/">Design your own board</a></div></div><div class="sn-dd on"><a class="sn-top" href="../../../maths/">Maths</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-3" aria-label="Maths pathways">▾</button><div class="sn-sub" id="sn-sub-3"><a href="../../../maths/paths/algebra/">Algebra</a><a href="../../../maths/paths/number/" aria-current="page">Number</a><a href="../../../maths/paths/space/">Geometry and measurement</a><a href="../../../maths/paths/data/">Statistics and probability</a><a href="../../../maths/map/">Curriculum map</a></div></div><div class="sn-dd"><a class="sn-top" href="../../../science/">Science</a><button type="button" class="sn-caret" aria-expanded="false" aria-controls="sn-sub-4" aria-label="Science pathways">▾</button><div class="sn-sub" id="sn-sub-4"><a href="../../../science/paths/chemistry/">Chemistry</a><a href="../../../science/paths/biology/">Biology</a><a href="../../../science/paths/physics/">Physics</a><a href="../../../science/paths/earth-space/">Earth and space</a><a href="../../../science/map/">Curriculum map</a></div></div><a href="https://studio.learningwaypoints.com/" title="Waypoints Studio: slide decks and print resources for teachers">Studio <span aria-hidden="true">↗</span></a></div><span class="sn-grow"></span><a class="sn-back" href="#" hidden></a><div class="sn-tools"><a href="../../../maths/number/reference/">Reference</a><a href="../../../maths/number/">My progress</a></div></div></nav><div class="wrap">
+<link rel="stylesheet" href="../../../_katex/katex.min.css"><style>.check label.rs-lab{display:block;margin:.4em 0;font-weight:600;cursor:auto}.rs-lab span{font-weight:400;color:var(--muted)}.rs-pick{border:1px solid var(--line);border-radius:8px;margin:.5em 0;padding:.4em .8em}.rs-pick legend{padding:0 .3em}.rs-pick label{display:block;margin:.2em 0}.rs-model{margin-top:.8em;border-top:1px solid var(--line);padding-top:.6em}.rs-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1em}.rs-h{font-weight:600;margin:.3em 0}.rs-mine{white-space:pre-wrap;font:15px/1.5 ui-monospace,Menlo,Consolas,monospace;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:0}.rs-steps{margin:0;padding-left:1.4em}.rs-steps li{margin:.25em 0}.rs-why{color:var(--muted)}.rs-why::before{content:'(';}.rs-why::after{content:')'}.rs-crit{list-style:none;padding:0;margin:.2em 0}.wk-start{margin:.3em 0}.wk-in{display:block;width:100%;box-sizing:border-box;font:16px/1.5 ui-monospace,Menlo,Consolas,monospace;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);margin:.4em 0}.wk-lines{margin:.3em 0;padding-left:1.6em;font:15px/1.5 ui-monospace,Menlo,Consolas,monospace}.wk-lines .ok{color:var(--ok,#1a7f37)}.wk-lines .no{color:#b42318}
+.mathblock{overflow-x:auto;overflow-y:hidden;margin:.6em 0}.katex{font-size:1.12em}
+.worked{border:1px solid var(--line);border-left:4px solid var(--c,var(--accent));border-radius:10px;background:var(--card);padding:12px 16px;margin:14px 0}
+.worked-head{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin-bottom:6px}.worked-head span{color:var(--muted);font-size:14px}
+.worked ol{margin:0;padding-left:1.4em}.worked li{padding:6px 0;border-top:1px dashed var(--line)}.worked li:first-child{border-top:0}
+.worked li.new{animation:wfade .35s ease-out}@keyframes wfade{from{opacity:0;transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){.worked li.new{animation:none}}
+.worked .wm{display:block;font-size:1.08em;overflow-x:auto}.worked .why{display:block;color:var(--muted);font-size:15px;margin-top:2px}
+.worked-go{display:flex;gap:8px;margin-top:8px}.worked-go button{font:inherit;font-size:14px;font-weight:600;padding:5px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.worked-go button[hidden]{display:none}.worked-go .wnext{background:var(--c,var(--accent));border-color:transparent;color:#fff}@media(prefers-color-scheme:dark){.worked-go .wnext{color:#0f141a}}
+.ansrow input{width:14em;font-family:ui-monospace,Menlo,Consolas,monospace}</style><div class="coursebar" role="navigation" aria-label="Lesson navigation"><style>:root{--cb:46px}</style><a class="cb-prev" href="../multiplying-fractions/" title="13. Multiplying and dividing fractions">‹ <span>13. Multiplying and dividing fractions</span></a><div class="cb-mid"><button type="button" class="cb-toggle" aria-expanded="false" aria-controls="cb-menu">14 of 30 · Percentages of amounts ▾</button><div class="cb-menu" id="cb-menu" hidden><ul><li><a href="../comparing-integers/" data-checks="maths/number/comparing-integers/step-1|maths/number/comparing-integers/step-2|maths/number/comparing-integers/step-3#t1|maths/number/comparing-integers/step-3#t2|maths/number/comparing-integers/step-3#t3|maths/number/comparing-integers/step-4#t1|maths/number/comparing-integers/step-4#t2|maths/number/comparing-integers/step-4#t3|maths/number/comparing-integers/step-4#t4|maths/number/comparing-integers/step-5#t1|maths/number/comparing-integers/step-5#t2|maths/number/comparing-integers/step-5#t3|maths/number/comparing-integers/step-5#t4|maths/number/comparing-integers/step-6"><i class="tick"></i><span>1. Comparing integers</span></a></li><li><a href="../adding-integers/" data-checks="maths/number/adding-integers/step-1|maths/number/adding-integers/step-2|maths/number/adding-integers/step-3#t1|maths/number/adding-integers/step-3#t2|maths/number/adding-integers/step-3#t3|maths/number/adding-integers/step-4#t1|maths/number/adding-integers/step-4#t2|maths/number/adding-integers/step-4#t3|maths/number/adding-integers/step-4#t4|maths/number/adding-integers/step-4#t5|maths/number/adding-integers/step-5#t1|maths/number/adding-integers/step-5#t2|maths/number/adding-integers/step-5#t3|maths/number/adding-integers/step-5#t4|maths/number/adding-integers/step-5#t5|maths/number/adding-integers/step-6"><i class="tick"></i><span>2. Adding and subtracting integers</span></a></li><li><a href="../multiplying-integers/" data-checks="maths/number/multiplying-integers/step-1|maths/number/multiplying-integers/step-2|maths/number/multiplying-integers/step-3#t1|maths/number/multiplying-integers/step-3#t2|maths/number/multiplying-integers/step-3#t3|maths/number/multiplying-integers/step-4#t1|maths/number/multiplying-integers/step-4#t2|maths/number/multiplying-integers/step-4#t3|maths/number/multiplying-integers/step-4#t4|maths/number/multiplying-integers/step-4#t5|maths/number/multiplying-integers/step-5#t1|maths/number/multiplying-integers/step-5#t2|maths/number/multiplying-integers/step-5#t3|maths/number/multiplying-integers/step-5#t4|maths/number/multiplying-integers/step-6"><i class="tick"></i><span>3. Multiplying and dividing integers</span></a></li><li><a href="../squares-and-roots/" data-checks="maths/number/squares-and-roots/step-1|maths/number/squares-and-roots/step-2|maths/number/squares-and-roots/step-3#t1|maths/number/squares-and-roots/step-3#t2|maths/number/squares-and-roots/step-3#t3|maths/number/squares-and-roots/step-4#t1|maths/number/squares-and-roots/step-4#t2|maths/number/squares-and-roots/step-4#t3|maths/number/squares-and-roots/step-4#t4|maths/number/squares-and-roots/step-4#t5|maths/number/squares-and-roots/step-5#t1|maths/number/squares-and-roots/step-5#t2|maths/number/squares-and-roots/step-5#t3|maths/number/squares-and-roots/step-5#t4|maths/number/squares-and-roots/step-6"><i class="tick"></i><span>4. Squares and square roots</span></a></li><li><a href="../between-squares/" data-checks="maths/number/between-squares/step-1|maths/number/between-squares/step-2|maths/number/between-squares/step-3#t1|maths/number/between-squares/step-3#t2|maths/number/between-squares/step-3#t3|maths/number/between-squares/step-4#t1|maths/number/between-squares/step-4#t2|maths/number/between-squares/step-4#t3|maths/number/between-squares/step-4#t4|maths/number/between-squares/step-5#t1|maths/number/between-squares/step-5#t2|maths/number/between-squares/step-5#t3|maths/number/between-squares/step-5#t4|maths/number/between-squares/step-6"><i class="tick"></i><span>5. Between the squares</span></a></li><li><a href="../powers/" data-checks="maths/number/powers/step-1|maths/number/powers/step-2|maths/number/powers/step-3#t1|maths/number/powers/step-3#t2|maths/number/powers/step-3#t3|maths/number/powers/step-4#t1|maths/number/powers/step-4#t2|maths/number/powers/step-4#t3|maths/number/powers/step-4#t4|maths/number/powers/step-5#t1|maths/number/powers/step-5#t2|maths/number/powers/step-5#t3|maths/number/powers/step-5#t4|maths/number/powers/step-6"><i class="tick"></i><span>6. Powers</span></a></li><li><a href="../prime-factors/" data-checks="maths/number/prime-factors/step-1|maths/number/prime-factors/step-2|maths/number/prime-factors/step-3#t1|maths/number/prime-factors/step-3#t2|maths/number/prime-factors/step-3#t3|maths/number/prime-factors/step-4#t1|maths/number/prime-factors/step-4#t2|maths/number/prime-factors/step-4#t3|maths/number/prime-factors/step-5#t1|maths/number/prime-factors/step-5#t2|maths/number/prime-factors/step-5#t3|maths/number/prime-factors/step-5#t4|maths/number/prime-factors/step-6"><i class="tick"></i><span>7. Prime factors</span></a></li><li><a href="../hcf-lcm/" data-checks="maths/number/hcf-lcm/step-1|maths/number/hcf-lcm/step-2|maths/number/hcf-lcm/step-3#t1|maths/number/hcf-lcm/step-3#t2|maths/number/hcf-lcm/step-3#t3|maths/number/hcf-lcm/step-4#t1|maths/number/hcf-lcm/step-4#t2|maths/number/hcf-lcm/step-4#t3|maths/number/hcf-lcm/step-4#t4|maths/number/hcf-lcm/step-5#t1|maths/number/hcf-lcm/step-5#t2|maths/number/hcf-lcm/step-5#t3|maths/number/hcf-lcm/step-5#t4|maths/number/hcf-lcm/step-6"><i class="tick"></i><span>8. HCF and LCM</span></a></li><li><a href="../equivalent-fractions/" data-checks="maths/number/equivalent-fractions/step-1|maths/number/equivalent-fractions/step-2|maths/number/equivalent-fractions/step-3#t1|maths/number/equivalent-fractions/step-3#t2|maths/number/equivalent-fractions/step-3#t3|maths/number/equivalent-fractions/step-4#t1|maths/number/equivalent-fractions/step-4#t2|maths/number/equivalent-fractions/step-4#t3|maths/number/equivalent-fractions/step-4#t4|maths/number/equivalent-fractions/step-4#t5|maths/number/equivalent-fractions/step-5#t1|maths/number/equivalent-fractions/step-5#t2|maths/number/equivalent-fractions/step-5#t3|maths/number/equivalent-fractions/step-5#t4|maths/number/equivalent-fractions/step-6"><i class="tick"></i><span>9. Equivalent fractions</span></a></li><li><a href="../fractions-decimals-percentages/" data-checks="maths/number/fractions-decimals-percentages/step-1|maths/number/fractions-decimals-percentages/step-2|maths/number/fractions-decimals-percentages/step-3#t1|maths/number/fractions-decimals-percentages/step-3#t2|maths/number/fractions-decimals-percentages/step-3#t3|maths/number/fractions-decimals-percentages/step-4#t1|maths/number/fractions-decimals-percentages/step-4#t2|maths/number/fractions-decimals-percentages/step-4#t3|maths/number/fractions-decimals-percentages/step-4#t4|maths/number/fractions-decimals-percentages/step-4#t5|maths/number/fractions-decimals-percentages/step-5#t1|maths/number/fractions-decimals-percentages/step-5#t2|maths/number/fractions-decimals-percentages/step-5#t3|maths/number/fractions-decimals-percentages/step-5#t4|maths/number/fractions-decimals-percentages/step-6"><i class="tick"></i><span>10. Fractions, decimals and percentages</span></a></li><li><a href="../fractions-on-the-line/" data-checks="maths/number/fractions-on-the-line/step-1|maths/number/fractions-on-the-line/step-2|maths/number/fractions-on-the-line/step-3#t1|maths/number/fractions-on-the-line/step-3#t2|maths/number/fractions-on-the-line/step-3#t3|maths/number/fractions-on-the-line/step-4#t1|maths/number/fractions-on-the-line/step-4#t2|maths/number/fractions-on-the-line/step-4#t3|maths/number/fractions-on-the-line/step-4#t4|maths/number/fractions-on-the-line/step-4#t5|maths/number/fractions-on-the-line/step-5#t1|maths/number/fractions-on-the-line/step-5#t2|maths/number/fractions-on-the-line/step-5#t3|maths/number/fractions-on-the-line/step-5#t4|maths/number/fractions-on-the-line/step-6"><i class="tick"></i><span>11. Fractions and decimals on the line</span></a></li><li><a href="../adding-fractions/" data-checks="maths/number/adding-fractions/step-1|maths/number/adding-fractions/step-2|maths/number/adding-fractions/step-3#t1|maths/number/adding-fractions/step-3#t2|maths/number/adding-fractions/step-3#t3|maths/number/adding-fractions/step-4#t1|maths/number/adding-fractions/step-4#t2|maths/number/adding-fractions/step-4#t3|maths/number/adding-fractions/step-4#t4|maths/number/adding-fractions/step-5#t1|maths/number/adding-fractions/step-5#t2|maths/number/adding-fractions/step-5#t3|maths/number/adding-fractions/step-5#t4|maths/number/adding-fractions/step-6"><i class="tick"></i><span>12. Adding and subtracting fractions</span></a></li><li><a href="../multiplying-fractions/" data-checks="maths/number/multiplying-fractions/step-1|maths/number/multiplying-fractions/step-2|maths/number/multiplying-fractions/step-3#t1|maths/number/multiplying-fractions/step-3#t2|maths/number/multiplying-fractions/step-3#t3|maths/number/multiplying-fractions/step-4#t1|maths/number/multiplying-fractions/step-4#t2|maths/number/multiplying-fractions/step-4#t3|maths/number/multiplying-fractions/step-4#t4|maths/number/multiplying-fractions/step-4#t5|maths/number/multiplying-fractions/step-5#t1|maths/number/multiplying-fractions/step-5#t2|maths/number/multiplying-fractions/step-5#t3|maths/number/multiplying-fractions/step-5#t4|maths/number/multiplying-fractions/step-6"><i class="tick"></i><span>13. Multiplying and dividing fractions</span></a></li><li><a href="../percentages/" data-checks="maths/number/percentages/step-1|maths/number/percentages/step-2|maths/number/percentages/step-3#t1|maths/number/percentages/step-3#t2|maths/number/percentages/step-3#t3|maths/number/percentages/step-4#t1|maths/number/percentages/step-4#t2|maths/number/percentages/step-4#t3|maths/number/percentages/step-4#t4|maths/number/percentages/step-4#t5|maths/number/percentages/step-5#t1|maths/number/percentages/step-5#t2|maths/number/percentages/step-5#t3|maths/number/percentages/step-5#t4|maths/number/percentages/step-6" aria-current="page"><i class="tick"></i><span>14. Percentages of amounts</span></a></li><li><a href="../choosing-a-strategy/" data-checks="maths/number/choosing-a-strategy/step-1|maths/number/choosing-a-strategy/step-2|maths/number/choosing-a-strategy/step-3#t1|maths/number/choosing-a-strategy/step-3#t2|maths/number/choosing-a-strategy/step-3#t3|maths/number/choosing-a-strategy/step-4#t1|maths/number/choosing-a-strategy/step-4#t2|maths/number/choosing-a-strategy/step-4#t3|maths/number/choosing-a-strategy/step-4#t4|maths/number/choosing-a-strategy/step-5#t1|maths/number/choosing-a-strategy/step-5#t2|maths/number/choosing-a-strategy/step-5#t3|maths/number/choosing-a-strategy/step-5#t4|maths/number/choosing-a-strategy/step-6"><i class="tick"></i><span>15. Choosing a strategy</span></a></li><li><a href="../rational-operations/" data-checks="maths/number/rational-operations/step-1|maths/number/rational-operations/step-2|maths/number/rational-operations/step-3#t1|maths/number/rational-operations/step-3#t2|maths/number/rational-operations/step-3#t3|maths/number/rational-operations/step-4#t1|maths/number/rational-operations/step-4#t2|maths/number/rational-operations/step-4#t3|maths/number/rational-operations/step-4#t4|maths/number/rational-operations/step-4#t5|maths/number/rational-operations/step-5#t1|maths/number/rational-operations/step-5#t2|maths/number/rational-operations/step-5#t3|maths/number/rational-operations/step-5#t4|maths/number/rational-operations/step-6"><i class="tick"></i><span>16. Calculating with negative fractions and decimals</span></a></li><li><a href="../expanded-notation/" data-checks="maths/number/expanded-notation/step-1|maths/number/expanded-notation/step-2|maths/number/expanded-notation/step-3#t1|maths/number/expanded-notation/step-3#t2|maths/number/expanded-notation/step-3#t3|maths/number/expanded-notation/step-4#t1|maths/number/expanded-notation/step-4#t2|maths/number/expanded-notation/step-4#t3|maths/number/expanded-notation/step-4#t4|maths/number/expanded-notation/step-5#t1|maths/number/expanded-notation/step-5#t2|maths/number/expanded-notation/step-5#t3|maths/number/expanded-notation/step-5#t4|maths/number/expanded-notation/step-5#t5|maths/number/expanded-notation/step-6"><i class="tick"></i><span>17. Place value and powers of 10</span></a></li><li><a href="../rounding/" data-checks="maths/number/rounding/step-1|maths/number/rounding/step-2|maths/number/rounding/step-3#t1|maths/number/rounding/step-3#t2|maths/number/rounding/step-3#t3|maths/number/rounding/step-4#t1|maths/number/rounding/step-4#t2|maths/number/rounding/step-4#t3|maths/number/rounding/step-4#t4|maths/number/rounding/step-5#t1|maths/number/rounding/step-5#t2|maths/number/rounding/step-5#t3|maths/number/rounding/step-5#t4|maths/number/rounding/step-6"><i class="tick"></i><span>18. Rounding decimals</span></a></li><li><a href="../estimating/" data-checks="maths/number/estimating/step-1|maths/number/estimating/step-2|maths/number/estimating/step-3#t1|maths/number/estimating/step-3#t2|maths/number/estimating/step-3#t3|maths/number/estimating/step-4#t1|maths/number/estimating/step-4#t2|maths/number/estimating/step-4#t3|maths/number/estimating/step-4#t4|maths/number/estimating/step-5#t1|maths/number/estimating/step-5#t2|maths/number/estimating/step-5#t3|maths/number/estimating/step-5#t4|maths/number/estimating/step-6"><i class="tick"></i><span>19. Estimating to check</span></a></li><li><a href="../ratios/" data-checks="maths/number/ratios/step-1|maths/number/ratios/step-2|maths/number/ratios/step-3#t1|maths/number/ratios/step-3#t2|maths/number/ratios/step-3#t3|maths/number/ratios/step-4#t1|maths/number/ratios/step-4#t2|maths/number/ratios/step-4#t3|maths/number/ratios/step-4#t4|maths/number/ratios/step-5#t1|maths/number/ratios/step-5#t2|maths/number/ratios/step-5#t3|maths/number/ratios/step-5#t4|maths/number/ratios/step-6"><i class="tick"></i><span>20. What is a ratio?</span></a></li><li><a href="../equivalent-ratios/" data-checks="maths/number/equivalent-ratios/step-1|maths/number/equivalent-ratios/step-2|maths/number/equivalent-ratios/step-3#t1|maths/number/equivalent-ratios/step-3#t2|maths/number/equivalent-ratios/step-3#t3|maths/number/equivalent-ratios/step-4#t1|maths/number/equivalent-ratios/step-4#t2|maths/number/equivalent-ratios/step-4#t3|maths/number/equivalent-ratios/step-4#t4|maths/number/equivalent-ratios/step-5#t1|maths/number/equivalent-ratios/step-5#t2|maths/number/equivalent-ratios/step-5#t3|maths/number/equivalent-ratios/step-5#t4|maths/number/equivalent-ratios/step-6"><i class="tick"></i><span>21. Equivalent and simplest ratios</span></a></li><li><a href="../sharing-in-a-ratio/" data-checks="maths/number/sharing-in-a-ratio/step-1|maths/number/sharing-in-a-ratio/step-2|maths/number/sharing-in-a-ratio/step-3#t1|maths/number/sharing-in-a-ratio/step-3#t2|maths/number/sharing-in-a-ratio/step-3#t3|maths/number/sharing-in-a-ratio/step-4#t1|maths/number/sharing-in-a-ratio/step-4#t2|maths/number/sharing-in-a-ratio/step-4#t3|maths/number/sharing-in-a-ratio/step-4#t4|maths/number/sharing-in-a-ratio/step-5#t1|maths/number/sharing-in-a-ratio/step-5#t2|maths/number/sharing-in-a-ratio/step-5#t3|maths/number/sharing-in-a-ratio/step-5#t4|maths/number/sharing-in-a-ratio/step-6"><i class="tick"></i><span>22. Sharing in a ratio</span></a></li><li><a href="../modelling/" data-checks="maths/number/modelling/step-1|maths/number/modelling/step-2|maths/number/modelling/step-3#t1|maths/number/modelling/step-3#t2|maths/number/modelling/step-3#t3|maths/number/modelling/step-4#t1|maths/number/modelling/step-4#t2|maths/number/modelling/step-4#t3|maths/number/modelling/step-4#t4|maths/number/modelling/step-4#t5|maths/number/modelling/step-5#t1|maths/number/modelling/step-5#t2|maths/number/modelling/step-5#t3|maths/number/modelling/step-5#t4|maths/number/modelling/step-6"><i class="tick"></i><span>23. Modelling with money</span></a></li><li><a href="../ratio-models/" data-checks="maths/number/ratio-models/step-1|maths/number/ratio-models/step-2|maths/number/ratio-models/step-3#t1|maths/number/ratio-models/step-3#t2|maths/number/ratio-models/step-3#t3|maths/number/ratio-models/step-4#t1|maths/number/ratio-models/step-4#t2|maths/number/ratio-models/step-4#t3|maths/number/ratio-models/step-4#t4|maths/number/ratio-models/step-4#t5|maths/number/ratio-models/step-5#t1|maths/number/ratio-models/step-5#t2|maths/number/ratio-models/step-5#t3|maths/number/ratio-models/step-5#t4|maths/number/ratio-models/step-6"><i class="tick"></i><span>24. Modelling with ratios</span></a></li><li><a href="../percentage-change/" data-checks="maths/number/percentage-change/step-1|maths/number/percentage-change/step-2|maths/number/percentage-change/step-3#t1|maths/number/percentage-change/step-3#t2|maths/number/percentage-change/step-3#t3|maths/number/percentage-change/step-4#t1|maths/number/percentage-change/step-4#t2|maths/number/percentage-change/step-4#t3|maths/number/percentage-change/step-4#t4|maths/number/percentage-change/step-5#t1|maths/number/percentage-change/step-5#t2|maths/number/percentage-change/step-5#t3|maths/number/percentage-change/step-5#t4|maths/number/percentage-change/step-5#t5|maths/number/percentage-change/step-6"><i class="tick"></i><span>25. Percentage change</span></a></li><li><a href="../money-models/" data-checks="maths/number/money-models/step-1|maths/number/money-models/step-2|maths/number/money-models/step-3#t1|maths/number/money-models/step-3#t2|maths/number/money-models/step-3#t3|maths/number/money-models/step-4#t1|maths/number/money-models/step-4#t2|maths/number/money-models/step-4#t3|maths/number/money-models/step-4#t4|maths/number/money-models/step-5#t1|maths/number/money-models/step-5#t2|maths/number/money-models/step-5#t3|maths/number/money-models/step-5#t4|maths/number/money-models/step-5#t5|maths/number/money-models/step-6"><i class="tick"></i><span>26. Money models</span></a></li><li><a href="../rates/" data-checks="maths/number/rates/step-1|maths/number/rates/step-2|maths/number/rates/step-3#t1|maths/number/rates/step-3#t2|maths/number/rates/step-3#t3|maths/number/rates/step-4#t1|maths/number/rates/step-4#t2|maths/number/rates/step-4#t3|maths/number/rates/step-4#t4|maths/number/rates/step-5#t1|maths/number/rates/step-5#t2|maths/number/rates/step-5#t3|maths/number/rates/step-5#t4|maths/number/rates/step-6"><i class="tick"></i><span>27. Rates</span></a></li><li><a href="../using-rates/" data-checks="maths/number/using-rates/step-1|maths/number/using-rates/step-2|maths/number/using-rates/step-3#t1|maths/number/using-rates/step-3#t2|maths/number/using-rates/step-3#t3|maths/number/using-rates/step-4#t1|maths/number/using-rates/step-4#t2|maths/number/using-rates/step-4#t3|maths/number/using-rates/step-4#t4|maths/number/using-rates/step-5#t1|maths/number/using-rates/step-5#t2|maths/number/using-rates/step-5#t3|maths/number/using-rates/step-5#t4|maths/number/using-rates/step-5#t5|maths/number/using-rates/step-5#t6|maths/number/using-rates/step-6"><i class="tick"></i><span>28. Using rates</span></a></li><li><a href="../rate-models/" data-checks="maths/number/rate-models/step-1|maths/number/rate-models/step-2|maths/number/rate-models/step-3#t1|maths/number/rate-models/step-3#t2|maths/number/rate-models/step-3#t3|maths/number/rate-models/step-4#t1|maths/number/rate-models/step-4#t2|maths/number/rate-models/step-4#t3|maths/number/rate-models/step-4#t4|maths/number/rate-models/step-5#t1|maths/number/rate-models/step-5#t2|maths/number/rate-models/step-5#t3|maths/number/rate-models/step-5#t4|maths/number/rate-models/step-6"><i class="tick"></i><span>29. Ratio and rate models</span></a></li><li><a href="../checking-models/" data-checks="maths/number/checking-models/step-1|maths/number/checking-models/step-2|maths/number/checking-models/step-3#t1|maths/number/checking-models/step-3#t2|maths/number/checking-models/step-3#t3|maths/number/checking-models/step-4#t1|maths/number/checking-models/step-4#t2|maths/number/checking-models/step-4#t3|maths/number/checking-models/step-4#t4|maths/number/checking-models/step-5#t1|maths/number/checking-models/step-5#t2|maths/number/checking-models/step-5#t3|maths/number/checking-models/step-5#t4|maths/number/checking-models/step-6"><i class="tick"></i><span>30. Checking a model</span></a></li></ul><div class="cb-tools"><a href="../">All Number Foundations lessons and my progress</a></div></div></div><a class="cb-next" href="../choosing-a-strategy/" title="15. Choosing a strategy"><span>15. Choosing a strategy</span> ›</a></div><header class="top"><a class="crumb" href="../">← Number Foundations</a><h1>Percentages of amounts</h1><p class="lede">15% of $80 is 0.15 × 80 = $12. Take it off for a discount ($68, or 80 × 0.85 in one step), add it on for an increase ($92, or 80 × 1.15). And 18 out of 24 is 18 ÷ 24 = 75%.</p></header>
+<p class="hook">A jacket is $80, and the sign says 15% off. Before you reach the counter, can you work out what you will pay?</p>
+<p>A percentage is a number of hundredths: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn><mi mathvariant="normal">%</mi><mo>=</mo><mstyle scriptlevel="0" displaystyle="false"><mfrac><mn>15</mn><mn>100</mn></mfrac></mstyle><mo>=</mo><mn>0.15</mn></mrow><annotation encoding="application/x-tex">15\% = \tfrac{15}{100} = 0.15</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">15%</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">100</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">15</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0.15</span></span></span></span>. So 15% <strong>of</strong> an amount is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.15</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">0.15 \times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.15</span><span class="mord">×</span></span></span></span> the amount, the same &quot;of means multiply&quot; as for fractions.</p>
+<p>Three questions come up again and again:</p>
+<ul>
+<li><strong>A percentage of an amount:</strong> 15% of $80 is 0.15 × 80 = $12.</li>
+<li><strong>An increase or decrease:</strong> add it on or take it off, or multiply by what is left (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi mathvariant="normal">%</mi><mo>−</mo><mn>15</mn><mi mathvariant="normal">%</mi><mo>=</mo><mn>85</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">100\% - 15\% = 85\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8333em;vertical-align:-0.0833em;"></span><span class="mord">100%</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">15%</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">85%</span></span></span></span>, so <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>0.85</mn></mrow><annotation encoding="application/x-tex">\times 0.85</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">×</span><span class="mord">0.85</span></span></span></span>).</li>
+<li><strong>What percentage one amount is of another:</strong> divide, then <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">\times 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">×</span><span class="mord">100</span></span></span></span>.</li>
+</ul>
+
+<ul class="legend"><li style="--c:var(--predict)"><b>Predict</b>: Read the problem and decide what you think before you try anything. A wrong guess is fine: it shows you what to look for.</li><li style="--c:var(--run)"><b>Try</b>: Try it on the board and compare the result with your prediction.</li><li style="--c:var(--investigate)"><b>Investigate</b>: Work out why it happens, one step at a time.</li><li style="--c:var(--modify)"><b>Modify</b>: Change the problem on purpose and see what happens.</li><li style="--c:var(--practise)"><b>Practise</b>: A few on your own, to check you have it.</li><li style="--c:var(--make)"><b>Make</b>: Make your own problem using what you have learned. Expect a few tries; that is normal.</li></ul>
+
+<nav class="steps"><button type="button" class="xbtn" aria-controls="xdrawer" aria-expanded="false" title="Explain it to me"><b aria-hidden="true">?</b><span>Explain</span></button><a href="#step-1" style="--c:var(--predict)"><i></i>15% off</a><a href="#step-2" style="--c:var(--run)"><i></i>Take it off</a><a href="#step-3" style="--c:var(--investigate)"><i></i>Of, off and out of<span class="cnt"></span></a><a href="#step-4" style="--c:var(--modify)"><i></i>One change at a time<span class="cnt"></span></a><a href="#step-5" style="--c:var(--practise)"><i></i>Percentages<span class="cnt"></span></a><a href="#step-6" style="--c:var(--make)"><i></i>Save $15</a></nav>
+<aside id="xdrawer" class="xdrawer" hidden aria-labelledby="xd-title"><div class="xd-head"><h2 id="xd-title">Explain it to me</h2><button type="button" class="xd-close">Close</button></div><div class="xd-body"><figure class="clip voiced" data-voice="bf_emma" data-voices="bm_george af_heart"><video controls loop muted playsinline preload="metadata" poster="clips/explain.jpg"><source src="clips/explain.mp4" type="video/mp4"><track kind="captions" srclang="en" label="Transcript" src="clips/explain.vtt"></video><figcaption>A percentage of an amount <span class="voiced-note">· Sound on for the voiceover</span> <span class="vpick" role="group" aria-label="Voice" hidden>Voice: <button type="button" data-v="bf_emma" aria-pressed="true">Emma</button><button type="button" data-v="bm_george" aria-pressed="false">George</button><button type="button" data-v="af_heart" aria-pressed="false">Heart</button></span></figcaption></figure><p>A percentage is hundredths: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn><mi mathvariant="normal">%</mi><mo>=</mo><mn>0.15</mn></mrow><annotation encoding="application/x-tex">15\% = 0.15</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">15%</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0.15</span></span></span></span>. So 15% <strong>of</strong> $80 is 0.15 × 80 = $12 (or 10% is $8 and 5% is $4).</p>
+<p>For a <strong>decrease</strong>, take it off or multiply by what is left: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>80</mn><mo>×</mo><mn>0.85</mn><mo>=</mo><mn>68</mn></mrow><annotation encoding="application/x-tex">80 \times 0.85 = 68</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">80</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0.85</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">68</span></span></span></span>. For an <strong>increase</strong>, add it on or multiply by <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.15</mn></mrow><annotation encoding="application/x-tex">1.15</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1.15</span></span></span></span>. To find <strong>what percentage</strong> 18 is of 24, divide and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">\times 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">×</span><span class="mord">100</span></span></span></span>: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>18</mn><mo>÷</mo><mn>24</mn><mo>=</mo><mn>0.75</mn><mo>=</mo><mn>75</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">18 \div 24 = 0.75 = 75\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">18</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">÷</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">24</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0.75</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">75%</span></span></span></span>.</p>
+<figure class="shown boardpic"><img src="../../../_pictures/board/maths/number/percentages/explain.png?v=2193fe5221265a57" alt="15% off 80: the orange 15% is 12, and the blue 85% left is 68. 80 × 0.85 = 68 in one step." width="610" height="173" loading="lazy"><figcaption>15% off $80: the orange 15% is $12, and the blue 85% left is $68. $80 × 0.85 = $68 in one step.</figcaption></figure></div></aside><p class="xpop" role="status" hidden>Make your prediction first. Help opens once you've locked it in.</p><script>(function(){var d=document.getElementById('xdrawer'),b=document.querySelector('.xbtn'),pop=document.querySelector('.xpop');if(!d||!b)return;var tm,y0=0;
+function locked(){var pc=document.querySelector('.check[data-type="predict"]'),pk=pc&&pc.dataset.key;if(!pk)return true;try{var p=JSON.parse(localStorage.getItem('wp-predict'))||{};return p[pk]!==undefined&&p[pk]!==null}catch(e){return true}}
+function hidePop(){if(pop)pop.hidden=true;clearTimeout(tm)}
+function showPop(){if(!pop)return;var r=b.getBoundingClientRect();y0=window.scrollY;pop.hidden=false;pop.style.top=(r.bottom+8)+'px';pop.style.left=Math.max(16,Math.min(r.left,window.innerWidth-pop.offsetWidth-16))+'px';clearTimeout(tm);tm=setTimeout(hidePop,4000)}
+function open(){hidePop();d.hidden=false;b.setAttribute('aria-expanded','true');d.querySelector('.xd-close').focus()}
+function shut(){d.hidden=true;b.setAttribute('aria-expanded','false');[].forEach.call(d.querySelectorAll('video'),function(v){v.pause()})}
+b.addEventListener('click',function(e){e.stopPropagation();if(!d.hidden)return shut();if(!locked())return pop&&!pop.hidden?hidePop():showPop();open()});
+d.querySelector('.xd-close').addEventListener('click',function(){shut();b.focus()});
+document.addEventListener('click',function(e){if(pop&&!pop.hidden&&e.target!==pop)hidePop()});
+window.addEventListener('scroll',function(){if(pop&&!pop.hidden&&Math.abs(window.scrollY-y0)>60)hidePop()},{passive:true});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){hidePop();if(!d.hidden){shut();b.focus()}}});})();</script>
+<section class="step" id="step-1" style="--c:var(--predict)"><div class="chip">Predict<small>Read the problem and decide what you think before you try anything. A wrong guess is fine: it shows you what to look for.</small></div><h2>15% off</h2><p>10% of $80 is $8. What is 5%?</p>
+<div class="check" data-key="maths/number/percentages/step-1" data-play="maths/number/percentages/step-1" data-kind="turtle" data-subj="maths" data-type="predict" data-unlocks="" data-names="" data-explain=""><fieldset><legend class="check-q">A jacket costs $80. It is 15% off. What do you pay?</legend><label><input type="radio" name="p-maths/number/percentages/step-1" value="$68"><span>$68</span></label><label><input type="radio" name="p-maths/number/percentages/step-1" value="$65"><span>$65</span></label><label><input type="radio" name="p-maths/number/percentages/step-1" value="$12"><span>$12</span></label><label><input type="radio" name="p-maths/number/percentages/step-1" value="$92"><span>$92</span></label></fieldset><button type="button">Lock in my prediction</button><p class="msg" aria-live="polite"></p></div></section><section class="step" id="step-2" style="--c:var(--run)"><div class="chip">Try<small>Try it on the board and compare the result with your prediction.</small></div><h2>Take it off</h2><p>The orange part is taken off; the blue part is what you pay.</p>
+<div class="try"><div class="try-head"><b>Try it yourself</b><span>Your edits are saved in this browser.</span><button type="button" class="try-full" aria-pressed="false" title="Give the playground the whole screen (Esc to come back)">Full screen</button></div><iframe title="Board" loading="lazy" style="height:540px" src="../../../_playground-board/index.html?id=maths%2Fnumber%2Fpercentages%2Fstep-2&amp;code=widget%3A+percent%0Aq%3A+80%0Aslider+p%3A+0%2C+50%2C+0%2C+5%0Amode%3A+decrease%0Aunits%3A+%24%0A&amp;v=3e35ff1e64"></iframe></div><div class="compare" hidden aria-live="polite" data-predict="maths/number/percentages/step-1" data-play="maths/number/percentages/step-2" data-actual="$68. 15% of $80 is $12, and $80 − $12 = $68. $12 is the discount, not the price; $65 takes 15 dollars off, not 15%."></div><div class="check" data-key="maths/number/percentages/step-2" data-play="maths/number/percentages/step-2" data-kind="board" data-subj="maths" data-type="board" data-unlocks="" data-names="" data-explain="15% of 80 = 12, so you pay 68: 85% of 80." data-expect="{}" data-when="p = 15"><p class="check-q">The bar is the $80 price. Set the discount to 15%. What do you pay? Was your prediction right?</p><p class="msg" aria-live="polite">Use the board. This ticks when you get there.</p></div></section><section class="step" id="step-3" style="--c:var(--investigate)"><div class="chip">Investigate<small>Work out why it happens, one step at a time.</small></div><h2>Of, off and out of</h2><div class="tasks" style="--c:var(--investigate)" data-step="step-3" data-stepkey="maths/number/percentages/step-3" data-kind="turtle" data-keys="maths/number/percentages/step-3#t1|maths/number/percentages/step-3#t2|maths/number/percentages/step-3#t3" data-unlocks="" data-names=""><div class="taskpills" role="tablist" aria-label="Tasks"><button type="button" role="tab" class="tp active" data-i="0" data-key="maths/number/percentages/step-3#t1" aria-selected="true"><i></i>1 · Find it, then use it</button><button type="button" role="tab" class="tp" data-i="1" data-key="maths/number/percentages/step-3#t2" aria-selected="false"><i></i>2 · Find the mistake</button><button type="button" role="tab" class="tp" data-i="2" data-key="maths/number/percentages/step-3#t3" aria-selected="false"><i></i>3 · Out of</button></div><div class="tpanel active" data-i="0" role="tabpanel"><p>Here is each kind with $80.</p>
+<div class="worked"><div class="worked-head"><b>Worked example</b><span>Before each step, say what you think comes next.</span></div><ol><li><span class="wm"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mi mathvariant="normal">%</mi><mtext> of </mtext><mn>80</mn><mo>=</mo><mn>8</mn><mo separator="true">,</mo><mspace width="1em"/><mn>5</mn><mi mathvariant="normal">%</mi><mtext> of </mtext><mn>80</mn><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">10\% \text{ of } 80 = 8, \quad 5\% \text{ of } 80 = 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">10%</span><span class="mord text"><span class="mord"> of </span></span><span class="mord">80</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.9444em;vertical-align:-0.1944em;"></span><span class="mord">8</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">5%</span><span class="mord text"><span class="mord"> of </span></span><span class="mord">80</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span></span><span class="why">Mental: 10% is a tenth, 5% is half of that.</span></li><li hidden><span class="wm"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn><mi mathvariant="normal">%</mi><mtext> of </mtext><mn>80</mn><mo>=</mo><mn>0.15</mn><mo>×</mo><mn>80</mn><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">15\% \text{ of } 80 = 0.15 \times 80 = 12</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">15%</span><span class="mord text"><span class="mord"> of </span></span><span class="mord">80</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.15</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">80</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">12</span></span></span></span></span><span class="why">Or as a decimal: 15% = 0.15.</span></li><li hidden><span class="wm"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>80</mn><mo>−</mo><mn>12</mn><mo>=</mo><mn>68</mn><mspace width="1em"/><mtext>or</mtext><mspace width="1em"/><mn>80</mn><mo>×</mo><mn>0.85</mn><mo>=</mo><mn>68</mn></mrow><annotation encoding="application/x-tex">80 - 12 = 68 \quad \text{or} \quad 80 \times 0.85 = 68</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">80</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">12</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">68</span><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">or</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mord">80</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0.85</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">68</span></span></span></span></span><span class="why">A decrease: take it off, or keep 85% in one step.</span></li><li hidden><span class="wm"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>80</mn><mo>×</mo><mn>1.15</mn><mo>=</mo><mn>92</mn></mrow><annotation encoding="application/x-tex">80 \times 1.15 = 92</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">80</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1.15</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">92</span></span></span></span></span><span class="why">An increase: 100% + 15% = 115%, so × 1.15.</span></li><li hidden><span class="wm"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>18</mn><mo>÷</mo><mn>24</mn><mo>=</mo><mn>0.75</mn><mo>=</mo><mn>75</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">18 \div 24 = 0.75 = 75\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">18</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">÷</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">24</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0.75</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">75%</span></span></span></span></span><span class="why">What percentage: divide, then × 100.</span></li></ol><div class="worked-go"><button type="button" class="wnext">Next step</button><button type="button" class="wall">Show all</button></div></div><p>Now try one: 35% of 60.</p>
+</div><div class="tpanel" data-i="1" role="tabpanel"><p>Read Grace&#39;s working. Is $10 a sensible price?</p>
+</div><div class="tpanel" data-i="2" role="tabpanel"></div><div class="tpanel active" data-i="0"><div class="check" data-key="maths/number/percentages/step-3#t1" data-play="maths/number/percentages/step-3" data-kind="turtle" data-subj="maths" data-type="answer" data-unlocks="" data-names="" data-explain="10% of 60 is 6, so 30% is 18, and 5% is 3: 21. Or 0.35 × 60 = 21." data-answer="21" data-feedback="[[&quot;25&quot;,&quot;That is 60 − 35. 35% means 35 hundredths of 60.&quot;],[&quot;2100&quot;,&quot;That is 35 × 60, 100 times too big: 35% is 35 hundredths, so divide by 100.&quot;]]"><p class="check-q">Find 35% of 60.</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="Your answer"></label><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="1"><div class="check" data-key="maths/number/percentages/step-3#t2" data-play="maths/number/percentages/step-3" data-kind="turtle" data-subj="maths" data-type="bug" data-unlocks="" data-names="" data-explain="Line 3: 50 × 0.2 is the discount (10), not the price. What is left is 80%: 50 × 0.8 = 40." data-answers="[&quot;3&quot;]" data-need="1"><p class="check-q">Grace finds the sale price of a $50 game that is 20% off. Click the line where her working goes wrong.</p><ol class="buglines"><li><button type="button" data-line="1"><code>A $50 game is 20% off. Find the sale price.</code></button></li><li><button type="button" data-line="2"><code>20% = 0.2</code></button></li><li><button type="button" data-line="3"><code>Sale price = 50 × 0.2</code></button></li><li><button type="button" data-line="4"><code>= $10</code></button></li></ol><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="2"><div class="check" data-key="maths/number/percentages/step-3#t3" data-play="maths/number/percentages/step-3" data-kind="turtle" data-subj="maths" data-type="answer" data-unlocks="" data-names="" data-explain="18 ÷ 24 = 0.75 = 75%." data-answer="75" data-feedback="[[&quot;0.75&quot;,&quot;That is the fraction as a decimal. × 100 for a percentage.&quot;],[&quot;18&quot;,&quot;18 out of 24, not out of 100. Divide first: 18 ÷ 24.&quot;]]"><p class="check-q">Ari scored 18 out of 24. What percentage is that?</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="Your answer"></label><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><p class="tmsg" aria-live="polite"></p></div></section><section class="step" id="step-4" style="--c:var(--modify)"><div class="chip">Modify<small>Change the problem on purpose and see what happens.</small></div><h2>One change at a time</h2><div class="tasks" style="--c:var(--modify)" data-step="step-4" data-stepkey="maths/number/percentages/step-4" data-kind="board" data-keys="maths/number/percentages/step-4#t1|maths/number/percentages/step-4#t2|maths/number/percentages/step-4#t3|maths/number/percentages/step-4#t4|maths/number/percentages/step-4#t5" data-unlocks="" data-names=""><div class="taskpills" role="tablist" aria-label="Tasks"><button type="button" role="tab" class="tp active" data-i="0" data-key="maths/number/percentages/step-4#t1" aria-selected="true"><i></i>1 · GST</button><button type="button" role="tab" class="tp" data-i="1" data-key="maths/number/percentages/step-4#t2" aria-selected="false"><i></i>2 · Increase</button><button type="button" role="tab" class="tp" data-i="2" data-key="maths/number/percentages/step-4#t3" aria-selected="false"><i></i>3 · Decrease</button><button type="button" role="tab" class="tp" data-i="3" data-key="maths/number/percentages/step-4#t4" aria-selected="false"><i></i>4 · What percentage?</button><button type="button" role="tab" class="tp" data-i="4" data-key="maths/number/percentages/step-4#t5" aria-selected="false"><i></i>5 · Up, then down</button></div><div class="tpanel active" data-i="0" role="tabpanel"><p>Each task changes one thing.</p>
+<details class="hints"><summary>Need a hint?</summary><p>GST in Australia is 10%.</p>
+</details><button type="button" class="resetstart" data-code="widget: percent
+q: 250
+slider p: 0, 50, 0, 5
+mode: increase
+units: $
+">Reset to this task's start</button></div><div class="tpanel" data-i="1" role="tabpanel"></div><div class="tpanel" data-i="2" role="tabpanel"></div><div class="tpanel" data-i="3" role="tabpanel"></div><div class="tpanel" data-i="4" role="tabpanel"></div><div class="try"><div class="try-head"><b>Try it yourself</b><span>Your edits are saved in this browser.</span><button type="button" class="try-full" aria-pressed="false" title="Give the playground the whole screen (Esc to come back)">Full screen</button></div><iframe title="Board" loading="lazy" style="height:540px" src="../../../_playground-board/index.html?id=maths%2Fnumber%2Fpercentages%2Fstep-4&amp;code=widget%3A+percent%0Aq%3A+250%0Aslider+p%3A+0%2C+50%2C+0%2C+5%0Amode%3A+increase%0Aunits%3A+%24%0A&amp;v=3e35ff1e64"></iframe></div><div class="tpanel active" data-i="0"><div class="check" data-key="maths/number/percentages/step-4#t1" data-play="maths/number/percentages/step-4" data-kind="board" data-subj="maths" data-type="board" data-unlocks="" data-names="" data-explain="10% of 250 = 25, so $275: 250 × 1.1." data-expect="{}" data-when="p = 10"><p class="check-q">A TV is $250 before GST. Add 10% GST. What is the price?</p><p class="msg" aria-live="polite">Use the board. This ticks when you get there.</p></div></div><div class="tpanel" data-i="1"><div class="check" data-key="maths/number/percentages/step-4#t2" data-play="maths/number/percentages/step-4" data-kind="board" data-subj="maths" data-type="answer" data-unlocks="" data-names="" data-explain="25% of 60 = 15, so 75. Or 60 × 1.25 = 75." data-answer="75" data-feedback="[[&quot;15&quot;,&quot;That is 25% of 60, the increase. Add it on.&quot;],[&quot;85&quot;,&quot;That adds 25, not 25%.&quot;]]"><p class="check-q">Increase 60 by 25%.</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="Your answer"></label><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="2"><div class="check" data-key="maths/number/percentages/step-4#t3" data-play="maths/number/percentages/step-4" data-kind="board" data-subj="maths" data-type="answer" data-unlocks="" data-names="" data-explain="60% is left: 0.6 × 45 = 27." data-answer="27" data-feedback="[[&quot;18&quot;,&quot;That is 40% of 45, the decrease. 60% is left.&quot;],[&quot;5&quot;,&quot;That takes 40 off, not 40%.&quot;]]"><p class="check-q">Decrease 45 by 40%.</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="Your answer"></label><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="3"><div class="check" data-key="maths/number/percentages/step-4#t4" data-play="maths/number/percentages/step-4" data-kind="board" data-subj="maths" data-type="answer" data-unlocks="" data-names="" data-explain="12 ÷ 30 = 0.4 = 40%." data-answer="40" data-feedback="[[&quot;12&quot;,&quot;12 out of 30, not out of 100.&quot;],[&quot;0.4&quot;,&quot;× 100 for a percentage.&quot;]]"><p class="check-q">In a class of 30, 12 students walk to school. What percentage walk?</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="Your answer"></label><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="4"><div class="check" data-key="maths/number/percentages/step-4#t5" data-play="maths/number/percentages/step-4" data-kind="board" data-subj="maths" data-type="question" data-unlocks="" data-names="" data-explain="100 × 1.1 = 110, then 110 × 0.9 = 99. The decrease is 10% of a bigger amount." data-answer="1" data-feedback="[&quot;That is only the decrease, from $100.&quot;,&quot;&quot;,&quot;Down 10% of 110 is 11.&quot;,&quot;The 10% decrease is of 110, not of 100.&quot;]"><fieldset><legend>Edge case: a $100 price goes up 10%, then the new price goes down 10%. What is it now?</legend><label><input type="radio" name="q-maths-number-percentages-step-4-t5" value="0"><span>$90</span></label><label><input type="radio" name="q-maths-number-percentages-step-4-t5" value="1"><span>$99</span></label><label><input type="radio" name="q-maths-number-percentages-step-4-t5" value="2"><span>$101</span></label><label><input type="radio" name="q-maths-number-percentages-step-4-t5" value="3"><span>$100</span></label></fieldset><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><p class="tmsg" aria-live="polite"></p></div></section><section class="step" id="step-5" style="--c:var(--practise)"><div class="chip">Practise<small>A few on your own, to check you have it.</small></div><h2>Percentages</h2><div class="tasks" style="--c:var(--practise)" data-step="step-5" data-stepkey="maths/number/percentages/step-5" data-kind="turtle" data-keys="maths/number/percentages/step-5#t1|maths/number/percentages/step-5#t2|maths/number/percentages/step-5#t3|maths/number/percentages/step-5#t4" data-unlocks="" data-names=""><div class="taskpills" role="tablist" aria-label="Tasks"><button type="button" role="tab" class="tp active" data-i="0" data-key="maths/number/percentages/step-5#t1" aria-selected="true"><i></i>1 · A friendly percentage</button><button type="button" role="tab" class="tp" data-i="1" data-key="maths/number/percentages/step-5#t2" aria-selected="false"><i></i>2 · A multiplier</button><button type="button" role="tab" class="tp" data-i="2" data-key="maths/number/percentages/step-5#t3" aria-selected="false"><i></i>3 · Growth</button><button type="button" role="tab" class="tp" data-i="3" data-key="maths/number/percentages/step-5#t4" aria-selected="false"><i></i>4 · Review: multiplying fractions</button></div><div class="tpanel active" data-i="0" role="tabpanel"></div><div class="tpanel" data-i="1" role="tabpanel"></div><div class="tpanel" data-i="2" role="tabpanel"></div><div class="tpanel" data-i="3" role="tabpanel"></div><div class="tpanel active" data-i="0"><div class="check" data-key="maths/number/percentages/step-5#t1" data-play="maths/number/percentages/step-5" data-kind="turtle" data-subj="maths" data-type="answer" data-unlocks="" data-names="" data-explain="12.5% = 1/8, and 64 ÷ 8 = 8." data-answer="8" data-feedback="[[&quot;51.5&quot;,&quot;That is 64 − 12.5. Take an eighth of 64.&quot;]]"><p class="check-q">Find 12.5% of 64. (12.5% is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="false"><mfrac><mn>1</mn><mn>8</mn></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\tfrac{1}{8}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">8</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>.)</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="Your answer"></label><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="1"><div class="check" data-key="maths/number/percentages/step-5#t2" data-play="maths/number/percentages/step-5" data-kind="turtle" data-subj="maths" data-type="answer" data-unlocks="" data-names="" data-explain="100% − 30% = 70% = 0.7." data-answer="0.7" data-feedback="[[&quot;0.3&quot;,&quot;× 0.3 gives the decrease. What is left is 70%.&quot;],[&quot;1.3&quot;,&quot;That increases by 30%.&quot;]]"><p class="check-q">What do you multiply by to decrease an amount by 30%?</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="Your answer"></label><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="2"><div class="check" data-key="maths/number/percentages/step-5#t3" data-play="maths/number/percentages/step-5" data-kind="turtle" data-subj="maths" data-type="answer" data-unlocks="" data-names="" data-explain="5% of 120 = 6, so 126 mm. Or 120 × 1.05 = 126." data-answer="126" data-feedback="[[&quot;6&quot;,&quot;6 mm is the growth. Add it on.&quot;],[&quot;125&quot;,&quot;That adds 5 mm, not 5%.&quot;]]"><p class="check-q">A plant 120 mm tall grows 5% taller. How tall is it now, in mm?</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="Your answer"></label><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><div class="tpanel" data-i="3"><div class="check" data-key="maths/number/percentages/step-5#t4" data-play="maths/number/percentages/step-5" data-kind="turtle" data-subj="maths" data-type="answer" data-unlocks="" data-names="" data-explain="6/12 = 1/2." data-answer="1/2" data-form="simplest" data-feedback="[[&quot;6/12&quot;,&quot;Right amount: simplify.&quot;]]"><p class="check-q">Review: work out <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle scriptlevel="0" displaystyle="false"><mfrac><mn>2</mn><mn>3</mn></mfrac></mstyle><mo>×</mo><mstyle scriptlevel="0" displaystyle="false"><mfrac><mn>3</mn><mn>4</mn></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\tfrac{2}{3} \times \tfrac{3}{4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> in simplest form.</p><label class="numrow ansrow"><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer" placeholder="Your answer"></label><button type="button">Check answer</button><p class="msg" aria-live="polite"></p></div></div><p class="tmsg" aria-live="polite"></p></div></section><section class="step" id="step-6" style="--c:var(--make)"><div class="chip">Make<small>Make your own problem using what you have learned. Expect a few tries; that is normal.</small></div><h2>Save $15</h2><p>Then find the pair with the lowest sale price.</p>
+<div class="try"><div class="try-head"><b>Try it yourself</b><span>Your edits are saved in this browser.</span><button type="button" class="try-full" aria-pressed="false" title="Give the playground the whole screen (Esc to come back)">Full screen</button></div><iframe title="Board" loading="lazy" style="height:600px" src="../../../_playground-board/index.html?id=maths%2Fnumber%2Fpercentages%2Fstep-6&amp;code=widget%3A+percent%0Aslider+q%3A+20%2C+200%2C+100%2C+10%0Aslider+p%3A+0%2C+100%2C+0%2C+5%0Amode%3A+decrease%0Aunits%3A+%24%0A&amp;v=3e35ff1e64"></iframe></div><details class="hints"><summary>Need a hint?</summary><p>10% of $150 is $15. Find another.</p>
+</details><details class="hints"><summary>Another hint</summary><p>Try 25% of something, or 50%.</p>
+</details><div class="check" data-key="maths/number/percentages/step-6" data-play="maths/number/percentages/step-6" data-kind="board" data-subj="maths" data-type="board" data-unlocks="" data-names="" data-explain="For example 10% of 150, 15% of 100, 25% of 60, 30% of 50, 50% of 30 or 75% of 20." data-expect="{}" data-when="v = 15"><p class="check-q">Set a price and a discount that save exactly $15.</p><p class="msg" aria-live="polite">Use the board. This ticks when you get there.</p></div></section>
+<details class="teachers"><summary>For teachers</summary><p>Students use a percentage bar to find a percentage of an amount, apply increases and decreases (in two steps and with one multiplier), and express one amount as a percentage of another (AC9M7N06, node 3). <b>About 45 minutes.</b></p><p class="tguide"><a href="../../../teach/maths/number/percentages/">Open the teacher guide</a>: answers, solutions, slides and a worksheet.</p><h3>Students will be able to</h3><ul><li>I can find a percentage of an amount, mentally and with a decimal.</li><li>I can increase or decrease an amount by a percentage, including with one multiplier.</li><li>I can write one amount as a percentage of another.</li></ul><h3>Before class</h3><p>Do the Run board yourself first. Students need percentages as decimals (Fractions, decimals and percentages) and multiplying by a fraction less than 1 (previous lesson).</p>
+<p>The one idea: a percentage is hundredths, and &quot;of&quot; means multiply. For a decrease, multiply by what is left (Grace multiplies by what is taken off). Varied structures matter: of, off, on, and out of.</p>
+<p>Calculators are fine for the decimals; the mental route (10%, 5%, 1%) builds number sense and checks calculator answers.</p>
+<h3>Running the lesson</h3><ol><li>Predict: students who chose $12 stopped at the discount; $65 took 15 dollars off.</li><li>Run: ask what percentage the blue part is, and how that gives a one-step multiplier.</li><li>Investigate: compare the mental route and the decimal route for 35% of 60.</li><li>Modify: for up then down, take a vote before working it out.</li><li>Make: collect pairs on the board; order them by sale price.</li></ol><h3>The hard part (on purpose)</h3><p>Choosing the multiplier for a decrease. Ask what percentage is left after the discount before students touch the calculator.</p><h3>When students get stuck</h3><ul><li><b>A student multiplies by the percentage taken off for a decrease (Grace's mistake).</b> Ask: Is your answer the price or the saving? Fix: Multiply by what is left: 100% − 20% = 80%.</li><li><b>A student takes off the number, not the percentage (80 − 15 = 65).</b> Ask: 15 what: dollars or hundredths? Fix: Find 15% of 80 first.</li><li><b>A student gives a decimal for 'what percentage' (0.75).</b> Ask: Out of what? Fix: × 100 for a percentage.</li></ul><h3>Stretch and support</h3><p><b>Stretch:</b> A shop increases a price by 25%, then offers 20% off the new price. Is the final price more, less or the same as the start? Explain with multipliers.</p><p><b>Support:</b> Use the bar for every problem; start from 10% and build.</p><h3>Where it leads</h3><p>Next: Choosing a strategy (node 4), choosing between fractions, decimals and percentages.</p>
+<p>Where it leads: financial maths (profit, GST, discounts in AC9M7N09), and percentage change with repeated multipliers (Year 9 and 10).</p>
+<h3>What each step is for</h3><ul><li><b>15% off:</b> Committing to a sale price shows whether they find the discount and take it off, stop at the discount, or add it.</li><li><b>take it off:</b> Sliding the percentage to 15 shows the discount as part of the bar and the price as what is left: 85% of the whole.</li><li><b>of, off and out of:</b> A percentage of an amount is a multiplication; Grace multiplies by the part taken off instead of what is left. Finding a percentage divides first.</li><li><b>one change at a time:</b> One change at a time: an increase on the board, an increase by a multiplier, a decrease, a percentage of a group, then increase then decrease.</li><li><b>percentages:</b> A friendly percentage, a multiplier, an increase and a percentage of a group, mixed; the multiplier for a decrease is the planted slip; the review keeps multiplying fractions fresh.</li><li><b>save $15:</b> Finding a price and a discount that save exactly $15 shows that many pairs work, and that the saving is percentage × price.</li></ul></details>
+<section class="nowcan" aria-label="Now you can"><small>Now you can</small><ul><li>Find a percentage of an amount, mentally and with a decimal.</li><li>Increase or decrease an amount by a percentage, including with one multiplier.</li><li>Write one amount as a percentage of another.</li></ul></section><a class="nextcard practicecard" href="../practice/?skill=percentages"><small>Practise this skill</small><b>New questions, new numbers each time</b><span>Get 3 right in a row to mark it practised.</span></a><a class="nextcard" href="../choosing-a-strategy/"><small>Next lesson</small><b>15. Choosing a strategy</b><span>The same calculation can be quick or slow. Change the order (4 × 2.7 × 25 = 100 × 2.7), change the form (0.75 × 36 = 3/4 of 36), or split a number (12 × 2.5 = 24 + 6). Then check the answer is about right.</span></a>
+<footer>Source: <code>content/maths/number/percentages/lesson.md</code></footer></div><script>var evalRules=function evalRules(rules, text, kind) {
+  // kind 'html': HTML and CSS (comments are <!-- --> and /* */; # is a colour or a link, not a comment; case does not matter).
+  if (kind === 'html') {
+    const src = String(text).replace(/<!--[\s\S]*?-->/g, '').replace(/\/\*[\s\S]*?\*\//g, '').toLowerCase();
+    const out = [];
+    (rules.tags || []).forEach((t) => out.push({ label: `Use <${t}>`, ok: new RegExp('<' + String(t).toLowerCase() + '[\\s>/]').test(src) }));
+    const flatH = src.replace(/\s+/g, '');
+    (rules.contains || []).forEach((frag) => out.push({ label: `Your code has ${frag}`, ok: flatH.includes(String(frag).toLowerCase().replace(/\s+/g, '')) }));
+    return out;
+  }
+  // kind 'p5': JavaScript for p5.js. Comments are // and /* */ (quotes respected). defs/params/calls read the student's own
+  // functions (`function name(a, b)`); p5's own hooks (setup, draw, mousePressed...) are not counted as theirs.
+  if (kind === 'p5') {
+    const HOOKS = ['setup', 'draw', 'preload', 'mousePressed', 'mouseReleased', 'mouseClicked', 'mouseMoved', 'mouseDragged', 'doubleClicked', 'mouseWheel', 'keyPressed', 'keyReleased', 'keyTyped', 'windowResized', 'touchStarted', 'touchEnded', 'touchMoved'];
+    const noJs = (l) => { let q = null; for (let i = 0; i < l.length; i++) { const c = l[i]; if (q) { if (c === '\\') i++; else if (c === q) q = null; } else if (c === '"' || c === "'" || c === '`') q = c; else if (c === '/' && l[i + 1] === '/') return l.slice(0, i); } return l; };
+    const lines = String(text).replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(noJs);
+    const src = lines.join('\n');
+    const fdefs = []; src.replace(/\bfunction\s+([A-Za-z_$][\w$]*)\s*\(([^)]*)\)/g, (m, n, ps) => { if (!HOOKS.includes(n)) fdefs.push({ name: n, params: ps.split(',').filter((x) => x.trim()).length }); return m; });
+    const esc$ = (n) => String(n).replace(/\$/g, '\\$');
+    const fcalls = (n) => (src.match(new RegExp('(^|[^\\w$.])' + esc$(n) + '\\s*\\(', 'g')) || []).length - (src.match(new RegExp('function\\s+' + esc$(n) + '\\s*\\(', 'g')) || []).length;
+    const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+    const out = [];
+    if (rules.defs) out.push({ label: `Write at least ${plural(rules.defs, 'function')} of your own`, ok: fdefs.length >= rules.defs });
+    if (rules.params) out.push({ label: `Write a function with at least ${plural(rules.params, 'parameter')}`, ok: fdefs.some((d) => d.params >= rules.params) });
+    if (rules.calls) out.push({ label: rules.calls === 1 ? 'Call your function' : `Call one of your functions at least ${rules.calls} times`, ok: Math.max(0, ...fdefs.map((d) => fcalls(d.name))) >= rules.calls });
+    if (rules.loops) out.push({ label: rules.loops === 1 ? 'Use a loop' : `Use at least ${rules.loops} loops`, ok: lines.filter((l) => /\b(for|while)\s*\(/.test(l)).length >= rules.loops });
+    if (rules.returns) out.push({ label: 'Use return to give a value back', ok: lines.filter((l) => /\breturn\b/.test(l)).length >= rules.returns });
+    (rules.uses || []).forEach((n) => out.push({ label: `Use ${n}`, ok: new RegExp('(^|[^\\w$])' + esc$(n) + '([^\\w$]|$)').test(src) }));
+    const flatP = src.replace(/\s+/g, '');
+    (rules.contains || []).forEach((frag) => out.push({ label: `Your code has ${frag}`, ok: flatP.includes(String(frag).replace(/\s+/g, '')) }));
+    return out;
+  }
+  // kind 'microbit' / 'arcade': MakeCode JavaScript (main.ts). Comments are // and /* */; everything is compared with
+  // spaces removed, so `basic.forever(function () {` and `basic.forever(function(){` match.
+  //   inside: { "basic.forever": [fragments] }   fragments in the first { ... } block after each place the key appears
+  //   count: { "basic.show": 3 }                 a fragment appears at least this many times
+  //   defs / params / calls                      named functions (`function name (points: number)`); event blocks
+  //                                              are anonymous `function ()`, so they never count as a definition
+  // Labels are for teachers and the validator; students working in blocks see the check's own text instead.
+  if (kind === 'microbit' || kind === 'arcade') {
+    const plain = String(text).replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, '');
+    const flatM = (s) => String(s).replace(/\s+/g, '');
+    const fm = flatM(plain);
+    const block = (key) => {
+      const out = []; let i = 0; const k = flatM(key);
+      while ((i = fm.indexOf(k, i)) >= 0) {
+        const j = fm.indexOf('{', i + k.length); if (j < 0) break; let d = 0;
+        for (let x = j; x < fm.length; x++) { if (fm[x] === '{') d++; else if (fm[x] === '}' && --d === 0) { out.push(fm.slice(j + 1, x)); break; } }
+        i = j;
+      }
+      return out.join('|');
+    };
+    const fdefs = []; plain.replace(/function\s+([A-Za-z_]\w*)\s*\(([^)]*)\)/g, (m, n, ps) => { fdefs.push({ name: n, params: ps.split(',').filter((x) => x.trim()).length }); return m; });
+    const fcalls = (n) => (plain.match(new RegExp('\\b' + n + '\\s*\\(', 'g')) || []).length - 1;
+    const out = [];
+    (rules.contains || []).forEach((frag) => out.push({ label: `Has ${frag}`, ok: fm.includes(flatM(frag)) }));
+    Object.keys(rules.inside || {}).forEach((key) => { const b = block(key); [].concat(rules.inside[key]).forEach((frag) => out.push({ label: `Inside ${key}: ${frag}`, ok: b.includes(flatM(frag)) })); });
+    Object.keys(rules.count || {}).forEach((frag) => out.push({ label: `${frag} at least ${rules.count[frag]} times`, ok: fm.split(flatM(frag)).length - 1 >= rules.count[frag] }));
+    if (rules.defs) out.push({ label: `At least ${rules.defs} function${rules.defs === 1 ? '' : 's'} of your own`, ok: fdefs.length >= rules.defs });
+    if (rules.params) out.push({ label: `A function with at least ${rules.params} parameter${rules.params === 1 ? '' : 's'}`, ok: fdefs.some((d) => d.params >= rules.params) });
+    if (rules.calls) out.push({ label: rules.calls === 1 ? 'Call your function' : `Call one of your functions at least ${rules.calls} times`, ok: Math.max(0, ...fdefs.map((d) => fcalls(d.name))) >= rules.calls });
+    return out;
+  }
+  // Comments end at the line's end; a # inside quotes ("#" * 5, "#ff0000") is text, not a comment.
+  const noComment = (l) => { let q = null; for (let i = 0; i < l.length; i++) { const c = l[i]; if (q) { if (c === '\\') i++; else if (c === q) q = null; } else if (c === '"' || c === "'") q = c; else if (c === '#') return l.slice(0, i); } return l; };
+  const code = String(text).split('\n').map(noComment);
+  const defs = [];
+  code.forEach((l) => { const m = l.match(/^\s*def\s+([A-Za-z_]\w*)\s*\(([^)]*)\)/); if (m) defs.push({ name: m[1], params: m[2].split(',').filter((x) => x.trim()).length }); });
+  const count = (re) => code.filter((l) => re.test(l)).length;
+  const callsOf = (name) => code.filter((l) => !/^\s*def\s/.test(l)).reduce((n, l) => n + (l.match(new RegExp('\\b' + name + '\\s*\\(', 'g')) || []).length, 0);
+  const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+  const out = [];
+  if (rules.defs) out.push({ label: `Define at least ${plural(rules.defs, 'function')} with def`, ok: defs.length >= rules.defs });
+  if (rules.params) out.push({ label: `Write a function with at least ${plural(rules.params, 'parameter')}`, ok: defs.some((d) => d.params >= rules.params) });
+  if (rules.calls) out.push({ label: rules.calls === 1 ? 'Call your function' : `Call one of your functions at least ${rules.calls} times`, ok: Math.max(0, ...defs.map((d) => callsOf(d.name))) >= rules.calls });
+  if (rules.loops) out.push({ label: rules.loops === 1 ? 'Use a loop' : `Use at least ${rules.loops} loops`, ok: count(/^\s*(for|while)\b/) >= rules.loops });
+  if (rules.returns) out.push({ label: 'Use return to give a value back', ok: count(/^\s*return\b/) >= rules.returns });
+  (rules.uses || []).forEach((n) => out.push({ label: `Use ${n}`, ok: code.some((l) => new RegExp('\\b' + n + '\\b').test(l)) }));
+  (rules.imports || []).forEach((m) => out.push({ label: `Import from ${m}`, ok: code.some((l) => new RegExp('^\\s*(from|import)\\s+' + m + '\\b').test(l)) }));
+  // contains: code fragments that must appear somewhere (spaces ignored, comments skipped), shown as written.
+  const flat = code.join('\n').replace(/\s+/g, '');
+  (rules.contains || []).forEach((frag) => out.push({ label: `Your code has ${frag}`, ok: flat.includes(String(frag).replace(/\s+/g, '')) }));
+  return out;
+};
+var WPM=(function makeMath() {
+  function tokens(s) {
+    s = String(s).replace(/[−–]/g, '-').replace(/×|·/g, '*').replace(/÷/g, '/').replace(/\s+/g, '');
+    var out = [], i = 0;
+    while (i < s.length) {
+      var c = s[i], m;
+      if ((m = /^\d+(\.\d+)?|^\.\d+/.exec(s.slice(i)))) { out.push({ t: 'n', v: parseFloat(m[0]) }); i += m[0].length; }
+      // A name with an underscore is one variable (acc_messy, has_neither): board values with long names. Students
+      // never type "_" in algebra, so 2xy is still 2 × x × y.
+      else if ((m = /^[a-zA-Z]\w*_\w*/.exec(s.slice(i)))) { out.push({ t: 'v', v: m[0] }); i += m[0].length; }
+      else if (/[a-zA-Z]/.test(c)) { out.push({ t: 'v', v: c }); i++; }
+      else if ('+-*/^()='.indexOf(c) >= 0) { out.push({ t: c }); i++; }
+      else throw new Error('I do not understand "' + c + '".');
+    }
+    // Implicit multiplication: 2x, 2(x + 1), (x + 1)(x - 1), x(3), xy
+    var r = [];
+    for (var k = 0; k < out.length; k++) {
+      var a = r[r.length - 1], b = out[k];
+      if (a && (a.t === 'n' || a.t === 'v' || a.t === ')') && (b.t === 'n' || b.t === 'v' || b.t === '(') && !(a.t === 'n' && b.t === 'n')) r.push({ t: '*' });
+      r.push(b);
+    }
+    return r;
+  }
+  // Recursive descent: expr = term (+|- term)*, term = unary (*|/ unary)*, unary = -unary | power, power = atom (^ unary)?
+  function parse(s) {
+    var tk = tokens(s), p = 0;
+    function peek() { return tk[p] && tk[p].t; }
+    function expr() { var n = term(); while (peek() === '+' || peek() === '-') { var o = tk[p++].t; n = { o: o, a: n, b: term() }; } return n; }
+    function term() { var n = unary(); while (peek() === '*' || peek() === '/') { var o = tk[p++].t; n = { o: o, a: n, b: unary() }; } return n; }
+    function unary() { if (peek() === '-') { p++; return { o: 'neg', a: unary() }; } if (peek() === '+') { p++; return unary(); } return power(); }
+    function power() { var n = atom(); if (peek() === '^') { p++; n = { o: '^', a: n, b: unary() }; } return n; }
+    function atom() {
+      var t = tk[p++];
+      if (!t) throw new Error('Something is missing at the end.');
+      if (t.t === 'n') return { n: t.v };
+      if (t.t === 'v') return { v: t.v };
+      if (t.t === '(') { var n = expr(); if (peek() !== ')') throw new Error('A bracket is not closed.'); p++; return n; }
+      throw new Error('Something is missing before "' + t.t + '".');
+    }
+    if (!tk.length) throw new Error('Type an answer first.');
+    var tree = expr();
+    if (p < tk.length) throw new Error(tk[p].t === '=' ? 'Use only one = sign.' : 'Check the end of your answer.');
+    return tree;
+  }
+  function ev(n, vars) {
+    if (n.n !== undefined) return n.n;
+    if (n.v !== undefined) { if (!(n.v in vars)) throw new Error('What is ' + n.v + '?'); return vars[n.v]; }
+    var a = ev(n.a, vars);
+    if (n.o === 'neg') return -a;
+    var b = ev(n.b, vars);
+    return n.o === '+' ? a + b : n.o === '-' ? a - b : n.o === '*' ? a * b : n.o === '/' ? a / b : Math.pow(a, b);
+  }
+  function names(n, set) { set = set || {}; if (n.v !== undefined) set[n.v] = 1; if (n.a) names(n.a, set); if (n.b) names(n.b, set); return set; }
+  function evaluate(s, vars) { return ev(parse(s), vars || {}); }
+  var close = function (a, b) { return Math.abs(a - b) <= 1e-9 * Math.max(1, Math.abs(a), Math.abs(b)); };
+  // Same value for every tested value of each variable (both directions, so extra variables are caught).
+  function equivalent(a, b) {
+    var ta = parse(a), tb = parse(b), vs = Object.keys(Object.assign(names(ta), names(tb)));
+    var pts = [-2.5, -1, 0.5, 1.75, 3, 7.25];
+    for (var i = 0; i < pts.length; i++) {
+      var vars = {};
+      vs.forEach(function (v, j) { vars[v] = pts[(i + j * 2) % pts.length] + j * 0.37; });
+      var x = ev(ta, vars), y = ev(tb, vars);
+      if (!isFinite(x) || !isFinite(y)) continue;
+      if (!close(x, y)) return false;
+    }
+    return true;
+  }
+  // "x = 4" -> { name: 'x', value: '4' }; "4" -> { name: null, value: '4' }
+  function splitAnswer(s) { var m = /^\s*([a-zA-Z])\s*=\s*(.+)$/.exec(String(s)); return m ? { name: m[1], value: m[2] } : { name: null, value: String(s) }; }
+  // An equation's two sides, or null if there is not exactly one "=".
+  function sides(s) { var parts = String(s).split('='); return parts.length === 2 && parts[0].trim() && parts[1].trim() ? parts : null; }
+  // Does this value make the equation true?
+  function satisfies(eq, vars) { var sd = sides(eq); if (!sd) throw new Error('An equation needs one = sign with something on each side.'); return close(evaluate(sd[0], vars), evaluate(sd[1], vars)); }
+  // A parsed expression as a function of its variables: compile("mx + c")({ m: 2, c: 1, x: 3 }) = 7.
+  function compile(s) { var t = parse(s); return function (vars) { return ev(t, vars || {}); }; }
+  // Conditions on a board's scope ({ vars: { m: 2 }, points: { A: [1, 3] } }), for board checks:
+  //   "m = 2", "c > 0", "2m + c <= 7"          compare two expressions (= is equal, within rounding)
+  //   "A on y = 2x + 1"                        the point's coordinates make the equation true
+  //   "x(A) = 3", "y(B) > y(A)"                a point's coordinates in an expression
+  //   clause and clause                        all must hold
+  var CMP = /<=|>=|≤|≥|<|>|=/;
+  function clauses(cond) {
+    var cs = String(cond).split(/\band\b/i).map(function (c) { return c.trim(); });
+    if (!cs.every(Boolean)) throw new Error('Something is missing next to "and".');
+    return cs.map(function (c) {
+      var on = /^([A-Z])\s+on\s+(.+)$/.exec(c);
+      if (on) { if (!sides(on[2])) throw new Error('"' + c + '": after "on", write an equation, such as y = 2x + 1.'); return { on: on[1], eq: on[2] }; }
+      var m = CMP.exec(c);
+      if (!m) throw new Error('"' + c + '" needs a comparison (=, <, >, <= or >=), or "A on y = ...".');
+      var a = c.slice(0, m.index), b = c.slice(m.index + m[0].length);
+      if (CMP.test(b)) throw new Error('"' + c + '": use one comparison per part (join parts with "and").');
+      return { a: a, op: { '≤': '<=', '≥': '>=' }[m[0]] || m[0], b: b };
+    });
+  }
+  // x(A), y(A) -> numbers from the scope (or a placeholder when only checking that it parses)
+  function coords(s, points) {
+    return String(s).replace(/\b([xy])\(([A-Z])\)/g, function (m, k, n) {
+      if (!points) return '1';
+      if (!points[n]) throw new Error('There is no point ' + n + '.');
+      var v = points[n][k === 'x' ? 0 : 1]; return '(' + v + ')';
+    });
+  }
+  // Throws a message when the condition cannot be read; returns the point and variable names it uses.
+  function checkCondition(cond) {
+    var used = { vars: {}, points: {} };
+    clauses(cond).forEach(function (c) {
+      String(c.on ? c.eq : c.a + ' ' + c.b).replace(/\b[xy]\(([A-Z])\)/g, function (m, n) { used.points[n] = 1; return m; });
+      if (c.on) { used.points[c.on] = 1; var sd = sides(c.eq); parse(sd[0]); parse(sd[1]); Object.assign(used.vars, names(parse(sd[0])), names(parse(sd[1]))); delete used.vars.x; delete used.vars.y; }
+      else { var ta = parse(coords(c.a)), tb = parse(coords(c.b)); Object.assign(used.vars, names(ta), names(tb)); }
+    });
+    return { vars: Object.keys(used.vars), points: Object.keys(used.points) };
+  }
+  function holds(cond, scope) {
+    scope = scope || {};
+    var vars = scope.vars || {}, points = scope.points || {};
+    return clauses(cond).every(function (c) {
+      if (c.on) {
+        var P = points[c.on];
+        if (!P) throw new Error('There is no point ' + c.on + '.');
+        return satisfies(c.eq, Object.assign({}, vars, { x: P[0], y: P[1] }));
+      }
+      var a = evaluate(coords(c.a, points), vars), b = evaluate(coords(c.b, points), vars), eq = close(a, b);
+      return c.op === '=' ? eq : c.op === '<' ? a < b && !eq : c.op === '>' ? a > b && !eq : c.op === '<=' ? a < b || eq : a > b || eq;
+    });
+  }
+  return { parse: parse, evaluate: evaluate, compile: compile, equivalent: equivalent, splitAnswer: splitAnswer, sides: sides, satisfies: satisfies, holds: holds, checkCondition: checkCondition, vars: function (s) { return Object.keys(names(parse(s))); } };
+})();
+(function(){var t=document.querySelector('.cb-toggle'),m=document.getElementById('cb-menu');if(!t||!m)return;
+t.addEventListener('click',function(){var o=m.hidden;m.hidden=!o;t.setAttribute('aria-expanded',String(o))});
+document.addEventListener('click',function(e){if(!m.hidden&&!e.target.closest('.cb-mid')){m.hidden=true;t.setAttribute('aria-expanded','false')}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden){m.hidden=true;t.setAttribute('aria-expanded','false');t.focus()}});
+var d=(function(){try{return JSON.parse(localStorage.getItem('wp-progress'))||{}}catch(e){return {}}})().done||{};
+[].forEach.call(m.querySelectorAll('li a'),function(a){var ks=(a.dataset.checks||'').split('|').filter(Boolean);
+if(ks.length&&ks.every(function(k){return d[k]}))a.querySelector('.tick').classList.add('on')});
+var h=document.querySelector('h1');try{localStorage.setItem('wp-last-lesson',JSON.stringify({href:location.pathname,title:h?h.textContent:document.title}))}catch(e){}})();
+(function(){var links=[].slice.call(document.querySelectorAll('nav.steps a'));if(!links.length||!window.IntersectionObserver)return;
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+var io=new IntersectionObserver(function(){var cur=0;secs.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<window.innerHeight*0.4)cur=i});
+links.forEach(function(a,i){a.classList.toggle('here',i===cur);if(i===cur)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current')})},{threshold:[0,0.1,0.5,1]});
+secs.forEach(function(el){if(el)io.observe(el)});window.addEventListener('scroll',function(){io.takeRecords()},{passive:true})})();
+document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+var t=b.closest('.code').querySelector('code').innerText;navigator.clipboard&&navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1200)})})});
+(function(){
+var KEY='wp-progress';
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
+function save(s){try{localStorage.setItem(KEY,JSON.stringify(s))}catch(e){}}
+var ov=new URLSearchParams(location.search).get('unlock');
+if(ov){var s0=load();s0.all=ov==='all';save(s0)}
+function sync(wrap){var s=load(),d=s.done||{},keys=(wrap.dataset.keys||'').split('|').filter(Boolean),n=0;keys.forEach(function(k){if(d[k])n++});
+[].forEach.call(wrap.querySelectorAll('.tp'),function(p){p.classList.toggle('done',!!d[p.dataset.key])});
+var cnt=document.querySelector('nav.steps a[href="#'+wrap.dataset.step+'"] .cnt');if(cnt)cnt.textContent=keys.length?n+'/'+keys.length:'';
+var tm=wrap.querySelector('.tmsg');
+if(keys.length&&n===keys.length){var ids=(wrap.dataset.unlocks||'').split(',').filter(Boolean);
+if(!d[wrap.dataset.stepkey]){s.done=s.done||{};s.done[wrap.dataset.stepkey]=true;s.unlocked=s.unlocked||{};ids.forEach(function(id){s.unlocked[wrap.dataset.kind+':'+id]=true});save(s)}
+tm.textContent='All tasks done.'+(ids.length?' Unlocked: '+(wrap.dataset.names||'').split('|').join(', ')+'.':'')}else{tm.textContent=''}}
+document.querySelectorAll('.check').forEach(function(box){
+var key=box.dataset.key,kind=box.dataset.kind,ids=(box.dataset.unlocks||'').split(',').filter(Boolean),names=(box.dataset.names||'').split('|');
+var msg=box.querySelector('.msg');var wrap=box.closest('.tasks'),ty=box.dataset.type||'';
+function pass(){
+var s=load();s.done=s.done||{};s.unlocked=s.unlocked||{};s.done[key]=true;
+ids.forEach(function(id){s.unlocked[kind+':'+id]=true});save(s);show(true);if(wrap)sync(wrap)}
+function show(fresh){
+box.classList.add('done');
+if(ids.length){msg.className='msg ok';msg.textContent=(fresh?'Unlocked: ':'Unlocked: ')+names.join(', ')+'. Find '+(names.length>1?'them':'it')+' under Reference in the playground.'}
+else{msg.className='msg ok';msg.textContent='Got it.'}}
+if((load().done||{})[key])show(false);
+if(box.dataset.type==='code'){var rules=JSON.parse(box.dataset.rules),ul=box.querySelector('.rules');
+// The last report from each playground, so a task's check can catch up when its pill opens (window.wpLast, below).
+if(!window.wpLast){window.wpLast={};window.addEventListener('message',function(e){var m=e.data;if(e.origin===location.origin&&m&&m.wp==='run'&&m.id)window.wpLast[m.id]=m})}
+function paint(res){ul.replaceChildren();res.forEach(function(r){var li=document.createElement('li');li.textContent=r.label;if(r.ok)li.className='ok';ul.appendChild(li)})}
+var done0=(load().done||{})[key];paint(evalRules(rules,'',kind).map(function(r){return {label:r.label,ok:!!done0}}));
+window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='run'||m.id!==(box.dataset.play||key))return;var pn=box.closest('.tpanel'),stp=box.closest('.step');
+// Only the open task listens. MakeCode in full screen is the exception: the bar shows every task of the step and pills cannot be switched.
+if(pn&&!pn.classList.contains('active')&&!((m.kind==='microbit'||m.kind==='arcade')&&stp&&stp.querySelector('.try.full')))return;
+var res=evalRules(rules,m.code||'',kind);paint(res);
+if(m.quiet&&!(load().done||{})[key]){}
+else if(res.every(function(r){return r.ok})&&(m.status==='done'||m.status==='stopped')){pass()}
+else if(m.kind==='html'){if(!m.quiet){msg.className='msg';msg.textContent='Not quite yet. Keep going: the list shows what your page still needs.'}}
+else if(m.kind==='microbit'||m.kind==='arcade'){if(!m.quiet){msg.className='msg';msg.textContent='Not quite yet. Keep building: this ticks by itself when your blocks do what is asked.'}}
+else{msg.className='msg';msg.textContent=m.status==='done'?'Not quite yet. Change your code, then run it again.':'Fix the error, then run it again.'}})}
+var cb=box.querySelector('input[type=checkbox]');
+if(cb){if((load().done||{})[key])cb.checked=true;cb.addEventListener('change',function(){if(cb.checked)pass()})}
+var go=ty==='question'?box.querySelector('button'):null;
+if(go){go.addEventListener('click',function(){
+var pick=box.querySelector('input[type=radio]:checked');
+if(!pick){msg.className='msg no';msg.textContent='Choose an answer first.';return}
+if(Number(pick.value)===Number(box.dataset.answer)){pass();if(box.dataset.explain)msg.textContent=box.dataset.explain+' '+msg.textContent}
+else{msg.className='msg no';var fbk=box.dataset.feedback?JSON.parse(box.dataset.feedback)[Number(pick.value)]:'';msg.textContent=fbk?'Not quite. '+fbk:(box.dataset.subj==='maths'||box.dataset.subj==='science'||kind==='science')?'Not quite. Read it again and try another answer.':'Not quite. Look at the code again and try another answer.'}})}
+function win(){pass();if(box.dataset.explain)msg.textContent=box.dataset.explain+' '+msg.textContent}
+function bad(t){msg.className='msg no';msg.textContent=t}
+var btn=box.querySelector('button');
+if(ty==='number'&&btn){btn.addEventListener('click',function(){var v=parseFloat(box.querySelector('input').value);if(isNaN(v))return bad('Type a number first.');
+if(Math.abs(v-Number(box.dataset.answer))<=Number(box.dataset.tol||0))return win();var nf=JSON.parse(box.dataset.feedback||'[]');for(var q=0;q<nf.length;q++){if(Math.abs(v-nf[q][0])<=Math.max(Number(box.dataset.tol||0),1e-9))return bad('Not quite. '+nf[q][1])}bad(box.dataset.subj==='maths'?'Not quite. Check your working and try another number.':'Not quite. Look at the code again and try another number.')})}
+if(ty==='flag'&&btn){btn.addEventListener('click',function(){var t=box.querySelector('input').value.trim().toLowerCase();if(!t)return bad('Type the flag first.');
+if(!(window.crypto&&crypto.subtle))return bad('This needs a secure page (https).');
+crypto.subtle.digest('SHA-256',new TextEncoder().encode('wp-flag:'+t)).then(function(b){var h=[].map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('');if(h===box.dataset.hash)win();else bad('Not the flag. Check it is exactly what the puzzle gives, including the WP{ } part.')})})}
+if(ty==='bug'){var good=JSON.parse(box.dataset.answers).map(String),found={};[].forEach.call(box.querySelectorAll('.buglines button'),function(b){b.addEventListener('click',function(){
+var n=String(b.dataset.line);if(good.indexOf(n)>=0){b.className='yes';found[n]=1;var left=good.filter(function(g){return !found[g]}).length;if(!left)win();else{msg.className='msg';msg.textContent='Yes. '+left+' more to find.'}}else{b.className='no';bad(box.dataset.subj==='maths'?'Not that line. Read the working again, one line at a time.':'Not that line. Read the code again, one line at a time.')}})})}
+if(ty==='sort'&&btn){btn.addEventListener('click',function(){var want=JSON.parse(box.dataset.answers),all=true;
+[].forEach.call(box.querySelectorAll('.srow'),function(r,i){var sel=r.querySelector('select'),ok=sel.value===want[i];sel.className=sel.value?(ok?'ok':'no'):'';if(!ok)all=false;var w=r.querySelector('.swhy');if(w)w.hidden=!ok});
+if(all)win();else bad('Some are not in the right group yet. Check the ones outlined in red.')})}
+if(ty==='match'&&btn){btn.addEventListener('click',function(){var want=JSON.parse(box.dataset.answers),all=true;
+[].forEach.call(box.querySelectorAll('select'),function(sel,i){var ok=sel.value===want[i];sel.className=sel.value?(ok?'ok':'no'):'';if(!ok)all=false});
+if(all)win();else bad('Some do not match yet. Check the ones outlined in red.')})}
+if(ty==='trace'&&btn){btn.addEventListener('click',function(){var all=true;
+[].forEach.call(box.querySelectorAll('input.tcell'),function(inp){var nz=function(t){return t.trim().replace(/÷/g,'/').replace(/×/g,'*').replace(/[−–]/g,'-').replace(/\s*([+*\/-])\s*/g,'$1')};var a=inp.dataset.answer,v=inp.value.trim(),ok=v!==''&&(v===a||nz(v)===nz(a)||(!isNaN(Number(v))&&!isNaN(Number(a))&&Number(v)===Number(a)));inp.className='tcell '+(ok?'ok':'no');if(!ok)all=false});
+if(all)win();else bad(box.dataset.subj==='maths'?'Some cells are not right yet. Work through it again, one step at a time.':'Some cells are not right yet. Trace the code again, one step at a time.')})}
+if(ty==='predict'&&btn){var PK='wp-predict';
+function pload(){try{return JSON.parse(localStorage.getItem(PK))||{}}catch(e){return {}}}
+function plock(v){var p=pload();p[key]=v;try{localStorage.setItem(PK,JSON.stringify(p))}catch(e){}}
+function freeze(v){[].forEach.call(box.querySelectorAll('input'),function(i){i.disabled=true;if(i.type==='radio')i.checked=(i.value===v);else i.value=v});btn.hidden=true;msg.className='msg ok';msg.textContent=kind==='science'?'Locked in. Now try it on the board and compare.':'Locked in. Now run it and compare.'}
+var saved=pload()[key];if(saved!==undefined&&saved!==null)freeze(saved);
+btn.addEventListener('click',function(){var r=box.querySelector('input[type=radio]:checked'),i=box.querySelector('input.pin'),v=r?r.value:(i?i.value.trim():'');
+if(!v)return bad('Make a prediction first. You cannot change it after you lock it in.');plock(v);freeze(v);pass();freeze(v);try{document.dispatchEvent(new CustomEvent('wp-predict',{detail:key}))}catch(e){}})}
+if(ty==='parsons'){parsons(box,win,bad)}
+if(ty==='working'&&btn){var ta=box.querySelector('textarea'),ol=box.querySelector('.wk-lines');btn.addEventListener('click',function(){var lines=ta.value.split('\n');if(!lines.join('').trim())return bad('Write your working, one step per line.');if(!window.WPF_READY)return bad('The checker did not load. Reload the page and try again.');msg.className='msg';msg.textContent='Checking...';window.WPF_READY.then(function(F){var r=F.working(lines,box.dataset.start,box.dataset.form),shown=lines.map(function(l){return l.trim()}).filter(Boolean);ol.replaceChildren();r.lines.forEach(function(x,i){var li=document.createElement('li');li.className=x.ok?'ok':'no';li.textContent=(x.ok?'\u2713 ':'\u2717 ')+shown[i];ol.appendChild(li)});if(r.ok)win();else bad(r.why)})})}
+if(ty==='answer'&&btn){var inp=box.querySelector('input'),fb=JSON.parse(box.dataset.feedback||'[]');
+function tryIt(){var v=inp.value.trim();if(!v)return bad('Type your answer first.');
+try{if(box.dataset.equation){var vals=JSON.parse(box.dataset.equation),sd=WPM.sides(v);if(!sd)return bad('An equation needs one = sign, with something on each side.');
+var need=Object.keys(vals),used=WPM.vars(sd[0]).concat(WPM.vars(sd[1]));if(!need.some(function(n){return used.indexOf(n)>=0}))return bad('Use '+need.join(' and ')+' in your equation.');
+if(WPM.satisfies(v,vals))return win();var shown=need.map(function(n){return n+' = '+vals[n]}).join(', ');return bad('Not quite: when '+shown+', the two sides are not equal. Check each side.')}
+if(box.dataset.form){if(!window.WPF_READY)return bad('The checker did not load. Reload the page and try again.');msg.className='msg';msg.textContent='Checking...';return window.WPF_READY.then(function(F){var r=F.check(v,box.dataset.answer,box.dataset.form);if(r.ok){win();if(r.unsure){msg.textContent=r.why}return}
+if(!r.equivalent)for(var i=0;i<fb.length;i++){try{if(!F.check(String(fb[i][0]),v,'').equivalent)continue;return bad(fb[i][1])}catch(e){}}
+else{var nm=function(t){return String(t).replace(/[\u2212\u2013]/g,'-').replace(/[\u00d7\u00b7]/g,'*').replace(/\s+/g,'')};for(var j=0;j<fb.length;j++){if(nm(fb[j][0])===nm(v))return bad(fb[j][1])}}
+bad(r.why)})}
+var a=WPM.splitAnswer(v).value.replace(/s*(%|°)s*$/,'');if(WPM.equivalent(a,box.dataset.answer))return win();
+for(var i=0;i<fb.length;i++){try{if(WPM.equivalent(a,String(fb[i][0])))return bad(fb[i][1])}catch(e){}}
+bad('Not quite. Check your working and try again.')}catch(e){bad(e.message)}}
+btn.addEventListener('click',tryIt);inp.addEventListener('keydown',function(e){if(e.key==='Enter')tryIt()})}
+if(ty==='reasoning'){var mk=JSON.parse(box.dataset.marks),ta=box.querySelector('.rs-in'),ai=box.querySelector('.rs-ans input'),go2=box.querySelector('.rs-go'),sh=box.querySelector('.rs-show'),md=box.querySelector('.rs-model'),tries=0;
+var RK='wp-reasoning',rl=function(){try{return JSON.parse(localStorage.getItem(RK)||'{}')}catch(e){return {}}},rs=function(o){try{localStorage.setItem(RK,JSON.stringify(o))}catch(e){}};
+var keep=rl()[key];if(keep){ta.value=keep.text||'';if(ai&&keep.answer)ai.value=keep.answer;(keep.crit||[]).forEach(function(c,i){var cb=box.querySelectorAll('.rs-crit input')[i];if(cb)cb.checked=!!c})}
+function store(){var o=rl();o[key]={text:ta.value,answer:ai?ai.value:'',crit:[].map.call(box.querySelectorAll('.rs-crit input'),function(c){return c.checked})};rs(o)}
+ta.addEventListener('input',store);if(ai)ai.addEventListener('input',store);box.querySelectorAll('.rs-crit input').forEach(function(c){c.addEventListener('change',store)});
+function reveal(){box.querySelector('.rs-mine').textContent=ta.value.trim()||'(nothing written)';md.hidden=false}
+if((load().done||{})[key])reveal();
+function wrong(t){tries++;bad(t);if(tries>=3)sh.hidden=false}
+sh.addEventListener('click',function(){reveal();msg.className='msg';msg.textContent='Compare, then fix your answer and choices above.'});
+go2.addEventListener('click',function(){if(!ta.value.trim())return bad('Write your working first: your own notes and reasons. This part is not marked.');
+if(ai&&mk.answer!==null){var v=ai.value.replace(/°|degrees?/g,'').trim();if(!v)return bad('Type your answer.');try{var a=WPM.splitAnswer(v).value;if(!WPM.equivalent(a,mk.answer)){for(var i=0;i<mk.feedback.length;i++){try{if(WPM.equivalent(a,String(mk.feedback[i][0])))return wrong(mk.feedback[i][1])}catch(e){}}return wrong('Not quite: check your answer against your working.')}}catch(e){return wrong(e.message)}}
+var fs=box.querySelectorAll('.rs-pick');for(var j=0;j<fs.length;j++){var pk=mk.picks[j],ch=fs[j].querySelector('input:checked');if(!ch)return bad('Choose a reason for each question.');var n=Number(ch.value);if(n!==pk.answer)return wrong('Not that reason. '+(pk.feedback[n]||'Look at where the two angles are.'))}
+reveal();sh.hidden=true;win();store()})}
+if(ty==='board'){var want=JSON.parse(box.dataset.expect||'{}');
+window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='run'||(m.kind==='maths'?'board':m.kind)!==(box.dataset.kind==='maths'?'board':box.dataset.kind)||m.id!==box.dataset.play||!m.moved)return;var pn=box.closest('.tpanel');if(pn&&!pn.classList.contains('active'))return;
+var ok=Object.keys(want).every(function(k){var a=m.state&&m.state[k],b=want[k];return typeof b==='number'?Math.abs(Number(a)-b)<1e-9:a===b});if(ok&&box.dataset.when){try{ok=WPM.holds(box.dataset.when,m.state&&m.state.scope)}catch(er){ok=false}}
+if(ok){if(!box.classList.contains('done'))win()}else if(!box.classList.contains('done')){msg.className='msg';msg.textContent='Keep going.'}})}
+});
+document.querySelectorAll('.compare').forEach(function(c){var pk=c.dataset.predict;
+function mine(){try{return (JSON.parse(localStorage.getItem('wp-predict'))||{})[pk]}catch(e){return undefined}}
+var last=null;
+document.addEventListener('wp-predict',function(e){if(e.detail===pk&&last)show(last)});
+window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='run'||m.id!==c.dataset.play||m.status!=='done'&&m.status!=='stopped')return;last=m;show(m)});
+function show(m){
+var v=mine();c.replaceChildren();
+function line(label,text){var p=document.createElement('p');var b=document.createElement('b');b.textContent=label+' ';p.appendChild(b);p.appendChild(document.createTextNode(text));c.appendChild(p)}
+if(v===undefined||v===null){line('No prediction locked in.','Go back to the Predict step if you want to compare next time.')}
+else{line('You predicted:',v);var out=(m.output||'').trim(),a=c.dataset.actual||'';
+if(a)line('It actually:',a);else if(out)line('It printed:',out);else line('Now compare:','look at the '+(m.kind==='html'?'page':m.kind==='microbit'?'micro:bit':m.kind==='arcade'?'game':'drawing')+'. Was your prediction right? What did you notice?')}
+c.hidden=false}});
+// Full screen / inline for each playground: a class, not the Fullscreen API, so it works on iPads and the
+// playground keeps its state. Esc (on the page, or in the playground when its drawer is closed) comes back.
+function mkOpen(t){var f=t.querySelector('iframe[data-src]'),l=t.querySelector('.mkload');if(!f||f.src)return;f.src=f.dataset.src;f.hidden=false;if(l)l.remove()}
+document.querySelectorAll('.mkopen').forEach(function(b){b.addEventListener('click',function(){var t=b.closest('.try');mkOpen(t);if(t.dataset.wide&&t._full)t._full(true)})});
+// In full screen the step's instructions and checks are hidden behind the playground, so a task drawer repeats them:
+// the step's (or the open task's) text, hints and code pictures, then the code checks with their ticks. Hide task folds the text away.
+document.querySelectorAll('.try').forEach(function(t){var s=t.closest('.step'),h=t.querySelector('.try-head');if(!s||!h)return;
+var w=t.closest('.tasks'),cs=[].slice.call(s.querySelectorAll('.check[data-type="code"]'));
+var box=document.createElement('div');box.className='try-task';var body=document.createElement('div');body.className='tt-body';
+var bar=document.createElement('div');bar.className='try-checks';bar.setAttribute('aria-live','polite');box.appendChild(body);if(cs.length)box.appendChild(bar);
+function strip(n){if(n.removeAttribute)n.removeAttribute('id');if(n.querySelectorAll)[].forEach.call(n.querySelectorAll('[id]'),function(x){x.removeAttribute('id')});return n}
+function fill(){var title=document.createElement('p');title.className='tt-title';var src;
+if(w){var tp=w.querySelector('.tp.active');title.textContent=tp?tp.textContent:'';src=[w.querySelector(':scope > .tpanel.active[role="tabpanel"]')]}
+else{var h2=s.querySelector('h2');title.textContent=h2?h2.textContent:'';src=[].filter.call(s.children,function(ch){return !(ch.matches('.chip,h2,.try,.check,.compare,.tasks,video')||ch.querySelector('video,iframe'))})}
+body.replaceChildren.apply(body,[title].concat(src.filter(Boolean).map(function(n){return strip(n.cloneNode(true))})))}
+function upd(){bar.replaceChildren.apply(bar,cs.map(function(c){var d=c.classList.contains('done'),e=document.createElement('span'),q=c.querySelector('.check-q');e.className=d?'ok':'';e.textContent=(d?'✓ ':'○ ')+(q?q.textContent:'');return e}))}
+fill();upd();cs.forEach(function(c){new MutationObserver(upd).observe(c,{attributes:true,attributeFilter:['class']})});
+if(w)[].forEach.call(w.querySelectorAll(':scope > .tpanel[role="tabpanel"]'),function(p){new MutationObserver(fill).observe(p,{attributes:true,attributeFilter:['class']})});
+var tg=document.createElement('button');tg.type='button';tg.className='tt-toggle';tg.setAttribute('aria-expanded','true');tg.textContent='Hide task';
+tg.addEventListener('click',function(){var off=box.classList.toggle('closed');tg.textContent=off?'Show task':'Hide task';tg.setAttribute('aria-expanded',String(!off))});
+h.insertBefore(tg,h.querySelector('.try-full'));h.after(box)});
+document.querySelectorAll('.try').forEach(function(t){var b=t.querySelector('.try-full');if(!b)return;
+t._full=function(on){t.classList.toggle('full',on);document.body.classList.toggle('try-open',!!document.querySelector('.try.full'));b.setAttribute('aria-pressed',String(on));b.textContent=on?'Exit full screen':'Full screen';if(!on)b.focus()};
+b.addEventListener('click',function(){mkOpen(t);t._full(!t.classList.contains('full'))})});
+document.addEventListener('keydown',function(e){var f=document.querySelector('.try.full');if(e.key==='Escape'&&f)f._full(false)});
+(function(){var id=new URLSearchParams(location.search).get('full');if(!id)return;var sec=document.getElementById(id);var t=sec&&sec.querySelector('.try');if(!t||!t._full)return;
+var ifr=t.querySelector('iframe');if(ifr)ifr.loading='eager';mkOpen(t);setTimeout(function(){t._full(true)},50)})();
+window.addEventListener('message',function(e){var m=e.data;if(e.origin!==location.origin||!m||m.wp!=='esc')return;
+document.querySelectorAll('.try.full').forEach(function(f){var i=f.querySelector('iframe');if(i&&i.contentWindow===e.source)f._full(false)})});
+document.querySelectorAll('.worked').forEach(function(w){var lis=w.querySelectorAll('li'),nx=w.querySelector('.wnext'),al=w.querySelector('.wall');if(!nx)return;
+function upd(){var left=[].filter.call(lis,function(l){return l.hidden}).length;nx.hidden=al.hidden=!left;nx.textContent=left?'Next step ('+left+' left)':''}
+nx.addEventListener('click',function(){var h=[].find.call(lis,function(l){return l.hidden});if(h){h.hidden=false;h.classList.add('new')}upd()});
+al.addEventListener('click',function(){[].forEach.call(lis,function(l){l.hidden=false});upd()});upd()});
+function parsons(box,win,bad){var lines=JSON.parse(box.dataset.lines),extra=JSON.parse(box.dataset.extra||'[]');
+var pool=box.querySelector('.ppool'),prog=box.querySelector('.pprog'),inProg=[];
+var all=lines.concat(extra).map(function(t,i){return {t:t,i:i}});
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),x=a[i];a[i]=a[j];a[j]=x}return a}
+var order=shuffle(all),tries=0;
+while(tries++<8&&JSON.stringify(order.slice(0,lines.length).map(function(o){return o.t}))===JSON.stringify(lines))order=shuffle(all);
+function code(t){var c=document.createElement('code');c.textContent=t;return c}
+function draw(){pool.replaceChildren();prog.replaceChildren();
+order.filter(function(o){return inProg.indexOf(o)<0}).forEach(function(o){var li=document.createElement('li'),b=document.createElement('button');b.type='button';b.className='piece';b.title='Add to your program';b.appendChild(code(o.t));b.addEventListener('click',function(){inProg.push(o);draw()});li.appendChild(b);pool.appendChild(li)});
+inProg.forEach(function(o,n){var li=document.createElement('li');li.draggable=true;li.appendChild(code(o.t));
+[['↑',-1,'Move up'],['↓',1,'Move down'],['×',0,'Remove']].forEach(function(a){var b=document.createElement('button');b.type='button';b.textContent=a[0];b.setAttribute('aria-label',a[2]);
+b.addEventListener('click',function(){if(a[1]===0)inProg.splice(n,1);else{var m=n+a[1];if(m<0||m>=inProg.length)return;var t=inProg[n];inProg[n]=inProg[m];inProg[m]=t}draw()});li.appendChild(b)});
+li.addEventListener('dragstart',function(e){e.dataTransfer.setData('text/plain',String(n))});li.addEventListener('dragover',function(e){e.preventDefault()});
+li.addEventListener('drop',function(e){e.preventDefault();var f=Number(e.dataTransfer.getData('text/plain'));if(isNaN(f)||f===n)return;var t=inProg.splice(f,1)[0];inProg.splice(n,0,t);draw()});
+prog.appendChild(li)})}
+draw();
+box.querySelector('.pcheck').addEventListener('click',function(){if(JSON.stringify(inProg.map(function(o){return o.t}))===JSON.stringify(lines))win();else bad(inProg.length<lines.length?'Keep going: some lines are still in the pieces list, or not needed.':(box.dataset.subj==='maths'?'Not in the right order yet. Read your steps top to bottom: does each line follow from the one above?':'Not in the right order yet. Read your program top to bottom and picture what it does.'))});
+box.querySelector('.preset').addEventListener('click',function(){inProg=[];draw()})}
+[].forEach.call(document.querySelectorAll('.tasks'),function(w){
+[].forEach.call(w.querySelectorAll('.tp'),function(p){p.addEventListener('click',function(){var i=p.dataset.i;
+[].forEach.call(w.querySelectorAll('.tp,.tpanel'),function(el){var on=el.dataset.i===i;el.classList.toggle('active',on);if(el.classList.contains('tp'))el.setAttribute('aria-selected',String(on))});
+// MakeCode: the newly opened task checks the work already in the editor (the last report), without waiting for an edit.
+var oc=w.querySelector('.tpanel.active .check[data-type="code"][data-play]');if(oc&&(oc.dataset.kind==='microbit'||oc.dataset.kind==='arcade')&&window.wpLast&&window.wpLast[oc.dataset.play])window.postMessage(window.wpLast[oc.dataset.play],location.origin);
+if(w.dataset.kind==='board'||w.dataset.kind==='maths'||w.dataset.kind==='science'){var rs=w.querySelector('.tpanel.active .resetstart'),f=w.querySelector('iframe');if(rs&&f&&f.contentWindow)f.contentWindow.postMessage({wp:'set-code',code:rs.dataset.code},location.origin)}})});
+[].forEach.call(w.querySelectorAll('.resetstart'),function(b){b.addEventListener('click',function(){var f=w.querySelector('iframe');if(f&&f.contentWindow)f.contentWindow.postMessage({wp:'set-code',code:b.dataset.code},location.origin)})});
+sync(w)});
+})();(function(){var n=document.querySelector('.sitenav');if(!n)return;var K='wp-from',here=n.dataset.here;
+// Sticky navbar: publish its height as --nav (course bar, step pills and anchors sit below it).
+var nh=function(){document.documentElement.style.setProperty('--nav',n.offsetHeight+'px')};nh();if(window.ResizeObserver)new ResizeObserver(nh).observe(n);else window.addEventListener('resize',nh);
+var mb=n.querySelector('.sn-menu');if(mb)mb.addEventListener('click',function(){var o=n.classList.toggle('open');mb.setAttribute('aria-expanded',String(o))});
+[].forEach.call(n.querySelectorAll('.sn-caret'),function(c){var d=c.parentNode;c.addEventListener('click',function(){var o=d.classList.toggle('open');c.setAttribute('aria-expanded',String(o))})});
+document.addEventListener('click',function(e){[].forEach.call(n.querySelectorAll('.sn-dd.open'),function(d){if(!d.contains(e.target)){d.classList.remove('open');d.querySelector('.sn-caret').setAttribute('aria-expanded','false')}})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')[].forEach.call(n.querySelectorAll('.sn-dd.open'),function(d){d.classList.remove('open')})});
+if(here==='lesson'){var h=document.querySelector('h1'),worked=null;
+// The step to come back to is the last one the student worked in (clicked, typed, used its playground), not the
+// one in view (the student may scroll elsewhere before using the navbar). Before any work, the step in view.
+function pill(id){var a=id?document.querySelector('nav.steps a[href="#'+id+'"]'):(document.querySelector('nav.steps a.here')||document.querySelector('nav.steps a')),t='';if(a)[].forEach.call(a.childNodes,function(c){if(c.nodeType===3)t+=c.textContent});return {a:a,t:t.trim()}}
+var save=function(){var s=pill(worked);try{sessionStorage.setItem(K,JSON.stringify({href:location.pathname+(s.a?s.a.getAttribute('href'):''),title:h?h.textContent:document.title,step:s.t}))}catch(e){}};
+function mark(el){var sec=el&&el.closest&&el.closest('section.step');if(sec&&sec.id){worked=sec.id;save()}}
+['click','input','focusin'].forEach(function(ev){document.addEventListener(ev,function(e){if(!(e.target.closest&&e.target.closest('.sitenav,.coursebar,nav.steps')))mark(e.target)},true)});
+window.addEventListener('blur',function(){setTimeout(function(){var f=document.activeElement;if(f&&f.tagName==='IFRAME')mark(f)},0)});
+try{var prev=JSON.parse(sessionStorage.getItem(K));if(prev&&prev.href&&prev.href.split('#')[0]===location.pathname&&prev.href.indexOf('#')>0)worked=prev.href.split('#')[1]}catch(e){}
+save();window.addEventListener('pagehide',save);return}
+var b=n.querySelector('.sn-back'),f=null;try{f=JSON.parse(sessionStorage.getItem(K))}catch(e){}
+if(f&&f.href){b.href=f.href;b.textContent='\u2190 Back to '+f.title+(f.step?' \u203a '+f.step:'');b.title=b.textContent;b.hidden=false;return}
+if(here==='playground'||here==='reference'){try{var l=JSON.parse(localStorage.getItem('wp-last-lesson'));if(l&&l.href){b.href=l.href;b.textContent='Continue: '+(l.title||'your lesson');b.hidden=false}}catch(e){}}})();(function(){var figs=[].slice.call(document.querySelectorAll('figure.clip[data-voices]'));if(!figs.length)return;
+var K='wp-voice',all=[],AC=window.AudioContext||window.webkitAudioContext,ctx=null;
+var canVol=(function(){var v=document.createElement('video');try{v.volume=0.5}catch(e){}return v.volume===0.5})(),web=!!AC&&canVol;
+function saved(){try{return localStorage.getItem(K)||''}catch(e){return ''}}
+function save(v){try{localStorage.setItem(K,v)}catch(e){}}
+function audioCtx(){if(!ctx){try{ctx=new AC()}catch(e){web=false;return null}}if(ctx.state==='suspended')ctx.resume();return ctx}
+function alt(s){return s.cur!==s.own&&!!s.audio}
+function route(s){if(!web||s.gain||!alt(s))return;var c=audioCtx();if(!c)return;try{var n=c.createMediaElementSource(s.vid);s.gain=c.createGain();n.connect(s.gain);s.gain.connect(c.destination)}catch(e){web=false}}
+function hush(s){var on=alt(s);if(web&&s.gain){s.gain.gain.value=on?0:1;s.sound=!s.vid.muted}else if(on&&!s.vid.muted){s.self++;s.vid.muted=true;s.sound=true}if(s.audio){s.audio.muted=web?s.vid.muted:false;s.audio.volume=canVol?s.vid.volume:1}note(s)}
+function note(s){var n=s.fig.querySelector('.voiced-note');if(!n)return;if(!n.dataset.t)n.dataset.t=n.textContent;n.textContent=alt(s)&&!web?' · '+s.label+(s.sound?' on: press sound to stop':': press sound to hear'):n.dataset.t}
+function sync(s,hard){var a=s.audio,t=s.vid.currentTime;if(!a)return;if(hard||Math.abs(a.currentTime-t)>0.3){try{a.currentTime=t}catch(e){}}if(a.playbackRate!==s.vid.playbackRate)a.playbackRate=s.vid.playbackRate}
+function go(s){var a=s.audio;if(!a)return;if(s.vid.paused||s.wait||!s.sound||(web&&s.vid.muted)){a.pause();return}sync(s,true);var p=a.play();if(p&&p.catch)p.catch(function(){})}
+function unlock(s){var a=s.audio;if(!a||!a.paused||s.unlocked)return;s.unlocked=true;var m=a.muted;a.muted=true;var p=a.play();if(p&&p.then)p.then(function(){if(s.vid.paused||!s.sound)a.pause();a.muted=m;go(s)},function(){a.muted=m});else{a.pause();a.muted=m}}
+function use(s,v,gesture){if(v!==s.own&&s.others.indexOf(v)<0)v=s.own;
+[].forEach.call(s.fig.querySelectorAll('.vpick button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.v===v));if(b.dataset.v===v)s.label=b.textContent});
+if(s.audio){s.audio.pause();s.audio=null}s.cur=v;s.unlocked=false;
+if(v!==s.own){var a=new Audio(),src=(s.vid.currentSrc||s.vid.querySelector('source').src).replace(/\.mp4(?=$|[?#])/,'.'+v+'.m4a');a.preload='auto';a.src=src;
+a.addEventListener('error',function(){if(s.audio!==a)return;s.audio=null;s.cur=s.own;var w=s.sound&&!web;hush(s);if(w&&s.vid.muted){s.self++;s.vid.muted=false}[].forEach.call(s.fig.querySelectorAll('.vpick button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.v===s.own))})});
+s.audio=a;if(gesture)route(s)}
+else if(!web&&s.sound&&s.vid.muted&&gesture){s.self++;s.vid.muted=false}
+hush(s);if(gesture)unlock(s);go(s)}
+figs.forEach(function(fig){var vid=fig.querySelector('video');if(!vid)return;
+var s={fig:fig,vid:vid,own:fig.dataset.voice,others:fig.dataset.voices.split(' '),cur:fig.dataset.voice,audio:null,gain:null,sound:!vid.muted,self:0,last:0,wait:false,label:''};all.push(s);
+var pick=fig.querySelector('.vpick');if(pick){pick.hidden=false;pick.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button[data-v]');if(!b)return;save(b.dataset.v);all.forEach(function(o){use(o,b.dataset.v,true)})})}
+vid.addEventListener('volumechange',function(){if(s.self){s.self--;return}if(!alt(s)){s.sound=!vid.muted;return}
+if(web&&s.gain){hush(s);go(s);return}
+if(!vid.muted){s.sound=!s.sound;s.self++;vid.muted=true;note(s);unlock(s);go(s)}});
+['play','playing'].forEach(function(ev){vid.addEventListener(ev,function(){s.wait=false;go(s)})});
+['pause','waiting'].forEach(function(ev){vid.addEventListener(ev,function(){if(ev!=='pause')s.wait=true;if(s.audio)s.audio.pause()})});
+['seeked','ratechange'].forEach(function(ev){vid.addEventListener(ev,function(){sync(s,ev==='seeked');go(s)})});
+vid.addEventListener('timeupdate',function(){var t=vid.currentTime;if(t+0.5<s.last){sync(s,true);go(s)}else if(s.audio&&!s.audio.paused)sync(s,false);s.last=t});
+use(s,saved()||s.own,false)});
+function gest(){if(ctx&&ctx.state==='suspended')ctx.resume();all.forEach(function(s){if(alt(s)){route(s);hush(s);unlock(s)}})}
+['pointerdown','click','keydown'].forEach(function(ev){document.addEventListener(ev,gest,true)});
+})();</script><script src="../../../progress.js" data-root="../../../" defer></script><script src="../../../_numbas/numbas-jme.min.js?v=v11.0" defer></script><script>window.WPF_READY=new Promise(function(res){var go=function(){if(!window.Numbas)return;Numbas.queueScript('base',[],function(){});Numbas.queueScript('wp-forms',['jme','jme-rules','jme-display','localisation'],function(){Numbas.locale.set_preferred_locale('en-GB');Numbas.locale.init();window.WPF=(function makeForms(Numbas) {
+  var jme = Numbas.jme, scope = jme.builtinScope;
+  var MSG = {
+    brackets: 'Expand the brackets: none should be left in your answer.',
+    terms: 'Collect the like terms: some of your terms can still be added together.',
+    powers: 'Combine the powers of the same letter into one power.',
+    numbers: 'Work out the numbers: some can still be multiplied or added.',
+    product: 'Write it as a product: a number or letter times a bracket.',
+    whole: 'Use whole numbers in a factorised answer.',
+    hcf: 'Take out the highest common factor: the bracket still has a common factor.',
+    lowest: 'Simplify: the top and bottom still have a common factor.',
+    fraction: 'Write it as a fraction, such as 3/4.',
+    decimal: 'Write it as a decimal, such as 0.75.',
+  };
+  var clean = function (s) { return String(s).replace(/[−–]/g, '-').replace(/[×·]/g, '*').replace(/÷/g, '/').trim(); };
+  // what students mean: 2xy is 2 × x × y and x(x + 3) is x × (x + 3); sin, ln, pi and e stay as they are
+  var tree = function (s) { return scope.expandJuxtapositions(jme.compile(clean(s))); };
+  var text = function (t) { return jme.display.treeToJME(t, {}, scope); };
+  var simp = function (s, rules) { return jme.display.simplifyExpression(s, rules, scope); };
+  var has = function (s, pat) { return !!jme.rules.matchExpression(pat, s, { allowOtherTerms: true }); };
+  var is = function (s, pat, opts) { return !!jme.rules.matchExpression(pat, s, Object.assign({ allowOtherTerms: false }, opts || {})); };
+  var same = function (a, b) { return jme.compare(a, b, {}, scope); };
+  var TIDY = 'unitFactor,unitPower,zeroTerm,zeroFactor';
+  // Nothing left to collect: simplifying with each rule set changes nothing beyond the tidy-up. Returns a MSG key.
+  function uncollected(s) {
+    var base = simp(s, TIDY);
+    if (simp(s, TIDY + ',cancelFactors') !== base) return 'powers';
+    if (simp(s, TIDY + ',cancelTerms') !== base) return 'terms';
+    if (simp(s, TIDY + ',collectNumbers') !== base) return 'numbers';
+    return null;
+  }
+  function brackets(s) { return has(s, 'm_anywhere(?*(? + ?`+))') || has(s, 'm_anywhere((? + ?`+)^?)') || has(s, 'm_anywhere(-(? + ?`+))'); }
+  // The letters in every term of a sum (a letter common to all terms can still be taken out: x^2 + 2x)
+  function commonLetters(s) {
+    var terms = [], walk = function (t) { var o = t.tok.type === 'op' && t.tok.name; if (o === '+' || o === '-') { walk(t.args[0]); walk(t.args[1]); } else if (o === '-u') walk(t.args[0]); else terms.push(t); };
+    walk(jme.compile(s));
+    var letters = function (t) { var o = t.tok.type === 'op' && t.tok.name, out = {};
+      if (t.tok.type === 'name') out[t.tok.name] = 1;
+      else if (o === '*') { Object.assign(out, letters(t.args[0]), letters(t.args[1])); }
+      else if (o === '^' && t.args[0].tok.type === 'name') out[t.args[0].tok.name] = 1;
+      else if (o === '-u') return letters(t.args[0]);
+      return out; };
+    var common = null;
+    terms.forEach(function (t) { var l = letters(t); common = common === null ? l : Object.keys(common).reduce(function (c, k) { if (l[k]) c[k] = 1; return c; }, {}); });
+    return terms.length > 1 && common && Object.keys(common).length > 0;
+  }
+  // The whole-number factor of each term (2x + y + 2 has 2, 1 and 2): the bracket is fully out when they share none.
+  // (Numbas's collectIntegerFactors also groups any two terms that share a factor, so it can't be used for this.)
+  function coefficient(t) {
+    var o = t.tok.type === 'op' && t.tok.name;
+    if (t.tok.type === 'number' || t.tok.type === 'integer') { var v = Number(t.tok.value); return isFinite(v) && Math.round(v) === v ? Math.abs(v) : null; }
+    if (t.tok.type === 'name') return 1;
+    if (o === '-u') return coefficient(t.args[0]);
+    if (o === '*') { var a = coefficient(t.args[0]), b = coefficient(t.args[1]); return a === null || b === null ? null : a * b; }
+    if (o === '^' && t.args[0].tok.type === 'name') return 1;
+    return null;
+  }
+  function fullyOut(s) {
+    var terms = [], walk = function (t) { var o = t.tok.type === 'op' && t.tok.name; if (o === '+' || o === '-') { walk(t.args[0]); walk(t.args[1]); } else terms.push(t); };
+    walk(jme.compile(s));
+    var cs = terms.map(coefficient);
+    if (cs.indexOf(null) >= 0) return simp(s, 'unitFactor') === simp(s, 'unitFactor,collectIntegerFactors') && !commonLetters(s);
+    return cs.reduce(gcd) === 1 && !commonLetters(s);
+  }
+  function form(s, f) {
+    if (f === 'expanded') { if (brackets(s)) return 'brackets'; return uncollected(s); }
+    if (f === 'simplified') return uncollected(s);
+    if (f === 'factorised') {
+      if (has(s, 'm_anywhere(decimal:$n)') || has(s, 'm_anywhere($n/$n)')) return 'whole';
+      if (is(s, '(? + ?`+)^$n')) return fullyOut(text(jme.compile(s).args[0])) ? null : 'hcf';
+      if (is(s, '-(? + ?`+)') || is(s, '-(? - ?)')) return fullyOut(text(jme.compile(s).args[0])) ? null : 'hcf';
+      var m = jme.rules.matchExpression('m_nogather(`+-(?;f*?`+;f))', s, { allowOtherTerms: false, gatherList: true });
+      if (!m) return 'product';
+      var fs = (m.f && m.f.args ? m.f.args : [m.f]).map(text);
+      var sums = fs.filter(function (x) { return is(x, '? + ?`+') || is(x, '? - ?') || is(x, '(? + ?`+)^?'); });
+      if (!sums.length) return 'product';
+      for (var i = 0; i < sums.length; i++) {
+        var inner = is(sums[i], '(? + ?`+)^?') ? text(jme.compile(sums[i]).args[0]) : sums[i];
+        var u = uncollected(inner); if (u) return u;
+        if (!fullyOut(inner)) return 'hcf';
+      }
+      if (fs.length === 1 || (sums.length === 1 && fs.every(function (x) { return x === sums[0] || /^-?1$/.test(x); }))) return 'hcf';
+      return null;
+    }
+    throw new Error('unknown form ' + f);
+  }
+  // A number as written: a whole number, a decimal, a fraction a/b or a mixed numeral "1 1/2"; null if none of those.
+  var gcd = function (a, b) { return b ? gcd(b, a % b) : a; };
+  function rat(s0) {
+    var s = clean(s0).replace(/\s+/g, ' '), m;
+    if ((m = /^(-?)(\d+) (\d+) ?\/ ?(\d+)$/.exec(s)) && +m[4]) return { v: (+m[2] + +m[3] / +m[4]) * (m[1] ? -1 : 1), kind: 'mixed', n: +m[3], d: +m[4] };
+    if ((m = /^(-?)(\d+) ?\/ ?(\d+)$/.exec(s)) && +m[3]) return { v: +m[2] / +m[3] * (m[1] ? -1 : 1), kind: 'fraction', n: +m[2], d: +m[3] };
+    if (/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return { v: Number(s), kind: /\./.test(s) ? 'decimal' : 'whole' };
+    return null;
+  }
+  function numberForm(answer, expected, f) {
+    var A = rat(answer), E = rat(expected);
+    if (!E) throw new Error('form ' + f + ': the expected answer "' + expected + '" is not a number, fraction or mixed numeral');
+    if (!A) return { ok: false, equivalent: false, why: f === 'decimal' ? MSG.decimal : 'Write one number: a fraction such as 3/4, or a mixed numeral such as 1 1/2.' };
+    if (Math.abs(A.v - E.v) > 1e-9) return { ok: false, equivalent: false, why: 'Not quite. Check your working and try again.' };
+    if (f === 'decimal') return A.kind === 'decimal' || A.kind === 'whole' ? { ok: true, equivalent: true, why: '' } : { ok: false, equivalent: true, why: MSG.decimal };
+    if (A.kind === 'decimal') return { ok: false, equivalent: true, why: MSG.fraction };
+    if (A.kind === 'whole' || (A.n === 0)) return { ok: true, equivalent: true, why: '' };
+    if (A.d === 1 || gcd(A.n, A.d) > 1) return { ok: false, equivalent: true, why: MSG.lowest };
+    return { ok: true, equivalent: true, why: '' };
+  }
+  function check(answer, expected, f) {
+    if (f === 'simplest' || f === 'decimal') return numberForm(answer, expected, f);
+    var sub = /^subject ([a-zA-Z])$/.exec(f || '');
+    if (sub) {
+      var v = sub[1], a = clean(answer).split('='), e = clean(expected).split('=');
+      if (a.length !== 2) return { ok: false, equivalent: false, why: 'Write an equation that starts ' + v + ' =.' };
+      var eq = false;
+      try { eq = same(tree(a[1]), tree(e[1])) || same(tree(a[0]), tree(e[1])); } catch (err) { return { ok: false, equivalent: false, why: err.message }; }
+      var lhs = clean(a[0]), rhsHas = has(text(tree(a[1])), 'm_anywhere(' + v + ')');
+      if (lhs.toLowerCase() !== v.toLowerCase() || rhsHas)   // either case: Numbas compares letters case-insensitively too
+       return { ok: false, equivalent: eq, why: 'Write it as ' + v + ' = …, with ' + v + ' only on the left.' };
+      return { ok: eq, equivalent: eq, why: eq ? '' : 'Not quite: check each step of your rearranging.' };
+    }
+    var ta, te;
+    try { ta = tree(answer); te = tree(expected); } catch (err) { return { ok: false, equivalent: false, why: 'I could not read that: check the brackets and signs.' }; }
+    var eqv = same(ta, te);
+    if (!eqv || !f) return { ok: eqv, equivalent: eqv, why: eqv ? '' : 'Not quite. Check your working and try again.' };
+    try {
+      var k = form(text(ta), f);
+      return k ? { ok: false, equivalent: true, why: MSG[k] } : { ok: true, equivalent: true, why: '' };
+    } catch (err) {
+      return { ok: true, equivalent: true, unsure: true, why: 'That is equivalent. I could not check how it is written, so ask your teacher whether it is in the form they want.' };
+    }
+  }
+  // Working: each line equal to the one before (expressions), or with the same solutions (equations: one line is a
+  // non-zero multiple of the other, as left − right), and the last line in the form. Lines are checked at sample values.
+  var PTS = [0.37, 1.21, -0.83, 2.17, -1.6, 0.59, 3.3];
+  function sides(s) { return clean(s).split('='); }
+  function diff(s) { var p = sides(s); return p.length === 2 ? tree('(' + text(tree(p[0])) + ')-(' + text(tree(p[1])) + ')') : tree(s); }
+  function values(t, names, shift) {
+    return PTS.map(function (x, i) { var v = {}; names.forEach(function (n, j) { v[n] = PTS[(i + j * 3 + shift) % PTS.length] + j * 0.11; }); var r = scope.evaluate(t, v); return r && typeof r.value === 'number' ? r.value : NaN; });
+  }
+  function stepSame(a, b) {
+    var pa = sides(a), pb = sides(b);
+    if (pa.length > 2 || pb.length > 2) return 'one';
+    if (pa.length !== pb.length) return pa.length === 2 ? 'equation' : 'expression';
+    var ta = diff(a), tb = diff(b);
+    if (pa.length === 1) return same(ta, tb) ? null : 'step';
+    var EQ = 'stepEq';
+    var names = Object.keys([ta, tb].reduce(function (o, t) { jme.findvars(t, [], scope).forEach(function (n) { o[n] = 1; }); return o; }, {}));
+    var va = values(ta, names, 0), vb = values(tb, names, 0), ratio = null;
+    for (var i = 0; i < va.length; i++) {
+      if (!isFinite(va[i]) || !isFinite(vb[i])) return EQ;
+      if (Math.abs(va[i]) < 1e-9) { if (Math.abs(vb[i]) > 1e-7) return EQ; continue; }
+      var r = vb[i] / va[i];
+      if (Math.abs(r) < 1e-12) return EQ;
+      if (ratio === null) ratio = r; else if (Math.abs(r - ratio) > 1e-7 * Math.max(1, Math.abs(ratio))) return EQ;
+    }
+    return null;
+  }
+  var LINE = {
+    step: function (n) { return 'Line ' + n + ' is not equal to the line before it. Check that step.'; },
+    stepEq: function (n) { return 'Line ' + n + ' does not follow from the line before it: check that you did the same to both sides.'; },
+    one: function (n) { return 'Line ' + n + ' has more than one = sign: write one step per line.'; },
+    equation: function (n) { return 'Line ' + n + ' should be an equation, like the lines before it.'; },
+    expression: function (n) { return 'Line ' + n + ' should be an expression, like the lines before it (no = sign).'; },
+  };
+  // working(lines, start, f) -> { ok, lines: [{ ok, why }], why }
+  function working(lines, start, f) {
+    lines = lines.map(function (l) { return String(l).trim(); }).filter(Boolean);
+    if (!lines.length) return { ok: false, lines: [], why: 'Write your working, one step per line.' };
+    var out = [], prev = start, bad = null;
+    for (var i = 0; i < lines.length; i++) {
+      var k;
+      try { k = stepSame(prev, lines[i]); } catch (err) { k = 'read'; }
+      if (k) { var why = k === 'read' ? 'I could not read line ' + (i + 1) + ': check the brackets and signs.' : LINE[k](i + 1); out.push({ ok: false, why: why }); bad = bad || why; break; }
+      out.push({ ok: true, why: '' }); prev = lines[i];
+    }
+    if (bad) return { ok: false, lines: out, why: bad };
+    var last = lines[lines.length - 1];
+    if (f) {
+      var sub = /^subject ([a-zA-Z])$/.exec(f);
+      if (sub) { var p = sides(last); if (clean(p[0]).toLowerCase() !== sub[1].toLowerCase() || has(text(tree(p[1] || '')), 'm_anywhere(' + sub[1] + ')')) return { ok: false, lines: out, why: 'Your last line should be ' + sub[1] + ' = …, with ' + sub[1] + ' only on the left.' }; }
+      else { var fk = null; try { fk = form(text(diff(last)), f); } catch (err) { fk = null; } if (fk) return { ok: false, lines: out, why: 'Every step is right. To finish: ' + MSG[fk].charAt(0).toLowerCase() + MSG[fk].slice(1) }; }
+    }
+    return { ok: true, lines: out, why: '' };
+  }
+  return { check: check, working: working, form: function (answer, f) { try { return form(text(tree(answer)), f); } catch (e) { return 'unsure'; } }, MSG: MSG };
+})(Numbas);res(window.WPF);});};if(window.Numbas)go();else document.addEventListener('DOMContentLoaded',go)});</script></body></html>

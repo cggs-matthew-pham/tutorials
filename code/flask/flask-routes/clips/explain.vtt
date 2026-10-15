@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.425
+Each route joins an address to a function, which returns the page.
+
+2
+00:00:05.301 --> 00:00:09.801
+app dot route, slash, joins the address slash to the function home.
+
+3
+00:00:14.856 --> 00:00:20.481
+Visit slash about, and Flask runs the about function, and sends back what it returns.

@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:05.475
+Variables start over each time the page opens; localStorage keeps what you saved
+
+2
+00:00:06.452 --> 00:00:10.552
+The page reads a saved number, adds one, and saves it again.
+
+3
+00:00:13.473 --> 00:00:17.048
+The first visit: nothing was saved, so it starts at 1.
+
+4
+00:00:21.930 --> 00:00:27.180
+Each run is a new visit. The variable starts over; the saved number does not.

@@ -1,0 +1,350 @@
+{
+ "code/arcade/arcade-chase/explain": {
+  "hash": "60a1e1e5d84f6bf4",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade/arcade-dodger/explain": {
+  "hash": "e810dfed51bef6ec",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade/arcade-if/explain": {
+  "hash": "a1f1b2430518b750",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade/arcade-moving/explain": {
+  "hash": "0f6511d3522b32b2",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade/arcade-overlaps/explain": {
+  "hash": "e573e32d17f36d11",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade/arcade-projectiles/explain": {
+  "hash": "9fb15eb4d907c96e",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade/arcade-read/explain": {
+  "hash": "377dd2fffbdc6c12",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade/arcade-score-lives/explain": {
+  "hash": "6e5b75abe163047e",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade/arcade-speed/explain": {
+  "hash": "7a86dd9d3f559d72",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade/arcade-sprites/explain": {
+  "hash": "005fdb28b88eb894",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade-advanced/arcade-every-one/explain": {
+  "hash": "2a4f878ebbbdb362",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade-advanced/arcade-fit/explain": {
+  "hash": "5f9e0fa897564d12",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade-advanced/arcade-flag/explain": {
+  "hash": "53af1254c46c1878",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade-advanced/arcade-functions/explain": {
+  "hash": "dece459e91925ca8",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade-advanced/arcade-gravity/explain": {
+  "hash": "6cbbe59adcbad45f",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade-advanced/arcade-jump/explain": {
+  "hash": "7ba566b3a6f47773",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade-advanced/arcade-level-list/explain": {
+  "hash": "c83a4a4f4200cfaf",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade-advanced/arcade-levels/explain": {
+  "hash": "2a30d5fd39a82f1e",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade-advanced/arcade-own-game/explain": {
+  "hash": "47a5ddafb9433a02",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade-advanced/arcade-parameters/explain": {
+  "hash": "89e6390b60250d1c",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade-advanced/arcade-powerups/explain": {
+  "hash": "0c74fee9658fe882",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/arcade-advanced/arcade-run-out/explain": {
+  "hash": "1735047c338bfb39",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "code/microbit/microbit-buttons/explain": {
+  "hash": "e17676043774065e",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit/microbit-counting/explain": {
+  "hash": "75c9edde74fdb98c",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit/microbit-else/explain": {
+  "hash": "a8c75e2aa87dddec",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit/microbit-forever/explain": {
+  "hash": "aa50b265b708e319",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit/microbit-if/explain": {
+  "hash": "9c5b17f4a0cd4585",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit/microbit-leds/explain": {
+  "hash": "20765d8abf1095ed",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit/microbit-lists/explain": {
+  "hash": "450dbff3261c58d0",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit/microbit-pet/explain": {
+  "hash": "e3cdc80eee3c5bb1",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit/microbit-pick/explain": {
+  "hash": "93556290d3cab23e",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit/microbit-ranges/explain": {
+  "hash": "1fe6ada8357c3675",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit/microbit-sensors/explain": {
+  "hash": "0b10c176badd8eda",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-computer/ai-capstone/explain": {
+  "hash": "4df53f29e8b3fbf4",
+  "w": 812,
+  "h": 1176,
+  "div": 2
+ },
+ "code/microbit-computer/ai-microbit/explain": {
+  "hash": "f9edf8c7daf4fd5f",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-computer/commands/explain": {
+  "hash": "d46001d401da3021",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-computer/createai-train/explain": {
+  "hash": "4a9a17e28c49e35b",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-computer/radio-bridge/explain": {
+  "hash": "4b97d1d580b29b61",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-computer/send-data/explain": {
+  "hash": "9074a74cb400fe68",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-play/microbit-duel/explain": {
+  "hash": "6f490bfb56045af1",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-play/microbit-flag/explain": {
+  "hash": "2dbfbda7b3924d09",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-play/microbit-functions/explain": {
+  "hash": "6201edd5af5ca635",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-play/microbit-levels/explain": {
+  "hash": "889ed12e3f935f4b",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-play/microbit-messages/explain": {
+  "hash": "512228769c4d4ae9",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-play/microbit-radio/explain": {
+  "hash": "383a41622527aa79",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-play/microbit-reaction/explain": {
+  "hash": "d2db1169fc18fe3c",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-play/microbit-time/explain": {
+  "hash": "20463c131069ce62",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-play/microbit-tournament/explain": {
+  "hash": "6d45b998fc0ecde1",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "code/microbit-play/microbit-which/explain": {
+  "hash": "28a890a4e173eefb",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "projects/code/arcade/treasure-hunt": {
+  "hash": "617b1b1b25696e55",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "projects/code/arcade/escape": {
+  "hash": "febc3cc4a94a169b",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "projects/code/arcade-advanced/defender": {
+  "hash": "4b03952cb2960fc6",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "projects/code/arcade-advanced/my-arcade-game": {
+  "hash": "8adc1a89b3ab387e",
+  "w": 593,
+  "h": 445,
+  "div": 2
+ },
+ "projects/code/microbit/plant-monitor": {
+  "hash": "bb951622c441f719",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "projects/code/microbit/answer-machine": {
+  "hash": "7941caff01bfcb66",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "projects/code/microbit-computer/live-dashboard-1": {
+  "hash": "6e73a64705c9dc9e",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "projects/code/microbit-play/quiz-buzzer": {
+  "hash": "d97b8db4b62578e8",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ },
+ "projects/code/microbit-play/my-microbit-game": {
+  "hash": "dc72293917cae16c",
+  "w": 812,
+  "h": 666,
+  "div": 2
+ }
+}

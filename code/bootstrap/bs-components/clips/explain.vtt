@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:05.075
+A row holds cols; each col shares the width; a card goes inside a col
+
+2
+00:00:05.626 --> 00:00:09.251
+A row is Bootstrap's line of columns. It is empty.
+
+3
+00:00:09.828 --> 00:00:14.278
+A col inside it, and a card inside the col: the shape from the cards.
+
+4
+00:00:15.179 --> 00:00:17.354
+One col takes the whole row.
+
+5
+00:00:18.030 --> 00:00:21.280
+A second col, and the two share the row equally.
+
+6
+00:00:23.179 --> 00:00:27.154
+No Flexbox rules of your own. Row and col did the layout.

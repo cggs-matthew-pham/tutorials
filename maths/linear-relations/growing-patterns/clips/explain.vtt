@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.850
+Each figure adds the same amount, and that gives the rule.
+
+2
+00:00:04.503 --> 00:00:07.628
+Figure one is one square, made of four sticks.
+
+3
+00:00:08.379 --> 00:00:12.979
+Figure two adds a square, but it shares a side, so only three new sticks.
+
+4
+00:00:15.489 --> 00:00:18.389
+Every new square adds three more sticks.
+
+5
+00:00:21.862 --> 00:00:26.937
+Figure n has n lots of three, plus one: s equals three n plus one.
+
+6
+00:00:27.591 --> 00:00:31.516
+Figure four is three times four, plus one, which is thirteen.

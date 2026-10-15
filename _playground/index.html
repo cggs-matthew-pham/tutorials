@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python turtle playground</title>
+<link rel="stylesheet" href="style.css?v=368bac9ed6">
+<link rel="stylesheet" href="snippets.css?v=368bac9ed6">
+</head>
+<body>
+<div class="pg">
+  <section class="pane editor-pane" aria-label="Code">
+    <div class="bar">
+      <button id="run" class="btn primary" type="button">Run</button>
+      <button id="stop" class="btn" type="button" disabled>Stop</button>
+      <button id="finish" class="btn" type="button" disabled>Finish</button>
+      <button id="reset" class="btn ghost" type="button">Reset</button>
+      <label class="speed">Speed <input id="speed" type="range" min="1" max="10" value="6" aria-label="Speed"><output id="speed-value">6</output></label>
+    </div>
+    <div id="tabs" class="tabs" role="tablist" aria-label="Files" hidden></div>
+    <textarea id="code" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Python code" wrap="off"></textarea>
+    <div id="status" role="status" data-state="idle">Ready</div>
+    <pre id="output" aria-label="Output" aria-live="polite"></pre>
+  </section>
+  <section class="pane canvas-pane" aria-label="Drawing">
+    <div class="canvas-wrap"><canvas id="canvas" aria-label="Turtle drawing"></canvas></div>
+    <output id="turtle-state" aria-label="Turtle position">x 0 · y 0 · heading 0°</output>
+  </section>
+</div>
+
+<script src="vendor/skulpt.min.js?v=368bac9ed6"></script>
+<script src="vendor/skulpt-stdlib.js?v=368bac9ed6"></script>
+<script type="module" src="main.js?v=368bac9ed6"></script>
+</body>
+</html>

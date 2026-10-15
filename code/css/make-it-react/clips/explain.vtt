@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.600
+Find an element, wait for a click, change the page
+
+2
+00:00:03.951 --> 00:00:08.276
+JavaScript goes in a &lt;script&gt; block, after the HTML.
+
+3
+00:00:09.127 --> 00:00:12.902
+Find the button whose I D is go, and wait for a click.
+
+4
+00:00:14.151 --> 00:00:17.126
+...then find the message and change its words.
+
+5
+00:00:19.371 --> 00:00:20.896
+Click Start.
+
+6
+00:00:23.456 --> 00:00:28.281
+The page changed. A later course explains every part of this recipe.

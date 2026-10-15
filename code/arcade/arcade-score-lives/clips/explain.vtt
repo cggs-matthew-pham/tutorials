@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:03.126
+The info blocks keep score and lives for you.
+
+2
+00:00:03.929 --> 00:00:08.729
+set life shows hearts, and at zero lives the game ends by itself.
+
+3
+00:00:11.347 --> 00:00:14.972
+An overlap runs every frame while two sprites touch.
+
+4
+00:00:15.926 --> 00:00:20.276
+So destroy the enemy when it hits, and it costs just one life.

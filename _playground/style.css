@@ -1,0 +1,73 @@
+:root {
+  --bg: #ffffff; --ink: #1d2430; --muted: #5d6978; --line: #dcd9d1; --panel: #f7f6f3;
+  --accent: #c2570a; --ok: #167a47; --bad: #b3261e; --code-bg: #141a22; --code-ink: #e6edf3;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0f141a; --ink: #e6edf3; --muted: #9aa7b6; --line: #26303c; --panel: #161d26; --accent: #ff9d3d; --ok: #4ade80; --bad: #ff8a80; }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+
+.pg { display: grid; grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr); height: 100%; gap: 0; }
+.pane { min-width: 0; min-height: 0; display: flex; flex-direction: column; padding: 12px; gap: 8px; }
+.editor-pane { border-right: 1px solid var(--line); }
+
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn { font: inherit; font-weight: 600; padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; }
+.btn.primary { background: var(--ok); color: #fff; border-color: transparent; }
+.btn.ghost { background: transparent; }
+.btn:disabled { opacity: .45; cursor: default; }
+.btn:focus-visible, textarea:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.speed { margin-left: auto; display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 14px; }
+.speed input { width: 90px; }
+.speed output { width: 1.4em; text-align: right; color: var(--ink); font-weight: 600; }
+
+#code { flex: 1; min-height: 120px; width: 100%; resize: none; padding: 12px 14px; border-radius: 10px; border: 0;
+  background: var(--code-bg); color: var(--code-ink); font: 14px/1.55 ui-monospace, Menlo, Consolas, monospace; tab-size: 4; white-space: pre; overflow: auto; }
+#status { font-size: 13px; font-weight: 600; color: var(--muted); }
+#status[data-state="running"] { color: var(--accent); }
+#status[data-state="done"] { color: var(--ok); }
+#status[data-state="error"] { color: var(--bad); }
+#output { margin: 0; min-height: 3.2em; max-height: 28%; overflow: auto; padding: 8px 12px; border-radius: 8px; background: var(--panel);
+  border: 1px solid var(--line); font: 13px/1.5 ui-monospace, Menlo, Consolas, monospace; white-space: pre-wrap; }
+#output:empty::before { content: "Output appears here"; color: var(--muted); }
+#output .err { color: var(--bad); }
+#output .err-hint { font-weight: 600; }
+#output .err-raw { opacity: .75; font-size: .9em; }
+#output .err-go { font: inherit; font-size: .85em; padding: 1px 8px; border: 1px solid currentColor; border-radius: 6px; background: transparent; color: inherit; cursor: pointer; }
+
+.canvas-pane { background: var(--panel); }
+.canvas-wrap { flex: 1; min-height: 0; position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }
+canvas { position: absolute; inset: 0; display: block; }
+#turtle-state { font: 13px ui-monospace, Menlo, Consolas, monospace; color: var(--muted); }
+
+@media (max-width: 700px) {
+  .pg { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1.1fr) minmax(0, 1fr); }
+  .editor-pane { border-right: 0; border-bottom: 1px solid var(--line); }
+}
+.tabs { display: flex; gap: 2px; align-items: center; flex-wrap: wrap; }
+.tabs[hidden] { display: none; }
+.tab { font: 13px ui-monospace, Menlo, Consolas, monospace; padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px 6px 0 0; background: var(--panel); color: var(--muted); cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--code-bg); color: var(--code-ink); border-color: var(--code-bg); }
+.tab.rm { padding: 4px 6px; border-radius: 0 6px 0 0; margin-left: -3px; border-left: 0; }
+.tab.add { margin-left: 6px; border-style: dashed; border-radius: 6px; font-family: system-ui, sans-serif; }
+.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ?view=output: only the drawing (used by recorded clips that show the expected result, not the code).
+   The editor stays in the page, invisible, so the clip recorder can still find it. */
+body.output-only .pg { grid-template-columns: 1fr; }
+body.output-only .editor-pane { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none; padding: 0; border: 0; }
+
+/* Console mode (programs with no turtle, or ?console=1): the output becomes a console where the drawing was,
+   and input() asks on an inline line in it. */
+body.console .canvas-wrap, body.console #turtle-state, body.console #finish, body.console .speed { display: none; }
+body.console .bar #reset { margin-left: auto; }
+body.console .canvas-pane { background: var(--bg); }
+body.console #output { flex: 1; max-height: none; min-height: 0; padding: 12px 14px; border-radius: 10px; border: 0;
+  background: var(--code-bg); color: var(--code-ink); font: 15px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+body.console #output:empty::before { content: "Run the program. What it prints appears here, and you type your answers here."; color: #9aa7b6; }
+body.console #output .err { color: #ff8a80; }
+#output .typed { color: #7ee2a8; font-weight: 600; }
+#output .con-in { font: inherit; font-weight: 600; color: #7ee2a8; background: transparent; border: 0; border-bottom: 2px solid #7ee2a8;
+  padding: 0 2px; margin: 0; width: min(24ch, 60%); outline: none; caret-color: #7ee2a8; }

@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.475
+A longer program is made of parts, and each part does one job.
+
+2
+00:00:05.376 --> 00:00:08.301
+First, pick a secret and ask for a guess.
+
+3
+00:00:09.101 --> 00:00:12.026
+Keep going until the guess is the secret.
+
+4
+00:00:13.052 --> 00:00:16.302
+Check the guess, answer it, ask again, and count.

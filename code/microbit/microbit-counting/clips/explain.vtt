@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.850
+A variable is a named box. count holds a number.
+
+2
+00:00:04.626 --> 00:00:09.676
+set count to zero puts zero in the box, and throws the old value away.
+
+3
+00:00:10.555 --> 00:00:14.380
+change count by one adds one to what is already there.
+
+4
+00:00:17.059 --> 00:00:20.259
+show number shows the value without changing it.

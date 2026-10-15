@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.325
+To pick at random, pick a place, then take the item at that place.
+
+2
+00:00:05.100 --> 00:00:09.950
+pick random zero to two gives zero, one or two. Different each time.
+
+3
+00:00:12.453 --> 00:00:17.503
+length of list counts the items. The last place is the length minus one.
+
+4
+00:00:18.609 --> 00:00:23.409
+So picking from zero to the length minus one reaches every item.

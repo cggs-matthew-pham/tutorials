@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.425
+An id names a place, and a # link jumps to it
+
+2
+00:00:04.128 --> 00:00:08.503
+An id gives one element a name. This heading is named results.
+
+3
+00:00:09.428 --> 00:00:14.003
+A link whose href starts with # jumps to the element with that name.
+
+4
+00:00:14.871 --> 00:00:19.471
+The # is the difference. Without it, the browser looks for another page.

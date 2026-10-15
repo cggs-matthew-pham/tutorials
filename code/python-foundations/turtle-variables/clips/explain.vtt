@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.100
+A variable is a name for a value, like a labelled box.
+
+2
+00:00:04.977 --> 00:00:08.827
+sides equals 5 stores five in a box called sides.
+
+3
+00:00:09.853 --> 00:00:15.603
+angle equals 360 divided by sides works out the turn for you.
+
+4
+00:00:18.183 --> 00:00:21.633
+Change sides and the turn updates by itself.

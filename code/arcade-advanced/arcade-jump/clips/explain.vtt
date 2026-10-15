@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.875
+A jump only sets the speed upwards.
+
+2
+00:00:03.628 --> 00:00:07.103
+So every press would jump again, even in mid-air.
+
+3
+00:00:09.724 --> 00:00:14.399
+The if asks: is the player standing on the floor? Only then does it jump.

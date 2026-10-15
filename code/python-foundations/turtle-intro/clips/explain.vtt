@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.300
+The turtle follows your commands one at a time, from the top down.
+
+2
+00:00:05.250 --> 00:00:10.150
+Forward 100 moves the turtle 100 steps and draws a line.
+
+3
+00:00:11.202 --> 00:00:15.002
+Right 90 turns the turtle a quarter turn without moving.
+
+4
+00:00:16.127 --> 00:00:18.527
+The next forward goes the new way.

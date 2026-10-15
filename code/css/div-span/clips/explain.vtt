@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:03.726
+A block takes the full width, an inline box sits in the line
+
+2
+00:00:04.454 --> 00:00:09.104
+The span's gold hugs its words. The div's gold runs across the page.
+
+3
+00:00:10.158 --> 00:00:13.383
+A block starts a new line and takes the full width.
+
+4
+00:00:14.186 --> 00:00:17.361
+An inline box sits inside the line of text.
+
+5
+00:00:18.214 --> 00:00:21.289
+Display block makes the span act like a div.

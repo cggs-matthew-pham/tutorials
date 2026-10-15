@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.500
+Get the message from A to H.
+
+2
+00:00:05.155 --> 00:00:08.430
+A, C, then E. Quick, but E is overloaded.
+
+3
+00:00:12.666 --> 00:00:16.066
+Twelve milliseconds, but packets get lost at E.

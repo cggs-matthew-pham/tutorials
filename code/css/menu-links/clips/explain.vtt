@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.800
+nav a picks only the links inside the nav
+
+2
+00:00:03.829 --> 00:00:07.254
+All three links are blue, in the menu and in the text.
+
+3
+00:00:08.032 --> 00:00:11.257
+Nav space A picks only the links inside the nav.
+
+4
+00:00:13.310 --> 00:00:17.185
+The space means inside. The link in the text keeps its look.
+
+5
+00:00:18.212 --> 00:00:22.287
+Copy this line for now: hover means while the pointer is over it.

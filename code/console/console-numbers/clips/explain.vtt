@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.300
+Input always gives back text. Int turns it into a number.
+
+2
+00:00:05.025 --> 00:00:08.700
+Input gives back text, even when you type digits.
+
+3
+00:00:15.457 --> 00:00:19.432
+So plus joins the text five and five into fifty-five.
+
+4
+00:00:20.459 --> 00:00:24.109
+Int turns the text into a number. Now plus adds.

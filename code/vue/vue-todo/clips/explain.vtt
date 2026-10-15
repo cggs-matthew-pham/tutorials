@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.550
+The finished to-do app: data, events, a computed count and a component
+
+2
+00:00:05.425 --> 00:00:07.750
+The finished app: a list of tasks.
+
+3
+00:00:11.351 --> 00:00:13.426
+Type a task and press Add.
+
+4
+00:00:16.572 --> 00:00:20.397
+Each task is a todo-item component, made by v-for.
+
+5
+00:00:21.250 --> 00:00:24.100
+Tick one, and the computed count follows.
+
+6
+00:00:26.845 --> 00:00:29.270
+You will build it in three milestones.

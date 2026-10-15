@@ -1,0 +1,22 @@
+student,genre,year_level,hours
+S01,pop,9,5
+S02,Rock,9,3
+S03, hip hop ,10,8
+S04,pop,9,
+S05,K-pop,10,three
+S06,pop ,9,4
+S07,country,10,2
+S08,rock,9,-1
+S09,POP,10,6
+S10,electronic,9,400
+S11,,9,2
+S12,hip hop,10,7
+S13,pop,9,5
+S13,pop,9,5
+S14,K-pop,10,4.5
+S15,rock,9,3
+S16,K-pop,9,10
+S17,Pop,10,1.5
+S18,electronic,10,6
+S19,rock,9,2
+S20,country,10,3

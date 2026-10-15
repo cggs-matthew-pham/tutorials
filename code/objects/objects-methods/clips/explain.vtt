@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:03.651
+A method is a function that belongs to an object.
+
+2
+00:00:04.528 --> 00:00:08.553
+add is a method: a def inside the class, with self first.
+
+3
+00:00:09.852 --> 00:00:13.402
+c dot add two runs add, with self being c.
+
+4
+00:00:15.771 --> 00:00:19.821
+The object does the work, so the code that uses it stays short.

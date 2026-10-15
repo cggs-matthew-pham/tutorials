@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.825
+computed works a value out again whenever the data it uses changes
+
+2
+00:00:05.801 --> 00:00:08.051
+Two adults, twelve dollars each.
+
+3
+00:00:08.727 --> 00:00:11.952
+The total is worked out from adults, with computed.
+
+4
+00:00:13.485 --> 00:00:15.085
+Show it on the page.
+
+5
+00:00:19.072 --> 00:00:21.372
+Two adults: 24 dollars.
+
+6
+00:00:24.398 --> 00:00:28.723
+One more adult, and computed works the total out again: 36.

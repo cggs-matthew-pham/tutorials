@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.800
+Tags label text, and line breaks in the code do not show
+
+2
+00:00:04.580 --> 00:00:08.230
+A tag is a label. &lt;h1&gt; labels the main heading.
+
+3
+00:00:09.130 --> 00:00:12.680
+&lt;p&gt; opens a paragraph and &lt;/p&gt; closes it.
+
+4
+00:00:14.105 --> 00:00:17.405
+Two lines in the code, but one line on the page.
+
+5
+00:00:18.281 --> 00:00:20.781
+A new paragraph needs its own &lt;p&gt;.

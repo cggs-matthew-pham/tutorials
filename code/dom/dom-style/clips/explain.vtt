@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.950
+JavaScript flips a class, and CSS changes the look
+
+2
+00:00:04.852 --> 00:00:09.002
+CSS decides what the dark look is. It is only a class.
+
+3
+00:00:10.003 --> 00:00:14.903
+The script just adds or removes the class. Toggle does whichever is needed.
+
+4
+00:00:19.122 --> 00:00:23.672
+One click added the class dark to the body, and the CSS did the rest.
+
+5
+00:00:26.237 --> 00:00:30.337
+Another click removed it. In class List, the name has no dot.

@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:05.025
+A module is a file of related functions that any program can use.
+
+2
+00:00:06.002 --> 00:00:10.627
+This line brings the square function in, from the file shapes dot py.
+
+3
+00:00:11.628 --> 00:00:14.228
+Now call it, like any other function.
+
+4
+00:00:20.287 --> 00:00:25.262
+There is one copy, in the module, so one fix fixes every program.

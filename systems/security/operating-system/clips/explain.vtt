@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.000
+The video call app asks the operating system for the camera.
+
+2
+00:00:04.802 --> 00:00:08.002
+The OS uses webcam A's driver.
+
+3
+00:00:12.422 --> 00:00:16.222
+A new webcam needs a different driver, not a new app.

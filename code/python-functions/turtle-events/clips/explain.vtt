@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.975
+Most apps wait for something to happen, then run a function.
+
+2
+00:00:04.886 --> 00:00:08.986
+On screen click hands over the function name, with no brackets.
+
+3
+00:00:09.911 --> 00:00:14.336
+mainloop keeps the program waiting for events, until you press Stop.
+
+4
+00:00:17.379 --> 00:00:20.679
+Each click runs stamp, and tells it where you clicked.

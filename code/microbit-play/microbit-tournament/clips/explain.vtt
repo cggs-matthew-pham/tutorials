@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:05.000
+scores is a list of two numbers: place zero is you, place one is them.
+
+2
+00:00:05.726 --> 00:00:10.201
+A win adds one at place zero. A loss adds one at place one.
+
+3
+00:00:11.081 --> 00:00:15.556
+Your partner counts from its side: two one for you is one two for them.
+
+4
+00:00:18.121 --> 00:00:22.746
+start round is a function, so the winner's micro:bit starts the next round.

@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.050
+The micro:bit runs blocks in order, from top to bottom.
+
+2
+00:00:04.979 --> 00:00:09.254
+on start runs its blocks once, when the micro:bit switches on.
+
+3
+00:00:11.903 --> 00:00:15.278
+First the word scrolls, then the face, then the tick.
+
+4
+00:00:16.257 --> 00:00:20.182
+The last picture stays on, because nothing comes after it.

@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.750
+A projectile is fired from a sprite, and it's its own kind: Projectile.
+
+2
+00:00:06.026 --> 00:00:10.051
+So a hit is an overlap between a projectile and an enemy.
+
+3
+00:00:12.919 --> 00:00:17.469
+The engine removes a projectile by itself when it leaves the screen.

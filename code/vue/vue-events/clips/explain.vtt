@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:04.851
+A function in setup changes the data; in the script, the value is in .value
+
+2
+00:00:05.927 --> 00:00:07.827
+A score, made with ref.
+
+3
+00:00:08.403 --> 00:00:12.078
+A function in setup adds a point to score dot value.
+
+4
+00:00:12.833 --> 00:00:14.808
+The button runs the function.
+
+5
+00:00:23.093 --> 00:00:25.793
+Page: score. Script: score.value.

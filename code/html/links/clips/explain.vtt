@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:03.276
+A link keeps its address inside the opening tag
+
+2
+00:00:04.228 --> 00:00:08.753
+&lt;a&gt; makes a link. The words between &lt;a&gt; and &lt;/a&gt; are what people click.
+
+3
+00:00:09.254 --> 00:00:13.579
+href goes inside the opening tag and says where the link goes.
+
+4
+00:00:16.361 --> 00:00:20.236
+Only the words show. The address stays hidden inside the tag.

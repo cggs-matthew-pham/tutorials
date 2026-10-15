@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.775
+A rule names a tag, then sets how every one of them looks
+
+2
+00:00:04.476 --> 00:00:08.276
+A rule starts with a selector. p picks every paragraph.
+
+3
+00:00:09.052 --> 00:00:13.452
+Inside the braces: a property, a colon, a value, a semicolon.
+
+4
+00:00:14.279 --> 00:00:18.404
+Both paragraphs turn teal. The heading isn't a P, so it stays.
+
+5
+00:00:19.080 --> 00:00:23.530
+Another rule styles the heading. The HTML does not change.

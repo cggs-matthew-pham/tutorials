@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.625
+Gradio calls the function with the inputs, and shows what it returns.
+
+2
+00:00:05.526 --> 00:00:10.026
+g r dot Interface wraps greet: two inputs, and one output.
+
+3
+00:00:15.497 --> 00:00:20.347
+Submit calls greet, with Ada and True, in the order the inputs are listed.

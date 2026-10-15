@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.925
+justify-content places items along the row, align-items across it
+
+2
+00:00:05.926 --> 00:00:09.101
+The items sit in a row, all bunched at the left.
+
+3
+00:00:09.828 --> 00:00:13.803
+justify-content decides where the items sit along the row.
+
+4
+00:00:14.853 --> 00:00:18.353
+The first item goes to one end, the last to the other.
+
+5
+00:00:19.204 --> 00:00:22.754
+align-items decides how they line up across the row.
+
+6
+00:00:24.207 --> 00:00:26.857
+Now the items sit halfway down the bar.

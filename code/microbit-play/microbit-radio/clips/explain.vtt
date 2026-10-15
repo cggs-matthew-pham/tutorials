@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.025
+Radio sends small messages between micro:bits.
+
+2
+00:00:04.704 --> 00:00:10.579
+radio set group picks a channel. Only micro:bits in the same group hear each other.
+
+3
+00:00:11.260 --> 00:00:14.860
+send number goes to every other micro:bit in the group.
+
+4
+00:00:17.845 --> 00:00:22.970
+on radio received is an event. It runs each time a message arrives.

@@ -1,0 +1,86 @@
+{
+ "background": {
+  "hash": "4cebec36e31211fe",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "circle": {
+  "hash": "78b4b7117c6d26a9",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "rect": {
+  "hash": "8337f2844b7b4d38",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "ellipse": {
+  "hash": "605caffb716c0c80",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "line": {
+  "hash": "e123fdef694c981a",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "triangle": {
+  "hash": "d15f1f450069eba8",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "text": {
+  "hash": "4b2446377be3949d",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "fill": {
+  "hash": "1cf0966672089826",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "stroke": {
+  "hash": "a18c7df3d0011ac7",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "nostroke": {
+  "hash": "693abe84a5753387",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "strokeweight": {
+  "hash": "abe1cfa6043f3fa0",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "array": {
+  "hash": "d489cccd1874c81a",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "for-count": {
+  "hash": "c06394a5fc53ee86",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ },
+ "map": {
+  "hash": "ac149ebced795283",
+  "w": 400,
+  "h": 260,
+  "div": 2
+ }
+}

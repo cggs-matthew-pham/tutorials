@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:03.201
+A parameter is a value the call hands in.
+
+2
+00:00:04.304 --> 00:00:08.854
+Inside spawn enemy, speed is whatever number the call hands in.
+
+3
+00:00:11.482 --> 00:00:16.857
+spawn enemy 20 makes a slow bug, and spawn enemy 100 a fast one.

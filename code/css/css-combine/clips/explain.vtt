@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:04.951
+Every matching rule applies, a class beats a tag, and a comma shares a rule
+
+2
+00:00:05.552 --> 00:00:08.627
+A rule on p turns every paragraph teal.
+
+3
+00:00:10.523 --> 00:00:14.823
+A second rule matches the marked paragraph too. It adds a size.
+
+4
+00:00:17.146 --> 00:00:20.196
+Where both set the same property, the class wins.
+
+5
+00:00:22.416 --> 00:00:26.466
+A comma gives two selectors one rule. H1 comma P.

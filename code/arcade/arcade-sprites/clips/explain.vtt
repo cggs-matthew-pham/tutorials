@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:05.075
+The screen is 160 pixels across, and 120 down.
+
+2
+00:00:06.502 --> 00:00:08.977
+x counts across from the left edge.
+
+3
+00:00:09.805 --> 00:00:13.905
+y counts down from the top edge, so a bigger y is lower.
+
+4
+00:00:16.555 --> 00:00:21.430
+Zero zero is the top left corner. 80, 60 is the middle.

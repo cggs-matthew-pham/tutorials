@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.600
+move with buttons hands a sprite to the arrow keys.
+
+2
+00:00:04.477 --> 00:00:08.202
+It moves while a key is held, and stops when you let go.
+
+3
+00:00:09.256 --> 00:00:14.506
+The two numbers are speeds. The first is across, the second is up and down.
+
+4
+00:00:17.219 --> 00:00:20.769
+A speed of zero means no movement that way at all.

@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.800
+A list holds many values, in order, under one name.
+
+2
+00:00:04.879 --> 00:00:10.129
+Each item has a place, counted from zero. Yes is at zero, Maybe at two.
+
+3
+00:00:12.983 --> 00:00:17.258
+get value at one takes out the item at place one. That is No.
+
+4
+00:00:18.137 --> 00:00:22.887
+Three items use places zero, one and two. There is no place three.

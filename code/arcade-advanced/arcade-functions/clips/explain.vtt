@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.025
+A function is a named job. Making it does not run it.
+
+2
+00:00:04.802 --> 00:00:07.852
+A call block runs it, once for each call.
+
+3
+00:00:10.345 --> 00:00:15.270
+The timer calls spawn bug every second, so a bug appears every second.
+
+4
+00:00:16.151 --> 00:00:20.301
+Every event block is a function too. The game calls it for you.

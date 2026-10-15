@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.650
+Apps have panels: rows of buttons that change what the program does.
+
+2
+00:00:05.551 --> 00:00:09.826
+Instead of an if for every button, the buttons are kept in lists.
+
+3
+00:00:10.627 --> 00:00:13.427
+One loop draws a button for every name.
+
+4
+00:00:14.331 --> 00:00:18.631
+Another loop checks each button in turn, to find which one was clicked.
+
+5
+00:00:23.305 --> 00:00:28.130
+Adding a button is one more item in each list. Gradio works this way.

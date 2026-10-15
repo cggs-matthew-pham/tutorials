@@ -1,0 +1,167 @@
+{
+ "forward": {
+  "hash": "03446f2d77ef3be2",
+  "w": 370,
+  "h": 134
+ },
+ "backward": {
+  "hash": "91f54447a815543e",
+  "w": 394,
+  "h": 134
+ },
+ "right": {
+  "hash": "b7764c75dee6d753",
+  "w": 278,
+  "h": 266
+ },
+ "left": {
+  "hash": "ea192be0a7da2214",
+  "w": 278,
+  "h": 266
+ },
+ "goto": {
+  "hash": "355bd32c8aaa7abe",
+  "w": 318,
+  "h": 278
+ },
+ "setheading": {
+  "hash": "fec55bd44d7ab5ed",
+  "w": 132,
+  "h": 266
+ },
+ "home": {
+  "hash": "4a7cdfdb1190e9f8",
+  "w": 342,
+  "h": 226
+ },
+ "penup": {
+  "hash": "7ce7066e0889a062",
+  "w": 422,
+  "h": 134
+ },
+ "pendown": {
+  "hash": "7ce7066e0889a062",
+  "w": 422,
+  "h": 134
+ },
+ "pensize": {
+  "hash": "51b5558efabab0e0",
+  "w": 376,
+  "h": 134
+ },
+ "pencolor": {
+  "hash": "6ebd8f3d746c2d61",
+  "w": 370,
+  "h": 134
+ },
+ "dot": {
+  "hash": "ed1c8938fc03861e",
+  "w": 182,
+  "h": 182
+ },
+ "write": {
+  "hash": "0ccd1e47ab3a7f05",
+  "w": 233,
+  "h": 145
+ },
+ "fillcolor": {
+  "hash": "68e625888247598d",
+  "w": 314,
+  "h": 330
+ },
+ "begin-fill-end-fill": {
+  "hash": "89b680b6e33b34a3",
+  "w": 290,
+  "h": 278
+ },
+ "bgcolor": {
+  "hash": "44b8addcf941e843",
+  "w": 318,
+  "h": 134
+ },
+ "hideturtle": {
+  "hash": "30fea497fbd33655",
+  "w": 318,
+  "h": 110
+ },
+ "circle": {
+  "hash": "8c22e25919d5e88a",
+  "w": 370,
+  "h": 382
+ },
+ "square-loop": {
+  "hash": "ddb6bb8f7441a7c1",
+  "w": 394,
+  "h": 382
+ },
+ "for-loop": {
+  "hash": "d3738fd6b94a7ea7",
+  "w": 432,
+  "h": 134
+ },
+ "while-loop": {
+  "hash": "9bdbb91b73c872b3",
+  "w": 396,
+  "h": 407
+ },
+ "ask-and-reply": {
+  "hash": "4a006b2dfe3c47e5",
+  "w": 132,
+  "h": 134
+ },
+ "check-then-convert": {
+  "hash": "c647ad869a1289a3",
+  "w": 132,
+  "h": 134
+ },
+ "if-else": {
+  "hash": "e72e513d85854e24",
+  "w": 652,
+  "h": 182
+ },
+ "every-other": {
+  "hash": "34ebb514d2907ad8",
+  "w": 310,
+  "h": 316
+ },
+ "variable": {
+  "hash": "f5447043cdc97320",
+  "w": 434,
+  "h": 266
+ },
+ "named-turn": {
+  "hash": "61abff7f8eb8496a",
+  "w": 422,
+  "h": 393
+ },
+ "counter-step": {
+  "hash": "c41443079532e073",
+  "w": 498,
+  "h": 499
+ },
+ "grow-value": {
+  "hash": "4dde2167c0f18f55",
+  "w": 511,
+  "h": 512
+ },
+ "for-each-item": {
+  "hash": "012bf0a84def7589",
+  "w": 433,
+  "h": 134
+ },
+ "def-function": {
+  "hash": "02e5e7c02be51515",
+  "w": 441,
+  "h": 177
+ },
+ "onscreenclick": {
+  "hash": "d85c905dc5ca40ad",
+  "w": 442,
+  "h": 286
+ },
+ "onkey": {
+  "hash": "71d7adbfbfdfefc1",
+  "w": 266,
+  "h": 132
+ }
+}

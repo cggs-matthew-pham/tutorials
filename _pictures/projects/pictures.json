@@ -1,0 +1,62 @@
+{
+ "code/css/recipe-card": {
+  "hash": "4301fb354555ac29",
+  "w": 1040,
+  "h": 776,
+  "div": 2
+ },
+ "code/css/event-page": {
+  "hash": "6f608170c15d08b4",
+  "w": 1040,
+  "h": 728,
+  "div": 2
+ },
+ "code/html/about-me": {
+  "hash": "efe8eb316d81cd9a",
+  "w": 1040,
+  "h": 1016,
+  "div": 2
+ },
+ "code/html/order-form": {
+  "hash": "a5729d88d09c1289",
+  "w": 1040,
+  "h": 614,
+  "div": 2
+ },
+ "code/microbit-computer/live-dashboard-2": {
+  "hash": "a207530a4e3c3d62",
+  "w": 1040,
+  "h": 356,
+  "div": 2
+ },
+ "code/python-foundations/pattern-maker": {
+  "hash": "fa8ce86daa9f0512",
+  "w": 1237,
+  "h": 205,
+  "div": 2
+ },
+ "code/python-functions/street": {
+  "hash": "96ca1c6a7ffecb0b",
+  "w": 1015,
+  "h": 357,
+  "div": 2
+ },
+ "code/python-functions/bar-chart": {
+  "hash": "ace20f5612d2fbd9",
+  "w": 787,
+  "h": 552,
+  "div": 2
+ },
+ "code/python-functions/stamp-art": {
+  "hash": "a7de3f9049f188d5",
+  "w": 938,
+  "h": 156,
+  "div": 2
+ },
+ "code/python-functions/my-game": {
+  "hash": "4c8551cab0131981",
+  "w": 909,
+  "h": 700,
+  "div": 2
+ }
+}

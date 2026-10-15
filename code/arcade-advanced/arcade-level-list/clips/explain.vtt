@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.075
+A list holds one speed for each level.
+
+2
+00:00:03.703 --> 00:00:07.878
+speeds at level is this level's speed. Places start at zero.
+
+3
+00:00:08.758 --> 00:00:12.533
+start level clears the old enemy and sets up the new one.

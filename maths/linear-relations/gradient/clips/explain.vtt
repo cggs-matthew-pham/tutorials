@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.975
+m is how far the line goes up for each step to the right.
+
+2
+00:00:04.601 --> 00:00:07.801
+Here m is one: one step right, and up one.
+
+3
+00:00:08.477 --> 00:00:12.427
+Make m bigger: up two for each step, so the line is steeper.
+
+4
+00:00:14.866 --> 00:00:19.266
+m is three: up three, and it still crosses the y axis at one.
+
+5
+00:00:21.670 --> 00:00:25.545
+When m is zero, there are no steps up, so the line is flat.
+
+6
+00:00:30.901 --> 00:00:35.626
+A negative m goes down: m of negative two is down two each step.

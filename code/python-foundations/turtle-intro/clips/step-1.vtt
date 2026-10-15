@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.801 --> 00:00:05.776
+A program is a list of commands. The turtle follows them from the top down.
+
+2
+00:00:06.776 --> 00:00:11.676
+forward(100) moves the turtle 100 steps and draws a line.
+
+3
+00:00:12.726 --> 00:00:17.101
+right(90) turns it a quarter turn. It does not move or draw.
+
+4
+00:00:17.852 --> 00:00:20.602
+The next forward goes in the new direction.

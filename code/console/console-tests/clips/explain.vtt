@@ -1,0 +1,9 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.825
+A test case is what you give, and what you expect back.
+
+2
+00:00:04.817 --> 00:00:09.617
+Each test calls the function and compares the answer with what you expect.

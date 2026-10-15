@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.300
+A for loop can take a list's items one at a time.
+
+2
+00:00:04.477 --> 00:00:07.652
+This loop runs once for each item in the list.
+
+3
+00:00:08.652 --> 00:00:12.302
+Each time, c holds the next item, such as red.

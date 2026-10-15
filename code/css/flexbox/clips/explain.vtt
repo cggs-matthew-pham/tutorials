@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.575
+display: flex on the parent lines its children up in a row
+
+2
+00:00:04.803 --> 00:00:07.928
+A list stacks its items, one under another.
+
+3
+00:00:08.830 --> 00:00:12.730
+display: flex goes on the box that holds them: the ul.
+
+4
+00:00:13.580 --> 00:00:17.605
+Its children, the li items, now sit side by side.
+
+5
+00:00:18.530 --> 00:00:22.430
+Put it on each li instead, and the items stack again.

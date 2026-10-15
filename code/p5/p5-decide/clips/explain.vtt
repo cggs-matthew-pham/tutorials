@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.250
+An if lets the sketch decide, and turns the circle round at an edge
+
+2
+00:00:04.778 --> 00:00:09.703
+A variable for the place, and one for the speed. A negative speed goes left.
+
+3
+00:00:10.553 --> 00:00:15.753
+if checks a condition. When x passes 280, the speed turns round.
+
+4
+00:00:20.837 --> 00:00:25.712
+The circle bounces. The two bars mean or: either edge can turn it round.

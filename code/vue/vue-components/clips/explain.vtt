@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:04.901
+Make a tag once with a component; props give each copy its own data
+
+2
+00:00:05.301 --> 00:00:06.826
+An empty app.
+
+3
+00:00:07.251 --> 00:00:10.601
+A component: a tag of our own called player-card.
+
+4
+00:00:11.302 --> 00:00:14.752
+Its prop, name, is the data each copy is given.
+
+5
+00:00:15.403 --> 00:00:18.753
+Use the tag twice, with a different name each time.
+
+6
+00:00:22.592 --> 00:00:26.192
+Written once, used twice, each copy with its own name.

@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.025
+The LED is wired to pin twelve.
+
+2
+00:00:03.650 --> 00:00:07.125
+The wire goes to pin twelve, the code says thirteen.
+
+3
+00:00:11.358 --> 00:00:14.433
+Pin thirteen blinks, but nothing is on it.

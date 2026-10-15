@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.925
+A function is a named set of steps. def teaches Python a new word.
+
+2
+00:00:05.851 --> 00:00:10.426
+Run it, and nothing is drawn. The def only says what square means.
+
+3
+00:00:13.496 --> 00:00:17.046
+The steps run when you call it, by its name with brackets.
+
+4
+00:00:24.712 --> 00:00:29.737
+Three calls, three squares. Change the def once, and every square changes.

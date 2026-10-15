@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.825
+Array of sprites of kind enemy is a list of every enemy right now.
+
+2
+00:00:05.925 --> 00:00:10.350
+A for element loop runs its blocks once for each item in the list.
+
+3
+00:00:12.905 --> 00:00:16.605
+Each time round, value stands for the next alien.
+
+4
+00:00:17.208 --> 00:00:21.858
+So one press reaches every alien, even though none of them has a name.

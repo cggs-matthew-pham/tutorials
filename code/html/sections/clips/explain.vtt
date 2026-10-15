@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.775
+Section tags name the parts of a page
+
+2
+00:00:03.327 --> 00:00:07.452
+&lt;header&gt; is the top of the page: the title, and often the menu.
+
+3
+00:00:12.372 --> 00:00:14.972
+&lt;main&gt; holds the page's main content.
+
+4
+00:00:16.982 --> 00:00:20.682
+&lt;footer&gt; is the bottom: contact details and small print.
+
+5
+00:00:22.248 --> 00:00:26.998
+They look like plain text, but their names tell screen readers what each part is.

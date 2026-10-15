@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.375
+A label links to its box by id, and a form does nothing alone
+
+2
+00:00:05.301 --> 00:00:08.226
+A &lt;form&gt; holds the boxes people type in.
+
+3
+00:00:08.852 --> 00:00:12.552
+A p tag puts the label and its box on their own line.
+
+4
+00:00:13.277 --> 00:00:17.202
+The label's for matches the box's I D. That joins them.
+
+5
+00:00:18.052 --> 00:00:20.527
+A &lt;button&gt; is for sending the answers.
+
+6
+00:00:23.119 --> 00:00:27.269
+But nothing is connected to it. Code behind a form does the work.

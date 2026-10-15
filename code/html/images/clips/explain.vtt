@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.725
+src names the picture file, and alt describes it
+
+2
+00:00:04.401 --> 00:00:08.051
+&lt;img&gt; shows a picture. It has no closing tag.
+
+3
+00:00:08.676 --> 00:00:11.001
+src names the picture file...
+
+4
+00:00:11.872 --> 00:00:14.372
+...and alt says what the picture shows.
+
+5
+00:00:15.194 --> 00:00:19.769
+The file name is spelt wrong, so people see the alt words instead.
+
+6
+00:00:20.694 --> 00:00:23.419
+Fix the name, and the picture appears.

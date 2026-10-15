@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.101 --> 00:00:02.701
+When two sprites touch, they overlap.
+
+2
+00:00:03.528 --> 00:00:07.728
+An on overlap event names two kinds, like Player and Food.
+
+3
+00:00:08.780 --> 00:00:13.155
+Inside it, sprite is the first one, and other sprite the second.
+
+4
+00:00:15.634 --> 00:00:20.184
+The kind you choose for a sprite decides which overlap events it runs.

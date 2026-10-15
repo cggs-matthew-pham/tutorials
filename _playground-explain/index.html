@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explain</title>
+<!--
+  Explain stage for MakeCode lessons' "Explain it to me" clips (render.mjs records it like any app).
+  Shows a program's blocks picture and, after Run, what it makes in MakeCode's simulator. Both pictures are drawn at
+  build time by render-pictures (needs makecode.com), so nothing here talks to MakeCode.
+    ?code=<program>    the program; its blocks picture is _pictures/makecode/code/<sha1(code.trim()) 12 hex>.png
+    ?lesson=<slug>     its output picture is _pictures/makecode-out/<slug>/explain.png
+    ?target=microbit|arcade
+  #stage gets data-ready once both pictures have loaded (or failed), for app.readySelector.
+-->
+<style>
+  :root { --bg: #f6f7f9; --card: #fff; --line: #d9dde3; --ink: #1d2733; --muted: #5d6b7a; --go: #1f8a4c; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font: 16px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  #stage { height: 100%; display: grid; grid-template-columns: 1.15fr 1fr; gap: 18px; padding: 18px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
+  .card h2 { margin: 0; min-height: 46px; padding: 8px 14px; font-size: 15px; font-weight: 600; color: var(--muted); border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px; }
+  .card h2 .grow { flex: 1; }
+  .pic { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .pic img { max-width: 100%; max-height: 100%; object-fit: contain; image-rendering: auto; }
+  #out img { image-rendering: pixelated; }
+  .missing { color: var(--muted); font-size: 15px; text-align: center; }
+  button { font: inherit; font-size: 14px; font-weight: 600; border: 0; border-radius: 8px; padding: 6px 16px; background: var(--go); color: #fff; cursor: pointer; }
+  button[disabled] { opacity: .45; cursor: default; }
+  #out .pic { transition: opacity .35s; }
+  #out:not(.ran) .pic { opacity: 0; }
+  #out:not(.ran) .waiting { display: flex; }
+  .waiting { display: none; position: absolute; inset: 0; align-items: center; justify-content: center; color: var(--muted); font-size: 15px; pointer-events: none; }
+  #out { position: relative; }
+</style>
+</head>
+<body>
+<main id="stage">
+  <section class="card" id="blocks"><h2><span class="grow">The blocks</span><span id="target"></span></h2><div class="pic"></div></section>
+  <section class="card" id="out"><h2><span class="grow">What it makes</span><button type="button" id="run">Run</button></h2><div class="pic"></div><div class="waiting">Press Run to start the simulator</div></section>
+</main>
+<script>
+(async () => {
+  const q = new URLSearchParams(location.search);
+  const code = q.get('code') || '';
+  const lesson = (q.get('lesson') || '').replace(/[^\w\-/]/g, '');
+  const target = q.get('target') === 'arcade' ? 'arcade' : 'microbit';
+  document.getElementById('target').textContent = target === 'arcade' ? 'Arcade' : 'micro:bit';
+  const stage = document.getElementById('stage');
+  // Same id as tools/teach.mjs blocksId: 'code/' + the first 12 hex digits of sha1(code.trim()).
+  // Plain SHA-1: crypto.subtle needs a secure context, which the recorder's stage page is not.
+  const sha1 = (str) => {
+    const m = new TextEncoder().encode(str), n = ((m.length + 9 + 63) >> 6) << 6, b = new Uint8Array(n);
+    b.set(m); b[m.length] = 0x80; const dv = new DataView(b.buffer);
+    dv.setUint32(n - 4, m.length * 8); dv.setUint32(n - 8, Math.floor(m.length / 0x20000000));
+    let h0 = 0x67452301, h1 = 0xefcdab89, h2 = 0x98badcfe, h3 = 0x10325476, h4 = 0xc3d2e1f0;
+    const w = new Uint32Array(80), rl = (x, k) => (x << k) | (x >>> (32 - k));
+    for (let o = 0; o < n; o += 64) {
+      for (let i = 0; i < 16; i++) w[i] = dv.getUint32(o + i * 4);
+      for (let i = 16; i < 80; i++) w[i] = rl(w[i - 3] ^ w[i - 8] ^ w[i - 14] ^ w[i - 16], 1);
+      let a = h0, bb = h1, c = h2, d = h3, e = h4;
+      for (let i = 0; i < 80; i++) {
+        const f = i < 20 ? (bb & c) | (~bb & d) : i < 40 ? bb ^ c ^ d : i < 60 ? (bb & c) | (bb & d) | (c & d) : bb ^ c ^ d;
+        const k = i < 20 ? 0x5a827999 : i < 40 ? 0x6ed9eba1 : i < 60 ? 0x8f1bbcdc : 0xca62c1d6;
+        const t = (rl(a, 5) + f + e + k + w[i]) >>> 0; e = d; d = c; c = rl(bb, 30) >>> 0; bb = a; a = t;
+      }
+      h0 = (h0 + a) >>> 0; h1 = (h1 + bb) >>> 0; h2 = (h2 + c) >>> 0; h3 = (h3 + d) >>> 0; h4 = (h4 + e) >>> 0;
+    }
+    return [h0, h1, h2, h3, h4].map((x) => x.toString(16).padStart(8, '0')).join('');
+  };
+  const id = 'code/' + sha1(code.trim()).slice(0, 12);
+  const load = (box, src, alt, missing) => new Promise((done) => {
+    const img = new Image();
+    img.alt = alt;
+    img.onload = () => { box.append(img); done(); };
+    img.onerror = () => { box.innerHTML = `<p class="missing">${missing}</p>`; done(); };
+    img.src = src;
+  });
+  await Promise.all([
+    load(document.querySelector('#blocks .pic'), `../_pictures/makecode/${id}.png`, 'The program as blocks', 'The blocks picture is drawn by the build (it needs makecode.com).'),
+    lesson ? load(document.querySelector('#out .pic'), `../_pictures/makecode-out/${lesson}/explain.png`, 'What the program shows in the simulator', 'The simulator picture is drawn by the build (it needs makecode.com).') : Promise.resolve(),
+  ]);
+  const run = document.getElementById('run');
+  run.addEventListener('click', () => { document.getElementById('out').classList.add('ran'); run.disabled = true; run.textContent = 'Running'; });
+  stage.dataset.ready = '1';
+})();
+</script>
+</body>
+</html>

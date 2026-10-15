@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.875
+forever runs its blocks again and again.
+
+2
+00:00:03.852 --> 00:00:08.227
+After the last block, it starts again from the top. That is a loop.
+
+3
+00:00:10.933 --> 00:00:16.083
+pause keeps a picture on for longer. A thousand milliseconds is one second.
+
+4
+00:00:16.913 --> 00:00:19.688
+Then the loop carries on with the next picture.

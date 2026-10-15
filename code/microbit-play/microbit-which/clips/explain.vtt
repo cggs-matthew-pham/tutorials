@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.250
+receivedNumber holds the number that arrived.
+
+2
+00:00:04.053 --> 00:00:07.878
+One on radio received block gets every message.
+
+3
+00:00:08.481 --> 00:00:11.181
+if and else if check which number it was.
+
+4
+00:00:13.971 --> 00:00:17.596
+send string sends a word, and receivedString holds it.

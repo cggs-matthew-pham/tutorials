@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.125
+JavaScript finds an element by its id, then changes it
+
+2
+00:00:04.953 --> 00:00:08.453
+A heading with an id, so JavaScript can find it.
+
+3
+00:00:09.279 --> 00:00:13.454
+A script runs when the browser reaches it, so it goes below the heading.
+
+4
+00:00:14.280 --> 00:00:18.280
+query Selector with a hash finds the element with that I D.
+
+5
+00:00:23.034 --> 00:00:27.509
+text Content changed the words, and style dot color changed the colour.

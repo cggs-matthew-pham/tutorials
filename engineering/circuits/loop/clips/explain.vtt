@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.375
+Current flows out of pin 0, round the loop, and back to GND.
+
+2
+00:00:05.451 --> 00:00:08.351
+A complete loop, so the LED lights.
+
+3
+00:00:10.098 --> 00:00:13.098
+Break the loop anywhere, and the current stops.
+
+4
+00:00:14.795 --> 00:00:17.295
+Close the loop, and it lights again.

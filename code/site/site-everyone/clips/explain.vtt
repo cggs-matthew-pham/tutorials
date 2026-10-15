@@ -1,0 +1,21 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.100
+A page works for everyone when its tags say what each part is
+
+2
+00:00:04.953 --> 00:00:09.503
+This page looks fine. A screen reader finds a picture with no words.
+
+3
+00:00:10.207 --> 00:00:13.682
+alt describes the picture for anyone who can't see it.
+
+4
+00:00:14.357 --> 00:00:19.082
+The box has no name. A label, joined by for and id, gives it one.
+
+5
+00:00:21.219 --> 00:00:24.619
+It looks almost the same, and now everyone can use it.

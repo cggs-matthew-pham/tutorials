@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.800
+A variable called level remembers where the player is.
+
+2
+00:00:04.553 --> 00:00:08.303
+The level goes up where the score changes: in the overlap.
+
+3
+00:00:11.026 --> 00:00:15.426
+Goal moves up by five, so the next level needs five more coins.

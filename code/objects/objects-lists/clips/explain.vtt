@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.575
+Put the turtles in a list, and one loop drives them all.
+
+2
+00:00:04.502 --> 00:00:08.777
+The loop makes four turtles, and append adds each one to the list.
+
+3
+00:00:09.677 --> 00:00:13.427
+speeds at place i belongs to the star at place i.
+
+4
+00:00:17.178 --> 00:00:21.328
+For more stars, change range four. The loop does the rest.

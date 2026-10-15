@@ -1,0 +1,13 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.175
+Input shows a question, waits, and gives back what was typed.
+
+2
+00:00:04.954 --> 00:00:08.754
+Input shows a question and waits for the person to type.
+
+3
+00:00:09.831 --> 00:00:14.281
+The name equals part stores what was typed, so it can be used later.

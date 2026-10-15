@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.375
+Some blocks wait. They run only when something happens: an event.
+
+2
+00:00:05.426 --> 00:00:09.326
+on button A pressed runs its blocks every time A is pressed.
+
+3
+00:00:10.504 --> 00:00:15.004
+on start runs once, at the start. forever runs again and again.
+
+4
+00:00:17.844 --> 00:00:21.969
+Event blocks, like on shake, run each time that thing happens.

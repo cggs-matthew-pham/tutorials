@@ -1,0 +1,350 @@
+// Number line: integers (and halves or tenths) on one line, with fixed and dragged points, a comparison sentence and
+// jumps for adding and subtracting.
+//   widget: numberline
+//   range: -10, 10           the ends of the line (required)
+//   labels: 1                number every this many (default 1 up to 20 steps, else 5)
+//   snap: 1                  where dragged points land (default 1; 0.5 or 0.1 for halves or tenths)
+//   fractions: 4             write values between whole numbers as fractions (−1 1/4, with the decimal in readouts);
+//                            dragged points land on quarters unless snap says otherwise
+//   context: Temperature (°C)   a name and unit for readouts ("−7 °C"), written under the line
+//   point A: -7              a fixed point; `point A: -7, Canberra` gives it a caption
+//   point P: 0, drag         a point students drag along the line; checks see it once it is let go
+//   point A: a               a point that follows slider a (keyboard-friendly, and what clips can move)
+//   compare: A, P            writes the comparison live: "−7 < −2: A is further left, so it is less"
+//   sum: a + b               a jump: start at a and move by b (sliders a and b), landing at R; "−3 + 5 = 2"
+//   sum: a - b               subtracting: the jump goes the opposite way to adding b (drawn faint above it)
+//   sum: a ? b               with + and − buttons for the operation
+//   product: a × b           a jumps of b from 0, landing on R; a negative number of jumps goes the opposite way
+//                            (the jumps it reverses are drawn faint above); "−3 × (−2) = 6"
+//   slider a: -10, 10, -3    min, max, start, step (default 1), as on the graph widget
+//   ray: P                   an inequality to build on dragged point P: Open/Closed and Left/Right buttons draw x > 3,
+//                            x ≤ 3, …; values k (1 closed), s (1 right, −1 left) with x(P). "ray: x >= -2" draws a fixed one
+// state: { scope: { vars: { each slider, r (the result), o (1 for +, −1 for −) }, points: { A: [x, 0], R: [r, 0] } } }
+// Checks (ray): "x(P) = 3 and k = 0 and s = 1" (x > 3).
+// Checks: "x(P) < -4", "x(P) < x(Q) and x(P) + x(Q) < 0", "a = 5 and b = -3 and o = -1", "r = 8".
+(function (B) {
+  'use strict';
+  var spec = null, vars = {}, op = 1, objs = {}, startAt = {}, ui = {};
+  var round = function (v) { return Math.round(v * 1e6) / 1e6; };
+  var dec = function (n) { return B.fmt(n).replace(/^-/, '−'); };
+  // With `fractions: 4`, values between whole numbers are written as fractions or mixed numerals (−1 1/4), simplified.
+  var show = function (n) {
+    var d = spec && spec.den;
+    if (!d || Math.abs(n - Math.round(n)) < 1e-9) return dec(n);
+    var t = Math.round(Math.abs(n) * d); if (Math.abs(Math.abs(n) * d - t) > 1e-6) return dec(n);
+    var w = Math.floor(t / d), r = t % d, g = (function gcd(a, b) { return b ? gcd(b, a % b) : a; })(r, d);
+    return (n < 0 ? '−' : '') + (w ? w + ' ' : '') + r / g + '/' + d / g;
+  };
+  var both = function (n) { var f = show(n), x = dec(n); return f === x ? f : f + ' (' + x + ')'; };
+  var paren = function (n) { return n < 0 ? '(' + show(n) + ')' : show(n); };
+
+  function num(t, where) {
+    var v; try { v = WPM.evaluate(String(t).trim(), {}); } catch (e) { v = NaN; }
+    if (!isFinite(v)) throw new Error(where + ': "' + String(t).trim() + '" is not a number.');
+    return v;
+  }
+  function parse(s) {
+    var rawRay = s.ray;
+    if (!s.range) throw new Error('range: give the two ends of the line, such as "range: -10, 10".');
+    var r = s.range.split(',').map(function (t) { return num(t, 'range'); });
+    if (r.length !== 2 || !(r[0] < r[1])) throw new Error('range: two numbers, the smaller first, such as "range: -10, 10".');
+    s.lo = r[0]; s.hi = r[1];
+    s.den = s.fractions !== undefined ? num(s.fractions, 'fractions') : 0;
+    if (s.den && !(s.den >= 2 && s.den <= 20 && s.den === Math.round(s.den))) throw new Error('fractions: a whole number from 2 to 20 (the denominator), such as "fractions: 4".');
+    s.snapStep = s.snap !== undefined ? num(s.snap, 'snap') : s.den ? 1 / s.den : 1;
+    if (!(s.snapStep > 0)) throw new Error('snap: a number bigger than 0, such as 1 or 0.5.');
+    var steps = (s.hi - s.lo);
+    s.labelStep = s.labels !== undefined ? num(s.labels, 'labels') : steps <= 20 ? 1 : 5;
+    var m = /^(.*?)\s*\(([^)]*)\)\s*$/.exec(s.context || '');
+    s.ctx = s.context ? (m ? { name: m[1], unit: m[2] } : { name: s.context.trim(), unit: '' }) : null;
+    s.points = []; s.sliders = [];
+    var ordered = s.items.filter(function (it) { return it.kind === 'slider'; }).concat(s.items.filter(function (it) { return it.kind !== 'slider'; }));
+    ordered.forEach(function (it) {
+      var where = 'Line ' + it.line + ' (' + it.kind + (it.name ? ' ' + it.name : '') + ')';
+      if (it.kind === 'point') {
+        if (!/^[A-Z]$/.test(it.name || '') || it.name === 'R') throw new Error(where + ': a point needs a one-letter capital name (not R, which is the result of a sum).');
+        var p = it.value.split(',').map(function (t) { return t.trim(); });
+        var drag = p.slice(1).some(function (t) { return /^drag$/i.test(t); });
+        var cap = p.slice(1).filter(function (t) { return !/^drag$/i.test(t); }).join(', ');
+        // A number, or (fixed points) an expression in the sliders: `point A: a` follows slider a.
+        var x, fx = null;
+        if (/[a-z]/.test(p[0])) {
+          if (drag) throw new Error(where + ': a dragged point starts at a number.');
+          var have = s.sliders.map(function (q) { return q.name; });
+          try { fx = WPM.compile(p[0]); WPM.vars(p[0]).forEach(function (v) { if (have.indexOf(v) < 0) throw new Error('"' + v + '" needs a slider'); }); } catch (e) { throw new Error(where + ': ' + e.message + '.'); }
+          x = null;
+        } else {
+          x = num(p[0], where);
+          if (x < s.lo || x > s.hi) throw new Error(where + ': ' + x + ' is off the line (' + s.lo + ' to ' + s.hi + ').');
+        }
+        s.points.push({ name: it.name, x: x, fx: fx, drag: drag, caption: cap });
+      } else if (it.kind === 'slider') {
+        if (!/^[a-z]$/.test(it.name || '') || it.name === 'r' || it.name === 'o') throw new Error(where + ': a slider needs a one-letter lower-case name (not r or o, which the sum reports).');
+        var a = it.value.split(',').map(function (t) { return num(t, where); });
+        if (a.length < 3 || !(a[0] < a[1]) || a[2] < a[0] || a[2] > a[1]) throw new Error(where + ': needs min, max, start with min < max and start between them.');
+        s.sliders.push({ name: it.name, min: a[0], max: a[1], start: a[2], step: a[3] || 1 });
+      }
+    });
+    var names = s.points.map(function (p) { return p.name; });
+    if (new Set(names).size !== names.length) throw new Error('Two points have the same name.');
+    s.cmp = null;
+    if (s.compare) {
+      var c = s.compare.split(',').map(function (t) { return t.trim(); });
+      if (c.length !== 2 || c.some(function (n) { return names.indexOf(n) < 0; })) throw new Error('compare: name two of the points, such as "compare: A, B".');
+      s.cmp = c;
+    }
+    var rawSum = s.sum; s.sum = null;
+    if (rawSum !== undefined) {
+      var sm = /^([a-z])\s*([+\-−?])\s*([a-z])$/.exec(String(rawSum).trim());
+      if (!sm) throw new Error('sum: write two slider letters with +, − or ? between them, such as "sum: a + b".');
+      var have = s.sliders.map(function (x) { return x.name; });
+      [sm[1], sm[3]].forEach(function (n) { if (have.indexOf(n) < 0) throw new Error('sum: "' + n + '" needs a slider (such as "slider ' + n + ': -10, 10, 0").'); });
+      s.sum = { a: sm[1], b: sm[3], op: sm[2] === '?' ? 0 : sm[2] === '+' ? 1 : -1 };
+    }
+    s.prod = null;
+    if (s.product !== undefined) {
+      var pm = /^([a-z])\s*[*×]\s*([a-z])$/.exec(String(s.product).trim());
+      if (!pm) throw new Error('product: write two slider letters with × between them, such as "product: a × b".');
+      var hv = s.sliders.map(function (x) { return x; });
+      var sa = hv.filter(function (x) { return x.name === pm[1]; })[0], sb = hv.filter(function (x) { return x.name === pm[2]; })[0];
+      if (!sa || !sb) throw new Error('product: both letters need sliders.');
+      if (s.sum) throw new Error('Use sum: or product:, not both.');
+      s.prod = { a: pm[1], b: pm[2], most: Math.max(Math.abs(sa.min), Math.abs(sa.max)) };
+    }
+    s.ray = null;
+    if (rawRay !== undefined) {
+      var rv = String(rawRay).trim(), rm = /^([a-z])\s*(<=|>=|≤|≥|<|>)\s*(.+)$/.exec(rv);
+      if (rm) { var op2 = rm[2].replace('≤', '<=').replace('≥', '>='); s.ray = { fixed: true, letter: rm[1], at: num(rm[3], 'ray'), closed: op2.length === 2, dir: op2.charAt(0) === '>' ? 1 : -1 }; }
+      else {
+        var rp = s.points.filter(function (q) { return q.name === rv && q.drag; })[0];
+        if (!rp) throw new Error('ray: name a dragged point (such as "ray: P", with "point P: 0, drag"), or write a fixed one such as "ray: x >= -2".');
+        s.ray = { fixed: false, point: rv, letter: 'x' };
+      }
+    }
+  }
+
+  function scope() {
+    var pts = {};
+    Object.keys(objs).forEach(function (n) { pts[n] = [round(objs[n].X()), 0]; });
+    var v = Object.assign({}, vars);
+    if (spec.sum) { v.o = op; v.r = result(); pts.R = [v.r, 0]; }
+    if (spec.prod) { v.r = round(vars[spec.prod.a] * vars[spec.prod.b]); pts.R = [v.r, 0]; }
+    if (spec.ray) { v.k = rayClosed() ? 1 : 0; v.s = rayDir(); }
+    return { vars: v, points: pts };
+  }
+  function result() { var s = spec.sum; return round(vars[s.a] + op * vars[s.b]); }
+  function withUnit(n) { var u = spec.ctx && spec.ctx.unit; return both(n) + (u ? (u === '$' ? '' : ' ') + u : ''); }
+
+  function build() {
+    var ink = B.css('--ink') || '#1d2430', muted = B.css('--muted') || '#5d6675', acc = B.css('--accent') || '#c2570a', acc2 = B.css('--left') || '#2563eb';
+    var span = spec.hi - spec.lo, pad = span * 0.05, top = spec.sum || spec.prod ? 2.6 : 1.4;
+    var board = B.jsx({ boundingbox: [spec.lo - pad, top, spec.hi + pad, spec.ctx ? -1.5 : -1.1] });
+    var L = board.create('line', [[spec.lo, 0], [spec.hi, 0]], { straightFirst: false, straightLast: false, strokeColor: ink, strokeWidth: 2, fixed: true, highlight: false, firstArrow: true, lastArrow: true });
+    void L;
+    var u = 1 / board.unitY;   // one pixel, in units up the board, so ticks and labels keep their size in any height
+    // Ticks at every snap step that is a whole number of label steps apart, short ones between.
+    // Without labels:, number every 1, 2, 5 or 10 so the numbers do not run together on a narrow screen.
+    var labelStep = spec.labels !== undefined ? spec.labelStep : [1, 2, 5, 10, 20, 50].filter(function (k) { return k >= spec.labelStep && k * board.unitX >= 26; })[0] || spec.labelStep;
+    var minorStep = labelStep >= 1 && spec.snapStep < 1 ? spec.snapStep : Math.min(1, labelStep);
+    for (var v = Math.ceil(spec.lo / minorStep) * minorStep; v <= spec.hi + 1e-9; v = round(v + minorStep)) {
+      var major = Math.abs(v / labelStep - Math.round(v / labelStep)) < 1e-9;
+      board.create('segment', [[v, (major ? -9 : -5) * u], [v, (major ? 9 : 5) * u]], { strokeColor: major ? ink : muted, strokeWidth: major ? 2 : 1, fixed: true, highlight: false });
+      if (major) board.create('text', [v, -24 * u, show(v)], { anchorX: 'middle', anchorY: 'middle', cssClass: 'ticklabel nlnum' + (v === 0 ? ' nlzero' : ''), highlightCssClass: 'ticklabel nlnum', fixed: true, highlight: false });
+    }
+    if (spec.ctx) board.create('text', [(spec.lo + spec.hi) / 2, -52 * u, spec.ctx.name + (spec.ctx.unit ? ' (' + spec.ctx.unit + ')' : '')], { anchorX: 'middle', anchorY: 'middle', cssClass: 'axisname', highlightCssClass: 'axisname', fixed: true, highlight: false });
+
+    objs = {};
+    spec.points.forEach(function (p) {
+      var colour = p.drag ? acc : ink;
+      var x0 = p.fx ? function () { return p.fx(vars); } : p.drag && startAt[p.name] !== undefined ? startAt[p.name] : p.x;
+      var P = board.create('point', [x0, 0], {
+        name: p.name + (p.caption ? ' ' + p.caption : ''), size: p.drag ? 7 : 5, fillColor: colour, strokeColor: colour, highlightFillColor: colour, highlightStrokeColor: colour,
+        fixed: !p.drag, showInfobox: false, label: { offset: [-8, 28], cssClass: 'ptlabel', highlightCssClass: 'ptlabel' },
+      });
+      if (p.drag) {
+        P.on('drag', function () { if (P.Y() !== 0) P.moveTo([P.X(), 0]); report(true); });
+        P.on('up', function () { var at = landing(P.X()); P.moveTo([at, 0]); B.moved = true; report(); });
+      }
+      objs[p.name] = P;
+    });
+
+    if (spec.ray) {
+      var rc = B.css('--right') || '#7a4fb3', at = function () { return rayAt(); };
+      board.create('segment', [[at, 0.32], [function () { return rayDir() > 0 ? spec.hi + pad : spec.lo - pad; }, 0.32]], { strokeColor: rc, strokeWidth: 5, lastArrow: { type: 2, size: 5 }, fixed: true, highlight: false });
+      ui.rayDot = board.create('point', [at, 0.32], { name: '', size: 7, strokeColor: rc, strokeWidth: 3, fillColor: rc, fixed: true, showInfobox: false, highlight: false });
+      board.create('segment', [[at, 0], [at, 0.32]], { strokeColor: rc, strokeWidth: 1, dash: 2, fixed: true, highlight: false });
+    }
+    if (spec.sum) {
+      var s = spec.sum, h = 0.9, gh = 1.85;
+      var a = function () { return vars[s.a]; }, end = function () { return result(); }, ghostEnd = function () { return round(vars[s.a] + vars[s.b]); };
+      var arrow = { strokeWidth: 3, lastArrow: { type: 2, size: 6 }, fixed: true, highlight: false };
+      // the faint "adding b" jump, shown only when subtracting
+      var showGhost = function () { return op === -1 && vars[s.b] !== 0; };
+      ui.ghost = board.create('segment', [[a, gh], [ghostEnd, gh]], Object.assign({}, arrow, { strokeColor: muted, dash: 2, strokeWidth: 2 }));
+      board.create('text', [function () { return (vars[s.a] + ghostEnd()) / 2; }, gh + 0.32, function () { return showGhost() ? 'adding ' + paren(vars[s.b]) + ' would go this way' : ''; }], { anchorX: 'middle', anchorY: 'middle', cssClass: 'nlnote', highlightCssClass: 'nlnote', fixed: true, highlight: false });
+      board.create('segment', [[a, 0], [a, h]], { strokeColor: acc2, strokeWidth: 2, dash: 1, fixed: true, highlight: false });
+      ui.jump = board.create('segment', [[a, h], [end, h]], Object.assign({}, arrow, { strokeColor: acc2 }));
+      board.create('text', [function () { return (vars[s.a] + end()) / 2; }, h + 0.36, function () { var d = end() - vars[s.a]; return d === 0 ? 'no move' : (d > 0 ? 'right ' : 'left ') + show(Math.abs(d)); }], { anchorX: 'middle', anchorY: 'middle', cssClass: 'steplabel', highlightCssClass: 'steplabel', strokeColor: acc2, fixed: true, highlight: false });
+      board.create('point', [a, 0], { name: '', size: 4, fillColor: acc2, strokeColor: acc2, fixed: true, showInfobox: false, highlight: false });
+      board.create('point', [end, 0], { name: 'R', size: 6, fillColor: acc, strokeColor: acc, fixed: true, showInfobox: false, highlight: false, label: { offset: [-6, 22], cssClass: 'ptlabel', highlightCssClass: 'ptlabel' } });
+    }
+    if (spec.prod) {
+      // a × b as a jumps of b from 0. A negative number of jumps goes the opposite way (drawn faint first).
+      var pr = spec.prod, ph = 0.9, pg = 1.85, A = function () { return vars[pr.a]; }, Bq = function () { return vars[pr.b]; };
+      var arw = { strokeWidth: 3, lastArrow: { type: 2, size: 6 }, fixed: true, highlight: false };
+      ui.pjumps = []; ui.pghost = [];
+      for (var i = 0; i < pr.most; i++) (function (i) {
+        var dir = function () { return A() < 0 ? -1 : 1; };
+        ui.pjumps.push(board.create('segment', [[function () { return dir() * i * Bq(); }, ph], [function () { return dir() * (i + 1) * Bq(); }, ph]], Object.assign({}, arw, { strokeColor: i % 2 ? acc : acc2 })));
+        ui.pghost.push(board.create('segment', [[function () { return i * Bq(); }, pg], [function () { return (i + 1) * Bq(); }, pg]], Object.assign({}, arw, { strokeColor: muted, dash: 2, strokeWidth: 2 })));
+      })(i);
+      board.create('text', [function () { return A() * Bq() / 2; }, ph + 0.36, function () { var a = A(); return a === 0 || Bq() === 0 ? 'no jumps' : show(Math.abs(a)) + (Math.abs(a) === 1 ? ' jump' : ' jumps') + ' of ' + show(Bq()) + (a < 0 ? ', the opposite way' : ''); }], { anchorX: 'middle', anchorY: 'middle', cssClass: 'steplabel', highlightCssClass: 'steplabel', strokeColor: acc2, fixed: true, highlight: false });
+      board.create('text', [function () { return -A() * Bq() / 2; }, pg + 0.32, function () { return A() < 0 && Bq() !== 0 ? show(-A()) + ' jumps of ' + paren(Bq()) + ' would go this way' : ''; }], { anchorX: 'middle', anchorY: 'middle', cssClass: 'nlnote', highlightCssClass: 'nlnote', fixed: true, highlight: false });
+      board.create('point', [0, 0], { name: '', size: 4, fillColor: acc2, strokeColor: acc2, fixed: true, showInfobox: false, highlight: false });
+      board.create('point', [function () { return A() * Bq(); }, 0], { name: 'R', size: 6, fillColor: acc, strokeColor: acc, fixed: true, showInfobox: false, highlight: false, label: { offset: [-6, 22], cssClass: 'ptlabel', highlightCssClass: 'ptlabel' } });
+    }
+    board.update();
+  }
+  var rayState = { closed: false, dir: 1 };
+  function rayClosed() { return spec.ray.fixed ? spec.ray.closed : rayState.closed; }
+  function rayDir() { return spec.ray.fixed ? spec.ray.dir : rayState.dir; }
+  function rayAt() { return spec.ray.fixed ? spec.ray.at : objs[spec.ray.point] ? round(objs[spec.ray.point].X()) : 0; }
+  function rayText() { var o = rayDir() > 0 ? (rayClosed() ? ' ≥ ' : ' > ') : (rayClosed() ? ' ≤ ' : ' < '); return spec.ray.letter + o + show(rayAt()); }
+  function landing(x) { var v = round(Math.round(x / spec.snapStep) * spec.snapStep); return Math.max(spec.lo, Math.min(spec.hi, v)); }
+
+  // Keyboard moves: a row to pick a point and step it with buttons or the arrow keys (dragging needs a pointer).
+  function moveRow(panel, names, axes, step) {
+    if (!names.length) return;
+    var row = document.createElement('div'); row.className = 'gbar kmove'; row.setAttribute('role', 'group'); row.setAttribute('aria-label', 'Move a point with the keyboard');
+    var lab = document.createElement('label'); lab.textContent = 'Move'; var sel = document.createElement('select'); sel.id = 'kmove-pt';
+    lab.htmlFor = sel.id;
+    names.forEach(function (n) { var o = document.createElement('option'); o.value = o.textContent = n; sel.appendChild(o); });
+    row.append(lab, sel);
+    var dirs = axes === 2 ? [['←', -1, 0, 'left'], ['→', 1, 0, 'right'], ['↑', 0, 1, 'up'], ['↓', 0, -1, 'down']] : [['←', -1, 0, 'left'], ['→', 1, 0, 'right']];
+    dirs.forEach(function (d) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = d[0];
+      var label = function () { return 'Move ' + sel.value + ' ' + d[3]; };
+      b.setAttribute('aria-label', label()); sel.addEventListener('change', function () { b.setAttribute('aria-label', label()); });
+      b.addEventListener('click', function () { step(sel.value, d[1], d[2]); }); row.appendChild(b);
+    });
+    row.addEventListener('keydown', function (e) {
+      var k = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, 1], ArrowDown: [0, -1] }[e.key];
+      if (!k || (axes === 1 && k[1])) return;
+      e.preventDefault(); step(sel.value, k[0], k[1]);
+    });
+    panel.appendChild(row);
+  }
+
+  function paintPanel() {
+    var panel = B.el('gpanel'); panel.replaceChildren(); ui = { sliders: [] };   // build() adds ghost and jump after this
+    if (spec.sum || spec.prod) {
+      ui.work = document.createElement('p'); ui.work.className = 'rulework'; ui.work.id = 'nlsum'; ui.work.setAttribute('aria-live', 'polite'); panel.appendChild(ui.work);
+      if (spec.sum && spec.sum.op === 0) {
+        var row = document.createElement('div'); row.className = 'gbar nlops';
+        [['+', 1, 'Add'], ['−', -1, 'Subtract']].forEach(function (o) {
+          var b = document.createElement('button'); b.type = 'button'; b.textContent = o[0]; b.setAttribute('aria-label', o[2]); b.dataset.op = o[1];
+          b.addEventListener('click', function () { op = o[1]; B.moved = true; B.jsxBoard.update(); report(); });
+          row.appendChild(b);
+        });
+        panel.appendChild(row); ui.ops = row;
+      }
+    }
+    spec.sliders.forEach(function (sl) {
+      var row = document.createElement('div'); row.className = 'srow';
+      var lab = document.createElement('label'); lab.className = 'vname'; lab.textContent = sl.name; lab.htmlFor = 'sl-' + sl.name;
+      var minus = document.createElement('button'); minus.type = 'button'; minus.textContent = '−'; minus.setAttribute('aria-label', 'Make ' + sl.name + ' smaller');
+      var r = document.createElement('input'); r.type = 'range'; r.id = 'sl-' + sl.name; r.min = sl.min; r.max = sl.max; r.step = sl.step; r.value = vars[sl.name];
+      var plus = document.createElement('button'); plus.type = 'button'; plus.textContent = '+'; plus.setAttribute('aria-label', 'Make ' + sl.name + ' bigger');
+      var out = document.createElement('output'); out.htmlFor = r.id;
+      var set = function (v) { v = Math.max(sl.min, Math.min(sl.max, sl.min + Math.round((v - sl.min) / sl.step) * sl.step)); vars[sl.name] = round(v); r.value = v; B.moved = true; B.jsxBoard.update(); report(); };
+      r.addEventListener('input', function () { set(Number(r.value)); });
+      minus.addEventListener('click', function () { set(vars[sl.name] - sl.step); });
+      plus.addEventListener('click', function () { set(vars[sl.name] + sl.step); });
+      row.append(lab, minus, r, plus, out); panel.appendChild(row);
+      ui.sliders.push({ sl: sl, out: out });
+    });
+    if (spec.cmp) { ui.cmp = document.createElement('p'); ui.cmp.className = 'rulework'; ui.cmp.id = 'nlcompare'; ui.cmp.setAttribute('aria-live', 'polite'); panel.appendChild(ui.cmp); }
+    moveRow(panel, spec.points.filter(function (p) { return p.drag; }).map(function (p) { return p.name; }), 1, function (n, dx) {
+      var P = objs[n]; P.moveTo([landing(P.X() + dx * spec.snapStep), 0]); B.moved = true; report();
+    });
+    if (spec.ray) {
+      ui.ray = document.createElement('p'); ui.ray.className = 'rulework'; ui.ray.id = 'nlineq'; ui.ray.setAttribute('aria-live', 'polite'); panel.insertBefore(ui.ray, panel.firstChild);
+      if (!spec.ray.fixed) {
+        var rrow = document.createElement('div'); rrow.className = 'gbar nlops'; rrow.setAttribute('role', 'group'); rrow.setAttribute('aria-label', 'The inequality');
+        ui.rayBtns = [];
+        [['Open circle', 'closed', false], ['Closed circle', 'closed', true], ['Shade left', 'dir', -1], ['Shade right', 'dir', 1]].forEach(function (o) {
+          var b = document.createElement('button'); b.type = 'button'; b.textContent = o[0];
+          b.addEventListener('click', function () { rayState[o[1]] = o[2]; B.moved = true; B.jsxBoard.update(); report(); });
+          b._is = function () { return rayState[o[1]] === o[2]; }; rrow.appendChild(b); ui.rayBtns.push(b);
+        });
+        panel.appendChild(rrow);
+      }
+    }
+    if (spec.sliders.length || spec.points.some(function (p) { return p.drag; }) || (spec.sum && spec.sum.op === 0)) {
+      var bar = document.createElement('div'); bar.className = 'gbar';
+      var again = document.createElement('button'); again.type = 'button'; again.textContent = 'Start again';
+      again.addEventListener('click', B.restart); bar.appendChild(again); panel.appendChild(bar);
+    }
+  }
+
+  function compareText(sc) {
+    var n1 = spec.cmp[0], n2 = spec.cmp[1], x1 = sc.points[n1][0], x2 = sc.points[n2][0];
+    var lab = function (n) { var p = spec.points.filter(function (q) { return q.name === n; })[0]; return p && p.caption ? p.caption : n; };
+    if (x1 === x2) return show(x1) + ' = ' + show(x2) + ': ' + lab(n1) + ' and ' + lab(n2) + ' are at the same place.';
+    var less = x1 < x2 ? n1 : n2, more = x1 < x2 ? n2 : n1;
+    return show(x1) + (x1 < x2 ? ' < ' : ' > ') + show(x2) + ': ' + lab(less) + ' is further left, so it is less than ' + lab(more) + '.';
+  }
+
+  function report(quiet) {
+    var sc = scope(), parts = [];
+    ui.sliders.forEach(function (s) { s.out.textContent = s.sl.name + ' = ' + show(vars[s.sl.name]); });
+    if (spec.sum && ui.work) {
+      var s = spec.sum, A = vars[s.a], Bv = vars[s.b], R = result();
+      ui.work.textContent = show(A) + (op === 1 ? ' + ' : ' − ') + paren(Bv) + ' = ' + show(R);
+      parts.push(ui.work.textContent);
+      if (ui.ghost) ui.ghost.setAttribute({ visible: op === -1 && Bv !== 0 });
+      if (ui.jump) ui.jump.setAttribute({ visible: R !== A });
+      if (ui.ops) [].forEach.call(ui.ops.children, function (b) { b.setAttribute('aria-pressed', String(Number(b.dataset.op) === op)); });
+    }
+    if (spec.prod && ui.work) {
+      var a = vars[spec.prod.a], b = vars[spec.prod.b];
+      ui.work.textContent = show(a) + ' × ' + paren(b) + ' = ' + show(round(a * b));
+      parts.push(ui.work.textContent);
+      (ui.pjumps || []).forEach(function (o, i) { o.setAttribute({ visible: i < Math.abs(a) && b !== 0 }); });
+      (ui.pghost || []).forEach(function (o, i) { o.setAttribute({ visible: a < 0 && i < Math.abs(a) && b !== 0 }); });
+    }
+    if (spec.ray && ui.ray) {
+      ui.ray.textContent = rayText() + (rayClosed() ? ' (closed circle: ' + show(rayAt()) + ' is included)' : ' (open circle: ' + show(rayAt()) + ' is not included)');
+      parts.push(rayText());
+      if (ui.rayDot) ui.rayDot.setAttribute({ fillColor: rayClosed() ? (B.css('--right') || '#7a4fb3') : (B.css('--card') || '#ffffff') });
+      (ui.rayBtns || []).forEach(function (b) { b.setAttribute('aria-pressed', String(b._is())); });
+    }
+    if (ui.cmp) { ui.cmp.textContent = compareText(sc); parts.push(ui.cmp.textContent); }
+    var dragged = spec.points.filter(function (p) { return p.drag; }).map(function (p) { return p.name + ' is at ' + withUnit(sc.points[p.name][0]); });
+    spec.points.forEach(function (p) { parts.push(p.name + ' = ' + show(sc.points[p.name][0])); });
+    B.say(dragged.join('. ') + (dragged.length ? '.' : ''));
+    if (quiet) return;
+    var at = {}; spec.points.forEach(function (p) { if (p.drag) at[p.name] = sc.points[p.name][0]; });
+    B.save({ vars: vars, op: op, points: at, ray: spec.ray && !spec.ray.fixed ? rayState : null });
+    B.post({ scope: sc }, parts.join('; '));
+  }
+
+  B.widget('numberline', {
+    sections: ['board', 'gpanel'],
+    label: function (s) { return 'A number line from ' + show(Number(String(s.range).split(',')[0]) || 0) + ' to ' + show(Number(String(s.range).split(',')[1]) || 0); },
+    parse: parse,
+    start: function (fresh) {
+      spec = B.spec;
+      var sv = fresh ? null : B.saved();
+      vars = {}; startAt = (sv && sv.points) || {};
+      spec.sliders.forEach(function (sl) { vars[sl.name] = sv && sv.vars && sv.vars[sl.name] !== undefined ? sv.vars[sl.name] : sl.start; });
+      op = spec.sum ? (spec.sum.op === 0 ? (sv && sv.op) || 1 : spec.sum.op) : 1;
+      rayState = sv && sv.ray ? { closed: !!sv.ray.closed, dir: sv.ray.dir === -1 ? -1 : 1 } : { closed: false, dir: 1 };
+      paintPanel();
+      build();
+      report();
+    },
+    redraw: function () { var sc = scope(); startAt = {}; spec.points.forEach(function (p) { if (p.drag) startAt[p.name] = sc.points[p.name][0]; }); build(); report(); },
+    resize: function () { var sc = scope(); startAt = {}; spec.points.forEach(function (p) { if (p.drag) startAt[p.name] = sc.points[p.name][0]; }); build(); report(true); },   // rebuilt, so ticks keep their pixel size
+  });
+})(WPB);

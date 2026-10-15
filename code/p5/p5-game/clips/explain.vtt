@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:03.575
+A click is an event, and a small distance means a catch
+
+2
+00:00:04.401 --> 00:00:08.701
+mouse Pressed is an event function: p five runs it for each click.
+
+3
+00:00:09.427 --> 00:00:13.977
+dist gives the distance from the click to the ball. Under 20 is a catch.
+
+4
+00:00:19.133 --> 00:00:23.433
+Click the ball: the score goes up and the ball jumps. A miss does nothing.

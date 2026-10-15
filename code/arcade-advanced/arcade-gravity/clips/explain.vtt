@@ -1,0 +1,17 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:04.275
+ay is gravity: every frame it adds a little to the falling speed.
+
+2
+00:00:05.300 --> 00:00:08.275
+So a falling sprite goes faster and faster.
+
+3
+00:00:11.031 --> 00:00:16.381
+A jump is a speed upwards. Gravity slows it, stops it, and brings it down.
+
+4
+00:00:17.232 --> 00:00:21.082
+There's no floor, so an if in on game update makes one.
